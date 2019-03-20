@@ -1,0 +1,18 @@
+#==============================================================================
+# clear default entries
+#==============================================================================
+#'body .native-key-bindings':
+#  'alt-left': 'native!'
+#  'alt-right': 'native!'
+'atom-workspace atom-text-editor':
+  'alt-left': 'unset!'
+  'alt-right': 'unset!'
+'.tree-view':
+  'alt-left': 'unset!'
+  'alt-right': 'unset!'
+#==============================================================================
+# create custom entries
+#==============================================================================
+'body':
+  'alt-left': 'window:focus-pane-on-left'
+  'alt-right': 'window:focus-pane-on-right'
