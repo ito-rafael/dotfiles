@@ -16,3 +16,4 @@
 'body':
   'alt-left': 'window:focus-pane-on-left'
   'alt-right': 'window:focus-pane-on-right'
+  'ctrl-shift-x': 'maximize-panes:maximize'
