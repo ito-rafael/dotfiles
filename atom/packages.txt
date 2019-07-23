@@ -1,1 +1,7 @@
+apm install maximize-panes
+apm install python-tools
+apm install language-docker
+
 https://atom.io/packages/maximize-panes
+https://atom.io/packages/python-tools
+https://atom.io/packages/language-docker
