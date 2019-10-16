@@ -116,8 +116,13 @@ nnoremap <C-l> <C-w>l
 nnoremap <C-h> <C-w>h
 
 "----------------------------
-" LaTeX
+" Spell checking
 "----------------------------
+:setlocal spell spelllang=en_us
+
+"================================================
+" LaTeX
+"================================================
 "change frequency that the output PDF is updated
 autocmd Filetype tex setl updatetime=1
 
