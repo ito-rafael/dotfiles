@@ -1,0 +1,27 @@
+# Python
+# https://marketplace.visualstudio.com/items?itemName=ms-python.python
+ext install ms-python.python
+
+# C/C++
+# https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools
+ext install ms-vscode.cpptools
+
+# Vim
+# https://marketplace.visualstudio.com/items?itemName=vscodevim.vim
+ext install vscodevim.vim
+
+# Relative Line Numbers
+# https://marketplace.visualstudio.com/items?itemName=extr0py.vscode-relative-line-numbers
+ext install extr0py.vscode-relative-line-numbers
+
+# YAML
+# https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml
+ext install redhat.vscode-yaml
+
+# vscode-epics
+# https://marketplace.visualstudio.com/items?itemName=nsd.vscode-epics
+ext install nsd.vscode-epics
+
+# Remote Development
+# https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack
+ext install ms-vscode-remote.vscode-remote-extensionpack
