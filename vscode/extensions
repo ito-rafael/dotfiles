@@ -9,6 +9,8 @@ ext install ms-vscode.cpptools
 # Vim
 # https://marketplace.visualstudio.com/items?itemName=vscodevim.vim
 ext install vscodevim.vim
+# copy/paste to/from clipboard
+# set vim.useSystemClipboard to True
 
 # Relative Line Numbers
 # https://marketplace.visualstudio.com/items?itemName=extr0py.vscode-relative-line-numbers
