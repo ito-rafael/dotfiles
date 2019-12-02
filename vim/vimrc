@@ -37,6 +37,9 @@ Plugin 'lervag/vimtex'
 "Lively previewing LaTeX PDF output
 Plugin 'xuhdev/vim-latex-live-preview'
 "---------------------------------------
+"Ansible filetypes syntax highlighting
+Plugin 'pearofducks/ansible-vim'
+"---------------------------------------
 "
 "
 "PYTHON: when open ( automatically open ). the same for [] and {}
