@@ -67,6 +67,11 @@ filetype plugin indent on    " required
 "================================================
 "
 "----------------------------
+" write with sudo
+"----------------------------
+cmap W w !sudo tee > /dev/null %
+
+"----------------------------
 " line number
 "----------------------------
 "display line number
