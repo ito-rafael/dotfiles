@@ -150,6 +150,12 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 #=============================
 #      custom  shortcuts          
 #=============================
+# shortcut to open Firefox
+bindsym $mod+b exec firefox
+#-----------------------------
+# shortcut to open Chromium
+bindsym $mod+c exec chromium
+#-----------------------------
 # shortcut to open thunar
 bindsym $mod+n exec thunar
 #-----------------------------
