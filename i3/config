@@ -158,7 +158,10 @@ bindsym $mod+c exec chromium
 #-----------------------------
 # shortcut to open thunar
 bindsym $mod+n exec thunar
-#-----------------------------
+##-----------------------------
+# shortcut to open gvim
+bindsym $mod+g exec gvim
+-----------------------------
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
