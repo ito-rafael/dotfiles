@@ -40,9 +40,6 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
-
 # kill focused window
 bindsym $mod+Shift+q kill
 
@@ -158,10 +155,13 @@ bindsym $mod+c exec chromium
 #-----------------------------
 # shortcut to open thunar
 bindsym $mod+n exec thunar
-##-----------------------------
+#-----------------------------
 # shortcut to open gvim
 bindsym $mod+g exec gvim
------------------------------
+#-----------------------------
+# start a terminal
+bindsym $mod+t exec i3-sensible-terminal
+bindsym ctrl+mod1+t exec i3-sensible-terminal
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
