@@ -40,9 +40,6 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# kill focused window
-bindsym $mod+Shift+q kill
-
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -162,6 +159,12 @@ bindsym $mod+g exec gvim
 # start a terminal
 bindsym $mod+t exec i3-sensible-terminal
 bindsym ctrl+mod1+t exec i3-sensible-terminal
+#-----------------------------
+# kill focused window
+bindsym $mod+Shift+q kill
+bindsym mod1+F4 kill
+#-----------------------------
+
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
