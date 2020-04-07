@@ -40,13 +40,6 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
@@ -142,6 +135,12 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 #=============================
+#     custom variables
+#=============================
+# set font
+set $font 'DeJaVu Sans Mono-6'
+
+#=============================
 #     custom  shortcuts          
 #=============================
 # shortcut to open Firefox
@@ -163,7 +162,6 @@ bindsym ctrl+mod1+t exec i3-sensible-terminal
 # kill focused window
 bindsym $mod+Shift+q kill
 bindsym mod1+F4 kill
-#-----------------------------
 
 #=============================
 #    custom  navigations 
@@ -171,7 +169,6 @@ bindsym mod1+F4 kill
 # workspace navigation
 bindsym ctrl+mod1+Right workspace next
 bindsym ctrl+mod1+Left workspace prev
-#-----------------------------
 
 #=============================
 #      other shortcuts
@@ -183,6 +180,14 @@ bindsym ctrl+mod1+Down exec "xrandr --output eDP-1 --rotate normal"
 # backlight brightness control
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
+#-----------------------------
+# start dmenu (program launcher)
+bindsym $mod+Return exec dmenu_run -fn $font
+#-----------------------------
+# There also is the (new) i3-dmenu-desktop which only displays applications
+# shipping a .desktop file. It is a wrapper around dmenu, so you need that
+# installed.
+# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 #-----------------------------
 
 # resize window (you can also use the mouse for that)
