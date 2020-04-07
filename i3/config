@@ -173,6 +173,14 @@ bindsym ctrl+mod1+Right workspace next
 bindsym ctrl+mod1+Left workspace prev
 #-----------------------------
 
+#=============================
+#      other shortcuts
+#=============================
+# shortcut to rotate screen
+bindsym ctrl+mod1+Up exec "xrandr --output eDP-1 --rotate left"
+bindsym ctrl+mod1+Down exec "xrandr --output eDP-1 --rotate normal"
+#-----------------------------
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
