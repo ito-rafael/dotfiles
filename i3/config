@@ -142,7 +142,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 #=============================
-#      custom  shortcuts          
+#     custom  shortcuts          
 #=============================
 # shortcut to open Firefox
 bindsym $mod+b exec firefox
@@ -165,6 +165,13 @@ bindsym $mod+Shift+q kill
 bindsym mod1+F4 kill
 #-----------------------------
 
+#=============================
+#    custom  navigations 
+#=============================
+# workspace navigation
+bindsym ctrl+mod1+Right workspace next
+bindsym ctrl+mod1+Left workspace prev
+#-----------------------------
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
