@@ -149,8 +149,11 @@ bindsym $mod+b exec firefox
 # shortcut to open Chromium
 bindsym $mod+c exec chromium
 #-----------------------------
-# shortcut to open thunar
+# shortcut to open Thunar
 bindsym $mod+n exec thunar
+#-----------------------------
+# shortcut to open Lollypop
+bindsym $mod+l exec lollypop
 #-----------------------------
 # shortcut to open gvim
 bindsym $mod+g exec gvim
