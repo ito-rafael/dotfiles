@@ -158,6 +158,9 @@ bindsym $mod+l exec lollypop
 # shortcut to open gvim
 bindsym $mod+g exec gvim
 #-----------------------------
+# shortcut to open Thunderbird
+bindsym $mod+m exec thunderbird
+#-----------------------------
 # start a terminal
 bindsym $mod+t exec i3-sensible-terminal
 bindsym ctrl+mod1+t exec i3-sensible-terminal
