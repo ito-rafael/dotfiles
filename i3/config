@@ -158,6 +158,9 @@ bindsym $mod+l exec lollypop
 # shortcut to open gvim
 bindsym $mod+g exec gvim
 #-----------------------------
+# shortcut to open Spotify
+bindsym $mod+p exec spotify --force-device-scale-factor=2
+#-----------------------------
 # shortcut to open Thunderbird
 bindsym $mod+m exec thunderbird
 #-----------------------------
