@@ -171,6 +171,9 @@ bindsym ctrl+mod1+t exec i3-sensible-terminal
 # kill focused window
 bindsym $mod+Shift+q kill
 bindsym mod1+F4 kill
+#-----------------------------
+# shortcut to open screenshooter
+bindsym Print exec xfce4-screenshooter
 
 #=============================
 #    custom  navigations 
