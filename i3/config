@@ -263,8 +263,15 @@ bindsym ctrl+mod1+Up exec "\
     synclient RightButtonAreaTop=0 \
 "
 
+#===========================================================
+# i3bar
+#===========================================================
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+        #status_command i3status
+        status_command i3blocks -c /home/rafael/.config/i3/i3blocks.conf
+        # set font
+        #font pango:DejaVu Sans Mono 4
+        font pango:monospace 9
 }
