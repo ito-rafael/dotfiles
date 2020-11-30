@@ -275,3 +275,9 @@ bar {
         #font pango:DejaVu Sans Mono 4
         font pango:monospace 9
 }
+
+#===========================================================
+# startup commands
+#===========================================================
+# set background image
+exec_always feh --bg-scale /home/rafael/RAFAEL/Arch/background/london.jpg 
