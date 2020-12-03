@@ -287,3 +287,6 @@ exec xinput --set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Two-Finger Scroll
 #-----------------------------
 # run compositor
 exec_always picom
+#-----------------------------
+# move to workspace 2 and open Firefox
+exec "$SCRIPT_PATH/navigate2ws.sh 2"
