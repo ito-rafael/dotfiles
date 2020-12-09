@@ -294,6 +294,11 @@ assign [class="Lutris"] $ws6
 #-----------------------------
 # torrent download
 assign [class="Deluge"] $ws7
+#-----------------------------
+# workspace 8
+#-----------------------------
+# music player (local)
+assign [class="Lollypop"] $ws8
 
 #===========================================================
 # startup commands
