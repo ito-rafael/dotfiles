@@ -289,6 +289,11 @@ assign [class="Thunderbird"] $ws4
 #-----------------------------
 # game
 assign [class="Lutris"] $ws6
+#-----------------------------
+# workspace 7
+#-----------------------------
+# torrent download
+assign [class="Deluge"] $ws7
 
 #===========================================================
 # startup commands
