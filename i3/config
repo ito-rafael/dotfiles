@@ -299,6 +299,11 @@ assign [class="Deluge"] $ws7
 #-----------------------------
 # music player (local)
 assign [class="Lollypop"] $ws8
+#-----------------------------
+# workspace 9
+#-----------------------------
+# music player (web)
+for_window [class="Spotify"] move --no-auto-back-and-forth to workspace $ws9
 
 #===========================================================
 # startup commands
