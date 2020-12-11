@@ -304,6 +304,15 @@ assign [class="Lollypop"] $ws8
 #-----------------------------
 # music player (web)
 for_window [class="Spotify"] move --no-auto-back-and-forth to workspace $ws9
+#-----------------------------
+# workspace 10
+#-----------------------------
+# bluetooth and bolume control
+assign [class="Blueman-manager"] $ws10
+assign [class="Pavucontrol"] $ws10
+#exec pavucontrol
+#exec blueman-manager
+#-----------------------------
 
 #===========================================================
 # startup commands
