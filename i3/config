@@ -264,6 +264,104 @@ bindsym ctrl+mod1+Up exec "\
 "
 
 #===========================================================
+# mode: number
+#===========================================================
+# edit top right keyboard keys to work as a numpad
+
+# +-------+-----------+---------+
+# | digit | key       | keycode |
+# +-------+-----------+---------+
+# |   1   | lum+      |   233   | 
+# |   2   | PrtSc     |   107   | 
+# |   3   | delete    |   119   |
+# |   4   | '+' & '=' |    21   |  
+# |   5   | backspace |    22   |
+# |   6   | home      |   110   |
+# |   7   | '}' & ']' |    35   | 
+# |   8   | '\' & '|' |    51   |
+# |   9   | End       |   115   | 
+# |   0   | Enter     |    36   |
+# +-------+---+-------+---------+
+# | Backspace | PgUp  |   112   |
+# | Enter     | ' & " |    48   |
+# +-----------------------------+
+
+mode "number" {
+    #-----------------------------
+    # exit "number" mode and load default Xmodmap file
+    bindsym Escape mode "default"; exec "xmodmap ~/.Xmodmap"
+    bindsym $mod+Next mode "default"; exec "xmodmap ~/.Xmodmap"
+}
+#-----------------------------
+# enter "number" mode and load Xmodmap file with number modifications
+bindsym $mod+Next mode "number"; exec "xmodmap ~/.Xmodmap_numbers"
+
+#===========================================================
+# i3bar
+#===========================================================
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+        #status_command i3status
+        status_command i3blocks -c /home/rafael/.config/i3/i3blocks.conf
+        # set font
+        #font pango:DejaVu Sans Mono 4
+        font pango:monospace 9
+}
+
+#===========================================================
+# default applications workspaces
+#===========================================================
+#-----------------------------
+# workspace 4
+#-----------------------------
+# email
+assign [class="Thunderbird"] $ws4
+#-----------------------------
+# workspace 6
+#-----------------------------
+# game
+assign [class="Lutris"] $ws6
+#-----------------------------
+# workspace 7
+#-----------------------------
+# torrent download
+assign [class="Deluge"] $ws7
+#-----------------------------
+# workspace 8
+#-----------------------------
+# music player (local)
+assign [class="Lollypop"] $ws8
+#-----------------------------
+# workspace 9
+#-----------------------------
+# music player (web)
+for_window [class="Spotify"] move --no-auto-back-and-forth to workspace $ws9
+#-----------------------------
+# workspace 10
+#-----------------------------
+# bluetooth and bolume control
+assign [class="Blueman-manager"] $ws10
+assign [class="Pavucontrol"] $ws10
+#exec pavucontrol
+#exec blueman-manager
+#-----------------------------
+
+#===========================================================
+# startup commands
+#===========================================================
+# set background image
+exec_always feh --bg-scale /home/rafael/RAFAEL/Arch/background/london.jpg 
+#-----------------------------
+# enable touchpad horizontal scroll
+exec xinput --set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Two-Finger Scrolling" 1 1
+#-----------------------------
+# run compositor
+exec_always picom
+#-----------------------------
+# move to workspace 2 and open Firefox
+exec "$SCRIPT_PATH/navigate2ws.sh 2"
+#===========================================================
 # i3bar
 #===========================================================
 # Start i3bar to display a workspace bar (plus the system information i3status
