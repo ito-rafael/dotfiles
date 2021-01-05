@@ -1,0 +1,44 @@
+{
+    "border": "pixel",
+    "current_border_width": 2,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 1757,
+       "width": 1596,
+       "x": 0,
+       "y": 0
+    },
+    "name": "Volume Control",
+    "percent": 0.5,
+    "swallows": [
+       {
+        "class": "^Pavucontrol$",
+        "instance": "^pavucontrol$",
+        "title": "^Volume\\ Control$"
+       }
+    ],
+    "type": "con"
+}
+
+{
+    "border": "pixel",
+    "current_border_width": 2,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 1757,
+       "width": 3196,
+       "x": 0,
+       "y": 0
+    },
+    "name": "Bluetooth Devices",
+    "percent": 0.5,
+    "swallows": [
+       {
+        "class": "^Blueman\\-manager$",
+        "instance": "^blueman\\-manager$",
+        "title": "^Bluetooth\\ Devices$"
+       }
+    ],
+    "type": "con"
+}
+
