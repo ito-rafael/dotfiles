@@ -1,0 +1,23 @@
+{
+    "border": "pixel",
+    "current_border_width": 2,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 845,
+       "width": 790,
+       "x": 0,
+       "y": 0
+    },
+    "marks": [],
+    "name": "rafael",
+    "percent": 1,
+    "swallows": [
+       {
+       "class": "^Thunar$",
+       "instance": "^thunar$",
+       "title": "^rafael$"
+       }
+    ],
+    "type": "con"
+}
+
