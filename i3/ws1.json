@@ -1,0 +1,53 @@
+{
+    "border": "pixel",
+    "current_border_width": 2,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 835,
+       "width": 1534,
+       "x": 0,
+       "y": 0
+    },
+    "name": "Terminal - rafael@Y2P-ArchLinux:~",
+    "percent": 0.5,
+    "swallows": [
+       {
+       "class": "^Xfce4\\-terminal$",
+       "instance": "^xfce4\\-terminal$",
+       "title": "^Terminal\\ \\-\\ rafael\\@Y2P\\-ArchLinux\\:\\~$"
+       }
+    ],
+    "type": "con"
+}
+
+{
+    "border": "normal",
+    "floating": "auto_off",
+    "layout": "splitv",
+    "percent": 0.5,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "pixel",
+            "current_border_width": 2,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 1760,
+               "width": 3196,
+               "x": 2,
+               "y": 20
+            },
+            "name": "Google Keep",
+            "percent": null,
+            "swallows": [
+               {
+               "class": "^google\\-keep\\-nativefier\\-d04d04$",
+               "instance": "^google\\-keep\\-nativefier\\-d04d04$",
+               "title": "^Google\\ Keep$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+
