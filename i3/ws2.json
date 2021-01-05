@@ -1,0 +1,22 @@
+{
+    "border": "pixel",
+    "current_border_width": 2,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 1758,
+       "width": 1596,
+       "x": 0,
+       "y": 0
+    },
+    "name": "Mozilla Firefox",
+    "percent": 1,
+    "swallows": [
+       {
+        "class": "^firefox$",
+        "instance": "^Navigator$",
+        "title": "^Mozilla\\ Firefox$"
+       }
+    ],
+    "type": "con"
+}
+
