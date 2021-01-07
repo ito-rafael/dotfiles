@@ -258,8 +258,8 @@ bindsym ctrl+mod1+Down exec "xrandr --output eDP-1 --rotate normal"
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
 #-----------------------------
-# start dmenu (program launcher)
-bindsym $mod+Return exec dmenu_run -fn $font
+# start rofi (program launcher)
+bindsym $mod+Return exec rofi -show run
 #-----------------------------
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
