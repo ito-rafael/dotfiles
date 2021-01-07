@@ -195,16 +195,16 @@ bindsym $mod+c exec chromium
 bindsym $mod+n exec thunar
 #-----------------------------
 # shortcut to open Lollypop
-bindsym $mod+l exec lollypop
+#bindsym $mod+l exec lollypop
 #-----------------------------
 # shortcut to open gvim
 bindsym $mod+g exec gvim
 #-----------------------------
 # shortcut to open Spotify
-bindsym $mod+p exec spotify --force-device-scale-factor=2
+#bindsym $mod+p exec spotify --force-device-scale-factor=2
 #-----------------------------
 # shortcut to open Thunderbird
-bindsym $mod+m exec thunderbird
+#bindsym $mod+m exec thunderbird
 #-----------------------------
 # start a terminal
 bindsym $mod+t exec i3-sensible-terminal
@@ -244,6 +244,8 @@ workspace_auto_back_and_forth yes
 set $bg-color   #2f343f
 # set text color
 set $text-color #f3f4f5
+# set htext color 
+set $htext_color #9575cd
 
 #=============================
 #      other shortcuts
