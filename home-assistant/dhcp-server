@@ -1,0 +1,14 @@
+default_lease: 86400
+max_lease: 172800
+domain: home.local
+dns:
+  - 8.8.8.8
+  - 8.8.4.4
+networks:
+  - subnet: 192.168.0.0
+    netmask: 255.255.255.0
+    range_start: 192.168.0.200
+    range_end: 192.168.0.250
+    broadcast: 192.168.0.255
+    gateway: 192.168.0.1
+    interface: eth0
