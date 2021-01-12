@@ -12,3 +12,7 @@ networks:
     broadcast: 192.168.0.255
     gateway: 192.168.0.1
     interface: eth0
+hosts:
+  - name: amazon_alexa_living_room
+    mac: '74:A7:EA:B1:2E:F8'
+    ip: 192.168.0.10
