@@ -16,3 +16,6 @@ hosts:
   - name: amazon_alexa_living_room
     mac: '74:A7:EA:B1:2E:F8'
     ip: 192.168.0.10
+  - name: tv_toshiba
+    mac: '1C:1E:E3:DC:F4:20'
+    ip: 192.168.0.11
