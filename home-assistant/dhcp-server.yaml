@@ -22,3 +22,6 @@ hosts:
   - name: google_nest_master_bedroom
     mac: '14:C1:4E:82:A4:37'
     ip: 192.168.0.30
+  - name: google_nest_office
+    mac: 'D4:F5:47:1D:DA:D3'
+    ip: 192.168.0.40
