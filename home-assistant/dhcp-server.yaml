@@ -19,6 +19,9 @@ hosts:
   - name: tv_toshiba
     mac: '1C:1E:E3:DC:F4:20'
     ip: 192.168.0.11
+  - name: broadlink_rm4_living_room
+    mac: 'A0:43:B0:12:45:D5'
+    ip: 192.168.0.13
   - name: google_nest_master_bedroom
     mac: '14:C1:4E:82:A4:37'
     ip: 192.168.0.30
