@@ -205,10 +205,8 @@ bindsym Print exec xfce4-screenshooter
 # workspace navigation
 bindsym ctrl+mod1+Right workspace next
 bindsym $mod+k          workspace next
-bindsym $mod+l          workspace next
 #--------------
 bindsym ctrl+mod1+Left  workspace prev
-bindsym $mod+h          workspace prev
 bindsym $mod+j          workspace prev
 #-----------------------------
 # switch to latest urgent window
