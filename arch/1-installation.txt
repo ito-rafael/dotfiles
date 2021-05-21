@@ -1,0 +1,8 @@
+============================================================
+ Arch Installation Guide
+============================================================
+
+sources:
+https://wiki.archlinux.org/index.php/Installation_guide
+https://itsfoss.com/install-arch-linux/
+
