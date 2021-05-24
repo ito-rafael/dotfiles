@@ -6,3 +6,17 @@ sources:
 https://wiki.archlinux.org/index.php/Installation_guide
 https://itsfoss.com/install-arch-linux/
 
+==============================
+ boot from the live USB
+==============================
+# download image from:
+https://www.archlinux.org/download/
+
+# verify signature:
+gpg --keyserver-options auto-key-retrieve --verify archlinux-version-x86_64.iso.sig
+
+# copy image to a USB stick:
+dd bs=4M if=path/to/archlinux.iso of=/dev/sdx status=progress oflag=sync
+
+boot from the USB flash drive
+
