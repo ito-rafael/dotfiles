@@ -48,3 +48,21 @@ dhclient wlp1s0
 --------------------------
 timedatectl set-ntp true
 
+==============================
+ partitioning disk
+==============================
+fdisk -l
+fdisk /dev/sda
+--------------------------
+ create EFI partition
+--------------------------
+n 	# add a new partition
+2 	# partition number
+<ENTER> # first sector
++260M 	# last sector
+Y 	# remove the signature
+
+t 	# change a partition type 
+2 	# partition number
+1 	# EFI System            # update 05/2021: "ef"
+
