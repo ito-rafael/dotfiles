@@ -65,4 +65,15 @@ Y 	# remove the signature
 t 	# change a partition type 
 2 	# partition number
 1 	# EFI System            # update 05/2021: "ef"
+--------------------------
+ create / partition
+--------------------------
+n	# add a new partition
+3	# partition number
+<ENTER>	# first sector
++50G	# last sector
+Y	# remove the signature
 
+t	# change a partition type 
+3	# partition number
+24 	# Linux root (x86-64)   # update 05/2021: "83"
