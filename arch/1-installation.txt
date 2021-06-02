@@ -77,3 +77,15 @@ Y	# remove the signature
 t	# change a partition type 
 3	# partition number
 24 	# Linux root (x86-64)   # update 05/2021: "83"
+--------------------------
+ create swap partition
+--------------------------
+n	# add a new partition
+4	# partition number
+<ENTER>	# first sector
++8G	# last sector
+
+t	# change a partition type 
+4	# partition number
+19 	# Linux swap            # update 05/2021: "82"
+
