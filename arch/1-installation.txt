@@ -88,4 +88,18 @@ n	# add a new partition
 t	# change a partition type 
 4	# partition number
 19 	# Linux swap            # update 05/2021: "82"
+--------------------------
+ create home partition
+--------------------------
+n	# add a new partition
+5	# partition number
+<ENTER>	# first sector
+<ENTER> # last sector --> remainder
+
+t	# change a partition type 
+5	# partition number
+28 	# Linux home            # update 05/2021: "83"
+--------------------------
+p 	# print the partition table
+w 	# write table to disk and exit
 
