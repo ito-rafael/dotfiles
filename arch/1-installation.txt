@@ -103,3 +103,12 @@ t	# change a partition type
 p 	# print the partition table
 w 	# write table to disk and exit
 
+==============================
+ format the partitions
+==============================
+mkfs.fat -F32 /dev/sda2
+mkfs.ext4 /dev/sda3
+mkswap /dev/sda4
+swapon /dev/sda4
+mkfs.ext4 /dev/sda5
+
