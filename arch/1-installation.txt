@@ -112,3 +112,12 @@ mkswap /dev/sda4
 swapon /dev/sda4
 mkfs.ext4 /dev/sda5
 
+==============================
+ mount the partitions
+==============================
+mount /dev/sda3 /mnt
+mkdir /mnt/efi
+mount /dev/sda2 /mnt/efi
+mkdir /mnt/home
+mount /dev/sda5 /mnt/home
+
