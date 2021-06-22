@@ -1,2 +1,5 @@
 # remap "Recolor" (invert colors) to Ctrl+i
 map <C-i> recolor
+
+# start in Invert Mode
+set recolor true
