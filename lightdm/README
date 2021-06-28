@@ -1,7 +1,9 @@
 files:
   - lightdm-webkit2-greeter.conf
+  - wallpaper.jpg
 
 # dir "users"
 directory "users" contains files located in: /var/lib/AccountsService/users/
   # rafael
   # guest
+  # root
