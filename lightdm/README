@@ -7,3 +7,6 @@ directory "users" contains files located in: /var/lib/AccountsService/users/
   # rafael
   # guest
   # root
+
+# wallpaper
+the image "San Pedro de Atacama - Piedras Rojas.jpg" used as the greeter wallpaper should be put in: /usr/share/lightdm-webkit/themes/lightdm-webkit-theme-aether/src/img/wallpapers/
