@@ -2,6 +2,7 @@ X.Org related files
 
 Files:
   - .XCompose
+  - .Xmodmap_original
   - .Xmodmap
   - .Xmodmap_numbers
 
