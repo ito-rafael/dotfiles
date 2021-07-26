@@ -1,0 +1,2 @@
+# HiDPI (resolution and DPI)
+xrandr --output eDP-1 --mode 3200x1800 --dpi 276
