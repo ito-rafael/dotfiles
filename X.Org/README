@@ -5,5 +5,6 @@ Files:
   - .Xmodmap_original
   - .Xmodmap
   - .Xmodmap_numbers
+  - .xbindkeysrc
   - .xprofile
 
