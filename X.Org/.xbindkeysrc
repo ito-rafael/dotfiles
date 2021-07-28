@@ -10,3 +10,19 @@
 # A list of keys is in /usr/include/X11/keysym.h and in
 # /usr/include/X11/keysymdef.h
 # The XK_ is not needed.
+
+#=================================================
+# custom key combinations
+#=================================================
+
+# for more informations:
+# http://xahlee.info/linux/linux_xvkbd_tutorial.html
+
+#-----------------------------
+# Ctrl + Space --> Return
+#-----------------------------
+#"echo KeyStr Return | xmacroplay"
+"xvkbd -xsendevent -text "\r""
+    Control + space
+    #m:0x4 + c:65
+#-----------------------------
