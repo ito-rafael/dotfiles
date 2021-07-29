@@ -36,4 +36,8 @@
 #-----------------------------
 #"xvkbd -xsendevent -text "\[Home]""
 #    Control + 0
-
+#-----------------------------
+# Ctrl + 4 --> End
+#-----------------------------
+"xvkbd -xsendevent -text "\[End]""
+    Control + 4
