@@ -31,3 +31,9 @@
 "xvkbd -xsendevent -text ";""
     Control + semicolon
     #m:0x4 + c:47
+#-----------------------------
+# Ctrl + 0 --> Home
+#-----------------------------
+#"xvkbd -xsendevent -text "\[Home]""
+#    Control + 0
+
