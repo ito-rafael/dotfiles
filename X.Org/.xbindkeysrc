@@ -26,3 +26,8 @@
     Control + space
     #m:0x4 + c:65
 #-----------------------------
+# Ctrl + ':' --> ';'
+#-----------------------------
+"xvkbd -xsendevent -text ";""
+    Control + semicolon
+    #m:0x4 + c:47
