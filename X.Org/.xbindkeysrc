@@ -41,3 +41,12 @@
 #-----------------------------
 "xvkbd -xsendevent -text "\[End]""
     Control + 4
+
+#-----------------------------
+# word navigations (Vim keys)
+#-----------------------------
+# Tab + h --> Ctrl + Left
+# Tab + j --> Ctrl + Down
+# Tab + k --> Ctrl + Up
+# Tab + l --> Ctrl + Right
+
