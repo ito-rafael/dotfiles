@@ -50,3 +50,30 @@
 # Tab + k --> Ctrl + Up
 # Tab + l --> Ctrl + Right
 
+#@TODO
+
+#"xvkbd -xsendevent -text "\C\[Right]""
+#    Tab + L
+
+#@TODO
+
+#"{ echo KeySymPress Ctrl_L; echo KeySym g; } | xmacroplay"
+#"xterm"
+#    Tab + 
+    #Control + Right
+    #m:0x4 + c:114
+#-----------------------------
+# test keybinds
+#"xterm"
+#    Control + BackSpace
+#-----------------------------
+
+# example using Press and Release
+#"(echo "KeyCodePress 36" | xmacroplay) && (echo "KeyCodeRelease 36" | xmacroplay)"
+
+# check documentation:
+# http://xmacro.sourceforge.net/
+
+##################################
+# End of xbindkeys configuration #
+##################################
