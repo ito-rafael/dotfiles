@@ -10,3 +10,6 @@ export TERMINAL=kitty
 # set path to i3blocks-contrib scripts
 export SCRIPT_DIR=/usr/lib/i3blocks
 
+# load ~./xbindkeysrc (custom keybinds)
+xbindkeys
+
