@@ -13,3 +13,5 @@ export SCRIPT_DIR=/usr/lib/i3blocks
 # load ~./xbindkeysrc (custom keybinds)
 xbindkeys
 
+# load Xmodmap keyboard config
+xmodmap ~/.Xmodmap
