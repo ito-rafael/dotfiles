@@ -4,4 +4,5 @@ xrandr --output eDP-1 --mode 3200x1800 --dpi 276
 # natural scrolling
 xinput set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Scrolling Distance" -114 -114
 
-
+# set default terminal to be used in i3
+export TERMINAL=kitty
