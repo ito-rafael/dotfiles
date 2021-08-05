@@ -36,4 +36,12 @@ unset __conda_setup
 # ls with colors
 alias ls='ls --color=auto'
 
+#===================
+# env var
+#===================
+
+# HiDPI in i3 (Arch)
+export GDK_SCALE=2
+export GDK_DPI_SCALE=0.5
+
 
