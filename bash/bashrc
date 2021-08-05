@@ -6,3 +6,6 @@
 [[ $- != *i* ]] && return
 
 PS1='[\u@\h \W]\$ '
+
+# use keychain to launch ssh-agent and ssh-add
+eval $(keychain --noask --eval --quiet id_rsa)
