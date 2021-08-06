@@ -53,3 +53,6 @@ export GDK_DPI_SCALE=0.5
 # force applications to use the default language for output
 export LC_ALL=C
 
+# terminal
+export TERMINAL=zsh
+
