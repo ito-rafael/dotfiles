@@ -1,2 +1,8 @@
 # Interception Tools
 https://gitlab.com/interception/linux/tools
+
+# configuration
+sudo nice -n -20 udevmon -c /etc/interception/udevmon.yaml >udevmon.log 2>udevmon.err &
+less /usr/lib/systemd/system/udevmon.service
+sudo systemctl start udevmon.service
+sudo systemctl enable udevmon.service
