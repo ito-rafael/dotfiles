@@ -1,0 +1,5 @@
+- JOB: "intercept -g $DEVNODE | uinput -d $DEVNODE"
+  DEVICE:
+    EVENTS:
+      EV_KEY:
+
