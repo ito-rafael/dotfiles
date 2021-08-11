@@ -20,6 +20,7 @@ https://gitlab.com/interception/linux/plugins/dual-function-keys
 
 # dual-function-keys
 #   - alt2enter
+#   - tab2ctrlR
 #-------------------------------------------------
 # configuration
 sudo nice -n -20 udevmon -c /etc/interception/udevmon.yaml >udevmon.log 2>udevmon.err &

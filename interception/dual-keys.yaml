@@ -3,7 +3,15 @@ TIMING:
     DOUBLE_TAP_MILLISEC: 0
 
 MAPPINGS:
+    #====================
+    # alt2enter
+    #====================
     - KEY: KEY_LEFTALT
       TAP: KEY_ENTER
       HOLD: KEY_LEFTALT
-
+    #====================
+    # tab2ctrlR
+    #====================
+    - KEY: KEY_TAB
+      TAP: KEY_TAB
+      HOLD: KEY_RIGHTCTRL
