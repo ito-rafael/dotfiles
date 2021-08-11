@@ -18,9 +18,12 @@ https://gitlab.com/interception/linux/plugins/dual-function-keys
 # Config
 #=================================================
 
+# Keycodes
+https://github.com/torvalds/linux/blob/master/include/uapi/linux/input-event-codes.h
+#-------------------------------------------------
 # dual-function-keys
-#   - alt2enter
-#   - tab2ctrlR
+  - alt2enter
+  - tab2ctrlR
 #-------------------------------------------------
 # configuration
 sudo nice -n -20 udevmon -c /etc/interception/udevmon.yaml >udevmon.log 2>udevmon.err &
