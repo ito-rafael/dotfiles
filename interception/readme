@@ -18,6 +18,9 @@ https://gitlab.com/interception/linux/plugins/dual-function-keys
 # Config
 #=================================================
 
+# dual-function-keys
+#   - alt2enter
+#-------------------------------------------------
 # configuration
 sudo nice -n -20 udevmon -c /etc/interception/udevmon.yaml >udevmon.log 2>udevmon.err &
 less /usr/lib/systemd/system/udevmon.service
