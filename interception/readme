@@ -1,5 +1,16 @@
+#=================================================
+# Gitlab repositories
+#=================================================
+
 # Interception Tools
 https://gitlab.com/interception/linux/tools
+#-------------------------------------------------
+# caps2esc
+https://gitlab.com/interception/linux/plugins/caps2esc
+
+#=================================================
+# Config
+#=================================================
 
 # configuration
 sudo nice -n -20 udevmon -c /etc/interception/udevmon.yaml >udevmon.log 2>udevmon.err &
