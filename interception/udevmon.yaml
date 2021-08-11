@@ -1,4 +1,7 @@
-- JOB: "intercept -g $DEVNODE | caps2esc | space2meta | uinput -d $DEVNODE"
+- JOB: >
+    intercept -g $DEVNODE | caps2esc | space2meta | 
+    dual-function-keys -c /etc/interception/dual-keys.yaml | 
+    uinput -d $DEVNODE
   DEVICE:
     EVENTS:
       EV_KEY: > 
