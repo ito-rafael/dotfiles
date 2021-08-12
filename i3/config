@@ -383,22 +383,22 @@ bar {
 # workspace 4
 #-----------------------------
 # email
-assign [class="Thunderbird"] $ws4
+assign [class="Thunderbird"] → $ws4
 #-----------------------------
 # workspace 6
 #-----------------------------
 # game
-assign [class="Lutris"] $ws6
+assign [class="Lutris"] → $ws6
 #-----------------------------
 # workspace 7
 #-----------------------------
 # torrent download
-assign [class="Deluge"] $ws7
+assign [class="Deluge"] → $ws7
 #-----------------------------
 # workspace 8
 #-----------------------------
 # music player (local)
-assign [class="Lollypop"] $ws8
+assign [class="Lollypop"] → $ws8
 #-----------------------------
 # workspace 9
 #-----------------------------
@@ -408,8 +408,8 @@ for_window [class="Spotify"] move --no-auto-back-and-forth to workspace $ws9
 # workspace 10
 #-----------------------------
 # bluetooth and bolume control
-assign [class="Blueman-manager"] $ws10
-assign [class="Pavucontrol"] $ws10
+assign [class="Blueman-manager"] → $ws10
+assign [class="Pavucontrol"] → $ws10
 #exec pavucontrol
 #exec blueman-manager
 #-----------------------------
