@@ -37,11 +37,11 @@ for_window [class=".*"] border pixel 1
 #-----------------------------
 # Use pactl to adjust volume in PulseAudio.
 # volume up
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $(pacmd list-sinks | grep -B 4 RUNNING | grep index | awk ' { print $NF } ') +5% && pkill -RTMIN+10 i3blocks
 # volume down
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume $(pacmd list-sinks | grep -B 4 RUNNING | grep index | awk ' { print $NF } ') -5% && pkill -RTMIN+10 i3blocks
 # mute audio
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute $(pacmd list-sinks | grep -B 4 RUNNING | grep index | awk ' { print $NF } ') toggle && pkill -RTMIN+10 i3blocks
 # mute mic
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && pkill -RTMIN+10 i3blocks
 
