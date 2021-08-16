@@ -147,6 +147,17 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 #=============================
+# screens (monitors)
+#=============================
+
+# move workspace between screens (arrows)
+bindsym ctrl+mod1+Left  move container to output left;  focus output left
+bindsym ctrl+mod1+Right move container to output right; focus output right
+# move workspace between screens (numbers)
+bindsym ctrl+mod1+1 move container to output left;  focus output left
+bindsym ctrl+mod1+2 move container to output right; focus output right
+
+#=============================
 #     custom  shortcuts          
 #=============================
 # shortcut to open Firefox
