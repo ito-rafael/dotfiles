@@ -231,7 +231,7 @@ bindsym $mod+Return exec rofi -show run
 #   - rotate touchscreen
 #   - disable touchpad
 #   - disable touchpad click
-bindsym ctrl+mod1+Up exec "\
+bindsym ctrl+$mod+Up exec "\
     echo 'rotate screen' &&\
     xrandr --output eDP-1 --rotate left &&\
     echo 'rotate touchscreen' &&\
@@ -248,7 +248,7 @@ bindsym ctrl+mod1+Up exec "\
 #   - rotate touchscreen
 #   - enable touchpad
 #   - enable touchpad click
-bindsym ctrl+mod1+Down exec "\
+bindsym ctrl+$mod+Down exec "\
     echo 'rotate screen' &&\
     xrandr --output eDP-1 --rotate normal && \
     echo 'rotate touchscreen' &&\
