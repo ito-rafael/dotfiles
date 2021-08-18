@@ -13,6 +13,12 @@ font pango:monospace 10
 #-----------------------------
 # set window border
 for_window [class=".*"] border pixel 1
+#-----------------------------
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+#-----------------------------
+# enable previous workspace switching
+workspace_auto_back_and_forth yes
 
 #=============================
 #       volume control
@@ -32,9 +38,6 @@ bindsym XF86AudioMute exec --no-startup-id pacmd list-sinks | grep index | awk '
 bindsym XF86AudioMicMute exec --no-startup-id pacmd list-sources | grep index | awk ' { print $NF } ' | xargs -i pactl set-source-mute {} toggle && pkill -RTMIN+10 i3blocks
 
 #=============================
-
-# Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
 
 # change focus
 bindsym mod1+h focus left
@@ -215,9 +218,6 @@ bindsym $mod+j          workspace prev
 #-----------------------------
 # switch to latest urgent window
 bindsym $mod+x [urgent=latest] focus
-#-----------------------------
-# enable previous workspace switching
-workspace_auto_back_and_forth yes
 
 #=============================
 # additional config
