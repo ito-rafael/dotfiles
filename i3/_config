@@ -313,6 +313,9 @@ mode "$mode_system" {
     bindsym Return    mode "default"
     bindsym Escape    mode "default"
     bindsym $mod+Home mode "default"
+    #-----------------------------
+    # inherent default keybinds (i3bang)
+    !@default_keybindings
 }
 # obs: the -i argument for systemctl poweroff causes a shutdown even if other users are logged-in (this requires polkit), or when logind (wrongly) assumes so.
 #-----------------------------
@@ -343,6 +346,9 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
     bindsym $mod+r mode "default"
+    #-----------------------------
+    # inherent default keybinds (i3bang)
+    !@default_keybindings
 }
 #-----------------------------
 bindsym $mod+r mode "resize"
@@ -375,6 +381,9 @@ mode "number" {
     # exit "number" mode and load default Xmodmap file
     bindsym Escape mode "default"; exec "xmodmap ~/.Xmodmap"
     bindsym $mod+Next mode "default"; exec "xmodmap ~/.Xmodmap"
+    #-----------------------------
+    # inherent default keybinds (i3bang)
+    !@default_keybindings
 }
 #-----------------------------
 # enter "number" mode and load Xmodmap file with number modifications
