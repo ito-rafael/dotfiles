@@ -96,10 +96,10 @@ bindsym $mod+Shift+r exec ~/.config/i3/i3bang.rb; restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 #=============================
 #=============================
-bindsym ctrl+mod1+Left  move container to output left;  focus output left
-bindsym ctrl+mod1+Right move container to output right; focus output right
-bindsym ctrl+mod1+1 move container to output left;  focus output left
-bindsym ctrl+mod1+2 move container to output right; focus output right
+bindsym ctrl+mod1+Left  move workspace to output left;  focus output left
+bindsym ctrl+mod1+Right move workspace to output right; focus output right
+bindsym ctrl+mod1+1 move workspace to output left;  focus output left
+bindsym ctrl+mod1+2 move workspace to output right; focus output right
 bindsym mod1+Left  focus output left
 bindsym mod1+Right focus output right
 bindsym mod1+1 focus output left
@@ -138,7 +138,7 @@ bindsym $mod+k          workspace next
 bindsym ctrl+$mod+Left  workspace prev
 bindsym $mod+j          workspace prev
 #-----------------------------
-bindsym $mod+x [urgent=latest] focus
+bindsym $mod+z [urgent=latest] focus
 #=============================
 #=============================
 set $bg-color   #2f343f
@@ -251,10 +251,10 @@ bindsym $mod+Shift+r exec ~/.config/i3/i3bang.rb; restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 #=============================
 #=============================
-bindsym ctrl+mod1+Left  move container to output left;  focus output left
-bindsym ctrl+mod1+Right move container to output right; focus output right
-bindsym ctrl+mod1+1 move container to output left;  focus output left
-bindsym ctrl+mod1+2 move container to output right; focus output right
+bindsym ctrl+mod1+Left  move workspace to output left;  focus output left
+bindsym ctrl+mod1+Right move workspace to output right; focus output right
+bindsym ctrl+mod1+1 move workspace to output left;  focus output left
+bindsym ctrl+mod1+2 move workspace to output right; focus output right
 bindsym mod1+Left  focus output left
 bindsym mod1+Right focus output right
 bindsym mod1+1 focus output left
@@ -293,7 +293,7 @@ bindsym $mod+k          workspace next
 bindsym ctrl+$mod+Left  workspace prev
 bindsym $mod+j          workspace prev
 #-----------------------------
-bindsym $mod+x [urgent=latest] focus
+bindsym $mod+z [urgent=latest] focus
 #=============================
 #=============================
 set $bg-color   #2f343f
@@ -408,10 +408,10 @@ bindsym $mod+Shift+r exec ~/.config/i3/i3bang.rb; restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 #=============================
 #=============================
-bindsym ctrl+mod1+Left  move container to output left;  focus output left
-bindsym ctrl+mod1+Right move container to output right; focus output right
-bindsym ctrl+mod1+1 move container to output left;  focus output left
-bindsym ctrl+mod1+2 move container to output right; focus output right
+bindsym ctrl+mod1+Left  move workspace to output left;  focus output left
+bindsym ctrl+mod1+Right move workspace to output right; focus output right
+bindsym ctrl+mod1+1 move workspace to output left;  focus output left
+bindsym ctrl+mod1+2 move workspace to output right; focus output right
 bindsym mod1+Left  focus output left
 bindsym mod1+Right focus output right
 bindsym mod1+1 focus output left
@@ -450,7 +450,7 @@ bindsym $mod+k          workspace next
 bindsym ctrl+$mod+Left  workspace prev
 bindsym $mod+j          workspace prev
 #-----------------------------
-bindsym $mod+x [urgent=latest] focus
+bindsym $mod+z [urgent=latest] focus
 #=============================
 #=============================
 set $bg-color   #2f343f
@@ -555,10 +555,10 @@ bindsym $mod+Shift+r exec ~/.config/i3/i3bang.rb; restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 #=============================
 #=============================
-bindsym ctrl+mod1+Left  move container to output left;  focus output left
-bindsym ctrl+mod1+Right move container to output right; focus output right
-bindsym ctrl+mod1+1 move container to output left;  focus output left
-bindsym ctrl+mod1+2 move container to output right; focus output right
+bindsym ctrl+mod1+Left  move workspace to output left;  focus output left
+bindsym ctrl+mod1+Right move workspace to output right; focus output right
+bindsym ctrl+mod1+1 move workspace to output left;  focus output left
+bindsym ctrl+mod1+2 move workspace to output right; focus output right
 bindsym mod1+Left  focus output left
 bindsym mod1+Right focus output right
 bindsym mod1+1 focus output left
@@ -597,7 +597,7 @@ bindsym $mod+k          workspace next
 bindsym ctrl+$mod+Left  workspace prev
 bindsym $mod+j          workspace prev
 #-----------------------------
-bindsym $mod+x [urgent=latest] focus
+bindsym $mod+z [urgent=latest] focus
 #=============================
 #=============================
 set $bg-color   #2f343f
