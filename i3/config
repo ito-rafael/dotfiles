@@ -89,8 +89,10 @@ bindsym ctrl+$mod+7 move container to workspace number $ws7; workspace $ws7
 bindsym ctrl+$mod+8 move container to workspace number $ws8; workspace $ws8
 bindsym ctrl+$mod+9 move container to workspace number $ws9; workspace $ws9
 bindsym ctrl+$mod+0 move container to workspace number $ws10; workspace $ws10
-bindsym $mod+Shift+c reload
-bindsym $mod+Shift+r restart
+#bindsym $mod+Shift+c reload
+bindsym $mod+Shift+c exec ~/.config/i3/i3bang.rb; reload
+#bindsym $mod+Shift+r restart
+bindsym $mod+Shift+r exec ~/.config/i3/i3bang.rb; restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 #=============================
 #=============================
@@ -242,8 +244,10 @@ bindsym ctrl+$mod+7 move container to workspace number $ws7; workspace $ws7
 bindsym ctrl+$mod+8 move container to workspace number $ws8; workspace $ws8
 bindsym ctrl+$mod+9 move container to workspace number $ws9; workspace $ws9
 bindsym ctrl+$mod+0 move container to workspace number $ws10; workspace $ws10
-bindsym $mod+Shift+c reload
-bindsym $mod+Shift+r restart
+#bindsym $mod+Shift+c reload
+bindsym $mod+Shift+c exec ~/.config/i3/i3bang.rb; reload
+#bindsym $mod+Shift+r restart
+bindsym $mod+Shift+r exec ~/.config/i3/i3bang.rb; restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 #=============================
 #=============================
@@ -397,8 +401,10 @@ bindsym ctrl+$mod+7 move container to workspace number $ws7; workspace $ws7
 bindsym ctrl+$mod+8 move container to workspace number $ws8; workspace $ws8
 bindsym ctrl+$mod+9 move container to workspace number $ws9; workspace $ws9
 bindsym ctrl+$mod+0 move container to workspace number $ws10; workspace $ws10
-bindsym $mod+Shift+c reload
-bindsym $mod+Shift+r restart
+#bindsym $mod+Shift+c reload
+bindsym $mod+Shift+c exec ~/.config/i3/i3bang.rb; reload
+#bindsym $mod+Shift+r restart
+bindsym $mod+Shift+r exec ~/.config/i3/i3bang.rb; restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 #=============================
 #=============================
@@ -542,8 +548,10 @@ bindsym ctrl+$mod+7 move container to workspace number $ws7; workspace $ws7
 bindsym ctrl+$mod+8 move container to workspace number $ws8; workspace $ws8
 bindsym ctrl+$mod+9 move container to workspace number $ws9; workspace $ws9
 bindsym ctrl+$mod+0 move container to workspace number $ws10; workspace $ws10
-bindsym $mod+Shift+c reload
-bindsym $mod+Shift+r restart
+#bindsym $mod+Shift+c reload
+bindsym $mod+Shift+c exec ~/.config/i3/i3bang.rb; reload
+#bindsym $mod+Shift+r restart
+bindsym $mod+Shift+r exec ~/.config/i3/i3bang.rb; restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 #=============================
 #=============================
