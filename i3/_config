@@ -392,6 +392,26 @@ mode "number" {
 bindsym $mod+Next mode "number"; exec "xmodmap ~/.Xmodmap_numbers"
 
 #===========================================================
+# mode: presentation
+#===========================================================
+# mode to be used with a presentation pointer alongside with Projecteur software:
+# https://github.com/jahnf/Projecteur
+
+mode "presentation" {
+    # test
+    # ...
+    #-----------------------------
+    # back to normal mode ($mod+P) and stop Projecteur
+    bindsym $mod+p mode "default"; exec killall projecteur
+    #-----------------------------
+    # inherent default keybinds (i3bang)
+    !@default_keybindings
+}
+#-----------------------------
+# start "presentation" mode and run Projecteur
+bindsym $mod+P mode "presentation"; exec projecteur -D 25a7:1047
+
+#===========================================================
 # i3bar
 #===========================================================
 # Start i3bar to display a workspace bar (plus the system information i3status
