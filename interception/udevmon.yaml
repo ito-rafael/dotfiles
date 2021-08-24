@@ -5,6 +5,7 @@
   DEVICE:
     EVENTS:
       EV_KEY: > 
-        [KEY_CAPSLOCK, KEY_ESC, 
-        KEY_SPACE, KEY_TAB]
+        [KEY_CAPSLOCK, KEY_ESC, KEY_SPACE, 
+        KEY_LEFTALT, KEY_ENTER, 
+        KEY_TAB, KEY_RIGHTCTRL]
 

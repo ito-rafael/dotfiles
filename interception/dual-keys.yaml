@@ -15,3 +15,16 @@ MAPPINGS:
     - KEY: KEY_TAB
       TAP: KEY_TAB
       HOLD: KEY_RIGHTCTRL
+    #====================
+    # mouse2key
+    #====================
+    # mouse PgUp
+    - KEY: BTN_SIDE
+      TAP: KEY_PAGEUP
+      HOLD: KEY_LEFTCTRL
+    #--------------------
+    # mouse PgDn
+    - KEY: BTN_EXTRA
+      TAP: KEY_PAGEDOWN
+      HOLD: KEY_LEFTSHIFT
+    #====================
