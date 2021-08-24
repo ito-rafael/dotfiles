@@ -32,3 +32,10 @@ sudo nice -n -20 udevmon -c /etc/interception/udevmon.yaml >udevmon.log 2>udevmo
 less /usr/lib/systemd/system/udevmon.service
 sudo systemctl start udevmon.service
 sudo systemctl enable udevmon.service
+
+#=================================================
+# Info
+#=================================================
+
+# laptop keyboard
+/dev/input/by-path/platform-i8042-serio-0-event-kbd
