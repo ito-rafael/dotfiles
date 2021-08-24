@@ -42,3 +42,6 @@ sudo systemctl enable udevmon.service
 #-------------------------------------------------
 # Rapoo RF mouse
 /dev/input/by-id/usb-2635_2.4G_RF_MOUSE-event-mouse
+#-------------------------------------------------
+# Logitech MX Master 3 mouse
+/dev/input/by-id/usb-Logitech_USB_Receiver-if02-event-mouse
