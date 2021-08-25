@@ -63,13 +63,13 @@ uinput -p -d /dev/input/by-path/platform-i8042-serio-0-event-kbd -d /dev/input/b
 #=================================================
 
 #-------------------------------------------------
-# Keyboard: Y2P built-in (i8042)
+# keyboard: Y2P built-in (i8042)
 #-------------------------------------------------
 # device by-path
 /dev/input/by-path/platform-i8042-serio-0-event-kbd
 
 #-------------------------------------------------
-# Mouse: Logitech MX Master 3
+# mouse: Logitech MX Master 3
 #-------------------------------------------------
 # devices by-id
 /dev/input/by-id/usb-Logitech_USB_Receiver-if02-event-mouse
@@ -79,7 +79,24 @@ uinput -p -d /dev/input/by-path/platform-i8042-serio-0-event-kbd -d /dev/input/b
 /dev/input/by-path/pci-0000:00:14.0-usb-0:1:1.2-mouse
 
 #-------------------------------------------------
-# Mouse: Rapoo 2.4 GHz RF
+# mouse: Rapoo 2.4 GHz RF
 #-------------------------------------------------
 # device by-id
 /dev/input/by-id/usb-2635_2.4G_RF_MOUSE-event-mouse
+
+#-------------------------------------------------
+# both: Presentation pointer
+#-------------------------------------------------
+# mouse:
+# device by-id
+/dev/input/by-id/usb-ZY.Ltd_ZY_RMC-event-if01
+# device by-path
+/dev/input/by-path/pci-0000:00:14.0-usb-0:2:1.1-event-mouse
+#------------------------
+# keyboard:
+# device by-id
+/dev/input/by-id/usb-ZY.Ltd_ZY_RMC-event-kbd
+# device by-path
+/dev/input/by-path/pci-0000:00:14.0-usb-0:2:1.0-event-kbd
+
+#=================================================
