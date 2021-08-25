@@ -54,3 +54,6 @@ uinput -p -d /dev/input/by-path/platform-i8042-serio-0-event-kbd -d /dev/input/b
 #-------------------------------------------------
 # i8042/MX-Master-3
 uinput -p -d /dev/input/by-path/platform-i8042-serio-0-event-kbd -d /dev/input/by-id/usb-Logitech_USB_Receiver-if02-event-mouse > /etc/interception/hybrid-mx.yaml
+#-------------------------------------------------
+# i8042/(Rapoo + MX-Master-3)
+uinput -p -d /dev/input/by-path/platform-i8042-serio-0-event-kbd -d /dev/input/by-id/usb-2635_2.4G_RF_MOUSE-event-mouse -d /dev/input/by-id/usb-Logitech_USB_Receiver-if02-event-mouse > /etc/interception/hybrid.yaml
