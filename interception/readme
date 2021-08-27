@@ -38,6 +38,11 @@ sudo nice -n -20 udevmon -c /etc/interception/udevmon.yaml >udevmon.log 2>udevmo
 less /usr/lib/systemd/system/udevmon.service
 sudo systemctl start udevmon.service
 sudo systemctl enable udevmon.service
+#-------------------------------------------------
+# related packages installation
+sudo pacman -S xbindkeys
+sudo pacman -S xdotool
+sudo pacman -S xcape
 
 #=================================================
 # Info
