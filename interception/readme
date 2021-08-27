@@ -27,6 +27,9 @@ https://github.com/torvalds/linux/blob/master/include/uapi/linux/input-event-cod
   - mouse2key (PgUp)
   - mouse2key (PgDn)
 #-------------------------------------------------
+# get device's description in yaml
+sudo uinput -p -d /dev/input/by-id/DEVICE-ID > /etc/interception/DEVICE.yaml
+#-------------------------------------------------
 # configuration
 sudo nice -n -20 udevmon -c /etc/interception/udevmon.yaml >udevmon.log 2>udevmon.err &
 less /usr/lib/systemd/system/udevmon.service
