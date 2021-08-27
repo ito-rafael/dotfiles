@@ -1,11 +1,40 @@
-- JOB: >
-    intercept -g $DEVNODE | caps2esc | space2meta | 
-    dual-function-keys -c /etc/interception/dual-keys.yaml | 
-    uinput -d $DEVNODE
-  DEVICE:
-    EVENTS:
-      EV_KEY: > 
-        [KEY_CAPSLOCK, KEY_ESC, KEY_SPACE, 
-        KEY_LEFTALT, KEY_ENTER, 
-        KEY_TAB, KEY_RIGHTCTRL]
+#=====================================================================
+# DEFAULT CONFIG (w/o hybrid device)
+#=====================================================================
+#- JOB: >
+#    intercept -g $DEVNODE | caps2esc | space2meta | 
+#    dual-function-keys -c /etc/interception/dual-keys.yaml | 
+#    uinput -d $DEVNODE
+#  DEVICE:
+#    EVENTS:
+#      EV_KEY: > 
+#        [KEY_CAPSLOCK, KEY_ESC, KEY_SPACE, 
+#        KEY_LEFTALT, KEY_ENTER, 
+#        KEY_TAB, KEY_RIGHTCTRL]
 
+#=====================================================================
+# HYBRID DEVICES
+#=====================================================================
+# creating muxer and standalone job
+- CMD: mux -c muxer
+- JOB: >
+    mux -i muxer | caps2esc | space2meta | 
+    dual-function-keys -c /etc/interception/dual-keys.yaml | 
+    uinput -c /etc/interception/hybrid-mx.yaml
+#=====================================================================
+# Keyboard
+#=====================================================================
+# built-in i8042
+- JOB: intercept -g $DEVNODE | mux -o muxer
+  DEVICE:
+    LINK: /dev/input/by-path/platform-i8042-serio-0-event-kbd
+#=====================================================================
+# Mouse
+#=====================================================================
+# Rapoo
+- JOB: >
+    intercept -g $DEVNODE | 
+    dual-function-keys -c /etc/interception/rapoo-mouse.yaml | 
+    mux -o muxer
+  DEVICE:
+    LINK: /dev/input/by-id/usb-2635_2.4G_RF_MOUSE-event-mouse
