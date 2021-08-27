@@ -29,6 +29,9 @@ https://github.com/torvalds/linux/blob/master/include/uapi/linux/input-event-cod
 #-------------------------------------------------
 # get device's description in yaml
 sudo uinput -p -d /dev/input/by-id/DEVICE-ID > /etc/interception/DEVICE.yaml
+# create hybrid device in yaml
+sudo -i
+uinput -p -d /dev/input/by-id/DEVICE-ID-1 -d /dev/input/by-path/DEVICE-ID2 > /etc/interception/HYBRID-DEVICE.yaml
 #-------------------------------------------------
 # configuration
 sudo nice -n -20 udevmon -c /etc/interception/udevmon.yaml >udevmon.log 2>udevmon.err &
