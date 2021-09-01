@@ -218,8 +218,8 @@ bindsym mod1+F4 kill
 bindsym XF86MonBrightnessUp   exec --no-startup-id xbacklight -inc 5
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
 #-----------------------------
-# shortcut to open screenshooter
-bindsym Print exec xfce4-screenshooter
+# shortcut to open Shutter
+bindsym Print exec shutter
 
 #=============================
 #    custom  navigations 
