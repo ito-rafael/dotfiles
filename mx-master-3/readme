@@ -48,9 +48,18 @@ vim /etc/logid.cfg
     keys: ["KEY_LEFTCTRL"]
   }
 },
+#-----------------------------
+# side-bottom button
+#-----------------------------
+{cid: 0x53
+  action = {
+    type: "KeyPress"
+    keys: ["KEY_LEFTALT"]
+  }
+},
 
 #=======================================
 # step 2: xcape
 #=======================================
 sudo pacman -S xcape
-xcape -e 'Control_L=Page_Up'
+xcape -e 'Alt_L=Page_Down;Control_L=Page_Up'
