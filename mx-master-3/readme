@@ -59,7 +59,21 @@ vim /etc/logid.cfg
 },
 
 #=======================================
-# step 2: xcape
+# step 2: configure xbindkeys
+#=======================================
+vim ~/.xbindkeysrc
+#-----------------------------
+# volume up using mouse
+"pacmd list-sinks | grep index | awk ' { print $NF } ' | xargs -i pactl set-sink-volume {} +5% && pkill -RTMIN+10 i3blocks"
+Alt + b:4
+#-----------------------------
+# volume down using mouse
+"pacmd list-sinks | grep index | awk ' { print $NF } ' | xargs -i pactl set-sink-volume {} -5% && pkill -RTMIN+10 i3blocks"
+Alt + b:5
+#-----------------------------
+
+#=======================================
+# step 3: xcape
 #=======================================
 sudo pacman -S xcape
 xcape -e 'Alt_L=Page_Down;Control_L=Page_Up'
