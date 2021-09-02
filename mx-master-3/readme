@@ -77,3 +77,18 @@ Alt + b:5
 #=======================================
 sudo pacman -S xcape
 xcape -e 'Alt_L=Page_Down;Control_L=Page_Up'
+
+#=======================================
+# step 4: disable show menu in browser
+#=======================================
+# xcape won't supress the first keypress
+# in order to prevent Firefox/Chromium from
+# keep showing the menu bar, let's disable
+# this option
+#
+# Firefox:
+type "about:config" at the address bar
+search for "ui.key.menuAccessKey" and change to a value (in decimal) according to nsIDOMKeyEvent.idl (https://searchcode.com/codesearch/view/26755902/)
+# examples:
+#   - CTRL: change to 17
+#   - CAPSLOCK: change to 20 (this was my choice)
