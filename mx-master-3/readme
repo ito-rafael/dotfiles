@@ -6,3 +6,13 @@ https://github.com/PixlOne/logiops
 #-------------------------------------------------
 # Arch wiki
 https://wiki.archlinux.org/title/Logitech_MX_Master
+
+#=================================================
+# configuration
+#=================================================
+
+# installation
+yay -S logiops-git
+#-----------------------------
+# config file
+touch /etc/logid.cfg
