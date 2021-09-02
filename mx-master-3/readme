@@ -22,3 +22,35 @@ logid
 # start as a systemd service
 systemctl start logid
 
+#=================================================
+# zoom control
+#=================================================
+# description: 
+#
+# - zoom:
+#   - zoom in:      side-top + scroll up
+#   - zoom out:     side-top + scroll down
+#
+# obs: tried using interception tools without success
+
+#=======================================
+# step 1: use logid to remap keys
+#=======================================
+# https://github.com/PixlOne/logiops
+#   - side-top --> left control
+vim /etc/logid.cfg
+#-----------------------------
+# side-top button
+#-----------------------------
+{cid: 0x56
+  action = {
+    type: "KeyPress"
+    keys: ["KEY_LEFTCTRL"]
+  }
+},
+
+#=======================================
+# step 2: xcape
+#=======================================
+sudo pacman -S xcape
+xcape -e 'Control_L=Page_Up'
