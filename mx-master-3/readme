@@ -16,3 +16,9 @@ yay -S logiops-git
 #-----------------------------
 # config file
 touch /etc/logid.cfg
+#-----------------------------
+# start service from command line
+logid
+# start as a systemd service
+systemctl start logid
+
