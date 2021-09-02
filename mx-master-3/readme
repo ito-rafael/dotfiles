@@ -23,9 +23,13 @@ logid
 systemctl start logid
 
 #=================================================
-# zoom control
+# zoom & volume control
 #=================================================
 # description: 
+#
+# - volume:
+#   - volume up:    side-button + scroll up
+#   - volume down:  side-bottom + scroll down
 #
 # - zoom:
 #   - zoom in:      side-top + scroll up
@@ -38,6 +42,8 @@ systemctl start logid
 #=======================================
 # https://github.com/PixlOne/logiops
 #   - side-top --> left control
+#   - side-bottom --> right meta
+
 vim /etc/logid.cfg
 #-----------------------------
 # side-top button
