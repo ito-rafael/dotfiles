@@ -7,3 +7,28 @@ Avatto, rechargable 2.4G wireless laser presentation pointer with air mouse, pen
 link: https://www.aliexpress.com/item/32826298891.html
 price: $13 
 date: 25/11/2020
+
+#=================================================
+# Buttons
+#=================================================
+
+#========================
+# Summary
+#========================
+
+left side:
+  - on/off
+  - USB micro for charge
+
+front: 
+  - B1: laser
+  - B2: up
+  - B3: down
+  - B4: mouse
+  - B5: tab
+
+right side:
+  - R1: plus
+  - R2: minus
+
+
