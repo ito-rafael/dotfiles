@@ -31,4 +31,12 @@ right side:
   - R1: plus
   - R2: minus
 
+#------------------------
+# B1
+- button 1
+- LASER
+  - press long: laser
+  - tap once: laser
+  - tap twice: freeze/unfreeze cursor
+- xev: N/A
 
