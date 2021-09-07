@@ -31,6 +31,10 @@ right side:
   - R1: plus
   - R2: minus
 
+#========================
+# Front buttons
+#========================
+
 #------------------------
 # B1
 - button 1
@@ -39,4 +43,21 @@ right side:
   - tap once: laser
   - tap twice: freeze/unfreeze cursor
 - xev: N/A
+#------------------------
+# B2
+- button 2
+- UP
+  - press long: [in PPT only] full screen
+  - tap once: page up
+  - tap twice: (x2) page up
+- xev: 
+  - tap: Prior (keycode: 112)
+  - hold: alternate between:
+    - 1: send all of the above commands
+      - Shift_L + F5 (keycodes: 50 + 71)
+      - Ctrl_L + Shift_L + b (keycodes: 37 + 50 + 56)
+      - Alt_L + Super_L + p (keycodes: 64 + 133 + 33)
+      - F5 (keycode: 71)
+      - Ctrl_L + Shift_L + s (keycodes: 37 + 50 + 39)
+    - 2: Escape (keycode: 9)
 
