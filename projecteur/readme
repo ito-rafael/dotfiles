@@ -60,4 +60,13 @@ right side:
       - F5 (keycode: 71)
       - Ctrl_L + Shift_L + s (keycodes: 37 + 50 + 39)
     - 2: Escape (keycode: 9)
-
+#------------------------
+# B3
+- button 3
+- DOWN
+  - press long: [in PPT full screen only] black screen
+  - tap once: page down
+  - tap twice: (x2) page down
+- xev:
+  - tap: Next (keycode: 117)
+  - hold: b (keycode: 56)
