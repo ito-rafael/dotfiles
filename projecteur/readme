@@ -70,3 +70,15 @@ right side:
 - xev:
   - tap: Next (keycode: 117)
   - hold: b (keycode: 56)
+#------------------------
+# B4
+- button 4
+- LEFT MOUSE
+  - press long: [in PPT full screen] ink marker
+  - tap once: left mouse click
+  - tap twice: (x2) left mouse click
+- xev:
+  - tap: button 1
+  - hold: Ctrl_L+p + press button_1 (keycodes: 37 + 33)
+  - release from hold: release button_1 + Ctrl_L+a (keycodes: 37 + 38)
+
