@@ -133,6 +133,9 @@ pci-0000:00:14.0-usb-0:2:1.0-event-kbd
 pci-0000:00:14.0-usb-0:2:1.1-event        
 pci-0000:00:14.0-usb-0:2:1.1-event-mouse  
 pci-0000:00:14.0-usb-0:2:1.1-mouse
+#-------------------------------------------------
+# lsusb
+Bus 002 Device 023: ID 25a7:1047 Areson Technology Corp ZY RMC
 
 #=================================================
 # Software
