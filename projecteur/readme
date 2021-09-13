@@ -102,4 +102,14 @@ right side:
 - xev:
   - tap:  (keycode: )
   - hold: button3 (right mouse click)
+#------------------------
+# R2
+- right 2
+- MINUS
+  - press long: erase all marks
+  - tap once: volume down
+  - tap twice: NONE --> TBD ???
+- xev:
+  - tap:  (keycode: )
+  - hold: e (keycode: 26)
 
