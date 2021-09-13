@@ -119,6 +119,16 @@ right side:
   - hold: e (keycode: 26)
 
 #=================================================
+# Info
+#=================================================
+
+# ls /dev/input/by-id
+/dev/input/by-id/usb-ZY.Ltd_ZY_RMC-event-if01
+/dev/input/by-id/usb-ZY.Ltd_ZY_RMC-event-kbd
+/dev/input/by-id/usb-ZY.Ltd_ZY_RMC-if01-event-mouse
+/dev/input/by-id/usb-ZY.Ltd_ZY_RMC-if01-mouse
+
+#=================================================
 # Software
 #=================================================
 
