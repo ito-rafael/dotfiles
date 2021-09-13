@@ -81,4 +81,15 @@ right side:
   - tap: button 1
   - hold: Ctrl_L+p + press button_1 (keycodes: 37 + 33)
   - release from hold: release button_1 + Ctrl_L+a (keycodes: 37 + 38)
+#------------------------
+# B5
+- button 5
+- TAB
+  - press long: Alt + Tab 
+  - tap once: Tab
+  - tap twice: Enter
+- xev:
+  - tap: Tab (keycode: 23)
+  - hold: Alt_L+Tab (keycodes: 64 + 23)
+  - tap twice: Return (keycode: 36)
 
