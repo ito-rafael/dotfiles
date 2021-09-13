@@ -92,6 +92,11 @@ right side:
   - tap: Tab (keycode: 23)
   - hold: Alt_L+Tab (keycodes: 64 + 23)
   - tap twice: Return (keycode: 36)
+
+#========================
+# Side buttons
+#========================
+
 #------------------------
 # R1
 - right 1
