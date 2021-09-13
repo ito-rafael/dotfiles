@@ -92,4 +92,14 @@ right side:
   - tap: Tab (keycode: 23)
   - hold: Alt_L+Tab (keycodes: 64 + 23)
   - tap twice: Return (keycode: 36)
+#------------------------
+# R1
+- right 1
+- PLUS
+  - press long: right mouse click
+  - tap once: volume up
+  - tap twice: NONE ---> TBD ???
+- xev:
+  - tap:  (keycode: )
+  - hold: button3 (right mouse click)
 
