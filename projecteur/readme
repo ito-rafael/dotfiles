@@ -118,3 +118,9 @@ right side:
   - tap:  (keycode: )
   - hold: e (keycode: 26)
 
+#=================================================
+# Software
+#=================================================
+
+# installation
+yay -S projecteur-git
