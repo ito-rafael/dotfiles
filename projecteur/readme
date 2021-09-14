@@ -143,3 +143,9 @@ Bus 002 Device 023: ID 25a7:1047 Areson Technology Corp ZY RMC
 
 # installation
 yay -S projecteur-git
+
+#=================================================
+# Troubleshooting
+#=================================================
+
+# connect to a USB 3.0 port (connecting to a 2.0 USB raised an error)
