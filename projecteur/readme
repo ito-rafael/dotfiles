@@ -155,6 +155,20 @@ yay -S projecteur-git
     - B4 + B2
     - resync (LED blink quickly)
 
+#-------------------------------------------------
+# Cursor Speed:
+#-------------------------------------------------
+  Mouse + Vol.UP:
+    - B4 + R1
+    - press at the same time (doesn't need to hold)
+    - LED will blink 4 times (if it doesn't blink, it's already at the limit)
+    - increase DPI (three levels)
+  Mouse + Vol.DOWN:
+    - B4 + R2
+    - press at the same time (doesn't need to hold)
+    - LED will blink 4 times (if it doesn't blink, it's already at the limit)
+    - decrease DPI (three levels)
+
 #=================================================
 # Troubleshooting
 #=================================================
