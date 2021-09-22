@@ -148,3 +148,17 @@ vi /etc/locale.conf					                    # create the locale.conf
 LANG=en_US.UTF-8					                    # set the LANG variable accordingly
 -----
 
+==============================
+ network configuration
+==============================
+vi /etc/hostname					                    # create the hostname file
+-----
+Y2P-ArchLinux						                    # set hostname
+-----
+vi /etc/hosts						                    # add matching entries to hosts
+-----
+127.0.0.1   localhost
+::1	        localhost
+127.0.1.1   Y2P-ArchLinux.localdomain  Y2P-ArchLinux
+-----
+
