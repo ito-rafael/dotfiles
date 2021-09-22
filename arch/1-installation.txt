@@ -188,3 +188,4 @@ exit							                        # exit chroot environment
 umount -R /mnt						                    # unmount partitions
 reboot							                        # reboot
 
+!!! remove USB !!!
