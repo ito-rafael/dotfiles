@@ -165,3 +165,15 @@ vi /etc/hosts						                    # add matching entries to hosts
 ==============================
 passwd							                        # set root password
 pacman -Syu						                        # update the system
+
+==============================
+ boot loader (GRUB)
+==============================
+pacman -S grub efibootmgr
+grub-install --efi-directory=/efi
+
+# check theses flags
+#grub-install --efi-directory=/efi --bootloader-id=arch_grub --recheck
+
+grub-mkconfig -o /boot/grub/grub.cfg
+
