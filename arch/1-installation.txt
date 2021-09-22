@@ -162,3 +162,6 @@ vi /etc/hosts						                    # add matching entries to hosts
 127.0.1.1   Y2P-ArchLinux.localdomain  Y2P-ArchLinux
 -----
 
+==============================
+passwd							                        # set root password
+pacman -Syu						                        # update the system
