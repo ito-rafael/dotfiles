@@ -128,3 +128,10 @@ vi /etc/pacman.d/mirrorlist				                # edit mirror order
 pacstrap /mnt base base-devel
 genfstab -U /mnt >> /mnt/etc/fstab			            # generate fstab
 
+==============================
+ chroot in the system
+==============================
+arch-chroot /mnt					                    # change root into the new system
+ln -sf /usr/share/zoneinfo/Brazil/East /etc/localtime	# set time zone
+hwclock --systohc					                    # set the hardware clock
+
