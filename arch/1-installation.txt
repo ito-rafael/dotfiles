@@ -121,3 +121,10 @@ mount /dev/sda2 /mnt/efi
 mkdir /mnt/home
 mount /dev/sda5 /mnt/home
 
+==============================
+ install the system
+==============================
+vi /etc/pacman.d/mirrorlist				                # edit mirror order
+pacstrap /mnt base base-devel
+genfstab -U /mnt >> /mnt/etc/fstab			            # generate fstab
+
