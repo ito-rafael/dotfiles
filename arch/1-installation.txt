@@ -181,3 +181,10 @@ grub-mkconfig -o /boot/grub/grub.cfg
 systemctl enable dhcpcd					                # enable dhcp
 pacman -S iw wpa_supplicant				                # install wireless packages
 
+==============================
+ exit chroot in the system
+==============================
+exit							                        # exit chroot environment
+umount -R /mnt						                    # unmount partitions
+reboot							                        # reboot
+
