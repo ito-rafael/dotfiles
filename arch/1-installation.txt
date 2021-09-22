@@ -135,3 +135,16 @@ arch-chroot /mnt					                    # change root into the new system
 ln -sf /usr/share/zoneinfo/Brazil/East /etc/localtime	# set time zone
 hwclock --systohc					                    # set the hardware clock
 
+==============================
+ localization
+==============================
+# uncomment the following locales in /etc/locale.gen:
+en_US.UTF-8 UTF-8
+pt_br_US.UTF-8 UTF-8
+--------------------------
+locale-gen						                        # generate locales uncommented
+vi /etc/locale.conf					                    # create the locale.conf
+-----
+LANG=en_US.UTF-8					                    # set the LANG variable accordingly
+-----
+
