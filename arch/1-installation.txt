@@ -177,3 +177,7 @@ grub-install --efi-directory=/efi
 
 grub-mkconfig -o /boot/grub/grub.cfg
 
+==============================
+systemctl enable dhcpcd					                # enable dhcp
+pacman -S iw wpa_supplicant				                # install wireless packages
+
