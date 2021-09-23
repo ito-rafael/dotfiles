@@ -169,6 +169,15 @@ yay -S projecteur-git
     - LED will blink 4 times (if it doesn't blink, it's already at the limit)
     - decrease DPI (three levels)
 
+#-------------------------------------------------
+# Gyroscope calibration:
+#-------------------------------------------------
+  1. turn off the device
+  2. remove the receiver from the PC
+  3. put the pointer on a table away from vibrations
+  4. turn on the device
+  5. wait until the LED stop blinking (around 8 blinks)
+
 #=================================================
 # Troubleshooting
 #=================================================
