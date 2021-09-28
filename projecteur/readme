@@ -15,6 +15,23 @@ link: https://www.aliexpress.com/item/32826298891.html
 price: $13 
 date: 25/11/2020
 
+
+#=================================================
+# Specs
+#=================================================
+
+- brand: Avatto
+- technology: RF 2.4 GHz
+- functions:
+  - laser
+    - 
+    - 
+    - 
+  - air mouse
+  - volume keys
+- battery: LiPo 360 mAh
+- dimensions:
+
 #=================================================
 # Buttons
 #=================================================
