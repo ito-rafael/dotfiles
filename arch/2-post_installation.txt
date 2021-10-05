@@ -1,0 +1,5 @@
+============================================================
+ Post-installation --> root
+============================================================
+source:
+https://wiki.archlinux.org/index.php/General_recommendations
