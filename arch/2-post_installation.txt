@@ -3,3 +3,23 @@
 ============================================================
 source:
 https://wiki.archlinux.org/index.php/General_recommendations
+
+==============================
+ connect to Wi-Fi
+==============================
+
+!!! USE NETCTL INSTEAD !!!
+
+rfkill unblock wifi
+iw dev wlp1s0 set type ibss
+ip link set wlp1s0 up
+
+wpa_passphrase "NETWORK_SSID" "NETWORK_PASSWD" > /etc/wpa_supplicant/NETWORK_SSID.conf
+wpa_supplicant -c /etc/wpa_supplicant/NETWORK_SSID.conf -i wlp1s0
+wpa_supplicant -B -c /etc/wpa_supplicant/NETWORK_SSID.conf -i wlp1s0
+systemctl start dhcpcd			            # start DHCP service
+systemctl enable dhcpcd			            # enable DHCP
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
