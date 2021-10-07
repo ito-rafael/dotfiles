@@ -22,4 +22,12 @@ systemctl enable dhcpcd			            # enable DHCP
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!
 
+==============================
+ packages
+==============================
+pacman -S 		    \
+    gvim		    \
+    xorg		    \	
+    xorg-server		
+
 
