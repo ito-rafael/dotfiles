@@ -30,4 +30,19 @@ pacman -S 		    \
     xorg		    \	
     xorg-server		
 
+==============================
+ display manager
+==============================
+---------------
+ LightDM
+---------------
+sudo systemctl enable lightdm.service		    # enable lightdm service
+sudo vim /etc/lightdm/lightdm.conf			    # set default greeter
+-----
+[LightDM]
+logind-check-graphical=true
+...
+[Seat:*]
+greeter-session=lightdm-webkit2-greeter
+-----
 
