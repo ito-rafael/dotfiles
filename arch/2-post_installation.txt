@@ -46,3 +46,14 @@ logind-check-graphical=true
 greeter-session=lightdm-webkit2-greeter
 -----
 
+---------------
+ Custom greeter
+---------------
+# installation (it's important to install the git version, otherwise the default user option won't be available)
+yay -S lightdm-webkit-theme-aether-git
+vim /etc/lightdm/lightdm-webkit2-greeter.conf 
+-----
+webkit_theme 	    = lightdm-webkit-theme-aether
+-----
+# set default user:  after the greeter is loaded, hover the cursor of the mouse under the bottom-left corner of the screen and the hamburger icon will appear. Click on it and select the default user and other setup.
+
