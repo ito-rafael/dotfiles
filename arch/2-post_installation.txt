@@ -57,3 +57,12 @@ webkit_theme 	    = lightdm-webkit-theme-aether
 -----
 # set default user:  after the greeter is loaded, hover the cursor of the mouse under the bottom-left corner of the screen and the hamburger icon will appear. Click on it and select the default user and other setup.
 
+==============================
+ Desktop Environment
+==============================
+---------------
+ XFCE 
+---------------
+pacman -S xfce4 xfce4-goodies		        # to install Xfce
+startxfce4				                    # start Xfce
+
