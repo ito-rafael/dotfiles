@@ -65,4 +65,11 @@ webkit_theme 	    = lightdm-webkit-theme-aether
 ---------------
 pacman -S xfce4 xfce4-goodies		        # to install Xfce
 startxfce4				                    # start Xfce
-
+---------------
+ GNOME
+---------------
+sudo pacman -S gnome gnome-extra	        # to install GNOME
+vim ~/.xinitrc				                # edit xinitrc file
+  export GDK_BACKEND=x11
+  exec gnome-session
+startx					                    # start GNOME
