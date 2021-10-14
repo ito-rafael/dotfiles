@@ -73,3 +73,12 @@ vim ~/.xinitrc				                # edit xinitrc file
   export GDK_BACKEND=x11
   exec gnome-session
 startx					                    # start GNOME
+---------------
+ i3 (window manager only)
+---------------
+# install i3
+sudo pacman -S i3-wm
+# config i3 without a DE
+vim ~/.xinitrc
+  exec i3
+
