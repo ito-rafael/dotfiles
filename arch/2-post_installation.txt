@@ -82,3 +82,19 @@ sudo pacman -S i3-wm
 vim ~/.xinitrc
   exec i3
 
+==============================
+ create users
+==============================
+useradd -m rafael			                # create user 'rafael'
+passwd rafael 				                # set password for 'rafael'
+useradd -m guest			                # create user 'guest'
+passwd guest			                    # set password for 'guest'
+---------------
+pacman -S sudo				                # install sudo
+visudo					                    # add user to the sudoers
+-----
+rafael ALL=(ALL) ALL
+-----
+
+!!! reboot and log into rafael account!!!
+
