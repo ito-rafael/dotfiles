@@ -98,3 +98,27 @@ rafael ALL=(ALL) ALL
 
 !!! reboot and log into rafael account!!!
 
+==============================
+ essentials config
+==============================
+
+------------------------------
+ caps2esc & alt2meta
+------------------------------
+# installation
+sudo pacman -S interception-tools interception-caps2esc
+yay -S interception-space2meta
+# configuration
+sudo vim /etc/interception/udevmon.yaml
+-----
+- JOB: "intercept -g $DEVNODE | caps2esc | space2meta | uinput -d $DEVNODE"
+  DEVICE:
+    EVENTS:
+      EV_KEY: [KEY_CAPSLOCK, KEY_ESC, KEY_SPACE]
+-----
+sudo nice -n -20 udevmon -c /etc/interception/udevmon.yaml >udevmon.log 2>udevmon.err &
+less /usr/lib/systemd/system/udevmon.service
+sudo systemctl start udevmon.service
+sudo systemctl enable udevmon.service
+
+
