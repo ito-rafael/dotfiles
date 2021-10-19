@@ -121,4 +121,37 @@ less /usr/lib/systemd/system/udevmon.service
 sudo systemctl start udevmon.service
 sudo systemctl enable udevmon.service
 
+------------------------------
+ Dual Function Keys
+------------------------------
+# installation
+sudo pacman -S interception-dual-function-keys
+# check keycode name in:
+# https://github.com/torvalds/linux/blob/master/include/uapi/linux/input-event-codes.h
 
+---------------
+# tab2ctrlR
+---------------
+# Tab: KEY_TAB
+# Control_R: KEY_RIGHTCTRL
+
+# create yaml file
+sudo vim /etc/interception/tab2ctrlR.yaml
+-----
+TIMING:
+    TAP_MILLISEC: 200
+    DOUBLE_TAP_MILLISEC: 0
+
+MAPPINGS:
+    - KEY: KEY_TAB
+      TAP: KEY_TAB
+      HOLD: KEY_RIGHTCTRL
+-----
+# update /etc/interception/udevmon.yaml file
+sudo vim /etc/interception/udevmon.yaml
+-----
+- JOB: "intercept -g $DEVNODE | caps2esc | space2meta | dual-function-keys -c /etc/interception/tab2ctrlR.yaml | uinput -d $DEVNODE"
+  DEVICE:
+    EVENTS:
+      EV_KEY: [KEY_CAPSLOCK, KEY_ESC, KEY_SPACE, KEY_TAB, KEY_RIGHTCTRL]
+-----
