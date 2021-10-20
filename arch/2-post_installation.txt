@@ -155,3 +155,17 @@ sudo vim /etc/interception/udevmon.yaml
     EVENTS:
       EV_KEY: [KEY_CAPSLOCK, KEY_ESC, KEY_SPACE, KEY_TAB, KEY_RIGHTCTRL]
 -----
+# set remove Control_R from "control" modifier and add it to "mod3" modifier
+vim ~/.Xmodmap
+-----
+! control
+clear control
+add control = Control_L
+! mod3
+clear mod3
+add mod3 = Control_R
+-----
+# load Xmodmap
+xmodmap ~/.Xmodmap
+
+
