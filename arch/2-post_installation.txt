@@ -168,4 +168,31 @@ add mod3 = Control_R
 # load Xmodmap
 xmodmap ~/.Xmodmap
 
+---------------
+# alt2enter
+---------------
+# Alt_L: KEY_LEFTALT
+# Return: KEY_ENTER
+
+# create yaml file
+sudo vim /etc/interception/alt2enter.yaml
+-----
+TIMING:
+    TAP_MILLISEC: 200
+    DOUBLE_TAP_MILLISEC: 0
+
+MAPPINGS:
+    - KEY: KEY_LEFTALT
+      TAP: KEY_ENTER
+      HOLD: KEY_LEFTALT
+-----
+# update /etc/interception/udevmon.yaml file
+sudo vim /etc/interception/udevmon.yaml
+-----
+- JOB: "intercept -g $DEVNODE | caps2esc | space2meta | dual-function-keys -c /etc/interception/tab2ctrlR.yaml | dual-function-keys -c /etc/interception/alt2enter.yaml | uinput -d $DEVNODE"
+  DEVICE:
+    EVENTS:
+      EV_KEY: [KEY_CAPSLOCK, KEY_ESC, KEY_SPACE, KEY_TAB, KEY_RIGHTCTRL, KEY_LEFTALT, KEY_ENTER]
+-----
+
 
