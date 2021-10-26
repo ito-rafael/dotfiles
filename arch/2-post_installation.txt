@@ -195,4 +195,15 @@ sudo vim /etc/interception/udevmon.yaml
       EV_KEY: [KEY_CAPSLOCK, KEY_ESC, KEY_SPACE, KEY_TAB, KEY_RIGHTCTRL, KEY_LEFTALT, KEY_ENTER]
 -----
 
+------------------------------
+ terminal emulator
+------------------------------
+# install
+sudo pacman -S kitty
+# change default terminal emulator
+vim ~/.bashrc
+-----
+export TERMINAL=kitty
+-----
+
 
