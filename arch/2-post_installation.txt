@@ -206,4 +206,15 @@ vim ~/.bashrc
 export TERMINAL=kitty
 -----
 
+------------------------------
+ shell
+------------------------------
+# install
+sudo pacman -S zsh zsh-completions
+# install oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# change default shell
+chsh
+  --> /bin/zsh
+# plugins
 
