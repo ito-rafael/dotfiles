@@ -228,3 +228,5 @@ sudo pacman -S i3lock
 # application launcher / window switcher
 sudo pacman -S rofi
 
+# X compositor
+sudo pacman -S picom
