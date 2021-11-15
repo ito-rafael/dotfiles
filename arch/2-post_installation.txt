@@ -236,3 +236,6 @@ sudo pacman -S i3status i3blocks
 
 # fonts for icons in i3bar
 sudo pacman -S ttf-font-awesome
+
+# i3blocks
+sudo pacman -S acpi             # battery
