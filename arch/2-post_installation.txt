@@ -240,3 +240,5 @@ sudo pacman -S ttf-font-awesome
 # i3blocks
 sudo pacman -S acpi             # battery
 sudo pacman -S yad xdotool      # calendar
+sudo pacman -S systat           # cpu
+
