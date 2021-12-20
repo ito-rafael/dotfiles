@@ -241,4 +241,4 @@ sudo pacman -S ttf-font-awesome
 sudo pacman -S acpi             # battery
 sudo pacman -S yad xdotool      # calendar
 sudo pacman -S systat           # cpu
-
+sudo pacman -S alsa-utils       # volume
