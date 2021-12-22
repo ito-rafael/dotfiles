@@ -243,3 +243,4 @@ sudo pacman -S yad xdotool      # calendar
 sudo pacman -S systat           # cpu
 sudo pacman -S alsa-utils       # volume
 sudo pacman -S wireless_tools   # wi-fi (essid)
+sudo pacman -S playerctl        # mediaplayer
