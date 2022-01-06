@@ -249,5 +249,12 @@ sudo pacman -S playerctl        # mediaplayer
 # web browser
 ==============================
 
+--------------------
 # Firefox
+--------------------
+# installation
 sudo pacman -S firefox-developer-edition
+
+# enable primary password
+  # Hamburger icon --> Settings --> Privacy & Security --> Use a Primary Password
+
