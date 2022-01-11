@@ -1,0 +1,137 @@
+#=================================================
+# useful links
+#=================================================
+# GitHub repository
+https://github.com/PixlOne/logiops
+#-------------------------------------------------
+# Arch wiki
+https://wiki.archlinux.org/title/Logitech_MX_Master
+
+#=================================================
+# configuration
+#=================================================
+
+# installation
+yay -S logiops-git
+#-----------------------------
+# config file
+touch /etc/logid.cfg
+#-----------------------------
+# start service from command line
+logid
+# start as a systemd service
+systemctl start logid
+
+#=================================================
+# host change
+#=================================================
+# description: 
+#
+# change host connection for both MX Master 3 and 
+# MX Keys when one of the situations bellow happens:
+#   - MX Master 3: press "i" button + Left gesture
+#   - MX Master 3: press "i" button + Right gesture
+#   - MX Keys: Easy-switch #3 is pressed
+
+#=======================================
+# step 1: script to identify host
+#=======================================
+# create script
+vim ~/mx_script.sh
+#-----------------------------
+#!/bin/sh
+# use Solaar to check in which host Logitech MX peripherals are connected to
+HOST=$(solaar config "MX Master 3" change-host | grep change-host | awk '{print $3}')
+if [ $HOST = '1:catuaba' ]
+then
+    solaar config 'MX Master 3' change-host 2;
+    solaar config 'MX Keys' change-host 2;
+elif [ $HOST = '2:Y2P-ArchLinux' ]
+then
+    solaar config 'MX Master 3' change-host 1;
+    solaar config 'MX Keys' change-host 1;
+fi
+#-----------------------------
+# give it execution permissions
+chmod +x ~/mx_script.sh
+
+#=======================================
+# step 2: make logiops generate F13 key
+#=======================================
+vim /etc/logid.cfg
+#-----------------------------
+# (...)
+{name: "Wireless Mouse MX Master 3";
+  # (...)
+      #-----------------------------
+      # press "i" button under wheel
+      #-----------------------------
+      {cid: 0xc4
+        action = {
+          type: "Gestures"
+          gestures: (
+            #-----------------------
+            # Left
+            #-----------------------
+            {
+              direction: "Left"
+              mode: "OnRelease"
+              action: {
+                #type: "ChangeHost" 
+                #host: 2
+                type: "Keypress" 
+                keys: ["KEY_F13"]
+              }
+            },
+            #-----------------------
+            # Right
+            #-----------------------
+            {
+              direction: "Right"
+              mode: "OnRelease"
+              action: {
+                #type: "ChangeHost" 
+                #host: 1
+                type: "Keypress" 
+                keys: ["KEY_F13"]
+              }
+            },
+            #-----------------------
+          )
+        }
+      },
+# (...)
+{name: "MX Keys Wireless Keyboard";
+  # (...)
+      #-----------------------
+      # Easy-Switch key #3
+      #-----------------------
+      {cid: 0xd3;
+        action = {
+          type : "Keypress";
+          keys: ["KEY_F13"];
+        };
+      },
+# (...)
+#-----------------------------
+#=======================================
+# step 3: change key in Xmodmap
+#=======================================
+vim ~/.Xmodmap
+#-----------------------------
+!keycode 191 = XF86Tools NoSymbol XF86Tools
+keycode 191 = F13 NoSymbol XF86Tools
+#-----------------------------
+# reload xmodmap
+xmodmap ~/.Xmodmap
+
+#=======================================
+# step 4: make a bindsym in i3wm
+#=======================================
+vim ~/.config/i3/_config
+#-----------------------------
+bindsym F13 exec /home/rafael/mx_script.sh
+#-----------------------------
+# reload i3wm
+
+#=================================================
