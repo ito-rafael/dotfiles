@@ -98,3 +98,5 @@ search for "ui.key.menuAccessKey" and change to a value (in decimal) according t
 # examples:
 #   - CTRL: change to 17
 #   - CAPSLOCK: change to 20 (this was my choice)
+
+#=================================================
