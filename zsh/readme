@@ -24,3 +24,14 @@ vim ~/.zshrc
 -----
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 -----
+
+#=======================================
+# Powerline
+#=======================================
+sudo pacman -S powerline powerline-fonts
+vim ~/.zshrc
+-----
+#ZSH_THEME="robbyrussell"
+powerline-daemon -q
+source /usr/share/powerline/bindings/zsh/powerline.zsh
+-----

@@ -83,6 +83,10 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 #-----------------------------
 # zsh-syntax-highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#-----------------------------
+# Powerline
+powerline-daemon -q
+source /usr/share/powerline/bindings/zsh/powerline.zsh
 #=======================================
 
 source $ZSH/oh-my-zsh.sh
