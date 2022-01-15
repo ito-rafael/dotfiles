@@ -416,6 +416,41 @@ mode "presentation" {
 bindsym $mod+P mode "presentation"; exec projecteur -D 25a7:1047
 
 #===========================================================
+# mode: studio
+#===========================================================
+# mode to be used with set of webcams (EyeCam, top-view webcam, etc)
+# video-script:
+#   - JZYZ:
+#     - create new virtual /dev/video9 device ("Flip JZYZ")
+#     - flip JZYZ vertically
+#     - set resolution to 1920x1080 @ 30 fps
+#     - select MJPEG as input format
+#     - select YUV420P as output format
+#     - remove autofocus
+#     - change sharpness to 6
+#   - EyeCam:
+#     - create new virtual /dev/video8 device ("Flip EyeCam")
+#     - flip EyeCam vertically
+#     - set resolution to 1920x1080 @ 30 fps
+#     - select MJPEG as input format
+#     - select YUV420P as output format
+
+mode "studio" {
+    # test
+    # !!! TO BE IMPLEMENTED !!!
+    # ...
+    #-----------------------------
+    # back to normal mode ($mod+O) and stop video-script
+    bindsym $mod+o mode "default"; exec killall video-script
+    #-----------------------------
+    # inherent default keybinds (i3bang)
+    !@default_keybindings
+}
+#-----------------------------
+# start "studio" mode
+bindsym $mod+O mode "studio"; exec video-script
+
+#===========================================================
 # i3bar
 #===========================================================
 # Start i3bar to display a workspace bar (plus the system information i3status
