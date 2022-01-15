@@ -124,4 +124,9 @@ source $ZSH/oh-my-zsh.sh
 #=======================================
 # alias section
 #=======================================
+# Firefox
 alias firefox=firefox-developer-edition
+#-----------------------------
+# OpenVPN LBiC
+alias vpn-lbic='sudo openvpn /etc/openvpn/client/ito_rafael-conf-file.conf'
+#=======================================
