@@ -132,4 +132,9 @@ alias firefox=firefox-developer-edition
 #-----------------------------
 # OpenVPN LBiC
 alias vpn-lbic='sudo openvpn /etc/openvpn/client/ito_rafael-conf-file.conf'
+
 #=======================================
+# other config
+#=======================================
+# use keychain to launch ssh-agent and ssh-add
+eval $(keychain --noask --eval --quiet id_rsa)
