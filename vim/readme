@@ -7,3 +7,10 @@
 #=======================================
 sudo pacman -S gvim
 
+#=======================================
+# Powerline
+#=======================================
+sudo pacman -S powerline-vim
+vim ~/.vimrc
+Plugin 'powerline/powerline'
+set laststatus=2
