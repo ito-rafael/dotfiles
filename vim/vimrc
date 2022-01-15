@@ -29,6 +29,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'preservim/nerdtree'
 "---------------------------------------
 "Powerline
+Plugin 'powerline/powerline'
 "---------------------------------------
 "Vim in the Shell (?)
 "---------------------------------------
@@ -62,6 +63,12 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+
+"================================================
+" Plugins Config
+"================================================
+" powerline
+set laststatus=2
 
 "================================================
 " General Config
