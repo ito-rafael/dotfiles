@@ -235,6 +235,15 @@ bindsym Print exec shutter
 # change host for MX Keys and MX Master 3
 bindsym F13 exec /home/rafael/mx_script.sh
 
+#===================
+#    MX Master 3
+#===================
+# "copy" shortcut: "i" button + down gesture
+bindsym XF86Copy [class="Xfce4-terminal"] exec "xdotool keydown ctrl keydown shift keydown c keyup ctrl keyup shift keyup c"; exec "sleep 0.1"
+#-----------------------------
+# "paste" shortcut: "i" button + up gesture
+bindsym XF86Paste [class="Xfce4-terminal"] exec "xdotool keydown ctrl keydown shift keydown v keyup ctrl keyup shift keyup v"; exec "sleep 0.1"
+
 #=============================
 #    custom  navigations 
 #=============================
