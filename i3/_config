@@ -256,6 +256,24 @@ bindsym mod3+ --whole-window button4 exec "pactl set-sink-volume @DEFAULT_SINK@ 
 bindsym mod3+ --whole-window button5 exec "pactl set-sink-volume @DEFAULT_SINK@ -5% && pkill -RTMIN+10 i3blocks"
 
 #=============================
+#  general keyboard keybinds
+#=============================
+
+# semicolon key
+# !!! TO BE IMPLEMENTED !!!
+#-----------------------------
+#bindsym Shift+: exec "sleep 0.1 && xdotool key 0x003b"
+#bindsym Shift+semicolon exec "sleep 0.1 && xdotool key 0x003b"
+#bindsym control+colon exec "sleep 0.1 && xdotool key 0x003b"
+#bindsym Shift+semicolon exec xdotool key 0x003b
+#bindsym Shift+colon exec "xdotool key 0x003a"
+#bindsym Shift+BackSpace exec "sleep 0.1 && xdotool key 0x003a"
+#bindsym Shift+BackSpace exec "sleep 0.1 && xdotool key semicolon"
+#bindsym Shift+colon exec xvkbd -xsendevent -text ":"
+#bindsym Shift+BackSpace exec xvkbd -xsendevent -text ":"
+#-----------------------------
+
+#=============================
 #    custom  navigations 
 #=============================
 # workspace navigation
