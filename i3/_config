@@ -3,7 +3,7 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 #=============================
-#     custom variables
+#      custom variables       
 #=============================
 # set modifier
 set $mod Mod4
@@ -21,7 +21,7 @@ floating_modifier $mod
 workspace_auto_back_and_forth yes
 
 #=============================
-# raw section
+#        raw section         
 #=============================
 # make keybinds reusable in other modes (like inheritance)
 # check https://github.com/tckmn/i3bang for more details
@@ -106,7 +106,7 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 #=============================
-# workspaces
+#        workspaces          
 #=============================
 
 # Define names for default workspaces for which we configure key bindings later on.
@@ -168,7 +168,7 @@ bindsym $mod+Shift+r exec ~/.config/i3/i3bang.rb; restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 #=============================
-# screens (monitors)
+#     screens (monitors)
 #=============================
 
 # set output names according to xrandr
@@ -287,7 +287,7 @@ bindsym $mod+j          workspace prev
 bindsym $mod+z [urgent=latest] focus
 
 #=============================
-# additional config
+#     additional config      
 #=============================
 # define colors
 # set background color
@@ -309,7 +309,7 @@ bindsym $mod+Return exec rofi -show run
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 #=============================
-# rotate screen
+#       rotate screen        
 #=============================
 # portrait mode
 #   - rotate screen
@@ -350,7 +350,7 @@ bindsym ctrl+$mod+Down exec "\
 >
 
 #===========================================================
-# system mode
+# mode: system
 #===========================================================
 # source:
 # https://wiki.archlinux.org/index.php/I3#Shutdown,_reboot,_lock_screen
