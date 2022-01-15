@@ -73,6 +73,7 @@ ZSH_THEME="robbyrussell"
 plugins=()
 plugins+=(git)
 plugins+=(sudo)
+plugins+=(web-search)
 #plugins+=(vi-mode)
 #plugins+=(zsh-vi-mode)
 
