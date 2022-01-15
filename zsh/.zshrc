@@ -74,6 +74,7 @@ plugins=()
 plugins+=(git)
 plugins+=(sudo)
 plugins+=(web-search)
+plugins+=(dirhistory)
 #plugins+=(vi-mode)
 #plugins+=(zsh-vi-mode)
 
