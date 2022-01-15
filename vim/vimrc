@@ -26,6 +26,7 @@ Plugin 'jnurmine/Zenburn'
 Plugin 'tpope/vim-fugitive'
 "---------------------------------------
 "NERDTree
+Plugin 'preservim/nerdtree'
 "---------------------------------------
 "Powerline
 "---------------------------------------
