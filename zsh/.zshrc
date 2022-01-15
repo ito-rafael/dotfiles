@@ -72,6 +72,7 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=()
 plugins+=(git)
+plugins+=(sudo)
 #plugins+=(vi-mode)
 #plugins+=(zsh-vi-mode)
 
