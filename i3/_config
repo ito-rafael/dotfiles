@@ -230,6 +230,12 @@ bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
 bindsym Print exec shutter
 
 #=============================
+#    Logitech MX keybinds
+#=============================
+# change host for MX Keys and MX Master 3
+bindsym F13 exec /home/rafael/mx_script.sh
+
+#=============================
 #    custom  navigations 
 #=============================
 # workspace navigation
