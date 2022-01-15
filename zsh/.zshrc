@@ -81,6 +81,9 @@ plugins+=(git)
 # zsh-autosuggestions
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 #-----------------------------
+# zsh-syntax-highlighting
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#=======================================
 
 source $ZSH/oh-my-zsh.sh
 
