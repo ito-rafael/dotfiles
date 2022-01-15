@@ -7,4 +7,11 @@
 #=======================================
 sudo pacman -S zsh
 
-
+#=======================================
+# zsh-autosuggestions
+#=======================================
+sudo pacman -S zsh-autosuggestions
+vim ~/.zshrc
+-----
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+-----

@@ -75,6 +75,13 @@ plugins+=(git)
 #plugins+=(vi-mode)
 #plugins+=(zsh-vi-mode)
 
+#=======================================
+# plugins setup
+#=======================================
+# zsh-autosuggestions
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+#-----------------------------
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
