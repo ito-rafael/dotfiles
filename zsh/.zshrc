@@ -120,3 +120,8 @@ source $ZSH/oh-my-zsh.sh
 # history search functionality
 #bindkey "^[[A" history-beginning-search-backward
 #bindkey "^[[B" history-beginning-search-forward
+
+#=======================================
+# alias section
+#=======================================
+alias firefox=firefox-developer-edition
