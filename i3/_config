@@ -245,6 +245,17 @@ bindsym XF86Copy [class="Xfce4-terminal"] exec "xdotool keydown ctrl keydown shi
 bindsym XF86Paste [class="Xfce4-terminal"] exec "xdotool keydown ctrl keydown shift keydown v keyup ctrl keyup shift keyup v"; exec "sleep 0.1"
 
 #=============================
+#   general mouse keybinds   
+#=============================
+
+# use button9 + scroll to control volume
+# button9 is mapped as Super_R using the interception tool, which is mapped as mod3 using xmodmap
+# volume up
+bindsym mod3+ --whole-window button4 exec "pactl set-sink-volume @DEFAULT_SINK@ +5% && pkill -RTMIN+10 i3blocks"
+# volume down
+bindsym mod3+ --whole-window button5 exec "pactl set-sink-volume @DEFAULT_SINK@ -5% && pkill -RTMIN+10 i3blocks"
+
+#=============================
 #    custom  navigations 
 #=============================
 # workspace navigation
