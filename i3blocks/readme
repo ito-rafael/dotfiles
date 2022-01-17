@@ -1,0 +1,4 @@
+# i3blocks dependencies
+
+# public_ip
+sudo pacman -S wget
