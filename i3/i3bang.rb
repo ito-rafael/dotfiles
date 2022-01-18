@@ -251,15 +251,17 @@ def i3bang config, header = ''
 end
 
 if __FILE__ == $0
-    INFILE = File.expand_path(ARGV[0] || '~/.i3/_config')
-    OUTFILE = File.expand_path(ARGV[1] || '~/.i3/config')
+    #INFILE = File.expand_path(ARGV[0] || '~/.config/i3/_config')
+    INFILE = File.expand_path('~/.config/i3/_config')
+    #OUTFILE = File.expand_path(ARGV[1] || '~/.config/i3/config')
+    OUTFILE = File.expand_path('~/.config/i3/config')
 
     config = File.read INFILE
     begin
         File.write(OUTFILE, i3bang(config, "
 ##########
 # Generated via i3bang (https://github.com/KeyboardFire/i3bang).
-# Original file: #{ARGV[0] || '~/.i3/_config'}
+# Original file: #{ARGV[0] || '~/.config/i3/_config'}
 ##########\n"))
     rescue I3bangError => e
         File.write('/tmp/i3bangerr.txt', "#{e.inspect}\n#{e.backtrace * "\n"}")
