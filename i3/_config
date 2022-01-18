@@ -170,14 +170,10 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 #=============================
 #     screens (monitors)
 #=============================
-
-# set output names according to xrandr
-set $left_screen  VGA-1
-set $right_screen HDMI-3
-#-----------------------------
 # move container between screens (arrows)
 bindsym ctrl+mod1+Left  move container to output left;  focus output left
 bindsym ctrl+mod1+Right move container to output right; focus output right
+#-----------------------------
 # move workspace between screens (numbers)
 bindsym ctrl+mod1+1 move workspace to output left;  focus output left
 bindsym ctrl+mod1+2 move workspace to output right; focus output right
@@ -616,6 +612,22 @@ assign [class="Pavucontrol"] → $ws10
 #exec pavucontrol
 #exec blueman-manager
 #-----------------------------
+
+#===========================================================
+# assignt workspaces to outputs (screens)
+#===========================================================
+# set output names according to xrandr
+# increment the X in the 'head -nX' command if you have more outputs
+set $left_screen $(xrandr | grep ' connected' | awk '{print $1}' | head -n1 | tail -n1)
+set $right_screen $(xrandr | grep ' connected' | awk '{print $1}' | head -n2 | tail -n1)
+#set $left_screen  VGA-1
+#set $right_screen HDMI-3
+#-----------------------------
+# left screen
+workspace $ws1 output $left_screen
+#-----------------------------
+# right screen
+workspace $ws2 output $right_screen
 
 #===========================================================
 # startup commands
