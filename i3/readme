@@ -1,0 +1,14 @@
+#=================================================
+# i3 window manager
+#=================================================
+
+#=======================================
+# i3blocks
+#=======================================
+# A feed generator for text based status bars.
+# https://github.com/vivien/i3blocks
+
+# installation
+yay -S i3blocks-contrib-git
+
+#=======================================
