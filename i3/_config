@@ -215,7 +215,9 @@ bindsym $mod+g exec gvim
 #-----------------------------
 # start a terminal
 bindsym $mod+t exec i3-sensible-terminal
+bindsym ctrl+mod1+t exec i3-sensible-terminal
 bindsym ctrl+$mod+t exec i3-sensible-terminal
+bindsym ctrl+space exec i3-sensible-terminal
 #-----------------------------
 # kill focused window
 bindsym $mod+Shift+q kill
