@@ -3,6 +3,21 @@
 #=================================================
 
 #=======================================
+# i3bang
+#=======================================
+# A preprocessor for i3 config files aimed to drastically reduce their length.
+# https://github.com/tckmn/i3bang
+
+# install ruby (prerequisite)
+sudo pacman -S ruby
+# get i3bang.rb script
+wget -P ~/.config/i3/ https://raw.githubusercontent.com/ito-rafael/pc-general-config/master/i3/i3bang.rb
+# give it execution permission
+chmod +x ~/.config/i3/i3bang.rb
+# rename config file to _config
+mv ~/.config/i3/config ~/.config/i3/_config
+
+#=======================================
 # i3blocks
 #=======================================
 # A feed generator for text based status bars.
@@ -12,3 +27,4 @@
 yay -S i3blocks-contrib-git
 
 #=======================================
+
