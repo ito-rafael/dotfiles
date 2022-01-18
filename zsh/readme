@@ -12,26 +12,46 @@ sudo pacman -S zsh
 #=======================================
 sudo pacman -S zsh-autosuggestions
 vim ~/.zshrc
------
+#-----
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
------
+#-----
 
 #=======================================
 # zsh-syntax-highlighting
 #=======================================
 sudo pacman -S zsh-syntax-highlighting
 vim ~/.zshrc
------
+#-----
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
------
+#-----
 
 #=======================================
 # Powerline
 #=======================================
 sudo pacman -S powerline powerline-fonts
 vim ~/.zshrc
------
+#-----
 #ZSH_THEME="robbyrussell"
 powerline-daemon -q
 source /usr/share/powerline/bindings/zsh/powerline.zsh
------
+#-----
+
+#=======================================
+# zsh-vi-mode
+#=======================================
+yay -S zsh-vi-mode-git
+vim ~/.zshrc
+#-----
+source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.zsh
+#-----
+
+#=======================================
+# aliases
+#=======================================
+# keychain for ssh-agent & ssh-add
+sudo pacman -S keychain
+#-----------------------------
+# Firefox
+sudo pacman -S firefox-developer-edition
+
+#=======================================
