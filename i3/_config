@@ -213,7 +213,6 @@ bindsym $mod+g exec gvim
 bindsym $mod+t exec i3-sensible-terminal
 bindsym ctrl+mod1+t exec i3-sensible-terminal
 bindsym ctrl+$mod+t exec i3-sensible-terminal
-bindsym ctrl+space exec i3-sensible-terminal
 #-----------------------------
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -241,6 +240,12 @@ bindsym XF86Copy [class="Xfce4-terminal"] exec "xdotool keydown ctrl keydown shi
 #-----------------------------
 # "paste" shortcut: "i" button + up gesture
 bindsym XF86Paste [class="Xfce4-terminal"] exec "xdotool keydown ctrl keydown shift keydown v keyup ctrl keyup shift keyup v"; exec "sleep 0.1"
+
+#===================
+#      MX Keys     
+#===================
+# workaround to open terminal
+bindsym ctrl+space exec i3-sensible-terminal
 
 #=============================
 #   general mouse keybinds   
@@ -448,8 +453,8 @@ bindsym $mod+r mode "resize"
 mode "number" {
     #-----------------------------
     # exit "number" mode and load default Xmodmap file
-    bindsym Escape mode "default"; exec "xmodmap ~/.Xmodmap"
-    bindsym $mod+Next mode "default"; exec "xmodmap ~/.Xmodmap"
+    bindsym Escape mode "default"; exec "xmodmap ~/.Xmodmap";
+    bindsym $mod+Next mode "default"; exec "xmodmap ~/.Xmodmap";
     #-----------------------------
     # test
     #bindsym Shift+A exec "i3-sensible-terminal";
@@ -567,7 +572,7 @@ bar {
         status_command i3blocks -c /home/rafael/.config/i3/i3blocks.conf
         # set font
         #font pango:DejaVu Sans Mono 4
-        font pango:monospace 9
+        font pango:monospace 8
 }
 
 #===========================================================
