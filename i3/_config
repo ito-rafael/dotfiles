@@ -583,6 +583,11 @@ bar {
 # email
 assign [class="Thunderbird"] → $ws4
 #-----------------------------
+# workspace 5
+#-----------------------------
+# pdf reader
+#assign [class="Evince"] → $ws5
+#-----------------------------
 # workspace 6
 #-----------------------------
 # game
@@ -616,13 +621,13 @@ assign [class="Pavucontrol"] → $ws10
 # startup commands
 #===========================================================
 # set background image
-exec_always feh --bg-scale /home/rafael/RAFAEL/Arch/background/london.jpg 
+exec_always feh --bg-scale ~/.config/feh/london.jpg 
 #-----------------------------
 # enable touchpad horizontal scroll
 exec xinput --set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Two-Finger Scrolling" 1 1
 #-----------------------------
 # run compositor
-exec_always picom
+exec_always --no-startup-id picom -b --config ~/.config/picom.conf
 #-----------------------------
 # move to workspace 2 and open Firefox
 exec "$SCRIPT_PATH/navigate2ws.sh 2"
