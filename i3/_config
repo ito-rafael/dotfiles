@@ -175,9 +175,9 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 set $left_screen  VGA-1
 set $right_screen HDMI-3
 #-----------------------------
-# move workspace between screens (arrows)
-bindsym ctrl+mod1+Left  move workspace to output left;  focus output left
-bindsym ctrl+mod1+Right move workspace to output right; focus output right
+# move container between screens (arrows)
+bindsym ctrl+mod1+Left  move container to output left;  focus output left
+bindsym ctrl+mod1+Right move container to output right; focus output right
 # move workspace between screens (numbers)
 bindsym ctrl+mod1+1 move workspace to output left;  focus output left
 bindsym ctrl+mod1+2 move workspace to output right; focus output right
