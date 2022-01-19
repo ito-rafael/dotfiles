@@ -1,33 +1,38 @@
-#=====================================================================
-# DEFAULT CONFIG (w/o hybrid device)
-#=====================================================================
-- JOB: >
-    intercept -g $DEVNODE | caps2esc | space2meta | 
-    dual-function-keys -c /etc/interception/dual-keys.yaml | 
-    uinput -d $DEVNODE
-  DEVICE:
-    EVENTS:
-      EV_KEY: > 
-        [KEY_CAPSLOCK, KEY_ESC, KEY_SPACE, 
-        KEY_LEFTALT, KEY_ENTER, 
-        KEY_TAB, KEY_RIGHTCTRL]
-
 ##=====================================================================
-## HYBRID DEVICES
+## Simple config (w/o hybrid device)
 ##=====================================================================
-## creating muxer and standalone job
-#- CMD: mux -c muxer
 #- JOB: >
-#    mux -i muxer | caps2esc | space2meta | 
+#    intercept -g $DEVNODE | caps2esc | space2meta | 
 #    dual-function-keys -c /etc/interception/dual-keys.yaml | 
-#    uinput -c /etc/interception/hybrid-mx.yaml
-##=====================================================================
-## Keyboard
-##=====================================================================
-## built-in i8042
-#- JOB: intercept -g $DEVNODE | mux -o muxer
+#    uinput -d $DEVNODE
 #  DEVICE:
-#    LINK: /dev/input/by-path/platform-i8042-serio-0-event-kbd
+#    EVENTS:
+#      EV_KEY: > 
+#        [KEY_CAPSLOCK, KEY_ESC, KEY_SPACE, 
+#        KEY_LEFTALT, KEY_ENTER, 
+#        KEY_TAB, KEY_RIGHTCTRL]
+
+#=====================================================================
+# Custom config (according to devices)
+#=====================================================================
+# creating muxer and standalone job
+- CMD: mux -c muxer
+- JOB: >
+    mux -i muxer | caps2esc | space2meta | 
+    dual-function-keys -c /etc/interception/dual-keys.yaml | 
+    uinput -c /etc/interception/hybrid-mx.yaml
+#=====================================================================
+# Keyboard
+#=====================================================================
+# built-in i8042
+- JOB: intercept -g $DEVNODE | mux -o muxer
+  DEVICE:
+    LINK: /dev/input/by-path/platform-i8042-serio-0-event-kbd
+#-------------------------------------------------
+# MX Keys
+- JOB: intercept -g $DEVNODE | mux -o muxer
+  DEVICE:
+    LINK: /dev/input/by-id/usb-Logitech_USB_Receiver-if02-event-mouse
 ##=====================================================================
 ## Mouse
 ##=====================================================================
