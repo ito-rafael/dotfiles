@@ -1,0 +1,18 @@
+TIMING:
+    TAP_MILLISEC: 200
+    DOUBLE_TAP_MILLISEC: 0
+
+MAPPINGS:
+    #====================
+    # b2shift
+    #====================
+    - KEY: KEY_B
+      TAP: KEY_LEFTSHIFT
+      HOLD: KEY_LEFTSHIFT
+    #====================
+    # e2ctrl
+    #====================
+    - KEY: KEY_VOLUMEUP
+      TAP: KEY_LEFTCTRL
+      HOLD: KEY_RIGHTCTRL
+    #====================
