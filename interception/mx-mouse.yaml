@@ -1,0 +1,25 @@
+TIMING:
+    TAP_MILLISEC: 200
+    DOUBLE_TAP_MILLISEC: 0
+
+MAPPINGS:
+    #====================
+    # mouse2key
+    #====================
+    # mouse PgUp
+    - KEY: BTN_EXTRA
+      TAP: KEY_PAGEUP
+      HOLD: KEY_RIGHTCTRL
+      HOLD_START: BEFORE_CONSUME
+    #--------------------
+    # mouse PgDn
+    - KEY: BTN_SIDE
+      TAP: KEY_PAGEDOWN
+      HOLD: KEY_RIGHTMETA
+      HOLD_START: BEFORE_CONSUME
+    #--------------------
+    # mouse close window
+    #- KEY: BTN_EXTRA
+    #  TAP: KEY_PAGEDOWN
+    #  HOLD: KEY_RIGHTALT
+    #====================
