@@ -75,6 +75,7 @@ plugins+=(git)
 plugins+=(sudo)
 plugins+=(web-search)
 plugins+=(dirhistory)
+plugins+=(history-substring-search)
 #plugins+=(vi-mode)
 #plugins+=(zsh-vi-mode)
 
@@ -141,3 +142,7 @@ alias vpn-lbic='sudo openvpn /etc/openvpn/client/ito_rafael-conf-file.conf'
 #=======================================
 # use keychain to launch ssh-agent and ssh-add
 eval $(keychain --noask --eval --quiet id_rsa)
+#-----------------------------
+# history-substring-search
+bindkey "^[[A" history-substring-search-up
+bindkey "^[[B" history-substring-search-down
