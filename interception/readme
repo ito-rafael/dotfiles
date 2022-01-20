@@ -48,13 +48,18 @@ sudo pacman -S xcape
 # Info
 #=================================================
 
-# laptop keyboard
+# Y2P keyboard
 /dev/input/by-path/platform-i8042-serio-0-event-kbd
 #-------------------------------------------------
 # Rapoo RF mouse
 /dev/input/by-id/usb-2635_2.4G_RF_MOUSE-event-mouse
 #-------------------------------------------------
-# Logitech MX Master 3 mouse
+# Logitech
+#------------------------
+# MX Master 3 mouse
+/dev/input/by-id/usb-Logitech_USB_Receiver-if02-event-mouse
+#------------------------
+# MX Keys
 /dev/input/by-id/usb-Logitech_USB_Receiver-if02-event-mouse
 
 #=================================================
@@ -75,6 +80,10 @@ uinput -p -d /dev/input/by-path/platform-i8042-serio-0-event-kbd -d /dev/input/b
 #       /dev/input/by-path/pci-0000:00:14.0-usb-0:3.4.1:1.2-event-mouse
 #   - pair MX Keys with the other Unifying receiver:
 #       /dev/input/by-path/pci-0000:00:14.0-usb-0:3.4.2:1.2-event-mouse
+#
+# !!! FOLLOWING COMMAND NOT WORKING !!!
+# I needed to craft the file "hybrid-mx.yaml" by hand.
+# "hybrid-mx.yaml" has the same content of "mouse-mx.yaml" with the fields EV_KEY and EV_ABS of "keyboard-mx.yaml" and a different NAME field.
 sudo uinput -p -d /dev/input/by-path/pci-0000:00:14.0-usb-0:3.4.1:1.2-event-mouse -d /dev/input/by-path/pci-0000:00:14.0-usb-0:3.4.2:1.2-event-mouse > hybrid-mx.yaml
 
 #=================================================
@@ -93,9 +102,11 @@ sudo uinput -p -d /dev/input/by-path/pci-0000:00:14.0-usb-0:3.4.1:1.2-event-mous
 # devices by-id
 /dev/input/by-id/usb-Logitech_USB_Receiver-if02-event-mouse
 /dev/input/by-id/usb-Logitech_USB_Receiver-if02-mouse
+#------------------------
 # devices by-path (i8042)
 /dev/input/by-path/pci-0000:00:14.0-usb-0:1:1.2-event-mouse
 /dev/input/by-path/pci-0000:00:14.0-usb-0:1:1.2-mouse
+#------------------------
 # input device yaml config
 # under Solaar: 
 #   - unpair MX Master 3
@@ -108,9 +119,11 @@ sudo uinput -p -d /dev/input/by-id/usb-Logitech_USB_Receiver-if02-event-mouse > 
 # devices by-id
 /dev/input/by-id/usb-Logitech_USB_Receiver-if02-event-mouse
 /dev/input/by-id/usb-Logitech_USB_Receiver-if02-mouse
+#------------------------
 # devices by-path (i8042)
 /dev/input/by-path/pci-0000:00:14.0-usb-0:1:1.2-event-mouse
 /dev/input/by-path/pci-0000:00:14.0-usb-0:1:1.2-mouse
+#------------------------
 # input device yaml config
 # under Solaar
 #   - unpair MX Keys

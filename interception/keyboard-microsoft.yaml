@@ -11,4 +11,3 @@ EVENTS:
   EV_REP:
     REP_DELAY: 250
     REP_PERIOD: 33
-
