@@ -61,13 +61,21 @@ sudo pacman -S xcape
 # Hybrid keyboard/mouse devices
 #=================================================
 # i8042/Rapoo
-uinput -p -d /dev/input/by-path/platform-i8042-serio-0-event-kbd -d /dev/input/by-id/usb-2635_2.4G_RF_MOUSE-event-mouse > /etc/interception/hybrid-rapoo.yaml
+uinput -p -d /dev/input/by-path/platform-i8042-serio-0-event-kbd -d /dev/input/by-id/usb-2635_2.4G_RF_MOUSE-event-mouse > /etc/interception/hybrid-i8042-rapoo.yaml
 #-------------------------------------------------
 # i8042/MX-Master-3
 uinput -p -d /dev/input/by-path/platform-i8042-serio-0-event-kbd -d /dev/input/by-id/usb-Logitech_USB_Receiver-if02-event-mouse > /etc/interception/hybrid-mx.yaml
 #-------------------------------------------------
 # i8042/(Rapoo + MX-Master-3)
 uinput -p -d /dev/input/by-path/platform-i8042-serio-0-event-kbd -d /dev/input/by-id/usb-2635_2.4G_RF_MOUSE-event-mouse -d /dev/input/by-id/usb-Logitech_USB_Receiver-if02-event-mouse > /etc/interception/hybrid.yaml
+#-------------------------------------------------
+# MX Keys + MX Master 3
+# under Solaar: 
+#   - pair MX Master 3 with one Unifying receiver:
+#       /dev/input/by-path/pci-0000:00:14.0-usb-0:3.4.1:1.2-event-mouse
+#   - pair MX Keys with the other Unifying receiver:
+#       /dev/input/by-path/pci-0000:00:14.0-usb-0:3.4.2:1.2-event-mouse
+sudo uinput -p -d /dev/input/by-path/pci-0000:00:14.0-usb-0:3.4.1:1.2-event-mouse -d /dev/input/by-path/pci-0000:00:14.0-usb-0:3.4.2:1.2-event-mouse > hybrid-mx.yaml
 
 #=================================================
 # Devices in /dev/input
@@ -80,14 +88,34 @@ uinput -p -d /dev/input/by-path/platform-i8042-serio-0-event-kbd -d /dev/input/b
 /dev/input/by-path/platform-i8042-serio-0-event-kbd
 
 #-------------------------------------------------
+# keyboard: MX Keys
+#-------------------------------------------------
+# devices by-id
+/dev/input/by-id/usb-Logitech_USB_Receiver-if02-event-mouse
+/dev/input/by-id/usb-Logitech_USB_Receiver-if02-mouse
+# devices by-path (i8042)
+/dev/input/by-path/pci-0000:00:14.0-usb-0:1:1.2-event-mouse
+/dev/input/by-path/pci-0000:00:14.0-usb-0:1:1.2-mouse
+# input device yaml config
+# under Solaar: 
+#   - unpair MX Master 3
+#   - pair MX Keys
+sudo uinput -p -d /dev/input/by-id/usb-Logitech_USB_Receiver-if02-event-mouse > keyboard-mx.yaml
+
+#-------------------------------------------------
 # mouse: Logitech MX Master 3
 #-------------------------------------------------
 # devices by-id
 /dev/input/by-id/usb-Logitech_USB_Receiver-if02-event-mouse
 /dev/input/by-id/usb-Logitech_USB_Receiver-if02-mouse
-# devices by-path
+# devices by-path (i8042)
 /dev/input/by-path/pci-0000:00:14.0-usb-0:1:1.2-event-mouse
 /dev/input/by-path/pci-0000:00:14.0-usb-0:1:1.2-mouse
+# input device yaml config
+# under Solaar
+#   - unpair MX Keys
+#   - pair MX Master 3
+sudo uinput -p -d /dev/input/by-id/usb-Logitech_USB_Receiver-if02-event-mouse > mouse-mx.yaml
 
 #-------------------------------------------------
 # mouse: Rapoo 2.4 GHz RF
