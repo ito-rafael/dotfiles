@@ -18,3 +18,6 @@ xmodmap ~/.Xmodmap
 
 # set mouse buttons 8 & 9 to page down/up
 xcape -e 'Alt_L=Page_Down;Control_L=Page_Up' -t 700
+
+# disable system beep (PC Speaker)
+xset -b
