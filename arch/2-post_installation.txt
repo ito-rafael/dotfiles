@@ -231,8 +231,9 @@ sudo pacman -S rofi
 # X compositor
 sudo pacman -S picom
 
-# i3bar
+# i3bar / i3blocks
 sudo pacman -S i3status i3blocks
+yay -S i3blocks-contrib-git
 
 # fonts for icons in i3bar
 sudo pacman -S ttf-font-awesome
