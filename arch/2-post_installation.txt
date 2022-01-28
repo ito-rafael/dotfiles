@@ -259,3 +259,8 @@ sudo pacman -S firefox-developer-edition
 # enable primary password
   # Hamburger icon --> Settings --> Privacy & Security --> Use a Primary Password
 
+# change bar density
+    # open Firefox, type "about:config" on the address bar and accept the risk
+    # change "browser.compactmode.show" to "true"
+    # Hamburger icon --> More Tools --> Customize Toolbar --> Density --> Compact
+
