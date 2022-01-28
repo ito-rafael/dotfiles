@@ -625,8 +625,8 @@ assign [class="Pavucontrol"] → $ws10
 # increment the X in the 'head -nX' command if you have more outputs
 set $left_screen $(xrandr | grep ' connected' | awk '{print $1}' | head -n1 | tail -n1)
 set $right_screen $(xrandr | grep ' connected' | awk '{print $1}' | head -n2 | tail -n1)
-#set $left_screen  VGA-1
-#set $right_screen HDMI-3
+#set $left_screen  VGA1
+#set $right_screen HDMI3
 #-----------------------------
 # left screen
 workspace $ws1 output $left_screen

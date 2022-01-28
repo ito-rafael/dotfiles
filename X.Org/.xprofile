@@ -1,6 +1,9 @@
 # HiDPI (resolution and DPI)
 xrandr --output eDP-1 --mode 3200x1800 --dpi 276
 
+# LBiC two screens
+#xrandr --output HDMI3 --mode 1920x1080 --rate 60.00 --output VGA1 --mode 1920x1080 --rate 60.00 --left-of HDMI3
+
 # natural scrolling
 xinput set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Scrolling Distance" -114 -114
 
