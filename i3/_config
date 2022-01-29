@@ -598,10 +598,13 @@ assign [class="Lutris"] → $ws6
 #-----------------------------
 # torrent download
 assign [class="Deluge"] → $ws7
+# Soulseek P2P
+assign [class="Nicotine"] → $ws7
 #-----------------------------
 # workspace 8
 #-----------------------------
 # music player (local)
+assign [class="Lollypop"] → $ws8
 assign [class="Lollypop"] → $ws8
 #-----------------------------
 # workspace 9

@@ -111,6 +111,7 @@ else
             ;;
         7 )
             nohup deluge & 
+            nohup nicotine & 
             ;;
         8 )
             nohup lollypop &
