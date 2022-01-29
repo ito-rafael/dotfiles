@@ -453,7 +453,7 @@ bindsym $mod+r mode "resize"
 mode "number" {
     #-----------------------------
     # exit "number" mode and load default Xmodmap file
-    bindsym Escape mode "default"; exec "xmodmap ~/.Xmodmap";
+    #bindsym Escape mode "default"; exec "xmodmap ~/.Xmodmap";
     bindsym $mod+Next mode "default"; exec "xmodmap ~/.Xmodmap";
     #-----------------------------
     # test
