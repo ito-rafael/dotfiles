@@ -596,9 +596,8 @@ assign [class="Lutris"] → $ws6
 #-----------------------------
 # workspace 7
 #-----------------------------
-# torrent download
+# torrent & P2P download
 assign [class="Deluge"] → $ws7
-# Soulseek P2P
 assign [class="Nicotine"] → $ws7
 #-----------------------------
 # workspace 8
