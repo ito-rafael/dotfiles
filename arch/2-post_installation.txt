@@ -264,3 +264,6 @@ sudo pacman -S firefox-developer-edition
     # change "browser.compactmode.show" to "true"
     # Hamburger icon --> More Tools --> Customize Toolbar --> Density --> Compact
 
+# set backspace key to go back action
+    # type "about:config" in the address bar
+    # set "browser.backspace_action" from "2" to "0"
