@@ -267,3 +267,69 @@ sudo pacman -S firefox-developer-edition
 # set backspace key to go back action
     # type "about:config" in the address bar
     # set "browser.backspace_action" from "2" to "0"
+
+# change OneTab background color in Firefox (dark theme)
+    #---------------------------------------------
+    # source:
+    https://userstyles.org/styles/156700/dark-onetab
+    
+    # requirements: to be able to bypass the extension signing requirement, you should be using the ESR, Developer or the Nightly version of Firefox
+    
+    # open Firefox and type "about:config" in to the address bar.
+    firefox-developer-edition
+
+    # search for 'xpinstall.signatures.required' and set to (false). This will allow you to modify extensions.
+    
+    # close firefox
+    
+    # navigate to the Firefox extensios directory
+    cd ~/.mozilla/firefox/ayzyfmj6.dev-edition-default/extensions
+    
+    # create a backup of the OneTab xpi file, just in case
+    cp extension@one-tab.com.xpi extension@one-tab.com.xpi.bak
+    
+    # rename the the OneTab xpi file into a zip file
+    mv extension@one-tab.com.xpi extension@one-tab.com.xpi.zip
+    
+    # unzip the css file
+    unzip -p extension@one-tab.com.xpi.zip >onetab.css
+    
+    # edit the css adding the following code to the beginning of the file
+    vim onetab.css
+    -----
+    /* i really want this to be global */
+    
+    #contentAreaDiv div
+    {
+      border-bottom: 0px solid red !important;
+    }
+    
+    body
+    {
+      background: #2b2c30 !important;
+      color: #fff !important;
+    }
+    
+    a
+    {
+      color: #fff!important;
+    }
+    /* -------------------------------------------- */
+    -----
+    
+    # put the edited onetab.css back into the zip archive
+    zip extension@one-tab.com.xpi.zip onetab.css
+    
+    # remove the css edited file
+    rm onetab.css
+    
+    # rename it back
+    mv extension@one-tab.com.xpi.zip extension@one-tab.com.xpi
+    
+    # test OneTab add-on to see if it's working
+    firefox-developer-edition
+    
+    # if it is, you can remove the backup file
+    rm  extension@one-tab.com.xpi.bak
+    #---------------------------------------------
+
