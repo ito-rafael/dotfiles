@@ -2,12 +2,12 @@
 ! source: https://wiki.archlinux.org/index.php/Xmodmap#Keymap_table
 !
 ! Each keysym column in the table corresponds to a particular combination of modifier keys:
-! 1. Key
-! 2. Shift+Key
-! 3. Mode_switch+Key
-! 4. Mode_switch+Shift+Key
-! 5. ISO_Level3_Shift+Key
-! 6. ISO_Level3_Shift+Shift+Key
+! 1. Key                        --> Key
+! 2. Shift+Key                  --> Shift+Key
+! 3. Mode_switch+Key            --> Alt+Key
+! 4. Mode_switch+Shift+Key      --> Shift+Alt+Key
+! 5. ISO_Level3_Shift+Key       --> AltGr+Key
+! 6. ISO_Level3_Shift+Shift+Key --> Shift+AltGr+Key
 !-------------------------------------------------
 ! keys changed so far:
 !
