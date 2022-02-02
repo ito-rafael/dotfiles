@@ -333,3 +333,5 @@ sudo pacman -S firefox-developer-edition
     rm  extension@one-tab.com.xpi.bak
     #---------------------------------------------
 
+# Add-ons
+  # Dark Reader
