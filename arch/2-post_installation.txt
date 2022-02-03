@@ -335,3 +335,4 @@ sudo pacman -S firefox-developer-edition
 
 # Add-ons
   # Dark Reader
+  # Simple Translate
