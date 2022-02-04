@@ -10,11 +10,11 @@ MAPPINGS:
       TAP: KEY_ENTER
       HOLD: KEY_LEFTALT
     #====================
-    # tab2ctrlR
+    # tab2mod5
     #====================
     - KEY: KEY_TAB
       TAP: KEY_TAB
-      HOLD: KEY_RIGHTCTRL
+      HOLD: KEY_F14
     #====================
     # mouse2key
     #====================
