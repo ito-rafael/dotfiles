@@ -180,3 +180,58 @@ sudo uinput -p -d /dev/input/by-id/usb-Logitech_USB_Receiver-if02-event-mouse > 
 # |      F18       |   XF86Launch9    |   196   |       KEY_F18       |        TBD        |
 # |      F19       |      -----       |   197   |       KEY_F19       |        TBD        |
 # +================+==================+=========+=====================+===================+
+#
+#=================================================
+# Using Tab as modifier (mod5)
+#=================================================
+#
+# these shortcuts are meant to be used with KEY_TAB working as mod5 modifier
+# in order to achieve this, different tools are used:   
+#
+# +---------+    interception    +---------+   xmodmap  +-------------------------+    i3wm    +-----------------+
+# | Tab Key |===================>| KEY_F14 |===========>| ISO_Level3_Shift (mod5) |===========>| custom keybinds |
+# +---------+ dual-function-keys +---------+ 7th column +-------------------------+ (optional) +-----------------+
+#
+# Step 1:
+#   - change Tab key behaviour when holding this key:
+#     vim /etc/interception/dual-keys.yaml
+#       #====================
+#       # tab2mod5
+#       #====================
+#       - KEY: KEY_TAB
+#         TAP: KEY_TAB
+#         HOLD: KEY_F14
+#       #====================
+#
+# Step 2:
+#   - identify the keycode of the key that will be remapped (used with modifier)
+#   - edit the 7th column of its entry in ~/.Xmodmap file
+#   vim ~/.Xmodmap
+#     #------------------------------------------
+#     !keycode  43 = h H h H h H h
+#     !keycode  44 = j J j J j J j
+#     !keycode  45 = k K k K oe OE oe
+#     !keycode  46 = l L l L oslash Oslash oslash
+#     #---------------------
+#     keycode  43 = h H h H Left Left h
+#     keycode  44 = j J j J Down Down j
+#     keycode  45 = k K k K Up Up oe
+#     keycode  46 = l L l L Right Right oslash
+#     #------------------------------------------
+#
+# Step 3:
+#   - if needed, i3wm config file (~/.config/i3/_config) can also be used
+#
+#-------------------------------------------------
+# navigation with vim keys
+#-------------------------------------------------
+#
+# tab + h --> left
+# tab + j --> down
+# tab + k --> up
+# tab + l --> right
+#------------------------
+# tab + 0 --> end
+# tab + 4 --> home
+#
+#=================================================
