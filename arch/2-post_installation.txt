@@ -337,3 +337,4 @@ sudo pacman -S firefox-developer-edition
   # Dark Reader
   # Simple Translate
   # OneTab
+  # YouTube Speed Controller
