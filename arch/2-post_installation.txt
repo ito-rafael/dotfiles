@@ -338,3 +338,9 @@ sudo pacman -S firefox-developer-edition
   # Simple Translate
   # OneTab
   # YouTube Speed Controller
+
+--------------------
+# Chromium
+--------------------
+# installation
+sudo pacman -S chromium
