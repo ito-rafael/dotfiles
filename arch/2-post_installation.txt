@@ -344,3 +344,6 @@ sudo pacman -S firefox-developer-edition
 --------------------
 # installation
 sudo pacman -S chromium
+
+# Extensions
+  # Dark Reader
