@@ -347,3 +347,4 @@ sudo pacman -S chromium
 
 # Extensions
   # Dark Reader
+  # Better OneTab
