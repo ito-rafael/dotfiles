@@ -275,6 +275,8 @@ bindsym mod3+ --whole-window button5 exec "pactl set-sink-volume @DEFAULT_SINK@ 
 #bindsym Shift+colon exec xvkbd -xsendevent -text ":"
 #bindsym Shift+BackSpace exec xvkbd -xsendevent -text ":"
 #-----------------------------
+# fix colon/semicolon/BackSpace remaps
+bindsym semicolon exec "xte 'key BackSpace'"
 
 #=============================
 #    custom  navigations 

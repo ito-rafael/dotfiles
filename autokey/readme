@@ -1,0 +1,57 @@
+#=================================================
+# AutoKey
+#=================================================
+
+# description:
+AutoKey is a GUI that runs Python3 scripts for text expansion (macro & keypress)
+#-------------------------------------------------
+# link:
+https://github.com/autokey/autokey
+#-------------------------------------------------
+# goal:
+# to fix applications that ignores Xmodmap remaps
+#-------------------------------------------------
+# installation
+yay -S autokey
+
+#=======================================
+# fix colon/semicolon/BackSpace
+#=======================================
+# Apps affected:
+#   - Chromium
+#   - LibreOffice
+
+# revert back the Xmodmap that remaps keycode 47 (orinal semicolon):
+-----
+!keycode  47 = BackSpace colon semicolon colon Delete degree paragraph
+keycode  47 = semicolon colon semicolon colon paragraph degree paragraph
+-----
+
+# edit i3wm _config:
+vim ~/.config/i3/_config
+-----
+bindsym semicolon exec "xte 'key BackSpace'"
+-----
+
+# launch AutoKey and create a script and a phrase:
+
+autokey-gtk
+#---------------------------------------
+Name: "System - BackSpace"
+Type: Script
+Content: "keyboard.send_keys("<backspace>")"
+#---------
+Abbreviations: (None configured)
+Hotkey: ";"
+Window Filter: (None configured)
+#---------------------------------------
+Name: "Chromium - semicolon"
+Type: Phrase
+Content: ";"
+#---------
+Abbreviations: (None configured)
+Hotkey: "<ctrl>+;"
+Window Filter: (None configured)
+#---------------------------------------
+
+#=======================================
