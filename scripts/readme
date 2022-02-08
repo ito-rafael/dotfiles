@@ -6,3 +6,9 @@
 directory that contains miscellaneous scripts
 
 # list of scripts
+#   - wait_host_up.sh
+
+#=======================================
+# wait_host_up.sh
+Script that keeps checking the availability of hosts with fping in a range of IPs (eg: 143.106.45.162/27). When it identifies any host up it sends a desktop notification and exit.
+#=======================================
