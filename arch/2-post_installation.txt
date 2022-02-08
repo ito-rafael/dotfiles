@@ -349,3 +349,4 @@ sudo pacman -S chromium
   # Dark Reader
   # Better OneTab
   # Read Aloud
+  # XTranslate
