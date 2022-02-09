@@ -647,6 +647,9 @@ exec_always feh --bg-scale ~/.config/feh/london.jpg
 # enable touchpad horizontal scroll
 exec xinput --set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Two-Finger Scrolling" 1 1
 #-----------------------------
+# launch AutoKey
+exec nohup autokey-gtk
+#-----------------------------
 # run compositor
 exec_always --no-startup-id picom -b --config ~/.config/picom.conf
 #-----------------------------
