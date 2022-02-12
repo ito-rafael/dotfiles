@@ -357,5 +357,19 @@ sudo pacman -S chromium
 # installation
 yay -S microsoft-edge-dev-bin
 
-# dark reader add-on
+# Dark Reader add-on
 https://microsoftedge.microsoft.com/addons/detail/dark-reader/ifoakfbpdcdoeenechcleahebpibofpc
+
+==============================
+ file manager
+==============================
+
+------------------------------
+# GUI
+------------------------------
+
+--------------------
+# Thunar
+--------------------
+# installation
+sudo pacman -S thunar
