@@ -373,3 +373,6 @@ https://microsoftedge.microsoft.com/addons/detail/dark-reader/ifoakfbpdcdoeenech
 --------------------
 # installation
 sudo pacman -S thunar
+
+# plugin to create and extract archive files from context menu
+sudo pacman -S thunar-archive-plugin
