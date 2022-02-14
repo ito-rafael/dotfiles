@@ -376,3 +376,6 @@ sudo pacman -S thunar
 
 # plugin to create and extract archive files from context menu
 sudo pacman -S thunar-archive-plugin
+
+# change "Open Terminal Here" function
+    # Edit --> Configure custom actions... --> change "Command" from "exo-open --working-directory %f --launch TerminalEmulator" to "kitty"
