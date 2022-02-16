@@ -382,3 +382,15 @@ sudo pacman -S gvfs gvfs-mtp
 
 # change "Open Terminal Here" function
     # Edit --> Configure custom actions... --> change "Command" from "exo-open --working-directory %f --launch TerminalEmulator" to "kitty"
+
+------------------------------
+# CLI
+------------------------------
+
+--------------------
+# ranger
+--------------------
+# vim-inspired console file manager
+
+# installation
+sudo pacman -S ranger
