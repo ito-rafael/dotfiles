@@ -45,13 +45,13 @@ Abbreviations: (None configured)
 Hotkey: ";"
 Window Filter: (None configured)
 #---------------------------------------
-Name: "Chromium - semicolon"
+Name: "Apps - semicolon"
 Type: Phrase
 Content: ";"
 #---------
 Abbreviations: (None configured)
 Hotkey: "<ctrl>+;"
-Window Filter: (None configured)
+Window Filter: "(libreoffice.libreoffice-calc)"
 #---------------------------------------
 
 #=======================================
