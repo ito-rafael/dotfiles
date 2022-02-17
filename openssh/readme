@@ -1,0 +1,8 @@
+#=================================================
+# OpenSSH
+#=================================================
+
+# description:
+TLDR: secure remote access
+ArchWiki: "OpenSSH (OpenBSD Secure Shell) is a set of computer programs providing encrypted communication sessions over a computer network using the Secure Shell (SSH) protocol."
+
