@@ -51,7 +51,7 @@ Content: ";"
 #---------
 Abbreviations: (None configured)
 Hotkey: "<ctrl>+;"
-Window Filter: "(libreoffice.libreoffice-calc)"
+Window Filter: "(libreoffice.libreoffice-calc|chromium.Chromium)"
 #---------------------------------------
 
 #=======================================
