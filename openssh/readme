@@ -18,3 +18,10 @@ sudo apt install openssh-server
 #=======================================
 vim /etc/sshd_config
 
+#=======================================
+# Client config
+#=======================================
+# connection
+ssh -p 22 username@ServerIP
+
+
