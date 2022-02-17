@@ -20,6 +20,7 @@ yay -S autokey
 # Apps affected:
 #   - Chromium
 #   - LibreOffice
+#   - Firefox
 
 # revert back the Xmodmap that remaps keycode 47 (orinal semicolon):
 -----
@@ -51,7 +52,7 @@ Content: ";"
 #---------
 Abbreviations: (None configured)
 Hotkey: "<ctrl>+;"
-Window Filter: "(libreoffice.libreoffice-calc|chromium.Chromium)"
+Window Filter: "(libreoffice.libreoffice-calc|chromium.Chromium|Navigator.firefox)"
 #---------------------------------------
 
 #=======================================
