@@ -5,4 +5,12 @@
 # description:
 TLDR: secure remote access
 ArchWiki: "OpenSSH (OpenBSD Secure Shell) is a set of computer programs providing encrypted communication sessions over a computer network using the Secure Shell (SSH) protocol."
+#-------------------------------------------------
+# installation
+sudo pacman -S openssh
+#-------------------
+# some distros require installation of client and server separately. For example:
+sudo apt install openssh-client
+sudo apt install openssh-server
+
 
