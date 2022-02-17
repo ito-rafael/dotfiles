@@ -13,4 +13,8 @@ sudo pacman -S openssh
 sudo apt install openssh-client
 sudo apt install openssh-server
 
+#=======================================
+# Server config
+#=======================================
+vim /etc/sshd_config
 
