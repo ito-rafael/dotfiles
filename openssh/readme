@@ -27,6 +27,9 @@ PermitRootLogin no
 #---------------------------------------
 # disable password authentication (allow login with public key only)
 PasswordAuthentication no
+#---------------------------------------
+# allow only certain users to login
+AllowUsers username
 
 #=======================================
 # Client config
