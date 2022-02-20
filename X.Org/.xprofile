@@ -5,7 +5,7 @@ xrandr \
 
 # LBiC screens
 #xrandr \
-#    --output HDMI3 --mode 1920x1080 --rate 60.00 --primary
+#    --output HDMI3 --mode 1920x1080 --rate 60.00 --primary \
 #    --output VGA1  --mode 1920x1080 --rate 60.00 --left-of HDMI3
 
 # natural scrolling
