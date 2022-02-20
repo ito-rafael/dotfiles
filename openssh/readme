@@ -24,6 +24,9 @@ Port 2222
 #---------------------------------------
 # disable root login
 PermitRootLogin no
+#---------------------------------------
+# disable password authentication (allow login with public key only)
+PasswordAuthentication no
 
 #=======================================
 # Client config
