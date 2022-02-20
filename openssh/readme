@@ -30,6 +30,15 @@ PasswordAuthentication no
 #---------------------------------------
 # allow only certain users to login
 AllowUsers username
+#---------------------------------------
+# allow only certain group of users to login
+AllowGroups sshuser
+#-------------------
+# create group
+sudo groupadd sshuser
+# add members to that group
+sudo usermod -aG sshusers username
+#-------------------
 
 #=======================================
 # Client config
