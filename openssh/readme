@@ -45,5 +45,8 @@ sudo usermod -aG sshusers username
 #=======================================
 # connection
 ssh -p 22 username@ServerIP
-
+#---------------------------------------
+# copy public key to the server
+ssh-copy-id -i ~/.ssh/id_rsa.pub ServerIP
+# this is the same as copying ~/.ssh/id_rsa.pub of client in ~/.ssh/authorized_keys
 
