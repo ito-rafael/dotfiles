@@ -1,5 +1,7 @@
 # Y2P HiDPI screen (resolution and DPI)
-xrandr --output eDP-1 --mode 3200x1800 --rate 60.00 --dpi 276 --primary
+xrandr \
+    --output eDP-1  --mode 3200x1800 --rate 60.00 --dpi 276 --primary
+#    --output HDMI-1 --mode 1920x1080 --rate 60.00
 
 # LBiC screens
 #xrandr --output HDMI3 --mode 1920x1080 --rate 60.00 --output VGA1 --mode 1920x1080 --rate 60.00 --left-of HDMI3
