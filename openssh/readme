@@ -17,6 +17,13 @@ sudo apt install openssh-server
 # Server config
 #=======================================
 vim /etc/sshd_config
+#---------------------------------------
+# change port
+#Port 22
+Port 2222
+#---------------------------------------
+# disable root login
+PermitRootLogin no
 
 #=======================================
 # Client config
