@@ -52,3 +52,14 @@ ssh-copy-id -i ~/.ssh/id_rsa.pub ServerIP
 #---------------------------------------
 # connection
 ssh -p 22 username@ServerIP
+
+#=======================================
+# transfering files with SCP
+#=======================================
+#---------------------------------------
+# putting into the server
+#---------------------------------------
+# file
+scp -P 22 LocalFile ServerIP:ServerDir
+# eg: scp -P 2222 ~/testfile 192.168.0.1:/home/username/
+
