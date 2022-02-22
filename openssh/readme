@@ -86,3 +86,7 @@ cd NewServerDir
 # change client dir
 lcd NewClientDir
 # the same applies for other commands such as ls/lls, pwd/lpwd, etc.
+#---------------------------------------
+# put file/dir into server
+put file
+put -R dir
