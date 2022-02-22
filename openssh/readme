@@ -94,3 +94,11 @@ put -R dir
 # get file/dir from server
 get file
 get -R dir
+
+#=======================================
+# SSHFS: mounting file system with ssh
+#=======================================
+# installation (only needed in client side)
+sudo pacman -S sshfs
+sudo apt install sshfs
+
