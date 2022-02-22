@@ -62,4 +62,8 @@ ssh -p 22 username@ServerIP
 # file
 scp -P 22 LocalFile ServerIP:ServerDir
 # eg: scp -P 2222 ~/testfile 192.168.0.1:/home/username/
+#-------------------
+# directory (and its contents)
+scp -P 22 -r LocalDir ServerIP:ServerDir
+# eg: scp -P 2222 -r ~/testdir 192.168.0.1:/home/username
 
