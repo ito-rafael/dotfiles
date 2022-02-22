@@ -77,3 +77,12 @@ scp -P 22 -r ServerIP:ServerDir LocalDir
 # directory (and its contents)
 scp -P 22 ServerIP:ServerFile LocalDir
 # eg: scp -P 2222 -r 192.168.0.1:/home/username/testdir ~/
+
+#=======================================
+# transfering files with SFTP
+#=======================================
+# change server dir
+cd NewServerDir
+# change client dir
+lcd NewClientDir
+# the same applies for other commands such as ls/lls, pwd/lpwd, etc.
