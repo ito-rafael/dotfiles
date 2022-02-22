@@ -67,3 +67,10 @@ scp -P 22 LocalFile ServerIP:ServerDir
 scp -P 22 -r LocalDir ServerIP:ServerDir
 # eg: scp -P 2222 -r ~/testdir 192.168.0.1:/home/username
 
+#---------------------------------------
+# getting from the server
+#---------------------------------------
+# file
+scp -P 22 -r ServerIP:ServerDir LocalDir
+# eg: scp -P 2222 192.168.0.1:/home/username/testfile ~/
+
