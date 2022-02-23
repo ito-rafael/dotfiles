@@ -101,4 +101,7 @@ get -R dir
 # installation (only needed in client side)
 sudo pacman -S sshfs
 sudo apt install sshfs
-
+#---------------------------------------
+# usage
+sshfs IP:ServerMountPoint LocalMountPoint
+# eg: sshfs 192.168.0.1:/home/username/serverdir /home/username/localdir
