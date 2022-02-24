@@ -105,3 +105,9 @@ sudo apt install sshfs
 # usage
 sshfs IP:ServerMountPoint LocalMountPoint
 # eg: sshfs 192.168.0.1:/home/username/serverdir /home/username/localdir
+#---------------------------------------
+# umount
+fusermount -u LocalMountPoint
+# eg: fusermount -u /home/username/localdir
+
+#=======================================
