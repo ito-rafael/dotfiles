@@ -43,8 +43,8 @@ sudo usermod -aG sshusers username
 #=======================================
 # Client config
 #=======================================
-# connection
-ssh -p 22 username@ServerIP
+# generate keys
+ssh-keygen
 #---------------------------------------
 # copy public key to the server
 ssh-copy-id -i ~/.ssh/id_rsa.pub ServerIP
