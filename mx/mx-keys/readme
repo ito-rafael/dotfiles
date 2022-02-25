@@ -7,3 +7,9 @@
 #=======================================
 # Windows only
 # TBD
+
+#=======================================
+# Keyboard backlight not working
+#=======================================
+# https://github.com/PixlOne/logiops
+
