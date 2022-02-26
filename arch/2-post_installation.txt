@@ -401,3 +401,6 @@ sudo pacman -S ranger
 
 # installation
 sudo pacman -S bluez bluez-utils
+
+# GUI front-end
+sudo pacman -S blueman 
