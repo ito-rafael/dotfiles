@@ -404,3 +404,13 @@ sudo pacman -S bluez bluez-utils
 
 # GUI front-end
 sudo pacman -S blueman 
+
+# check if the bluetooth driver (btusb) loaded
+lsmod | grep btusb
+# if not, load it
+modprobe btusb
+# set systemd to auto load it
+...
+https://wiki.archlinux.org/title/Kernel_module#Obtaining_information
+...
+
