@@ -414,3 +414,6 @@ modprobe btusb
 https://wiki.archlinux.org/title/Kernel_module#Obtaining_information
 ...
 
+# start/enable service
+sudo systemctl start bluetooth
+sudo systemctl enable bluetooth
