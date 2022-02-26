@@ -394,3 +394,10 @@ sudo pacman -S gvfs gvfs-mtp
 
 # installation
 sudo pacman -S ranger
+
+==============================
+ Bluetooth
+==============================
+
+# installation
+sudo pacman -S bluez bluez-utils
