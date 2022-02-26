@@ -427,3 +427,10 @@ blueman-manager
 # CLI config
 ------------------------------
 bluetoothctl
+
+==============================
+ Audio
+==============================
+
+# installation
+sudo pacman -S pulse-audio
