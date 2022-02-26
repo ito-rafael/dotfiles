@@ -422,3 +422,8 @@ sudo systemctl enable bluetooth
 # GUI config
 ------------------------------
 blueman-manager
+
+------------------------------
+# CLI config
+------------------------------
+bluetoothctl
