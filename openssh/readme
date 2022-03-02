@@ -54,6 +54,25 @@ ssh-copy-id -i ~/.ssh/id_rsa.pub ServerIP
 ssh -p 22 username@ServerIP
 
 #=======================================
+# ssh-agent
+#=======================================
+# description: 
+#   launching ssh-agent in the background allows the user to unlock its
+#   key, store it on memory and avoid typing the passphrase, unless the 
+#   terminal is closed.
+
+#---------------------------------------
+# terminal-valid
+#---------------------------------------
+# first, check if ssh-agent is already running
+ps aux | grep ssh-agent
+# if not, start it
+eval "$(ssh-agent -s)"
+#---------------------------------------
+# add the private key you want to be cached to the ssh-agent
+ssh-add ~/.ssh/id_rsa
+
+#=======================================
 # transfering files with SCP
 #=======================================
 #---------------------------------------
