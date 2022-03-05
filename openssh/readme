@@ -52,6 +52,18 @@ ssh-copy-id -i ~/.ssh/id_rsa.pub ServerIP
 #---------------------------------------
 # connection
 ssh -p 22 username@ServerIP
+#---------------------------------------
+# alias
+cd ~/.ssh
+vim config
+-----
+Host myserver
+  Hostname IP-ADDRESS
+  Port 22
+  User myusername
+-----
+# then instead of typing: "ssh myusername@IP-ADDRESS", simply type:
+ssh myserver
 
 #=======================================
 # ssh-agent
