@@ -8,6 +8,7 @@ directory that contains miscellaneous scripts
 # list of scripts
 #   - wait_host_up.sh
 #   - navigate2ws.sh
+#   - mx_script.sh
 
 #=======================================
 # wait_host_up.sh
@@ -27,4 +28,13 @@ sudo pacman -S i3-wm
 
 # description
 Script to navigate to i3 workspaces and open specifics windows if woskpace is empty.
+#=======================================
+# mx_script.sh
+#=======================================
+# Solaar
+sudo pacman -S solaar
+
+# description
+change host connection for both MX Master 3 and MX Keys using Solaar
+https://github.com/ito-rafael/pc-general-config/blob/master/mx/readme
 #=======================================
