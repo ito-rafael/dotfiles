@@ -434,3 +434,6 @@ bluetoothctl
 
 # installation
 sudo pacman -S pulse-audio
+
+# for bluetooth
+sudo pacman -S pulseaudio-bluetooth
