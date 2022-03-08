@@ -9,6 +9,7 @@ directory that contains miscellaneous scripts
 #   - wait_host_up.sh
 #   - navigate2ws.sh
 #   - mx_script.sh
+#   - i3_save_layout.sh
 
 #=======================================
 # wait_host_up.sh
@@ -37,4 +38,17 @@ sudo pacman -S solaar
 # description
 change host connection for both MX Master 3 and MX Keys using Solaar
 https://github.com/ito-rafael/pc-general-config/blob/master/mx/readme
+#=======================================
+#   - i3_save_layout.sh
+#=======================================
+# prerequisites
+sudo pacman -S perl-anyevent-i3
+sudo pacman -S perl-json-xs
+
+# description
+saves layout of workspace N in file $HOME/.config/i3/wsN.json
+
+# usage
+# first prepare the workspace opening the respective windows, then:
+$HOME/.config/scripts/i3_save_layout.sh N
 #=======================================
