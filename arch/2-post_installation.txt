@@ -437,3 +437,6 @@ sudo pacman -S pulse-audio
 
 # for bluetooth
 sudo pacman -S pulseaudio-bluetooth
+
+# GUI front-end
+sudo pacman -S pavucontrol
