@@ -10,6 +10,7 @@ directory that contains miscellaneous scripts
 #   - navigate2ws.sh
 #   - mx_script.sh
 #   - i3_save_layout.sh
+#   - darth_bright.sh
 
 #=======================================
 # wait_host_up.sh
@@ -51,4 +52,19 @@ saves layout of workspace N in file $HOME/.config/i3/wsN.json
 # usage
 # first prepare the workspace opening the respective windows, then:
 $HOME/.config/scripts/i3_save_layout.sh N
+#=======================================
+# darth_bright.sh
+#=======================================
+# GTK 3.0
+sudo pacman -S gtk3
+
+# usage:
+#   - edit ~/.zshrc (or ~/.bashrc)
+#     -----
+      get current theme
+      export THEME_CURRENT=$(cat ~/.config/gtk-3.0/settings.ini | grep -oP '(?<=gtk-theme-name=).*')
+#     -----
+#   - source script
+      watch -n 1 head ~/.config/gtk-3.0/settings.ini
+      source $HOME/.config/scripts/darth_bright.sh
 #=======================================
