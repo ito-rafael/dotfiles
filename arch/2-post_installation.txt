@@ -463,3 +463,13 @@ sudo pacman -S pulseaudio-bluetooth
 
 # GUI front-end
 sudo pacman -S pavucontrol
+
+==============================
+# useful packages
+==============================
+
+# monitoring
+sudo pacman -S htop
+
+# lsusb
+sudo pacman -S usbutils
