@@ -484,3 +484,10 @@ dmidecode -t 2
 
 # info about hardware
 sudo pacman -S lshw
+
+------------------------------
+# camera/webcam
+------------------------------
+
+# OBS Studio
+sudo pacman -S obs-studio
