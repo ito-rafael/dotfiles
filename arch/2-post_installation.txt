@@ -486,8 +486,11 @@ dmidecode -t 2
 sudo pacman -S lshw
 
 ------------------------------
-# camera/webcam
+# general
 ------------------------------
 
-# OBS Studio
+# camera/webcam: OBS Studio
 sudo pacman -S obs-studio
+
+# archive manager: Xarchiver
+sudo pacman -S xarchiver zip unzip
