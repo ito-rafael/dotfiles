@@ -468,7 +468,11 @@ sudo pacman -S pavucontrol
 # useful packages
 ==============================
 
+------------------------------
 # monitoring
+------------------------------
+
+# process viewer
 sudo pacman -S htop
 
 # lsusb
