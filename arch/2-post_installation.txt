@@ -473,3 +473,7 @@ sudo pacman -S htop
 
 # lsusb
 sudo pacman -S usbutils
+
+# info about motherboard
+sudo pacman -S dmidecode
+dmidecode -t 2
