@@ -36,6 +36,23 @@ pacman -S 		    \
 # paccache
 sudo pacman -S pacman-contrib
 
+# yay
+
+# install tools for building/compiling
+sudo pacman -S --needed base-devel
+sudo pacman -S git
+
+# clone repo
+cd /opt
+sudo git clone https://aur.archlinux.org/yay-git.git
+
+# change permissions from root to users
+sudo chown -R <username>:<group> .yay-git
+
+# build the package from PKGBUILD
+cd yay-git
+makepkg -si
+
 ==============================
  display manager
 ==============================
