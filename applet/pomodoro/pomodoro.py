@@ -5,9 +5,14 @@
 #-------------------------------------------------
 
 import gi
+import os
+
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
 from gi.repository import AppIndicator3 as appindicator
+
+# get env var
+HOME_DIR = os.getenv("HOME")
 
 def menuitem_response(w, buf):
     print(buf)
@@ -19,6 +24,9 @@ if __name__ == "__main__":
             appindicator.IndicatorCategory.APPLICATION_STATUS)
     ind.set_status (appindicator.IndicatorStatus.ACTIVE)
     ind.set_attention_icon ("indicator-messages-new")
+
+    # set icon
+    ind.set_icon(HOME_DIR + "/.config/applet/pomodoro/tomato.png")
 
     # create a menu
     menu = Gtk.Menu()
