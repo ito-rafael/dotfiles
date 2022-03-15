@@ -494,3 +494,6 @@ sudo pacman -S obs-studio
 
 # archive manager: Xarchiver
 sudo pacman -S xarchiver zip unzip
+
+# email client: Thunderbird
+sudo pacman -S thunderbird
