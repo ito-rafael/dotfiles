@@ -509,3 +509,6 @@ sudo pacman -S libreoffice-fresh
 
 # music streaming player: Spotify
 yay -S spotify
+
+# music player: Lollypop
+sudo pacman -S lollypop
