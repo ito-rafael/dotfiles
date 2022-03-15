@@ -502,3 +502,10 @@ sudo pacman -S thunderbird
 
 # office suite: LibreOffice
 sudo pacman -S libreoffice-fresh
+
+------------------------------
+# media player
+------------------------------
+
+# music streaming player: Spotify
+yay -S spotify
