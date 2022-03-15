@@ -499,3 +499,6 @@ sudo pacman -S xarchiver zip unzip
 sudo pacman -S thunderbird
 # restoring config from previous PC
 # copy the directory ~/.thunderbird from the previous PC to the new one
+
+# office suite: LibreOffice
+sudo pacman -S libreoffice-fresh
