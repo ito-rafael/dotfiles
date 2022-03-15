@@ -512,6 +512,8 @@ yay -S spotify
 
 # multimedia player: VLC
 sudo pacman -S vlc
+# recording with VLC
+sudo pacman -S zvbi
 
 # music player: Lollypop
 sudo pacman -S lollypop
