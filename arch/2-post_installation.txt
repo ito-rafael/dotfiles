@@ -530,4 +530,6 @@ sudo pacman -S thunderbird
 # office suite: LibreOffice
 sudo pacman -S libreoffice-fresh
 
+# image viewer: Ristretto
+sudo pacman -S ristretto
 
