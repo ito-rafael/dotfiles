@@ -486,6 +486,28 @@ dmidecode -t 2
 sudo pacman -S lshw
 
 ------------------------------
+# media player
+------------------------------
+
+# music streaming player: Spotify
+yay -S spotify
+
+# multimedia player: VLC
+sudo pacman -S vlc
+# recording with VLC
+sudo pacman -S zvbi
+
+# music player: Lollypop
+sudo pacman -S lollypop
+
+------------------------------
+# document viewer
+------------------------------
+
+# PDF: Evince
+sudo pacman -S evince
+
+------------------------------
 # general
 ------------------------------
 
@@ -503,17 +525,4 @@ sudo pacman -S thunderbird
 # office suite: LibreOffice
 sudo pacman -S libreoffice-fresh
 
-------------------------------
-# media player
-------------------------------
 
-# music streaming player: Spotify
-yay -S spotify
-
-# multimedia player: VLC
-sudo pacman -S vlc
-# recording with VLC
-sudo pacman -S zvbi
-
-# music player: Lollypop
-sudo pacman -S lollypop
