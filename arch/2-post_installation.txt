@@ -501,11 +501,14 @@ sudo pacman -S zvbi
 sudo pacman -S lollypop
 
 ------------------------------
-# document viewer
+# document viewer (PDF)
 ------------------------------
 
-# PDF: Evince
+# Evince
 sudo pacman -S evince
+
+# zathura
+sudo pacman -S zathura
 
 ------------------------------
 # general
