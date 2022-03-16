@@ -509,6 +509,8 @@ sudo pacman -S evince
 
 # zathura
 sudo pacman -S zathura
+# for PDF support
+sudo pacman -S zathura-pdf-mupdf
 
 ------------------------------
 # general
