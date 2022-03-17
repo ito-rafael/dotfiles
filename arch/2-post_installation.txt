@@ -485,6 +485,9 @@ dmidecode -t 2
 # info about hardware
 sudo pacman -S lshw
 
+# system monitoring tool
+sudo pacman -S glances
+
 ------------------------------
 # media player
 ------------------------------
