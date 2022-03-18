@@ -536,3 +536,5 @@ sudo pacman -S libreoffice-fresh
 # image viewer: Ristretto
 sudo pacman -S ristretto
 
+# image editor: GIMP
+sudo pacman -S gimp
