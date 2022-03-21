@@ -538,3 +538,6 @@ sudo pacman -S ristretto
 
 # image editor: GIMP
 sudo pacman -S gimp
+
+# screenshot: Shutter
+yay -S shutter
