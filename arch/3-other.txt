@@ -1,0 +1,11 @@
+=============================================================
+ Packages and other config
+===========================================================
+
+this file contains instruction to:
+  - install not essential packages
+  - set custom configurations
+  - ricing
+  - other stuff
+
+
