@@ -8,4 +8,12 @@ this file contains instruction to:
   - ricing
   - other stuff
 
+==============================
+TeX / LaTeX
+==============================
+
+https://wiki.archlinux.org/title/TeX_Live
+
+# texlive-core: the essential package
+sudo pacman -S texlive-core
 
