@@ -19,3 +19,6 @@ sudo pacman -S texlive-bin
 
 # texlive-core: the essential package
 sudo pacman -S texlive-core
+
+# texlive-latexextra: useful packages (eg: polyglossia, amsmath, graphicx)
+sudo pacman -S texlive-latexextra
