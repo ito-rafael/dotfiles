@@ -22,3 +22,6 @@ sudo pacman -S texlive-core
 
 # texlive-latexextra: useful packages (eg: polyglossia, amsmath, graphicx)
 sudo pacman -S texlive-latexextra
+
+# Vim support (view, edit and compile LaTeX documents)
+sudo pacman -S vim-latexsuite
