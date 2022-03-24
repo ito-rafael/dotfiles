@@ -48,3 +48,10 @@ sudo pacman -S python
 
 # pip
 sudo pacman -S python-pip
+
+------------------------------
+# data science packages
+------------------------------
+
+# NumPy: arrays support
+sudo pacman -S python-numpy
