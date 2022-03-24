@@ -23,5 +23,18 @@ sudo pacman -S texlive-core
 # texlive-latexextra: useful packages (eg: polyglossia, amsmath, graphicx)
 sudo pacman -S texlive-latexextra
 
+# !! NOT RECOMMENDED !!
 # Vim support (view, edit and compile LaTeX documents)
 sudo pacman -S vim-latexsuite
+
+# !! REMOVED IT !!
+sudo pacman -Rsn vim-latexsuite
+# !! AND INSTALL VIMTEX WITH VUNDLE !!
+vim ~/.vimrc
+-----
+filetype plugin indent on
+set grepprg=grep\ -nH\ $*
+let g:tex_flavor = "latex"
+-----
+# also check if the runtime path (RTP) contains:
+# set runtimepath=~/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/.vim/after
