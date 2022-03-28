@@ -488,6 +488,9 @@ sudo pacman -S lshw
 # system monitoring tool
 sudo pacman -S glances
 
+# disk usage (TUI)
+sudo pacman -S ncdu
+
 ------------------------------
 # media player
 ------------------------------
