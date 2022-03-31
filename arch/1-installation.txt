@@ -12,8 +12,8 @@ https://itsfoss.com/install-arch-linux/
 # download image from:
 https://www.archlinux.org/download/
 
-# verify signature:
-gpg --keyserver-options auto-key-retrieve --verify archlinux-version-x86_64.iso.sig
+# verify signature: (replace <VERSION> accordingly)
+gpg --keyserver-options auto-key-retrieve --verify archlinux-<VERSION>-x86_64.iso.sig
 
 # copy image to a USB stick: (replace "sdx" accordingly)
 dd bs=4M if=path/to/archlinux.iso of=/dev/sdx status=progress oflag=sync
