@@ -34,6 +34,9 @@ vim ~/.config/i3/_config
 bindsym semicolon exec "xte 'key BackSpace'"
 -----
 
+# LibreOffice
+Tools --> Customize... --> Shortcut Keys --> Ctrl+; --> Delete
+
 # launch AutoKey and create a script and a phrase:
 
 autokey-gtk
