@@ -53,5 +53,6 @@ sudo pacman -S python-pip
 # data science packages
 ------------------------------
 
-# NumPy: arrays support
-sudo pacman -S python-numpy
+sudo pacman -S \
+    python-numpy            \   # NumPy: arrays support
+    python-pandas           \   # pandas: data analysis (DataFrame object)
