@@ -33,10 +33,14 @@ pacman -S 		    \
 ==============================
  pacman
 ==============================
+---------------
 # paccache
+---------------
 sudo pacman -S pacman-contrib
 
+---------------
 # yay
+---------------
 
 # install tools for building/compiling
 sudo pacman -S --needed base-devel
@@ -52,6 +56,14 @@ sudo chown -R <username>:<group> .yay-git
 # build the package from PKGBUILD
 cd yay-git
 makepkg -si
+
+---------------
+# package signature / keyring
+---------------
+sudo pacman -S archlinux-keyring
+sudo pacman-key --init
+sudo pacman-key --populate archlinux
+sudo pacman-key --refresh-keys
 
 ==============================
  display manager
