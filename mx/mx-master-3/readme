@@ -46,11 +46,11 @@ vim /etc/logid.cfg
 vim ~/.xbindkeysrc
 #-----------------------------
 # volume up using mouse
-"pacmd list-sinks | grep index | awk ' { print $NF } ' | xargs -i pactl set-sink-volume {} +5% && pkill -RTMIN+10 i3blocks"
+"pactl list sinks | grep 'Sink #' | grep -o '[0-9]*' | xargs -i pactl set-sink-volume {} +5% && pkill -RTMIN+1 i3blocks"
 Alt + b:4
 #-----------------------------
 # volume down using mouse
-"pacmd list-sinks | grep index | awk ' { print $NF } ' | xargs -i pactl set-sink-volume {} -5% && pkill -RTMIN+10 i3blocks"
+"pactl list sinks | grep 'Sink #' | grep -o '[0-9]*' | xargs -i pactl set-sink-volume {} -5% && pkill -RTMIN+1 i3blocks"
 Alt + b:5
 #-----------------------------
 
