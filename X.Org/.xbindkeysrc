@@ -74,6 +74,18 @@
 # check documentation:
 # http://xmacro.sourceforge.net/
 
+#=============================
+# volume control with the mouse
+#=============================
+
+# volume up using mouse
+"pacmd list-sinks | grep index | awk ' { print $NF } ' | xargs -i pactl set-sink-volume {} +5% && pkill -RTMIN+10 i3blocks"
+Alt + b:4
+
+# volume down using mouse
+"pacmd list-sinks | grep index | awk ' { print $NF } ' | xargs -i pactl set-sink-volume {} -5% && pkill -RTMIN+10 i3blocks"
+Alt + b:5
+
 ##################################
 # End of xbindkeys configuration #
 ##################################
