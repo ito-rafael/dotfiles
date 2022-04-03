@@ -56,4 +56,5 @@ sudo pacman -S python-pip
 sudo pacman -S \
     python-numpy            \   # NumPy: arrays support
     python-pandas           \   # pandas: data analysis (DataFrame object)
-    python-matplotlib       \   # Matplotlib: plotting & visualization
+    python-matplotlib       \   # Matplotlib: plot & visualization
+    python-scipy            \   # SciPy: scientific computing
