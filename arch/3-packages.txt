@@ -58,4 +58,5 @@ sudo pacman -S \
     python-pandas           \   # pandas: data analysis (DataFrame object)
     python-matplotlib       \   # Matplotlib: plot & visualization
     python-scipy            \   # SciPy: scientific computing
-    python-scikit-learn     \   # machine learning lib
+    python-scikit-learn     \   # scikit-learn: machine learning lib
+    python-seaborn          \   # seaborn: statistical data visualization
