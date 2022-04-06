@@ -61,3 +61,4 @@ sudo pacman -S \
     python-scikit-learn     \   # scikit-learn: machine learning lib
     python-seaborn          \   # seaborn: statistical data visualization
     python-sphinx           \   # Sphinx: documentation generator
+    python-sphinx_rtd_theme \   # Read the Docs Sphinx theme
