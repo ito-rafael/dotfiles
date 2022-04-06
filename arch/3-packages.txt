@@ -64,3 +64,12 @@ sudo pacman -S \
     python-sphinx           \   # Sphinx: documentation generator
     python-sphinx_rtd_theme \   # Read the Docs Sphinx theme
     python-recommonmark     \   # markdown parser for docutils & Sphinx
+
+==============================
+ Printer
+==============================
+
+# CUPS
+sudo pacman -S cups
+sudo systemctl enable cups
+sudo systemctl start cups
