@@ -146,3 +146,6 @@ eval $(keychain --noask --eval --quiet id_rsa)
 # history-substring-search
 bindkey "^[[A" history-substring-search-up
 bindkey "^[[B" history-substring-search-down
+#-----------------------------
+# fix: workaround for history-substring-search work with zsh-vi-mode
+zvm_after_init_commands+=("bindkey '^[[A' up-line-or-search" "bindkey '^[[B' down-line-or-search")
