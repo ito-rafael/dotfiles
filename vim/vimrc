@@ -109,6 +109,11 @@ set expandtab
 set clipboard=unnamedplus
 
 "----------------------------
+" disable system beep
+"----------------------------
+set belloff=all
+
+"----------------------------
 " Mapping keys
 "----------------------------
 "map <Leader> key to <Space>
