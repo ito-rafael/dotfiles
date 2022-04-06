@@ -9,7 +9,7 @@ this file contains instruction to:
   - other stuff
 
 ==============================
-TeX / LaTeX
+ TeX / LaTeX
 ==============================
 
 https://wiki.archlinux.org/title/TeX_Live
@@ -40,7 +40,7 @@ let g:tex_flavor = "latex"
 # set runtimepath=~/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/.vim/after
 
 ==============================
-Python
+ Python
 ==============================
 
 # installation
@@ -48,6 +48,7 @@ sudo pacman -S python
 
 # pip
 sudo pacman -S python-pip
+### ONLY USE PIP IN A VIRTUALENV ###
 
 ------------------------------
 # data science packages
