@@ -60,3 +60,4 @@ sudo pacman -S \
     python-scipy            \   # SciPy: scientific computing
     python-scikit-learn     \   # scikit-learn: machine learning lib
     python-seaborn          \   # seaborn: statistical data visualization
+    python-sphinx           \   # Sphinx: documentation generator
