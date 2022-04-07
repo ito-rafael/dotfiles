@@ -73,3 +73,6 @@ sudo pacman -S \
 sudo pacman -S cups
 sudo systemctl enable cups
 sudo systemctl start cups
+
+# print as PDF
+sudo pacman -S cups-pdf
