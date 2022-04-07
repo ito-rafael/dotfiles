@@ -82,3 +82,6 @@ sudo pacman -S system-config-printer
 
 # HP printer driver
 sudo pacman -S hplip
+
+# SANE scanner lib (CLI)
+sudo pacman -S sane
