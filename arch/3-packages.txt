@@ -85,3 +85,8 @@ sudo pacman -S hplip
 
 # SANE scanner lib (CLI)
 sudo pacman -S sane
+
+# GUI scanner 
+sudo pacman -S simple-scan
+
+==============================
