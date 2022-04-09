@@ -90,3 +90,8 @@ sudo pacman -S sane
 sudo pacman -S simple-scan
 
 ==============================
+ Phone
+==============================
+
+# GVfs (GNOME Virtual File System): mount MTP/SMB fs with Thunar
+sudo pacman -S gvfs
