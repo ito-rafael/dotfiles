@@ -16,9 +16,6 @@ Plugin 'VundleVim/Vundle.vim'
 "YouCompleteMe: a code-completion engine for Vim
 Bundle 'Valloric/YouCompleteMe'
 "---------------------------------------
-"Auto-Indentation with multiple lines
-Plugin 'vim-scripts/indentpython.vim'
-"---------------------------------------
 "Zenburn: low-contrast color scheme for Vim
 Plugin 'jnurmine/Zenburn'
 "---------------------------------------
@@ -33,6 +30,14 @@ Plugin 'powerline/powerline'
 "---------------------------------------
 " Limelight: context focus
 Plugin 'junegunn/limelight.vim'
+"=======================================
+" Python
+"=======================================
+"Auto-Indentation with multiple lines
+Plugin 'vim-scripts/indentpython.vim'
+"---------------------------------------
+" Flake8 (PEP 8)
+Plugin 'nvie/vim-flake8'
 "=======================================
 " Markdown
 "=======================================
