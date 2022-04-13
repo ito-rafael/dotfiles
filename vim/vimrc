@@ -103,6 +103,13 @@ set laststatus=2
 let g:limelight_conceal_ctermfg = 'gray'
 let g:limelight_conceal_ctermfg = 240
 
+"---------------------------------------
+" vim-instant-markdown 
+"---------------------------------------
+" set default browser
+"let g:instant_markdown_browser = 'firefox-developer-edition --new-window'
+let g:instant_markdown_browser = 'brave --new-window'
+
 "================================================
 " General Config
 "================================================
