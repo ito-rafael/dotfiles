@@ -33,6 +33,9 @@ Plugin 'dhruvasagar/vim-table-mode'
 "---------------------------------------
 " Limelight: context focus
 Plugin 'junegunn/limelight.vim'
+"---------------------------------------
+" Syntax checking
+Plugin 'vim-syntastic/syntastic'
 "=======================================
 " Python
 "=======================================
