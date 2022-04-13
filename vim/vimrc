@@ -219,3 +219,7 @@ let python_highlight_all=1
 syntax on
 
 "================================================
+" HTML
+"================================================
+" bold
+autocmd FileType html inoremap ;b <b></b><Space><++><Esc>FbT>i
