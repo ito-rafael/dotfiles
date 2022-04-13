@@ -36,6 +36,10 @@ Plugin 'powerline/powerline'
 " Limelight: context focus
 Plugin 'junegunn/limelight.vim'
 "---------------------------------------
+" Markdown syntax, folding & more
+Plugin 'godlygeek/tabular'
+Plugin 'preservim/vim-markdown'
+"---------------------------------------
 "LaTeX support
 Plugin 'lervag/vimtex'
 "---------------------------------------
