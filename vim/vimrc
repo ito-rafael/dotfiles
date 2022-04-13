@@ -90,8 +90,18 @@ filetype plugin indent on    " required
 "================================================
 " Plugins Config
 "================================================
-" powerline
+
+"---------------------------------------
+" Powerline
+"---------------------------------------
 set laststatus=2
+
+"---------------------------------------
+" Limelight
+"---------------------------------------
+" color name (:help cterm-colors) or ANSI code
+let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_conceal_ctermfg = 240
 
 "================================================
 " General Config
