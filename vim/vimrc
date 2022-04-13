@@ -33,6 +33,9 @@ Plugin 'powerline/powerline'
 "---------------------------------------
 "Vim in the Shell (?)
 "---------------------------------------
+" Limelight: context focus
+Plugin 'junegunn/limelight.vim'
+"---------------------------------------
 "LaTeX support
 Plugin 'lervag/vimtex'
 "---------------------------------------
