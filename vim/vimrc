@@ -40,6 +40,9 @@ Plugin 'junegunn/limelight.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'preservim/vim-markdown'
 "---------------------------------------
+" Markdown instant preview
+Plugin 'suan/vim-instant-markdown'
+"---------------------------------------
 "LaTeX support
 Plugin 'lervag/vimtex'
 "---------------------------------------
