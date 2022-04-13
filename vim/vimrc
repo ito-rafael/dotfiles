@@ -28,6 +28,9 @@ Plugin 'preservim/nerdtree'
 "Powerline
 Plugin 'powerline/powerline'
 "---------------------------------------
+" Table mode
+Plugin 'dhruvasagar/vim-table-mode'
+"---------------------------------------
 " Limelight: context focus
 Plugin 'junegunn/limelight.vim'
 "=======================================
