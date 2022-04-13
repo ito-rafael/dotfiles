@@ -31,24 +31,26 @@ Plugin 'preservim/nerdtree'
 "Powerline
 Plugin 'powerline/powerline'
 "---------------------------------------
-"Vim in the Shell (?)
-"---------------------------------------
 " Limelight: context focus
 Plugin 'junegunn/limelight.vim'
-"---------------------------------------
+"=======================================
+" Markdown
+"=======================================
 " Markdown syntax, folding & more
 Plugin 'godlygeek/tabular'
 Plugin 'preservim/vim-markdown'
 "---------------------------------------
 " Markdown instant preview
 Plugin 'suan/vim-instant-markdown'
-"---------------------------------------
+"=======================================
+" LaTeX
+"=======================================
 "LaTeX support
 Plugin 'lervag/vimtex'
 "---------------------------------------
 "Lively previewing LaTeX PDF output
 Plugin 'xuhdev/vim-latex-live-preview'
-"---------------------------------------
+"=======================================
 "Ansible filetypes syntax highlighting
 Plugin 'pearofducks/ansible-vim'
 "---------------------------------------
@@ -193,7 +195,6 @@ endif
 
 "----------------------------
 " PEP 8: indentation
-"----------------------------
 au BufNewFile, BufRead *.py
     \ set tabstop=4
     \ set softtabstop=4
@@ -205,12 +206,11 @@ au BufNewFile, BufRead *.py
 
 "----------------------------
 " flagging extra whitespace
-"----------------------------
 au BufRead, BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 "----------------------------
 " Syntax Checking/Highlighting
-"----------------------------
 let python_highlight_all=1
 syntax on
 
+"================================================
