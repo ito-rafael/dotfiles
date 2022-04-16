@@ -666,5 +666,8 @@ exec nohup autokey-gtk
 # run compositor
 exec_always --no-startup-id picom -b --config ~/.config/picom.conf
 #-----------------------------
+# move to workspace 5 and open LibreOffice
+exec "$SCRIPT_PATH/navigate2ws.sh 5"
+#-----------------------------
 # move to workspace 2 and open Firefox
 exec "$SCRIPT_PATH/navigate2ws.sh 2"
