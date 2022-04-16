@@ -583,6 +583,11 @@ bar {
         # set font
         #font pango:DejaVu Sans Mono 4
         font pango:monospace 8
+        #-----------------------------
+        # system tray area
+        tray_output eDP-1   # Y2P
+        #tray_output VGA1   # LBiC_L
+        #tray_output HDMI3  # LBiC_R
 }
 
 #===========================================================
