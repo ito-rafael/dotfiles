@@ -670,4 +670,7 @@ exec_always --no-startup-id picom -b --config ~/.config/picom.conf
 exec "$SCRIPT_PATH/navigate2ws.sh 5"
 #-----------------------------
 # move to workspace 2 and open Firefox
-exec "$SCRIPT_PATH/navigate2ws.sh 2"
+#exec "$SCRIPT_PATH/navigate2ws.sh 2"
+#-----------------------------
+# move to workspace 3 and open Brave
+exec "$SCRIPT_PATH/navigate2ws.sh 3"
