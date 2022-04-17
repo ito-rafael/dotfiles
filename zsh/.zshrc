@@ -131,6 +131,9 @@ source $ZSH/oh-my-zsh.sh
 #=======================================
 # alias section
 #=======================================
+# Vim
+alias v=vim
+#-----------------------------
 # Firefox
 alias firefox=firefox-developer-edition
 #-----------------------------
