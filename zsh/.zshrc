@@ -134,6 +134,9 @@ source $ZSH/oh-my-zsh.sh
 # Vim
 alias v=vim
 #-----------------------------
+# copy stdout to clipboard
+alias c='xclip -selection clipboard'
+#-----------------------------
 # Firefox
 alias firefox=firefox-developer-edition
 #-----------------------------
