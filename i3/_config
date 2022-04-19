@@ -603,6 +603,8 @@ assign [class="Thunderbird"] → $ws4
 #-----------------------------
 # pdf reader
 #assign [class="Evince"] → $ws5
+# spreadsheet
+assign [class="Libreoffice"] → $ws5
 #-----------------------------
 # workspace 6
 #-----------------------------
@@ -618,7 +620,6 @@ assign [class="Nicotine"] → $ws7
 # workspace 8
 #-----------------------------
 # music player (local)
-assign [class="Lollypop"] → $ws8
 assign [class="Lollypop"] → $ws8
 #-----------------------------
 # workspace 9
