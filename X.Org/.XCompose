@@ -18,3 +18,22 @@ include "%L"
 #========================
 <dead_acute> <C> : "Ç" Ccedilla
 <dead_acute> <c> : "ç" ccedilla
+
+#========================
+# <dead_acute>
+#========================
+# small letter
+<dead_acute> <a> : "á"
+<dead_acute> <e> : "é"
+<dead_acute> <i> : "í"
+<dead_acute> <o> : "ó"
+<dead_acute> <u> : "ú"
+#------------------------
+# capital letter
+<dead_acute> <A> : "Á"
+<dead_acute> <E> : "É"
+<dead_acute> <I> : "Í"
+<dead_acute> <O> : "Ó"
+<dead_acute> <U> : "Ú"
+
+
