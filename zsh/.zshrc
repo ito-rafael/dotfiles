@@ -146,6 +146,20 @@ alias firefox=firefox-developer-edition
 #-----------------------------
 # OpenVPN LBiC
 alias vpn-lbic='sudo openvpn /etc/openvpn/client/ito_rafael-conf-file.conf'
+#-----------------------------
+# ForX - Coinbase's API
+# currency
+function usd() { forx -q "${1:-1}" USD BRL }    # US Dollar
+function eur() { forx -q "${1:-1}" EUR BRL }    # Euro
+function gbp() { forx -q "${1:-1}" GBP BRL }    # Pound
+function jpy() { forx -q "${1:-1}" JPY BRL }    # Yen
+function cad() { forx -q "${1:-1}" CAD BRL }    # Canadian Dollar
+function aud() { forx -q "${1:-1}" AUD BRL }    # Australian Dollar
+# crypto
+function btc() { forx -q "${1:-1}" BTC BRL }    # Bitcoin
+function eth() { forx -q "${1:-1}" ETH BRL }    # Ethereum
+#function bnb() { forx -q "${1:-1}" BNB BRL }    # Binance
+#function xch() { forx -q "${1:-1}" XCH BRL }    # Chia
 
 #=======================================
 # other config
