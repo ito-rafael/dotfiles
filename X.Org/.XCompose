@@ -1,8 +1,20 @@
 include "%L"
 
+#========================
+# greek letters
+#========================
 <Multi-key> <g> <a> : "α"
 <Multi_key> <g> <b> : "β"
 <Multi_key> <g> <g> : "γ"
 
+#========================
+# single quote
+#========================
 <dead_acute> <space> : "'"
 <dead_acute> <dead_acute> : "´"
+
+#========================
+# cedilla
+#========================
+<dead_acute> <C> : "Ç" Ccedilla
+<dead_acute> <c> : "ç" ccedilla
