@@ -137,6 +137,9 @@ alias v=vim
 # Python
 alias p=python
 #-----------------------------
+# grep
+alias g=grep
+#-----------------------------
 # clipboard
 #-----------------------------
 # copy stdout
