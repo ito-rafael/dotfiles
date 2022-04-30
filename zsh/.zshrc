@@ -140,8 +140,9 @@ alias p=python
 # grep
 alias g=grep
 #-----------------------------
-# open vim file
+# open config files
 alias vv='vim ~/.vimrc'
+alias zz='vim ~/.zshrc'
 #-----------------------------
 # clipboard
 #-----------------------------
