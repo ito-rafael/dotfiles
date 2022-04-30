@@ -165,6 +165,13 @@ function eth() { forx -q "${1:-1}" ETH BRL }    # Ethereum
 #function xch() { forx -q "${1:-1}" XCH BRL }    # Chia
 
 #=======================================
+# Environment variables
+#=======================================
+# force applications to use the default language for output
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+#=======================================
 # other config
 #=======================================
 # use keychain to launch ssh-agent and ssh-add
