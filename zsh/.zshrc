@@ -140,6 +140,9 @@ alias p=python
 # grep
 alias g=grep
 #-----------------------------
+# open vim file
+alias vv='vim ~/.vimrc'
+#-----------------------------
 # clipboard
 #-----------------------------
 # copy stdout
