@@ -134,6 +134,9 @@ source $ZSH/oh-my-zsh.sh
 # Vim
 alias v=vim
 #-----------------------------
+# Python
+alias p=python
+#-----------------------------
 # clipboard
 #-----------------------------
 # copy stdout
