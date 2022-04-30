@@ -143,6 +143,7 @@ alias g=grep
 # open config files
 alias vv='vim ~/.vimrc'
 alias zz='vim ~/.zshrc'
+alias ii='vim ~/.config/i3/_config'
 #-----------------------------
 # clipboard
 #-----------------------------
