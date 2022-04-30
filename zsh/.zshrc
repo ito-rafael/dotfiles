@@ -147,6 +147,9 @@ alias firefox=firefox-developer-edition
 # OpenVPN LBiC
 alias vpn-lbic='sudo openvpn /etc/openvpn/client/ito_rafael-conf-file.conf'
 #-----------------------------
+# scrcpy
+alias s='scrcpy -e --prefer-text'
+#-----------------------------
 # ForX - Coinbase's API
 # currency
 function usd() { forx -q "${1:-1}" USD BRL }    # US Dollar
