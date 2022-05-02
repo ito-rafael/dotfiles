@@ -266,6 +266,14 @@ bindsym mod3+ --whole-window button5 exec "pactl set-sink-volume @DEFAULT_SINK@ 
 #  general keyboard keybinds
 #=============================
 
+#-----------------------------
+# Mod5 = hold Tab
+#-----------------------------
+# tab + space --> return
+bindsym --release Mod5+space exec xdotool key Return
+
+
+#-----------------------------
 # semicolon key
 # !!! TO BE IMPLEMENTED !!!
 #-----------------------------
