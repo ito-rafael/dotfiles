@@ -36,4 +36,19 @@ include "%L"
 <dead_acute> <O> : "Ó"
 <dead_acute> <U> : "Ú"
 
-
+#========================
+# <dead_grave>
+#========================
+# small letter
+<dead_grave> <a> : "à"
+<dead_grave> <e> : "è"
+<dead_grave> <i> : "ì"
+<dead_grave> <o> : "ò"
+<dead_grave> <u> : "ù"
+#------------------------
+# capital letter
+<dead_grave> <A> : "À"
+<dead_grave> <E> : "È"
+<dead_grave> <I> : "Ì"
+<dead_grave> <O> : "Ò"
+<dead_grave> <U> : "Ù"
