@@ -141,6 +141,9 @@ alias p=python
 # grep
 alias g=grep
 #-----------------------------
+# man
+alias m=man
+#-----------------------------
 # open config files
 alias vv='vim ~/.vimrc'
 alias zz='vim ~/.zshrc'
