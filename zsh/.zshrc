@@ -148,6 +148,7 @@ alias m=man
 alias vv='vim ~/.vimrc'
 alias zz='vim ~/.zshrc'
 alias ii='vim ~/.config/i3/_config'
+alias xx='vim ~/.Xmodmap'
 #-----------------------------
 # clipboard
 #-----------------------------
