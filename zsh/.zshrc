@@ -149,6 +149,11 @@ alias vv='vim ~/.vimrc'
 alias zz='vim ~/.zshrc'
 alias ii='vim ~/.config/i3/_config'
 alias xx='vim ~/.Xmodmap'
+# remote PC
+alias lvv='ssh lbic cat ~/.vimrc | vim -'
+alias lzz='ssh lbic cat ~/.zshrc | vim -'
+alias lii='ssh lbic cat ~/.config/i3/_config | vim -'
+alias lxx='ssh lbic cat ~/.Xmodmap | vim -'
 #-----------------------------
 # clipboard
 #-----------------------------
