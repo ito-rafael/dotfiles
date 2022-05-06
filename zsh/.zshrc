@@ -169,7 +169,8 @@ alias firefox=firefox-developer-edition
 alias vpn-lbic='sudo openvpn /etc/openvpn/client/ito_rafael-conf-file.conf'
 #-----------------------------
 # scrcpy
-alias s='scrcpy -e --prefer-text'
+alias s="scrcpy -s $(adb devices -l | grep SM_G980F | awk '{print $1}') --prefer-text"
+alias sw="scrcpy -s $(adb devices -l | grep SM_R880 | awk '{print $1}') --prefer-text"
 #-----------------------------
 # ForX - Coinbase's API
 # currency
