@@ -3,7 +3,7 @@ include "%L"
 #========================
 # greek letters
 #========================
-<Multi-key> <g> <a> : "α"
+<Multi_key> <g> <a> : "α"
 <Multi_key> <g> <b> : "β"
 <Multi_key> <g> <g> : "γ"
 
