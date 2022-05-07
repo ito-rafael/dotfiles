@@ -52,3 +52,16 @@ include "%L"
 <dead_grave> <I> : "Ì"
 <dead_grave> <O> : "Ò"
 <dead_grave> <U> : "Ù"
+
+#========================
+# <dead_tild>
+#========================
+# small letter
+<dead_tilde> <a> : "ã"
+<dead_tilde> <o> : "õ"
+#------------------------
+# capital letter
+<dead_tilde> <A> : "Ã"
+<dead_tilde> <O> : "Õ"
+
+#========================
