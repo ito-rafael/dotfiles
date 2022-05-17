@@ -139,7 +139,7 @@ alias v=vim
 alias p=python
 #-----------------------------
 # grep
-alias g=grep
+alias -g g='| grep'
 #-----------------------------
 # man
 alias m=man
