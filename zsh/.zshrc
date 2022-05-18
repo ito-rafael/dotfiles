@@ -199,6 +199,11 @@ function eth() { forx -q "${1:-1}" ETH BRL }    # Ethereum
 # force applications to use the default language for output
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
+#-----------------------------
+# themes
+export THEME_CURRENT=$(cat ~/.config/gtk-3.0/settings.ini | grep -oP '(?<=gtk-theme-name=).*')
+export THEME_DARK='Adwaita-dark'
+export THEME_LIGHT='Adwaita'
 
 #=======================================
 # other config
