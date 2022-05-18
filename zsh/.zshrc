@@ -132,17 +132,12 @@ source $ZSH/oh-my-zsh.sh
 #=======================================
 # alias section
 #=======================================
-# Vim
-alias v=vim
-#-----------------------------
-# Python
-alias p=python
-#-----------------------------
-# grep
-alias -g g='| grep'
-#-----------------------------
-# man
-alias m=man
+# general
+alias v=vim             # Vim
+alias p=python          # Python
+alias -g g='| grep'     # grep
+alias m=man             # man
+alias h=history         # history
 #-----------------------------
 # open config files
 alias vv='vim ~/.vimrc'
