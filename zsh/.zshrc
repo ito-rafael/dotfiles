@@ -149,6 +149,10 @@ alias lvv='ssh lbic cat ~/.vimrc | vim -'
 alias lzz='ssh lbic cat ~/.zshrc | vim -'
 alias lii='ssh lbic cat ~/.config/i3/_config | vim -'
 alias lxx='ssh lbic cat ~/.Xmodmap | vim -'
+# reload config files
+alias rz='source ~/.zshrc'
+alias ri='~/.config/i3/i3bang.rb && i3-msg restart'
+alias rx='xmodmap ~/.Xmodmap'
 #-----------------------------
 # clipboard
 #-----------------------------
