@@ -658,6 +658,7 @@ assign [class="Pavucontrol"] → $ws10
 # window-specific bindsyms and settings
 #===========================================================# floating window fo Tkinter (Python GUI)
 for_window [class="Tk"] floating enable
+for_window [class="Toplevel"] floating enable
 
 #===========================================================
 # assign workspaces to outputs (screens)
