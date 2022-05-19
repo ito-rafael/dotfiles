@@ -144,11 +144,13 @@ alias vv='vim ~/.vimrc'
 alias zz='vim ~/.zshrc'
 alias ii='vim ~/.config/i3/_config'
 alias xx='vim ~/.Xmodmap'
+alias kk='vim ~/.config/kitty/kitty.conf'
 # remote PC
 alias lvv='ssh lbic cat ~/.vimrc | vim -'
 alias lzz='ssh lbic cat ~/.zshrc | vim -'
 alias lii='ssh lbic cat ~/.config/i3/_config | vim -'
 alias lxx='ssh lbic cat ~/.Xmodmap | vim -'
+alias lkk='ssh lbic cat ~/.config/kitty/kitty.conf | vim -'
 # reload config files
 alias rz='source ~/.zshrc'
 alias ri='~/.config/i3/i3bang.rb && i3-msg restart'
