@@ -689,7 +689,7 @@ exec xinput --set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Two-Finger Scroll
 exec nohup autokey-gtk
 #-----------------------------
 # run compositor
-exec_always --no-startup-id picom -b --config ~/.config/picom.conf
+exec_always --no-startup-id picom -b --config ~/.config/picom/picom.conf
 #-----------------------------
 # move to workspace 5 and open LibreOffice
 exec "$SCRIPT_PATH/navigate2ws.sh 5"
