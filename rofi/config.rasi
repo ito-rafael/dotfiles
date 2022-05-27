@@ -5,7 +5,7 @@ configuration {
 /*	yoffset: 0;*/
 /*	xoffset: 0;*/
 	fixed-num-lines: true;
-	show-icons: false;
+	show-icons: true;
 /*	terminal: "rofi-sensible-terminal";*/
 /*	ssh-client: "ssh";*/
 /*	ssh-command: "{terminal} -e {ssh-client} {host} [-p {port}]";*/
@@ -156,4 +156,8 @@ window {
     width: 3200;
     padding: 600 1100;
     background-color: @background;
+}
+
+element-text {
+    vertical-align: 0.4;
 }
