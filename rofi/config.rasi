@@ -161,3 +161,7 @@ window {
 element-text {
     vertical-align: 0.4;
 }
+
+element-icon { 
+    vertical-align: 0.6;
+}
