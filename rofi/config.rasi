@@ -145,3 +145,8 @@ configuration {
       sorting-method:    "name";
   }
 }
+
+window {
+    height: 1800;
+    width: 3200;
+}
