@@ -28,7 +28,7 @@ configuration {
 /*	cycle: true;*/
 /*	sidebar-mode: false;*/
 /*	hover-select: false;*/
-/*	eh: 1;*/
+	eh: 2;
 /*	auto-select: false;*/
 /*	parse-hosts: false;*/
 /*	parse-known-hosts: true;*/
