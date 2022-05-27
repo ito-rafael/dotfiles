@@ -1,6 +1,6 @@
 configuration {
 /*	modi: "window,run,ssh";*/
-	font: "monospace 25";
+	font: "monospace 28";
 /*	location: 0;*/
 /*	yoffset: 0;*/
 /*	xoffset: 0;*/
@@ -164,4 +164,5 @@ element-text {
 
 element-icon { 
     vertical-align: 0.6;
+    size: 3ch;
 }
