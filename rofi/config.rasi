@@ -149,4 +149,5 @@ configuration {
 window {
     height: 1800;
     width: 3200;
+    padding: 600 1100;
 }
