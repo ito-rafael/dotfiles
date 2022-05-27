@@ -1,6 +1,6 @@
 configuration {
 /*	modi: "window,run,ssh";*/
-	font: "monospace 15";
+	font: "monospace 25";
 /*	location: 0;*/
 /*	yoffset: 0;*/
 /*	xoffset: 0;*/
@@ -146,8 +146,14 @@ configuration {
   }
 }
 
+* {
+    // define colors
+    background: #2f343f;
+}
+
 window {
     height: 1800;
     width: 3200;
     padding: 600 1100;
+    background-color: @background;
 }
