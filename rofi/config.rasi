@@ -149,6 +149,7 @@ configuration {
 * {
     // define colors
     background: #2f343faa;
+    white:      #f3f4f5ff;
 }
 
 window {
@@ -167,4 +168,8 @@ element-icon {
     vertical-align: 0.6;
     size: 3ch;
     background-color: @background;
+}
+
+element selected normal {
+    text-color: @white;
 }
