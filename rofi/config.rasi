@@ -169,6 +169,7 @@ element-text {
 
 element-icon { 
     vertical-align: 0.6;
+    padding: 5px 5px;
     size: 3 ch;
     border: 0 px;
     background-color: @background;
