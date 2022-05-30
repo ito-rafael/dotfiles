@@ -148,31 +148,36 @@ configuration {
 
 * {
     // define colors
-    background: #2f343faa;
     white:      #f3f4f5ff;
     darkgray:   #888888ff;
+    bg-alpha:   #2f343faa;
+    bg-opaque:  #2f343fff;
 }
 
 window {
     height: 1800;
     width: 3200;
     padding: 600 1100;
-    background-color: @background;
+    background-color: @bg-alpha;
+}
+
+inputbar {
+    background-color: @bg-opaque;
 }
 
 element-text {
     vertical-align: 0.4;
-    padding: 5px 5px;
+    padding: 5px 10px;
     border: 0 px;
-    background-color: @background;
+    background-color: @bg-alpha;
 }
 
 element-icon { 
     vertical-align: 0.6;
-    padding: 5px 5px;
+    padding: 5px 10px;
     size: 3 ch;
     border: 0 px;
-    background-color: @background;
+    background-color: @bg-alpha;
 }
 
 element selected normal {
@@ -181,10 +186,10 @@ element selected normal {
 
 element normal normal {
     text-color: @darkgray;
-    background-color: @background;
+    background-color: @bg-alpha;
 }
 
 element alternate normal {
     text-color: @darkgray;
-    background-color: @background;
+    background-color: @bg-alpha;
 }
