@@ -177,8 +177,10 @@ element selected normal {
 
 element normal normal {
     text-color: @darkgray;
+    background-color: @background;
 }
 
 element alternate normal {
     text-color: @darkgray;
+    background-color: @background;
 }
