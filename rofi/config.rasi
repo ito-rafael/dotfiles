@@ -148,7 +148,7 @@ configuration {
 
 * {
     // define colors
-    background: #2f343f;
+    background: #2f343faa;
 }
 
 window {
