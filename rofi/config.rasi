@@ -162,12 +162,13 @@ window {
 
 element-text {
     vertical-align: 0.4;
+    border: 0 px;
     background-color: @background;
 }
 
 element-icon { 
     vertical-align: 0.6;
-    size: 3ch;
+    size: 3 ch;
     background-color: @background;
 }
 
