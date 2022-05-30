@@ -162,6 +162,7 @@ window {
 }
 
 inputbar {
+    padding: 15 px;
     background-color: @bg-opaque;
 }
 
