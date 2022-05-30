@@ -178,3 +178,7 @@ element selected normal {
 element normal normal {
     text-color: @darkgray;
 }
+
+element alternate normal {
+    text-color: @darkgray;
+}
