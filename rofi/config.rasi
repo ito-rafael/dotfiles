@@ -150,6 +150,7 @@ configuration {
     // define colors
     background: #2f343faa;
     white:      #f3f4f5ff;
+    darkgray:   #888888ff;
 }
 
 window {
@@ -172,4 +173,8 @@ element-icon {
 
 element selected normal {
     text-color: @white;
+}
+
+element normal normal {
+    text-color: @darkgray;
 }
