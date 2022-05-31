@@ -167,6 +167,10 @@ inputbar {
     background-color: @bg-opaque;
 }
 
+entry {
+    placeholder: "Type here";
+}
+
 element-text {
     vertical-align: 0.4;
     padding: 5px 10px;
