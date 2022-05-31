@@ -169,6 +169,7 @@ inputbar {
 
 entry {
     placeholder: "Type here";
+    color: @darkgray;
 }
 
 element-text {
