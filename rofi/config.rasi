@@ -175,6 +175,7 @@ entry {
 element {
     orientation: horizontal;
     children: [ element-icon, element-text ];
+    spacing: 0px;
 }
 
 element-text {
