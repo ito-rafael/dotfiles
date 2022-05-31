@@ -172,6 +172,11 @@ entry {
     color: @darkgray;
 }
 
+element {
+    orientation: horizontal;
+    children: [ element-icon, element-text ];
+}
+
 element-text {
     vertical-align: 0.4;
     padding: 5px 10px;
