@@ -167,6 +167,10 @@ inputbar {
     background-color: @bg-opaque;
 }
 
+prompt {
+    text-color: @darkergray;
+}
+
 entry {
     placeholder: "Type here";
     placeholder-color: @darkgray;
