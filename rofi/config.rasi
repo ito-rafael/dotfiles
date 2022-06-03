@@ -171,6 +171,10 @@ prompt {
     text-color: @darkergray;
 }
 
+textbox-prompt-colon {
+    text-color: @darkergray;
+}
+
 entry {
     placeholder: "Type here";
     placeholder-color: @darkgray;
