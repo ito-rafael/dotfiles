@@ -180,8 +180,8 @@ alias gw4_ip='adb devices -l | grep SM_R880 | awk "{print \$1}"'
 alias -g s20="-s $(s20_ip)"
 alias -g gw4="-s $(gw4_ip)"
 # scrcpy
-alias s="scrcpy s20 --prefer-text"
-alias sw="scrcpy gw4 --prefer-text"
+alias -g s="scrcpy s20 --prefer-text"
+alias -g sw="scrcpy gw4 --prefer-text"
 #-----------------------------
 # ForX - Coinbase's API
 # currency
