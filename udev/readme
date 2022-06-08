@@ -1,4 +1,41 @@
 #=================================================
+# commands
+#=================================================
+
+# monitor dmesg to get device name sysfs path:
+sudo dmesg --follow
+# example
+-----
+[612535.859331] input: Logitech Wireless Mouse MX Master 3 as /devices/virtual/misc/uhid/0005:046D:B023.00D2/input/input380
+-----
+# name: "Logitech Wireless Mouse MX Master 3"
+# sysfs: "/devices/virtual/misc/uhid/0005:046D:B023.00D2/input/input380"
+
+# use these info to get device attributes:
+udevadm info -a -p /devices/virtual/misc/uhid/0005:046D:B023.00D2/input/input380
+
+# alternatively, if the device path under /dev is known (eg: "/dev/hidraw0"), the next command can also be used:
+udevadm info -a -p $(udevadm info -q path -n /dev/hidraw0)
+
+# another option to get the device attributes, is to run the following command and then plug in/off on the device:
+udevadm monitor --environment --udev
+
+# simulate an "action" to test
+# note: this does not run the command under the "RUN" section of the .rules file), but if the rule applies, at the end of the output of the command there should be a line with the command. For example:
+-----
+run: '/usr/bin/touch /home/username/test.touch'
+-----
+
+# simulation device being added:
+udevadm test --action="add" $(udevadm info -q path -n /dev/hidraw0)
+
+# simulation device being removed:
+udevadm test --action="remove" $(udevadm info -q path -n /dev/hidraw0)
+
+# reload rules
+sudo udevadm control --reload
+
+#=================================================
 # files
 #=================================================
 
