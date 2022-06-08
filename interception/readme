@@ -235,3 +235,15 @@ sudo uinput -p -d /dev/input/by-id/usb-Logitech_USB_Receiver-if02-event-mouse > 
 # tab + 4 --> home
 #
 #=================================================
+
+# xcape (launched in $HOME/.xprofile)
+# obs.: check README in "mx" section for more information
+#   - Ctrl:
+#     - Tap: Page Up
+#     - Hold: Hyper_L (mapped as Ctrl in Xmodmap file)
+#   - Alt:
+#     - Tap: Page Down
+#     - Hold: Alt
+xcape -e 'Alt_L=Page_Down;Hyper_L=Page_Up'
+
+#=================================================
