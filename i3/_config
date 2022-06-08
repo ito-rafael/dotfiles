@@ -138,7 +138,7 @@ set $ws10 "10 "
 #     - restore its layout
 #     - open windows
 #-----------------------------
-set $SCRIPT_PATH /home/rafael/.config/i3
+set $SCRIPT_PATH $HOME/.config/scripts
 bindsym $mod+1 exec "$SCRIPT_PATH/navigate2ws.sh 1"
 bindsym $mod+2 exec "$SCRIPT_PATH/navigate2ws.sh 2"
 bindsym $mod+3 exec "$SCRIPT_PATH/navigate2ws.sh 3"
