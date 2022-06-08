@@ -1,0 +1,9 @@
+#=================================================
+# files
+#=================================================
+
+# native system rules
+/usr/lib/udev/rules.d/
+
+# user custom rules
+/etc/udev/rules.d/
