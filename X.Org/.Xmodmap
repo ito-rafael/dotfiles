@@ -30,6 +30,7 @@ add shift = Shift_L Shift_R
 !---------
 ! control
 clear control
+remove mod4 = Hyper_L
 add control = Control_L Control_R Hyper_L
 
 !-------------------------------------------------
