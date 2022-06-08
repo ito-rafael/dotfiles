@@ -3,13 +3,15 @@
 #=================================================
 # description: 
 #
+# - PageUp/PageDown: press and release side buttons (btn 8 & 9)
+#
 # - volume:
-#   - volume up:    side-button + scroll up
-#   - volume down:  side-bottom + scroll down
+#   - volume up:     side-bottom (btn 8) + scroll up   (btn 4)
+#   - volume down:   side-bottom (btn 8) + scroll down (btn 5)
 #
 # - zoom:
-#   - zoom in:      side-top + scroll up
-#   - zoom out:     side-top + scroll down
+#   - zoom in:       side-top (btn 9) + scroll up   (btn 4)
+#   - zoom out:      side-top (btn 9) + scroll down (btn 5)
 #
 # obs: tried using interception tools without success
 
@@ -17,8 +19,8 @@
 # step 1: use logid to remap keys
 #=======================================
 # https://github.com/PixlOne/logiops
-#   - side-top --> left control
-#   - side-bottom --> right meta
+#   - side-top --> F16
+#   - side-bottom --> left alt
 
 vim /etc/logid.cfg
 #-----------------------------
@@ -27,7 +29,7 @@ vim /etc/logid.cfg
 {cid: 0x56
   action = {
     type: "KeyPress"
-    keys: ["KEY_LEFTCTRL"]
+    keys: ["KEY_F16"]
   }
 },
 #-----------------------------
@@ -55,13 +57,26 @@ Alt + b:5
 #-----------------------------
 
 #=======================================
-# step 3: xcape
+# step 3: xmodmap
 #=======================================
-sudo pacman -S xcape
-xcape -e 'Alt_L=Page_Down;Control_L=Page_Up'
+vim ~/.xbindkeysrc
+#-----------------------------
+clear control
+remove mod4 = Hyper_L
+add control = Control_L Control_R Hyper_L
+(...)
+!keycode 194 = XF86Launch7 NoSymbol XF86Launch7
+keycode 194 = Hyper_L NoSymbol XF86Launch7
+#-----------------------------
 
 #=======================================
-# step 4: disable show menu in browser
+# step 4: xcape
+#=======================================
+sudo pacman -S xcape
+xcape -e 'Alt_L=Page_Down;Hyper_L=Page_Up'
+
+#=======================================
+# step 5: disable show menu in browser
 #=======================================
 # xcape won't supress the first keypress
 # in order to prevent Firefox/Chromium from
