@@ -44,3 +44,32 @@ sudo udevadm control --reload
 
 # user custom rules
 /etc/udev/rules.d/
+
+#=================================================
+# example
+#=================================================
+
+# creating udev rules
+sudo vim /etc/udev/rules.d/50-mx-keys.rules
+-----
+ACTION=="add",                      \
+  SUBSYSTEM=="input",               \
+  ATTR{id/product}=="b35b",         \
+  ATTR{id/vendor}=="046d",          \
+  ATTR{name}=="MX Keys Keyboard",   \
+  OWNER="<USERNAME>",                   \
+  RUN+="/bin/bash /home/<USERNAME>/.config/scripts/udev_mx.sh"
+  #RUN+="/bin/bash /home/<USERNAME>/.config/scripts/udev_mx_keys.sh"
+-----
+
+# creating script
+# obs: the background symbol "&" for the command is necessary, since the script blocks the following steps, and therefore udevmon (interception-tools) does not work
+vim $HOME/.config/scripts/udev_mx.sh
+-----
+#!/usr/bin/env bash
+systemctl restart udevmon &
+-----
+# give executable permissions
+chmod +x $HOME/.config/scripts/udev_mx.sh
+
+#=================================================
