@@ -1,0 +1,8 @@
+ACTION=="add",                      \
+  SUBSYSTEM=="input",               \
+  ATTR{id/product}=="b35b",         \
+  ATTR{id/vendor}=="046d",          \
+  ATTR{name}=="MX Keys Keyboard",   \
+  OWNER="<USERNAME>",               \
+  RUN+="/bin/bash /home/<USERNAME>/.config/scripts/udev_mx.sh"
+  #RUN+="/bin/bash /home/<USERNAME>/.config/scripts/udev_mx_keys.sh"
