@@ -26,6 +26,12 @@
 #   - Easy-Switch #2: CF:FB:B1:85:A5:DB
 #   - Easy-Switch #3: CF:FB:B1:85:A5:DD
 #
+# udev (udevadm info -a -p <SYSFS-PATH>):
+#   - SUBSYSTEM=="input"
+#   - ATTR{id/product}=="b35b"
+#   - ATTR{id/vendor}=="046d"
+#   - ATTR{name}=="MX Keys Keyboard"
+#
 #=================================================
 # SW info
 #=================================================
