@@ -247,3 +247,47 @@ sudo uinput -p -d /dev/input/by-id/usb-Logitech_USB_Receiver-if02-event-mouse > 
 xcape -e 'Alt_L=Page_Down;Hyper_L=Page_Up'
 
 #=================================================
+# generating hybrid devices over Bluetooth connection
+#=================================================
+
+# monitor dmesg output
+sudo dmesg --follow
+
+# connect both MX Keys & MX Master 3 and check for an output like the following:
+-----
+[11529.202554] logitech-hidpp-device 0005:046D:B023.0039: HID++ 4.5 device connected.
+[11529.845957] input: MX Keys Keyboard as /devices/virtual/misc/uhid/0005:046D:B35B.003A/input/input228
+[11529.846247] input: MX Keys Mouse as /devices/virtual/misc/uhid/0005:046D:B35B.003A/input/input229
+[11529.846434] hid-generic 0005:046D:B35B.003A: input,hidraw1: BLUETOOTH HID v0.13 Keyboard [MX Keys] on e8:2a:ea:66:ed:e6
+[11530.394735] input: Logitech Wireless Mouse MX Master 3 as /devices/virtual/misc/uhid/0005:046D:B023.0039/input/input231
+[11530.394990] logitech-hidpp-device 0005:046D:B023.0039: input,hidraw2: BLUETOOTH HID v0.15 Keyboard [Logitech Wireless Mouse MX Master 3] on e8:2a:ea:66:ed:e6
+-----
+
+# get the sysfs path for these devices:
+# MX Keys Keyboard:
+sysfs_mx_keys_k="/sys/devices/virtual/misc/uhid/0005:046D:B35B.003A/input/input228"
+# MX Keys Mouse:
+sysfs_mx_keys_m="/sys/devices/virtual/misc/uhid/0005:046D:B35B.003A/input/input229"
+# MX Master 3:
+sysfs_mx_master3="/sys/devices/virtual/misc/uhid/0005:046D:B023.0039/input/input231"
+
+# now we need to find out the events of these devices under /dev/input:
+# MX Keys Keyboard:
+dev_mx_keys_k=$(cat $sysfs_mx_keys_k/event*/uevent | grep 'DEVNAME=' | sed 's/DEVNAME=/\/dev\//')
+# MX Keys Mouse:
+dev_mx_keys_m=$(cat $sysfs_mx_keys_m/event*/uevent | grep 'DEVNAME=' | sed 's/DEVNAME=/\/dev\//')
+# MX Master 3:
+dev_mx_master3=$(cat $sysfs_mx_master3/event*/uevent | grep 'DEVNAME=' | sed 's/DEVNAME=/\/dev\//')
+
+# to see each device description in yaml, use:
+# MX Keys Keyboard:
+sudo uinput -p -d $dev_mx_keys_k | sudo tee /etc/interception/keyboard-mx-keys-keyboard-bt.yaml
+# MX Keys Mouse:
+sudo uinput -p -d $dev_mx_keys_m | sudo tee /etc/interception/keyboard-mx-keys-mouse-bt.yaml
+# MX Master 3:
+sudo uinput -p -d $dev_mx_master3 | sudo tee /etc/interception/mouse-mx-master3-bt.yaml
+
+# generate the hybrid device:
+# !!! FOLLOWING COMMAND NOT WORKING !!!
+# I needed to craft the file "hybrid-mx.yaml" by hand.
+sudo uinput -p -d $dev_mx_keys_k -d $dev_mx_keys_m -d $dev_mx_master3 | sudo tee /etc/interception/hybrid-mx-bt.yaml
