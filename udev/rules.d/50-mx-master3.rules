@@ -1,0 +1,7 @@
+ACTION=="add",                                          \
+  SUBSYSTEM=="input",                                   \
+  ATTR{id/product}=="b023",                             \
+  ATTR{id/vendor}=="046d",                              \
+  ATTR{name}=="Logitech Wireless Mouse MX Master 3",    \
+  OWNER="<USERNAME>",                                   \
+  #RUN+="/bin/bash /home/<USERNAME>/.config/scripts/udev_mx_master3.sh", \
