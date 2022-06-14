@@ -48,6 +48,7 @@
 #- JOB: intercept -g $DEVNODE | mux -o muxer
 #  DEVICE:
 #    LINK: /dev/input/by-id/usb-Logitech_USB_Receiver-if02-event-mouse
+
 #=====================================================================
 # Mouse
 #=====================================================================
@@ -67,6 +68,7 @@
 #    mux -o muxer
 #  DEVICE:
 #    LINK: /dev/input/by-id/usb-Logitech_USB_Receiver-if02-event-mouse
+
 #=====================================================================
 # Presentation Pointer
 #=====================================================================
