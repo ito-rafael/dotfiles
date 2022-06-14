@@ -154,8 +154,18 @@ sudo pacman -S sshfs
 sudo apt install sshfs
 #---------------------------------------
 # usage
-sshfs IP:ServerMountPoint LocalMountPoint
-# eg: sshfs 192.168.0.1:/home/username/serverdir /home/username/localdir
+sshfs username@IP:ServerMountPoint LocalMountPoint
+# eg: sshfs username@192.168.0.1:/home/username/serverdir /home/username/localdir
+#---------------------------------------
+# flags
+#   - choose port: "-p PORT"
+#   - enable compression: "-C" | "-o compression=yes"
+#   - translate local user UID to remote user UID: "-o idmap=user"
+#   - translate UID: "-o uidfile=<PATH-TO-FILE>"
+#   - translate GID: "-o gidfile=<PATH-TO-FILE>
+#   - to follow symlinks: "-o follow_symlinks"
+#   - modify in real time - disable caching (decrease performance): "-o dir_cache=no"
+# eg: sshfs username@192.168.0.1:/home/username/serverdif ~/localdir -C -p 2222 -o dir_cache=no -o follow_symlinks -o idmap=user
 #---------------------------------------
 # umount
 fusermount -u LocalMountPoint
