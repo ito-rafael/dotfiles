@@ -54,54 +54,60 @@ timedatectl set-ntp true
 fdisk -l
 fdisk /dev/sda
 --------------------------
+ delete partitions
+--------------------------
+d 	    # delete a partition
+<ENTER> # partition number
+# repeat if necessary
+--------------------------
  create EFI partition
 --------------------------
-n 	# add a new partition
-2 	# partition number
+n 	    # add a new partition
+2 	    # partition number
 <ENTER> # first sector
 +260M 	# last sector
-Y 	# remove the signature
+Y 	    # remove the signature
 
-t 	# change a partition type 
-2 	# partition number
-1 	# EFI System            # update 05/2021: "ef"
+t 	    # change a partition type 
+2 	    # partition number
+1 	    # EFI System            # update 05/2021: "ef"
 --------------------------
  create / partition
 --------------------------
-n	# add a new partition
-3	# partition number
+n	    # add a new partition
+3	    # partition number
 <ENTER>	# first sector
 +50G	# last sector
-Y	# remove the signature
+Y	    # remove the signature
 
-t	# change a partition type 
-3	# partition number
-24 	# Linux root (x86-64)   # update 05/2021: "83"
+t	    # change a partition type 
+3	    # partition number
+24 	    # Linux root (x86-64)   # update 05/2021: "83"
 --------------------------
  create swap partition
 --------------------------
-n	# add a new partition
-4	# partition number
+n	    # add a new partition
+4	    # partition number
 <ENTER>	# first sector
 +8G	# last sector
 
-t	# change a partition type 
-4	# partition number
-19 	# Linux swap            # update 05/2021: "82"
+t	    # change a partition type 
+4	    # partition number
+19 	    # Linux swap            # update 05/2021: "82"
 --------------------------
  create home partition
 --------------------------
-n	# add a new partition
-5	# partition number
+n	    # add a new partition
+5	    # partition number
 <ENTER>	# first sector
 <ENTER> # last sector --> remainder
 
-t	# change a partition type 
-5	# partition number
-28 	# Linux home            # update 05/2021: "83"
+t	    # change a partition type 
+5	    # partition number
+28 	    # Linux home            # update 05/2021: "83"
 --------------------------
-p 	# print the partition table
-w 	# write table to disk and exit
+p 	    # print the partition table
+w 	    # write table to disk and exit
 
 ==============================
  format the partitions
