@@ -30,3 +30,8 @@ sudo vim /etc/modprobe/nobeep.conf
 -----
 blacklist pcspkr
 -----
+
+# webcam.conf
+sudo pacman -S v4l2loopback
+sudo pacman -S v4l2loopback-dkms
+sudo pacman -S v4l2loopback-utils
