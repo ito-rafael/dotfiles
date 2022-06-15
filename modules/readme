@@ -1,0 +1,32 @@
+# kernel modules
+
+# list modules
+lsmod | grep <MODULE-NAME>
+
+# show info about module
+modinfo <MODULE-NAME>
+
+# load module
+modprobe <MODULE-NAME>
+
+# unload module
+modprobe -r <MODULE-NAME>
+rmmod <MODULE-NAME>
+
+# automatic module loading
+# use udev
+
+# automatic load modules with systemd
+# create a .conf file under /etc/modules-load.d/
+sudo vim /etc/modules-load.d/backlight.conf
+-----
+ddcci
+ddcci_backlight
+-----
+
+# blacklisting a module
+# create a .conf file under /etc/modprobe.d/
+sudo vim /etc/modprobe/nobeep.conf
+-----
+blacklist pcspkr
+-----
