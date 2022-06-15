@@ -688,6 +688,9 @@ exec xinput --set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Two-Finger Scroll
 # launch AutoKey
 exec nohup autokey-gtk
 #-----------------------------
+# dunst: notification daemon
+exec nohup /usr/bin/dunst
+#-----------------------------
 # run compositor
 exec_always --no-startup-id picom -b --config ~/.config/picom/picom.conf
 #-----------------------------
