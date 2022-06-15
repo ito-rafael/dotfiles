@@ -181,6 +181,10 @@ entry {
     color: @darkgray;
 }
 
+scrollbar {
+    margin: 0 px;
+}
+
 element {
     orientation: horizontal;
     children: [ element-icon, element-text ];
