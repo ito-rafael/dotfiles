@@ -161,6 +161,11 @@ window {
     background-color: @bg-alpha;
 }
 
+mainbox {
+    spacing: 0;
+    children: [ inputbar, message, listview ];
+}
+
 inputbar {
     padding: 15 px;
     margin: 0px 10px 0px 0px;
