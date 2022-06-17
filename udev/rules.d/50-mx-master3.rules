@@ -4,4 +4,4 @@ ACTION=="add",                                          \
   ATTR{id/vendor}=="046d",                              \
   ATTR{name}=="Logitech Wireless Mouse MX Master 3",    \
   OWNER="<USERNAME>",                                   \
-  #RUN+="/bin/bash /home/<USERNAME>/.config/scripts/udev/udev_mx_master3.sh", \
+  RUN+="/bin/bash /home/<USERNAME>/.config/scripts/udev/udev_mx_master3.sh"

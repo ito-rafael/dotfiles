@@ -26,5 +26,8 @@ function send-cmd() {
 
 #-----------------------------
 # send notification
-send-cmd "notify-send MX Master3"
+#send-cmd "notify-send MX Master3"
+#-----------------------------
+# restart logid
+systemctl restart logid &
 #-----------------------------
