@@ -19,13 +19,6 @@
 # http://xahlee.info/linux/linux_xvkbd_tutorial.html
 
 #-----------------------------
-# Ctrl + Space --> Return
-#-----------------------------
-#"echo KeyStr Return | xmacroplay"
-"xvkbd -xsendevent -text "\r""
-    Control + space
-    #m:0x4 + c:65
-#-----------------------------
 # Ctrl + ':' --> ';'
 #-----------------------------
 "xvkbd -xsendevent -text ";""
