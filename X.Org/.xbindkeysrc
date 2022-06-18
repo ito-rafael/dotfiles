@@ -53,6 +53,18 @@ Alt + b:4
 "pactl list sinks | grep 'Sink #' | grep -o '[0-9]*' | xargs -i pactl set-sink-volume {} -5% && pkill -RTMIN+1 i3blocks"
 Alt + b:5
 
+#=============================
+# volume control with the mouse
+#=============================
+
+# navigate to previous workspace
+"~/.config/scripts/navigate2ws_next.py --previous"
+Control + b:1
+
+# navigate to next workspace
+"~/.config/scripts/navigate2ws_next.py --next"
+Control + b:3
+
 ##################################
 # End of xbindkeys configuration #
 ##################################
