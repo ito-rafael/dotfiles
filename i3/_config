@@ -329,24 +329,6 @@ set $htext_color #9575cd
 #=============================
 # start rofi (program launcher)
 bindsym $mod+Return exec rofi -show run
-#-----------------------------
-# colors & theme customization
-# !!! TO BE IMPLEMENTED !!!
-#bindsym $mod+Return exec rofi -show run -lines 3 -eh 2 -width 100 -padding 900 -opacity "85" -bw 0 -color-window "#2f343f, #2f343f, #2f343f" -color-normal "#2f343f, #f3f4f5, #2f343f, #2f343f, #9575cd" -font "monospace 18"
-
-#bindsym $mod+Return exec rofi -show run -lines 3 -eh 2 -width 100 -padding 800 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "pango:monospace 20"
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-
-#bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-# !!! TO BE IMPLEMENTED !!!
-#-----------------------------
-
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 #=============================
 #       rotate screen        
