@@ -231,3 +231,7 @@ element alternate normal {
 button {
     text-color: @darkgray;
 }
+
+button selected {
+    text-color: @white;
+}
