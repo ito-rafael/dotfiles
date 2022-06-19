@@ -329,6 +329,7 @@ set $htext_color #9575cd
 #=============================
 # start rofi (program launcher)
 bindsym $mod+Return exec rofi -show run
+bindsym $mod+bracketright   exec rofi -show window
 
 #=============================
 #       rotate screen        
