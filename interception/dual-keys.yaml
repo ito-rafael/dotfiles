@@ -28,3 +28,10 @@ MAPPINGS:
       TAP: KEY_PAGEDOWN
       HOLD: KEY_LEFTSHIFT
     #====================
+    # right2mod5
+    #====================
+    # right click
+    - KEY: BTN_RIGHT
+      TAP: BTN_RIGHT
+      HOLD: KEY_RIGHTALT
+    #====================
