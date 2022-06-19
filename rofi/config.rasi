@@ -227,3 +227,7 @@ element alternate normal {
     text-color: @darkgray;
     background-color: @bg-alpha;
 }
+
+button {
+    text-color: @darkgray;
+}
