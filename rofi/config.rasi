@@ -85,6 +85,7 @@ configuration {
 /*	kb-mode-next: "Shift+Right,Control+Tab";*/
 	kb-mode-next: "Super+Right,Super+l";
 /*	kb-mode-previous: "Shift+Left,Control+ISO_Left_Tab";*/
+	kb-mode-previous: "Super+Left,Super+h";
 /*	kb-mode-complete: "Control+l";*/
 /*	kb-row-left: "Control+Page_Up";*/
 /*	kb-row-right: "Control+Page_Down";*/
