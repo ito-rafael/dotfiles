@@ -41,29 +41,38 @@
 # check documentation:
 # http://xmacro.sourceforge.net/
 
-#=============================
+#=======================================
 # volume control with the mouse
-#=============================
-
+#=======================================
 # volume up using mouse
 "pactl list sinks | grep 'Sink #' | grep -o '[0-9]*' | xargs -i pactl set-sink-volume {} +5% && pkill -RTMIN+1 i3blocks"
 Alt + b:4
-
+#-----------------------------
 # volume down using mouse
 "pactl list sinks | grep 'Sink #' | grep -o '[0-9]*' | xargs -i pactl set-sink-volume {} -5% && pkill -RTMIN+1 i3blocks"
 Alt + b:5
 
-#=============================
+#=======================================
 # change workspace with the mouse
-#=============================
-
+#=======================================
 # navigate to previous workspace
 "~/.config/scripts/navigate2ws_next.py --previous"
 Control + b:1
-
+#-----------------------------
 # navigate to next workspace
 "~/.config/scripts/navigate2ws_next.py --next"
 Control + b:3
+
+#=======================================
+# change windows opacity level with mouse
+#=======================================
+# increase opacity
+"$HOME/.config/scripts/picop.sh +10"
+mod5 + b:4
+#-----------------------------
+# decrease opacity
+"$HOME/.config/scripts/picop.sh -10"
+mod5 + b:5
 
 ##################################
 # End of xbindkeys configuration #
