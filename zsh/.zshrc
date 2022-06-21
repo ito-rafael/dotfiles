@@ -139,6 +139,7 @@ alias m=man             # man
 alias h=history         # history
 alias -g g='| grep'     # grep
 alias psa='ps aux'      # ps aux
+alias df='df -h'        # df
 #-----------------------------
 # open config files
 alias vv='vim ~/.vimrc'
