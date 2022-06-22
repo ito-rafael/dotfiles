@@ -140,6 +140,7 @@ alias h=history         # history
 alias -g g='| grep'     # grep
 alias psa='ps aux'      # ps aux
 alias df='df -h'        # df
+alias cx='chmod +x'     # chmod
 #-----------------------------
 # open config files
 alias vv='vim ~/.vimrc'
