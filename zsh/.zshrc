@@ -145,6 +145,7 @@ alias yay='yay --aur'   # yay
 #-----------------------------
 # systemctl
 alias sst='sudo systemctl start'
+alias ssr='sudo systemctl restart'
 #-----------------------------
 # open config files
 alias vv='vim ~/.vimrc'
