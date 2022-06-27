@@ -143,6 +143,9 @@ alias df='df -h'        # df
 alias cx='chmod +x'     # chmod
 alias yay='yay --aur'   # yay
 #-----------------------------
+# systemctl
+alias sst='sudo systemctl start'
+#-----------------------------
 # open config files
 alias vv='vim ~/.vimrc'
 alias zz='vim ~/.zshrc'
