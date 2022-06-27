@@ -148,6 +148,7 @@ alias sst='sudo systemctl start'
 alias ssr='sudo systemctl restart'
 alias sse='sudo systemctl enable'
 alias ssd='sudo systemctl disable'
+alias sss='sudo systemctl status'
 #-----------------------------
 # open config files
 alias vv='vim ~/.vimrc'
