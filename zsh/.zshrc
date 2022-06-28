@@ -150,6 +150,9 @@ alias sse='sudo systemctl enable'
 alias ssd='sudo systemctl disable'
 alias sss='sudo systemctl status'
 #-----------------------------
+# incognito mode (no records in "history")
+alias incognito=' unset HISTFILE &&'
+#-----------------------------
 # open config files
 alias vv='vim ~/.vimrc'
 alias zz='vim ~/.zshrc'
