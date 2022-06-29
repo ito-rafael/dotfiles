@@ -155,6 +155,7 @@ alias incognito=' unset HISTFILE &&'
 #-----------------------------
 # directories
 alias ..="cd .."
+alias ...="cd ../.."
 #-----------------------------
 # open config files
 alias vv='vim ~/.vimrc'
