@@ -230,6 +230,7 @@ element alternate normal {
 
 button {
     text-color: @darkgray;
+    background-color: @bg-alpha;
 }
 
 button selected {
