@@ -164,6 +164,7 @@ alias cdh='cd $HOME/git/homelab'
 #-----------------------------
 # confirm before overwriting
 alias cp="cp -i"
+alias mv='mv -i'
 #-----------------------------
 # open config files
 alias vv='vim ~/.vimrc'
