@@ -158,6 +158,7 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias cdc='cd $HOME/.config'
+alias cds='cd $HOME/.config/scripts'
 #-----------------------------
 # open config files
 alias vv='vim ~/.vimrc'
