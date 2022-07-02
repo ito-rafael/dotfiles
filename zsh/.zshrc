@@ -185,6 +185,7 @@ alias lii='ssh lbic cat ~/.config/i3/_config | vim -'
 alias lxx='ssh lbic cat ~/.Xmodmap | vim -'
 alias lkk='ssh lbic cat ~/.config/kitty/kitty.conf | vim -'
 alias lbb='ssh lbic cat ~/.config/i3/i3blocks.conf | vim -'
+alias lpp='ssh lbic cat ~/.config/polybar/config.ini | vim -'
 #-----------------------------
 # reload config files
 alias rz='source ~/.zshrc'
