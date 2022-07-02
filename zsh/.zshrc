@@ -160,6 +160,7 @@ alias ....="cd ../../.."
 alias cdc='cd $HOME/.config'
 alias cds='cd $HOME/.config/scripts'
 alias cdg='cd $HOME/git'
+alias cdh='cd $HOME/git/homelab'
 #-----------------------------
 # open config files
 alias vv='vim ~/.vimrc'
