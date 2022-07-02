@@ -162,6 +162,9 @@ alias cds='cd $HOME/.config/scripts'
 alias cdg='cd $HOME/git'
 alias cdh='cd $HOME/git/homelab'
 #-----------------------------
+# confirm before overwriting
+alias cp="cp -i"
+#-----------------------------
 # open config files
 alias vv='vim ~/.vimrc'
 alias zz='vim ~/.zshrc'
