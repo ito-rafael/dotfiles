@@ -231,8 +231,10 @@ element alternate normal {
 button {
     text-color: @darkgray;
     background-color: @bg-alpha;
+    border-radius: 10px 10px 10px 10px;
 }
 
 button selected {
     text-color: @white;
+    border-radius: 10px 10px 10px 10px;
 }
