@@ -159,7 +159,7 @@ configuration {
 window {
     height: 1800;
     width: 3200;
-    padding: 600 1100;
+    padding: 575 1100;
     background-color: @bg-alpha;
 }
 
@@ -232,6 +232,7 @@ button {
     text-color: @darkgray;
     background-color: @bg-alpha;
     border-radius: 10px 10px 10px 10px;
+    padding: 5px 0px 5px 0px;
 }
 
 button selected {
