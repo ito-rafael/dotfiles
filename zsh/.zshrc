@@ -245,6 +245,9 @@ export GDK_DPI_SCALE=0.5
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 #-----------------------------
+# shell
+export SHELL=/usr/bin/zsh
+#-----------------------------
 # themes
 export THEME_CURRENT=$(cat ~/.config/gtk-3.0/settings.ini | grep -oP '(?<=gtk-theme-name=).*')
 export THEME_DARK='Adwaita-dark'
