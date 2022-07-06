@@ -237,6 +237,10 @@ function eth() { forx -q "${1:-1}" ETH BRL }    # Ethereum
 # PATH
 export PATH="$HOME/.emacs.d/bin:$PATH"
 #-----------------------------
+# HiDPI in i3 (Arch)
+export GDK_SCALE=2
+export GDK_DPI_SCALE=0.5
+#-----------------------------
 # force applications to use the default language for output
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
