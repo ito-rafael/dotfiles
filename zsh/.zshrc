@@ -247,6 +247,8 @@ export LC_ALL=en_US.UTF-8
 #-----------------------------
 # shell
 export SHELL=/usr/bin/zsh
+# terminal
+export TERMINAL=kitty
 #-----------------------------
 # themes
 export THEME_CURRENT=$(cat ~/.config/gtk-3.0/settings.ini | grep -oP '(?<=gtk-theme-name=).*')
