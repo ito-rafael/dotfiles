@@ -238,4 +238,6 @@ button {
 button selected {
     text-color: @white;
     border-radius: 10px 10px 10px 10px;
+    border-color: @darkgray;
+    border: 2px 2px 2px 2px;
 }
