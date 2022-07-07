@@ -199,6 +199,9 @@ alias lxx='ssh $REMOTE cat ~/.Xmodmap | vim -'
 alias lkk='ssh $REMOTE cat ~/.config/kitty/kitty.conf | vim -'
 alias lbb='ssh $REMOTE cat ~/.config/i3/i3blocks.conf | vim -'
 alias lpp='ssh $REMOTE cat ~/.config/polybar/config.ini | vim -'
+#-----------------------------
+# diff config files in remote PC
+alias dvv='ssh $REMOTE cat ~/.vimrc | diff - ~/.vimrc'
 
 #-----------------------------
 # clipboard
