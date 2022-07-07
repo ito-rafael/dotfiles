@@ -203,6 +203,7 @@ alias lpp='ssh $REMOTE cat ~/.config/polybar/config.ini | vim -'
 # diff config files in remote PC
 alias dvv='ssh $REMOTE cat ~/.vimrc | diff - ~/.vimrc'
 alias dzz='ssh $REMOTE cat ~/.zshrc | diff - ~/.zshrc'
+alias dii='ssh $REMOTE cat ~/.config/i3/_config | diff - ~/.config/i3/_config'
 
 #-----------------------------
 # clipboard
