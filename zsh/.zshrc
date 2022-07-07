@@ -191,6 +191,7 @@ alias pp='vim ~/.config/polybar/config.ini'
 #-----------------------------
 # open config files in remote PC
 REMOTE="lbic"
+#REMOTE="y2p"
 alias lvv='ssh $REMOTE cat ~/.vimrc | vim -'
 alias lzz='ssh $REMOTE cat ~/.zshrc | vim -'
 alias lii='ssh $REMOTE cat ~/.config/i3/_config | vim -'
@@ -198,6 +199,7 @@ alias lxx='ssh $REMOTE cat ~/.Xmodmap | vim -'
 alias lkk='ssh $REMOTE cat ~/.config/kitty/kitty.conf | vim -'
 alias lbb='ssh $REMOTE cat ~/.config/i3/i3blocks.conf | vim -'
 alias lpp='ssh $REMOTE cat ~/.config/polybar/config.ini | vim -'
+
 #-----------------------------
 # clipboard
 #-----------------------------
