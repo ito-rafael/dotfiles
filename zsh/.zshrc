@@ -77,6 +77,7 @@ plugins+=(web-search)
 plugins+=(dirhistory)
 plugins+=(history-substring-search)
 plugins+=(colored-man-pages)
+plugins+=(globalias)
 #plugins+=(vi-mode)
 #plugins+=(zsh-vi-mode)
 
