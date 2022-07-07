@@ -175,6 +175,10 @@ function de() { docker exec -it $(docker ps | grep $1 | awk '{print $1}') $2 }
 #-----------------------------
 # config files
 #-----------------------------
+# hosts
+REMOTE="lbic"
+#REMOTE="y2p"
+#-----------------------------
 # reload config files
 alias rz='source ~/.zshrc'
 alias ri='~/.config/i3/i3bang.rb && i3-msg restart'
@@ -190,8 +194,6 @@ alias bb='vim ~/.config/i3/i3blocks.conf'
 alias pp='vim ~/.config/polybar/config.ini'
 #-----------------------------
 # open config files in remote PC
-REMOTE="lbic"
-#REMOTE="y2p"
 alias lvv='ssh $REMOTE cat ~/.vimrc | vim -'
 alias lzz='ssh $REMOTE cat ~/.zshrc | vim -'
 alias lii='ssh $REMOTE cat ~/.config/i3/_config | vim -'
