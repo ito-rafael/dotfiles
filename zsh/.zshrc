@@ -207,6 +207,7 @@ alias dii='ssh $REMOTE cat ~/.config/i3/_config | diff - ~/.config/i3/_config'
 alias dxx='ssh $REMOTE cat ~/.Xmodmap | diff - ~/.Xmodmap'
 alias dkk='ssh $REMOTE cat ~/.config/kitty/kitty.conf | diff - ~/.config/kitty/kitty.conf'
 alias dbb='ssh $REMOTE cat ~/.config/i3/i3blocks.conf | diff - ~/.config/i3/i3blocks.conf'
+alias dpp='ssh $REMOTE cat ~/.config/polybar/config.ini | diff - ~/.config/polybar/config.ini'
 
 #-----------------------------
 # clipboard
