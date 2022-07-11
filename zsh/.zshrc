@@ -144,6 +144,8 @@ alias df='df -h'        # df
 alias chx='chmod +x'    # chmod
 alias cx='chmod +x'     # chmod
 alias yay='yay --aur'   # yay
+# Emacs
+alias e='emacsclient --create-frame --alternate-editor="emacs"'
 #-----------------------------
 # systemctl
 alias sst='sudo systemctl start'
