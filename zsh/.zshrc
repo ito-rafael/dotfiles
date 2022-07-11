@@ -215,6 +215,13 @@ alias dbb='ssh $REMOTE cat ~/.config/i3/i3blocks.conf | diff - ~/.config/i3/i3bl
 alias dpp='ssh $REMOTE cat ~/.config/polybar/config.ini | diff - ~/.config/polybar/config.ini'
 
 #-----------------------------
+# Modern Unix
+# https://github.com/ibraheemdev/modern-unix
+#-----------------------------
+# exa: ls replacement
+alias ls='exa -alg --color=always --group-directories-first'    # default
+
+#-----------------------------
 # clipboard
 #-----------------------------
 # copy stdout
