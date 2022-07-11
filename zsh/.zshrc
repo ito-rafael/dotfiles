@@ -173,6 +173,7 @@ alias rm='rm -i'
 #-----------------------------
 # Docker
 function de() { docker exec -it $(docker ps | grep $1 | awk '{print $1}') $2 }
+function dl() { docker logs $(docker ps | grep $1 | awk '{print $1}') }
 
 #-----------------------------
 # config files
