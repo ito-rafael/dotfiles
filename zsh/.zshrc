@@ -222,6 +222,7 @@ alias dpp='ssh $REMOTE cat ~/.config/polybar/config.ini | diff - ~/.config/polyb
 alias ls='exa -alg --color=always --group-directories-first'    # default
 alias la='exa -a   --color=always --group-directories-first'    # all files & dirs
 alias ll='exa -l   --color=always --group-directories-first'    # long
+alias lt='exa -aT  --color=always --group-directories-first'    # tree
 
 #-----------------------------
 # clipboard
