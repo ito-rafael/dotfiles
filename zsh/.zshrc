@@ -224,6 +224,8 @@ alias la='exa -a   --color=always --group-directories-first'    # all files & di
 alias ll='exa -l   --color=always --group-directories-first'    # long
 alias lt='exa -aT  --color=always --group-directories-first'    # tree
 alias l.='exa -a | egrep "^\."'                                 # hidden
+# bat: cat replacement
+alias cat=bat
 
 #-----------------------------
 # clipboard
