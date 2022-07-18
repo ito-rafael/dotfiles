@@ -1,0 +1,3 @@
+- block:
+  # make sure users exist on the system
+  - import_tasks: users/rafael.yml

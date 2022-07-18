@@ -1,0 +1,4 @@
+- name: users | rafael | create group
+  group:
+    name: rafael
+    state: present
