@@ -28,3 +28,8 @@
       src: /usr/bin/fcrontab
       path: /usr/bin/crontab
       state: link
+
+  - name: add ansbile user to fcron.allow
+    lineinfile:
+      path: /etc/fcron/fcron.allow
+      line: ansible
