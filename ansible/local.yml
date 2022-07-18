@@ -47,3 +47,4 @@
       user: ansible
       minute: "*/10"
       job: ansible-pull --only-if-changed --url https://github.com/ito-rafael/pc-general-config.git ansible/local.yml   
+...
