@@ -12,3 +12,11 @@
     comment: "Rafael Ito"
     password: "{{ rafael_passwd }}"
     shell: /usr/bin/zsh
+
+- name: users | rafael | add sudoers file
+  copy:
+    src: users/sudoers_rafael
+    dest: /etc/sudoers.d/rafael
+    owner: root
+    group: root
+    mode: 0440
