@@ -7,7 +7,7 @@
   user:
     name: rafael
     group: rafael
-    groups: {{ sudo_group }}
+    groups: "{{ sudo_group }}"
     state: present
     comment: "Rafael Ito"
     password: "{{ rafael_passwd }}"
