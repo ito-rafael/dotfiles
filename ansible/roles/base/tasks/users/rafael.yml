@@ -2,3 +2,13 @@
   group:
     name: rafael
     state: present
+
+- name: users | rafael | create user
+  user:
+    name: rafael
+    group: rafael
+    groups: {{ sudo_group }}
+    state: present
+    comment: "Rafael Ito"
+    password: "{{ rafael_passwd }}"
+    shell: /usr/bin/zsh
