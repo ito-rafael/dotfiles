@@ -15,3 +15,16 @@
       name: ansible
       system: yes
 
+  - name: give ansible user sudo permission
+    copy:
+      src: files/sudoer_ansible
+      dest: /etc/sudoers.d/ansible
+      owner: root
+      group: root
+      mode: 0440
+
+  - name: create symlink to crontab
+    file:
+      src: /usr/bin/fcrontab
+      path: /usr/bin/crontab
+      state: link
