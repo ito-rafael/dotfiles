@@ -33,3 +33,9 @@
     lineinfile:
       path: /etc/fcron/fcron.allow
       line: ansible
+
+  - name: start fcron daemon
+    systemd:
+      name: fcron
+      state: started
+      enabled: yes
