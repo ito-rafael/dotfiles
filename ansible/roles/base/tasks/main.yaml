@@ -9,7 +9,7 @@
 
   # set up ansible environment
   - import_tasks: ansible_setup.yml
+  - import_tasks: software/fcron
   - import_tasks: system/auto-provision.yml
 
   # system setup
-- import_tasks: system/fcron

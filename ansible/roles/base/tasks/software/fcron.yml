@@ -1,0 +1,12 @@
+- name: system | fcron | install package
+  package:
+    name: "{{ cron_package }}"
+    state: latest
+
+- name: system | fcron | start daemon
+  systemd:
+    name: fcron
+    state: started
+    enabled: yes
+  when: ansible_distribution == "Archlinux"
+
