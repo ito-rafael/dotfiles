@@ -4,8 +4,11 @@
 
 - block:
 
-  # make sure users exist on the system
+  # set up users
   - import_tasks: users/rafael.yml
 
   # set up ansible environment
   - import_tasks: ansible_setup.yml
+
+  # system setup
+- import_tasks: system_setup/fcron
