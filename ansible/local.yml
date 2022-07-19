@@ -1,14 +1,13 @@
 ---
-- hosts: localhost
-  connection: local
+- hosts: all
   become: true
 
-  tasks:
-  - name: restart fcron daemon
-    systemd:
-      name: fcron
-      state: restarted
-      enabled: yes
+  pre_tasks:
+    - name: pre-run | [Arch] update package cache
+      tags: always
+      pacman: update_cache=yes
+      changed_when: False
+      when: ansible_distribution == "Archlinux"
 
 - hosts: all
   tags: base
