@@ -1,0 +1,5 @@
+- name: system | auto-provision | create user ansible
+  user:
+    name: ansible
+    system: yes
+
