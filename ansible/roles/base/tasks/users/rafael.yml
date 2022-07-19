@@ -15,7 +15,7 @@
 
 - name: users | rafael | add sudoers file
   copy:
-    src: users/sudoers_rafael
+    src: files/users/sudoers_rafael
     dest: /etc/sudoers.d/rafael
     owner: root
     group: root

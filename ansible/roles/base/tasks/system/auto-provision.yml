@@ -5,7 +5,7 @@
     
 - name: give ansible user sudo permission
   copy:
-    src: files/sudoers_ansible
+    src: files/users/sudoers_ansible
     dest: /etc/sudoers.d/ansible
     owner: root
     group: root
