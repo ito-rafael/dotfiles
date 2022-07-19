@@ -10,3 +10,8 @@
     enabled: yes
   when: ansible_distribution == "Archlinux"
 
+- name: system | fcron | crontab symlink
+  file:
+    src: /usr/bin/fcrontab
+    path: /usr/bin/crontab
+    state: link
