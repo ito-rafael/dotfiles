@@ -1,0 +1,4 @@
+- name: system setup | fcron | install package
+  package:
+    name: "{{ cron_package }}"
+    state: latest
