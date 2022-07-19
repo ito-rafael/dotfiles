@@ -4,31 +4,11 @@
   become: true
 
   tasks:
-
-  - name: create symlink to crontab
-    file:
-      src: /usr/bin/fcrontab
-      path: /usr/bin/crontab
-      state: link
-
-  - name: add ansbile user to fcron.allow
-    lineinfile:
-      path: /etc/fcron/fcron.allow
-      line: ansible
-
-  - name: start fcron daemon
+  - name: restart fcron daemon
     systemd:
       name: fcron
-      state: started
+      state: restarted
       enabled: yes
-
-  - name: add ansible-pull cron job
-    cron:
-      cron_file: 
-      name: ansible auto-provision
-      user: ansible
-      minute: "*/10"
-      job: ansible-pull --only-if-changed --url https://github.com/ito-rafael/pc-general-config.git ansible/local.yml   
 
 - hosts: all
   tags: base
@@ -41,5 +21,4 @@
   become: true
   roles:
     - workstation
-
 ...
