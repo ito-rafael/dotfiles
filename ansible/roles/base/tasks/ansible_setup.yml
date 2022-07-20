@@ -38,3 +38,11 @@
     state: started
     enabled: yes
   when: ansible_distribution == "Archlinux"
+
+- name: init | ssh | create dir
+  file:
+    path: /home/ansible/.ssh
+    state: directory
+    owner: ansible
+    group: ansible
+    mode: 0700
