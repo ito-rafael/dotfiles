@@ -1,4 +1,9 @@
-- name: ansible setup | ensure latest version of ansible is available
+- name: init | ansible | ensure ansible latest version
   package:
     name: ansible
     state: latest
+
+- name: init | ansible | create group
+  group:
+    name: ansible
+    state: present

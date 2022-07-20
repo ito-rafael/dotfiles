@@ -3,12 +3,12 @@
 
 - block:
 
-  # set up users
-  - import_tasks: users/rafael.yml
-
   # set up ansible environment
   - import_tasks: ansible_setup.yml
   - import_tasks: software/fcron.yml
   - import_tasks: system/auto-provision.yml
+
+  # set up users
+  - import_tasks: users/rafael.yml
 
   # system setup

@@ -1,19 +1,18 @@
 ---
+- hosts: localhost
+  connection: local
+  become: true
+  roles:
+    - base
+
 - hosts: all
   become: true
-
   pre_tasks:
     - name: pre-run | [Arch] update package cache
       tags: always
       pacman: update_cache=yes
       changed_when: False
       when: ansible_distribution == "Archlinux"
-
-- hosts: all
-  tags: base
-  become: true
-  roles:
-    - base
 
 - hosts: workstation
   tags: workstation
