@@ -17,3 +17,11 @@
     comment: "Ansible"
     system: yes
     shell: /usr/bin/nologin
+
+- name: init | ansible | add sudoers file
+  copy:
+    src: files/users/sudoers_ansible
+    dest: /etc/sudoers.d/ansible
+    owner: root
+    group: root
+    mode: 0440
