@@ -12,7 +12,7 @@
   user:
     name: ansible
     group: ansible
-    groups: wheel
+    groups: "{{ sudo_group }}"
     state: present
     comment: "Ansible"
     system: yes
