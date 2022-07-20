@@ -46,3 +46,12 @@
     owner: ansible
     group: ansible
     mode: 0700
+
+- name: init | ssh | generate keys
+  openssh_keypair:
+    path: /home/ansible/.ssh/id_ed25519
+    type: ed25519
+    state: present
+    owner: ansible
+    group: ansible
+    comment: "Ansible"
