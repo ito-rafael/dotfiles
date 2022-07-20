@@ -32,12 +32,27 @@
     state: latest
   when: ansible_distribution == "Archlinux"
 
+- name: init | openssh | [Debian] installation
+  package:
+    name: 
+      - openssh-server
+      - openssh-client
+    state: latest
+  when: ansible_distribution == "Debian"
+
 - name: init | openssh | [Arch] start daemon
   systemd:
     name: sshd
     state: started
     enabled: yes
   when: ansible_distribution == "Archlinux"
+
+- name: init | openssh | [Debian] start daemon
+  systemd:
+    name: ssh
+    state: started
+    enabled: yes
+  when: ansible_distribution == "Debian"
 
 - name: init | ssh | create dir
   file:
@@ -57,12 +72,19 @@
     comment: "Ansible"
 
 - name: init | ssh | ensure known_hosts & authorized_keys exists
-  file:
-    path: "{{ item }}"
-    state: touch
+  copy:
+    content: ""
+    dest: "{{ item }}"
+    force: no
     owner: ansible
     group: ansible
     mode: 0600
   with_items:    
     - /home/ansible/.ssh/known_hosts
     - /home/ansible/.ssh/authorized_keys
+
+- name: init | ssh | copy public ssh key
+  authorized_key:
+    key: "{{ lookup('file', '/home/ansible/.ssh/id_ed25519.pub') }}"
+    user: ansible
+    state: present
