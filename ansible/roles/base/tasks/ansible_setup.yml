@@ -25,3 +25,9 @@
     owner: root
     group: root
     mode: 0440
+
+- name: init | openssh | [Arch] installation
+  package:
+    name: openssh
+    state: latest
+  when: ansible_distribution == "Archlinux"
