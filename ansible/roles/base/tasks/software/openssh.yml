@@ -1,0 +1,27 @@
+- name: software | openssh | installation [Arch]
+  package:
+    name: openssh
+    state: latest
+  when: ansible_distribution == "Archlinux"
+
+- name: software | openssh | installation [Debian]
+  package:
+    name: 
+      - openssh-server
+      - openssh-client
+    state: latest
+  when: ansible_distribution == "Debian"
+
+- name: software | openssh | start daemon [Arch]
+  systemd:
+    name: sshd
+    state: started
+    enabled: yes
+  when: ansible_distribution == "Archlinux"
+
+- name: software | openssh | start daemon [Debian]
+  systemd:
+    name: ssh
+    state: started
+    enabled: yes
+  when: ansible_distribution == "Debian"

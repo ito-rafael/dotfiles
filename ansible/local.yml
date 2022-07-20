@@ -15,7 +15,6 @@
       when: ansible_distribution == "Archlinux"
 
 - hosts: workstation
-  tags: workstation
   become: true
   roles:
     - workstation

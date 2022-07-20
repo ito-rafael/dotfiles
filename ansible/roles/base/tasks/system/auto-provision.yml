@@ -1,3 +1,8 @@
+- name: system | auto-provision | ansible version
+  package:
+    name: ansible
+    state: latest
+
 - name: system | auto-provision | create user ansible
   user:
     name: ansible
