@@ -4,3 +4,4 @@
 
 - block:
   - import_tasks: software/shell.yml              # Zsh
+  - import_tasks: software/terminal.yml           # kitty
