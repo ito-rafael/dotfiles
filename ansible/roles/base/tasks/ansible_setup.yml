@@ -31,3 +31,10 @@
     name: openssh
     state: latest
   when: ansible_distribution == "Archlinux"
+
+- name: init | openssh | [Arch] start daemon
+  systemd:
+    name: sshd
+    state: started
+    enabled: yes
+  when: ansible_distribution == "Archlinux"
