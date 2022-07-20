@@ -11,7 +11,7 @@
     state: present
     comment: "Ansible"
     system: yes
-    shell: /usr/bin/nologin
+    shell: /bin/bash
 
 - name: users | ansible | add sudoers file
   copy:
