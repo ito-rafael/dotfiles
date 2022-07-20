@@ -7,8 +7,6 @@
   - import_tasks: users/ansible.yml
   - import_tasks: software/openssh.yml
   - import_tasks: system/openssh_keys.yml
-
-  - import_tasks: ansible_setup.yml
   - import_tasks: software/fcron.yml
   - import_tasks: system/auto-provision.yml
 
