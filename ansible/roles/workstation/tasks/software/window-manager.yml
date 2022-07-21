@@ -4,3 +4,9 @@
       - gnu-free-fonts
       - seatd
       - sway
+
+- name: users | rafael | add to seat group
+  user:
+    name: rafael
+    groups: seat
+    append: yes
