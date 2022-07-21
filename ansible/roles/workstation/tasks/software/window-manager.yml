@@ -10,3 +10,9 @@
     name: rafael
     groups: seat
     append: yes
+
+- name: service | seatd | start
+  systemd:
+    name: seatd
+    enabled: yes
+    state: started
