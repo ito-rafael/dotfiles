@@ -1,0 +1,6 @@
+- name: software | window-manager | sway
+  package:
+    name:
+      - gnu-free-fonts
+      - seatd
+      - sway
