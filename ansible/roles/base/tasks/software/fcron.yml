@@ -6,8 +6,8 @@
 - name: system | fcron | disable sendmail
   replace:
     path: /etc/fcron/fcron.conf
-    regexp: '^\(sendmail.*=.*\/usr\/bin\/sendmail\)$' 
-    replace: '#\1'
+    regexp: '^(sendmail.*=.*/usr/bin/sendmail)$'
+    replace: '#\g<1>'
 
 - name: system | fcron | start daemon
   systemd:
