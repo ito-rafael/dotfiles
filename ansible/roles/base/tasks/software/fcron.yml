@@ -3,6 +3,12 @@
     name: "{{ cron_package }}"
     state: latest
 
+- name: system | fcron | disable sendmail
+  replace:
+    path: /etc/fcron/fcron.conf
+    regexp: '^\(sendmail.*=.*\/usr\/bin\/sendmail\)$' 
+    replace: '#\1'
+
 - name: system | fcron | start daemon
   systemd:
     name: fcron
