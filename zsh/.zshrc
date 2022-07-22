@@ -172,7 +172,7 @@ alias mv='mv -i'
 alias rm='rm -i'
 #-----------------------------
 # Docker
-function de() { docker exec -it $(docker ps | grep $1 | awk '{print $1}') $2 }
+function de() { docker exec -it $(docker ps | grep $1 | awk '{print $1}') ${2:-bash} }
 function dl() { docker logs $(docker ps | grep $1 | awk '{print $1}') }
 
 #-----------------------------
