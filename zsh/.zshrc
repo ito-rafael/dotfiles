@@ -243,15 +243,27 @@ alias vpn-lbic='sudo openvpn /etc/openvpn/client/ito_rafael-conf-file.conf'
 #-----------------------------
 # adb / scrcpy
 #-----------------------------
-# IP:port
-alias s20_ip='adb devices -l | grep SM_G980F | awk "{print \$1}"'
-alias gw4_ip='adb devices -l | grep SM_R880 | awk "{print \$1}"'
-# adb devices
-alias -g s20="-s $(s20_ip)"
-alias -g gw4="-s $(gw4_ip)"
-# scrcpy
-alias -g s="scrcpy s20 --prefer-text"
-alias -g sw="scrcpy gw4 --prefer-text"
+# phone: S20
+function s() {
+    adb connect 192.168.0.101:5555
+    s20_ip=$(adb devices -l | grep SM_G980F | awk "{print \$1}")
+    scrcpy -s $s20_ip --prefer-text
+}
+# smartwatch: GW4
+function sw() {
+    adb connect 192.168.0.104:5555
+    gw4_ip=$(adb devices -l | grep SM_R880 | awk "{print \$1}")
+    scrcpy -s $gw4_ip --prefer-text
+}
+## IP:port
+#alias s20_ip='adb devices -l | grep SM_G980F | awk "{print \$1}"'
+#alias gw4_ip='adb devices -l | grep SM_R880 | awk "{print \$1}"'
+## adb devices
+#alias -g s20="-s $(s20_ip)"
+#alias -g gw4="-s $(gw4_ip)"
+## scrcpy
+#alias -g s="scrcpy s20 --prefer-text"
+#alias -g sw="scrcpy gw4 --prefer-text"
 #-----------------------------
 # ForX - Coinbase's API
 # currency
