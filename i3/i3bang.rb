@@ -252,9 +252,19 @@ end
 
 if __FILE__ == $0
     #INFILE = File.expand_path(ARGV[0] || '~/.config/i3/_config')
-    INFILE = File.expand_path('~/.config/i3/_config')
+    #INFILE = File.expand_path('~/.config/i3/_config')
     #OUTFILE = File.expand_path(ARGV[1] || '~/.config/i3/config')
-    OUTFILE = File.expand_path('~/.config/i3/config')
+    #OUTFILE = File.expand_path('~/.config/i3/config')
+
+    if File.exist?(File.expand_path('~/.config/i3'))
+        print "i3"
+        INFILE = File.expand_path('~/.config/i3/_config')
+        OUTFILE = File.expand_path('~/.config/i3/config')
+    elsif File.exists?(File.expand_path('~/.config/sway'))
+        print "sway"
+        INFILE = File.expand_path('~/.config/sway/_config')
+        OUTFILE = File.expand_path('~/.config/sway/config')
+    end
 
     config = File.read INFILE
     begin
