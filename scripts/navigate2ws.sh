@@ -86,7 +86,7 @@ else
     # navigate to workspace and open windows if empty
     #=================================================
     # check if the workspace is empty
-    if ${CMD_MSG} -t get_workspaces | grep -e "\"name\":\"$WS_NAME";
+    if ${CMD_MSG} -t get_workspaces | grep -e "$WS_NAME";
     then
         # if not, navigate to the workspace
         ${CMD_MSG} -t command workspace $WS_NAME;
