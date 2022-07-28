@@ -11,7 +11,7 @@ where:
 #------------------------
 # print help menu
 if [[ $1 == '-h' || $1 == '--help' ]]; then
-	printf "script to navigate to i3 workspaces and open specifics windows if woskpace is empty\n\n"
+	printf "script to navigate to i3/sway workspaces and open specifics windows if woskpace is empty\n\n"
 	echo "$usage"
 	exit
 #------------------------
@@ -25,7 +25,7 @@ else
     #=================================================
     # list the name of the workspaces
     #=================================================
-    # todo: read from i3 config file
+    # todo: read from i3/sway config file
     WS1="1 "
     WS2="2 "
     WS3="3 "
@@ -66,17 +66,36 @@ else
     #then
     
     #=================================================
+    # get session type (i3/sway/tty)
+    #=================================================
+    case "${XDG_SESSION_TYPE}" in
+        "x11")
+            CMD_MSG="i3-msg"
+            ;;
+        "wayland")
+            CMD_MSG="swaymsg"
+            ;;
+        "tty")
+            exit 0
+            ;;
+        *)
+            exit 0
+            ;;
+    esac
+    #=================================================
     # navigate to workspace and open windows if empty
     #=================================================
     # check if the workspace is empty
-    if i3-msg -t get_workspaces | grep -e "\"name\":\"$WS_NAME";
+    if ${CMD_MSG} -t get_workspaces | grep -e "\"name\":\"$WS_NAME";
     then
         # if not, navigate to the workspace
-        i3-msg -t command workspace $WS_NAME;
+        ${CMD_MSG} -t command workspace $WS_NAME;
     else
         # if it is, navigate to the workspace and open the layout and windows associated to it
-#        i3-msg -t command workspace $WS_NAME;
-        i3-msg -t command "workspace $WS_NAME; append_layout /home/rafael/.config/i3/ws$WORKSPACE.json"
+        ${CMD_MSG} -t command "workspace $WS_NAME";
+        if [[ ${CMD_MSG} == "i3-msg" ]]; then
+            ${CMD_MSG} -t append_layout "/home/rafael/.config/i3/ws$WORKSPACE.json"
+        fi
         case $WORKSPACE in
         1 )
             #nohup xfce4-terminal --command="ranger /home/rafael" &
