@@ -175,6 +175,7 @@ alias rm='rm -i'
 function de() { docker exec -it $(docker ps | grep $1 | awk '{print $1}') ${2:-bash} }
 function dl() { docker logs $(docker ps | grep $1 | awk '{print $1}') }
 function dc() { docker-compose $1 }
+alias dcu='docker-compose up -d'
 
 #-----------------------------
 # config files
