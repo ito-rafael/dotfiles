@@ -177,6 +177,7 @@ function dl() { docker logs $(docker ps | grep $1 | awk '{print $1}') }
 function dc() { docker-compose $1 }
 alias dcu='docker-compose up -d'
 alias dcd='docker-compose down'
+alias dcr='docker-compose restart'
 
 #-----------------------------
 # config files
