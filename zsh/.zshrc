@@ -143,7 +143,7 @@ alias psa='ps aux'      # ps aux
 alias df='df -h'        # df
 alias chx='chmod +x'    # chmod
 alias cx='chmod +x'     # chmod
-alias yay='yay --aur'   # yay
+alias {paru,yay}='paru --aur'	# paru/yay
 # Emacs
 alias e='emacsclient --create-frame --alternate-editor="emacs"'
 #-----------------------------
