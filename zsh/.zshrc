@@ -165,6 +165,7 @@ alias cdc='cd $HOME/.config'
 alias cds='cd $HOME/.config/scripts'
 alias cdg='cd $HOME/git'
 alias cdh='cd $HOME/git/homelab'
+alias cdp='cd $HOME/git/pc-general-config'
 #-----------------------------
 # confirm before overwriting
 alias cp="cp -i"
