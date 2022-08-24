@@ -193,7 +193,7 @@ alias ri='~/.config/i3/i3bang.rb && i3-msg restart'
 alias rx='xmodmap ~/.Xmodmap'
 #-----------------------------
 # open config files
-alias vv='vim ~/.vimrc'
+alias vv='vim ~/.config/nvim/init.vim'
 alias zz='vim ~/.zshrc'
 alias ii='vim ~/.config/i3/_config'
 alias xx='vim ~/.Xmodmap'
