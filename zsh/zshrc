@@ -304,7 +304,7 @@ export SHELL=/usr/bin/zsh
 export TERMINAL=kitty
 #-----------------------------
 # themes
-export THEME_CURRENT=$(cat ~/.config/gtk-3.0/settings.ini | grep -oP '(?<=gtk-theme-name=).*')
+export THEME_CURRENT=$(cat ~/.config/gtk-4.0/settings.ini | grep -oP '(?<=gtk-theme-name=).*')
 export THEME_DARK='Adwaita-dark'
 export THEME_LIGHT='Adwaita'
 
