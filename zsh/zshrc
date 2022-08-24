@@ -218,6 +218,9 @@ alias dxx='ssh $REMOTE cat ~/.Xmodmap | diff - ~/.Xmodmap'
 alias dkk='ssh $REMOTE cat ~/.config/kitty/kitty.conf | diff - ~/.config/kitty/kitty.conf'
 alias dbb='ssh $REMOTE cat ~/.config/i3/i3blocks.conf | diff - ~/.config/i3/i3blocks.conf'
 alias dpp='ssh $REMOTE cat ~/.config/polybar/config.ini | diff - ~/.config/polybar/config.ini'
+#-----------------------------
+# open config in git repo
+alias gvv='vim ~/git/pc-general-config/nvim/init.vim'
 
 #-----------------------------
 # Modern Unix
