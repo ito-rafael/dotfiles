@@ -202,7 +202,7 @@ alias bb='vim ~/.config/i3/i3blocks.conf'
 alias pp='vim ~/.config/polybar/config.ini'
 #-----------------------------
 # open config files in remote PC
-alias lvv='ssh $REMOTE cat ~/.vimrc | vim -'
+alias lvv='ssh $REMOTE cat ~/.config/nvim/init.vim | vim -'
 alias lzz='ssh $REMOTE cat ~/.zshrc | vim -'
 alias lii='ssh $REMOTE cat ~/.config/i3/_config | vim -'
 alias lxx='ssh $REMOTE cat ~/.Xmodmap | vim -'
@@ -211,7 +211,7 @@ alias lbb='ssh $REMOTE cat ~/.config/i3/i3blocks.conf | vim -'
 alias lpp='ssh $REMOTE cat ~/.config/polybar/config.ini | vim -'
 #-----------------------------
 # diff config files in remote PC
-alias dvv='ssh $REMOTE cat ~/.vimrc | diff - ~/.vimrc'
+alias dvv='ssh $REMOTE cat ~/.config/nvim/init.vim | diff - ~/.vimrc'
 alias dzz='ssh $REMOTE cat ~/.zshrc | diff - ~/.zshrc'
 alias dii='ssh $REMOTE cat ~/.config/i3/_config | diff - ~/.config/i3/_config'
 alias dxx='ssh $REMOTE cat ~/.Xmodmap | diff - ~/.Xmodmap'
