@@ -221,6 +221,7 @@ alias dpp='ssh $REMOTE cat ~/.config/polybar/config.ini | diff - ~/.config/polyb
 #-----------------------------
 # open config in git repo
 alias gvv='vim ~/git/pc-general-config/nvim/init.vim'
+alias gzz='vim ~/git/pc-general-config/zsh/zshrc'
 
 #-----------------------------
 # Modern Unix
