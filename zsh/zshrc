@@ -224,6 +224,7 @@ alias gvv='vim ~/git/pc-general-config/nvim/init.vim'
 alias gzz='vim ~/git/pc-general-config/zsh/zshrc'
 alias gii='vim ~/git/pc-general-config/i3/_config'
 alias gxx='vim ~/git/pc-general-config/X.Org/Xmodmap'
+alias gkk='vim ~/git/pc-general-config/kitty/kitty.conf'
 
 #-----------------------------
 # Modern Unix
