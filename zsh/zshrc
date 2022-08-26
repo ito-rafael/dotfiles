@@ -198,7 +198,7 @@ REMOTE="lbic"
 #REMOTE="y2p"
 #-----------------------------
 # reload config files
-alias rz='source ~/.zshrc'
+alias {rzz,rz}='source ~/.zshrc'
 alias ri='~/.config/i3/i3bang.rb && i3-msg restart'
 alias rx='xmodmap ~/.Xmodmap'
 #-----------------------------
