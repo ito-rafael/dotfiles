@@ -87,6 +87,7 @@ GLOBALIAS_FILTER_VALUES+=(cp)
 GLOBALIAS_FILTER_VALUES+=(rm)
 GLOBALIAS_FILTER_VALUES+=(cat)
 GLOBALIAS_FILTER_VALUES+=(diff)
+GLOBALIAS_FILTER_VALUES+=(grep)
 
 #=======================================
 # plugins setup
