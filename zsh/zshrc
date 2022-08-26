@@ -200,7 +200,7 @@ REMOTE="lbic"
 # reload config files
 alias {rzz,rz}='source ~/.zshrc'
 alias {rii,ri}='~/.config/i3/i3bang.rb && i3-msg restart'
-alias rx='xmodmap ~/.Xmodmap'
+alias {rxx,rx}='xmodmap ~/.Xmodmap'
 #-----------------------------
 # open config files
 alias vv='vim ~/.config/nvim/init.vim'
