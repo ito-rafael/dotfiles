@@ -226,6 +226,7 @@ alias gii='vim ~/git/pc-general-config/i3/_config'
 alias gxx='vim ~/git/pc-general-config/X.Org/Xmodmap'
 alias gkk='vim ~/git/pc-general-config/kitty/kitty.conf'
 alias gbb='vim ~/git/pc-general-config/i3/i3blocks.conf'
+alias gpp='vim ~/git/pc-general-config/polybar/config.ini'
 
 #-----------------------------
 # Modern Unix
