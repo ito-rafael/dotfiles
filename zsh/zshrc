@@ -200,6 +200,7 @@ alias xx='vim ~/.Xmodmap'
 alias kk='vim ~/.config/kitty/kitty.conf'
 alias bb='vim ~/.config/i3/i3blocks.conf'
 alias pp='vim ~/.config/polybar/config.ini'
+alias ee='vim ~/.config/doom/config.el'
 #-----------------------------
 # open config files in remote PC
 alias lvv='ssh $REMOTE cat ~/.config/nvim/init.vim | vim -'
