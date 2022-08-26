@@ -205,12 +205,31 @@ alias rx='xmodmap ~/.Xmodmap'
 # open config files
 alias vv='vim ~/.config/nvim/init.vim'
 alias zz='vim ~/.zshrc'
-alias ii='vim ~/.config/i3/_config'
 alias xx='vim ~/.Xmodmap'
 alias kk='vim ~/.config/kitty/kitty.conf'
 alias bb='vim ~/.config/i3/i3blocks.conf'
 alias pp='vim ~/.config/polybar/config.ini'
 alias ee='vim ~/.config/doom/config.el'
+function ii () {
+    case "${XDG_SESSION_TYPE}" in
+        "x11")
+	    vim ~/.config/i3/_config
+            ;;
+        "wayland")
+	    vim ~/.config/sway/_config
+            ;;
+        "tty")
+        if [ -f "/usr/share/xsessions/i3.desktop" ]; then
+	        vim ~/.config/i3/_config
+        elif [ -f "/usr/share/wayland-sessions/sway.desktop" ]; then
+	        vim ~/.config/sway/_config
+	    fi
+            ;;
+        *)
+            exit 0
+            ;;
+    esac
+}
 #-----------------------------
 # open config files in remote PC
 alias lvv='ssh $REMOTE cat ~/.config/nvim/init.vim | vim -'
