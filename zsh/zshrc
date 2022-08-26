@@ -81,6 +81,8 @@ plugins+=(globalias)
 #plugins+=(vi-mode)
 #plugins+=(zsh-vi-mode)
 
+GLOBALIAS_FILTER_VALUES+=(ls)
+
 #=======================================
 # plugins setup
 #=======================================
