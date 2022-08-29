@@ -267,6 +267,7 @@ alias gdzz='diff ~/git/pc-general-config/zsh/zshrc ~/.zshrc'
 alias gdii='diff ~/git/pc-general-config/i3/_config ~/.config/i3/_config'
 alias gdxx='diff ~/git/pc-general-config/X.Org/Xmodmap ~/.Xmodmap'
 alias gdkk='diff ~/git/pc-general-config/kitty/kitty.conf ~/.config/kitty/kitty.conf'
+alias gdbb='diff ~/git/pc-general-config/i3/i3blocks.conf ~/.config/i3/i3blocks.conf'
 
 #-----------------------------
 # Modern Unix
