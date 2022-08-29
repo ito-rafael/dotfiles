@@ -269,6 +269,7 @@ alias gdxx='diff ~/git/pc-general-config/X.Org/Xmodmap ~/.Xmodmap'
 alias gdkk='diff ~/git/pc-general-config/kitty/kitty.conf ~/.config/kitty/kitty.conf'
 alias gdbb='diff ~/git/pc-general-config/i3/i3blocks.conf ~/.config/i3/i3blocks.conf'
 alias gdpp='diff ~/git/pc-general-config/polybar/config.ini ~/.config/polybar/config.ini'
+alias gdee='diff ~/git/pc-general-config/doom/config.el ~/.config/doom/config.el'
 
 #-----------------------------
 # Modern Unix
