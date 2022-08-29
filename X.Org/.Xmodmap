@@ -32,6 +32,11 @@ add shift = Shift_L Shift_R
 clear control
 remove mod4 = Hyper_L
 add control = Control_L Control_R Hyper_L
+!---------
+! mod3
+clear mod3
+remove mod4 = Super_R
+add mod3 = Super_R
 
 !-------------------------------------------------
 ! original modifiers
