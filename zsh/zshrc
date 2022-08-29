@@ -263,6 +263,7 @@ alias gee='vim ~/git/pc-general-config/doom/config.el'
 #-----------------------------
 # diff between git repo and current config files
 alias gdvv='diff ~/git/pc-general-config/nvim/init.vim ~/.config/nvim/init.vim'
+alias gdzz='diff ~/git/pc-general-config/zsh/zshrc ~/.zshrc'
 
 #-----------------------------
 # Modern Unix
