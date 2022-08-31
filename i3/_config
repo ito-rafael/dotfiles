@@ -679,6 +679,9 @@ exec nohup autokey-gtk
 # dunst: notification daemon
 exec nohup /usr/bin/dunst
 #-----------------------------
+# Emacs daemon
+exec /usr/bin/emacs --daemon &
+#-----------------------------
 # run compositor
 exec_always --no-startup-id picom -b --config ~/.config/picom/picom.conf
 #-----------------------------
