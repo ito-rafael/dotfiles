@@ -6,6 +6,7 @@
         "cpu",
         "memory",
         "temperature",
+        "disk",
         "pulseaudio",
         "backlight",
         "battery",
@@ -28,6 +29,12 @@
         "format": "{temperatureC}°C {icon}",
         "format-icons": ["", "", ""]
     },
+    "disk": {
+        "interval": 30,
+        "format": "{path} {percentage_free}%",
+        "path": "/"
+    },
+    "pulseaudio": {
     "pulseaudio": {
         "format": "{volume}% {icon} {format_source}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
