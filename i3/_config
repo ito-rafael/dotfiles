@@ -89,10 +89,10 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl list sources | grep 'Source 
 #=============================
 
 # change focus
-bindsym mod1+h focus left
-bindsym mod1+j focus down
-bindsym mod1+k focus up
-bindsym mod1+l focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left  focus left
@@ -113,10 +113,10 @@ bindsym $mod+Shift+Up    move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym mod1+h split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym mod1+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
