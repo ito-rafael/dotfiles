@@ -2,13 +2,16 @@
     "layer": "top",
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": ["cpu", "battery", "clock"],
+    "modules-right": ["cpu", "memory", "battery", "clock"],
     "sway/window": {
         "max-length": 50
     },
     "cpu": {
         "format": "{usage}% ",
         "tooltip": false
+    },
+    "memory": {
+        "format": "{}% "
     },
     "battery": {
         "format": "{capacity}% {icon}",
