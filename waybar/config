@@ -2,7 +2,15 @@
     "layer": "top",
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": ["cpu", "memory", "temperature", "battery", "clock"],
+    "modules-right": [
+        "cpu",
+        "memory",
+        "temperature",
+        "pulseaudio",
+        "battery",
+        "clock",
+        "tray",
+    ],
     "sway/window": {
         "max-length": 50
     },
@@ -18,6 +26,18 @@
         "format-critical": "{temperatureC}°C {icon}",
         "format": "{temperatureC}°C {icon}",
         "format-icons": ["", "", ""]
+    },
+    "pulseaudio": {
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "default": ["", "", ""]
+        },
     },
     "battery": {
         "format": "{capacity}% {icon}",
