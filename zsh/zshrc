@@ -156,6 +156,7 @@ alias {chx,cx}='chmod +x'       # chmod
 alias {paru,yay}='paru --aur'	# paru/yay
 alias psag='ps aux | grep'      # ps aux | grep
 alias sps='sudo pacman -S'      # pacman install
+alias spr='sudo pacman -Rns'    # pacman remove
 # Emacs
 alias e='emacsclient --create-frame --alternate-editor="emacs"'
 #-----------------------------
