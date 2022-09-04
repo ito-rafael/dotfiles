@@ -2,7 +2,7 @@
     "layer": "top",
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": ["cpu", "memory", "battery", "clock"],
+    "modules-right": ["cpu", "memory", "temperature", "battery", "clock"],
     "sway/window": {
         "max-length": 50
     },
@@ -12,6 +12,12 @@
     },
     "memory": {
         "format": "{}% "
+    },
+    "temperature": {
+        "critical-threshold": 80,
+        "format-critical": "{temperatureC}°C {icon}",
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": ["", "", ""]
     },
     "battery": {
         "format": "{capacity}% {icon}",
