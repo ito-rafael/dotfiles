@@ -7,6 +7,7 @@
         "memory",
         "temperature",
         "pulseaudio",
+        "backlight",
         "battery",
         "clock",
         "tray",
@@ -38,6 +39,10 @@
             "headphone": "",
             "default": ["", "", ""]
         },
+    },
+    "backlight": {
+        "format": "{percent}% {icon}",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
     },
     "battery": {
         "format": "{capacity}% {icon}",
