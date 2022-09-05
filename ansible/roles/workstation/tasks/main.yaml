@@ -1,8 +1,0 @@
-# load distro-specific variables
-- include_vars: "{{ ansible_distribution }}.yml"
-  tags: always
-
-- block:
-  - import_tasks: software/shell.yml              # Zsh
-  - import_tasks: software/terminal.yml           # kitty
-  - import_tasks: software/window-manager.yml     # Sway
