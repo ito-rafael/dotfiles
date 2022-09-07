@@ -161,7 +161,7 @@ alias spr='sudo pacman -Rns'    # pacman remove
 alias e='emacsclient --create-frame --alternate-editor="emacs"'
 #-----------------------------
 # systemctl
-alias sst='sudo systemctl start'
+alias sta='sudo systemctl start'
 alias ssr='sudo systemctl restart'
 alias sse='sudo systemctl enable'
 alias ssd='sudo systemctl disable'
