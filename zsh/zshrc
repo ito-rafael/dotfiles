@@ -163,6 +163,7 @@ alias e='emacsclient --create-frame --alternate-editor="emacs"'
 # systemctl
 alias sta='sudo systemctl start'
 alias sto='sudo systemctl stop'
+alias stan='sudo systemctl start --now'
 alias ssr='sudo systemctl restart'
 alias sse='sudo systemctl enable'
 alias ssd='sudo systemctl disable'
