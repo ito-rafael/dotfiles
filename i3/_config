@@ -686,6 +686,16 @@ for_window [$prop="^dropdown_terminal$"] move position center
 for_window [$prop="^dropdown_terminal$"] move scratchpad
 for_window [$prop="^dropdown_terminal$"] border pixel 5
 
+#-----------------------------
+# Python
+#-----------------------------
+exec --no-startup-id kitty --class="dropdown_python" -o font_size=20 python -q
+bindsym $mod+m [$prop="^dropdown_python$"] scratchpad show; resize set 1000 600
+for_window [$prop="^dropdown_python$"] floating enable
+for_window [$prop="^dropdown_python$"] move position center
+for_window [$prop="^dropdown_python$"] move scratchpad
+for_window [$prop="^dropdown_python$"] border pixel 5
+
 #===========================================================
 # startup commands
 #===========================================================
