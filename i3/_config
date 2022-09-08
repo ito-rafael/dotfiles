@@ -667,6 +667,26 @@ workspace $ws1 output $left_screen
 workspace $ws2 output $right_screen
 
 #===========================================================
+# scratchpads
+#===========================================================
+
+#-----------------------------
+# X11 / Wayland
+#-----------------------------
+set $prop class     # X11
+#set $prop app_id   # Wayland
+
+#-----------------------------
+# terminal
+#-----------------------------
+exec --no-startup-id kitty --class="dropdown_terminal"
+bindsym $mod+u [$prop="^dropdown_terminal$"] scratchpad show; resize set 1000 600
+for_window [$prop="^dropdown_terminal$"] floating enable
+for_window [$prop="^dropdown_terminal$"] move position center
+for_window [$prop="^dropdown_terminal$"] move scratchpad
+for_window [$prop="^dropdown_terminal$"] border pixel 5
+
+#===========================================================
 # startup commands
 #===========================================================
 # set background image
