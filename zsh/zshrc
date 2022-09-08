@@ -204,6 +204,7 @@ alias dcr='docker-compose restart'
 # hosts
 REMOTE="lbic"
 #REMOTE="y2p"
+#REMOTE="vb"
 #-----------------------------
 # reload config files
 alias {rzz,rz}='source ~/.zshrc'
