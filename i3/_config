@@ -720,6 +720,9 @@ exec nohup autokey-gtk
 # dunst: notification daemon
 exec nohup /usr/bin/dunst
 #-----------------------------
+# autotiling
+exec --no-startup-id autotiling
+#-----------------------------
 # Emacs daemon
 exec /usr/bin/emacs --daemon &
 #-----------------------------
