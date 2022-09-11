@@ -225,22 +225,15 @@ alias pp='vim ~/.config/polybar/config.ini'
 alias ee='vim ~/.config/doom/config.el'
 function ii () {
     case "${XDG_SESSION_TYPE}" in
-        "x11")
-	    vim ~/.config/i3/_config
-            ;;
-        "wayland")
-	    vim ~/.config/sway/_config
-            ;;
+        "x11") vim ~/.config/i3/_config ;;
+        "wayland") vim ~/.config/sway/_config ;;
         "tty")
-        if [ -f "/usr/share/xsessions/i3.desktop" ]; then
-	        vim ~/.config/i3/_config
-        elif [ -f "/usr/share/wayland-sessions/sway.desktop" ]; then
-	        vim ~/.config/sway/_config
-	    fi
-            ;;
-        *)
-            exit 0
-            ;;
+            if [ -f "/usr/share/xsessions/i3.desktop" ]; then
+	            vim ~/.config/i3/_config
+            elif [ -f "/usr/share/wayland-sessions/sway.desktop" ]; then
+	            vim ~/.config/sway/_config
+	        fi ;;
+        *) exit 0 ;;
     esac
 }
 #-----------------------------
