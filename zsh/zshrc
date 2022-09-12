@@ -194,10 +194,12 @@ alias cp="cp -i"
 alias mv='mv -i'
 alias rm='rm -i'
 #-----------------------------
-# Docker
+# Docker fn
 function de() { docker exec -it $(docker ps | grep $1 | awk '{print $1}') ${2:-bash} }
 function dl() { docker logs $(docker ps | grep $1 | awk '{print $1}') }
 function dc() { docker-compose $1 }
+# Docker alias
+alias dr='docker run'
 # Docker Compose
 alias dcu='docker-compose up -d'
 alias dcd='docker-compose down'
