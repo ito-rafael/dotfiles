@@ -146,20 +146,22 @@ source $ZSH/oh-my-zsh.sh
 # alias section
 #=======================================
 # general
-alias v=vim             # Vim
-alias {p,py}=python     # Python
-alias m=man             # man
-alias h=history         # history
-alias -g g='| grep'     # grep
-alias psa='ps aux'      # ps aux
-alias df='df -h'        # df
-alias cpr='cp -R'	    # cp
+alias v=vim                     # Vim
+alias m=man                     # man
+alias h=history                 # history
+alias -g g='| grep'             # grep
+alias psa='ps aux'              # ps aux
+alias df='df -h'                # df
+alias cpr='cp -R'	            # cp
 alias {chx,cx}='chmod +x'       # chmod
-alias {paru,yay}='paru --aur'	# paru/yay
 alias psag='ps aux | grep'      # ps aux | grep
+alias ns='nvidia-smi'           # NVIDIA
+# Package manager
+alias {paru,yay}='paru --aur'	# paru/yay
 alias sps='sudo pacman -S'      # pacman install
 alias spr='sudo pacman -Rns'    # pacman remove
 # Python
+alias {p,py}=python     # Python
 alias penv='python -m venv'
 alias piu='pip install -U'
 # Emacs
