@@ -200,6 +200,7 @@ function dl() { docker logs $(docker ps | grep $1 | awk '{print $1}') }
 function dc() { docker-compose $1 }
 # Docker alias
 alias dr='docker run'
+alias di='docker images'
 # Docker Compose
 alias dcu='docker-compose up -d'
 alias dcd='docker-compose down'
