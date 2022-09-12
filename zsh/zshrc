@@ -209,6 +209,8 @@ alias dcu='docker-compose up -d'
 alias dcd='docker-compose down'
 alias dcr='docker-compose restart'
 alias dcdu='docker-compose down && docker-compose up -d'
+# Docker files edit
+alias vdf='vim Dockerfile'
 
 #-----------------------------
 # config files
