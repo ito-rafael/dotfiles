@@ -178,9 +178,11 @@ function ve() {
 }
 # function to activate venv
 function va() {
-    cde && cd $1
+    cde
+    cd $1
     source bin/activate
 }
+#-----------------------------
 # Emacs
 alias e='emacsclient --create-frame --alternate-editor="emacs"'
 #-----------------------------
