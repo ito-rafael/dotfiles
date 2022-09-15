@@ -178,8 +178,7 @@ function ve() {
 }
 # function to activate venv
 function va() {
-    cde
-    cd $1
+    cd $HOME/venv/$1
     source bin/activate
 }
 #-----------------------------
@@ -205,7 +204,7 @@ alias ....="cd ../../.."
 alias cdc='cd $HOME/.config'
 alias cds='cd $HOME/.config/scripts'
 alias cdg='cd $HOME/git'
-alias cde='cd $HOME/envs'
+alias cde='cd $HOME/venv'
 alias cdh='cd $HOME/git/homelab'
 alias cdp='cd $HOME/git/pc-general-config'
 alias cda='cd $HOME/git/ansible-provision'
