@@ -234,9 +234,7 @@ bindsym ctrl+mod1+t exec i3-sensible-terminal
 #bindsym ctrl+$mod+t exec i3-sensible-terminal
 #-----------------------------
 # kill focused window
-bindsym $mod+Shift+q kill
-bindsym mod1+F4 kill
-bindsym F4 kill
+bindsym ctrl+q kill
 #-----------------------------
 # backlight brightness control
 bindsym XF86MonBrightnessUp   exec --no-startup-id xbacklight -inc 5
