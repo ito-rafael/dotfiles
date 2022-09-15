@@ -167,13 +167,18 @@ alias {p,py}=python                             # interpreter
 alias piu='pip install -U'                      # pip install
 alias pir='pip install -U -r requirements.txt'  # requirements
 alias penv='python -m venv'                     # venv
-# function to create virtual environment
+# function to create & set venv
 function ve() {
     cde
     python -m venv $1
     cd $1
     source bin/activate
     pip install -U powerline-status
+}
+# function to activate venv
+function va() {
+    cde && cd $1
+    source bin/activate
 }
 # Emacs
 alias e='emacsclient --create-frame --alternate-editor="emacs"'
