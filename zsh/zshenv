@@ -1,2 +1,3 @@
 # environment variables
 export GTK_THEME=Adwaita:dark
+export PATH=$PATH:/home/rafael/.cargo/bin
