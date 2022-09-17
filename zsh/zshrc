@@ -219,6 +219,7 @@ alias rm='rm -i'
 function de() { docker exec -it $(docker ps | grep $1 | awk '{print $1}') ${2:-bash} }
 function dl() { docker logs $(docker ps | grep $1 | awk '{print $1}') }
 function dc() { docker-compose $1 }
+function dri() { docker run -it --rm $1 ${2:-/bin/bash} }
 # Docker alias
 alias dr='docker run'
 alias di='docker images'
