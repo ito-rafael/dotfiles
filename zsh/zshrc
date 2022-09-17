@@ -170,7 +170,7 @@ alias penv='python -m venv'                     # venv
 alias da='deactivate'                           # deactivate venv
 # function to create & set venv
 function ve() {
-    cde
+    cd $HOME/venvs
     python -m venv $1
     cd $1
     source bin/activate
@@ -178,7 +178,7 @@ function ve() {
 }
 # function to activate venv
 function va() {
-    cd $HOME/venv/$1
+    cd $HOME/venvs/$1
     source bin/activate
 }
 #-----------------------------
@@ -204,7 +204,7 @@ alias ....="cd ../../.."
 alias cdc='cd $HOME/.config'
 alias cds='cd $HOME/.config/scripts'
 alias cdg='cd $HOME/git'
-alias cde='cd $HOME/venv'
+alias cde='cd $HOME/venvs'
 alias cdh='cd $HOME/git/homelab'
 alias cdp='cd $HOME/git/pc-general-config'
 alias cda='cd $HOME/git/ansible-provision'
