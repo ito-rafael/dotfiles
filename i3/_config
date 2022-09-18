@@ -318,12 +318,12 @@ bindsym semicolon exec "xte 'key BackSpace'"
 #=============================
 # workspace navigation
 bindsym ctrl+$mod+Right workspace next
-bindsym mod5+j          workspace next
-bindsym mod5+l          workspace next
+bindsym ctrl+$mod+j     workspace next
+bindsym ctrl+$mod+l     workspace next
 #--------------
 bindsym ctrl+$mod+Left  workspace prev
-bindsym mod5+k          workspace prev
-bindsym mod5+h          workspace prev
+bindsym ctrl+$mod+k     workspace prev
+bindsym ctrl+$mod+h     workspace prev
 #-----------------------------
 # switch to latest urgent window
 bindsym $mod+z [urgent=latest] focus
