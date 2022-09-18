@@ -295,7 +295,6 @@ bindsym --release Mod5+k exec xdotool key Up
 bindsym --release Mod5+l exec xdotool key Right
 #--------------
 
-
 #-----------------------------
 # semicolon key
 # !!! TO BE IMPLEMENTED !!!
@@ -697,7 +696,7 @@ for_window [$prop="^dropdown_python$"] border pixel 5
 #-----------------------------
 # Emacs
 #-----------------------------
-exec_always --no-startup-id kitty --class="sp_emacs" emacsclient --create-frame --alternate-editor="emacs" -nw
+exec --no-startup-id kitty --class="sp_emacs" emacsclient --create-frame --alternate-editor="emacs" -nw
 bindsym $mod+i [$prop="^sp_emacs$"] scratchpad show; [$prop="^sp_emacs$"] fullscreen enable
 for_window [$prop="^sp_emacs$"] floating enable
 for_window [$prop="^sp_emacs$"] move position center
