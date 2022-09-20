@@ -1,3 +1,6 @@
 # environment variables
 export GTK_THEME=Adwaita:dark
-export PATH=$PATH:/home/rafael/.cargo/bin
+
+# PATH
+export PATH=$PATH:~/.cargo/bin
+export PATH=$PATH:~/.emacs.d/bin
