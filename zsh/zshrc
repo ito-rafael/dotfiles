@@ -332,7 +332,7 @@ alias cat=bat
 # clipboard
 #-----------------------------
 # copy stdout
-alias c='xclip -selection clipboard'
+alias -g c='| xclip -selection clipboard'
 # copy pwd
 alias pwdc='pwd | xclip -selection clipboard'
 #-----------------------------
