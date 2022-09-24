@@ -1,0 +1,3 @@
+# LaTeX preview
+M-x package-install
+  --> latex-preview-pane

@@ -77,3 +77,7 @@
 
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+
+;; LaTeX preview
+(require 'latex-preview-pane)
+(latex-preview-pane-enable)
