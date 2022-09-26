@@ -163,6 +163,7 @@ alias sps='sudo pacman -S'      # pacman install
 alias spr='sudo pacman -Rns'    # pacman remove
 alias pss='pacman -Ss'          # pacman search packages
 alias pqi='pacman -Qi'          # pacman query installed
+alias pqs='pacman -Qs'          # pacman list installed
 #-----------------------------
 # Python
 alias {p,py}=python                             # interpreter
