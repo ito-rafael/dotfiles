@@ -326,6 +326,7 @@ alias ll='exa -l   --color=always --group-directories-first'    # long
 alias lt='exa -aT  --color=always --group-directories-first'    # tree
 alias l.='exa -a | egrep "^\."'                                 # hidden
 alias lsl='exa'                                                 # minimal
+alias lso='exa --oneline'                                       # oneline
 # bat: cat replacement
 alias cat=bat
 
