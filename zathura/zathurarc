@@ -3,3 +3,6 @@ map <C-i> recolor
 
 # start in Invert Mode
 set recolor true
+
+# enable copy to clipboard
+set selection-clipboard clipboard
