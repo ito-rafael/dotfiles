@@ -697,11 +697,13 @@ for_window [$prop="^dropdown_python$"] border pixel 5
 #-----------------------------
 # Emacs
 #-----------------------------
-exec --no-startup-id kitty --class="sp_emacs" emacsclient --create-frame --alternate-editor="emacs" -nw
-bindsym $mod+i [$prop="^sp_emacs$"] scratchpad show; [$prop="^sp_emacs$"] fullscreen enable
-for_window [$prop="^sp_emacs$"] floating enable
-for_window [$prop="^sp_emacs$"] move position center
-for_window [$prop="^sp_emacs$"] move scratchpad
+# using "class" instead of "$prop" since Emacs runs under either
+# X11 or Xwayland (needs pgtk or emacs-gcc-wayland-devel-bin)
+exec --no-startup-id xdg-open ~/.local/share/applications/emacsclient.desktop
+bindsym $mod+i [class="Emacs"] scratchpad show; [class="Emacs"] fullscreen enable
+for_window [class="Emacs"] floating enable
+for_window [class="Emacs"] move position center
+for_window [class="Emacs"] move scratchpad
 
 #===========================================================
 # startup commands
