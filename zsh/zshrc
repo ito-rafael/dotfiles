@@ -362,11 +362,7 @@ function sw() {
 }
 # IP:port
 alias -g s20='-s $(adb devices -l | grep SM_G980F | awk "{print \$1}")'
-#alias gw4_ip='adb devices -l | grep SM_R880 | awk "{print \$1}"'
-## adb devices
-#alias -g gw4="-s $(gw4_ip)"
-## scrcpy
-#alias -g sw="scrcpy gw4 --prefer-text"
+alias -g gw4='-s $(adb devices -l | grep SM_R880 | awk "{print \$1}")'
 #-----------------------------
 # ForX - Coinbase's API
 # currency
