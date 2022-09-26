@@ -325,6 +325,8 @@ alias la='exa -a   --color=always --group-directories-first'    # all files & di
 alias ll='exa -l   --color=always --group-directories-first'    # long
 alias lt='exa -aT  --color=always --group-directories-first'    # tree
 alias l.='exa -a | egrep "^\."'                                 # hidden
+alias lsl='exa'                                                 # minimal
+alias lso='exa --oneline'                                       # oneline
 # bat: cat replacement
 alias cat=bat
 
@@ -358,15 +360,9 @@ function sw() {
     gw4_ip=$(adb devices -l | grep SM_R880 | awk "{print \$1}")
     scrcpy -s $gw4_ip --prefer-text
 }
-## IP:port
-#alias s20_ip='adb devices -l | grep SM_G980F | awk "{print \$1}"'
-#alias gw4_ip='adb devices -l | grep SM_R880 | awk "{print \$1}"'
-## adb devices
-#alias -g s20="-s $(s20_ip)"
-#alias -g gw4="-s $(gw4_ip)"
-## scrcpy
-#alias -g s="scrcpy s20 --prefer-text"
-#alias -g sw="scrcpy gw4 --prefer-text"
+# IP:port
+alias -g s20='-s $(adb devices -l | grep SM_G980F | awk "{print \$1}")'
+alias -g gw4='-s $(adb devices -l | grep SM_R880 | awk "{print \$1}")'
 #-----------------------------
 # ForX - Coinbase's API
 # currency
