@@ -146,25 +146,25 @@ source $ZSH/oh-my-zsh.sh
 # alias section
 #=======================================
 # general
-alias v=vim                     # Vim
-alias m=man                     # man
-alias h=history                 # history
-alias j=joplin                  # joplin
-alias -g g='| grep'             # grep
-alias psa='ps aux'              # ps aux
-alias df='df -h'                # df
-alias cpr='cp -R'	            # cp
-alias {chx,cx}='chmod +x'       # chmod
-alias psag='ps aux | grep'      # ps aux | grep
-alias ns='nvidia-smi'           # NVIDIA
+alias v=vim                         # Vim
+alias m=man                         # man
+alias h=history                     # history
+alias j=joplin                      # joplin
+alias -g g='| grep'                 # grep
+alias psa='ps aux'                  # ps aux
+alias df='df -h'                    # df
+alias cpr='cp -R'	                # cp
+alias {chx,cx}='chmod +x'           # chmod
+alias psag='ps aux | grep'          # ps aux | grep
+alias ns='nvidia-smi'               # NVIDIA
 # Package manager
-alias {paru,yay}='paru --aur'	# paru/yay
-alias spu='sudo pacman -Syu'    # pacman update/upgrade
-alias sps='sudo pacman -S'      # pacman install
-alias spr='sudo pacman -Rns'    # pacman remove
-alias pss='pacman -Ss'          # pacman search packages
-alias pqi='pacman -Qi'          # pacman query installed
-alias pqs='pacman -Qs'          # pacman list installed
+alias {paru,yay}='paru --aur'	    # paru/yay
+alias {sps,spi}='sudo pacman -S'    # pacman install
+alias spu='sudo pacman -Syu'        # pacman update/upgrade
+alias spr='sudo pacman -Rns'        # pacman remove
+alias pss='pacman -Ss'              # pacman search packages
+alias pqi='pacman -Qi'              # pacman query installed
+alias pqs='pacman -Qs'              # pacman list installed
 #-----------------------------
 # Python
 alias {p,py}=python                             # interpreter
