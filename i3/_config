@@ -699,7 +699,7 @@ for_window [$prop="^dropdown_python$"] border pixel 5
 #-----------------------------
 # using "class" instead of "$prop" since Emacs runs under either
 # X11 or Xwayland (needs pgtk or emacs-gcc-wayland-devel-bin)
-exec --no-startup-id xdg-open ~/.local/share/applications/emacsclient.desktop
+exec --no-startup-id gtk-launch emacsclient.desktop
 bindsym $mod+i [class="Emacs"] scratchpad show; [class="Emacs"] fullscreen enable
 for_window [class="Emacs"] floating enable
 for_window [class="Emacs"] move position center
