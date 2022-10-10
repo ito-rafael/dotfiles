@@ -82,7 +82,7 @@ Y	    # remove the signature
 
 t	    # change a partition type 
 3	    # partition number
-24 	    # Linux root (x86-64)   # update 05/2021: "83"
+24 	    # Linux root (x86-64)   # update 05/2021: "83"  # update 07/2022: "23"
 --------------------------
  create swap partition
 --------------------------
