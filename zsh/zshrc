@@ -234,6 +234,7 @@ alias dt='docker tag'
 alias drm='docker image rm --force'
 alias dso='docker stop'
 alias dps='docker ps'
+alias dsp='docker system prune'
 # Docker Compose
 alias dcu='docker-compose up -d'
 alias dcd='docker-compose down'
