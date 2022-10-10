@@ -54,6 +54,9 @@ sudo pacman -S xcape
 # Rapoo RF mouse
 /dev/input/by-id/usb-2635_2.4G_RF_MOUSE-event-mouse
 #-------------------------------------------------
+# VB keyboard
+/dev/input/by-path/platform-i8042-serio-0-event-kbd
+#-------------------------------------------------
 # Logitech
 #------------------------
 # MX Master 3 mouse
