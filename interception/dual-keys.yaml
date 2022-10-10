@@ -34,4 +34,5 @@ MAPPINGS:
     - KEY: BTN_RIGHT
       TAP: BTN_RIGHT
       HOLD: KEY_RIGHTALT
+      HOLD_START: BEFORE_CONSUME
     #====================
