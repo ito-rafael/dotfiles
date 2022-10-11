@@ -1,0 +1,4 @@
+keymap:
+  - name: ctrl+j to enter
+    remap:
+      C-j: enter
