@@ -216,6 +216,17 @@ bindsym $mod+8 exec "$SCRIPT_PATH/navigate2ws.sh 8"
 bindsym $mod+9 exec "$SCRIPT_PATH/navigate2ws.sh 9"
 bindsym $mod+0 exec "$SCRIPT_PATH/navigate2ws.sh 0"
 
+bindsym mod1+1 exec "$SCRIPT_PATH/navigate2ws.sh 11"
+bindsym mod1+2 exec "$SCRIPT_PATH/navigate2ws.sh 12"
+bindsym mod1+3 exec "$SCRIPT_PATH/navigate2ws.sh 13"
+bindsym mod1+4 exec "$SCRIPT_PATH/navigate2ws.sh 14"
+bindsym mod1+5 exec "$SCRIPT_PATH/navigate2ws.sh 15"
+bindsym mod1+6 exec "$SCRIPT_PATH/navigate2ws.sh 16"
+bindsym mod1+7 exec "$SCRIPT_PATH/navigate2ws.sh 17"
+bindsym mod1+8 exec "$SCRIPT_PATH/navigate2ws.sh 18"
+bindsym mod1+9 exec "$SCRIPT_PATH/navigate2ws.sh 19"
+bindsym mod1+0 exec "$SCRIPT_PATH/navigate2ws.sh 10"
+
 # move focused container to workspace
 bindsym ctrl+$mod+1 move container to workspace number $ws1; workspace $ws1
 bindsym ctrl+$mod+2 move container to workspace number $ws2; workspace $ws2
