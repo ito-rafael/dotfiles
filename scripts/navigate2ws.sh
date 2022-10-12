@@ -15,8 +15,8 @@ if [[ $1 == '-h' || $1 == '--help' ]]; then
 	echo "$usage"
 	exit
 #------------------------
-# regex for one digit number
-elif ! [[ $1 =~ ^[0-9]{,1}$ ]]; then
+# regex for two digits number
+elif ! [[ $1 =~ ^[0-9]{,2}$ ]]; then
 	printf "Error: 'ws' parameter missing or not understood!\n\n"
 	echo "$usage"
 	exit
@@ -26,6 +26,8 @@ else
     # list the name of the workspaces
     #=================================================
     # todo: read from i3/sway config file
+
+    # primary screen
     WS1="1 "
     WS2="2 "
     WS3="3 "
@@ -36,11 +38,23 @@ else
     WS8="8 "
     WS9="9 "
     WS0="10 "
+    # secondary screen
+    WS11="11 "
+    WS12="12 "
+    WS13="13 "
+    WS14="14 "
+    WS15="15 "
+    WS16="16 "
+    WS17="17 "
+    WS18="18 "
+    WS19="19 J"
+    WS10="20 E"
     
     #=================================================
     # get the workspace to navigate to
     #=================================================
     case $WORKSPACE in
+        # primary screen
         1 ) WS_NAME=$WS1 ;;
         2 ) WS_NAME=$WS2 ;;
         3 ) WS_NAME=$WS3 ;;
@@ -51,6 +65,17 @@ else
         8 ) WS_NAME=$WS8 ;;
         9 ) WS_NAME=$WS9 ;;
         0 ) WS_NAME=$WS0 ;;
+        # secondary screen
+        10 ) WS_NAME=$WS10 ;;
+        11 ) WS_NAME=$WS11 ;;
+        12 ) WS_NAME=$WS12 ;;
+        13 ) WS_NAME=$WS13 ;;
+        14 ) WS_NAME=$WS14 ;;
+        15 ) WS_NAME=$WS15 ;;
+        16 ) WS_NAME=$WS16 ;;
+        17 ) WS_NAME=$WS17 ;;
+        18 ) WS_NAME=$WS18 ;;
+        19 ) WS_NAME=$WS19 ;;
     esac
     
     #=================================================
