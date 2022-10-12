@@ -35,6 +35,33 @@ set $secondary_screen $(xrandr | grep ' connected' | awk '{print $1}' | head -n2
 #set $secondary_screen HDMI3
 
 #-----------------------------
+# set default output of workspaces
+#-----------------------------
+# primary output
+workspace 1 output $primary_screen
+workspace 2 output $primary_screen
+workspace 3 output $primary_screen
+workspace 4 output $primary_screen
+workspace 5 output $primary_screen
+workspace 6 output $primary_screen
+workspace 7 output $primary_screen
+workspace 8 output $primary_screen
+workspace 9 output $primary_screen
+workspace 0 output $primary_screen
+#-----------------------------
+# secondary output
+workspace 11 output $secondary_screen
+workspace 12 output $secondary_screen
+workspace 13 output $secondary_screen
+workspace 14 output $secondary_screen
+workspace 15 output $secondary_screen
+workspace 16 output $secondary_screen
+workspace 17 output $secondary_screen
+workspace 18 output $secondary_screen
+workspace 19 output $secondary_screen
+workspace 10 output $secondary_screen
+
+#-----------------------------
 # set workspaces names
 #-----------------------------
 # primary screen
