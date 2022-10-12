@@ -24,8 +24,10 @@ workspace_auto_back_and_forth yes
 #        workspaces          
 #=============================
 
-# Define names for default workspaces for which we configure key bindings later on.
-# We use variables to avoid repeating the names in multiple places.
+#-----------------------------
+# set workspaces names
+#-----------------------------
+# primary screen
 set  $ws1  "1 "
 set  $ws2  "2 "
 set  $ws3  "3 "
@@ -37,6 +39,18 @@ set  $ws8  "8 "
 set  $ws9  "9 "
 set $ws10 "10 "
 #set $ws10 "10 "
+#-------------------
+# secondary screen
+set $ws11 "11 "
+set $ws12 "12 "
+set $ws13 "13 "
+set $ws14 "14 "
+set $ws15 "15 "
+set $ws16 "16 "
+set $ws17 "17 "
+set $ws18 "18 "
+set $ws19 "19 J"
+set $ws10 "20 E"
 
 #=============================
 #     additional config      
