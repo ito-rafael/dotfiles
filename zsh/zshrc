@@ -316,12 +316,24 @@ alias gee='vim ~/git/pc-general-config/doom/config.el'
 # diff between git repo and current config files
 alias gdvv='diff ~/git/pc-general-config/nvim/init.vim ~/.config/nvim/init.vim'
 alias gdzz='diff ~/git/pc-general-config/zsh/zshrc ~/.zshrc'
-alias gdii='diff ~/git/pc-general-config/i3/_config ~/.config/i3/_config'
 alias gdxx='diff ~/git/pc-general-config/X.Org/Xmodmap ~/.Xmodmap'
 alias gdkk='diff ~/git/pc-general-config/kitty/kitty.conf ~/.config/kitty/kitty.conf'
 alias gdbb='diff ~/git/pc-general-config/i3/i3blocks.conf ~/.config/i3/i3blocks.conf'
 alias gdpp='diff ~/git/pc-general-config/polybar/config.ini ~/.config/polybar/config.ini'
 alias gdee='diff ~/git/pc-general-config/doom/config.el ~/.config/doom/config.el'
+function gdii () {
+    case "${XDG_SESSION_TYPE}" in
+        "x11") diff ~/git/pc-general-config/i3/_config ~/.config/i3/_config ;;
+        "wayland") diff ~/git/pc-general-config/i3/_config ~/.config/sway/_config ;;
+        "tty")
+            if [ -f "/usr/share/xsessions/i3.desktop" ]; then
+                diff ~/git/pc-general-config/i3/_config ~/.config/i3/_config
+            elif [ -f "/usr/share/wayland-sessions/sway.desktop" ]; then
+                diff ~/git/pc-general-config/i3/_config ~/.config/sway/_config
+	        fi ;;
+        *) exit 0 ;;
+    esac
+}
 
 #-----------------------------
 # Modern Unix
