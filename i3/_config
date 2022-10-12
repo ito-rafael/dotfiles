@@ -231,8 +231,8 @@ bindsym $mod+a focus parent
 #     - restore its layout
 #     - open windows
 #-----------------------------
-# primary screen
 set $SCRIPT_PATH $HOME/.config/scripts
+# primary screen
 bindsym $mod+1 exec "$SCRIPT_PATH/navigate2ws.sh 1"
 bindsym $mod+2 exec "$SCRIPT_PATH/navigate2ws.sh 2"
 bindsym $mod+3 exec "$SCRIPT_PATH/navigate2ws.sh 3"
