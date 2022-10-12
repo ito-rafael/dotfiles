@@ -81,3 +81,10 @@
 ;; LaTeX preview
 (require 'latex-preview-pane)
 (latex-preview-pane-enable)
+
+;; org-auto-tangle
+(use-package! org-auto-tangle
+  :defer t
+  :hook (org-mode . org-auto-tangle-mode)
+  :config
+  (setq org-auto-tangle-default t))
