@@ -49,6 +49,17 @@ else
     WS18="18 "
     WS19="19 J"
     WS10="20 E"
+    # tertiary screen
+    WS11="21"
+    WS12="22"
+    WS13="23"
+    WS14="24"
+    WS15="25"
+    WS16="26"
+    WS17="27"
+    WS18="28"
+    WS19="29"
+    WS10="30"
     
     #=================================================
     # get the workspace to navigate to
@@ -66,7 +77,6 @@ else
         9 ) WS_NAME=$WS9 ;;
         0 ) WS_NAME=$WS0 ;;
         # secondary screen
-        10 ) WS_NAME=$WS10 ;;
         11 ) WS_NAME=$WS11 ;;
         12 ) WS_NAME=$WS12 ;;
         13 ) WS_NAME=$WS13 ;;
@@ -76,6 +86,18 @@ else
         17 ) WS_NAME=$WS17 ;;
         18 ) WS_NAME=$WS18 ;;
         19 ) WS_NAME=$WS19 ;;
+        10 ) WS_NAME=$WS10 ;;
+        # tertiary screen
+        21 ) WS_NAME=$WS21 ;;
+        22 ) WS_NAME=$WS22 ;;
+        23 ) WS_NAME=$WS23 ;;
+        24 ) WS_NAME=$WS24 ;;
+        25 ) WS_NAME=$WS25 ;;
+        26 ) WS_NAME=$WS26 ;;
+        27 ) WS_NAME=$WS27 ;;
+        28 ) WS_NAME=$WS28 ;;
+        29 ) WS_NAME=$WS29 ;;
+        20 ) WS_NAME=$WS20 ;;
     esac
     
     #=================================================
