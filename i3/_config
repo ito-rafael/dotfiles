@@ -31,8 +31,11 @@ workspace_auto_back_and_forth yes
 # increment the X in the 'head -nX' command if you have more outputs
 set $primary_screen $(xrandr | grep ' connected' | awk '{print $1}' | head -n1 | tail -n1)
 set $secondary_screen $(xrandr | grep ' connected' | awk '{print $1}' | head -n2 | tail -n1)
-#set $primary_screen  VGA1
+#set $tertiary_screen $(xrandr | grep ' connected' | awk '{print $1}' | head -n3 | tail -n1)
+#-------------------
+#set $primary_screen   VGA1
 #set $secondary_screen HDMI3
+#set $tertiary_screen  HDMI1
 
 #-----------------------------
 # set default output of workspaces
@@ -60,6 +63,18 @@ workspace 17 output $secondary_screen
 workspace 18 output $secondary_screen
 workspace 19 output $secondary_screen
 workspace 10 output $secondary_screen
+#-----------------------------
+# tertiary output
+workspace 21 output $tertiary_screen
+workspace 22 output $tertiary_screen
+workspace 23 output $tertiary_screen
+workspace 24 output $tertiary_screen
+workspace 25 output $tertiary_screen
+workspace 26 output $tertiary_screen
+workspace 27 output $tertiary_screen
+workspace 28 output $tertiary_screen
+workspace 29 output $tertiary_screen
+workspace 20 output $tertiary_screen
 
 #-----------------------------
 # set workspaces names
@@ -88,6 +103,18 @@ set $ws17 "17 "
 set $ws18 "18 "
 set $ws19 "19 J"
 set $ws10 "20 E"
+#-------------------
+# tertiary screen
+set $ws21 "21"
+set $ws22 "22"
+set $ws23 "23"
+set $ws24 "24"
+set $ws25 "25"
+set $ws26 "26"
+set $ws27 "27"
+set $ws28 "28"
+set $ws29 "29"
+set $ws20 "30"
 
 #=============================
 #     additional config      
@@ -227,6 +254,17 @@ bindsym mod1+7 exec "$SCRIPT_PATH/navigate2ws.sh 17"
 bindsym mod1+8 exec "$SCRIPT_PATH/navigate2ws.sh 18"
 bindsym mod1+9 exec "$SCRIPT_PATH/navigate2ws.sh 19"
 bindsym mod1+0 exec "$SCRIPT_PATH/navigate2ws.sh 10"
+# tertiary screen
+bindsym mod5+0 exec "$SCRIPT_PATH/navigate2ws.sh 20"
+bindsym mod5+1 exec "$SCRIPT_PATH/navigate2ws.sh 21"
+bindsym mod5+2 exec "$SCRIPT_PATH/navigate2ws.sh 22"
+bindsym mod5+3 exec "$SCRIPT_PATH/navigate2ws.sh 23"
+bindsym mod5+4 exec "$SCRIPT_PATH/navigate2ws.sh 24"
+bindsym mod5+5 exec "$SCRIPT_PATH/navigate2ws.sh 25"
+bindsym mod5+6 exec "$SCRIPT_PATH/navigate2ws.sh 26"
+bindsym mod5+7 exec "$SCRIPT_PATH/navigate2ws.sh 27"
+bindsym mod5+8 exec "$SCRIPT_PATH/navigate2ws.sh 28"
+bindsym mod5+9 exec "$SCRIPT_PATH/navigate2ws.sh 29"
 
 #-----------------------------
 # move focused container to workspace
@@ -253,6 +291,17 @@ bindsym ctrl+mod1+7 move container to workspace number $ws17; workspace $ws17
 bindsym ctrl+mod1+8 move container to workspace number $ws18; workspace $ws18
 bindsym ctrl+mod1+9 move container to workspace number $ws19; workspace $ws19
 bindsym ctrl+mod1+0 move container to workspace number $ws10; workspace $ws10
+# tertiary screen
+bindsym ctrl+mod5+0 move container to workspace number $ws20; workspace $ws20
+bindsym ctrl+mod5+1 move container to workspace number $ws21; workspace $ws21
+bindsym ctrl+mod5+2 move container to workspace number $ws22; workspace $ws22
+bindsym ctrl+mod5+3 move container to workspace number $ws23; workspace $ws23
+bindsym ctrl+mod5+4 move container to workspace number $ws24; workspace $ws24
+bindsym ctrl+mod5+5 move container to workspace number $ws25; workspace $ws25
+bindsym ctrl+mod5+6 move container to workspace number $ws26; workspace $ws26
+bindsym ctrl+mod5+7 move container to workspace number $ws27; workspace $ws27
+bindsym ctrl+mod5+8 move container to workspace number $ws28; workspace $ws28
+bindsym ctrl+mod5+9 move container to workspace number $ws29; workspace $ws29
 
 #=============================
 #     screens (monitors)
