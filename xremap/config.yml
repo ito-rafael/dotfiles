@@ -2,3 +2,8 @@ keymap:
   - name: ctrl+j to enter
     remap:
       C-j: enter
+
+  - name: navigate2ws
+    remap:
+      C-SUPER-j:
+        launch: ["bash", "-c", "~/.config/scripts/navigate2ws_next.py --next"]
