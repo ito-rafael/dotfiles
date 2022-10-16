@@ -144,16 +144,16 @@ else
             ${CMD_MSG} -t append_layout "/home/rafael/.config/i3/ws$WORKSPACE.json"
         fi
         case $WORKSPACE in
-            1 ) nohup kitty ;;
-            2 ) nohup firefox & ;;
-            3 ) nohup brave & ;;
-            4 ) nohup thunderbird & ;;
-            5 ) nohup libreoffice --calc "/home/rafael/Desktop/Coisas da casa.ods" & ;;
-            6 ) nohup lutris & ;;
-            7 ) nohup deluge & nohup nicotine & ;;
-            8 ) nohup lollypop & ;;
-            9 ) nohup spotify & ;;
-            0 ) nohup pavucontrol & nohup blueman-manager & ;;
+            1 ) kitty ;;
+            2 ) firefox & ;;
+            3 ) brave & ;;
+            4 ) thunderbird & ;;
+            5 ) libreoffice --calc "/home/rafael/Desktop/Coisas da casa.ods" & ;;
+            6 ) lutris & ;;
+            7 ) deluge & nicotine & ;;
+            8 ) lollypop & ;;
+            9 ) spotify & ;;
+            0 ) pavucontrol & blueman-manager & ;;
         esac
     fi
 fi
