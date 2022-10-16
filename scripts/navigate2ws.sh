@@ -144,6 +144,7 @@ else
             ${CMD_MSG} -t append_layout "/home/rafael/.config/i3/ws$WORKSPACE.json"
         fi
         case $WORKSPACE in
+            # primary screen
             1 ) kitty ;;
             2 ) firefox & ;;
             3 ) brave & ;;
@@ -154,6 +155,18 @@ else
             8 ) lollypop & ;;
             9 ) spotify & ;;
             0 ) pavucontrol & blueman-manager & ;;
+            #-------------------------------------
+            # secondary screen
+            11) ;;
+            12) ;;
+            13) ;;
+            14) ;;
+            15) ;;
+            16) ;;
+            17) ;;
+            18) ;;
+            19) ;;
+            10) ;;
         esac
     fi
 fi
