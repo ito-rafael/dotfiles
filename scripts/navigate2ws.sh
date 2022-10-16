@@ -166,7 +166,7 @@ else
             17) ;;
             18) ;;
             19) ;;
-            10) ;;
+            10) gtk-launch emacsclient.desktop & ;;
             #-------------------------------------
             # tertiary screen
             21) ;;
