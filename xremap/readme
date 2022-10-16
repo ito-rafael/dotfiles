@@ -1,0 +1,8 @@
+# start xremap as a service
+
+# copy the service file:
+mkdir -p ~/.config/systemd/user
+cp ~/git/pc-general-config/xremap/xremap.service ~/.config/systemd/user/xremap.service
+
+# start & enable xkremap service for the current user:
+systemctl --user enable xremap --now

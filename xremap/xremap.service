@@ -1,0 +1,11 @@
+[Unit]
+Description=xremap
+
+[Service]
+ExecStart=%h/.cargo/bin/xremap %h/.config/xremap/config.yml
+ExecStop=/usr/bin/killall xremap
+Restart=always
+Environment=DISPLAY=:0.0
+
+[Install]
+WantedBy=graphical.target
