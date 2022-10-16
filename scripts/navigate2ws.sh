@@ -144,55 +144,16 @@ else
             ${CMD_MSG} -t append_layout "/home/rafael/.config/i3/ws$WORKSPACE.json"
         fi
         case $WORKSPACE in
-        1 )
-            #nohup xfce4-terminal --command="ranger /home/rafael" &
-            #nohup google-keep &
-            #nohup i3-sensible-terminal &
-            #nohup i3-sensible-terminal --working-directory /home/rafael &
-#            nohup le terminal --working-directory /home/rafael &
-#            nohup firefox &
-#            nohup termite &
-            # !!! BUG HERE !!!
-            # Terminal being swallowed, but with problems (compositor? X?)
-#            i3-msg -t command workspace $WS_NAME
-#            sleep 0.1
-            #nohup i3-sensible-terminal &
-#            nohup xfce4-terminal &
-#            i3-msg move container to workspace $WS_NAME
-#            i3-msg -t command workspace $WS_NAME
-            nohup kitty &
-            ;;
-        2 )
-            nohup firefox &
-            ;;
-        3 )
-            #nohup chromium &
-            nohup brave &
-            ;;
-        4 )
-            nohup thunderbird &
-            ;;
-        5 )
-            #nohup thunar &
-            nohup libreoffice --calc "/home/rafael/Desktop/Coisas da casa.ods" &
-            ;;
-        6 )
-            nohup lutris &
-            ;;
-        7 )
-            nohup deluge & 
-            nohup nicotine & 
-            ;;
-        8 )
-            nohup lollypop &
-            ;;
-        9 )
-            nohup spotify &
-            ;;
-        0 )
-            nohup pavucontrol &
-            nohup blueman-manager &
-            ;;
+            1 ) nohup kitty ;;
+            2 ) nohup firefox & ;;
+            3 ) nohup brave & ;;
+            4 ) nohup thunderbird & ;;
+            5 ) nohup libreoffice --calc "/home/rafael/Desktop/Coisas da casa.ods" & ;;
+            6 ) nohup lutris & ;;
+            7 ) nohup deluge & nohup nicotine & ;;
+            8 ) nohup lollypop & ;;
+            9 ) nohup spotify & ;;
+            0 ) nohup pavucontrol & nohup blueman-manager & ;;
         esac
     fi
 fi
