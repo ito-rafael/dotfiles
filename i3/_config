@@ -304,6 +304,19 @@ bindsym ctrl+mod5+8 move container to workspace number $ws28; workspace $ws28
 bindsym ctrl+mod5+9 move container to workspace number $ws29; workspace $ws29
 
 #=============================
+#    custom  navigations
+#=============================
+# workspace navigation
+bindsym ctrl+$mod+Right workspace next
+bindsym ctrl+$mod+j     workspace next
+#--------------
+bindsym ctrl+$mod+Left  workspace prev
+bindsym ctrl+$mod+k     workspace prev
+#-----------------------------
+# switch to latest urgent window
+bindsym $mod+z [urgent=latest] focus
+
+#=============================
 #     screens (monitors)
 #=============================
 # move container between screens (arrows)
@@ -316,9 +329,9 @@ bindsym ctrl+mod1+Right move container to output right; focus output right
 # screen focus (arrows)
 bindsym mod1+Left  focus output left
 bindsym mod1+Right focus output right
-# screen focus (numbers)
-#bindsym mod1+1 focus output left
-#bindsym mod1+2 focus output right
+# screen focus (vim motion keys)
+bindsym ctrl+$mod+h focus output left
+bindsym ctrl+$mod+l focus output right
 
 #=============================
 #     reload/restart i3
@@ -439,21 +452,6 @@ bindsym --release Mod5+l exec xdotool key Right
 #-----------------------------
 # fix colon/semicolon/BackSpace remaps
 bindsym semicolon exec "xte 'key BackSpace'"
-
-#=============================
-#    custom  navigations 
-#=============================
-# workspace navigation
-bindsym ctrl+$mod+Right workspace next
-bindsym ctrl+$mod+j     workspace next
-bindsym ctrl+$mod+l     workspace next
-#--------------
-bindsym ctrl+$mod+Left  workspace prev
-bindsym ctrl+$mod+k     workspace prev
-bindsym ctrl+$mod+h     workspace prev
-#-----------------------------
-# switch to latest urgent window
-bindsym $mod+z [urgent=latest] focus
 
 #=============================
 #      other shortcuts
