@@ -116,18 +116,10 @@ else
     # get session type (i3/sway/tty)
     #=================================================
     case "${XDG_SESSION_TYPE}" in
-        "x11")
-            CMD_MSG="i3-msg"
-            ;;
-        "wayland")
-            CMD_MSG="swaymsg"
-            ;;
-        "tty")
-            exit 0
-            ;;
-        *)
-            exit 0
-            ;;
+        "x11")     CMD_MSG="i3-msg" ;;
+        "wayland") CMD_MSG="swaymsg" ;;
+        "tty")     exit 0 ;;
+        *)         exit 0 ;;
     esac
     #=================================================
     # navigate to workspace and open windows if empty
