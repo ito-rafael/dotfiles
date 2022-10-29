@@ -118,7 +118,8 @@ set nospell
 "----------------------------
 " write with sudo
 "----------------------------
-cmap W w !sudo tee > /dev/null %
+"cmap W w !sudo tee > /dev/null %
+cnoremap w! SudaWrite
 
 "----------------------------
 " line number
