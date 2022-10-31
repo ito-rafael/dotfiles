@@ -27,14 +27,20 @@ workspace_auto_back_and_forth yes
 #-----------------------------
 # get name of outputs
 #-----------------------------
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# DOES NOT WORKING
+#   --> try using ~/.Xresources
+#       - https://i3wm.org/docs/userguide.html#xresources
+#
 # set output names according to xrandr
 # increment the X in the 'head -nX' command if you have more outputs
-set $primary_screen $(xrandr | grep ' connected' | awk '{print $1}' | head -n1 | tail -n1)
-set $secondary_screen $(xrandr | grep ' connected' | awk '{print $1}' | head -n2 | tail -n1)
+#set $primary_screen $(xrandr | grep ' connected' | awk '{print $1}' | head -n1 | tail -n1)
+#set $secondary_screen $(xrandr | grep ' connected' | awk '{print $1}' | head -n2 | tail -n1)
 #set $tertiary_screen $(xrandr | grep ' connected' | awk '{print $1}' | head -n3 | tail -n1)
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 #-------------------
-#set $primary_screen   VGA1
-#set $secondary_screen HDMI3
+set $primary_screen   VGA1
+set $secondary_screen HDMI3
 #set $tertiary_screen  HDMI1
 
 #-----------------------------
