@@ -738,28 +738,28 @@ set $prop class     # X11
 # applications default workspaces
 #===========================================================
 # workspace 4
-assign [$prop="Thunderbird"] → $ws4     # email
+assign [$prop="thunderbird"] → $ws4     # email
 #-----------------------------
 # workspace 5
-assign [$prop="Libreoffice"] → $ws5     # spreadsheet
+assign [$prop="libreoffice"] → $ws5     # spreadsheet
 #-----------------------------
 # workspace 6
-assign [$prop="Lutris"] → $ws6          # game
+assign [$prop="lutris"] → $ws6          # game
 #-----------------------------
 # workspace 7
-assign [$prop="Deluge"] → $ws7          # torrent
-assign [$prop="Nicotine"] → $ws7        # P2P music
+assign [$prop="deluge"] → $ws7          # torrent
+assign [$prop="nicotine"] → $ws7        # P2P music
 #-----------------------------
 # workspace 8
-assign [$prop="Lollypop"] → $ws8        # music player (local)
+assign [$prop="lollypop"] → $ws8        # music player (local)
 #-----------------------------
 # workspace 9
 # music player (web)
-for_window [$prop="Spotify"] move --no-auto-back-and-forth to workspace $ws9
+for_window [$prop="spotify"] move --no-auto-back-and-forth to workspace $ws9
 #-----------------------------
 # workspace 10
-assign [$prop="Blueman-manager"] → $ws0 # bluetooth
-assign [$prop="Pavucontrol"] → $ws0     # volume control
+assign [$prop="blueman-manager"] → $ws0 # bluetooth
+assign [$prop="pavucontrol"] → $ws0     # volume control
 #-----------------------------
 
 #===========================================================
