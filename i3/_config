@@ -735,13 +735,12 @@ set $prop class     # X11
 #set $prop app_id   # Wayland
 
 #===========================================================
-# default applications workspaces
+# applications default workspaces
 #===========================================================
 # workspace 4
 assign [$prop="Thunderbird"] → $ws4     # email
 #-----------------------------
 # workspace 5
-#assign [$prop="Evince"] → $ws5          # pdf reader
 assign [$prop="Libreoffice"] → $ws5     # spreadsheet
 #-----------------------------
 # workspace 6
