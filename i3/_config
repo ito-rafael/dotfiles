@@ -737,47 +737,30 @@ set $prop class     # X11
 #===========================================================
 # default applications workspaces
 #===========================================================
-#-----------------------------
 # workspace 4
-#-----------------------------
-# email
-assign [$prop="Thunderbird"] → $ws4
+assign [$prop="Thunderbird"] → $ws4     # email
 #-----------------------------
 # workspace 5
-#-----------------------------
-# pdf reader
-#assign [$prop="Evince"] → $ws5
-# spreadsheet
-assign [$prop="Libreoffice"] → $ws5
+#assign [$prop="Evince"] → $ws5          # pdf reader
+assign [$prop="Libreoffice"] → $ws5     # spreadsheet
 #-----------------------------
 # workspace 6
-#-----------------------------
-# game
-assign [$prop="Lutris"] → $ws6
+assign [$prop="Lutris"] → $ws6          # game
 #-----------------------------
 # workspace 7
-#-----------------------------
-# torrent & P2P download
-assign [$prop="Deluge"] → $ws7
-assign [$prop="Nicotine"] → $ws7
+assign [$prop="Deluge"] → $ws7          # torrent
+assign [$prop="Nicotine"] → $ws7        # P2P music
 #-----------------------------
 # workspace 8
-#-----------------------------
-# music player (local)
-assign [$prop="Lollypop"] → $ws8
+assign [$prop="Lollypop"] → $ws8        # music player (local)
 #-----------------------------
 # workspace 9
-#-----------------------------
 # music player (web)
 for_window [$prop="Spotify"] move --no-auto-back-and-forth to workspace $ws9
 #-----------------------------
 # workspace 10
-#-----------------------------
-# bluetooth and bolume control
-assign [$prop="Blueman-manager"] → $ws10
-assign [$prop="Pavucontrol"] → $ws10
-#exec pavucontrol
-#exec blueman-manager
+assign [$prop="Blueman-manager"] → $ws0 # bluetooth
+assign [$prop="Pavucontrol"] → $ws0     # volume control
 #-----------------------------
 
 #===========================================================
