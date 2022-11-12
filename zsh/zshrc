@@ -217,6 +217,7 @@ alias cdh='cd $HOME/git/homelab'
 alias cdp='cd $HOME/git/pc-general-config'
 alias cda='cd $HOME/git/ansible-provision'
 alias cdm='cd $HOME/git/machine-learning'
+alias cdu='cd $HOME/RAFAEL/UNICAMP'
 #-----------------------------
 # confirm before overwriting
 alias cp="cp -i"
