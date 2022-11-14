@@ -12,4 +12,7 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
+  -- You add plugins here
+  use 'lambdalisue/suda.vim'    -- :w for root files
+
 end)
