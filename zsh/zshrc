@@ -193,7 +193,7 @@ function va() {
 # Emacs
 alias e='emacsclient --create-frame --alternate-editor="emacs"'
 #-----------------------------
-# systemctl
+# systemctl root
 alias sta='sudo systemctl start'
 alias sto='sudo systemctl stop'
 alias sen='sudo systemctl enable --now'
@@ -201,6 +201,8 @@ alias ssr='sudo systemctl restart'
 alias sse='sudo systemctl enable'
 alias ssd='sudo systemctl disable'
 alias sss='sudo systemctl status'
+# systemctl user
+alias stau='systemctl start --user'
 #-----------------------------
 # incognito mode (no records in "history")
 alias incognito=' unset HISTFILE &&'
