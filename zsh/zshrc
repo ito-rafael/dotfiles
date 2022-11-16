@@ -203,6 +203,7 @@ alias ssd='sudo systemctl disable'
 alias sss='sudo systemctl status'
 # systemctl user
 alias stau='systemctl start --user'
+alias stou='systemctl stop --user'
 #-----------------------------
 # incognito mode (no records in "history")
 alias incognito=' unset HISTFILE &&'
