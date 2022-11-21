@@ -206,6 +206,7 @@ alias stau='systemctl start --user'
 alias stou='systemctl stop --user'
 alias ssru='systemctl restart --user'
 alias senu='systemctl enable --now --user'
+alias sseu='systemctl enable --user'
 #-----------------------------
 # incognito mode (no records in "history")
 alias incognito=' unset HISTFILE &&'
