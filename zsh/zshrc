@@ -160,6 +160,7 @@ alias {chx,cx}='chmod +x'           # chmod
 alias ns='nvidia-smi'               # NVIDIA
 alias dd='dd bs=4M status=progress oflag=sync'  # dd
 alias p8='ping 8.8.8.8'
+alias pg='ping google.com'
 #-----------------------------
 # Package manager
 alias {paru,yay}='paru --aur'	    # paru/yay
