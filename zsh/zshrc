@@ -195,6 +195,7 @@ function va() {
 # Emacs
 alias e='emacsclient --create-frame --alternate-editor="emacs"'
 alias ec='vim $HOME/.config/doom/config.el'
+alias ep='vim $HOME/.config/doom/packages.el'
 #-----------------------------
 # systemctl root
 alias sta='sudo systemctl start'
