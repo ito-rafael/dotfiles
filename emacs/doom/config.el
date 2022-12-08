@@ -88,3 +88,7 @@
   :hook (org-mode . org-auto-tangle-mode)
   :config
   (setq org-auto-tangle-default t))
+
+;; ":ignore:" attribute support to export contents without the header
+(require 'ox-extra)
+(ox-extras-activate '(ignore-headlines))
