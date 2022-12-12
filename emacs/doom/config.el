@@ -92,3 +92,20 @@
 ;; ":ignore:" attribute support to export contents without the header
 (require 'ox-extra)
 (ox-extras-activate '(ignore-headlines))
+
+;; support for ":newpage:" tag
+;;   - inserts a line with "\clearpage" one line above the header in the .tex file
+;;   - the same as inserting "#+LATEX: \newpage" one live above the header in the .org file
+;; https://emacs.stackexchange.com/questions/30575/adding-latex-newpage-before-a-heading
+(defun org/get-headline-string-element  (headline backend info)
+  (let ((prop-point (next-property-change 0 headline)))
+    (if prop-point (plist-get (text-properties-at prop-point headline) :parent))))
+
+(defun org/ensure-latex-clearpage (headline backend info)
+  (when (org-export-derived-backend-p backend 'latex)
+    (let ((elmnt (org/get-headline-string-element headline backend info)))
+      (when (member "newpage" (org-element-property :tags elmnt))
+        (concat "\\clearpage\n" headline)))))
+
+(add-to-list 'org-export-filter-headline-functions
+             'org/ensure-latex-clearpage)
