@@ -280,6 +280,7 @@ alias {rxx,rx}='xmodmap ~/.Xmodmap'
 # open config files
 alias vv='vim ~/.config/nvim/init.vim'
 alias zz='vim ~/.zshrc'
+alias ze='vim ~/.zshenv'
 alias xx='vim ~/.Xmodmap'
 alias kk='vim ~/.config/kitty/kitty.conf'
 alias bb='vim ~/.config/i3/i3blocks.conf'
