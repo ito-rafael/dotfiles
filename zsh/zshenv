@@ -1,6 +1,9 @@
 # environment variables
 export GTK_THEME=Adwaita:dark
-
 # PATH
 export PATH=$PATH:~/.cargo/bin
 export PATH=$PATH:~/.emacs.d/bin
+#-----------------------------
+# Java
+# font rendering
+export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on'
