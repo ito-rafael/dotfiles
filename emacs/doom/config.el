@@ -109,3 +109,6 @@
 
 (add-to-list 'org-export-filter-headline-functions
              'org/ensure-latex-clearpage)
+
+;; change table of contents title for beamer export (default: "Outline")
+(setq org-beamer-outline-frame-title "Agenda")
