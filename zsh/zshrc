@@ -305,6 +305,7 @@ function ii () {
 # open config files in remote PC
 alias lvv='ssh $REMOTE cat ~/.config/nvim/init.vim | vim -'
 alias lzz='ssh $REMOTE cat ~/.zshrc | vim -'
+alias lze='ssh $REMOTE cat ~/.zshenv | vim -'
 alias lii='ssh $REMOTE cat ~/.config/i3/_config | vim -'
 alias lxx='ssh $REMOTE cat ~/.Xmodmap | vim -'
 alias lkk='ssh $REMOTE cat ~/.config/kitty/kitty.conf | vim -'
