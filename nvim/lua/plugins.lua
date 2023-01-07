@@ -14,5 +14,6 @@ return require('packer').startup(function(use)
 
   -- You add plugins here
   use 'lambdalisue/suda.vim'    -- :w for root files
+  use 'frabjous/knap'           -- LaTeX live update
 
 end)
