@@ -668,7 +668,7 @@ mode "presentation" {
 }
 #-----------------------------
 # start "presentation" mode and run Projecteur
-bindsym $mod+P mode "presentation"; exec projecteur -D 25a7:1047
+bindsym mod1+p mode "presentation"; exec projecteur -D 25a7:1047
 
 #===========================================================
 # mode: studio
