@@ -112,3 +112,18 @@
 
 ;; change table of contents title for beamer export (default: "Outline")
 (setq org-beamer-outline-frame-title "Agenda")
+
+;; LaTeX abntex2
+;; abntex2.cls is available in texlive-publishers package
+(require 'ox-latex)
+(unless (boundp 'org-latex-classes)
+  (setq org-latex-classes nil))
+(add-to-list 'org-latex-classes
+  '("abntex2"
+    "\\documentclass{abntex2}"
+    ("\\chapter{%s}"         . "\\chapter*{%s}")
+    ("\\section{%s}"         . "\\section*{%s}")
+    ("\\subsection{%s}"      . "\\subsection*{%s}")
+    ("\\subsubsection{%s}"   . "\\subsubsection*{%s}")
+    ("\\paragraph{%s}"       . "\\paragraph*{%s}")
+    ("\\subparagraph{%s}"    . "\\subparagraph*{%s}")))
