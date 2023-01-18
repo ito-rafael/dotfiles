@@ -127,3 +127,17 @@
     ("\\subsubsection{%s}"   . "\\subsubsection*{%s}")
     ("\\paragraph{%s}"       . "\\paragraph*{%s}")
     ("\\subparagraph{%s}"    . "\\subparagraph*{%s}")))
+
+;; LaTeX IEEEtran
+;; https://alexshroyer.com/posts/2022-06-24-IEEE-org-template.html
+;; IEEEtran.cls is available in texlive-publishers package
+(require 'ox-latex)
+(unless (boundp 'org-latex-classes)
+  (setq org-latex-classes nil))
+(add-to-list 'org-latex-classes
+  '("IEEEtran" "\\documentclass[conference]{IEEEtran}"
+    ("\\section{%s}" . "\\section*{%s}")
+    ("\\subsection{%s}" . "\\subsection*{%s}")
+    ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+    ("\\paragraph{%s}" . "\\paragraph*{%s}")
+    ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
