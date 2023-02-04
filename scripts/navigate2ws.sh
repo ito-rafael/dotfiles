@@ -148,7 +148,7 @@ else
                     7 ) deluge & nicotine & ;;
                     8 ) lollypop & ;;
                     9 ) spotify & ;;
-                    0 ) pavucontrol & blueman-manager & ;;
+                    0 ) pavucontrol & blueman-applet & blueman-manager & ;;
                     #-------------------------------------
                     # secondary screen
                     11) ;;
