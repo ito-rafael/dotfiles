@@ -14,7 +14,7 @@ MAPPINGS:
     #====================
     - KEY: KEY_TAB
       TAP: KEY_TAB
-      HOLD: KEY_F14
+      HOLD: KEY_RIGHTALT
     #====================
     # mouse2key
     #====================
