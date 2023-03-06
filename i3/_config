@@ -39,9 +39,10 @@ workspace_auto_back_and_forth yes
 #set $tertiary_screen $(xrandr | grep ' connected' | awk '{print $1}' | head -n3 | tail -n1)
 #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 #-------------------
-set $primary_screen   VGA1
+
+set $primary_screen   HDMI1
 set $secondary_screen HDMI3
-#set $tertiary_screen  HDMI1
+set $tertiary_screen  VGA1
 
 #-----------------------------
 # set default output of workspaces
