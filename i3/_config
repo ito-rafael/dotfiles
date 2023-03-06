@@ -860,6 +860,8 @@ for_window [class="Emacs"] move scratchpad
 #===========================================================
 # Bluetooth
 exec "blueman-applet &"
+# NetworkManager
+exec "nm-applet --indicator &"
 
 #===========================================================
 # startup commands
