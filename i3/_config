@@ -856,6 +856,12 @@ for_window [class="Emacs"] move position center
 for_window [class="Emacs"] move scratchpad
 
 #===========================================================
+# applets
+#===========================================================
+# Bluetooth
+exec "blueman-applet &"
+
+#===========================================================
 # startup commands
 #===========================================================
 # set background image
