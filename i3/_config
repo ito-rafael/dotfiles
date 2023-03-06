@@ -114,40 +114,40 @@ workspace 20 output $tertiary_screen
 # set workspaces names
 #-----------------------------
 # primary screen
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws0 "10"
+set $ws1 "1:1"
+set $ws2 "2:2"
+set $ws3 "3:3"
+set $ws4 "4:4"
+set $ws5 "5:5"
+set $ws6 "6:6"
+set $ws7 "7:7"
+set $ws8 "8:8"
+set $ws9 "9:9"
+set $ws0 "10:0"
 #-------------------
 # secondary screen
-set $ws11 "11"
-set $ws12 "12"
-set $ws13 "13"
-set $ws14 "14"
-set $ws15 "15"
-set $ws16 "16"
-set $ws17 "17"
-set $ws18 "18"
-set $ws19 "19"
-set $ws10 "20"
+set $ws11 "11:11"
+set $ws12 "12:12"
+set $ws13 "13:13"
+set $ws14 "14:14"
+set $ws15 "15:15"
+set $ws16 "16:16"
+set $ws17 "17:17"
+set $ws18 "18:18"
+set $ws19 "19:19"
+set $ws10 "20:10"
 #-------------------
 # tertiary screen
-set $ws21 "21"
-set $ws22 "22"
-set $ws23 "23"
-set $ws24 "24"
-set $ws25 "25"
-set $ws26 "26"
-set $ws27 "27"
-set $ws28 "28"
-set $ws29 "29"
-set $ws20 "30"
+set $ws21 "21:21"
+set $ws22 "22:22"
+set $ws23 "23:23"
+set $ws24 "24:24"
+set $ws25 "25:25"
+set $ws26 "26:26"
+set $ws27 "27:27"
+set $ws28 "28:28"
+set $ws29 "29:29"
+set $ws20 "30:20"
 
 #=============================
 #     additional config      
@@ -740,6 +740,9 @@ bindsym $mod+O mode "studio"; exec video-script
 bar {
         # set i3bar position
         position top
+        #-----------------------------
+        # display only ws names
+        strip_workspace_numbers yes
         #-----------------------------
         #status_command i3status
         status_command i3blocks -c /home/rafael/.config/i3/i3blocks.conf
