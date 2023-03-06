@@ -44,6 +44,8 @@ set $primary_screen   HDMI1
 set $secondary_screen HDMI3
 set $tertiary_screen  VGA1
 
+exec xrandr --output HDMI1 --mode 1920x1080 --rate 60.00 --brightness 1 --pos 0x0 --primary
+
 #-----------------------------
 # set default output of workspaces
 #-----------------------------
