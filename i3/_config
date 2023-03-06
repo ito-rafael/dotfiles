@@ -22,6 +22,9 @@ workspace_auto_back_and_forth yes
 #-----------------------------
 # window border
 default_border pixel 5
+#-----------------------------
+# gaps size
+gaps inner 5
 
 #=============================
 #        workspaces          
