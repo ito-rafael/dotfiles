@@ -172,6 +172,7 @@ alias pqi='pacman -Qi'              # pacman query installed
 alias pqs='pacman -Qs'              # pacman list installed
 alias pqm='pacman -Qm'              # pacman list foreign
 alias prs='paru -S'                 # paru install
+alias pru='paru -Syu'               # paru update/upgrade
 #-----------------------------
 # Python
 alias {p,py}=python                             # interpreter
