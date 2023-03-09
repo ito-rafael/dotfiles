@@ -148,7 +148,7 @@ else
                     7 ) deluge & nicotine & ;;
                     8 ) lollypop & ;;
                     9 ) spotify & ;;
-                    0 ) pavucontrol & blueman-applet & blueman-manager & ;;
+                    0) gtk-launch emacsclient.desktop & ;;
                     #-------------------------------------
                     # secondary screen
                     11) ;;
@@ -160,7 +160,7 @@ else
                     17) ;;
                     18) ;;
                     19) ;;
-                    10) gtk-launch emacsclient.desktop & ;;
+                    10 ) pavucontrol & blueman-applet & blueman-manager & ;;
                     #-------------------------------------
                     # tertiary screen
                     21) ;;
