@@ -16,6 +16,9 @@
     "sway/window": {
         "max-length": 50
     },
+    "sway/workspaces": {
+        "format": "{name}",
+    },
     "cpu": {
         "format": "{usage}% ",
         "tooltip": false
