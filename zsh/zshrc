@@ -162,6 +162,7 @@ alias dd='dd bs=4M status=progress oflag=sync'  # dd
 alias p8='ping 8.8.8.8'
 alias pg='ping google.com'
 alias qq='systemctl start --user xremap'
+alias ww='systemctl stop --user xremap'
 #-----------------------------
 # Package manager
 alias {paru,yay}='paru --aur'	    # paru/yay
