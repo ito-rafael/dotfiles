@@ -3,6 +3,10 @@
     // Bar positioning
     //--------------
     "layer": "top",
+
+    //--------------
+    // Left
+    //--------------
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
     "modules-right": [
