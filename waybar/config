@@ -1,4 +1,7 @@
 {
+    //--------------
+    // Bar positioning
+    //--------------
     "layer": "top",
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
