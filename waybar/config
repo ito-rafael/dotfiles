@@ -8,6 +8,10 @@
     // Left
     //--------------
     "modules-left": ["sway/workspaces", "sway/mode"],
+
+    //--------------
+    // Center
+    //--------------
     "modules-center": ["sway/window"],
     "modules-right": [
         "cpu",
