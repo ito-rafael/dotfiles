@@ -13,6 +13,10 @@
     // Center
     //--------------
     "modules-center": ["sway/window"],
+
+    //--------------
+    // Right
+    //--------------
     "modules-right": [
         "cpu",
         "memory",
