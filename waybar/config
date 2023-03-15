@@ -41,6 +41,9 @@
     "sway/window": {
         "max-length": 50
     },
+    //--------------
+    // Window
+    //--------------
     "sway/workspaces": {
         "format": "{name}",
     },
