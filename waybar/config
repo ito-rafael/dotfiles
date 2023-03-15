@@ -60,6 +60,9 @@
     "memory": {
         "format": "{}% "
     },
+    //========================
+    // Temperature
+    //========================
     "temperature": {
         "critical-threshold": 80,
         "format-critical": "{temperatureC}°C {icon}",
