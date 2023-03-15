@@ -69,6 +69,9 @@
         "format": "{temperatureC}°C {icon}",
         "format-icons": ["", "", ""]
     },
+    //========================
+    // Disk
+    //========================
     "disk": {
         "interval": 30,
         "format": "{path} {percentage_free}%",
