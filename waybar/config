@@ -47,6 +47,9 @@
     "sway/workspaces": {
         "format": "{name}",
     },
+    //========================
+    // CPU
+    //========================
     "cpu": {
         "format": "{usage}% ",
         "tooltip": false
