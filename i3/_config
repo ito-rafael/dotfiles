@@ -810,8 +810,8 @@ assign [$prop="lollypop"] → $ws8        # music player (local)
 for_window [class="Spotify"] move --no-auto-back-and-forth to workspace $ws9
 #-----------------------------
 # workspace 10
-assign [$prop="blueman-manager"] → $ws0 # bluetooth
-assign [$prop="pavucontrol"] → $ws0     # volume control
+assign [$prop="blueman-manager"] → $ws10 # bluetooth
+assign [$prop="pavucontrol"] → $ws10     # volume control
 #-----------------------------
 
 #===========================================================
