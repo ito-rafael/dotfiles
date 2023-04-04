@@ -1,0 +1,14 @@
+#+title: Waybar config
+#+author: Rafael Ito
+#+property: header-args :tangle ./waybar_config
+#+description: Waybar configuration
+#+startup: showeverything
+#+auto_tangle: t
+
+* JSON header
+#+begin_src json
+{
+* JSON footer
+#+begin_src json
+}
+#+end_src
