@@ -8,6 +8,24 @@
 * JSON header
 #+begin_src json
 {
+#+end_src
+* Positioning
+#+begin_src json
+    "layer": "top",
+    "modules-left": ["sway/workspaces", "sway/mode"],
+    "modules-center": ["sway/window"],
+    "modules-right": [
+        "cpu",
+        "memory",
+        "temperature",
+        "disk",
+        "pulseaudio",
+        "backlight",
+        "battery",
+        "clock",
+        "tray",
+    ],
+#+end_src
 * JSON footer
 #+begin_src json
 }
