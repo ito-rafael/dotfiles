@@ -438,6 +438,7 @@ bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
 # take screenshot
 #bindsym Print exec shutter
 bindsym Print exec grim
+bindsym ctrl+Print exec 'grim -g "$(slurp)" - | swappy -f -'
 
 #=============================
 #    Logitech MX keybinds
