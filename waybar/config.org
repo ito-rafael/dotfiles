@@ -26,6 +26,15 @@
         "tray",
     ],
 #+end_src
+* Sway
+#+begin_src json
+    "sway/window": {
+        "max-length": 50
+    },
+    "sway/workspaces": {
+        "format": "{name}",
+    },
+#+end_src
 * JSON footer
 #+begin_src json
 }
