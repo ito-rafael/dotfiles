@@ -35,6 +35,11 @@
         "format": "{name}",
     },
 #+end_src
+* CPU
+"cpu": {
+    "format": "{usage}% ",
+    "tooltip": false
+},
 * JSON footer
 #+begin_src json
 }
