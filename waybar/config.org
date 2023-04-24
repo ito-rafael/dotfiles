@@ -40,6 +40,10 @@
     "format": "{usage}% ",
     "tooltip": false
 },
+* Memory
+"memory": {
+    "format": "{}% "
+},
 * JSON footer
 #+begin_src json
 }
