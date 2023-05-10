@@ -70,6 +70,11 @@
         "default": ["", "", ""]
     },
 },
+* Brightness
+"backlight": {
+    "format": "{percent}% {icon}",
+    "format-icons": ["", "", "", "", "", "", "", "", ""]
+},
 * JSON footer
 #+begin_src json
 }
