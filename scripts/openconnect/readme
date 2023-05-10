@@ -1,0 +1,34 @@
+==================================================
+# Installation
+==================================================
+# ArchLinux
+
+# stoken - RSA SecurID token generator
+sudo pacman -S stoken
+
+# OpenConnect (client for Cisco's AnyConnect SSL VPN)
+sudo pacman -S openconnect
+
+----------------------------------------
+
+# Debian/Ubuntu
+
+# stoken - RSA SecurID token generator
+sudo apt install stoken
+
+# OpenConnect (client for Cisco's AnyConnect SSL VPN)
+sudo apt install openconnect
+sudo apt install vpnc
+
+sudo vim /etc/vpnc/vpnc-script
+https://gitlab.com/openconnect/vpnc-scripts/-/blob/master/vpnc-script
+
+==================================================
+# How to use
+==================================================
+
+# import RSA token
+stoken import --token 'http://127.0.0.1/securid/ctf?ctfData=<ID-HERE>' --force
+
+# delete device
+sudo ip link del vpn0
