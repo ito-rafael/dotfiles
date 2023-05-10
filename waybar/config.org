@@ -51,6 +51,12 @@
     "format": "{temperatureC}°C {icon}",
     "format-icons": ["", "", ""]
 },
+* Disk
+"disk": {
+    "interval": 30,
+    "format": "{path} {percentage_free}%",
+    "path": "/"
+},
 * JSON footer
 #+begin_src json
 }
