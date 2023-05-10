@@ -75,6 +75,11 @@
     "format": "{percent}% {icon}",
     "format-icons": ["", "", "", "", "", "", "", "", ""]
 },
+* Battery
+"battery": {
+    "format": "{capacity}% {icon}",
+    "format-icons": ["", "", "", "", ""]
+},
 * JSON footer
 #+begin_src json
 }
