@@ -149,10 +149,11 @@ source $ZSH/oh-my-zsh.sh
 alias v=vim                         # Vim
 alias m=man                         # man
 alias j=joplin                      # joplin
+alias k=kill                        # kill
+alias h=history                     # history
 alias -g g='| grep'                 # grep
 alias df='df -h'                    # df
 alias cpr='cp -R'	                # cp
-alias h=history                     # history
 alias hg='history | grep'           # history + grep
 alias psa='ps aux'                  # ps aux
 alias psag='ps aux | grep'          # ps aux | grep
