@@ -1,0 +1,6 @@
+#+title: Doom Emacs config.el
+#+author: Rafael Ito
+#+property: header-args :tangle ./config_el.el
+#+description: Doom Emacs config.el
+#+startup: showeverything
+#+auto_tangle: t
