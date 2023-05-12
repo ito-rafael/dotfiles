@@ -4,3 +4,9 @@
 #+description: Doom Emacs config.el
 #+startup: showeverything
 #+auto_tangle: t
+
+* User and email
+#+begin_src lisp
+(setq user-full-name "Rafael Ito"
+      user-mail-address "ito.rafael@gmail.com")
+#+end_src
