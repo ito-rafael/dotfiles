@@ -5,8 +5,13 @@
 #+startup: showeverything
 #+auto_tangle: t
 
-* User and email
+* Initial config
+** User and email
 #+begin_src lisp
 (setq user-full-name "Rafael Ito"
       user-mail-address "ito.rafael@gmail.com")
+#+end_src
+** Theme
+#+begin_src lisp
+(setq doom-theme 'doom-one)
 #+end_src
