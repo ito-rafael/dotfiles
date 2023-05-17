@@ -15,3 +15,8 @@
 #+begin_src lisp
 (setq doom-theme 'doom-one)
 #+end_src
+** Line number
+This determines the style of line numbers in effect. If set to `nil', line numbers are disabled. For relative line numbers, set this to `relative'.
+#+begin_src lisp
+(setq display-line-numbers-type t)
+#+end_src
