@@ -20,3 +20,7 @@ This determines the style of line numbers in effect. If set to `nil', line numbe
 #+begin_src lisp
 (setq display-line-numbers-type t)
 #+end_src
+**  Org directory
+#+begin_src lisp
+(setq org-directory "~/org/")
+#+end_src
