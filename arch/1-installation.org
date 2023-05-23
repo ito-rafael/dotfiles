@@ -1,0 +1,4 @@
+#+title: Arch install guide
+#+author: Rafael Ito
+#+description: Arch install guide
+#+startup: showeverything
