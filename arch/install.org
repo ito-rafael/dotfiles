@@ -10,3 +10,6 @@ https://itsfoss.com/install-arch-linux/
 * Boot from the live USB
 download image from:
 https://www.archlinux.org/download/
+
+verify signature: (replace <VERSION> accordingly)
+gpg --keyserver-options auto-key-retrieve --verify archlinux-<VERSION>-x86_64.iso.sig
