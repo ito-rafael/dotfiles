@@ -18,3 +18,8 @@ copy image to a USB stick: (replace "sdx" accordingly)
 dd bs=4M if=path/to/archlinux.iso of=/dev/sdx status=progress oflag=sync
 
 boot from the USB flash drive
+
+==============================
+ make font bigger
+==============================
+setfont /usr/share/kbd/consolefonts/latarcyrheb-sun32.psfu.gz
