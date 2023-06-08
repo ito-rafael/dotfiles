@@ -396,6 +396,8 @@ alias cdv='cd $(wl-paste)'                          # Wayland
 # Firefox
 alias firefox=firefox-developer-edition
 #-----------------------------
+# connections
+#-----------------------------
 # OpenVPN LBiC
 alias vpn-lbic='sudo openvpn /etc/openvpn/client/ito_rafael-conf-file.conf'
 # Recod (bind TCP port)
