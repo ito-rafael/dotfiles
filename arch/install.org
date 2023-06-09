@@ -23,3 +23,15 @@ boot from the USB flash drive
  make font bigger
 ==============================
 setfont /usr/share/kbd/consolefonts/latarcyrheb-sun32.psfu.gz
+
+==============================
+ connect to Wi-Fi
+==============================
+iw dev
+rfkill list
+rfkill unblock wifi
+ip link set wlp1s0 up
+iw dev wlp1s0 scan | less
+ip link set wlp1s0 down
+iw dev wlp1s0 set type ibss
+ip link set wlp1s0 up
