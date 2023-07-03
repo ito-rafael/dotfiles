@@ -35,3 +35,9 @@ iw dev wlp1s0 scan | less
 ip link set wlp1s0 down
 iw dev wlp1s0 set type ibss
 ip link set wlp1s0 up
+
+# replace "SSID" and "PASSWD" accordingly
+wpa_passphrase "SSID" "PASSWD" > /etc/wpa_supplicant/SSID.conf
+wpa_supplicant -c /etc/wpa_supplicant/SSID.conf -i wlp1s0
+wpa_supplicant -B -c /etc/wpa_supplicant/SSID.conf -i wlp1s0
+dhclient wlp1s0
