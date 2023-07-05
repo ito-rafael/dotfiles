@@ -13,17 +13,24 @@ download image from:
 https://www.archlinux.org/download/
 
 verify signature: (replace <VERSION> accordingly)
++begin_src sh
 gpg --keyserver-options auto-key-retrieve --verify archlinux-<VERSION>-x86_64.iso.sig
+#+end_src
 
 copy image to a USB stick: (replace "sdx" accordingly)
++begin_src sh
 dd bs=4M if=path/to/archlinux.iso of=/dev/sdx status=progress oflag=sync
+#+end_src
 
 boot from the USB flash drive
 
 * Live environment
 ** increase font size
++begin_src sh
 setfont /usr/share/kbd/consolefonts/latarcyrheb-sun32.psfu.gz
+#+end_src
 ** configure network device
++begin_src sh
 iw dev
 rfkill list
 rfkill unblock wifi
@@ -32,11 +39,16 @@ iw dev wlp1s0 scan | less
 ip link set wlp1s0 down
 iw dev wlp1s0 set type ibss
 ip link set wlp1s0 up
+#+end_src
 ** set up Wi-Fi connection
 replace "SSID" and "PASSWD" accordingly
++begin_src sh
 wpa_passphrase "SSID" "PASSWD" > /etc/wpa_supplicant/SSID.conf
 wpa_supplicant -c /etc/wpa_supplicant/SSID.conf -i wlp1s0
 wpa_supplicant -B -c /etc/wpa_supplicant/SSID.conf -i wlp1s0
 dhclient wlp1s0
+#+end_src
 ** update the system clock
++begin_src sh
 timedatectl set-ntp true
+#+end_src
