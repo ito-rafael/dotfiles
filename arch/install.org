@@ -52,3 +52,8 @@ dhclient wlp1s0
 +begin_src sh
 timedatectl set-ntp true
 #+end_src
+** Disk partitioning
++begin_src sh
+fdisk -l
+fdisk /dev/sdX
+#+end_src
