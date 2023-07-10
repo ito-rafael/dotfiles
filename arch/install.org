@@ -57,3 +57,12 @@ timedatectl set-ntp true
 fdisk -l
 fdisk /dev/sdX
 #+end_src
+*** delete partitions
+|---------+--------------------|
+|   <c>   |        <c>         |
+| command |    description     |
+|---------+--------------------|
+|    d    | delete a partition |
+| <ENTER> |  partition number  |
+|---------+--------------------|
+repeat if necessary
