@@ -66,3 +66,19 @@ fdisk /dev/sdX
 | <ENTER> |  partition number  |
 |---------+--------------------|
 repeat if necessary
+*** create EFI partition
+|---------+-------------------------|
+|   <c>   |           <c>           |
+| command |       description       |
+|---------+-------------------------|
+|    n    |   add a new partition   |
+|    2    |    partition number     |
+| <ENTER> |      first sector       |
+|  +260M  |       last sector       |
+|    Y    |  remove the signature   |
+|---------+-------------------------|
+|    t    | change a partition type |
+|    2    |    partition number     |
+|    1    |       EFI System        |
+|---------+-------------------------|
+# update 05/2021: EFI partition type "ef"
