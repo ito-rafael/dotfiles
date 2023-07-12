@@ -82,3 +82,20 @@ repeat if necessary
 |    1    |       EFI System        |
 |---------+-------------------------|
 # update 05/2021: EFI partition type "ef"
+*** create / partition
+|---------+-------------------------|
+|   <c>   |           <c>           |
+| command |       description       |
+|---------+-------------------------|
+|    n    |   add a new partition   |
+|    3    |    partition number     |
+| <ENTER> |      first sector       |
+|  +100G  |       last sector       |
+|    Y    |  remove the signature   |
+|---------+-------------------------|
+|    t    | change a partition type |
+|    3    |    partition number     |
+|   24    |   Linux root (x86-64)   |
+|---------+-------------------------|
+# update 05/2021: Linux root (x86-64) "83"
+# update 07/2022: Linux root (x86-64) "23"
