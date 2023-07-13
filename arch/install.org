@@ -99,3 +99,18 @@ repeat if necessary
 |---------+-------------------------|
 # update 05/2021: Linux root (x86-64) "83"
 # update 07/2022: Linux root (x86-64) "23"
+*** create swap partition
+|---------+-------------------------|
+|   <c>   |           <c>           |
+| command |       description       |
+|---------+-------------------------|
+|    n    |   add a new partition   |
+|    4    |    partition number     |
+| <ENTER> |      first sector       |
+|  +16G   |       last sector       |
+|---------+-------------------------|
+|    t    | change a partition type |
+|    4    |    partition number     |
+|   19    |       Linux swap        |
+|---------+-------------------------|
+# update 05/2021: Linux swap "82"
