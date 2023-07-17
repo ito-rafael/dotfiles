@@ -114,3 +114,18 @@ repeat if necessary
 |   19    |       Linux swap        |
 |---------+-------------------------|
 # update 05/2021: Linux swap "82"
+*** create home partition
+|---------+---------------------------|
+|   <c>   |            <c>            |
+| command |        description        |
+|---------+---------------------------|
+|    n    |    add a new partition    |
+|    5    |     partition number      |
+| <ENTER> |       first sector        |
+| <ENTER> | last sector --> remainder |
+|---------+---------------------------|
+|    t    |  change a partition type  |
+|    5    |     partition number      |
+|   28    |        Linux home         |
+|---------+---------------------------|
+# update 05/2021: Linux home "83"
