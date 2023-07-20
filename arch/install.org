@@ -129,3 +129,11 @@ repeat if necessary
 |   28    |        Linux home         |
 |---------+---------------------------|
 # update 05/2021: Linux home "83"
+*** save & exit
+|---------+------------------------------|
+|   <c>   |             <c>              |
+| command |         description          |
+|---------+------------------------------|
+|    p    |  print the partition table   |
+|    w    | write table to disk and exit |
+|---------+------------------------------|
