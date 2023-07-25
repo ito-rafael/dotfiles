@@ -10,6 +10,12 @@ MAPPINGS:
       TAP: KEY_ENTER
       HOLD: KEY_LEFTALT
     #====================
+    # altgr2enter
+    #====================
+    - KEY: KEY_RIGHTALT
+      TAP: KEY_ENTER
+      HOLD: KEY_RIGHTALT
+    #====================
     # tab2mod5
     #====================
     - KEY: KEY_TAB
