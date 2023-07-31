@@ -25,11 +25,11 @@ dd bs=4M if=path/to/archlinux.iso of=/dev/sdx status=progress oflag=sync
 boot from the USB flash drive
 
 * Live environment
-** increase font size
+** Increase font size
 #+begin_src sh
 setfont /usr/share/kbd/consolefonts/latarcyrheb-sun32.psfu.gz
 #+end_src
-** configure network device
+** Configure network device
 #+begin_src sh
 iw dev
 rfkill list
@@ -40,7 +40,7 @@ ip link set wlp1s0 down
 iw dev wlp1s0 set type ibss
 ip link set wlp1s0 up
 #+end_src
-** set up Wi-Fi connection
+** Set up Wi-Fi connection
 replace "SSID" and "PASSWD" accordingly
 #+begin_src sh
 wpa_passphrase "SSID" "PASSWD" > /etc/wpa_supplicant/SSID.conf
@@ -48,7 +48,7 @@ wpa_supplicant -c /etc/wpa_supplicant/SSID.conf -i wlp1s0
 wpa_supplicant -B -c /etc/wpa_supplicant/SSID.conf -i wlp1s0
 dhclient wlp1s0
 #+end_src
-** update the system clock
+** Update the system clock
 #+begin_src sh
 timedatectl set-ntp true
 #+end_src
@@ -137,138 +137,3 @@ repeat if necessary
 |    p    |  print the partition table   |
 |    w    | write table to disk and exit |
 |---------+------------------------------|
-** Format the partitions
-*** EFI
-#+begin_src sh
-mkfs.fat -F32 /dev/sda2
-#+end_src
-*** Root
-#+begin_src sh
-mkfs.ext4 /dev/sda3
-#+end_src
-*** Swap
-#+begin_src sh
-mkswap /dev/sda4
-swapon /dev/sda4
-#+end_src
-*** Home
-#+begin_src sh
-mkfs.ext4 /dev/sda5
-#+end_src
-
-** Mount the partitions
-*** Root
-#+begin_src sh
-mount /dev/sda3 /mnt
-#+end_src
-*** EFI
-#+begin_src sh
-mkdir /mnt/efi
-mount /dev/sda2 /mnt/efi
-#+end_src
-*** Home
-#+begin_src sh
-mkdir /mnt/home
-mount /dev/sda5 /mnt/home
-#+end_src
-** Install the system
-edit mirror order
-#+begin_src sh
-vi /etc/pacman.d/mirrorlist
-pacstrap /mnt base base-devel
-#+end_src
-
-generate fstab
-#+begin_src sh
-genfstab -U /mnt >> /mnt/etc/fstab
-#+end_src
-** chroot in the system
-change root into the new system
-#+begin_src sh
-arch-chroot /mnt
-#+end_src
-
-set time zone
-#+begin_src sh
-ln -sf /usr/share/zoneinfo/Brazil/East /etc/localtime
-#+end_src
-
-set the hardware clock
-#+begin_src sh
-hwclock --systohc
-#+end_src
-** localization
-edit locale file
-#+begin_src sh
-vi /etc/locale.gen
-#+end_src
-
-uncomment the following locales
-#+begin_src comment
-en_US.UTF-8 UTF-8
-pt_br_US.UTF-8 UTF-8
-#+end_src
-
-generate uncommented locales
-#+begin_src sh
-locale-gen
-#+end_src
-
-create the locale.conf file
-#+begin_src sh
-vi /etc/locale.conf
-#+end_src
-
-set the LANG variable accordingly
-#+begin_src comment
-LANG=en_US.UTF-8
-#+end_src
-
-
-
-
-
-
-
-
-
-
-ADJUST FROM HERE
-
-
-
-** network configuration
-vi /etc/hostname					                    # create the hostname file
------
-Y2P-ArchLinux						                    # set hostname
------
-vi /etc/hosts						                    # add matching entries to hosts
------
-127.0.0.1   localhost
-::1	        localhost
-127.0.1.1   Y2P-ArchLinux.localdomain  Y2P-ArchLinux
------
-
-** ???
-passwd							                        # set root password
-pacman -Syu						                        # update the system
-
-** boot loader (GRUB)
-pacman -S grub efibootmgr
-grub-install --efi-directory=/efi
-
-# check theses flags
-#grub-install --efi-directory=/efi --bootloader-id=arch_grub --recheck
-
-grub-mkconfig -o /boot/grub/grub.cfg
-
-** ???
-systemctl enable dhcpcd					                # enable dhcp
-pacman -S iw wpa_supplicant				                # install wireless packages
-
-** exit chroot in the system
-exit							                        # exit chroot environment
-umount -R /mnt						                    # unmount partitions
-reboot							                        # reboot
-
-!!! remove USB !!!
