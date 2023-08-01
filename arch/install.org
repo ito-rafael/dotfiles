@@ -137,3 +137,8 @@ repeat if necessary
 |    p    |  print the partition table   |
 |    w    | write table to disk and exit |
 |---------+------------------------------|
+** Format the partitions
+*** EFI
+#+begin_src sh
+mkfs.fat -F32 /dev/sda2
+#+end_src
