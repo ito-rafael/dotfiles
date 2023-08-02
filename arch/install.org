@@ -142,3 +142,7 @@ repeat if necessary
 #+begin_src sh
 mkfs.fat -F32 /dev/sda2
 #+end_src
+*** Root
+#+begin_src sh
+mkfs.ext4 /dev/sda3
+#+end_src
