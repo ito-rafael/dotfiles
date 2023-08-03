@@ -18,6 +18,7 @@ parser = argparse.ArgumentParser(description='Move to previous/next workspace in
 group = parser.add_mutually_exclusive_group(required=True)
 group.add_argument('--previous', action='store_true', help='move to the previous workspace')
 group.add_argument('--next', action='store_true', help='move to the next workspace')
+group.add_argument('--debug', action='store_true', help='print debug messages')
 args = parser.parse_args()
 
 # get list of workspaces
@@ -31,6 +32,9 @@ del ws[-1]
 cmd = "wmctrl -d | awk '{print $2}'"
 stdout = subprocess.check_output(cmd, shell=True)
 current = stdout.decode().split('\n').index('*')
+# print debug message
+if args.debug:
+    print(f'current workspace: {current}')
 
 # calculate workspace to navigate to
 if args.previous:
@@ -43,7 +47,13 @@ else:
 # handle edge cases
 if ( next_ws == '10' ):
     next_ws = '0'
+    # print debug message
+    if args.debug:
+        print(f'fixing edge case: ws 10 --> 0')
 
 # navigate to next workspace
 cmd = "$HOME/.config/scripts/navigate2ws.sh " + next_ws
 subprocess.check_output(cmd, shell=True)
+# print debug message
+if args.debug:
+    print(f'changing to workspace: {next_ws}')
