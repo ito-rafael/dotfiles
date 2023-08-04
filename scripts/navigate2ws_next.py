@@ -44,12 +44,13 @@ elif args.next:
 else:
     exit()
 
-# handle edge cases
-if ( next_ws == '10' ):
-    next_ws = '0'
+# handle edge cases: workspaces multiple of 10
+if ( int(next_ws) % 10 == 0):
+    next_ws_fix = str( int(next_ws) - 10 )
     # print debug message
     if args.debug:
-        print(f'fixing edge case: ws 10 --> 0')
+        print(f'fixing edge case: ws {next_ws} --> {next_ws_fix}')
+    next_ws = next_ws_fix
 
 # navigate to next workspace
 cmd = "$HOME/.config/scripts/navigate2ws.sh " + next_ws
