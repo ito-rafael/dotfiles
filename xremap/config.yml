@@ -13,3 +13,5 @@ keymap:
     remap:
       rightalt-h:
         launch: ["bash", "-c", "ydotool key 105:1 105:0"]
+      rightalt-j:
+        launch: ["bash", "-c", "ydotool key 108:1 108:0"]
