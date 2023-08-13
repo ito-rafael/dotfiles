@@ -19,3 +19,5 @@ keymap:
         launch: ["bash", "-c", "ydotool key 103:1 103:0"]
       rightalt-l:
         launch: ["bash", "-c", "ydotool key 106:1 106:0"]
+      rightalt-0:
+        launch: ["bash", "-c", "ydotool key 102:1 102:0"]
