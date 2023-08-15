@@ -146,3 +146,8 @@ mkfs.fat -F32 /dev/sda2
 #+begin_src sh
 mkfs.ext4 /dev/sda3
 #+end_src
+*** Swap
+#+begin_src sh
+mkswap /dev/sda4
+swapon /dev/sda4
+#+end_src

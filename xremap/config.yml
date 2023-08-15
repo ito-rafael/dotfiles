@@ -9,6 +9,7 @@ keymap:
         launch: ["bash", "-c", "~/.config/scripts/navigate2ws_next.py --next"]
       C-SUPER-k: 
         launch: ["bash", "-c", "~/.config/scripts/navigate2ws_next.py --prev"]
+
   - name: vim motion
     remap:
       rightalt-h:
