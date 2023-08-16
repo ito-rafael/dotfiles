@@ -151,3 +151,7 @@ mkfs.ext4 /dev/sda3
 mkswap /dev/sda4
 swapon /dev/sda4
 #+end_src
+*** Home
+#+begin_src sh
+mkfs.ext4 /dev/sda5
+#+end_src
