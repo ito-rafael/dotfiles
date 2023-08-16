@@ -155,3 +155,9 @@ swapon /dev/sda4
 #+begin_src sh
 mkfs.ext4 /dev/sda5
 #+end_src
+
+** Mount the partitions
+*** Root
+#+begin_src sh
+mount /dev/sda3 /mnt
+#+end_src
