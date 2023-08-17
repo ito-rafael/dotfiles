@@ -161,3 +161,8 @@ mkfs.ext4 /dev/sda5
 #+begin_src sh
 mount /dev/sda3 /mnt
 #+end_src
+*** EFI
+#+begin_src sh
+mkdir /mnt/efi
+mount /dev/sda2 /mnt/efi
+#+end_src
