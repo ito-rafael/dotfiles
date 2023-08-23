@@ -166,3 +166,8 @@ mount /dev/sda3 /mnt
 mkdir /mnt/efi
 mount /dev/sda2 /mnt/efi
 #+end_src
+*** Home
+#+begin_src sh
+mkdir /mnt/home
+mount /dev/sda5 /mnt/home
+#+end_src
