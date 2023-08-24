@@ -171,3 +171,9 @@ mount /dev/sda2 /mnt/efi
 mkdir /mnt/home
 mount /dev/sda5 /mnt/home
 #+end_src
+** Install the system
+edit mirror order
+#+begin_src sh
+vi /etc/pacman.d/mirrorlist
+pacstrap /mnt base base-devel
+#+end_src
