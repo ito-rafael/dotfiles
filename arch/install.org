@@ -177,3 +177,8 @@ edit mirror order
 vi /etc/pacman.d/mirrorlist
 pacstrap /mnt base base-devel
 #+end_src
+
+generate fstab
+#+begin_src sh
+genfstab -U /mnt >> /mnt/etc/fstab
+#+end_src
