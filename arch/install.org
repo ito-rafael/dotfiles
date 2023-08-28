@@ -182,3 +182,8 @@ generate fstab
 #+begin_src sh
 genfstab -U /mnt >> /mnt/etc/fstab
 #+end_src
+** chroot in the system
+change root into the new system
+#+begin_src sh
+arch-chroot /mnt
+#+end_src
