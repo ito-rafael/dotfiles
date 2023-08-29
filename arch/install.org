@@ -182,8 +182,13 @@ generate fstab
 #+begin_src sh
 genfstab -U /mnt >> /mnt/etc/fstab
 #+end_src
-** chroot in the system
+** chroot into the system
 change root into the new system
 #+begin_src sh
 arch-chroot /mnt
+#+end_src
+
+set time zone
+#+begin_src sh
+ln -sf /usr/share/zoneinfo/Brazil/East /etc/localtime
 #+end_src
