@@ -192,3 +192,8 @@ set time zone
 #+begin_src sh
 ln -sf /usr/share/zoneinfo/Brazil/East /etc/localtime
 #+end_src
+
+set the hardware clock
+#+begin_src sh
+hwclock --systohc
+#+end_src
