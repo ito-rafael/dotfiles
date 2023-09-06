@@ -208,3 +208,8 @@ uncomment the following locales
 en_US.UTF-8 UTF-8
 pt_br_US.UTF-8 UTF-8
 #+end_src
+
+generate uncommented locales
+#+begin_src sh
+locale-gen
+#+end_src
