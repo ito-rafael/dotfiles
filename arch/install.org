@@ -213,3 +213,8 @@ generate uncommented locales
 #+begin_src sh
 locale-gen
 #+end_src
+
+create the locale.conf file
+#+begin_src sh
+vi /etc/locale.conf
+#+end_src
