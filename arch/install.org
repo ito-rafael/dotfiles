@@ -218,3 +218,8 @@ create the locale.conf file
 #+begin_src sh
 vi /etc/locale.conf
 #+end_src
+
+set the LANG variable accordingly
+#+begin_src comment
+LANG=en_US.UTF-8
+#+end_src
