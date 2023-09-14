@@ -223,7 +223,6 @@ set the LANG variable accordingly
 #+begin_src comment
 LANG=en_US.UTF-8
 #+end_src
-
 ** network configuration
 edit hostname
 #+begin_src sh
@@ -231,4 +230,14 @@ vi /etc/hostname
 #+end_src
 #+begin_src comment
 Y2P-ArchLinux
+#+end_src
+
+add matching entries to hosts
+#+begin_src sh
+vi /etc/hosts
+#+end_src
+#+begin_src comment
+127.0.0.1   localhost
+::1	    localhost
+127.0.1.1   Y2P-ArchLinux.localdomain  Y2P-ArchLinux
 #+end_src
