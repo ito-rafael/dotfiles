@@ -241,3 +241,9 @@ vi /etc/hosts
 ::1	    localhost
 127.0.1.1   Y2P-ArchLinux.localdomain  Y2P-ArchLinux
 #+end_src
+
+enable DHCP and install wireless packages
+#+begin_src sh
+systemctl enable dhcpcd
+pacman -S iw wpa_supplicant
+#+end_src
