@@ -253,3 +253,9 @@ set root password and update the system
 passwd
 pacman -Syu
 #+end_src
+** boot loader (GRUB)
+#+begin_src sh
+pacman -S grub efibootmgr
+grub-install --efi-directory=/efi
+grub-mkconfig -o /boot/grub/grub.cfg
+#+end_src
