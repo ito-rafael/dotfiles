@@ -259,3 +259,11 @@ pacman -S grub efibootmgr
 grub-install --efi-directory=/efi
 grub-mkconfig -o /boot/grub/grub.cfg
 #+end_src
+** exit chroot in the system
+exit chroot environment, unmount partitions and reboot
+#+begin_src sh
+exit
+umount -R /mnt
+reboot
+#+end_src
+** !!! remove USB stick !!!
