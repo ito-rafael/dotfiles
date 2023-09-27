@@ -1,0 +1,9 @@
+#+title: Arch post-installation guide
+#+author: Rafael Ito
+#+description: Arch post-installation guide
+#+startup: showeverything
+
+* root user
+** Documents
+source:
+https://wiki.archlinux.org/index.php/General_recommendations
