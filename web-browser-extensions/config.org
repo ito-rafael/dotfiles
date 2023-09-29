@@ -1,0 +1,8 @@
+#+title: Web Browser Extensions
+#+author: Rafael Ito
+#+description: config for web browser extensions
+#+startup: showeverything
+
+* Vimium
+Source:
+https://github.com/philc/vimium
