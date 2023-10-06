@@ -167,6 +167,7 @@ alias qq='systemctl start --user ydotool && systemctl start --user xremap'
 alias ww='systemctl stop --user ydotool && systemctl stop --user xremap'
 alias tarc='tar -czvf'
 alias tarx='tar -xvzf'
+alias wdf='watch -n1 df -h'
 #-----------------------------
 # Package manager
 alias {paru,yay}='paru --aur'	    # paru/yay
