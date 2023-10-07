@@ -7,3 +7,11 @@
 ** Documents
 source:
 https://wiki.archlinux.org/index.php/General_recommendations
+** connect to Wi-Fi
+*** manual approach
+set interface
+#+begin_src sh
+rfkill unblock wifi
+iw dev wlp1s0 set type ibss
+ip link set wlp1s0 up
+#+end_src
