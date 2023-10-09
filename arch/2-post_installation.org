@@ -15,3 +15,12 @@ rfkill unblock wifi
 iw dev wlp1s0 set type ibss
 ip link set wlp1s0 up
 #+end_src
+
+stablish connection
+#+begin_src sh
+wpa_passphrase "NETWORK_SSID" "NETWORK_PASSWD" > /etc/wpa_supplicant/NETWORK_SSID.conf
+wpa_supplicant -c /etc/wpa_supplicant/NETWORK_SSID.conf -i wlp1s0
+wpa_supplicant -B -c /etc/wpa_supplicant/NETWORK_SSID.conf -i wlp1s0
+systemctl start dhcpcd			            # start DHCP service
+systemctl enable dhcpcd			            # enable DHCP
+#+end_src
