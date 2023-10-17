@@ -24,3 +24,10 @@ wpa_supplicant -B -c /etc/wpa_supplicant/NETWORK_SSID.conf -i wlp1s0
 systemctl start dhcpcd
 systemctl enable dhcpcd
 #+end_src
+** packages
+#+begin_src sh
+pacman -S 		    \
+    gvim		    \
+    xorg		    \	
+    xorg-server
+#+end_src
