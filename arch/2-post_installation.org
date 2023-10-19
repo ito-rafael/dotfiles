@@ -26,8 +26,10 @@ systemctl enable dhcpcd
 #+end_src
 ** packages
 #+begin_src sh
-pacman -S 		    \
-    gvim		    \
-    xorg		    \	
-    xorg-server
+pacman -S neovim
+#+end_src
+** display server
+*** X.Org
+#+begin_src sh
+pacman -S xorg xorg-server
 #+end_src
