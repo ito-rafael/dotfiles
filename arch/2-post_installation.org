@@ -38,3 +38,9 @@ choose the desktop environment or window manager accordingly
 #+begin_src sh
 pacman -S sway xwayland
 #+end_src
+** pacman
+*** paccache
+contributed scripts and tools for pacman systems
+#+begin_src sh
+sudo pacman -S pacman-contrib
+#+end_src
