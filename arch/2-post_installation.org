@@ -33,3 +33,8 @@ pacman -S neovim
 #+begin_src sh
 pacman -S xorg xorg-server
 #+end_src
+*** Wayland
+choose the desktop environment or window manager accordingly
+#+begin_src sh
+pacman -S sway xwayland
+#+end_src
