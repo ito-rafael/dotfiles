@@ -22,3 +22,8 @@ default_border pixel 5
 # gaps size
 gaps inner 5
 #+end_src
+** Font & color
+#+begin_src sh
+# set font for window titles
+font pango:monospace 10
+#+end_src
