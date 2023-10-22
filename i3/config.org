@@ -9,3 +9,8 @@
 #+begin_src sh
 set $mod Mod4
 #+end_src
+** General
+#+begin_src sh
+# set window border
+for_window [class=".*"] border pixel 1
+#+end_src
