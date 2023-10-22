@@ -33,3 +33,8 @@ set $text-color  #f3f4f5
 # set ws htext color
 set $htext_color #9575cd
 #+end_src
+* Sway
+** xdg-desktop-portal-wlr
+#+begin_src sh
+include /etc/sway/config.d/*
+#+end_src
