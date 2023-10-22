@@ -26,4 +26,10 @@ gaps inner 5
 #+begin_src sh
 # set font for window titles
 font pango:monospace 10
+# set ws background color
+set $bg-color    #2f343f
+# set ws text color
+set $text-color  #f3f4f5
+# set ws htext color
+set $htext_color #9575cd
 #+end_src
