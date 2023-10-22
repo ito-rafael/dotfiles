@@ -51,3 +51,10 @@ input type:touchpad {
 #+begin_src sh
 input type:keyboard xkb_numlock enabled
 #+end_src
+** Keyboard
+input type:keyboard {
+    xkb_model "pc105"
+    xkb_layout "us"
+    xkb_variant "intl"
+}
+#+end_src
