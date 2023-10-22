@@ -1,0 +1,6 @@
+#+TITLE: Config file for i3/sway window manager
+#+AUTHOR: Rafael Ito
+#+PROPERTY: header-args :tangle config_from_org
+#+DESCRIPTION: config file for i3/sway window manager
+#+STARTUP: showeverything
+#+auto_tangle: t
