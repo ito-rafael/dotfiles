@@ -47,3 +47,7 @@ input type:touchpad {
     natural_scroll enabled                        # natural scrolling
 }
 #+end_src
+** Enable NumLock
+#+begin_src sh
+input type:keyboard xkb_numlock enabled
+#+end_src
