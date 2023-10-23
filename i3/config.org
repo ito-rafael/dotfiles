@@ -80,3 +80,18 @@ exec xrandr --output HDMI1 --mode 1920x1080 --rate 60.00 --brightness 1 --pos 0x
 exec xrandr --output HDMI3 --mode 1920x1080 --rate 60.00 --brightness 1 --pos -1920x0
 exec xrandr --output VGA1  --mode 1920x1080 --rate 60.00 --brightness 1 --pos 1920x0 --rotate right
 #+end_src
+* Workspaces definition
+** Default output
+*** Primary output
+#+begin_src sh
+workspace "1:1" output $primary_screen
+workspace "2:2" output $primary_screen
+workspace "3:3" output $primary_screen
+workspace "4:4" output $primary_screen
+workspace "5:5" output $primary_screen
+workspace "6:6" output $primary_screen
+workspace "7:7" output $primary_screen
+workspace "8:8" output $primary_screen
+workspace "9:9" output $primary_screen
+workspace "10:0" output $primary_screen
+#+end_src
