@@ -74,3 +74,9 @@ set $primary_screen   HDMI1
 set $secondary_screen HDMI3
 set $tertiary_screen  VGA1
 #+end_src
+** Set resolution
+#+begin_src sh
+exec xrandr --output HDMI1 --mode 1920x1080 --rate 60.00 --brightness 1 --pos 0x0 --primary
+exec xrandr --output HDMI3 --mode 1920x1080 --rate 60.00 --brightness 1 --pos -1920x0
+exec xrandr --output VGA1  --mode 1920x1080 --rate 60.00 --brightness 1 --pos 1920x0 --rotate right
+#+end_src
