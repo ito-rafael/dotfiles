@@ -58,3 +58,19 @@ input type:keyboard {
     xkb_variant "intl"
 }
 #+end_src
+* Outputs
+** Set order
+# Outputs:
+#
+#  +-----------+ +-----------+ +--------+
+#  |           | |           | |        |=++
+#  | secondary | |  primary  | | terti..| ||
+#  |           | |           | |  ..ary | ||
+#  +-----------+ +-----------+ |        | ||
+#      /   \         /   \     +--------+ ||
+# ----------------------------------------++--
+#+begin_src sh
+set $primary_screen   HDMI1
+set $secondary_screen HDMI3
+set $tertiary_screen  VGA1
+#+end_src
