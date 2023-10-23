@@ -95,3 +95,16 @@ workspace "8:8" output $primary_screen
 workspace "9:9" output $primary_screen
 workspace "10:0" output $primary_screen
 #+end_src
+*** Secondary output
+#+begin_src sh
+workspace "11:11" output $secondary_screen
+workspace "12:12" output $secondary_screen
+workspace "13:13" output $secondary_screen
+workspace "14:14" output $secondary_screen
+workspace "15:15" output $secondary_screen
+workspace "16:16" output $secondary_screen
+workspace "17:17" output $secondary_screen
+workspace "18:18" output $secondary_screen
+workspace "19:19" output $secondary_screen
+workspace "20:10" output $secondary_screen
+#+end_src
