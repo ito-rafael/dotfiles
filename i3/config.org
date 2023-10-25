@@ -121,3 +121,18 @@ workspace "28:28" output $tertiary_screen
 workspace "29:29" output $tertiary_screen
 workspace "30:20" output $tertiary_screen
 #+end_src
+** WS names (icons)
+*** Primary monitor
+#+begin_src sh :tangle no
+#set $ws1 "1 "
+#set $ws2 "2 "
+#set $ws3 "3 "
+#set $ws4 "4 "
+#set $ws5 "5 "
+#set $ws6 "6 "
+#set $ws7 "7 "
+#set $ws8 "8 "
+#set $ws9 "9 "
+#set $ws0 "10 "
+#set $ws0 "10 "
+#+end_src
