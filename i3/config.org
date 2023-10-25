@@ -163,3 +163,16 @@ set $ws8 "8:8"
 set $ws9 "9:9"
 set $ws0 "10:0"
 #+end_src
+*** Secondary monitor
+#+begin_src sh
+set $ws11 "11:11"
+set $ws12 "12:12"
+set $ws13 "13:13"
+set $ws14 "14:14"
+set $ws15 "15:15"
+set $ws16 "16:16"
+set $ws17 "17:17"
+set $ws18 "18:18"
+set $ws19 "19:19"
+set $ws10 "20:10"
+#+end_src
