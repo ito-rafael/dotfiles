@@ -229,6 +229,13 @@ bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 #+end_src
+*** Arrows
+#+begin_src sh
+bindsym $mod+Shift+Left  move left
+bindsym $mod+Shift+Down  move down
+bindsym $mod+Shift+Up    move up
+bindsym $mod+Shift+Right move right
+#+end_src
 * i3bang: raw section (end)
 End raw section: !@<+default_keybindings
 #+begin_src sh
