@@ -189,3 +189,15 @@ set $ws28 "28:28"
 set $ws29 "29:29"
 set $ws20 "30:20"
 #+end_src
+* i3bang: raw section (beginning)
+# make keybinds reusable in other modes (like inheritance)
+# check https://github.com/tckmn/i3bang for more details
+#+begin_src sh
+#!nobracket
+!@<+default_keybindings
+#+end_src
+* i3bang: raw section (end)
+End raw section: !@<+default_keybindings
+#+begin_src sh
+>
+#+end_src
