@@ -205,6 +205,15 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl list sinks | grep 'Sink 
 bindsym XF86AudioMute exec --no-startup-id pactl list sinks | grep 'Sink #' | grep -o '[0-9]*' | xargs -i pactl set-sink-mute {} toggle && pkill -RTMIN+1 i3blocks
 bindsym XF86AudioMicMute exec --no-startup-id pactl list sources | grep 'Source #' | grep -o '[0-9]*' | xargs -i pactl set-sink-mute {} toggle && pkill -RTMIN+1 i3blocks
 #+end_src
+* Window settings
+** Change focus
+*** hjkl
+#+begin_src sh
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+#+end_src
 * i3bang: raw section (end)
 End raw section: !@<+default_keybindings
 #+begin_src sh
