@@ -136,3 +136,16 @@ workspace "30:20" output $tertiary_screen
 #set $ws0 "10 "
 #set $ws0 "10 "
 #+end_src
+*** Secondary monitor
+#+begin_src sh :tangle no
+#set $ws11 "11 "
+#set $ws12 "12 "
+#set $ws13 "13 "
+#set $ws14 "14 "
+#set $ws15 "15 "
+#set $ws16 "16 "
+#set $ws17 "17 "
+#set $ws18 "18 "
+#set $ws19 "19 J"
+#set $ws10 "20 E"
+#+end_src
