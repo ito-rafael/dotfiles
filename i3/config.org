@@ -262,6 +262,12 @@ bindsym $mod+a focus parent                       # focus the parent container
 #bindsym $mod+d focus child                       # focus the child container
 bindsym $mod+z [urgent=latest] focus              # switch to latest urgent window
 #+end_src
+** Monitor
+*** Arrows
+#+begin_src sh
+bindsym mod1+Left  focus output left
+bindsym mod1+Right focus output right
+#+end_src
 * i3bang: raw section (end)
 End raw section: !@<+default_keybindings
 #+begin_src sh
