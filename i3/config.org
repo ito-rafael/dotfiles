@@ -326,6 +326,19 @@ bindsym mod1+8 exec "$SCRIPT_PATH/navigate2ws.sh 18"
 bindsym mod1+9 exec "$SCRIPT_PATH/navigate2ws.sh 19"
 bindsym mod1+0 exec "$SCRIPT_PATH/navigate2ws.sh 10"
 #+end_src
+**** Home row (qwerty)
+#+begin_src sh
+bindsym mod1+a exec "$SCRIPT_PATH/navigate2ws.sh 11"
+bindsym mod1+s exec "$SCRIPT_PATH/navigate2ws.sh 12"
+bindsym mod1+d exec "$SCRIPT_PATH/navigate2ws.sh 13"
+bindsym mod1+f exec "$SCRIPT_PATH/navigate2ws.sh 14"
+bindsym mod1+g exec "$SCRIPT_PATH/navigate2ws.sh 15"
+bindsym mod1+h exec "$SCRIPT_PATH/navigate2ws.sh 16"
+bindsym mod1+j exec "$SCRIPT_PATH/navigate2ws.sh 17"
+bindsym mod1+k exec "$SCRIPT_PATH/navigate2ws.sh 18"
+bindsym mod1+l exec "$SCRIPT_PATH/navigate2ws.sh 19"
+bindcode mod1+48 exec "$SCRIPT_PATH/navigate2ws.sh 10"
+#+end_src
 *** Tertiary monitor
 **** Numbers
 #+begin_src sh
