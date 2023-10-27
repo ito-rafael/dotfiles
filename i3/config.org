@@ -242,6 +242,12 @@ bindsym $mod+Shift+Right move right
 bindsym mod1+h split h                            # split in horizontal orientation
 bindsym mod1+v split v                            # split in vertical orientation
 #+end_src
+*** Container layout
+#+begin_src sh
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+#+end_src
 * i3bang: raw section (end)
 End raw section: !@<+default_keybindings
 #+begin_src sh
