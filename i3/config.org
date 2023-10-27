@@ -254,6 +254,14 @@ bindsym $mod+f fullscreen toggle                  # enter fullscreen mode for th
 bindsym $mod+d floating toggle                    # toggle tiling / floating
 bindsym ctrl+q kill                               # kill focused window
 #+end_src
+* Focus
+** Windows
+#+begin_src sh
+bindsym $mod+space focus mode_toggle              # change focus between tiling / floating windows
+bindsym $mod+a focus parent                       # focus the parent container
+#bindsym $mod+d focus child                       # focus the child container
+bindsym $mod+z [urgent=latest] focus              # switch to latest urgent window
+#+end_src
 * i3bang: raw section (end)
 End raw section: !@<+default_keybindings
 #+begin_src sh
