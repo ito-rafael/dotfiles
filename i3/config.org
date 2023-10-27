@@ -299,6 +299,19 @@ bindsym $mod+8 exec "$SCRIPT_PATH/navigate2ws.sh 8"
 bindsym $mod+9 exec "$SCRIPT_PATH/navigate2ws.sh 9"
 bindsym $mod+0 exec "$SCRIPT_PATH/navigate2ws.sh 0"
 #+end_src
+**** Home row (qwerty)
+#+begin_src sh
+bindsym $mod+a exec "$SCRIPT_PATH/navigate2ws.sh 1"
+bindsym $mod+s exec "$SCRIPT_PATH/navigate2ws.sh 2"
+bindsym $mod+d exec "$SCRIPT_PATH/navigate2ws.sh 3"
+bindsym $mod+f exec "$SCRIPT_PATH/navigate2ws.sh 4"
+bindsym $mod+g exec "$SCRIPT_PATH/navigate2ws.sh 5"
+bindsym $mod+h exec "$SCRIPT_PATH/navigate2ws.sh 6"
+bindsym $mod+j exec "$SCRIPT_PATH/navigate2ws.sh 7"
+bindsym $mod+k exec "$SCRIPT_PATH/navigate2ws.sh 8"
+bindsym $mod+l exec "$SCRIPT_PATH/navigate2ws.sh 9"
+bindcode $mod+48 exec "$SCRIPT_PATH/navigate2ws.sh 0"
+#+end_src
 *** Secondary monitor
 **** Numbers
 #+begin_src sh
