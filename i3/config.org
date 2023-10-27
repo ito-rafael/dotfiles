@@ -285,6 +285,20 @@ Navigate to workspace and check if there is any window opened there:
     - navigate to the workspace
     - restore its layout
     - open windows
+*** Primary monitor
+**** Numbers
+#+begin_src sh
+bindsym $mod+1 exec "$SCRIPT_PATH/navigate2ws.sh 1"
+bindsym $mod+2 exec "$SCRIPT_PATH/navigate2ws.sh 2"
+bindsym $mod+3 exec "$SCRIPT_PATH/navigate2ws.sh 3"
+bindsym $mod+4 exec "$SCRIPT_PATH/navigate2ws.sh 4"
+bindsym $mod+5 exec "$SCRIPT_PATH/navigate2ws.sh 5"
+bindsym $mod+6 exec "$SCRIPT_PATH/navigate2ws.sh 6"
+bindsym $mod+7 exec "$SCRIPT_PATH/navigate2ws.sh 7"
+bindsym $mod+8 exec "$SCRIPT_PATH/navigate2ws.sh 8"
+bindsym $mod+9 exec "$SCRIPT_PATH/navigate2ws.sh 9"
+bindsym $mod+0 exec "$SCRIPT_PATH/navigate2ws.sh 0"
+#+end_src
 * i3bang: raw section (end)
 End raw section: !@<+default_keybindings
 #+begin_src sh
