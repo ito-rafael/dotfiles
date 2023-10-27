@@ -353,6 +353,19 @@ bindsym mod5+7 exec "$SCRIPT_PATH/navigate2ws.sh 27"
 bindsym mod5+8 exec "$SCRIPT_PATH/navigate2ws.sh 28"
 bindsym mod5+9 exec "$SCRIPT_PATH/navigate2ws.sh 29"
 #+end_src
+**** Home row (qwerty)
+#+begin_src sh
+bindsym mod5+a exec "$SCRIPT_PATH/navigate2ws.sh 20"
+bindsym mod5+s exec "$SCRIPT_PATH/navigate2ws.sh 21"
+bindsym mod5+d exec "$SCRIPT_PATH/navigate2ws.sh 22"
+bindsym mod5+f exec "$SCRIPT_PATH/navigate2ws.sh 23"
+bindsym mod5+g exec "$SCRIPT_PATH/navigate2ws.sh 24"
+bindsym mod5+h exec "$SCRIPT_PATH/navigate2ws.sh 25"
+bindsym mod5+j exec "$SCRIPT_PATH/navigate2ws.sh 26"
+bindsym mod5+k exec "$SCRIPT_PATH/navigate2ws.sh 27"
+bindsym mod5+l exec "$SCRIPT_PATH/navigate2ws.sh 28"
+bindcode mod5+48 exec "$SCRIPT_PATH/navigate2ws.sh 29"
+#+end_src
 * i3bang: raw section (end)
 End raw section: !@<+default_keybindings
 #+begin_src sh
