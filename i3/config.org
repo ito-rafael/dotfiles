@@ -299,6 +299,20 @@ bindsym $mod+8 exec "$SCRIPT_PATH/navigate2ws.sh 8"
 bindsym $mod+9 exec "$SCRIPT_PATH/navigate2ws.sh 9"
 bindsym $mod+0 exec "$SCRIPT_PATH/navigate2ws.sh 0"
 #+end_src
+*** Secondary monitor
+**** Numbers
+#+begin_src sh
+bindsym mod1+1 exec "$SCRIPT_PATH/navigate2ws.sh 11"
+bindsym mod1+2 exec "$SCRIPT_PATH/navigate2ws.sh 12"
+bindsym mod1+3 exec "$SCRIPT_PATH/navigate2ws.sh 13"
+bindsym mod1+4 exec "$SCRIPT_PATH/navigate2ws.sh 14"
+bindsym mod1+5 exec "$SCRIPT_PATH/navigate2ws.sh 15"
+bindsym mod1+6 exec "$SCRIPT_PATH/navigate2ws.sh 16"
+bindsym mod1+7 exec "$SCRIPT_PATH/navigate2ws.sh 17"
+bindsym mod1+8 exec "$SCRIPT_PATH/navigate2ws.sh 18"
+bindsym mod1+9 exec "$SCRIPT_PATH/navigate2ws.sh 19"
+bindsym mod1+0 exec "$SCRIPT_PATH/navigate2ws.sh 10"
+#+end_src
 * i3bang: raw section (end)
 End raw section: !@<+default_keybindings
 #+begin_src sh
