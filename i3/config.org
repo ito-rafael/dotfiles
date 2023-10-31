@@ -461,8 +461,21 @@ bindsym ctrl+mod5+7 move container to workspace number $ws27; workspace $ws27
 bindsym ctrl+mod5+8 move container to workspace number $ws28; workspace $ws28
 bindsym ctrl+mod5+9 move container to workspace number $ws29; workspace $ws29
 #+end_src
-**** Upper row (qwerty)
+**** Home row (qwerty)
 #+begin_src sh
+bindsym ctrl+mod5+a move container to workspace number $ws20; workspace $ws20
+bindsym ctrl+mod5+s move container to workspace number $ws21; workspace $ws21
+bindsym ctrl+mod5+d move container to workspace number $ws22; workspace $ws22
+bindsym ctrl+mod5+f move container to workspace number $ws23; workspace $ws23
+bindsym ctrl+mod5+g move container to workspace number $ws24; workspace $ws24
+bindsym ctrl+mod5+h move container to workspace number $ws25; workspace $ws25
+bindsym ctrl+mod5+j move container to workspace number $ws26; workspace $ws26
+bindsym ctrl+mod5+k move container to workspace number $ws27; workspace $ws27
+bindsym ctrl+mod5+l move container to workspace number $ws28; workspace $ws28
+bindcode ctrl+mod5+48 move container to workspace number $ws29; workspace $ws29
+#+end_src
+**** Upper row (qwerty)
+#+begin_src sh :tangle no
 bindsym mod5+q move container to workspace number $ws20; workspace $ws20
 bindsym mod5+w move container to workspace number $ws21; workspace $ws21
 bindsym mod5+e move container to workspace number $ws22; workspace $ws22
