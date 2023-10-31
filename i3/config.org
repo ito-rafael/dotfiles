@@ -381,6 +381,19 @@ bindsym ctrl+$mod+9 move container to workspace number $ws8; workspace $ws8
 bindsym ctrl+$mod+8 move container to workspace number $ws9; workspace $ws9
 bindsym ctrl+$mod+0 move container to workspace number $ws0; workspace $ws0
 #+end_src
+**** Upper row (qwerty)
+#+begin_src sh
+bindsym $mod+q move container to workspace number $ws1; workspace $ws1
+bindsym $mod+w move container to workspace number $ws2; workspace $ws2
+bindsym $mod+e move container to workspace number $ws3; workspace $ws3
+bindsym $mod+r move container to workspace number $ws4; workspace $ws4
+bindsym $mod+t move container to workspace number $ws5; workspace $ws5
+bindsym $mod+y move container to workspace number $ws6; workspace $ws6
+bindsym $mod+u move container to workspace number $ws7; workspace $ws7
+bindsym $mod+i move container to workspace number $ws8; workspace $ws8
+bindsym $mod+o move container to workspace number $ws9; workspace $ws9
+bindsym $mod+p move container to workspace number $ws0; workspace $ws0
+#+end_src
 *** Secondary monitor
 **** Numbers
 #+begin_src sh
