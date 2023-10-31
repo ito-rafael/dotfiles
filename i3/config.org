@@ -381,6 +381,20 @@ bindsym ctrl+$mod+9 move container to workspace number $ws8; workspace $ws8
 bindsym ctrl+$mod+8 move container to workspace number $ws9; workspace $ws9
 bindsym ctrl+$mod+0 move container to workspace number $ws0; workspace $ws0
 #+end_src
+*** Secondary monitor
+**** Numbers
+#+begin_src sh
+bindsym ctrl+mod1+1 move container to workspace number $ws11; workspace $ws11
+bindsym ctrl+mod1+2 move container to workspace number $ws12; workspace $ws12
+bindsym ctrl+mod1+3 move container to workspace number $ws13; workspace $ws13
+bindsym ctrl+mod1+4 move container to workspace number $ws14; workspace $ws14
+bindsym ctrl+mod1+5 move container to workspace number $ws15; workspace $ws15
+bindsym ctrl+mod1+6 move container to workspace number $ws16; workspace $ws16
+bindsym ctrl+mod1+7 move container to workspace number $ws17; workspace $ws17
+bindsym ctrl+mod1+8 move container to workspace number $ws18; workspace $ws18
+bindsym ctrl+mod1+9 move container to workspace number $ws19; workspace $ws19
+bindsym ctrl+mod1+0 move container to workspace number $ws10; workspace $ws10
+#+end_src
 * i3bang: raw section (end)
 End raw section: !@<+default_keybindings
 #+begin_src sh
