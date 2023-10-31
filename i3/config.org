@@ -366,6 +366,21 @@ bindsym mod5+k exec "$SCRIPT_PATH/navigate2ws.sh 27"
 bindsym mod5+l exec "$SCRIPT_PATH/navigate2ws.sh 28"
 bindcode mod5+48 exec "$SCRIPT_PATH/navigate2ws.sh 29"
 #+end_src
+** Move container to WS
+*** Primary monitor
+**** Numbers
+#+begin_src sh
+bindsym ctrl+$mod+1 move container to workspace number $ws1; workspace $ws1
+bindsym ctrl+$mod+2 move container to workspace number $ws2; workspace $ws2
+bindsym ctrl+$mod+3 move container to workspace number $ws3; workspace $ws3
+bindsym ctrl+$mod+4 move container to workspace number $ws4; workspace $ws4
+bindsym ctrl+$mod+5 move container to workspace number $ws5; workspace $ws5
+bindsym ctrl+$mod+6 move container to workspace number $ws6; workspace $ws6
+bindsym ctrl+$mod+7 move container to workspace number $ws7; workspace $ws7
+bindsym ctrl+$mod+9 move container to workspace number $ws8; workspace $ws8
+bindsym ctrl+$mod+8 move container to workspace number $ws9; workspace $ws9
+bindsym ctrl+$mod+0 move container to workspace number $ws0; workspace $ws0
+#+end_src
 * i3bang: raw section (end)
 End raw section: !@<+default_keybindings
 #+begin_src sh
