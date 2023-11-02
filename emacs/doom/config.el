@@ -141,3 +141,9 @@
     ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
     ("\\paragraph{%s}" . "\\paragraph*{%s}")
     ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+
+; evil home row navigation: hjkl --> jkl;
+(define-key evil-motion-state-map "j" 'evil-backward-char)
+(define-key evil-motion-state-map "k" 'evil-next-line)
+(define-key evil-motion-state-map "l" 'evil-previous-line)
+(define-key evil-motion-state-map ";" 'evil-forward-char)
