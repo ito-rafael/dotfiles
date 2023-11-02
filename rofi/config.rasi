@@ -152,6 +152,7 @@ configuration {
     // define colors
     white:      #f3f4f5ff;
     darkgray:   #888888ff;
+    darkergray: #666666ff;
     bg-alpha:   #2f343faa;
     bg-opaque:  #2f343fff;
 }
