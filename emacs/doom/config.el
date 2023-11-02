@@ -166,3 +166,12 @@
 (define-key evil-window-map "L" 'evil-window-move-very-top)
 (define-key evil-window-map ";" 'evil-window-right)
 (define-key evil-window-map ":" 'evil-window-move-far-right)
+
+; magit home row navigation: hjkl --> jkl;
+(after! magit
+  (map! :map magit-mode-map
+        :n "h" 'magit-log
+        :n "j" 'evil-backward-char
+        :n "k" 'magit-next-line
+        :n "l" 'magit-previous-line
+        :n ";" 'evil-forward-char))
