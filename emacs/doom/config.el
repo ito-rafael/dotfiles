@@ -147,3 +147,22 @@
 (define-key evil-motion-state-map "k" 'evil-next-line)
 (define-key evil-motion-state-map "l" 'evil-previous-line)
 (define-key evil-motion-state-map ";" 'evil-forward-char)
+; window home row management: hjkl --> jkl;
+; unbinding
+(define-key evil-window-map "h" nil)
+(define-key evil-window-map "H" nil)
+(define-key evil-window-map "j" nil)
+(define-key evil-window-map "J" nil)
+(define-key evil-window-map "k" nil)
+(define-key evil-window-map "K" nil)
+(define-key evil-window-map "l" nil)
+(define-key evil-window-map "L" nil)
+; binding
+(define-key evil-window-map "j" 'evil-window-left)
+(define-key evil-window-map "J" 'evil-window-move-far-left)
+(define-key evil-window-map "k" 'evil-window-down)
+(define-key evil-window-map "K" 'evil-window-move-very-bottom)
+(define-key evil-window-map "l" 'evil-window-up)
+(define-key evil-window-map "L" 'evil-window-move-very-top)
+(define-key evil-window-map ";" 'evil-window-right)
+(define-key evil-window-map ":" 'evil-window-move-far-right)
