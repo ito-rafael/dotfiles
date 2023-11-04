@@ -532,6 +532,7 @@ bindsym ctrl+$mod+Right workspace next
 bindsym ctrl+$mod+k     workspace next
 bindsym ctrl+$mod+Left  workspace prev
 bindsym ctrl+$mod+l     workspace prev
+#+end_src
 ** Among monitors
 *** Arrows
 #+begin_src sh
@@ -544,6 +545,8 @@ bindsym ctrl+mod1+1 move workspace to output $primary_screen;   focus output $pr
 bindsym ctrl+mod1+2 move workspace to output $secondary_screen; focus output $secondary_screen
 bindsym ctrl+mod1+3 move workspace to output $tertiary_screen;  focus output $tertiary_screen
 #+end_src
+reserved
+#+begin_src sh
 #+end_src
 * i3bang: raw section (end)
 End raw section: !@<+default_keybindings
