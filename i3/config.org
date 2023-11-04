@@ -532,6 +532,12 @@ bindsym ctrl+$mod+Right workspace next
 bindsym ctrl+$mod+k     workspace next
 bindsym ctrl+$mod+Left  workspace prev
 bindsym ctrl+$mod+l     workspace prev
+** Among monitors
+*** Arrows
+#+begin_src sh
+bindsym shift+mod5+Left  move container to output left;  focus output left
+bindsym shift+mod5+Right move container to output right; focus output right
+#+end_src
 #+end_src
 * i3bang: raw section (end)
 End raw section: !@<+default_keybindings
