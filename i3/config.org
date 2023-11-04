@@ -526,6 +526,13 @@ bindsym ctrl+mod5+v move container to workspace number $ws28; workspace $ws28
 bindsym ctrl+mod5+space move container to workspace number $ws29; workspace $ws29
 bindsym mod5+p move container to workspace number $ws29; workspace $ws29
 #+end_src
+** Same monitor
+#+begin_src sh
+bindsym ctrl+$mod+Right workspace next
+bindsym ctrl+$mod+k     workspace next
+bindsym ctrl+$mod+Left  workspace prev
+bindsym ctrl+$mod+l     workspace prev
+#+end_src
 * i3bang: raw section (end)
 End raw section: !@<+default_keybindings
 #+begin_src sh
