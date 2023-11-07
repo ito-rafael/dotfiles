@@ -161,7 +161,7 @@ alias k=kill                        # kill
 alias h=history                     # history
 alias -g g='| grep'                 # grep
 alias df='df -h'                    # df
-alias cpr='cp -R'	                # cp
+alias cpr='cp -R'                   # cp
 alias hg='history | grep'           # history + grep
 alias psa='ps aux'                  # ps aux
 alias psag='ps aux | grep'          # ps aux | grep
@@ -178,7 +178,7 @@ alias tarx='tar -xvzf'
 alias wdf='watch -n1 df -h'
 #-----------------------------
 # Package manager
-alias {paru,yay}='paru --aur'	    # paru/yay
+alias {paru,yay}='paru --aur'        # paru/yay
 alias {sps,spi}='sudo pacman -S'    # pacman install
 alias spu='sudo pacman -Syu'        # pacman update/upgrade
 alias spr='sudo pacman -Rns'        # pacman remove
@@ -312,10 +312,10 @@ function ii () {
         "wayland") vim ~/.config/sway/_config ;;
         "tty")
             if [ -f "/usr/share/xsessions/i3.desktop" ]; then
-	            vim ~/.config/i3/_config
+                vim ~/.config/i3/_config
             elif [ -f "/usr/share/wayland-sessions/sway.desktop" ]; then
-	            vim ~/.config/sway/_config
-	        fi ;;
+                vim ~/.config/sway/_config
+            fi ;;
         *) exit 0 ;;
     esac
 }
@@ -371,11 +371,10 @@ function gdii () {
                 diff ~/git/pc-general-config/i3/_config ~/.config/i3/_config
             elif [ -f "/usr/share/wayland-sessions/sway.desktop" ]; then
                 diff ~/git/pc-general-config/i3/_config ~/.config/sway/_config
-	        fi ;;
+            fi ;;
         *) exit 0 ;;
     esac
 }
-
 #-----------------------------
 # Modern Unix
 # https://github.com/ibraheemdev/modern-unix
