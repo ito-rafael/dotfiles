@@ -95,6 +95,13 @@ GLOBALIAS_FILTER_VALUES+=(paru)
 GLOBALIAS_FILTER_VALUES+=(sudo)
 
 #=======================================
+# hook functions
+#=======================================
+# ls after changing dir
+ls_after_cd() ls
+chpwd_functions+=( ls_after_cd )
+
+#=======================================
 # plugins setup
 #=======================================
 # zsh-autosuggestions
