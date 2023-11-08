@@ -575,6 +575,12 @@ bindsym $mod+n exec thunar                        # Thunar
 bindsym $mod+g exec kitty ranger                  # ranger
 #bindsym $mod+p exec spotify --force-device-scale-factor=2 # shortcut to open Spotify
 #+end_src
+** Terminal
+#+begin_src sh
+bindsym $mod+t exec i3-sensible-terminal
+bindsym ctrl+mod1+t exec i3-sensible-terminal
+#bindsym ctrl+$mod+t exec i3-sensible-terminal
+#+end_src
 #+begin_src sh
 #+end_src
 * i3bang: raw section (end)
