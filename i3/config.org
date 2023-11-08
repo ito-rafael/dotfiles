@@ -546,6 +546,13 @@ bindsym ctrl+mod1+2 move workspace to output $secondary_screen; focus output $se
 bindsym ctrl+mod1+3 move workspace to output $tertiary_screen;  focus output $tertiary_screen
 #+end_src
 reserved
+* Restart i3/sway
+** Restart
+Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+#+begin_src sh
+#bindsym $mod+Shift+r restart
+bindsym $mod+Shift+r exec ~/.config/i3/i3bang.rb; restart
+#+end_src
 #+begin_src sh
 #+end_src
 * i3bang: raw section (end)
