@@ -568,6 +568,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 #+begin_src sh
 bindsym $mod+b exec firefox                       # Firefox
 #bindsym $mod+c exec chromium                      # Chromium
+bindsym $mod+n exec thunar                        # Thunar
 #+end_src
 #+begin_src sh
 #+end_src
