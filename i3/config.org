@@ -572,6 +572,7 @@ bindsym $mod+n exec thunar                        # Thunar
 #bindsym $mod+l exec lollypop                     # Lollypop
 #bindsym $mod+g exec gvim                          # gvim
 #bindsym $mod+m exec thunderbird                  # Thunderbird
+bindsym $mod+g exec kitty ranger                  # ranger
 #+end_src
 #+begin_src sh
 #+end_src
