@@ -570,6 +570,7 @@ bindsym $mod+b exec firefox                       # Firefox
 #bindsym $mod+c exec chromium                      # Chromium
 bindsym $mod+n exec thunar                        # Thunar
 #bindsym $mod+l exec lollypop                     # Lollypop
+#bindsym $mod+g exec gvim                          # gvim
 #+end_src
 #+begin_src sh
 #+end_src
