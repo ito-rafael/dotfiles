@@ -573,6 +573,7 @@ bindsym $mod+n exec thunar                        # Thunar
 #bindsym $mod+g exec gvim                          # gvim
 #bindsym $mod+m exec thunderbird                  # Thunderbird
 bindsym $mod+g exec kitty ranger                  # ranger
+#bindsym $mod+p exec spotify --force-device-scale-factor=2 # shortcut to open Spotify
 #+end_src
 #+begin_src sh
 #+end_src
