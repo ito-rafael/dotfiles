@@ -571,6 +571,7 @@ bindsym $mod+b exec firefox                       # Firefox
 bindsym $mod+n exec thunar                        # Thunar
 #bindsym $mod+l exec lollypop                     # Lollypop
 #bindsym $mod+g exec gvim                          # gvim
+#bindsym $mod+m exec thunderbird                  # Thunderbird
 #+end_src
 #+begin_src sh
 #+end_src
