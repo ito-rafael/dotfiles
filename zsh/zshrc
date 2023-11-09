@@ -217,6 +217,7 @@ alias ep='vim $HOME/.config/doom/packages.el'
 alias ei='vim $HOME/.config/doom/init.el'
 alias dod='doom doctor'
 alias dos='doom sync'
+alias ke='pkill emacs && emacs --daemon &'
 #-----------------------------
 # systemctl root
 alias sta='sudo systemctl start'
