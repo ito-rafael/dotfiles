@@ -599,6 +599,12 @@ bindsym $mod+Return       exec rofi -show run    -monitor $(swaymsg -t get_outpu
 bindsym $mod+bracketright exec rofi -show window -monitor $(swaymsg -t get_outputs | jq '.[] | select(.focused==true).name')
 bindsym $mod+backslash    exec rofi -show ssh    -monitor $(swaymsg -t get_outputs | jq '.[] | select(.focused==true).name')
 #+end_src
+* Logitech MX
+** Change host
+Change host for MX Keys and MX Master 3
+#+begin_src sh
+bindsym F13 exec /home/rafael/mx_script.sh
+#+end_src
 #+begin_src sh
 #+end_src
 * i3bang: raw section (end)
