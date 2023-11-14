@@ -588,7 +588,8 @@ bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
 #+end_src
 ** Screenshot
 #+begin_src sh
-bindsym Print exec shutter
+#bindsym Print exec shutter
+bindsym Print exec grim
 #+end_src
 #+begin_src sh
 #+end_src
