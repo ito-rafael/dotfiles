@@ -596,6 +596,7 @@ bindsym ctrl+Print exec 'grim -g "$(slurp)" - | swappy -f -'
 ** Rofi
 #+begin_src sh
 bindsym $mod+Return       exec rofi -show run    -monitor $(swaymsg -t get_outputs | jq '.[] | select(.focused==true).name')
+bindsym $mod+bracketright exec rofi -show window -monitor $(swaymsg -t get_outputs | jq '.[] | select(.focused==true).name')
 #+end_src
 #+begin_src sh
 #+end_src
