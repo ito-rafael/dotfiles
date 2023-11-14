@@ -590,6 +590,7 @@ bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
 #+begin_src sh
 #bindsym Print exec shutter
 bindsym Print exec grim
+bindsym shift+Print exec 'grim -g "$(slurp)"'
 #+end_src
 #+begin_src sh
 #+end_src
