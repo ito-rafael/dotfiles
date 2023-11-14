@@ -611,6 +611,11 @@ bindsym F13 exec /home/rafael/mx_script.sh
 #+begin_src sh
 bindsym XF86Copy [class="Xfce4-terminal"] exec "xdotool keydown ctrl keydown shift keydown c keyup ctrl keyup shift keyup c"; exec "sleep 0.1"
 #+end_src
+*** Paste
+"paste" shortcut: "i" button + up gesture
+#+begin_src sh
+bindsym XF86Paste [class="Xfce4-terminal"] exec "xdotool keydown ctrl keydown shift keydown v keyup ctrl keyup shift keyup v"; exec "sleep 0.1"
+#+end_src
 #+begin_src sh
 #+end_src
 * i3bang: raw section (end)
