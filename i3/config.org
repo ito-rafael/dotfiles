@@ -593,6 +593,10 @@ bindsym Print exec grim
 bindsym shift+Print exec 'grim -g "$(slurp)"'
 bindsym ctrl+Print exec 'grim -g "$(slurp)" - | swappy -f -'
 #+end_src
+** Rofi
+#+begin_src sh
+bindsym $mod+Return       exec rofi -show run    -monitor $(swaymsg -t get_outputs | jq '.[] | select(.focused==true).name')
+#+end_src
 #+begin_src sh
 #+end_src
 * i3bang: raw section (end)
