@@ -581,6 +581,11 @@ bindsym $mod+t exec i3-sensible-terminal
 bindsym ctrl+mod1+t exec i3-sensible-terminal
 #bindsym ctrl+$mod+t exec i3-sensible-terminal
 #+end_src
+** Brightness
+#+begin_src sh
+bindsym XF86MonBrightnessUp   exec --no-startup-id xbacklight -inc 5
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
+#+end_src
 #+begin_src sh
 #+end_src
 * i3bang: raw section (end)
