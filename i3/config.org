@@ -626,6 +626,25 @@ Use button9 + scroll to control volume
 bindsym mod3+ --whole-window button4 exec "pactl set-sink-volume @DEFAULT_SINK@ +5% && pkill -RTMIN+10 i3blocks"
 bindsym mod3+ --whole-window button5 exec "pactl set-sink-volume @DEFAULT_SINK@ -5% && pkill -RTMIN+10 i3blocks"
 #+end_src
+* Rotate screen
+** Portrait
+- rotate screen
+- rotate touchscreen
+- disable touchpad
+- disable touchpad click
+#+begin_src sh
+bindsym ctrl+$mod+Up exec "\
+    echo 'rotate screen' &&\
+    xrandr --output eDP-1 --rotate left &&\
+    echo 'rotate touchscreen' &&\
+    xinput set-prop ELAN\ Touchscreen --type=float 'Coordinate Transformation Matrix'  0 -1 1 1 0 0 0 0 1 &&\
+    echo 'disable touchpad' &&\
+    synclient TouchpadOff=1 &&\
+    echo 'disable touchpad click' &&\
+    synclient RightButtonAreaLeft=0 &&\
+    synclient RightButtonAreaTop=0 \
+"
+#+end_src
 * i3bang: raw section (end)
 End raw section: !@<+default_keybindings
 #+begin_src sh
