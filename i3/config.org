@@ -605,6 +605,12 @@ Change host for MX Keys and MX Master 3
 #+begin_src sh
 bindsym F13 exec /home/rafael/mx_script.sh
 #+end_src
+** MX Master 3
+*** Copy
+"copy" shortcut: "i" button + down gesture
+#+begin_src sh
+bindsym XF86Copy [class="Xfce4-terminal"] exec "xdotool keydown ctrl keydown shift keydown c keyup ctrl keyup shift keyup c"; exec "sleep 0.1"
+#+end_src
 #+begin_src sh
 #+end_src
 * i3bang: raw section (end)
