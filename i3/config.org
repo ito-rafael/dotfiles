@@ -645,6 +645,24 @@ bindsym ctrl+$mod+Up exec "\
     synclient RightButtonAreaTop=0 \
 "
 #+end_src
+** Landscape
+- rotate screen
+- rotate touchscreen
+- enable touchpad
+- enable touchpad click
+#+begin_src sh
+bindsym ctrl+$mod+Down exec "\
+    echo 'rotate screen' &&\
+    xrandr --output eDP-1 --rotate normal && \
+    echo 'rotate touchscreen' &&\
+    xinput set-prop ELAN\ Touchscreen --type=float 'Coordinate Transformation Matrix'  0  0 0 0 0 0 0 0 0 &&\
+    echo 'enable touchpad' &&\
+    synclient TouchpadOff=0 &&\
+    echo 'enable touchpad click' &&\
+    synclient RightButtonAreaLeft=3472 &&\
+    synclient RightButtonAreaTop=4080 \
+"
+#+end_src
 * i3bang: raw section (end)
 End raw section: !@<+default_keybindings
 #+begin_src sh
