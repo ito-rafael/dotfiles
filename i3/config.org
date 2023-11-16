@@ -380,7 +380,7 @@ bindsym mod5+8 exec "$SCRIPT_PATH/navigate2ws.sh 28"
 bindsym mod5+9 exec "$SCRIPT_PATH/navigate2ws.sh 29"
 #+end_src
 **** Home row (qwerty)
-#+begin_src sh
+#+begin_src sh :tangle no
 bindsym mod5+a exec "$SCRIPT_PATH/navigate2ws.sh 20"
 bindsym mod5+s exec "$SCRIPT_PATH/navigate2ws.sh 21"
 bindsym mod5+d exec "$SCRIPT_PATH/navigate2ws.sh 22"
@@ -391,6 +391,19 @@ bindsym mod5+j exec "$SCRIPT_PATH/navigate2ws.sh 26"
 bindsym mod5+k exec "$SCRIPT_PATH/navigate2ws.sh 27"
 bindsym mod5+l exec "$SCRIPT_PATH/navigate2ws.sh 28"
 bindcode mod5+48 exec "$SCRIPT_PATH/navigate2ws.sh 29"
+#+end_src
+**** Numpad (qwerty)
+#+begin_src sh
+bindsym mod5+s exec "$SCRIPT_PATH/navigate2ws.sh 21"
+bindsym mod5+d exec "$SCRIPT_PATH/navigate2ws.sh 22"
+bindsym mod5+f exec "$SCRIPT_PATH/navigate2ws.sh 23"
+bindsym mod5+w exec "$SCRIPT_PATH/navigate2ws.sh 24"
+bindsym mod5+e exec "$SCRIPT_PATH/navigate2ws.sh 25"
+bindsym mod5+r exec "$SCRIPT_PATH/navigate2ws.sh 26"
+bindsym mod5+x exec "$SCRIPT_PATH/navigate2ws.sh 27"
+bindsym mod5+c exec "$SCRIPT_PATH/navigate2ws.sh 28"
+bindsym mod5+v exec "$SCRIPT_PATH/navigate2ws.sh 29"
+bindsym mod5+space exec "$SCRIPT_PATH/navigate2ws.sh 20"
 #+end_src
 ** Move container to WS
 *** Primary monitor
