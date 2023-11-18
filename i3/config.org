@@ -852,4 +852,5 @@ assign [$prop="thunderbird"] → $ws4               # workspace 4: email
 assign [$prop="libreoffice"] → $ws5               # workspace 5: spreadsheet
 assign [$prop="lutris"] → $ws6                    # workspace 6: game
 assign [$prop="deluge"] → $ws7                    # workspace 7: torrent
+assign [$prop="nicotine"] → $ws7                  # workspace 7: P2P music
 #+end_src
