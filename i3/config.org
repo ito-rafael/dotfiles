@@ -846,3 +846,7 @@ bar {
 set $prop class     # X11
 #set $prop app_id   # Wayland
 #+end_src
+** Applications
+#+begin_src sh
+assign [$prop="thunderbird"] → $ws4               # workspace 4: email
+#+end_src
