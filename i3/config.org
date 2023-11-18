@@ -776,3 +776,39 @@ mode "resize" {
 #+begin_src sh
 bindsym mod1+$mod+r mode "resize"
 #+end_src
+** Number
+*** Description
+Edit top right keyboard keys to work as a numpad (for Lenovo Yoga 2 Pro)
+
++-------+-----------+---------+
+| digit | key       | keycode |
++-------+-----------+---------+
+|   1   | lum+      |   233   |
+|   2   | PrtSc     |   107   |
+|   3   | delete    |   119   |
+|   4   | '+' & '=' |    21   |
+|   5   | backspace |    22   |
+|   6   | home      |   110   |
+|   7   | '}' & ']' |    35   |
+|   8   | '\' & '|' |    51   |
+|   9   | End       |   115   |
+|   0   | Enter     |    36   |
++-------+---+-------+---------+
+| Backspace | PgUp  |   112   |
+| Enter     | ' & " |    48   |
++-----------------------------+
+*** Mode
+#+begin_src sh
+mode "number" {
+    #-----------------------------
+    # exit "number" mode and load default Xmodmap file
+    #bindsym Escape mode "default"; exec "xmodmap ~/.Xmodmap";
+    bindsym $mod+Next mode "default"; exec "xmodmap ~/.Xmodmap";
+    #-----------------------------
+    # test
+    #bindsym Shift+A exec "i3-sensible-terminal";
+    #-----------------------------
+    # inherent default keybinds (i3bang)
+    !@default_keybindings
+}
+#+end_src
