@@ -857,4 +857,5 @@ assign [$prop="lollypop"] → $ws8                  # workspace 8: music player 
 # music player (web) [both Wayland/X11 uses "class" for Spotify]
 for_window [class="Spotify"] move --no-auto-back-and-forth to workspace $ws9 # workspace 9: music player (web)
 assign [$prop="blueman-manager"] → $ws10          # workspace 10: bluetooth
+assign [$prop="pavucontrol"] → $ws10              # workspace 10: volume control
 #+end_src
