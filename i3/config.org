@@ -840,3 +840,9 @@ bar {
     #tray_output HDMI3  # LBiC_R
 }
 #+end_src
+* Applications default WS
+** Wayland / X11
+#+begin_src sh
+set $prop class     # X11
+#set $prop app_id   # Wayland
+#+end_src
