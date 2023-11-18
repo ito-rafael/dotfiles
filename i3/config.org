@@ -849,4 +849,5 @@ set $prop class     # X11
 ** Applications
 #+begin_src sh
 assign [$prop="thunderbird"] → $ws4               # workspace 4: email
+assign [$prop="libreoffice"] → $ws5               # workspace 5: spreadsheet
 #+end_src
