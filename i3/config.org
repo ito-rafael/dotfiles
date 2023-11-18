@@ -812,3 +812,8 @@ mode "number" {
     !@default_keybindings
 }
 #+end_src
+*** Keybinding
+Enter "number" mode and load Xmodmap file with number modifications
+#+begin_src sh
+bindsym $mod+Next mode "number"; exec "xmodmap ~/.Xmodmap_numbers"
+#+end_src
