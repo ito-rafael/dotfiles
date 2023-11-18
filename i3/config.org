@@ -851,4 +851,5 @@ set $prop class     # X11
 assign [$prop="thunderbird"] → $ws4               # workspace 4: email
 assign [$prop="libreoffice"] → $ws5               # workspace 5: spreadsheet
 assign [$prop="lutris"] → $ws6                    # workspace 6: game
+assign [$prop="deluge"] → $ws7                    # workspace 7: torrent
 #+end_src
