@@ -258,6 +258,8 @@ alias cdu='cd $HOME/RAFAEL/UNICAMP'
 alias cp="cp -i"
 alias mv='mv -i'
 alias rm='rm -i'
+# recursive
+alias rmf='rm -rf'
 #-----------------------------
 # Docker fn
 function de() { docker exec -it $(docker ps | grep $1 | awk '{print $1}') ${2:-bash} }
