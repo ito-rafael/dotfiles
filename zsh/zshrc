@@ -258,6 +258,8 @@ alias cdu='cd $HOME/RAFAEL/UNICAMP'
 alias cp="cp -i"
 alias mv='mv -i'
 alias rm='rm -i'
+# skip confirmation
+alias rmy='rm'
 # recursive
 alias rmf='rm -rf'
 #-----------------------------
