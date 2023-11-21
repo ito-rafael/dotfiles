@@ -178,6 +178,9 @@ alias tarc='tar -czvf'
 alias tarx='tar -xvzf'
 alias wdf='watch -n1 df -h'
 #-----------------------------
+# ZSA Moonlander
+alias wcm='wally-cli moonlander_*.bin'
+#-----------------------------
 # Package manager
 alias {paru,yay}='paru --aur'        # paru/yay
 alias {sps,spi}='sudo pacman -S'    # pacman install
