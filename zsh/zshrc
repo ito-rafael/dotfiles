@@ -179,6 +179,7 @@ alias tarx='tar -xvzf'
 alias wdf='watch -n1 df -h'
 #-----------------------------
 # ZSA Moonlander
+alias rmm='rm moonlander_*.bin'
 alias wcm='wally-cli moonlander_*.bin'
 #-----------------------------
 # Package manager
