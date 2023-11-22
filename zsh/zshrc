@@ -177,6 +177,7 @@ alias ww='systemctl stop --user ydotool && systemctl stop --user xremap'
 alias tarc='tar -czvf'
 alias tarx='tar -xvzf'
 alias wdf='watch -n1 df -h'
+alias fl='faillock --user $USER --reset'
 #-----------------------------
 # ZSA Moonlander
 alias rmm='rm moonlander_*.bin'
