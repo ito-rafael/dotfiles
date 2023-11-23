@@ -178,6 +178,7 @@ alias tarc='tar -czvf'
 alias tarx='tar -xvzf'
 alias wdf='watch -n1 df -h'
 alias fl='faillock --user $USER --reset'
+alias kb='pkill brave && brave &'
 #-----------------------------
 # ZSA Moonlander
 alias rmm='rm moonlander_*.bin'
