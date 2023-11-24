@@ -859,3 +859,13 @@ for_window [class="Spotify"] move --no-auto-back-and-forth to workspace $ws9 # w
 assign [$prop="blueman-manager"] → $ws10          # workspace 10: bluetooth
 assign [$prop="pavucontrol"] → $ws10              # workspace 10: volume control
 #+end_src
+* Scratchpads
+** Terminal
+#+begin_src sh
+exec --no-startup-id kitty --class="dropdown_terminal"
+bindsym $mod+h [$prop="^dropdown_terminal$"] scratchpad show; resize set 1000 600
+for_window [$prop="^dropdown_terminal$"] floating enable
+for_window [$prop="^dropdown_terminal$"] move position center
+for_window [$prop="^dropdown_terminal$"] move scratchpad
+for_window [$prop="^dropdown_terminal$"] border pixel 5
+#+end_src
