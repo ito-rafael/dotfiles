@@ -873,6 +873,13 @@ for_window [class="Spotify"] move --no-auto-back-and-forth to workspace $ws9 # w
 assign [$prop="blueman-manager"] → $ws10          # workspace 10: bluetooth
 assign [$prop="pavucontrol"] → $ws10              # workspace 10: volume control
 #+end_src
+* Window-specific
+** Tkinter
+Floating window for Tkinter (Python GUI)
+#+begin_src sh
+for_window [class="Tk"] floating enable
+for_window [class="Toplevel"] floating enable
+#+end_src
 * Scratchpads
 ** Python
 #+begin_src sh
