@@ -881,4 +881,5 @@ for_window [$prop="^dropdown_terminal$"] border pixel 5
 * Applets
 #+begin_src sh
 exec "blueman-applet &"                           # Bluetooth
+exec "nm-applet --indicator &"                    # NetworkManager
 #+end_src
