@@ -860,6 +860,15 @@ assign [$prop="blueman-manager"] → $ws10          # workspace 10: bluetooth
 assign [$prop="pavucontrol"] → $ws10              # workspace 10: volume control
 #+end_src
 * Scratchpads
+** Python
+#+begin_src sh
+exec --no-startup-id kitty --class="dropdown_python" -o font_size=20 python -q
+bindsym $mod+y [$prop="^dropdown_python$"] scratchpad show; resize set 1000 600
+for_window [$prop="^dropdown_python$"] floating enable
+for_window [$prop="^dropdown_python$"] move position center
+for_window [$prop="^dropdown_python$"] move scratchpad
+for_window [$prop="^dropdown_python$"] border pixel 5
+#+end_src
 ** Terminal
 #+begin_src sh
 exec --no-startup-id kitty --class="dropdown_terminal"
