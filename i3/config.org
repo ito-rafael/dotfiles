@@ -878,3 +878,7 @@ for_window [$prop="^dropdown_terminal$"] move position center
 for_window [$prop="^dropdown_terminal$"] move scratchpad
 for_window [$prop="^dropdown_terminal$"] border pixel 5
 #+end_src
+* Applets
+#+begin_src sh
+exec "blueman-applet &"                           # Bluetooth
+#+end_src
