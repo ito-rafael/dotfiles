@@ -684,6 +684,14 @@ bindsym mod3+ --whole-window button5 exec "pactl set-sink-volume @DEFAULT_SINK@ 
 #+begin_src sh
 bindsym --release ctrl+space exec xdotool key Return
 #+end_src
+** Mod5 (hold Tab)
+Navigation with vim keys
+#+begin_src sh
+bindsym --release Mod5+h exec xdotool key Left
+bindsym --release Mod5+j exec xdotool key Down
+bindsym --release Mod5+k exec xdotool key Up
+bindsym --release Mod5+l exec xdotool key Right
+#+end_src
 * Rotate screen
 ** Portrait
 - rotate screen
