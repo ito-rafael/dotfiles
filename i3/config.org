@@ -230,11 +230,18 @@ bindsym $mod+Right focus right
 #+end_src
 ** Move window
 *** hjkl
-#+begin_src sh
+#+begin_src sh :tangle no
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
+#+end_src
+*** jkl;
+#+begin_src sh
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+semicolon move right
 #+end_src
 *** Arrows
 #+begin_src sh
