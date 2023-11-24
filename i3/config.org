@@ -888,3 +888,8 @@ exec "nm-applet --indicator &"                    # NetworkManager
 #+begin_src sh
 exec_always feh --bg-scale ~/.config/feh/london.jpg
 #+end_src
+** Touchpad
+Enable touchpad horizontal scroll
+#+begin_src sh
+exec xinput --set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Two-Finger Scrolling" 1 1
+#+end_src
