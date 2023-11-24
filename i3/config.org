@@ -766,10 +766,10 @@ Resize window (you can also use the mouse for that)
 *** Mode
 #+begin_src sh
 mode "resize" {
-    bindsym h resize shrink width  5 px or 5 ppt
-    bindsym j resize shrink height 5 px or 5 ppt
-    bindsym k resize grow   height 5 px or 5 ppt
-    bindsym l resize grow   width  5 px or 5 ppt
+    bindsym j resize shrink width  5 px or 5 ppt
+    bindsym k resize shrink height 5 px or 5 ppt
+    bindsym l resize grow   height 5 px or 5 ppt
+    bindcode 48 resize grow   width  5 px or 5 ppt
     #-----------------------------
     # same bindings, but for the arrow keys
     bindsym Left  resize shrink width  5 px or 5 ppt
