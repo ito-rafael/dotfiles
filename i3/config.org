@@ -883,3 +883,8 @@ for_window [$prop="^dropdown_terminal$"] border pixel 5
 exec "blueman-applet &"                           # Bluetooth
 exec "nm-applet --indicator &"                    # NetworkManager
 #+end_src
+* Startup commands
+** Background images
+#+begin_src sh
+exec_always feh --bg-scale ~/.config/feh/london.jpg
+#+end_src
