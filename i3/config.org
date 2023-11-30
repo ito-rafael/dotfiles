@@ -936,3 +936,7 @@ exec_always --no-startup-id picom -b --config ~/.config/picom/picom.conf
 #+begin_src sh
 exec /usr/share/sway/scripts/inactive-windows-transparency.py --opacity 0.85
 #+end_src
+** Daemons
+#+begin_src sh
+exec /usr/bin/emacs --daemon &                   # Emacs daemon
+#+end_src
