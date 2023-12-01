@@ -938,5 +938,6 @@ exec /usr/share/sway/scripts/inactive-windows-transparency.py --opacity 0.85
 #+end_src
 ** Daemons
 #+begin_src sh
+exec nohup /usr/bin/dunst                        # dunst: notification daemon
 exec /usr/bin/emacs --daemon &                   # Emacs daemon
 #+end_src
