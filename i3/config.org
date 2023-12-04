@@ -939,5 +939,6 @@ exec /usr/share/sway/scripts/inactive-windows-transparency.py --opacity 0.85
 ** Daemons
 #+begin_src sh
 exec nohup /usr/bin/dunst                        # dunst: notification daemon
+exec --no-startup-id autotiling                  # autotiling
 exec /usr/bin/emacs --daemon &                   # Emacs daemon
 #+end_src
