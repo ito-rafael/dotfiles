@@ -250,6 +250,7 @@ alias incognito=' unset HISTFILE &&'
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
+alias cdd='cd $HOME/Downloads'
 alias cdc='cd $HOME/.config'
 alias cds='cd $HOME/.config/scripts'
 alias cdg='cd $HOME/git'
