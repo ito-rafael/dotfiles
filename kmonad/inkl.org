@@ -73,7 +73,13 @@
   tab  q    w    e    r    t    y    u    i    o    p    '    [
   esc  a    s    d    f    g    h    j    k    l    ç    ~    ]
   lsft z    x    c    v    b    XX   n    m    ,    .    /    rsft
-  lctl lmet lalt           spc            ralt /    left up   rght
+  lctl lmet lalt           @s2m           ralt /    left up   rght
                                                          down
+)
+#+end_src
+*** alias
+#+begin_src lisp
+(defalias
+  s2m (tap-hold-next-release 200 spc met) ;; space to meta
 )
 #+end_src
