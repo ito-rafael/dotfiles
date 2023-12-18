@@ -23,7 +23,7 @@
   caps f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  ins  del
   '    1    2    3    4    5    6    7    8    9    0    -    =    bspc ret
   tab  q    w    e    r    t    y    u    i    o    p    '    [
-  esc  a    s    d    f    g    h    j    k    l    ç    ~    ]
+  esc  @a2m s    d    f    g    h    j    k    l    ç    ~    ]
   lsft z    x    c    v    b    XX   n    m    ,    .    /    rsft
   lctl lmet lalt           @s2m           ralt /    left up   rght
                                                          down
@@ -31,4 +31,5 @@
 
 (defalias
   s2m (tap-hold-next-release 200 spc met) ;; space to meta
+  a2m (tap-hold-next-release 200 a   met) ;; a to meta
 )
