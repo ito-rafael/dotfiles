@@ -30,7 +30,7 @@
 )
 
 (defalias
-  s2m (tap-hold-next-release 200 spc met) ;; space to meta
-  a2m (tap-hold-next-release 200 a   met) ;; a to meta
-  ;2m (tap-hold-next-release 200 ;   met) ;; semicolon to meta
+  s2m (tap-hold-next-release 200 spc lmet) ;; space to left meta
+  a2m (tap-hold-next-release 200 a   lmet) ;; a to left meta
+  ;2m (tap-hold-next-release 200 ;   lmet) ;; semicolon to left meta
 )
