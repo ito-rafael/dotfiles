@@ -54,6 +54,18 @@
                                                          down
 )
 #+end_src
+*** empty
+#+begin_src lisp :tangle no
+(deflayer empty
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _              _              _    _    _    _    _
+                                                         _
+)
+#+end_src
 ** base (us)
 #+begin_src lisp
 (defsrc
