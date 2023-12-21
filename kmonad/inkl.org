@@ -16,6 +16,7 @@
   - [[#template][template]]
   - [[#base-us][base (us)]]
   - [[#qwerty][qwerty]]
+  - [[#numbers][numbers]]
 
 * Initial config
 #+begin_src lisp
@@ -86,7 +87,7 @@
   tab  q    w    e    r    t         y    u    i    o    p    '    [
   esc  @a2m @s2a @d2c @f2s @g2a      @h2a @j2s @k2c @l2m @;2m ~    ]
   lsft z    x    c    v    b    XX   n    m    ,    .    /    rsft
-  lctl lmet esc                @s2m       ret  bspc left up   rght
+  lctl lmet esc                @s2m       @num bspc left up   rght
                                                          down
 )
 #+end_src
@@ -109,5 +110,22 @@
 
   ;; other
   s2m (tap-hold-next-release 200 spc lmet) ;; space to meta_L
+
+  ;; layers
+  num (tap-hold-next-release 200 ret (layer-toggle numbers)) ;;
+)
+#+end_src
+** numbers
+#+begin_src lisp
+(deflayer numbers
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    [    4    5    6    ]    _    _    _    _    _    _    _
+  _    :    1    2    3    -    _    _    _    _    _    _    _
+  _    ~    7    8    9    +    _    _    _    _    _    _    _
+  _    _    _              0              _    _    _    _    _
+                                                         _
+)
+#+end_src
 )
 #+end_src
