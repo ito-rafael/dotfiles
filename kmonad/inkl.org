@@ -86,7 +86,7 @@
   tab  q    w    e    r    t         y    u    i    o    p    '    [
   esc  @a2m @s2a @d2c @f2s @g2a      @h2a @j2s @k2c @l2m @;2m ~    ]
   lsft z    x    c    v    b    XX   n    m    ,    .    /    rsft
-  lctl lmet lalt               @s2m       ret  bspc left up   rght
+  lctl lmet esc                @s2m       ret  bspc left up   rght
                                                          down
 )
 #+end_src
