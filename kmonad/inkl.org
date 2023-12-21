@@ -93,13 +93,15 @@
 *** alias
 #+begin_src lisp
 (defalias
-  ;; meta_L
-  s2m (tap-hold-next-release 200 spc lmet) ;; space to meta_L
+  ;; left hand
   a2m (tap-hold-next-release 200 a   lmet) ;; a to meta_L
+  f2s (tap-hold-next-release 200 f   lsft) ;; f to shift_L
+
+  ;; right hand
+  j2s (tap-hold-next-release 200 j   lsft) ;; j to shift_L
   ;2m (tap-hold-next-release 200 ;   lmet) ;; semicolon to meta_L
 
-  ;; shift_L
-  f2s (tap-hold-next-release 200 f   lsft) ;; f to shift_L
-  j2s (tap-hold-next-release 200 j   lsft) ;; j to shift_L
+  ;; other
+  s2m (tap-hold-next-release 200 spc lmet) ;; space to meta_L
 )
 #+end_src
