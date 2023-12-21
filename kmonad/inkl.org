@@ -84,7 +84,7 @@
   caps f1   f2   f3   f4   f5        f6   f7   f8   f9   f10  f11  f12  ins  del
   '    1    2    3    4    5         6    7    8    9    0    -    =    bspc ret
   tab  q    w    e    r    t         y    u    i    o    p    '    [
-  esc  @a2m @s2a @d2c @f2s g         h    @j2s @k2c @l2m @;2m ~    ]
+  esc  @a2m @s2a @d2c @f2s @g2a      h    @j2s @k2c @l2m @;2m ~    ]
   lsft z    x    c    v    b    XX   n    m    ,    .    /    rsft
   lctl lmet lalt               @s2m       ralt /    left up   rght
                                                          down
@@ -98,6 +98,7 @@
   s2a (tap-hold-next-release 200 s   lalt) ;; s to alt_L
   d2c (tap-hold-next-release 200 d   lctl) ;; d to ctrl_L
   f2s (tap-hold-next-release 200 f   lsft) ;; f to shift_L
+  g2a (tap-hold-next-release 200 g   ralt) ;; g to alt_R
 
   ;; right hand
   j2s (tap-hold-next-release 200 j   lsft) ;; j to shift_L
