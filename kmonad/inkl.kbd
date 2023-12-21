@@ -25,7 +25,7 @@
   tab  q    w    e    r    t         y    u    i    o    p    '    [
   esc  @a2m @s2a @d2c @f2s @g2a      @h2a @j2s @k2c @l2m @;2m ~    ]
   lsft z    x    c    v    b    XX   n    m    ,    .    /    rsft
-  lctl lmet esc                @s2m       ret  bspc left up   rght
+  lctl lmet @nav               @s2m       @num bspc left up   rght
                                                          down
 )
 
@@ -46,4 +46,28 @@
 
   ;; other
   s2m (tap-hold-next-release 200 spc lmet) ;; space to meta_L
+
+  ;; layers
+  nav (tap-hold-next-release 200 esc (layer-toggle navigation)) ;;
+  num (tap-hold-next-release 200 ret (layer-toggle number)) ;;
+)
+
+(deflayer number
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    [    4    5    6    ]    _    _    _    _    _    _    _
+  _    :    1    2    3    -    _    _    _    _    _    _    _
+  _    ~    7    8    9    +    _    _    _    _    _    _    _
+  _    _    _              0              _    _    _    _    _
+                                                         _
+)
+
+(deflayer navigation
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    home end  XX   _    _
+  _    _    _    _    _    _    caps left down up   rght _    _
+  _    _    _    _    _    _    _    pgdn pgup XX   _    _    _
+  _    _    _              _              _    _    _    _    _
+                                                         _
 )
