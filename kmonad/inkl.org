@@ -17,6 +17,7 @@
   - [[#base-us][base (us)]]
   - [[#qwerty][qwerty]]
   - [[#number][number]]
+  - [[#symbol][symbol]]
   - [[#navigation][navigation]]
 
 * Initial config
@@ -126,6 +127,18 @@
   _    :    1    2    3    -    _    _    _    _    _    _    _
   _    ~    7    8    9    +    _    _    _    _    _    _    _
   _    _    _              0              _    _    _    _    _
+                                                         _
+)
+#+end_src
+** symbol
+#+begin_src lisp
+(deflayer symbol
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    {    $    %    ^    }    _    _    _    _    _    _    _
+  _    ;    !    @    #    \_   _    _    _    _    _    _    _
+  _    grv  &    *    \(   =    _    _    _    _    _    _    _
+  _    _    _              \)             _    _    _    _    _
                                                          _
 )
 #+end_src
