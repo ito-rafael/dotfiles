@@ -149,7 +149,7 @@
   _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    home end  XX   _    _
   _    _    _    _    _    _    caps left down up   rght _    _
-  _    _    _    _    _    _    _    pgdn pgup XX   _    _    _
+  _    _    _    _    _    _    _    _    pgdn pgup XX        _
   _    _    _              _              _    _    _    _    _
                                                          _
 )
