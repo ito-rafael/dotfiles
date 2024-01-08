@@ -20,6 +20,7 @@
   - [[#symbol][symbol]]
   - [[#navigation][navigation]]
   - [[#outputs][outputs]]
+  - [[#fn1][fn1]]
 
 * Initial config
 #+begin_src lisp
@@ -227,6 +228,18 @@
   w27  RM-7  ;; focus workspace 27
   w28  RM-8  ;; focus workspace 28
   w29  RM-9  ;; focus workspace 29
+)
+#+end_src
+** fn1
+#+begin_src lisp
+(deflayer fn1
+  _    _    _    _    _    _         _    _    _    _    _    _    _
+  _    _    _    _    _    _         _    _    _    _    _    _    _
+  _    f11  f4   f5   f6   XX        XX   XX   XX   XX   XX   _    _
+  _    f10  f1   f2   f3   XX        XX   XX   XX   XX   XX   _    _
+  _    f12  f7   f8   f9   XX   _    XX   XX   XX   XX   XX        _
+  _    _    _                   XX             _    _    _    _    _
+                                                         _
 )
 #+end_src
                                                          _
