@@ -19,6 +19,7 @@
   - [[#number][number]]
   - [[#symbol][symbol]]
   - [[#navigation][navigation]]
+  - [[#outputs][outputs]]
 
 * Initial config
 #+begin_src lisp
@@ -151,6 +152,34 @@
   _    _    _    _    _    _    caps left down up   rght _    _
   _    _    _    _    _    _    _    _    pgdn pgup XX        _
   _    _    _              _              _    _    _    _    _
+** outputs
+*** output 1
+#+begin_src lisp
+(deflayer out1
+  _    _    _    _    _    _         _    _    _    _    _    _    _
+  _    _    _    _    _    _         _    _    _    _    _    _    _
+  _    XX   @w4  @w5  @w6  XX        XX   XX   XX   XX   XX   _    _
+  _    XX   @w1  @w2  @w3  XX        XX   XX   XX   XX   XX   _    _
+  _    XX   @w7  @w8  @w9  XX   _    XX   XX   XX   XX   XX        _
+  _    _    _                   @w0            _    _    _    _    _
+                                                         _
+)
+#+end_src
+*** alias
+#+begin_src lisp
+(defalias
+  ;; output 1
+  w0  M-0  ;; focus workspace 0
+  w1  M-1  ;; focus workspace 1
+  w2  M-2  ;; focus workspace 2
+  w3  M-3  ;; focus workspace 3
+  w4  M-4  ;; focus workspace 4
+  w5  M-5  ;; focus workspace 5
+  w6  M-6  ;; focus workspace 6
+  w7  M-7  ;; focus workspace 7
+  w8  M-8  ;; focus workspace 8
+  w9  M-9  ;; focus workspace 9
+#+end_src
                                                          _
 )
 #+end_src
