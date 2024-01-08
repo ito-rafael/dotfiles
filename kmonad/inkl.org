@@ -154,6 +154,8 @@
   _    _    _    _    _    _    caps left down up   rght _    _
   _    _    _    _    _    _    _    _    pgdn pgup XX        _
   _    _    _              _              _    _    _    _    _
+                                                         _
+)
 ** outputs
 *** output 1
 #+begin_src lisp
@@ -252,9 +254,6 @@
   _    XX   XX   XX   XX   XX        XX   f13  f14  f15  f16  _    _
   _    XX   XX   XX   XX   XX   _    XX   f21  f22  f23  f24       _
   _    _    _                   XX             _    _    _    _    _
-                                                         _
-)
-#+end_src
                                                          _
 )
 #+end_src
