@@ -21,6 +21,7 @@
   - [[#navigation][navigation]]
   - [[#outputs][outputs]]
   - [[#fn1][fn1]]
+  - [[#fn2][fn2]]
 
 * Initial config
 #+begin_src lisp
@@ -238,6 +239,18 @@
   _    f11  f4   f5   f6   XX        XX   XX   XX   XX   XX   _    _
   _    f10  f1   f2   f3   XX        XX   XX   XX   XX   XX   _    _
   _    f12  f7   f8   f9   XX   _    XX   XX   XX   XX   XX        _
+  _    _    _                   XX             _    _    _    _    _
+                                                         _
+)
+#+end_src
+** fn2
+#+begin_src lisp
+(deflayer fn2
+  _    _    _    _    _    _         _    _    _    _    _    _    _
+  _    _    _    _    _    _         _    _    _    _    _    _    _
+  _    XX   XX   XX   XX   XX        XX   f17  f18  f19  f20  _    _
+  _    XX   XX   XX   XX   XX        XX   f13  f14  f15  f16  _    _
+  _    XX   XX   XX   XX   XX   _    XX   f21  f22  f23  f24       _
   _    _    _                   XX             _    _    _    _    _
                                                          _
 )
