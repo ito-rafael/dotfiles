@@ -165,6 +165,18 @@
                                                          _
 )
 #+end_src
+*** output 2
+#+begin_src lisp
+(deflayer out2
+  _    _    _    _    _    _         _    _    _    _    _    _    _
+  _    _    _    _    _    _         _    _    _    _    _    _    _
+  _    XX   @w14 @w15 @w16 XX        XX   XX   XX   XX   XX   _    _
+  _    XX   @w11 @w12 @w13 XX        XX   XX   XX   XX   XX   _    _
+  _    XX   @w17 @w18 @w19 XX   _    XX   XX   XX   XX   XX        _
+  _    _    _                   @w10           _    _    _    _    _
+                                                         _
+)
+#+end_src
 *** alias
 #+begin_src lisp
 (defalias
@@ -179,6 +191,18 @@
   w7  M-7  ;; focus workspace 7
   w8  M-8  ;; focus workspace 8
   w9  M-9  ;; focus workspace 9
+
+  ;; output 2
+  w10  S-M-0  ;; focus workspace 10
+  w11  S-M-1  ;; focus workspace 11
+  w12  S-M-2  ;; focus workspace 12
+  w13  S-M-3  ;; focus workspace 13
+  w14  S-M-4  ;; focus workspace 14
+  w15  S-M-5  ;; focus workspace 15
+  w16  S-M-6  ;; focus workspace 16
+  w17  S-M-7  ;; focus workspace 17
+  w18  S-M-8  ;; focus workspace 18
+  w19  S-M-9  ;; focus workspace 19
 #+end_src
                                                          _
 )
