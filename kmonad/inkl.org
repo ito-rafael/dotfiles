@@ -133,6 +133,19 @@
   ;; layers
   nav (tap-hold-next-release 200 esc (layer-toggle navigation)) ;;
   num (tap-hold-next-release 200 ret (layer-toggle number)) ;;
+** common
+*** alias
+**** hold
+#+begin_src lisp
+(defalias
+  hm  (tap-hold-next-release 200 XX   lmet)   ;; hold meta_L
+  ha  (tap-hold-next-release 200 XX   lalt)   ;; hold alt_L
+  hc  (tap-hold-next-release 200 XX   lctl)   ;; hold ctrl_L
+  hs  (tap-hold-next-release 200 XX   lsft)   ;; hold shift_L
+  hra (tap-hold-next-release 200 XX   ralt)   ;; hold alt_R
+  hsm (tap-hold-next-release 200 XX   S-lmet) ;; hold shift_L-meta_L
+)
+#+end_src
 )
 #+end_src
 ** number
