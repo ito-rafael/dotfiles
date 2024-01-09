@@ -148,14 +148,22 @@
 ** navigation
 #+begin_src lisp
 (deflayer navigation
-  _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    home end  XX   _    _
-  _    _    _    _    _    _    caps left down up   rght _    _
-  _    _    _    _    _    _    _    _    pgdn pgup XX        _
-  _    _    _              _              _    _    _    _    _
+  _    _    _    _    _    _         _    _    _    _    _    _    _
+  _    _    _    _    _    _         _    _    _    _    _    _    _
+  _    _    _    _    _    _         _    @ps  home end  XX   _    _
+  _    _    _    _    _    _         caps left down up   rght _    _
+  _    _    _    _    _    _    _    _    @sps pgdn pgup XX        _
+  _    _    _                   _              _    _    _    _    _
                                                          _
 )
+#+end_src
+*** alias
+#+begin_src lisp
+(defalias
+  ps  prnt    ;; PrintScreen
+  sps S-prnt  ;; Shift-PrintScreen
+)
+#+end_src
 ** outputs
 *** output 1
 #+begin_src lisp
