@@ -98,6 +98,18 @@
                                                          _
 )
 #+end_src
+*** right
+#+begin_src lisp :tangle no
+(deflayer right
+  _    _    _    _    _    _         _    _    _    _    _    _    _
+  _    _    _    _    _    _         _    _    _    _    _    _    _
+  _    _    _    _    _    _         _    _    _    _    _    _    _
+  @e2c @hm  @ha  @hc  @hs  @hra      _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _         _
+  _    _    _                   _              _    _    _    _    _
+                                                         _
+)
+#+end_src
 ** base (us)
 #+begin_src lisp
 (defsrc
