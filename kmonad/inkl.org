@@ -128,9 +128,9 @@
   caps f1   f2   f3   f4   f5        f6   f7   f8   f9   f10  f11  f12
   '    1    2    3    4    5         6    7    8    9    0    -    =
   tab  q    w    e    r    t         y    u    i    o    p    '    [
-  esc  @a2m @s2a @d2c @f2s @g2a      @h2a @j2s @k2c @l2m @;2m ~    ]
-  lsft z    x    c    v    b    XX   n    m    ,    .    /    rsft
-  lctl lmet @nav               @s2m       @num bspc left up   rght
+  @e2c @a2m @s2a @d2c @f2s @g2a      @h2a @j2s @k2c @l2m @;2m bspc ]
+  lsft z    x    c    v    b    XX   n    m    ,    .    /         rsft
+  lctl lmet @nav                @s2m           @num bspc left up   rght
                                                          down
 )
 #+end_src
@@ -174,6 +174,13 @@
   hs  (tap-hold-next-release 200 XX   lsft)   ;; hold shift_L
   hra (tap-hold-next-release 200 XX   ralt)   ;; hold alt_R
   hsm (tap-hold-next-release 200 XX   S-lmet) ;; hold shift_L-meta_L
+)
+#+end_src
+**** other
+#+begin_src lisp
+(defalias
+  s2m (tap-hold-next-release 200 spc  lmet) ;; space to meta_L
+  e2c (tap-hold-next-release 200 esc  lctl) ;; esc to ctrl_L
 )
 #+end_src
 )
