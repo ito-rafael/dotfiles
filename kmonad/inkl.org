@@ -135,24 +135,30 @@
 )
 #+end_src
 *** alias
+**** left hand
 #+begin_src lisp
 (defalias
-  ;; left hand
-  a2m (tap-hold-next-release 200 a   lmet) ;; a to meta_L
-  s2a (tap-hold-next-release 200 s   lalt) ;; s to alt_L
-  d2c (tap-hold-next-release 200 d   lctl) ;; d to ctrl_L
-  f2s (tap-hold-next-release 200 f   lsft) ;; f to shift_L
-  g2a (tap-hold-next-release 200 g   ralt) ;; g to alt_R
+  a2m (tap-hold-next-release 200 a    lmet) ;; a to meta_L
+  s2a (tap-hold-next-release 200 s    lalt) ;; s to alt_L
+  d2c (tap-hold-next-release 200 d    lctl) ;; d to ctrl_L
+  f2s (tap-hold-next-release 200 f    lsft) ;; f to shift_L
+  g2a (tap-hold-next-release 200 g    ralt) ;; g to alt_R
 
-  ;; right hand
-  h2a (tap-hold-next-release 200 h   ralt) ;; h to alt_R
-  j2s (tap-hold-next-release 200 j   lsft) ;; j to shift_L
-  k2c (tap-hold-next-release 200 k   lctl) ;; k to ctrl_R
-  l2m (tap-hold-next-release 200 l   S-lmet) ;; l to shift_L-meta_L
-  ;2m (tap-hold-next-release 200 ;   lmet) ;; semicolon to meta_L
+)
+#+end_src
+**** right hand
+#+begin_src lisp
+(defalias
+  h2a (tap-hold-next-release 200 h    ralt)   ;; h to alt_R
+  j2s (tap-hold-next-release 200 j    lsft)   ;; j to shift_L
+  k2c (tap-hold-next-release 200 k    lctl)   ;; k to ctrl_R
+  l2m (tap-hold-next-release 200 l    S-lmet) ;; l to shift_L-meta_L
+  ;2m (tap-hold-next-release 200 f13  lmet) ;; semicolon to meta_L
 
   ;; other
   s2m (tap-hold-next-release 200 spc lmet) ;; space to meta_L
+)
+#+end_src
 
   ;; layers
   nav (tap-hold-next-release 200 esc (layer-toggle navigation)) ;;
