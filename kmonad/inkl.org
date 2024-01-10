@@ -17,6 +17,7 @@
   - [[#template-split][template split]]
   - [[#base-us][base (us)]]
   - [[#qwerty][qwerty]]
+  - [[#colemak][colemak]]
   - [[#number][number]]
   - [[#symbol][symbol]]
   - [[#navigation][navigation]]
@@ -157,6 +158,18 @@
 
   ;; other
   s2m (tap-hold-next-release 200 spc lmet) ;; space to meta_L
+)
+#+end_src
+** colemak
+#+begin_src lisp
+(deflayer colemak
+  caps f1   f2   f3   f4   f5        f6   f7   f8   f9   f10  f11  f12
+  '    1    2    3    4    5         6    7    8    9    0    -    =
+  tab  q    w    f    p    b         j    l    u    y    f13  '    [
+  @e2c a    r    s    t    g         m    n    e    i    o    bspc ]
+  lsft z    x    c    d    v    XX   k    h    ,    .    /         rsft
+  lctl lmet @nav                @s2m           @num bspc left up   rght
+                                                         down
 )
 #+end_src
 
