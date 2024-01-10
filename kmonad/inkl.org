@@ -166,7 +166,7 @@
   caps f1   f2   f3   f4   f5        f6   f7   f8   f9   f10  f11  f12
   '    1    2    3    4    5         6    7    8    9    0    -    =
   tab  q    w    f    p    b         j    l    u    y    f13  '    [
-  @e2c @a2m @r2a @s2c @t2s @g2a      @m2a @n2s @e2c i    o    bspc ]
+  @e2c @a2m @r2a @s2c @t2s @g2a      @m2a @n2s @e2c @i2m o    bspc ]
   lsft z    x    c    d    v    XX   k    h    ,    .    /         rsft
   lctl lmet @nav                @s2m           @num bspc left up   rght
                                                          down
@@ -191,6 +191,7 @@
   m2a (tap-hold-next-release 200 m    ralt)   ;; m to alt_R
   n2s (tap-hold-next-release 200 n    lsft)   ;; n to shift_L
   e2c (tap-hold-next-release 200 e    lctl)   ;; e to ctrl_R
+  i2m (tap-hold-next-release 200 i    S-lmet) ;; i to shift_L-meta_L
 )
 #+end_src
 ** common
