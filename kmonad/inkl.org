@@ -166,7 +166,7 @@
   caps f1   f2   f3   f4   f5        f6   f7   f8   f9   f10  f11  f12
   '    1    2    3    4    5         6    7    8    9    0    -    =
   tab  q    w    f    p    b         j    l    u    y    f13  '    [
-  @e2c @a2m @r2a @s2c @t2s @g2a      m    n    e    i    o    bspc ]
+  @e2c @a2m @r2a @s2c @t2s @g2a      @m2a n    e    i    o    bspc ]
   lsft z    x    c    d    v    XX   k    h    ,    .    /         rsft
   lctl lmet @nav                @s2m           @num bspc left up   rght
                                                          down
@@ -183,6 +183,12 @@
   ;; layers
   nav (tap-hold-next-release 200 esc (layer-toggle navigation)) ;;
   num (tap-hold-next-release 200 ret (layer-toggle number)) ;;
+)
+#+end_src
+**** right hand
+#+begin_src lisp
+(defalias
+  m2a (tap-hold-next-release 200 m    ralt)   ;; m to alt_R
 )
 #+end_src
 ** common
