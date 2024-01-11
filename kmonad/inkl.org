@@ -14,7 +14,6 @@
   - [[#eos][EoS]]
 - [[#layers][Layers]]
   - [[#template][template]]
-  - [[#template-split][template split]]
   - [[#base-us][base (us)]]
   - [[#qwerty][qwerty]]
   - [[#colemak][colemak]]
@@ -74,8 +73,7 @@
                                                          _
 )
 #+end_src
-** template split
-*** empty
+*** split
 #+begin_src lisp :tangle no
 (deflayer split
   _    _    _    _    _    _         _    _    _    _    _    _    _
@@ -87,7 +85,7 @@
                                                          _
 )
 #+end_src
-*** left
+*** split left
 #+begin_src lisp :tangle no
 (deflayer left
   _    _    _    _    _    _         _    _    _    _    _    _    _
@@ -99,7 +97,7 @@
                                                          _
 )
 #+end_src
-*** right
+*** split right
 #+begin_src lisp :tangle no
 (deflayer right
   _    _    _    _    _    _         _    _    _    _    _    _    _
