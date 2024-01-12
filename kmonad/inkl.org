@@ -148,6 +148,7 @@
   nav (tap-hold-next-release 200 esc  (layer-toggle navigation))
   num (tap-hold-next-release 200 ret  (layer-toggle number))
   sym (tap-hold-next-release 200 bspc (layer-toggle symbol))
+)
 #+end_src
 ** qwerty
 #+begin_src lisp
