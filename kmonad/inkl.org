@@ -121,6 +121,25 @@
                                                          down
 )
 #+end_src
+** alias
+*** hold
+#+begin_src lisp
+(defalias
+  hm  (tap-hold-next-release 200 XX   lmet)   ;; hold meta_L
+  ha  (tap-hold-next-release 200 XX   lalt)   ;; hold alt_L
+  hc  (tap-hold-next-release 200 XX   lctl)   ;; hold ctrl_L
+  hs  (tap-hold-next-release 200 XX   lsft)   ;; hold shift_L
+  hra (tap-hold-next-release 200 XX   ralt)   ;; hold alt_R
+  hsm (tap-hold-next-release 200 XX   S-lmet) ;; hold shift_L-meta_L
+)
+#+end_src
+*** other
+#+begin_src lisp
+(defalias
+  s2m (tap-hold-next-release 200 spc  lmet) ;; space to meta_L
+  e2c (tap-hold-next-release 200 esc  lctl) ;; esc to ctrl_L
+)
+#+end_src
 ** qwerty
 #+begin_src lisp
 (deflayer qwerty
@@ -142,7 +161,6 @@
   d2c (tap-hold-next-release 200 d    lctl) ;; d to ctrl_L
   f2s (tap-hold-next-release 200 f    lsft) ;; f to shift_L
   g2a (tap-hold-next-release 200 g    ralt) ;; g to alt_R
-
 )
 #+end_src
 **** right hand
@@ -153,9 +171,6 @@
   k2c (tap-hold-next-release 200 k    lctl)   ;; k to ctrl_R
   l2m (tap-hold-next-release 200 l    S-lmet) ;; l to shift_L-meta_L
   ;2m (tap-hold-next-release 200 f13  lmet) ;; semicolon to meta_L
-
-  ;; other
-  s2m (tap-hold-next-release 200 spc lmet) ;; space to meta_L
 )
 #+end_src
 ** colemak
@@ -191,28 +206,6 @@
   e2c (tap-hold-next-release 200 e    lctl)   ;; e to ctrl_R
   i2m (tap-hold-next-release 200 i    S-lmet) ;; i to shift_L-meta_L
   o2m (tap-hold-next-release 200 o    lmet)   ;; o to meta_L
-)
-#+end_src
-** common
-*** alias
-**** hold
-#+begin_src lisp
-(defalias
-  hm  (tap-hold-next-release 200 XX   lmet)   ;; hold meta_L
-  ha  (tap-hold-next-release 200 XX   lalt)   ;; hold alt_L
-  hc  (tap-hold-next-release 200 XX   lctl)   ;; hold ctrl_L
-  hs  (tap-hold-next-release 200 XX   lsft)   ;; hold shift_L
-  hra (tap-hold-next-release 200 XX   ralt)   ;; hold alt_R
-  hsm (tap-hold-next-release 200 XX   S-lmet) ;; hold shift_L-meta_L
-)
-#+end_src
-**** other
-#+begin_src lisp
-(defalias
-  s2m (tap-hold-next-release 200 spc  lmet) ;; space to meta_L
-  e2c (tap-hold-next-release 200 esc  lctl) ;; esc to ctrl_L
-)
-#+end_src
 )
 #+end_src
 ** number
