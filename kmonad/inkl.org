@@ -140,6 +140,13 @@
   e2c (tap-hold-next-release 200 esc  lctl) ;; esc to ctrl_L
 )
 #+end_src
+*** layers
+#+begin_src lisp
+(defalias
+  nav (tap-hold-next-release 200 esc  (layer-toggle navigation))
+  num (tap-hold-next-release 200 ret  (layer-toggle number))
+  sym (tap-hold-next-release 200 bspc (layer-toggle symbol))
+#+end_src
 ** qwerty
 #+begin_src lisp
 (deflayer qwerty
@@ -192,10 +199,6 @@
   r2a (tap-hold-next-release 200 r    lalt) ;; r to alt_L
   s2c (tap-hold-next-release 200 s    lctl) ;; s to ctrl_L
   t2s (tap-hold-next-release 200 t    lsft) ;; t to shift_L
-
-  ;; layers
-  nav (tap-hold-next-release 200 esc (layer-toggle navigation)) ;;
-  num (tap-hold-next-release 200 ret (layer-toggle number)) ;;
 )
 #+end_src
 **** right hand
