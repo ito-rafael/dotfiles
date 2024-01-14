@@ -266,6 +266,7 @@
   @e2c @hm  @ha  @hc  @hs  @hra      @spt XX   XX   XX   XX   _    _
   _    _    _    _    _    _    _    @spu XX   XX   XX   XX   _    _
   _    _    _    _    _    _         @spp @ofl XX   XX   XX   _    _
+  _    _    _    _    _    _         @spp @ofl @wsn XX   XX   _    _
   _    _    _                   _              _    _    _    _    _
                                                          _
 )
@@ -274,6 +275,7 @@
 #+begin_src lisp
 (defalias
   ofl S-RM-left   ;; focus output left
+  wsn S-RM-left   ;; focus workspace next
 
   spp M-y  ;; scratchpad python
   spt M-h  ;; scratchpad terminal
