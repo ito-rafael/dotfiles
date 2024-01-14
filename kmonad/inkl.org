@@ -263,11 +263,17 @@
 (deflayer window-manager
   _    _    _    _    _    _         _    _    _    _    _    _    _
   _    _    _    _    _    _         _    _    _    _    _    _    _
-  _    _    _    _    _    _         XX   XX   XX   XX   XX   _    _
   @e2c @hm  @ha  @hc  @hs  @hra      XX   XX   XX   XX   XX   _    _
   _    _    _    _    _    _    _    XX   XX   XX   XX   XX   _    _
+  _    _    _    _    _    _         @spp XX   XX   XX   XX   _    _
   _    _    _                   _              _    _    _    _    _
                                                          _
+)
+#+end_src
+**** window manager
+#+begin_src lisp
+(defalias
+  spp M-y  ;; scratchpad python
 )
 #+end_src
 ** outputs
