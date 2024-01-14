@@ -265,7 +265,7 @@
   _    _    _    _    _    _         _    _    _    _    _    _    _
   _    _    _    _    _    _    _    @spu XX   XX   XX   XX   _    _
   _    _    _    _    _    _         @spp @ofl @wsn @wsp @ofr _    _
-  @e2c @hm  @ha  @hc  @hs  @hra      @spt @wfl XX   XX   XX   _    _
+  @e2c @hm  @ha  @hc  @hs  @hra      @spt @wfl @wfd XX   XX   _    _
   _    _    _                   _              _    _    _    _    _
                                                          _
 )
@@ -279,6 +279,7 @@
   ofr S-RM-right  ;; focus output right
 
   wfl M-left   ;; focus window left
+  wfd M-down   ;; focus window down
 
   spp M-y  ;; scratchpad python
   spt M-h  ;; scratchpad terminal
