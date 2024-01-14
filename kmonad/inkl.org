@@ -148,6 +148,7 @@
   nav (tap-hold-next-release 200 esc  (layer-toggle navigation))
   num (tap-hold-next-release 200 ret  (layer-toggle number))
   sym (tap-hold-next-release 200 bspc (layer-toggle symbol))
+  wm  (tap-hold-next-release 200 spc  (layer-toggle window-manager))
 )
 #+end_src
 ** qwerty
@@ -255,6 +256,18 @@
 (defalias
   ps  prnt    ;; PrintScreen
   sps S-prnt  ;; Shift-PrintScreen
+)
+#+end_src
+** window manager
+#+begin_src lisp
+(deflayer window-manager
+  _    _    _    _    _    _         _    _    _    _    _    _    _
+  _    _    _    _    _    _         _    _    _    _    _    _    _
+  _    _    _    _    _    _         XX   XX   XX   XX   XX   _    _
+  @e2c @hm  @ha  @hc  @hs  @hra      XX   XX   XX   XX   XX   _    _
+  _    _    _    _    _    _    _    XX   XX   XX   XX   XX   _    _
+  _    _    _                   _              _    _    _    _    _
+                                                         _
 )
 #+end_src
 ** outputs
