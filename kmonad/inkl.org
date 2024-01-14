@@ -265,7 +265,7 @@
   _    _    _    _    _    _         _    _    _    _    _    _    _
   _    _    _    _    _    _    _    @spu XX   XX   XX   XX   _    _
   _    _    _    _    _    _         @spp @ofl @wsn @wsp @ofr _    _
-  @e2c @hm  @ha  @hc  @hs  @hra      @spt @wfl @wfd XX   XX   _    _
+  @e2c @hm  @ha  @hc  @hs  @hra      @spt @wfl @wfd @wfu XX   _    _
   _    _    _                   _              _    _    _    _    _
                                                          _
 )
@@ -280,6 +280,7 @@
 
   wfl M-left   ;; focus window left
   wfd M-down   ;; focus window down
+  wfu M-up     ;; focus window up
 
   spp M-y  ;; scratchpad python
   spt M-h  ;; scratchpad terminal
