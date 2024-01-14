@@ -265,7 +265,7 @@
   _    _    _    _    _    _         _    _    _    _    _    _    _
   @e2c @hm  @ha  @hc  @hs  @hra      @spt XX   XX   XX   XX   _    _
   _    _    _    _    _    _    _    @spu XX   XX   XX   XX   _    _
-  _    _    _    _    _    _         @spp @ofl @wsn @wsp XX   _    _
+  _    _    _    _    _    _         @spp @ofl @wsn @wsp @ofr _    _
   _    _    _                   _              _    _    _    _    _
                                                          _
 )
@@ -276,6 +276,7 @@
   ofl S-RM-left   ;; focus output left
   wsn S-RM-left   ;; focus workspace next
   wsp S-RM-right  ;; focus workspace previous
+  ofr S-RM-right  ;; focus output right
 
   spp M-y  ;; scratchpad python
   spt M-h  ;; scratchpad terminal
