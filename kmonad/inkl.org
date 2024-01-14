@@ -263,9 +263,9 @@
 (deflayer window-manager
   _    _    _    _    _    _         _    _    _    _    _    _    _
   _    _    _    _    _    _         _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    XX   XX   XX   XX   XX   _    _
   _    _    _    _    _    _         @spp XX   XX   XX   XX   _    _
   @e2c @hm  @ha  @hc  @hs  @hra      @spt XX   XX   XX   XX   _    _
+  _    _    _    _    _    _    _    @spu XX   XX   XX   XX   _    _
   _    _    _                   _              _    _    _    _    _
                                                          _
 )
@@ -275,6 +275,7 @@
 (defalias
   spp M-y  ;; scratchpad python
   spt M-h  ;; scratchpad terminal
+  spu M-n  ;; scratchpad undefined (TBD)
 )
 #+end_src
 ** outputs
