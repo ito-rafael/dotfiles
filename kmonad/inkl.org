@@ -265,7 +265,7 @@
   _    _    _    _    _    _         _    _    _    _    _    _    _
   _    _    _    _    _    _         @spp @ofl @wsn @wsp @ofr _    _
   @e2c @hm  @ha  @hc  @hs  @hra      @spt @wfl @wfd @wfu @wfr _    _
-  _    _    _    _    _    _    _    @spu @wml XX   XX   XX   _    _
+  _    _    _    _    _    _    _    @spu @wml @wmd XX   XX   _    _
   _    _    _                   _              _    _    _    _    _
                                                          _
 )
@@ -284,6 +284,7 @@
   wfr M-right  ;; focus window right
 
   wml S-M-left   ;; move window left
+  wmd S-M-down   ;; move window down
 
   spp M-y  ;; scratchpad python
   spt M-h  ;; scratchpad terminal
