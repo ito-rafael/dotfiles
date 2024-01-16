@@ -150,6 +150,7 @@
   sym (tap-hold-next-release 200 bspc (layer-toggle symbol))
   wm  (tap-hold-next-release 200 spc  (layer-toggle window-manager))
   mov (tap-hold-next-release 200 spc  (layer-toggle mouse))
+  med (tap-hold-next-release 200 spc  (layer-toggle media))
   fn1 (tap-hold-next-release 200 spc  (layer-toggle function-keys-1))
   fn2 (tap-hold-next-release 200 spc  (layer-toggle function-keys-2))
 )
@@ -371,6 +372,18 @@
   w27 RM-7  ;; focus workspace 27
   w28 RM-8  ;; focus workspace 28
   w29 RM-9  ;; focus workspace 29
+)
+#+end_src
+** media
+#+begin_src lisp
+(deflayer media
+  _    _    _    _    _    _         _    _    _    _    _    _    _
+  _    _    _    _    _    _         _    _    _    _    _    _    _
+  _    XX   XX   XX   XX   XX        XX   XX   XX   XX   XX   _    _
+  _    @hm  @ha  @hc  @hs  @hra      XX   XX   XX   XX   XX   _    _
+  _    XX   XX   XX   XX   XX   _    XX   XX   XX   XX   XX        _
+  _    _    _                   _              _    _    _    _    _
+                                                         _
 )
 #+end_src
 ** mouse
