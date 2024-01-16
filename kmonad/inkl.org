@@ -149,6 +149,8 @@
   num (tap-hold-next-release 200 ret  (layer-toggle number))
   sym (tap-hold-next-release 200 bspc (layer-toggle symbol))
   wm  (tap-hold-next-release 200 spc  (layer-toggle window-manager))
+  fn1 (tap-hold-next-release 200 spc  (layer-toggle function-keys-1))
+  fn2 (tap-hold-next-release 200 spc  (layer-toggle function-keys-2))
 )
 #+end_src
 ** qwerty
@@ -372,7 +374,7 @@
 #+end_src
 ** fn1
 #+begin_src lisp
-(deflayer fn1
+(deflayer function-keys-1
   _    _    _    _    _    _         _    _    _    _    _    _    _
   _    _    _    _    _    _         _    _    _    _    _    _    _
   _    f11  f4   f5   f6   XX        XX   XX   XX   XX   XX   _    _
@@ -384,7 +386,7 @@
 #+end_src
 ** fn2
 #+begin_src lisp
-(deflayer fn2
+(deflayer function-keys-2
   _    _    _    _    _    _         _    _    _    _    _    _    _
   _    _    _    _    _    _         _    _    _    _    _    _    _
   _    XX   XX   XX   XX   XX        XX   f17  f18  f19  f20  _    _
