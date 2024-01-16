@@ -139,7 +139,7 @@
 #+begin_src lisp
 (defalias
   s2m (tap-hold-next-release 200 spc  lmet) ;; space to meta_L
-  e2c (tap-hold-next-release 200 esc  lctl) ;; esc to ctrl_L
+  c2e (tap-hold-next-release 200 esc  lctl) ;; esc to ctrl_L (caps2esc)
 )
 #+end_src
 *** layers
@@ -157,7 +157,7 @@
   caps f1   f2   f3   f4   f5        f6   f7   f8   f9   f10  f11  f12
   '    1    2    3    4    5         6    7    8    9    0    -    =
   tab  q    w    e    r    t         y    u    i    o    p    '    [
-  @e2c @a2m @s2a @d2c @f2s @g2a      @h2a @j2s @k2c @l2m @;2m bspc ]
+  @c2e @a2m @s2a @d2c @f2s @g2a      @h2a @j2s @k2c @l2m @;2m bspc ]
   lsft z    x    c    v    b    XX   n    m    ,    .    /         rsft
   lctl lmet @nav                @s2m           @num bspc left up   rght
                                                          down
@@ -190,7 +190,7 @@
   caps f1   f2   f3   f4   f5        f6   f7   f8   f9   f10  f11  f12
   '    1    2    3    4    5         6    7    8    9    0    -    =
   tab  q    w    f    p    b         j    l    u    y    f13  '    [
-  @e2c @a2m @r2a @s2c @t2s @g2a      @m2a @n2s @e2c @i2m @o2m bspc ]
+  @c2e @a2m @r2a @s2c @t2s @g2a      @m2a @n2s @e2c @i2m @o2m bspc ]
   lsft z    x    c    d    v    XX   k    h    ,    .    /         rsft
   lctl lmet @nav                @s2m           @num bspc left up   rght
                                                          down
@@ -245,7 +245,7 @@
   _    _    _    _    _    _         _    _    _    _    _    _    _
   _    _    _    _    _    _         _    _    _    _    _    _    _
   _    _    _    _    _    _         _    @ps  home end  XX   _    _
-  @e2c @hm  @ha  @hc  @hs  @hra      caps left down up   rght _    _
+  _    @hm  @ha  @hc  @hs  @hra      caps left down up   rght _    _
   _    _    _    _    _    _    _    _    @sps pgdn pgup XX        _
   _    _    _                   _              _    _    _    _    _
                                                          _
@@ -264,7 +264,7 @@
   _    _    _    _    _    _         _    _    _    _    _    _    _
   _    _    _    _    _    _         _    _    _    _    _    _    _
   _    _    _    _    _    _         @spp @ofl @wsn @wsp @ofr _    _
-  @e2c @hm  @ha  @hc  @hs  @hra      @spt @wfl @wfd @wfu @wfr _    _
+  _    @hm  @ha  @hc  @hs  @hra      @spt @wfl @wfd @wfu @wfr _    _
   _    _    _    _    _    _    _    @spu @wml @wmd @wmu @wmr      _
   _    _    _                   _              _    _    _    _    _
                                                          _
@@ -388,7 +388,7 @@
   _    _    _    _    _    _         _    _    _    _    _    _    _
   _    _    _    _    _    _         _    _    _    _    _    _    _
   _    XX   XX   XX   XX   XX        XX   f17  f18  f19  f20  _    _
-  @e2c @hm  @ha  @hc  @hs  @hra      XX   f13  f14  f15  f16  _    _
+  _    @hm  @ha  @hc  @hs  @hra      XX   f13  f14  f15  f16  _    _
   _    XX   XX   XX   XX   XX   _    XX   f21  f22  f23  f24       _
   _    _    _                   XX             _    _    _    _    _
                                                          _
