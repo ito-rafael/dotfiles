@@ -26,6 +26,7 @@
   - [[#media][media]]
   - [[#luminosity][luminosity]]
   - [[#mouse][mouse]]
+  - [[#obs][obs]]
   - [[#fn1][fn1]]
   - [[#fn2][fn2]]
 
@@ -154,6 +155,7 @@
   wm  (tap-hold-next-release 200 spc  (layer-toggle window-manager))
   mov (tap-hold-next-release 200 spc  (layer-toggle mouse))
   med (tap-hold-next-release 200 spc  (layer-toggle media))
+  obs (tap-hold-next-release 200 spc  (layer-toggle obs-studio))
   lum (tap-hold-next-release 200 spc  (layer-toggle luminosity))
   fn1 (tap-hold-next-release 200 spc  (layer-toggle function-keys-1))
   fn2 (tap-hold-next-release 200 spc  (layer-toggle function-keys-2))
@@ -409,6 +411,18 @@
   _    _    _    _    _    _         _    _    _    _    _    _    _
   _    XX   XX   XX   XX   XX        XX   XX   XX   XX   XX   _    _
   _    @hm  @ha  @hc  @hs  @hra      XX   XX   XX   XX   XX   _    _
+  _    XX   XX   XX   XX   XX   _    XX   XX   XX   XX   XX        _
+  _    _    _                   _              _    _    _    _    _
+                                                         _
+)
+#+end_src
+** obs
+#+begin_src lisp
+(deflayer obs-studio
+  _    _    _    _    _    _         _    _    _    _    _    _    _
+  _    _    _    _    _    _         _    _    _    _    _    _    _
+  _    XX   XX   XX   XX   XX        XX   XX   XX   XX   XX   _    _
+  _    XX   XX   XX   XX   XX        @hra @hs  @hc  @hsm @hm  _    _
   _    XX   XX   XX   XX   XX   _    XX   XX   XX   XX   XX        _
   _    _    _                   _              _    _    _    _    _
                                                          _
