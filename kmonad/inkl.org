@@ -92,9 +92,9 @@
 (deflayer left
   _    _    _    _    _    _         _    _    _    _    _    _    _
   _    _    _    _    _    _         _    _    _    _    _    _    _
-  _    _    _    _    _    _         XX   XX   XX   XX   XX   _    _
-  _    _    _    _    _    _         @hra @hs  @hc  @hsm @hm  _    _
-  _    _    _    _    _    _    _    XX   XX   XX   XX   XX        _
+  _    XX   XX   XX   XX   XX        XX   XX   XX   XX   XX   _    _
+  _    XX   XX   XX   XX   XX        @hra @hs  @hc  @hsm @hm  _    _
+  _    XX   XX   XX   XX   XX   _    XX   XX   XX   XX   XX        _
   _    _    _                   _              _    _    _    _    _
                                                          _
 )
@@ -102,7 +102,6 @@
 *** split right
 #+begin_src lisp :tangle no
 (deflayer right
-  _    _    _    _    _    _         _    _    _    _    _    _    _
   _    _    _    _    _    _         _    _    _    _    _    _    _
   _    _    _    _    _    _         _    _    _    _    _    _    _
   _    XX   XX   XX   XX   XX        XX   XX   XX   XX   XX   _    _
