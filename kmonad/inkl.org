@@ -270,7 +270,7 @@
                                                          _
 )
 #+end_src
-**** window manager
+*** alias
 #+begin_src lisp
 (defalias
   ofl S-RM-left   ;; focus output left
@@ -346,28 +346,28 @@
   w9  M-9  ;; focus workspace 9
 
   ;; output 2
-  w10  S-M-0  ;; focus workspace 10
-  w11  S-M-1  ;; focus workspace 11
-  w12  S-M-2  ;; focus workspace 12
-  w13  S-M-3  ;; focus workspace 13
-  w14  S-M-4  ;; focus workspace 14
-  w15  S-M-5  ;; focus workspace 15
-  w16  S-M-6  ;; focus workspace 16
-  w17  S-M-7  ;; focus workspace 17
-  w18  S-M-8  ;; focus workspace 18
-  w19  S-M-9  ;; focus workspace 19
+  w10 S-M-0  ;; focus workspace 10
+  w11 S-M-1  ;; focus workspace 11
+  w12 S-M-2  ;; focus workspace 12
+  w13 S-M-3  ;; focus workspace 13
+  w14 S-M-4  ;; focus workspace 14
+  w15 S-M-5  ;; focus workspace 15
+  w16 S-M-6  ;; focus workspace 16
+  w17 S-M-7  ;; focus workspace 17
+  w18 S-M-8  ;; focus workspace 18
+  w19 S-M-9  ;; focus workspace 19
 
   ;; output 3
-  w20  RM-0  ;; focus workspace 20
-  w21  RM-1  ;; focus workspace 21
-  w22  RM-2  ;; focus workspace 22
-  w23  RM-3  ;; focus workspace 23
-  w24  RM-4  ;; focus workspace 24
-  w25  RM-5  ;; focus workspace 25
-  w26  RM-6  ;; focus workspace 26
-  w27  RM-7  ;; focus workspace 27
-  w28  RM-8  ;; focus workspace 28
-  w29  RM-9  ;; focus workspace 29
+  w20 RM-0  ;; focus workspace 20
+  w21 RM-1  ;; focus workspace 21
+  w22 RM-2  ;; focus workspace 22
+  w23 RM-3  ;; focus workspace 23
+  w24 RM-4  ;; focus workspace 24
+  w25 RM-5  ;; focus workspace 25
+  w26 RM-6  ;; focus workspace 26
+  w27 RM-7  ;; focus workspace 27
+  w28 RM-8  ;; focus workspace 28
+  w29 RM-9  ;; focus workspace 29
 )
 #+end_src
 ** fn1
