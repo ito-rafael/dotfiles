@@ -388,7 +388,7 @@
   _    _    _    _    _    _         _    _    _    _    _    _    _         _    _    _    _
   _    XX   XX   XX   XX   XX        XX   XX   XX   XX   XX   _    _         _    _    _    _
   _    @hm  @ha  @hc  @hs  @hra      XX   XX   @vdc @vuc XX   _    _         _    _    _
-  _    XX   XX   XX   XX   XX   _    XX   XX   @vdf XX   XX        _         _    _    _    _
+  _    XX   XX   XX   XX   XX   _    XX   XX   @vdf @vuf XX        _         _    _    _    _
   _    _    _                   _              _    _    _    _    _            _      _
                                                          _
 )
@@ -399,6 +399,7 @@
   vdc vold     ;; volume down (coarse)
   vuc volu     ;; volume up (coarse)
   vdf C-S-F14  ;; volume down (fine)
+  vuf C-S-F15  ;; volume up (fine)
 )
 #+end_src
 ** luminosity
