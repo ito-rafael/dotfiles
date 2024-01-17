@@ -59,11 +59,11 @@
 #+begin_src lisp :tangle no
 (deflayer template
   esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
-  '    1    2    3    4    5    6    7    8    9    0    -    =
-  tab  q    w    e    r    t    y    u    i    o    p    '    [
-  caps a    s    d    f    g    h    j    k    l    ç    ~    ]
-  lsft \\   z    x    c    v    b    n    m    ,    .    ;    rsft
-  lctl lmet lalt           spc            ralt /    left up   rght
+  '    1    2    3    4    5    6    7    8    9    0    -    =         nlck kp/  kp*  kp-
+  tab  q    w    e    r    t    y    u    i    o    p    '    [         kp7  kp8  kp9  kp+
+  caps a    s    d    f    g    h    j    k    l    ç    ~    ]         kp4  kp5  kp6
+  lsft \\   z    x    c    v    b    n    m    ,    .    ;    rsft      kp1  kp2  kp3  kprt
+  lctl lmet lalt           spc            ralt /    left up   rght        kp0     kp.
                                                          down
 )
 #+end_src
@@ -71,11 +71,11 @@
 #+begin_src lisp :tangle no
 (deflayer empty
   _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _              _              _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _         _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _         _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _         _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _         _    _    _    _
+  _    _    _              _              _    _    _    _    _            _      _
                                                          _
 )
 #+end_src
@@ -83,11 +83,11 @@
 #+begin_src lisp :tangle no
 (deflayer split
   _    _    _    _    _    _         _    _    _    _    _    _    _
-  _    _    _    _    _    _         _    _    _    _    _    _    _
-  _    _    _    _    _    _         _    _    _    _    _    _    _
-  _    _    _    _    _    _         _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _         _
-  _    _    _                   _              _    _    _    _    _
+  _    _    _    _    _    _         _    _    _    _    _    _    _         _    _    _    _
+  _    _    _    _    _    _         _    _    _    _    _    _    _         _    _    _    _
+  _    _    _    _    _    _         _    _    _    _    _    _    _         _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _         _         _    _    _    _
+  _    _    _                   _              _    _    _    _    _            _      _
                                                          _
 )
 #+end_src
@@ -95,11 +95,11 @@
 #+begin_src lisp :tangle no
 (deflayer left
   _    _    _    _    _    _         _    _    _    _    _    _    _
-  _    _    _    _    _    _         _    _    _    _    _    _    _
-  _    XX   XX   XX   XX   XX        XX   XX   XX   XX   XX   _    _
-  _    XX   XX   XX   XX   XX        @hra @hs  @hc  @hsm @hm  _    _
-  _    XX   XX   XX   XX   XX   _    XX   XX   XX   XX   XX        _
-  _    _    _                   _              _    _    _    _    _
+  _    _    _    _    _    _         _    _    _    _    _    _    _         _    _    _    _
+  _    XX   XX   XX   XX   XX        XX   XX   XX   XX   XX   _    _         _    _    _    _
+  _    XX   XX   XX   XX   XX        @hra @hs  @hc  @hsm @hm  _    _         _    _    _
+  _    XX   XX   XX   XX   XX   _    XX   XX   XX   XX   XX        _         _    _    _    _
+  _    _    _                   _              _    _    _    _    _            _      _
                                                          _
 )
 #+end_src
@@ -107,11 +107,11 @@
 #+begin_src lisp :tangle no
 (deflayer right
   _    _    _    _    _    _         _    _    _    _    _    _    _
-  _    _    _    _    _    _         _    _    _    _    _    _    _
-  _    XX   XX   XX   XX   XX        XX   XX   XX   XX   XX   _    _
-  _    @hm  @ha  @hc  @hs  @hra      XX   XX   XX   XX   XX   _    _
-  _    XX   XX   XX   XX   XX   _    XX   XX   XX   XX   XX        _
-  _    _    _                   _              _    _    _    _    _
+  _    _    _    _    _    _         _    _    _    _    _    _    _         _    _    _    _
+  _    XX   XX   XX   XX   XX        XX   XX   XX   XX   XX   _    _         _    _    _    _
+  _    @hm  @ha  @hc  @hs  @hra      XX   XX   XX   XX   XX   _    _         _    _    _
+  _    XX   XX   XX   XX   XX   _    XX   XX   XX   XX   XX        _         _    _    _    _
+  _    _    _                   _              _    _    _    _    _            _      _
                                                          _
 )
 #+end_src
@@ -119,11 +119,11 @@
 #+begin_src lisp
 (defsrc
   esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
-  grv  1    2    3    4    5    6    7    8    9    0    -    =
-  tab  q    w    e    r    t    y    u    i    o    p    [    ]
-  caps a    s    d    f    g    h    j    k    l    ;    '    \
-  lsft lsgt z    x    c    v    b    n    m    ,    .    /    rsft
-  lctl lmet lalt           spc            ralt ro   left up   rght
+  grv  1    2    3    4    5    6    7    8    9    0    -    =         nlck kp/  kp*  kp-
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]         kp7  kp8  kp9  kp+
+  caps a    s    d    f    g    h    j    k    l    ;    '    \         kp4  kp5  kp6
+  lsft lsgt z    x    c    v    b    n    m    ,    .    /    rsft      kp1  kp2  kp3  kprt
+  lctl lmet lalt           spc            ralt ro   left up   rght        kp0     kp.
                                                          down
 )
 #+end_src
@@ -165,11 +165,11 @@
 #+begin_src lisp
 (deflayer qwerty
   caps f1   f2   f3   f4   f5        f6   f7   f8   f9   f10  f11  f12
-  '    1    2    3    4    5         6    7    8    9    0    -    =
-  tab  q    w    e    r    t         y    u    i    o    p    '    [
-  @c2e @a2m @s2a @d2c @f2s @g2a      @h2a @j2s @k2c @l2m @;2m bspc ]
-  lsft z    x    c    v    b    XX   n    m    ,    .    /         rsft
-  lctl lmet @nav                @s2m           @num bspc left up   rght
+  '    1    2    3    4    5         6    7    8    9    0    -    =         _    _    _    _
+  tab  q    w    e    r    t         y    u    i    o    p    '    [         4    5    6    _
+  @c2e @a2m @s2a @d2c @f2s @g2a      @h2a @j2s @k2c @l2m @;2m bspc ]         1    2    3
+  lsft z    x    c    v    b    XX   n    m    ,    .    /         rsft      7    8    9    _
+  lctl lmet @nav                @s2m           @num bspc left up   rght         0      .
                                                          down
 )
 #+end_src
@@ -198,11 +198,11 @@
 #+begin_src lisp
 (deflayer colemak
   caps f1   f2   f3   f4   f5        f6   f7   f8   f9   f10  f11  f12
-  '    1    2    3    4    5         6    7    8    9    0    -    =
-  tab  q    w    f    p    b         j    l    u    y    f13  '    [
-  @c2e @a2m @r2a @s2c @t2s @g2a      @m2a @n2s @e2c @i2m @o2m bspc ]
-  lsft z    x    c    d    v    XX   k    h    ,    .    /         rsft
-  lctl lmet @nav                @s2m           @num bspc left up   rght
+  '    1    2    3    4    5         6    7    8    9    0    -    =         _    _    _    _
+  tab  q    w    f    p    b         j    l    u    y    f13  '    [         4    5    6    _
+  @c2e @a2m @r2a @s2c @t2s @g2a      @m2a @n2s @e2c @i2m @o2m bspc ]         1    2    3
+  lsft z    x    c    d    v    XX   k    h    ,    .    /         rsft      7    8    9    _
+  lctl lmet @nav                @s2m           @num bspc left up   rght         0      .
                                                          down
 )
 #+end_src
@@ -229,11 +229,11 @@
 #+begin_src lisp
 (deflayer number
   _    _    _    _    _    _         _    _    _    _    _    _    _
-  _    _    _    _    _    _         _    _    _    _    _    _    _
-  _    [    4    5    6    ]         XX   XX   XX   XX   XX   _    _
-  _    :    1    2    3    -         @hra @hs  @hc  @hsm @hm  _    _
-  _    ~    7    8    9    +    _    _    spc  ,    .    /         _
-  _    _    _                   0              _    _    _    _    _
+  _    _    _    _    _    _         _    _    _    _    _    _    _         _    _    _    _
+  _    [    4    5    6    ]         XX   XX   XX   XX   XX   _    _         _    _    _    _
+  _    :    1    2    3    -         @hra @hs  @hc  @hsm @hm  _    _         _    _    _
+  _    ~    7    8    9    +    _    _    spc  ,    .    /         _         _    _    _    _
+  _    _    _                   0              _    _    _    _    _            _      _
                                                          _
 )
 #+end_src
@@ -241,11 +241,11 @@
 #+begin_src lisp
 (deflayer symbol
   _    _    _    _    _    _         _    _    _    _    _    _    _
-  _    _    _    _    _    _         _    _    _    _    _    _    _
-  _    {    $    %    ^    }         _    _    _    _    _    _    _
-  _    ;    !    @    #    \_        @hra @hs  @hc  @hsm @hm  _    _
-  _    grv  &    *    \(   =    _    _    _    _    _    _         _
-  _    _    _                   \)             _    _    _    _    _
+  _    _    _    _    _    _         _    _    _    _    _    _    _         _    _    _    _
+  _    {    $    %    ^    }         _    _    _    _    _    _    _         _    _    _    _
+  _    ;    !    @    #    \_        @hra @hs  @hc  @hsm @hm  _    _         _    _    _
+  _    grv  &    *    \(   =    _    _    _    _    _    _         _         _    _    _    _
+  _    _    _                   \)             _    _    _    _    _            _      _
                                                          _
 )
 #+end_src
@@ -253,11 +253,11 @@
 #+begin_src lisp
 (deflayer navigation
   _    _    _    _    _    _         _    _    _    _    _    _    _
-  _    _    _    _    _    _         _    _    _    _    _    _    _
-  _    _    _    _    _    _         _    @ps  home end  XX   _    _
-  _    @hm  @ha  @hc  @hs  @hra      caps left down up   rght _    _
-  _    _    _    _    _    _    _    _    @sps pgdn pgup XX        _
-  _    _    _                   _              _    _    _    _    _
+  _    _    _    _    _    _         _    _    _    _    _    _    _         _    _    _    _
+  _    _    _    _    F2   _         _    @ps  home end  XX   _    _         _    _    _    _
+  _    @hm  @ha  @hc  @hs  @hra      caps left down up   rght _    _         _    _    _
+  _    _    _    _    _    _    _    _    @sps pgdn pgup XX        _         _    _    _    _
+  _    _    _                   _              _    _    _    _    _            _      _
                                                          _
 )
 #+end_src
@@ -272,11 +272,11 @@
 #+begin_src lisp
 (deflayer window-manager
   _    _    _    _    _    _         _    _    _    _    _    _    _
-  _    _    _    _    _    _         _    _    _    _    _    _    _
-  _    _    _    _    _    _         @spp @ofl @wsn @wsp @ofr _    _
-  _    @hm  @ha  @hc  @hs  @hra      @spt @wfl @wfd @wfu @wfr _    _
-  _    _    _    _    _    _    _    @spu @wml @wmd @wmu @wmr      _
-  _    _    _                   _              _    _    _    _    _
+  _    _    _    _    _    _         _    _    _    _    _    _    _         _    _    _    _
+  _    _    _    _    _    _         @spp @ofl @wsn @wsp @ofr _    _         _    _    _    _
+  _    @hm  @ha  @hc  @hs  @hra      @spt @wfl @wfd @wfu @wfr _    _         _    _    _
+  _    _    _    _    _    _    _    @spu @wml @wmd @wmu @wmr      _         _    _    _    _
+  _    _    _                   _              _    _    _    _    _            _      _
                                                          _
 )
 #+end_src
@@ -308,11 +308,11 @@
 #+begin_src lisp
 (deflayer out1
   _    _    _    _    _    _         _    _    _    _    _    _    _
-  _    _    _    _    _    _         _    _    _    _    _    _    _
-  _    XX   @w4  @w5  @w6  XX        XX   XX   XX   XX   XX   _    _
-  _    XX   @w1  @w2  @w3  XX        XX   XX   XX   XX   XX   _    _
-  _    XX   @w7  @w8  @w9  XX   _    XX   XX   XX   XX   XX        _
-  _    _    _                   @w0            _    _    _    _    _
+  _    _    _    _    _    _         _    _    _    _    _    _    _         _    _    _    _
+  _    XX   @w4  @w5  @w6  XX        XX   XX   XX   XX   XX   _    _         _    _    _    _
+  _    XX   @w1  @w2  @w3  XX        XX   XX   XX   XX   XX   _    _         _    _    _
+  _    XX   @w7  @w8  @w9  XX   _    XX   XX   XX   XX   XX        _         _    _    _    _
+  _    _    _                   @w0            _    _    _    _    _            _      _
                                                          _
 )
 #+end_src
@@ -320,11 +320,11 @@
 #+begin_src lisp
 (deflayer out2
   _    _    _    _    _    _         _    _    _    _    _    _    _
-  _    _    _    _    _    _         _    _    _    _    _    _    _
-  _    XX   @w14 @w15 @w16 XX        XX   XX   XX   XX   XX   _    _
-  _    XX   @w11 @w12 @w13 XX        XX   XX   XX   XX   XX   _    _
-  _    XX   @w17 @w18 @w19 XX   _    XX   XX   XX   XX   XX        _
-  _    _    _                   @w10           _    _    _    _    _
+  _    _    _    _    _    _         _    _    _    _    _    _    _         _    _    _    _
+  _    XX   @w14 @w15 @w16 XX        XX   XX   XX   XX   XX   _    _         _    _    _    _
+  _    XX   @w11 @w12 @w13 XX        XX   XX   XX   XX   XX   _    _         _    _    _
+  _    XX   @w17 @w18 @w19 XX   _    XX   XX   XX   XX   XX        _         _    _    _    _
+  _    _    _                   @w10           _    _    _    _    _            _      _
                                                          _
 )
 #+end_src
@@ -332,11 +332,11 @@
 #+begin_src lisp
 (deflayer out3
   _    _    _    _    _    _         _    _    _    _    _    _    _
-  _    _    _    _    _    _         _    _    _    _    _    _    _
-  _    XX   @w24 @w25 @w26 XX        XX   XX   XX   XX   XX   _    _
-  _    XX   @w21 @w22 @w23 XX        XX   XX   XX   XX   XX   _    _
-  _    XX   @w27 @w28 @w29 XX   _    XX   XX   XX   XX   XX        _
-  _    _    _                   @w20           _    _    _    _    _
+  _    _    _    _    _    _         _    _    _    _    _    _    _         _    _    _    _
+  _    XX   @w24 @w25 @w26 XX        XX   XX   XX   XX   XX   _    _         _    _    _    _
+  _    XX   @w21 @w22 @w23 XX        XX   XX   XX   XX   XX   _    _         _    _    _
+  _    XX   @w27 @w28 @w29 XX   _    XX   XX   XX   XX   XX        _         _    _    _    _
+  _    _    _                   @w20           _    _    _    _    _            _      _
                                                          _
 )
 #+end_src
@@ -396,11 +396,11 @@
 #+begin_src lisp
 (deflayer luminosity
   _    _    _    _    _    _         _    _    _    _    _    _    _
-  _    _    _    _    _    _         _    _    _    _    _    _    _
-  _    XX   XX   XX   XX   XX        XX   XX   XX   XX   XX   _    _
-  _    @hm  @ha  @hc  @hs  @hra      XX   XX   XX   XX   XX   _    _
-  _    XX   XX   XX   XX   XX   _    XX   XX   XX   XX   XX        _
-  _    _    _                   _              _    _    _    _    _
+  _    _    _    _    _    _         _    _    _    _    _    _    _         _    _    _    _
+  _    XX   XX   XX   XX   XX        XX   XX   XX   XX   XX   _    _         _    _    _    _
+  _    @hm  @ha  @hc  @hs  @hra      XX   XX   XX   XX   XX   _    _         _    _    _
+  _    XX   XX   XX   XX   XX   _    XX   XX   XX   XX   XX        _         _    _    _    _
+  _    _    _                   _              _    _    _    _    _            _      _
                                                          _
 )
 #+end_src
@@ -408,11 +408,11 @@
 #+begin_src lisp
 (deflayer mouse
   _    _    _    _    _    _         _    _    _    _    _    _    _
-  _    _    _    _    _    _         _    _    _    _    _    _    _
-  _    XX   XX   XX   XX   XX        XX   XX   XX   XX   XX   _    _
-  _    @hm  @ha  @hc  @hs  @hra      XX   XX   XX   XX   XX   _    _
-  _    XX   XX   XX   XX   XX   _    XX   XX   XX   XX   XX        _
-  _    _    _                   _              _    _    _    _    _
+  _    _    _    _    _    _         _    _    _    _    _    _    _         _    _    _    _
+  _    XX   XX   XX   XX   XX        XX   XX   XX   XX   XX   _    _         _    _    _    _
+  _    @hm  @ha  @hc  @hs  @hra      XX   kp4  kp2  kp8  kp6  XX   _         _    _    _
+  _    XX   XX   XX   XX   XX   _    XX   XX   XX   XX   XX        _         _    _    _    _
+  _    _    _                   _              _    _    _    _    _            _      _
                                                          _
 )
 #+end_src
@@ -420,11 +420,11 @@
 #+begin_src lisp
 (deflayer obs-studio
   _    _    _    _    _    _         _    _    _    _    _    _    _
-  _    _    _    _    _    _         _    _    _    _    _    _    _
-  _    XX   XX   XX   XX   XX        XX   XX   XX   XX   XX   _    _
-  _    XX   XX   XX   XX   XX        @hra @hs  @hc  @hsm @hm  _    _
-  _    XX   XX   XX   XX   XX   _    XX   XX   XX   XX   XX        _
-  _    _    _                   _              _    _    _    _    _
+  _    _    _    _    _    _         _    _    _    _    _    _    _         _    _    _    _
+  _    XX   XX   XX   XX   XX        XX   XX   XX   XX   XX   _    _         _    _    _    _
+  _    XX   XX   XX   XX   XX        @hra @hs  @hc  @hsm @hm  _    _         _    _    _
+  _    XX   XX   XX   XX   XX   _    XX   XX   XX   XX   XX        _         _    _    _    _
+  _    _    _                   _              _    _    _    _    _            _      _
                                                          _
 )
 #+end_src
@@ -432,11 +432,11 @@
 #+begin_src lisp
 (deflayer function-keys-1
   _    _    _    _    _    _         _    _    _    _    _    _    _
-  _    _    _    _    _    _         _    _    _    _    _    _    _
-  _    f11  f4   f5   f6   XX        XX   XX   XX   XX   XX   _    _
-  _    f10  f1   f2   f3   XX        @hra @hs  @hc  @hsm @hm  _    _
-  _    f12  f7   f8   f9   XX   _    XX   XX   XX   XX   XX        _
-  _    _    _                   XX             _    _    _    _    _
+  _    _    _    _    _    _         _    _    _    _    _    _    _         _    _    _    _
+  _    f11  f4   f5   f6   XX        XX   XX   XX   XX   XX   _    _         _    _    _    _
+  _    f10  f1   f2   f3   XX        @hra @hs  @hc  @hsm @hm  _    _         _    _    _
+  _    f12  f7   f8   f9   XX   _    XX   XX   XX   XX   XX        _         _    _    _    _
+  _    _    _                   XX             _    _    _    _    _            _      _
                                                          _
 )
 #+end_src
@@ -444,11 +444,11 @@
 #+begin_src lisp
 (deflayer function-keys-2
   _    _    _    _    _    _         _    _    _    _    _    _    _
-  _    _    _    _    _    _         _    _    _    _    _    _    _
-  _    XX   XX   XX   XX   XX        XX   f17  f18  f19  f20  _    _
-  _    @hm  @ha  @hc  @hs  @hra      XX   f13  f14  f15  f16  _    _
-  _    XX   XX   XX   XX   XX   _    XX   f21  f22  f23  f24       _
-  _    _    _                   XX             _    _    _    _    _
+  _    _    _    _    _    _         _    _    _    _    _    _    _         _    _    _    _
+  _    XX   XX   XX   XX   XX        XX   f17  f18  f19  f20  _    _         _    _    _    _
+  _    @hm  @ha  @hc  @hs  @hra      XX   f13  f14  f15  f16  _    _         _    _    _
+  _    XX   XX   XX   XX   XX   _    XX   f21  f22  f23  f24       _         _    _    _    _
+  _    _    _                   XX             _    _    _    _    _            _      _
                                                          _
 )
 #+end_src
