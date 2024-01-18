@@ -386,7 +386,7 @@
 (deflayer media
   _    _    _    _    _    _         _    _    _    _    _    _    _
   _    _    _    _    _    _         _    _    _    _    _    _    _         _    _    _    _
-  _    XX   XX   XX   XX   XX        XX   XX   @mdc @muc XX   _    _         _    _    _    _
+  _    XX   XX   XX   XX   XX        @mm  XX   @mdc @muc XX   _    _         _    _    _    _
   _    @hm  @ha  @hc  @hs  @hra      @pp  @sp  @vdc @vuc @sn  _    _         _    _    _
   _    XX   XX   XX   XX   XX   _    @vm  XX   @vdf @vuf XX        _         _    _    _    _
   _    _    _                   _              _    _    _    _    _            _      _
@@ -404,6 +404,7 @@
 
   mdc C-F14    ;; microphone down (coarse)
   muc C-F15    ;; microphone up (coarse)
+  mm  M-S-F14  ;; mute microphone
 
   sp  prev  ;; song previous
   sn  next  ;; song next
