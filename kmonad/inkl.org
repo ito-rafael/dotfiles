@@ -404,6 +404,7 @@
 
   mdc C-F14    ;; microphone down (coarse)
   muc C-F15    ;; microphone up (coarse)
+  mdf S-F14    ;; microphone down (fine)
   mm  M-S-F14  ;; mute microphone
 
   sp  prev  ;; song previous
