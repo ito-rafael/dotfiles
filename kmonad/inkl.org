@@ -408,7 +408,7 @@
 
   sp  prev  ;; song previous
   sn  next  ;; song next
-  pp pp     ;; song play/pause
+  pp  pp    ;; song play/pause
 )
 #+end_src
 ** luminosity
