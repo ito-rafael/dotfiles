@@ -431,7 +431,7 @@
   _    _    _    _    _    _         _    _    _    _    _    _    _
   _    _    _    _    _    _         _    _    _    _    _    _    _         _    _    _    _
   _    XX   XX   XX   XX   XX        XX   XX   XX   XX   XX   _    _         _    _    _    _
-  _    @hm  @ha  @hc  @hs  @hra      XX   @mcl kp2  kp8  kp6  _    _         _    _    _
+  _    @hm  @ha  @hc  @hs  @hra      XX   @mcl @mcd kp8  kp6  _    _         _    _    _
   _    XX   XX   XX   XX   XX   _    XX   XX   XX   XX   XX        _         _    _    _    _
   _    _    _                   _              _    _    _    _    _            _      _
                                                          _
@@ -442,6 +442,7 @@
 (defalias
   ;; cursor navigation
   mcl kp4  ;; mouse cursor left
+  mcd kp2  ;; mouse cursor down
 )
 #+end_src
 ** obs
