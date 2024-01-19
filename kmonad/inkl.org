@@ -455,6 +455,7 @@
   ;; mouse clicks
   mbl kp/  ;; left button click   (button1)
   mbm kp*  ;; middle button click (button2)
+  mbr kp-  ;; right button click  (button3)
 )
 #+end_src
 ** obs
