@@ -453,6 +453,7 @@
   mwl kp7  ;; mouse wheel left  (button7)
 
   ;; mouse clicks
+  mbl kp/  ;; left button click   (button1)
   mbm kp*  ;; middle button click (button2)
 )
 #+end_src
