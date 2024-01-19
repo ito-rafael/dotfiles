@@ -430,7 +430,7 @@
 (deflayer mouse
   _    _    _    _    _    _         _    _    _    _    _    _    _
   _    _    _    _    _    _         _    _    _    _    _    _    _         _    _    _    _
-  _    XX   XX   XX   XX   XX        XX   XX   XX   XX   XX   _    _         _    _    _    _
+  _    XX   XX   XX   XX   XX        XX   XX   @mbm XX   XX   _    _         _    _    _    _
   _    @hm  @ha  @hc  @hs  @hra      XX   @mcl @mcd @mcu @mcr _    _         _    _    _
   _    XX   XX   XX   XX   XX   _    XX   XX   XX   XX   XX        _         _    _    _    _
   _    _    _                   _              _    _    _    _    _            _      _
@@ -445,6 +445,9 @@
   mcd kp2  ;; mouse cursor down
   mcu kp8  ;; mouse cursor up
   mcr kp6  ;; mouse cursor right
+
+  ;; mouse clicks
+  mbm kp*  ;; middle button click (button2)
 )
 #+end_src
 ** obs
