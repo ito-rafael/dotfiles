@@ -432,7 +432,7 @@
   _    _    _    _    _    _         _    _    _    _    _    _    _         _    _    _    _
   _    XX   XX   XX   XX   XX        XX   XX   @mbm XX   XX   _    _         _    _    _    _
   _    @hm  @ha  @hc  @hs  @hra      XX   @mcl @mcd @mcu @mcr _    _         _    _    _
-  _    XX   XX   XX   XX   XX   _    XX   @mwl XX   XX   XX        _         _    _    _    _
+  _    XX   XX   XX   XX   XX   _    XX   @mwl @mwd XX   XX        _         _    _    _    _
   _    _    _                   _              _    _    _    _    _            _      _
                                                          _
 )
@@ -447,6 +447,7 @@
   mcr kp6  ;; mouse cursor right
 
   ;; mouse wheel
+  mwd kp3  ;; mouse wheel down  (button5)
   mwl kp7  ;; mouse wheel left  (button7)
 
   ;; mouse clicks
