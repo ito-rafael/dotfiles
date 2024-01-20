@@ -445,6 +445,7 @@
   ;; underglow
   ugd XX  ;; underglow down
   ugu XX  ;; underglow up
+  uoo XX  ;; underglow on/off
 
   ;; LED strip
   lsd XX  ;; LED strip down
