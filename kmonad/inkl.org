@@ -420,7 +420,7 @@
   _    _    _    _    _    _         _    _    _    _    _    _    _         _    _    _    _
   _    XX   XX   XX   XX   XX        XX   XX   XX   XX   XX   _    _         _    _    _    _
   _    XX   XX   XX   XX   XX   _    XX   XX   XX   XX   XX        _         _    _    _    _
-  _    @hm  @ha  @hc  @hs  @hra      XX   XX   @bnd @bnu XX   _    _         _    _    _
+  _    @hm  @ha  @hc  @hs  @hra      XX   @gmd @bnd @bnu XX   _    _         _    _    _
   _    _    _                   _              _    _    _    _    _            _      _
                                                          _
 )
@@ -431,6 +431,9 @@
   ;; brightness
   bnd bldn  ;; brightness down
   bnu blup  ;; brightness up
+
+  ;; gamma
+  gmd XX  ;; gamma down
 )
 #+end_src
 ** mouse
