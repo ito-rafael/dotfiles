@@ -419,7 +419,7 @@
   _    _    _    _    _    _         _    _    _    _    _    _    _
   _    _    _    _    _    _         _    _    _    _    _    _    _         _    _    _    _
   _    @hm  @ha  @hc  @hs  @hra      XX   @gmd @bnd @bnu @gmu _    _         _    _    _
-  _    XX   XX   XX   XX   XX        XX   XX   @ugd @ugu XX   _    _         _    _    _    _
+  _    XX   XX   XX   XX   XX        XX   @lsd @ugd @ugu XX   _    _         _    _    _    _
   _    XX   XX   XX   XX   XX   _    XX   XX   @bld @blu XX        _         _    _    _    _
   _    _    _                   _              _    _    _    _    _            _      _
                                                          _
@@ -443,6 +443,9 @@
   ;; underglow
   ugd XX  ;; underglow down
   ugu XX  ;; underglow up
+
+  ;; LED strip
+  lsd XX  ;; LED strip down
 )
 #+end_src
 ** mouse
