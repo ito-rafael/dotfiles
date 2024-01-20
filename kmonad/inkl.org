@@ -418,8 +418,8 @@
 (deflayer luminosity
   _    _    _    _    _    _         _    _    _    _    _    _    _
   _    _    _    _    _    _         _    _    _    _    _    _    _         _    _    _    _
-  _    @hm  @ha  @hc  @hs  @hra      XX   @gmd @bnd @bnu @gmu _    _         _    _    _
   _    XX   XX   XX   XX   XX        XX   @lsd @ugd @ugu @lsu _    _         _    _    _    _
+  _    @hm  @ha  @hc  @hs  @hra      @goo @gmd @bnd @bnu @gmu _    _         _    _    _
   _    XX   XX   XX   XX   XX   _    XX   XX   @bld @blu XX        _         _    _    _    _
   _    _    _                   _              _    _    _    _    _            _      _
                                                          _
@@ -435,6 +435,7 @@
   ;; gamma
   gmd XX  ;; gamma down
   gmu XX  ;; gamma up
+  goo XX  ;; gamma on/off
 
   ;; backlit
   bld XX  ;; backlit down
