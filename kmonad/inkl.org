@@ -419,8 +419,8 @@
   _    _    _    _    _    _         _    _    _    _    _    _    _
   _    _    _    _    _    _         _    _    _    _    _    _    _         _    _    _    _
   _    XX   XX   XX   XX   XX        XX   XX   XX   XX   XX   _    _         _    _    _    _
-  _    XX   XX   XX   XX   XX   _    XX   XX   XX   XX   XX        _         _    _    _    _
   _    @hm  @ha  @hc  @hs  @hra      XX   @gmd @bnd @bnu @gmu _    _         _    _    _
+  _    XX   XX   XX   XX   XX   _    XX   XX   @bld XX   XX        _         _    _    _    _
   _    _    _                   _              _    _    _    _    _            _      _
                                                          _
 )
@@ -435,6 +435,9 @@
   ;; gamma
   gmd XX  ;; gamma down
   gmu XX  ;; gamma up
+
+  ;; backlit
+  bld XX  ;; backlit down
 )
 #+end_src
 ** mouse
