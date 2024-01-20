@@ -419,10 +419,17 @@
   _    _    _    _    _    _         _    _    _    _    _    _    _
   _    _    _    _    _    _         _    _    _    _    _    _    _         _    _    _    _
   _    XX   XX   XX   XX   XX        XX   XX   XX   XX   XX   _    _         _    _    _    _
-  _    @hm  @ha  @hc  @hs  @hra      XX   XX   XX   XX   XX   _    _         _    _    _
   _    XX   XX   XX   XX   XX   _    XX   XX   XX   XX   XX        _         _    _    _    _
+  _    @hm  @ha  @hc  @hs  @hra      XX   XX   @bnd XX   XX   _    _         _    _    _
   _    _    _                   _              _    _    _    _    _            _      _
                                                          _
+)
+#+end_src
+*** alias
+#+begin_src lisp
+(defalias
+  ;; brightness
+  bnd bldn  ;; brightness down
 )
 #+end_src
 ** mouse
