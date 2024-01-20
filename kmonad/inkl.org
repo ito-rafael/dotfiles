@@ -418,7 +418,7 @@
 (deflayer luminosity
   _    _    _    _    _    _         _    _    _    _    _    _    _
   _    _    _    _    _    _         _    _    _    _    _    _    _         _    _    _    _
-  _    XX   XX   XX   XX   XX        XX   @lsd @ugd @ugu @lsu _    _         _    _    _    _
+  _    XX   XX   XX   XX   XX        @loo @lsd @ugd @ugu @lsu _    _         _    _    _    _
   _    @hm  @ha  @hc  @hs  @hra      @goo @gmd @bnd @bnu @gmu _    _         _    _    _
   _    XX   XX   XX   XX   XX   _    XX   XX   @bld @blu XX        _         _    _    _    _
   _    _    _                   _              _    _    _    _    _            _      _
@@ -448,6 +448,7 @@
   ;; LED strip
   lsd XX  ;; LED strip down
   lsu XX  ;; LED strip up
+  loo XX  ;; LED strip on/off
 )
 #+end_src
 ** mouse
