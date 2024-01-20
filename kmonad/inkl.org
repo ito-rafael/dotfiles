@@ -440,6 +440,7 @@
   ;; backlit
   bld XX  ;; backlit down
   blu XX  ;; backlit up
+  boo XX  ;; backlit on/off
 
   ;; underglow
   ugd XX  ;; underglow down
