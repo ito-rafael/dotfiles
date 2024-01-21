@@ -493,7 +493,7 @@
   _    _    _    _    _    _         _    _    _    _    _    _    _         _    _    _    _
   _    XX   XX   XX   XX   XX        XX   XX   XX   XX   XX   _    _         _    _    _    _
   _    XX   XX   XX   XX   XX   _    XX   XX   XX   XX   XX        _         _    _    _    _
-  _    XX   @sc1 XX   XX   XX        @hra @hs  @hc  @hsm @hm  _    _         _    _    _
+  _    XX   @sc1 @sc2 XX   XX        @hra @hs  @hc  @hsm @hm  _    _         _    _    _
   _    _    _                   _              _    _    _    _    _            _      _
                                                          _
 )
@@ -502,6 +502,7 @@
 #+begin_src lisp
 (defalias
   sc1 XX  ;; scene 1
+  sc2 XX  ;; scene 2
 )
 #+end_src
 ** fn1
