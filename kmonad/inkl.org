@@ -493,7 +493,7 @@
   _    _    _    _    _    _         _    _    _    _    _    _    _         _    _    _    _
   _    XX   XX   XX   XX   XX   _    XX   XX   XX   XX   XX        _         _    _    _    _
   _    XX   @sc1 @sc2 @sc3 XX        @hra @hs  @hc  @hsm @hm  _    _         _    _    _
-  _    XX   @sc4 XX   XX   XX        XX   XX   XX   XX   XX   _    _         _    _    _    _
+  _    XX   @sc4 @sc5 XX   XX        XX   XX   XX   XX   XX   _    _         _    _    _    _
   _    _    _                   _              _    _    _    _    _            _      _
                                                          _
 )
@@ -505,6 +505,7 @@
   sc2 XX  ;; scene 2
   sc3 XX  ;; scene 3
   sc4 XX  ;; scene 4
+  sc5 XX  ;; scene 5
 )
 #+end_src
 ** fn1
