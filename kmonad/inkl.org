@@ -492,10 +492,16 @@
   _    _    _    _    _    _         _    _    _    _    _    _    _
   _    _    _    _    _    _         _    _    _    _    _    _    _         _    _    _    _
   _    XX   XX   XX   XX   XX        XX   XX   XX   XX   XX   _    _         _    _    _    _
-  _    XX   XX   XX   XX   XX        @hra @hs  @hc  @hsm @hm  _    _         _    _    _
   _    XX   XX   XX   XX   XX   _    XX   XX   XX   XX   XX        _         _    _    _    _
+  _    XX   @sc1 XX   XX   XX        @hra @hs  @hc  @hsm @hm  _    _         _    _    _
   _    _    _                   _              _    _    _    _    _            _      _
                                                          _
+)
+#+end_src
+*** alias
+#+begin_src lisp
+(defalias
+  sc1 XX  ;; scene 1
 )
 #+end_src
 ** fn1
