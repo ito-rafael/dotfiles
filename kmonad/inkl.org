@@ -515,6 +515,8 @@
   op0 XX  ;; output 0
   op1 XX  ;; output 1
   op2 XX  ;; output 2
+
+  bs  XX  ;; black screen
 )
 #+end_src
 ** fn1
