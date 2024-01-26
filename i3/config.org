@@ -685,6 +685,7 @@ bindsym mod3+ --whole-window button5 exec "pactl set-sink-volume @DEFAULT_SINK@ 
 *** Buttons
 #+begin_src sh
 bindsym kp_divide   seat - cursor press button1  # left click
+bindsym kp_multiply seat - cursor press button2  # middle click
 bindsym kp_subtract seat - cursor press button3  # right click
 #+end_src
 * Keyboard keybinds
