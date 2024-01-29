@@ -682,6 +682,10 @@ bindsym mod3+ --whole-window button4 exec "pactl set-sink-volume @DEFAULT_SINK@ 
 bindsym mod3+ --whole-window button5 exec "pactl set-sink-volume @DEFAULT_SINK@ -5% && pkill -RTMIN+10 i3blocks"
 #+end_src
 ** Mouse keys
+*** Cursor
+#+begin_src sh
+bindsym kp_4 seat - cursor move -10  0   # cursor left
+#+end_src
 *** Buttons
 #+begin_src sh
 bindsym kp_divide   seat - cursor press button1  # left click
