@@ -276,7 +276,7 @@
   _    _    _    _    _    _         _    _    _    _    _    _    _         _    _    _    _
   _    @hm  @ha  @hc  @hs  @hra      @spt @wfl @wfd @wfu @wfr _    _         _    _    _
   _    _    _    _    _    _    _    @spu @wml @wmd @wmu @wmr      _         _    _    _    _
-  _    @klw _    _    _    _         @spp @ofl @wsn @wsp @ofr _    _         _    _    _    _
+  _    @klw @klt _    _    _         @spp @ofl @wsn @wsp @ofr _    _         _    _    _    _
   _    _    _                   _              _    _    _    _    _            _      _
                                                          _
 )
@@ -286,6 +286,7 @@
 #+begin_src lisp
 (defalias
   klw A-M-q   ;; kill window
+  klt A-M-w   ;; kill tab
 )
 #+end_src
 **** right hand
