@@ -274,14 +274,21 @@
 (deflayer window-manager
   _    _    _    _    _    _         _    _    _    _    _    _    _
   _    _    _    _    _    _         _    _    _    _    _    _    _         _    _    _    _
-  _    _    _    _    _    _         @spp @ofl @wsn @wsp @ofr _    _         _    _    _    _
   _    @hm  @ha  @hc  @hs  @hra      @spt @wfl @wfd @wfu @wfr _    _         _    _    _
   _    _    _    _    _    _    _    @spu @wml @wmd @wmu @wmr      _         _    _    _    _
+  _    @klw _    _    _    _         @spp @ofl @wsn @wsp @ofr _    _         _    _    _    _
   _    _    _                   _              _    _    _    _    _            _      _
                                                          _
 )
 #+end_src
 *** alias
+**** left hand
+#+begin_src lisp
+(defalias
+  klw A-M-q   ;; kill window
+)
+#+end_src
+**** right hand
 #+begin_src lisp
 (defalias
   ofl S-RM-left   ;; focus output left
