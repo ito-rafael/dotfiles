@@ -274,9 +274,9 @@
 (deflayer window-manager
   _    _    _    _    _    _         _    _    _    _    _    _    _
   _    _    _    _    _    _         _    _    _    _    _    _    _         _    _    _    _
-  _    @hm  @ha  @hc  @hs  @hra      @spt @wfl @wfd @wfu @wfr _    _         _    _    _
   _    _    _    _    _    _    _    @spu @wml @wmd @wmu @wmr      _         _    _    _    _
   _    @klw @klt @fsc @lck @stk      @spp @ofl @wsn @wsp @ofr _    _         _    _    _    _
+  _    @e2m @ha  @hc  @hs  @hra      @spt @wfl @wfd @wfu @wfr _    _         _    _    _
   _    _    _                   _              _    _    _    _    _            _      _
                                                          _
 )
@@ -290,6 +290,8 @@
   fsc  A-M-f  ;; fullscreen
   lck M-home  ;; i3/sway mode_system
   stk A-M-e   ;; i3/sway stacking layout
+
+  e2m (tap-hold-next-release 125 ret lmet) ;; enter to left meta
 )
 #+end_src
 **** right hand
