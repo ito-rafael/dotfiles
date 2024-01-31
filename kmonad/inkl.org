@@ -276,7 +276,7 @@
   _    _    _    _    _    _         _    _    _    _    _    _    _         _    _    _    _
   _    _    _    _    _    _    _    @spu @wml @wmd @wmu @wmr      _         _    _    _    _
   _    @klw @klt @fsc @lck @stk      @spp @ofl @wsn @wsp @ofr _    _         _    _    _    _
-  _    @e2m @res @hc  @hs  @hra      @spt @wfl @wfd @wfu @wfr _    _         _    _    _
+  _    @e2m @res @flt @hs  @hra      @spt @wfl @wfd @wfu @wfr _    _         _    _    _
   _    _    _                   _              _    _    _    _    _            _      _
                                                          _
 )
@@ -293,6 +293,7 @@
 
   e2m (tap-hold-next-release 125 ret lmet) ;; enter to left meta
   res A-M-r  ;; i3/sway resize container
+  flt A-M-d  ;; i3/sway floating mode
 )
 #+end_src
 **** right hand
