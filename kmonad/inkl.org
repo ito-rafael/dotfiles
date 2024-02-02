@@ -323,6 +323,8 @@
   spp M-y  ;; scratchpad python
   spt M-h  ;; scratchpad terminal
   spu M-n  ;; scratchpad undefined (TBD)
+
+  rof M-ref  ;; open rofi (application launcher)
 )
 #+end_src
 ** outputs
