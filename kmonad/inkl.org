@@ -276,7 +276,7 @@
   _    _    _    _    _    _         _    _    _    _    _    _    _         _    _    _    _
   _    @klw @klt @fsc @lck @stk      @spp @ofl @wsn @wsp @ofr _    _         _    _    _    _
   _    @e2m @res @flt @ter XX        @spt @wfl @wfd @wfu @wfr _    _         _    _    _
-  _    @spl @emx @cpy _    _    _    @spu @wml @wmd @wmu @wmr      _         _    _    _    _
+  _    @spl @emx @cpy @pst _    _    @spu @wml @wmd @wmu @wmr      _         _    _    _    _
   _    _    _                   _              _    _    _    _    _            _      _
                                                          _
 )
@@ -299,6 +299,7 @@
   spl A-M-z  ;; i3/sway toggle horizontal/vertical orientation split
   emx f16    ;; Emacs M-x --> redirected with xremap
   cpy f17    ;; copy --> redirected with xremap
+  pst f18    ;; paste --> redirected with xremap
 )
 #+end_src
 **** right hand
