@@ -274,9 +274,9 @@
 (deflayer window-manager
   _    _    _    _    _    _         _    _    _    _    _    _    _
   _    _    _    _    _    _         _    _    _    _    _    _    _         _    _    _    _
-  _    _    _    _    _    _    _    @spu @wml @wmd @wmu @wmr      _         _    _    _    _
   _    @klw @klt @fsc @lck @stk      @spp @ofl @wsn @wsp @ofr _    _         _    _    _    _
   _    @e2m @res @flt @ter XX        @spt @wfl @wfd @wfu @wfr _    _         _    _    _
+  _    @spl _    _    _    _    _    @spu @wml @wmd @wmu @wmr      _         _    _    _    _
   _    _    _                   _              _    _    _    _    _            _      _
                                                          _
 )
@@ -295,6 +295,8 @@
   res A-M-r  ;; i3/sway resize container
   flt A-M-d  ;; i3/sway floating mode
   ter A-M-t  ;; open terminal
+
+  spl A-M-z  ;; i3/sway toggle horizontal/vertical orientation split
 )
 #+end_src
 **** right hand
