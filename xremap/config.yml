@@ -1,3 +1,6 @@
+virtual_modifiers:
+  - rightalt
+
 keymap:
   - name: ctrl+j to enter
     remap:
