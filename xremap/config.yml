@@ -17,6 +17,13 @@ keymap:
        C-apostrophe:
          launch: ["bash", "-c", "ydotool key semicolon"]
 
+  - name: copy in Terminal
+    application:
+      only: kitty
+    remap:
+      rightalt-c:
+        launch: ["bash", "-c", "ydotool key --clearmodifiers 'ctrl+shift+c'"]
+
   - name: vim motion
     remap:
       rightalt-h:
