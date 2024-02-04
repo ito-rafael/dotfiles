@@ -47,3 +47,9 @@ keymap:
         launch: ["bash", "-c", "ydotool key 104:1 104:0"]
       rightalt-d:
         launch: ["bash", "-c", "ydotool key 109:1 109:0"]
+
+  - name: keybinds with AltGr (in Tab position)
+    remap:
+      #rightalt-backspace: Delete
+      rightalt-backspace:
+        launch: ["bash", "-c", "ydotool key Delete"]
