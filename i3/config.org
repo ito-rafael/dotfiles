@@ -687,6 +687,7 @@ bindsym mod3+ --whole-window button5 exec "pactl set-sink-volume @DEFAULT_SINK@ 
 bindsym kp_4 seat - cursor move -10  0   # cursor left
 bindsym kp_2 seat - cursor move  0   10  # cursor down
 bindsym kp_8 seat - cursor move  0  -10  # cursor up
+bindsym kp_6 seat - cursor move  10  0   # cursor right
 #+end_src
 *** Buttons
 #+begin_src sh
