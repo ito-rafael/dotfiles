@@ -31,6 +31,14 @@ keymap:
 
   - name: vim motion
     remap:
+      #rightalt-h: Left
+      #rightalt-j: Down
+      #rightalt-k: Up
+      #rightalt-l: Right
+      #rightalt-0: Home
+      #rightalt-4: End
+      #rightalt-d: PgDn
+      #rightalt-u: PgUp
       rightalt-h:
         launch: ["bash", "-c", "ydotool key 105:1 105:0"]
       rightalt-j:
