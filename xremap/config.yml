@@ -10,10 +10,12 @@ keymap:
       C-SUPER-k: 
         launch: ["bash", "-c", "~/.config/scripts/navigate2ws_next.py --prev"]
 
-   - name: colon
+   - name: colon/semicolon
      remap:
        rightalt-apostrophe:
          launch: ["bash", "-c", "ydotool key colon"]
+       C-apostrophe:
+         launch: ["bash", "-c", "ydotool key semicolon"]
 
   - name: vim motion
     remap:
