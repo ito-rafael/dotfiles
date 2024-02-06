@@ -700,6 +700,7 @@ bindsym kp_subtract seat - cursor press button3  # right click
 bindsym kp_1 seat - cursor press button4  # wheel up
 bindsym kp_3 seat - cursor press button5  # wheel down
 bindsym kp_7 seat - cursor press button6  # wheel right
+bindsym kp_9 seat - cursor press button7  # wheel left
 #+end_src
 * Keyboard keybinds
 ** Ctrl + Space = Return
