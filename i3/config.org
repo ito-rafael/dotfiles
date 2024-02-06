@@ -699,6 +699,7 @@ bindsym kp_subtract seat - cursor press button3  # right click
 #+begin_src sh
 bindsym kp_1 seat - cursor press button4  # wheel up
 bindsym kp_3 seat - cursor press button5  # wheel down
+bindsym kp_7 seat - cursor press button6  # wheel right
 #+end_src
 * Keyboard keybinds
 ** Ctrl + Space = Return
