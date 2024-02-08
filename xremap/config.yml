@@ -65,3 +65,7 @@ keymap:
       rightalt-slash:
         launch: ["bash", "-c", "ydotool key backslash"]
 
+  - name: navigate to screen 3
+    remap:
+      rightalt-1:
+        launch: ["bash", "-c", "/home/rafael/.config/scripts/navigate2ws.sh 21"]
