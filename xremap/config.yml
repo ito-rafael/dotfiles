@@ -85,3 +85,6 @@ keymap:
         launch: ["bash", "-c", "/home/rafael/.config/scripts/navigate2ws.sh 28"]
       rightalt-9:
         launch: ["bash", "-c", "/home/rafael/.config/scripts/navigate2ws.sh 29"]
+      rightalt-0:
+        launch: ["bash", "-c", "/home/rafael/.config/scripts/navigate2ws.sh 20"]
+
