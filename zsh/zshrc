@@ -159,6 +159,7 @@ alias m=man                         # man
 alias j=joplin                      # joplin
 alias k=kill                        # kill
 alias h=history                     # history
+alias j='journalctl -u'             # journalctl
 alias -g g='| grep'                 # grep
 alias df='df -h'                    # df
 alias cpr='cp -R'                   # cp
