@@ -181,6 +181,9 @@ alias wdf='watch -n1 df -h'
 alias fl='faillock --user $USER --reset'
 alias kb='pkill brave && brave &'
 #-----------------------------
+# LaTeX
+alias tlmgr='$TEXMFDIST/scripts/texlive/tlmgr.pl --usermode'
+#-----------------------------
 # ZSA Moonlander
 alias rmm='rm moonlander_*.bin'
 alias wcm='wally-cli moonlander_*.bin'
