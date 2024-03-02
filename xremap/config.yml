@@ -88,3 +88,8 @@ keymap:
       rightalt-0:
         launch: ["bash", "-c", "/home/rafael/.config/scripts/navigate2ws.sh 20"]
 
+  - name: move container to screen 3
+    remap:
+      C-rightalt-1:
+        launch: ["bash", "-c", "swaymsg move container to workspace 21 && swaymsg workspace 21"]
+
