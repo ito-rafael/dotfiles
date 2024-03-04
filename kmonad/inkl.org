@@ -153,7 +153,7 @@
   num (tap-hold-next-release 150 ret  (layer-toggle number))
   sym (tap-hold-next-release 150 bspc (layer-toggle symbol))
   wm  (tap-hold-next-release 150 spc  (layer-toggle window-manager))
-  mov (tap-hold-next-release 150 spc  (layer-toggle mouse))
+  mou (tap-hold-next-release 150 spc  (layer-toggle mouse))
   v2m (tap-hold-next-release 150 v    (layer-toggle mouse))
   med (tap-hold-next-release 150 spc  (layer-toggle media))
   obs (tap-hold-next-release 150 spc  (layer-toggle obs-studio))
