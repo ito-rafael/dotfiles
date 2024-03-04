@@ -104,4 +104,6 @@ keymap:
         launch: ["bash", "-c", "swaymsg move container to workspace 26 && swaymsg workspace 26"]
       C-rightalt-7:
         launch: ["bash", "-c", "swaymsg move container to workspace 27 && swaymsg workspace 27"]
+      C-rightalt-8:
+        launch: ["bash", "-c", "swaymsg move container to workspace 28 && swaymsg workspace 28"]
 
