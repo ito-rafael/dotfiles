@@ -111,3 +111,9 @@ keymap:
       C-rightalt-0:
         launch: ["bash", "-c", "swaymsg move container to workspace 20 && swaymsg workspace 20"]
 
+keymap:
+  - name: copy and paste - general
+    application:
+      not: [kitty]
+    remap:
+      F17: C-c
