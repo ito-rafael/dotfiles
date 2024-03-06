@@ -117,3 +117,4 @@ keymap:
       not: [kitty]
     remap:
       F17: C-c
+      F18: C-v
