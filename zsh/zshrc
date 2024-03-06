@@ -93,6 +93,7 @@ GLOBALIAS_FILTER_VALUES+=(diff)
 GLOBALIAS_FILTER_VALUES+=(grep)
 GLOBALIAS_FILTER_VALUES+=(paru)
 GLOBALIAS_FILTER_VALUES+=(sudo)
+GLOBALIAS_FILTER_VALUES+=(tlmgr)
 
 #=======================================
 # hook functions
