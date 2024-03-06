@@ -114,7 +114,7 @@ keymap:
 keymap:
   - name: copy and paste - general
     application:
-      not: [kitty]
+      not: [kitty, dropdown_terminal]
     remap:
       F17: C-c
       F18: C-v
