@@ -194,6 +194,7 @@ alias {paru,yay}='paru --aur'        # paru/yay
 alias {sps,spi}='sudo pacman -S'    # pacman install
 alias spu='sudo pacman -Syu'        # pacman update/upgrade
 alias spr='sudo pacman -Rns'        # pacman uninstall
+alias spr='paccache -r -k 1'        # pacman clean
 alias pss='pacman -Ss'              # pacman search packages
 alias pqi='pacman -Qi'              # pacman query installed
 alias pqs='pacman -Qs'              # pacman list installed
