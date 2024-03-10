@@ -1,0 +1,14 @@
+#+title: Arch installation guide: btrfs edition
+#+author: Rafael Ito
+#+description: Arch install guide: btrfs edition
+#+startup: showeverything
+
+* Preparation
+** Documents
+- Arch install:
+  - https://wiki.archlinux.org/index.php/Installation_guide
+  - https://itsfoss.com/install-arch-linux/
+- Btrfs:
+  - https://wiki.archlinux.org/title/btrfs
+  - https://archive.kernel.org/oldwiki/btrfs.wiki.kernel.org/index.php/SysadminGuide.html#Subvolumes (obsolete!)
+  - https://btrfs.readthedocs.io/en/latest/index.html
