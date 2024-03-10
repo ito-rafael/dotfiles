@@ -12,3 +12,18 @@
   - https://wiki.archlinux.org/title/btrfs
   - https://archive.kernel.org/oldwiki/btrfs.wiki.kernel.org/index.php/SysadminGuide.html#Subvolumes (obsolete!)
   - https://btrfs.readthedocs.io/en/latest/index.html
+** Boot from the live USB
+download image from:
+https://www.archlinux.org/download/
+
+verify signature: (replace <VERSION> accordingly)
+#+begin_src sh
+gpg --keyserver-options auto-key-retrieve --verify archlinux-<VERSION>-x86_64.iso.sig
+#+end_src
+
+copy image to a USB stick: (replace "sdx" accordingly)
+#+begin_src sh
+dd bs=4M if=path/to/archlinux.iso of=/dev/sdx status=progress oflag=sync
+#+end_src
+
+Boot from the USB flash drive.
