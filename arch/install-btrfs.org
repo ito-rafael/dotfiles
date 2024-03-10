@@ -51,3 +51,7 @@ wpa_supplicant -c /etc/wpa_supplicant/SSID.conf -i wlp1s0
 wpa_supplicant -B -c /etc/wpa_supplicant/SSID.conf -i wlp1s0
 dhclient wlp1s0
 #+end_src
+** Update the system clock
+#+begin_src sh
+timedatectl set-ntp true
+#+end_src
