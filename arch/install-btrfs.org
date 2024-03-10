@@ -27,3 +27,8 @@ dd bs=4M if=path/to/archlinux.iso of=/dev/sdx status=progress oflag=sync
 #+end_src
 
 Boot from the USB flash drive.
+* Live environment
+** Increase font size
+#+begin_src sh
+setfont /usr/share/kbd/consolefonts/latarcyrheb-sun32.psfu.gz
+#+end_src
