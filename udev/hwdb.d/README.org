@@ -8,3 +8,24 @@
 https://wiki.archlinux.org/title/Keyboard_input
 https://wiki.archlinux.org/title/map_scancodes_to_keycodes
 /usr/include/linux/input-event-codes.h
+** Get scancodes
+Install evtest.
+#+begin_src sh
+sudo pacman -S evtest
+#+end_src
+
+Run =evtest=.
+#+begin_src sh
+evtest
+#+end_src
+
+Press any key, for example the letter A.
+#+begin_src comment
+Event: time 1709913885.529826, type 4 (EV_MSC), code 4 (MSC_SCAN), value 10
+Event: time 1709913885.529826, type 1 (EV_KEY), code 30 (KEY_A), value 0
+Event: time 1709913885.380756, -------------- SYN_REPORT ------------
+#+end_src
+
+In this case, the key positioned under the letter "A" produces a scancode =10= and keycode =30= (KEY_A).
+
+Repeat this for all keys and take notes of the scancodes.
