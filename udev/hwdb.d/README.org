@@ -102,3 +102,25 @@ evdev:atkbd:dmi:bvn*:bvr*:bd*:svn01:pn01:pvr*
   KEYBOARD_KEY_1f=reserved
   KEYBOARD_KEY_20=unknown
 #+end_src
+
+Rebuild the hardware database index =hwdb.bin=.
+#+begin_src sh
+sudo systemd-hwdb update
+#+end_src
+
+Enable update on each reboot.
+#+begin_src sh
+sudo systemctl edit --full systemd-hwdb-update.service
+#+end_src
+
+For this, comment the following line.
+#+begin_src comment
+#ConditionNeedsUpdate=/etc
+#+end_src
+
+To update on the fly (instead of having to reboot), use udevadm.
+#+begin_src sh
+sudo udevadm trigger
+#+end_src
+
+Enjoy your custom keyboard remappings!
