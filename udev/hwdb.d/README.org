@@ -1,0 +1,10 @@
+#+TITLE: Custom Laptop Keeb
+#+AUTHOR: Rafael Ito
+#+DESCRIPTION: config file for custom miryoku laptop layouts
+#+STARTUP: showeverything
+#+auto_tangle: t
+* Description
+** Source:
+https://wiki.archlinux.org/title/Keyboard_input
+https://wiki.archlinux.org/title/map_scancodes_to_keycodes
+/usr/include/linux/input-event-codes.h
