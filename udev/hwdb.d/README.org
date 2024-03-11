@@ -124,3 +124,7 @@ sudo udevadm trigger
 #+end_src
 
 Enjoy your custom keyboard remappings!
+* Layouts
+Check the following config files:
+  - [[https://github.com/ito-rafael/dotfiles/blob/master/udev/hwdb.d/custom-keeb.org#dell-vostro][Dell Vostro 5510]]
+  - [[https://github.com/ito-rafael/dotfiles/blob/master/udev/hwdb.d/custom-keeb.org#ideapad-flex-5i][IdeaPad Flex 5i]]

@@ -4,7 +4,7 @@
 #+PROPERTY: header-args :tangle ./90-miryoku-colemak.hwdb :padline no
 #+STARTUP: showeverything
 #+auto_tangle: t
-* Dell Vostro
+* Dell Vostro 5510
 ** device identifier
 #+begin_src conf
 ###################################################
