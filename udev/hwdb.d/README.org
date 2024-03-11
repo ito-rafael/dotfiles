@@ -29,3 +29,29 @@ Event: time 1709913885.380756, -------------- SYN_REPORT ------------
 In this case, the key positioned under the letter "A" produces a scancode =10= and keycode =30= (KEY_A).
 
 Repeat this for all keys and take notes of the scancodes.
+** Get device identification
+In order to apply the keyboard mapping only for certain devices (eg: native laptop keyboard), we need to get some informations about the device.
+
+*** Generic input
+For generic inputs (including USB keyboards) use the =lsusb= command to get the following attributes:
+  - <VENDOR_ID>
+  - <PRODUCT_ID>
+  - <VERSION_ID>
+#+begin_src sh
+lsusb
+#+end_src
+
+Example of output.
+#+begin_src comment
+Bus 003 Device 002: ID 3297:c6cf ZSA Technology Labs Planck EZ Glow
+#+end_src
+
+Then, use the following command to choose the corresponding =<BUS_ID>=.
+#+begin_src sh
+awk '/BUS_/ {print $2, $3}' /usr/include/linux/input.h
+#+end_src
+
+The match in the hwdb file will be in the following format.
+#+begin_src comment
+evdev:input:b<BUS_ID>v<VENDOR_ID>p<PRODUCT_ID>e<VERSION_ID>-<INPUT_MODALIAS>
+#+end_src
