@@ -217,3 +217,200 @@ evdev:atkbd:dmi:bvnDellInc.:bvr2.11.1:bd06/09/2022:br2.11:svnDellInc.:pnVostro15
   KEYBOARD_KEY_53=dot
   KEYBOARD_KEY_9c=kpenter
 #+end_src
+* IdeaPad Flex 5i
+** device identifier
+#+begin_src conf
+###################################################
+###               IdeaPad Flex 5i               ###
+###################################################
+evdev:atkbd:dmi:?????
+#+end_src
+** row 0 (FN)
+| key    | value |
+|--------+-------|
+| esc    |    01 |
+| f1     |    3b |
+| f2     |    3c |
+| f3     |    3d |
+| f4     |    3e |
+| f5     |    3f |
+| f6     |    40 |
+| f7     |    41 |
+| f8     |    42 |
+| f9     |    43 |
+| f10    |    44 |
+| f11    |    57 |
+| f12    |    58 |
+| insert |    d2 |
+| sysrq  |    b7 |
+| delete |    d3 |
+#+begin_src conf
+  KEYBOARD_KEY_01=reserved
+  KEYBOARD_KEY_3b=reserved
+  KEYBOARD_KEY_3c=reserved
+  KEYBOARD_KEY_3d=reserved
+  KEYBOARD_KEY_3e=reserved
+  KEYBOARD_KEY_3f=reserved
+  KEYBOARD_KEY_40=reserved
+  KEYBOARD_KEY_41=reserved
+  KEYBOARD_KEY_42=reserved
+  KEYBOARD_KEY_43=reserved
+  KEYBOARD_KEY_44=reserved
+  KEYBOARD_KEY_57=reserved
+  KEYBOARD_KEY_58=reserved
+  KEYBOARD_KEY_d2=reserved
+  KEYBOARD_KEY_b7=reserved
+  KEYBOARD_KEY_d3=reserved
+#+end_src
+** row 1 (E)
+|       key | value |
+|-----------+-------|
+|     grave |    29 |
+|         1 |    02 |
+|         2 |    03 |
+|         3 |    04 |
+|         4 |    05 |
+|         5 |    06 |
+|         6 |    07 |
+|         7 |    08 |
+|         8 |    09 |
+|         9 |    0a |
+|         0 |    0b |
+|     minus |    0c |
+|     equal |    0d |
+| backspace |    0e |
+#+begin_src conf
+  KEYBOARD_KEY_29=reserved
+  KEYBOARD_KEY_02=reserved
+  KEYBOARD_KEY_03=q
+  KEYBOARD_KEY_04=w
+  KEYBOARD_KEY_05=f
+  KEYBOARD_KEY_06=p
+  KEYBOARD_KEY_07=b
+  KEYBOARD_KEY_08=reserved
+  KEYBOARD_KEY_09=j
+  KEYBOARD_KEY_0a=l
+  KEYBOARD_KEY_0b=u
+  KEYBOARD_KEY_0c=y
+  KEYBOARD_KEY_0d=semicolon
+  KEYBOARD_KEY_0e=reserved
+#+end_src
+** row 2 (D)
+| key          | value |
+|--------------+-------|
+| tab          |    0f |
+| q            |    10 |
+| w            |    11 |
+| e            |    12 |
+| r            |    13 |
+| t            |    14 |
+| y            |    15 |
+| u            |    16 |
+| i            |    17 |
+| o            |    18 |
+| p            |    19 |
+| bracketleft  |    1a |
+| bracketright |    1b |
+| backslash    |    2b |
+#+begin_src conf
+  KEYBOARD_KEY_0f=reserved
+  KEYBOARD_KEY_10=a
+  KEYBOARD_KEY_11=r
+  KEYBOARD_KEY_12=s
+  KEYBOARD_KEY_13=t
+  KEYBOARD_KEY_14=g
+  KEYBOARD_KEY_15=reserved
+  KEYBOARD_KEY_16=reserved
+  KEYBOARD_KEY_17=m
+  KEYBOARD_KEY_18=n
+  KEYBOARD_KEY_19=e
+  KEYBOARD_KEY_1a=i
+  KEYBOARD_KEY_1b=o
+  KEYBOARD_KEY_2b=reserved
+#+end_src
+** row 3 (C)
+| key        | value |
+|------------+-------|
+| caps       |    3a |
+| a          |    1e |
+| s          |    1f |
+| d          |    20 |
+| f          |    21 |
+| g          |    22 |
+| h          |    23 |
+| j          |    24 |
+| k          |    25 |
+| l          |    26 |
+| semicolon  |    27 |
+| apostrophe |    28 |
+| enter      |    1c |
+#+begin_src conf
+  KEYBOARD_KEY_3a=z
+  KEYBOARD_KEY_1e=x
+  KEYBOARD_KEY_1f=c
+  KEYBOARD_KEY_20=d
+  KEYBOARD_KEY_21=v
+  KEYBOARD_KEY_22=reserved
+  KEYBOARD_KEY_23=reserved
+  KEYBOARD_KEY_24=reserved
+  KEYBOARD_KEY_25=k
+  KEYBOARD_KEY_26=h
+  KEYBOARD_KEY_27=comma
+  KEYBOARD_KEY_28=dot
+  KEYBOARD_KEY_1c=slash
+#+end_src
+** row 4 (B)
+| key    | value |
+|--------+-------|
+| lshift |    2a |
+| z      |    2c |
+| x      |    2d |
+| c      |    2e |
+| v      |    2f |
+| b      |    30 |
+| n      |    31 |
+| m      |    32 |
+| comma  |    33 |
+| dot    |    34 |
+| slash  |    35 |
+| rshift |    36 |
+#+begin_src conf
+  KEYBOARD_KEY_2a=reserved
+  KEYBOARD_KEY_2c=reserved
+  KEYBOARD_KEY_2d=esc
+  KEYBOARD_KEY_2e=space
+  KEYBOARD_KEY_2f=tab
+  KEYBOARD_KEY_30=reserved
+  KEYBOARD_KEY_31=reserved
+  KEYBOARD_KEY_32=minus
+  KEYBOARD_KEY_33=enter
+  KEYBOARD_KEY_34=backspace
+  KEYBOARD_KEY_35=reserved
+  KEYBOARD_KEY_36=reserved
+** row 5 (A)
+| key   | value |
+|-------+-------|
+| lctrl | 1d    |
+| fn    | e3    |
+| win   | db    |
+| lalt  | 38    |
+| space | 39    |
+| ralt  | b8    |
+| rctrl | 9d    |
+| left  | cb    |
+| up    | c8    |
+| down  | d0    |
+| right | cd    |
+#+begin_src conf
+  KEYBOARD_KEY_1d=reserved
+  KEYBOARD_KEY_e3=reserved
+  KEYBOARD_KEY_db=reserved
+  KEYBOARD_KEY_38=reserved
+  KEYBOARD_KEY_39=reserved
+  KEYBOARD_KEY_b8=reserved
+  KEYBOARD_KEY_9d=reserved
+  KEYBOARD_KEY_cb=left
+  KEYBOARD_KEY_c8=up
+  KEYBOARD_KEY_d0=down
+  KEYBOARD_KEY_cd=right
+#+end_src
