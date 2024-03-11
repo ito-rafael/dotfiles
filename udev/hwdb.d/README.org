@@ -2,13 +2,20 @@
 #+AUTHOR: Rafael Ito
 #+DESCRIPTION: config file for custom miryoku laptop layouts
 #+STARTUP: showeverything
-#+auto_tangle: t
-* Description
-** Source:
+* Table of Contents :toc:
+- [[#sources][Sources]]
+- [[#get-scancodes][Get scancodes]]
+- [[#get-device-identification][Get device identification]]
+  - [[#generic-input][Generic input]]
+  - [[#dmi][DMI]]
+- [[#writing-a-udev-rule][Writing a udev rule]]
+- [[#examples][Examples]]
+
+* Sources
 - https://wiki.archlinux.org/title/Keyboard_input
 - https://wiki.archlinux.org/title/map_scancodes_to_keycodes
 - /usr/include/linux/input-event-codes.h
-** Get scancodes
+* Get scancodes
 Install evtest.
 #+begin_src sh
 sudo pacman -S evtest
@@ -29,10 +36,10 @@ Event: time 1709913885.380756, -------------- SYN_REPORT ------------
 In this case, the key positioned under the letter "A" produces a scancode =10= and keycode =30= (KEY_A).
 
 Repeat this for all keys and take notes of the scancodes.
-** Get device identification
+* Get device identification
 In order to apply the keyboard mapping only for certain devices (eg: native laptop keyboard), we need to get some informations about the device.
 
-*** Generic input
+** Generic input
 For generic inputs (including USB keyboards) use the =lsusb= command to get the following attributes:
   - <VENDOR_ID>
   - <PRODUCT_ID>
@@ -55,7 +62,7 @@ The match in the hwdb file will be in the following format.
 #+begin_src comment
 evdev:input:b<BUS_ID>v<VENDOR_ID>p<PRODUCT_ID>e<VERSION_ID>-<INPUT_MODALIAS>
 #+end_src
-*** DMI
+** DMI
 Install and run =evemu=.
 #+begin_src sh
 sudo pacman -S evemu
@@ -75,7 +82,7 @@ The match in the hwdb file will be in the following format.
 #+begin_src comment
 evdev:<INPUT_DEVICE_NAME>:dmi:<DMI_FROM_EVEMU>
 #+end_src
-** Write a udev rule
+* Writing a udev rule
 There are three options:
 - for USB/generic devices.
 #+begin_src comment
@@ -124,7 +131,7 @@ sudo udevadm trigger
 #+end_src
 
 Enjoy your custom keyboard remappings!
-* Layouts
+* Examples
 Check the following config files:
   - [[https://github.com/ito-rafael/dotfiles/blob/master/udev/hwdb.d/custom-keeb.org#dell-vostro][Dell Vostro 5510]]
   - [[https://github.com/ito-rafael/dotfiles/blob/master/udev/hwdb.d/custom-keeb.org#ideapad-flex-5i][IdeaPad Flex 5i]]
