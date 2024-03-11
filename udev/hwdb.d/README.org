@@ -133,5 +133,5 @@ sudo udevadm trigger
 Enjoy your custom keyboard remappings!
 * Examples
 Check the following config files:
-  - [[https://github.com/ito-rafael/dotfiles/blob/master/udev/hwdb.d/custom-keeb.org#dell-vostro][Dell Vostro 5510]]
-  - [[https://github.com/ito-rafael/dotfiles/blob/master/udev/hwdb.d/custom-keeb.org#ideapad-flex-5i][IdeaPad Flex 5i]]
+  - [[https://github.com/ito-rafael/dotfiles/blob/master/udev/hwdb.d/config.org#dell-vostro-5510][Dell Vostro 5510]]
+  - [[https://github.com/ito-rafael/dotfiles/blob/master/udev/hwdb.d/config.org#ideapad-flex-5i][IdeaPad Flex 5i]]
