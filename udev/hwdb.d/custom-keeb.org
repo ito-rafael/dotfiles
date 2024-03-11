@@ -155,6 +155,8 @@ evdev:atkbd:dmi:bvnDellInc.:bvr2.11.1:bd06/09/2022:br2.11:svnDellInc.:pnVostro15
   KEYBOARD_KEY_33=enter
   KEYBOARD_KEY_34=backspace
   KEYBOARD_KEY_35=reserved
+  KEYBOARD_KEY_36=reserved
+#+end_src
 ** row 5 (A)
 | key   | value |
 |-------+-------|
