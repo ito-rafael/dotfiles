@@ -1,0 +1,219 @@
+#+TITLE: Custom Laptop Keeb
+#+AUTHOR: Rafael Ito
+#+DESCRIPTION: config file for custom miryoku laptop layouts
+#+PROPERTY: header-args :tangle ./90-miryoku-colemak.hwdb :padline no
+#+STARTUP: showeverything
+#+auto_tangle: t
+* Dell Vostro
+** device identifier
+#+begin_src conf
+###################################################
+###               Dell Vostro 5510              ###
+###################################################
+evdev:atkbd:dmi:bvnDellInc.:bvr2.11.1:bd06/09/2022:br2.11:svnDellInc.:pnVostro155510:pvr:rvnDellInc.:rn0JGGTT:rvrA00:cvnDellInc.:ct10:cvr:sku0B26:
+#+end_src
+** row 0 (FN)
+| key    | value |
+|--------+-------|
+| esc    | 01    |
+| f1     | a0    |
+| f2     | ae    |
+| f3     | b0    |
+| f4     | a2    |
+| f5     | N/A   |
+| f6     | N/A   |
+| f7     | N/A   |
+| f8     | db    |
+| f9     | 43    |
+| f10    | b7    |
+| f11    | c7    |
+| f12    | cf    |
+| insert | d2    |
+| delete | d3    |
+#+begin_src conf :tangle no
+#+end_src
+** row 1 (E)
+|       key | value |
+|-----------+-------|
+|     grave |    29 |
+|         1 |    02 |
+|         2 |    03 |
+|         3 |    04 |
+|         4 |    05 |
+|         5 |    06 |
+|         6 |    07 |
+|         7 |    08 |
+|         8 |    09 |
+|         9 |    0a |
+|         0 |    0b |
+|     minus |    0c |
+|     equal |    0d |
+| backspace |    0e |
+#+begin_src conf
+  KEYBOARD_KEY_29=reserved
+  KEYBOARD_KEY_02=reserved
+  KEYBOARD_KEY_03=q
+  KEYBOARD_KEY_04=w
+  KEYBOARD_KEY_05=f
+  KEYBOARD_KEY_06=p
+  KEYBOARD_KEY_07=b
+  KEYBOARD_KEY_08=reserved
+  KEYBOARD_KEY_09=j
+  KEYBOARD_KEY_0a=l
+  KEYBOARD_KEY_0b=u
+  KEYBOARD_KEY_0c=y
+  KEYBOARD_KEY_0d=semicolon
+#+end_src
+** row 2 (D)
+| key         | value |
+|-------------+-------|
+| tab         |    0f |
+| q           |    10 |
+| w           |    11 |
+| e           |    12 |
+| r           |    13 |
+| t           |    14 |
+| y           |    15 |
+| u           |    16 |
+| i           |    17 |
+| o           |    18 |
+| p           |    19 |
+| accute      |    1a |
+| bracketleft |    1b |
+| enter       |    1c |
+#+begin_src conf
+  KEYBOARD_KEY_0f=reserved
+  KEYBOARD_KEY_10=a
+  KEYBOARD_KEY_11=r
+  KEYBOARD_KEY_12=s
+  KEYBOARD_KEY_13=t
+  KEYBOARD_KEY_14=g
+  KEYBOARD_KEY_15=reserved
+  KEYBOARD_KEY_16=reserved
+  KEYBOARD_KEY_17=m
+  KEYBOARD_KEY_18=n
+  KEYBOARD_KEY_19=e
+  KEYBOARD_KEY_1a=i
+  KEYBOARD_KEY_1b=o
+#+end_src
+** row 3 (C)
+| key          | value |
+|--------------+-------|
+| caps         |    3a |
+| a            |    1e |
+| s            |    1f |
+| d            |    20 |
+| f            |    21 |
+| g            |    22 |
+| h            |    23 |
+| j            |    24 |
+| k            |    25 |
+| l            |    26 |
+| cedilla      |    27 |
+| tilde        |    28 |
+| bracketright |    2b |
+#+begin_src conf
+  KEYBOARD_KEY_3a=z
+  KEYBOARD_KEY_1e=x
+  KEYBOARD_KEY_1f=c
+  KEYBOARD_KEY_20=d
+  KEYBOARD_KEY_21=v
+  KEYBOARD_KEY_22=reserved
+  KEYBOARD_KEY_23=reserved
+  KEYBOARD_KEY_24=reserved
+  KEYBOARD_KEY_25=k
+  KEYBOARD_KEY_26=h
+  KEYBOARD_KEY_27=comma
+  KEYBOARD_KEY_28=dot
+  KEYBOARD_KEY_2b=slash
+#+end_src
+** row 4 (B)
+| key    | value |
+|--------+-------|
+| lshift |    2a |
+| lsgt   |    56 |
+| z      |    2c |
+| x      |    2d |
+| c      |    2e |
+| v      |    2f |
+| b      |    30 |
+| n      |    31 |
+| m      |    32 |
+| comma  |    33 |
+| dot    |    34 |
+| colon  |    35 |
+| rshift |    36 |
+#+begin_src conf
+  KEYBOARD_KEY_56=reserved
+  KEYBOARD_KEY_2c=reserved
+  KEYBOARD_KEY_2d=esc
+  KEYBOARD_KEY_2e=space
+  KEYBOARD_KEY_2f=tab
+  KEYBOARD_KEY_30=reserved
+  KEYBOARD_KEY_31=reserved
+  KEYBOARD_KEY_32=minus
+  KEYBOARD_KEY_33=enter
+  KEYBOARD_KEY_34=backspace
+  KEYBOARD_KEY_35=reserved
+** row 5 (A)
+| key   | value |
+|-------+-------|
+| lctrl | 1d    |
+| fn    | N/A   |
+| win   | db    |
+| lalt  | 38    |
+| space | 39    |
+| ralt  | b8    |
+| slash | 73    |
+| left  | cb    |
+| up    | c8    |
+| down  | d0    |
+| right | cd    |
+#+begin_src conf
+  KEYBOARD_KEY_cb=left
+  KEYBOARD_KEY_c8=up
+  KEYBOARD_KEY_d0=down
+  KEYBOARD_KEY_cd=right
+#+end_src
+** keypad
+| key      | value |
+|----------+-------|
+| calc     |    a1 |
+| CE       |    d3 |
+| +/-      |    43 |
+| poweroff |   N/A |
+| numlock  |    45 |
+| kp/      |    b5 |
+| kp*      |    37 |
+| kp-      |    4a |
+| kp7      |    47 |
+| kp8      |    48 |
+| kp9      |    49 |
+| kp4      |    4b |
+| kp5      |    4c |
+| kp6      |    4d |
+| kp+      |    4e |
+| kp1      |    4f |
+| kp2      |    50 |
+| kp3      |    51 |
+| kp0      |    52 |
+| kp.      |    53 |
+| kpenter  |    9c |
+#+begin_src conf
+  KEYBOARD_KEY_b5=slash
+  KEYBOARD_KEY_37=kpasterisk
+  KEYBOARD_KEY_4a=minus
+  KEYBOARD_KEY_47=4
+  KEYBOARD_KEY_48=5
+  KEYBOARD_KEY_49=6
+  KEYBOARD_KEY_4b=1
+  KEYBOARD_KEY_4c=2
+  KEYBOARD_KEY_4d=3
+  KEYBOARD_KEY_4e=equal
+  KEYBOARD_KEY_4f=7
+  KEYBOARD_KEY_50=8
+  KEYBOARD_KEY_51=9
+  KEYBOARD_KEY_52=0
+  KEYBOARD_KEY_53=dot
+  KEYBOARD_KEY_9c=kpenter
+#+end_src
