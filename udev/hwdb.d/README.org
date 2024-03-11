@@ -75,3 +75,30 @@ The match in the hwdb file will be in the following format.
 #+begin_src comment
 evdev:<INPUT_DEVICE_NAME>:dmi:<DMI_FROM_EVEMU>
 #+end_src
+** Write a udev rule
+There are three options:
+- for USB/generic devices.
+#+begin_src comment
+evdev:input:b<bus_id>v<vendor_id>p<product_id>e<version_id>-<modalias>
+#+end_src
+- for AT keyboard devices.
+#+begin_src comment
+evdev:atkbd:dmi:bvn*:bvr*:bd*:svn<vendor>:pn<product>:pvr*
+#+end_src
+- for input driver name.
+#+begin_src comment
+evdev:name:<input device name>:dmi:bvn*:bvr*:bd*:svn<vendor>:pn*
+#+end_src
+
+Create a udev/hwdb file.
+#+begin_src sh
+/etc/udev/hwdb.d/90-custom-keyboard.hwdb
+#+end_src
+
+Add device identification and remaps.
+#+begin_src comment
+evdev:atkbd:dmi:bvn*:bvr*:bd*:svn01:pn01:pvr*
+  KEYBOARD_KEY_1e=b
+  KEYBOARD_KEY_1f=reserved
+  KEYBOARD_KEY_20=unknown
+#+end_src
