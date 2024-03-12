@@ -141,3 +141,10 @@ btrfs subvolume create /mnt/@libvirt
 #+begin_src sh
 umount /mnt
 #+end_src
+** Mount the subvolumes
+*** root
+**** @root
+Mount the @root subvolume in =/=
+#+begin_src sh
+mount -o noatime,commit=120,compress=zstd,space_cache=v2,subvol=@root /dev/nvme0n1p3 /mnt
+#+end_src
