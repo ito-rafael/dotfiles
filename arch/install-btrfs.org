@@ -55,3 +55,10 @@ dhclient wlp1s0
 #+begin_src sh
 timedatectl set-ntp true
 #+end_src
+** Disk partitioning
+If there is an EFI partition already, go ahead and use it instead of creating a new one!
+
+#+begin_src sh
+fdisk -l
+fdisk /dev/nvme0n1
+#+end_src
