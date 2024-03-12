@@ -116,3 +116,28 @@ Update: instead of a partition, use a swap file or zram kernel mod!
 |    p    |  print the partition table   |
 |    w    | write table to disk and exit |
 |---------+------------------------------|
+** Format, mount and create subvolumes
+*** Format & mount partition
+#+begin_src sh
+mkfs.btrfs /dev/nvme0n1p3
+mount /dev/nvme0n1p3 /mnt
+#+end_src
+*** Create subvolumes
+#+begin_src sh
+btrfs subvolume create /mnt/@root
+btrfs subvolume create /mnt/@home
+btrfs subvolume create /mnt/@swap
+btrfs subvolume create /mnt/@snapshot-root
+btrfs subvolume create /mnt/@snapshot-home
+btrfs subvolume create /mnt/@cache
+btrfs subvolume create /mnt/@log
+btrfs subvolume create /mnt/@pacman
+btrfs subvolume create /mnt/@flatpak
+btrfs subvolume create /mnt/@podman
+btrfs subvolume create /mnt/@docker
+btrfs subvolume create /mnt/@libvirt
+#+end_src
+*** Umount partition
+#+begin_src sh
+umount /mnt
+#+end_src
