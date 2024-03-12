@@ -173,3 +173,10 @@ Exclude =~/.cache= dir from snapshots.
 mkdir -p /mnt/home/rafael/.cache
 mount -o noatime,commit=120,compress=zstd,space_cache=v2,subvol=@cache /dev/nvme0n1p3 /mnt/home/rafael/.cache
 #+end_src
+*** var
+**** @log
+Roll back snapshots while keeping the logs untouched for debug.
+#+begin_src sh
+mkdir -p /mnt/var/log
+mount -o noatime,commit=120,compress=zstd,space_cache=v2,subvol=@log /dev/nvme0n1p3 /mnt/var/log
+#+end_src
