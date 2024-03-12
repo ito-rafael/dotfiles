@@ -161,3 +161,9 @@ Create home dir and mount @home subvolume in /home
 mkdir /mnt/home
 mount -o noatime,commit=120,compress=zstd,space_cache=v2,subvol=@home /dev/nvme0n1p3 /mnt/home
 #+end_src
+**** @snapshot-home
+Mount the @snapshot-home subvolume in =/home/.snapshot=.
+#+begin_src sh
+mkdir /mnt/home/.snapshot
+mount -o noatime,commit=120,compress=zstd,space_cache=v2,subvol=@snapshot-home /dev/nvme0n1p3 /mnt/home/.snapshot
+#+end_src
