@@ -88,3 +88,21 @@ Not needed if an EFI partition already exists.
 |    1    |       EFI System        |
 |---------+-------------------------|
 Update 2021/05: EFI partition type "ef"
+*** create btrfs top-level partition
+|---------+-------------------------|
+|   <c>   |           <c>           |
+| command |       description       |
+|---------+-------------------------|
+|    n    |   add a new partition   |
+|    3    |    partition number     |
+| <ENTER> |      first sector       |
+| <ENTER> |       last sector       |
+|    Y    |  remove the signature   |
+|---------+-------------------------|
+|    t    | change a partition type |
+|    3    |    partition number     |
+|   23    |   Linux root (x86-64)   |
+|---------+-------------------------|
+Initial value: Linux root (x86-64) "24"
+Update 2021/05: Linux root (x86-64) "83"
+Update 2022/07: Linux root (x86-64) "23"
