@@ -148,3 +148,9 @@ Mount the @root subvolume in =/=
 #+begin_src sh
 mount -o noatime,commit=120,compress=zstd,space_cache=v2,subvol=@root /dev/nvme0n1p3 /mnt
 #+end_src
+**** @snapshot-root
+Mount the @snapshot-root subvolume in =/.snapshot=
+#+begin_src sh
+mkdir /mnt/.snapshot
+mount -o noatime,commit=120,compress=zstd,space_cache=v2,subvol=@snapshot-root /dev/nvme0n1p3 /mnt/.snapshot
+#+end_src
