@@ -106,3 +106,13 @@ Update 2021/05: EFI partition type "ef"
 Initial value: Linux root (x86-64) "24"
 Update 2021/05: Linux root (x86-64) "83"
 Update 2022/07: Linux root (x86-64) "23"
+*** create swap partition
+Update: instead of a partition, use a swap file or zram kernel mod!
+*** save & exit
+|---------+------------------------------|
+|   <c>   |             <c>              |
+| command |         description          |
+|---------+------------------------------|
+|    p    |  print the partition table   |
+|    w    | write table to disk and exit |
+|---------+------------------------------|
