@@ -71,3 +71,20 @@ fdisk /dev/nvme0n1
 | <ENTER> |  partition number  |
 |---------+--------------------|
 Repeat if necessary.
+*** create EFI partition
+Not needed if an EFI partition already exists.
+|---------+-------------------------|
+|   <c>   |           <c>           |
+| command |       description       |
+|---------+-------------------------|
+|    n    |   add a new partition   |
+|    2    |    partition number     |
+| <ENTER> |      first sector       |
+|  +300M  |       last sector       |
+|    Y    |  remove the signature   |
+|---------+-------------------------|
+|    t    | change a partition type |
+|    2    |    partition number     |
+|    1    |       EFI System        |
+|---------+-------------------------|
+Update 2021/05: EFI partition type "ef"
