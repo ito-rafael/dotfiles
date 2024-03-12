@@ -192,3 +192,9 @@ Exclude flatpaks from snapshots.
 mkdir -p /mnt/var/lib/flatpak
 mount -o noatime,commit=120,compress=zstd,space_cache=v2,subvol=@flatpak /dev/nvme0n1p3 /mnt/var/lib/flatpak
 #+end_src
+**** @podman
+Exclude containers (Podman) from snapshots.
+#+begin_src sh
+mkdir -p /mnt/var/lib/containers
+mount -o noatime,commit=120,compress=zstd,space_cache=v2,subvol=@podman /dev/nvme0n1p3 /mnt/var/lib/containers
+#+end_src
