@@ -205,3 +205,10 @@ Exclude containers (Docker) from snapshots.
 mkdir -p /mnt/var/lib/docker
 mount -o nodatacow,noatime,commit=120,subvol=@docker /dev/nvme0n1p3 /mnt/var/lib/docker
 #+end_src
+**** @libvirt
+Exclude virtual machines (libvirt) from snapshots.
+--> Note that this directory is mounted with CoW disabled! (to avoid [[https://wiki.debian.org/Btrfs][CoW on CoW]])
+#+begin_src sh
+mkdir -p /mnt/var/lib/libvirt/images
+mount -o nodatacow,noatime,commit=120,subvol=@libvirt /dev/nvme0n1p3 /mnt/var/lib/libvirt/images
+#+end_src
