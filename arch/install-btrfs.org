@@ -186,3 +186,9 @@ Exclude pacman cache from snapshots.
 mkdir -p /mnt/var/cache/pacman/pkg
 mount -o noatime,commit=120,compress=zstd,space_cache=v2,subvol=@pacman /dev/nvme0n1p3 /mnt/var/cache/pacman/pkg
 #+end_src
+**** @flatpak
+Exclude flatpaks from snapshots.
+#+begin_src sh
+mkdir -p /mnt/var/lib/flatpak
+mount -o noatime,commit=120,compress=zstd,space_cache=v2,subvol=@flatpak /dev/nvme0n1p3 /mnt/var/lib/flatpak
+#+end_src
