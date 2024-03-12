@@ -62,3 +62,12 @@ If there is an EFI partition already, go ahead and use it instead of creating a 
 fdisk -l
 fdisk /dev/nvme0n1
 #+end_src
+*** delete partitions
+|---------+--------------------|
+|   <c>   |        <c>         |
+| command |    description     |
+|---------+--------------------|
+|    d    | delete a partition |
+| <ENTER> |  partition number  |
+|---------+--------------------|
+Repeat if necessary.
