@@ -212,3 +212,9 @@ Exclude virtual machines (libvirt) from snapshots.
 mkdir -p /mnt/var/lib/libvirt/images
 mount -o nodatacow,noatime,commit=120,subvol=@libvirt /dev/nvme0n1p3 /mnt/var/lib/libvirt/images
 #+end_src
+*** swap
+Create dir and mount the swap subvolume.
+#+begin_src sh
+mkdir /mnt/swap
+mount -o noatime,commit=120,subvol=@swap /dev/nvme0n1p3 /mnt/swap
+#+end_src
