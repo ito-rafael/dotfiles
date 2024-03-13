@@ -229,3 +229,11 @@ Remember to add the swap entry after generating the =fstab= file (update 2024/03
 #+begin_src sh
 echo "/swap/swapfile none swap defaults 0 0" >> /etc/fstab
 #+end_src
+*** EFI
+Instead of mounting the ESP directly to /boot, mount it to /efi and use bind mounts to have dedicated directories for installations (eg: "arch" under /efi/EFI/arch).
+#+begin_src sh
+mkdir -p /mnt/{efi,boot}
+mount /dev/nvme0n1p1 /mnt/efi
+mkdir -p /mnt/efi/EFI/arch
+mount --bind /mnt/efi/EFI/arch /mnt/boot
+#+end_src
