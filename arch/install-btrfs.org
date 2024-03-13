@@ -224,3 +224,8 @@ Create and activate the the swap file.
 btrfs filesystem mkswapfile --size 16g --uuid clear /mnt/swap/swapfile
 swapon /mnt/swap/swapfile
 #+end_src
+
+Remember to add the swap entry after generating the =fstab= file (update 2024/03: this is done automatically when =genfstab= is run --> see below).
+#+begin_src sh
+echo "/swap/swapfile none swap defaults 0 0" >> /etc/fstab
+#+end_src
