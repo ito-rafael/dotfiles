@@ -218,3 +218,9 @@ Create dir and mount the swap subvolume.
 mkdir /mnt/swap
 mount -o noatime,commit=120,subvol=@swap /dev/nvme0n1p3 /mnt/swap
 #+end_src
+
+Create and activate the the swap file.
+#+begin_src sh
+btrfs filesystem mkswapfile --size 16g --uuid clear /mnt/swap/swapfile
+swapon /mnt/swap/swapfile
+#+end_src
