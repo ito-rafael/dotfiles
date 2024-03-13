@@ -237,3 +237,9 @@ mount /dev/nvme0n1p1 /mnt/efi
 mkdir -p /mnt/efi/EFI/arch
 mount --bind /mnt/efi/EFI/arch /mnt/boot
 #+end_src
+*** Final check
+Check the mountpoints with lsblk and/or findmnt.
+#+begin_src sh
+lsblk
+findmnt
+#+end_src
