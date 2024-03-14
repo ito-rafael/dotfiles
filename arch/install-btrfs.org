@@ -271,3 +271,8 @@ Change root into the new system.
 #+begin_src sh
 arch-chroot /mnt
 #+end_src
+
+Set time zone.
+#+begin_src sh
+ln -sf /usr/share/zoneinfo/Brazil/East /etc/localtime
+#+end_src
