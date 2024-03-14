@@ -266,3 +266,8 @@ Update 03/2024: not needed anymore.
 #+begin_src sh
 sed -i -e "s/\/mnt//" /mnt/etc/fstab
 #+end_src
+** chroot into the system
+Change root into the new system.
+#+begin_src sh
+arch-chroot /mnt
+#+end_src
