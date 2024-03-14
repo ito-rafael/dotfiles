@@ -297,3 +297,8 @@ Generate locales.
 #+begin_src sh
 locale-gen
 #+end_src
+
+Create the locale.conf file and set the LANG variable accordingly.
+#+begin_src sh
+echo LANG=en_US.UTF-8 >> /etc/locale.conf
+#+end_src
