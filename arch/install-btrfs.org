@@ -243,3 +243,8 @@ Check the mountpoints with lsblk and/or findmnt.
 lsblk
 findmnt
 #+end_src
+** Install the system
+Edit mirror order automatically.
+#+begin_src sh
+reflector --country Brazil --age 6 --sort rate --save /etc/pacman.d/mirrorlist
+#+end_src
