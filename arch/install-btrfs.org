@@ -248,3 +248,10 @@ Edit mirror order automatically.
 #+begin_src sh
 reflector --country Brazil --age 6 --sort rate --save /etc/pacman.d/mirrorlist
 #+end_src
+
+Microcode:
+  - for Intel CPUs, use =intel-ucode= package
+  - for AMD CPUs, use =amd-ucode= package
+#+begin_src sh
+pacstrap /mnt base base-devel linux linux-firmware bash intel-ucode btrfs-progs networkmanager neovim
+#+end_src
