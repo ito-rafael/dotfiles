@@ -281,3 +281,14 @@ Set the hardware clock.
 #+begin_src sh
 hwclock --systohc
 #+end_src
+** localization
+Edit locale file.
+#+begin_src sh
+vi /etc/locale.gen
+#+end_src
+
+Uncomment the following locales.
+#+begin_src comment
+en_US.UTF-8 UTF-8
+pt_br_US.UTF-8 UTF-8
+#+end_src
