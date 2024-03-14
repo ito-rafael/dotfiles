@@ -260,3 +260,9 @@ Generate fstab.
 #+begin_src sh
 genfstab -U /mnt >> /mnt/etc/fstab
 #+end_src
+
+Edit fstab to update /efi/EFI/arch mount.
+Update 03/2024: not needed anymore.
+#+begin_src sh
+sed -i -e "s/\/mnt//" /mnt/etc/fstab
+#+end_src
