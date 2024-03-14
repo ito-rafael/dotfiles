@@ -255,3 +255,8 @@ Microcode:
 #+begin_src sh
 pacstrap /mnt base base-devel linux linux-firmware bash intel-ucode btrfs-progs networkmanager neovim
 #+end_src
+
+Generate fstab.
+#+begin_src sh
+genfstab -U /mnt >> /mnt/etc/fstab
+#+end_src
