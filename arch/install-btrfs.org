@@ -322,3 +322,9 @@ Install wireless packages.
 #+begin_src sh
 pacman -S iw wpa_supplicant networkmanager
 #+end_src
+** password and update
+set root password and update the system
+#+begin_src sh
+passwd
+pacman -Syu
+#+end_src
