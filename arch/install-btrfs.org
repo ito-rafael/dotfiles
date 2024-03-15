@@ -307,3 +307,13 @@ Create the hostname file and set hostname.
 #+begin_src sh
 echo IPF-ArchLinux >> /etc/hostname
 #+end_src
+
+Add matching entries to hosts.
+#+begin_src sh
+nvim /etc/hosts
+#+end_src
+#+begin_src comment
+127.0.0.1  localhost
+::1        localhost
+127.0.1.1  IPF-ArchLinux.localdomain  IPF-ArchLinux
+#+end_src
