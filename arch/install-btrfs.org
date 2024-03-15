@@ -354,3 +354,11 @@ Install GRUB & generate the new config file.
 grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB
 grub-mkconfig -o /efi/EFI/arch/grub/grub.cfg
 #+end_src
+** Reboot
+Exit chroot environment, unmount partitions and reboot
+#+begin_src sh
+exit
+umount -R /mnt
+reboot
+#+end_src
+** !!! remove USB stick !!!
