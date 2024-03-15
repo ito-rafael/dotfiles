@@ -333,3 +333,18 @@ Install packages.
 #+begin_src sh
 pacman -S grub grub-btrfs efibootmgr
 #+end_src
+
+Add btrfs module.
+#+begin_src sh
+nvim /etc/mkinitcpio.conf
+#+end_src
+
+#+begin_src comment
+#MODULES=()
+MODULES=(btrfs)
+#+end_src
+
+Recreate image.
+#+begin_src sh
+mkinitcpio -p linux
+#+end_src
