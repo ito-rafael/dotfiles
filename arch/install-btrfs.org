@@ -302,3 +302,8 @@ Create the locale.conf file and set the LANG variable accordingly.
 #+begin_src sh
 echo LANG=en_US.UTF-8 >> /etc/locale.conf
 #+end_src
+** network configuration
+Create the hostname file and set hostname.
+#+begin_src sh
+echo IPF-ArchLinux >> /etc/hostname
+#+end_src
