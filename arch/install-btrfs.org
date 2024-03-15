@@ -317,3 +317,8 @@ nvim /etc/hosts
 ::1        localhost
 127.0.1.1  IPF-ArchLinux.localdomain  IPF-ArchLinux
 #+end_src
+
+Install wireless packages.
+#+begin_src sh
+pacman -S iw wpa_supplicant networkmanager
+#+end_src
