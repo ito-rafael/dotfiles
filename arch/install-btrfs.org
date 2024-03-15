@@ -328,3 +328,8 @@ set root password and update the system
 passwd
 pacman -Syu
 #+end_src
+** boot loader (GRUB)
+Install packages.
+#+begin_src sh
+pacman -S grub grub-btrfs efibootmgr
+#+end_src
