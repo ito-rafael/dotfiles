@@ -548,8 +548,6 @@
   gmu XX  ;; gamma up
   goo XX  ;; gamma on/off
 
-  ;; backlit
-  bld XX  ;; backlit down
   blu XX  ;; backlit up
   boo XX  ;; backlit on/off
 
@@ -562,6 +560,9 @@
   lsd XX  ;; LED strip down
   lsu XX  ;; LED strip up
   loo XX  ;; LED strip on/off
+
+  ;; backlit
+  blu KeyKbdIllumDown    ;; backlit down
 )
 #+end_src
 ** mouse
