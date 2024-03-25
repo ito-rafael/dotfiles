@@ -540,8 +540,8 @@
 #+begin_src lisp
 (defalias
   ;; brightness
-  bnd bldn  ;; brightness down
   bnu blup  ;; brightness up
+  bnd brdn  ;; brightness down
 
   ;; gamma
   gmd XX  ;; gamma down
