@@ -548,7 +548,6 @@
   gmu XX  ;; gamma up
   goo XX  ;; gamma on/off
 
-  blu XX  ;; backlit up
   boo XX  ;; backlit on/off
 
   ;; underglow
@@ -562,6 +561,7 @@
   loo XX  ;; LED strip on/off
 
   ;; backlit
+  bld KeyKbdIllumUp      ;; backlit up
   blu KeyKbdIllumDown    ;; backlit down
 )
 #+end_src
