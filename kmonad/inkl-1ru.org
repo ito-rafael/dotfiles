@@ -548,8 +548,6 @@
   gmu XX  ;; gamma up
   goo XX  ;; gamma on/off
 
-  boo XX  ;; backlit on/off
-
   ;; underglow
   ugd XX  ;; underglow down
   ugu XX  ;; underglow up
@@ -563,6 +561,7 @@
   ;; backlit
   bld KeyKbdIllumUp      ;; backlit up
   blu KeyKbdIllumDown    ;; backlit down
+  boo KeyKbdIllumToggle  ;; backlit on/off
 )
 #+end_src
 ** mouse
