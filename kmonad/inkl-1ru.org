@@ -77,7 +77,7 @@
   XX   XX    q     w     e     r     t     XX    y     u     i     o    p        bspc        nlck /    *    -
   XX      a     s     d     f     g     XX    XX    h     j     k     l    F13   ret         4    5    6    +
   z         x     c     v     b     XX    XX    XX    n     m     ,     .    /               1    2    3
-  lsft  XX    XX    XX    TL1   TL2   TL3   XX    TR1   TR2   XX    XX           rsft        7    8    9    kprt
+  lsft  XX    XX    tl1   tl2   tl3   XX    XX    TR1   TR2   XX    XX           rsft        7    8    9    kprt
   lctl              lmet  lalt            spc           ralt  /     left   up    rght        0       kp.
                                                                            down
 )
