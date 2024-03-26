@@ -519,7 +519,7 @@
 (deflayer luminosity
   XX   XX   XX   f2   XX        @loo @lsd @ugd @ugu @lsu      _  _  _
   @hm  @ha  @hc  @hs  @hra      @goo @gmd @bnd @bnu @gmu      _  _  _
-  XX   XX   XX   XX   XX        XX   XX   @bld @blu XX        _  _  _
+  XX   XX   XX   XX   XX        @boo XX   @bld @blu XX        _  _  _
             _    _    _         _    XX   XX                  _  _  _
                                                               _  _  _
 )
