@@ -85,12 +85,12 @@
 *** empty
 #+begin_src lisp :tangle no
 (deflayer empty
-  ;;XX XX  q    w    e    r    t      XX      y    u    i    o    p       bspc        nlck kp/  kp*  kp-
-  ;;XX    a    s    d    f    g     XX  XX     h    j    k    l    ç      ret         kp7  kp8  kp9  kp+
-  ;;     z    x    c    v    b    XX  XX  XX    n    m    ,    .    ;                 kp4  kp5  kp6
-  ;;XX   XX   XX   XX   tl2  tl1  tl3  XX  tr1  tr2  XX   XX              rsft        kp1  kp2  kp3  kprt
-  ;;XX        XX   XX             spc           XX   XX   left     up     rght        kp0       kp.
-  ;;                                                                      down
+  XX XX  q    w    e    r    t      XX      y    u    i    o    p       bspc        nlck kp/  kp*  kp-
+  XX    a    s    d    f    g     XX  XX     h    j    k    l    ç      ret         kp7  kp8  kp9  kp+
+       z    x    c    v    b    XX  XX  XX    n    m    ,    .    ;                 kp4  kp5  kp6
+  XX   XX   XX   tl1  tl2  tl3   XX  XX  XX    tr1  tr2  XX             rsft        kp1  kp2  kp3  kprt
+  XX        XX   XX             spc            XX   XX   left     up    rght        kp0       kp.
+                                                                        down
 )
 #+end_src
 *** split
