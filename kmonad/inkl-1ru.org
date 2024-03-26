@@ -83,8 +83,6 @@
 )
 #+end_src
 *** empty
-#+end_src
-*** empty
 #+begin_src lisp :tangle no
 (deflayer empty
   ;;XX XX  q    w    e    r    t      XX      y    u    i    o    p       bspc        nlck kp/  kp*  kp-
@@ -108,13 +106,6 @@
 *** split left
 #+begin_src lisp :tangle no
 (deflayer left
-  ;;_    _    _    _    _    _         _    _    _    _    _    _    _         _    _    _    _
-  ;;_    XX   XX   XX   XX   XX        XX   XX   XX   XX   XX   _    _         _    _    _    _
-  ;;_    XX   XX   XX   XX   XX        @hra @hs  @hc  @hsm @hm  _    _         _    _    _
-  ;;_    XX   XX   XX   XX   XX   _    XX   XX   XX   XX   XX        _         _    _    _    _
-  ;;_    _    _                   _              _    _    _    _    _            _      _
-  ;;                                                       _
-
   _    _    _    _    _         XX   XX   XX   XX   XX        _  _  _
   _    _    _    _    _         @hra @hs  @hc  @hsm @hm       _  _  _
   _    _    _    _    _         XX   XX   XX   XX   XX        _  _  _
@@ -125,12 +116,6 @@
 *** split right
 #+begin_src lisp :tangle no
 (deflayer right
-  ;;_    _    _    _    _    _         _    _    _    _    _    _    _         _    _    _    _
-  ;;_    XX   XX   XX   XX   XX        XX   XX   XX   XX   XX   _    _         _    _    _    _
-  ;;_    @hm  @ha  @hc  @hs  @hra      XX   XX   XX   XX   XX   _    _         _    _    _
-  ;;_    XX   XX   XX   XX   XX   _    XX   XX   XX   XX   XX        _         _    _    _    _
-  ;;_    _    _                   _              _    _    _    _    _            _      _
-  ;;                                                       _
   XX   XX   XX   XX   XX        _    _    _    _    _         _  _  _
   @hm  @ha  @hc  @hs  @hra      _    _    _    _    _         _  _  _
   XX   XX   XX   XX   XX        _    _    _    _    _         _  _  _
