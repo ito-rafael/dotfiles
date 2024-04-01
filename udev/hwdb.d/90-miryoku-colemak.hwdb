@@ -76,7 +76,7 @@ evdev:atkbd:dmi:bvnDellInc.:bvr2.11.1:bd06/09/2022:br2.11:svnDellInc.:pnVostro15
 ###################################################
 ###               IdeaPad Flex 5i               ###
 ###################################################
-evdev:atkbd:dmi:?????
+evdev:atkbd:dmi:bvnLENOVO:bvrJ7CN31WW:bd05/17/2022:br1.31:efr1.26:svnLENOVO:pn82R7:pvrIdeaPadFlex514IAU7:rvnLENOVO:rnLNVNB161216:rvrSDK0T76463WIN:cvnLENOVO:ct31:cvrIdeaPadFlex514IAU7:skuLENOVO_MT_82R7_BU_idea_FM_IdeaPadFlex514IAU7:
   KEYBOARD_KEY_01=reserved
   KEYBOARD_KEY_3b=reserved
   KEYBOARD_KEY_3c=reserved
