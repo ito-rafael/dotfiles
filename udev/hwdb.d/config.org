@@ -241,6 +241,7 @@ evdev:atkbd:dmi:bvnDellInc.:bvr2.11.1:bd06/09/2022:br2.11:svnDellInc.:pnVostro15
 * IdeaPad Flex 5i
 ** device identifier
 #+begin_src conf
+
 ###################################################
 ###               IdeaPad Flex 5i               ###
 ###################################################
