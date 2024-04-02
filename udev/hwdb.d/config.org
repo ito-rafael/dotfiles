@@ -14,6 +14,7 @@
   - [[#row-4-b][row 4 (B)]]
   - [[#row-5-a][row 5 (A)]]
   - [[#keypad][keypad]]
+  - [[#eos][EoS]]
 - [[#ideapad-flex-5i][IdeaPad Flex 5i]]
   - [[#device-identifier-1][device identifier]]
   - [[#row-0-fn-1][row 0 (FN)]]
@@ -238,14 +239,17 @@ evdev:atkbd:dmi:bvnDellInc.:bvr2.11.1:bd06/09/2022:br2.11:svnDellInc.:pnVostro15
   KEYBOARD_KEY_53=dot
   KEYBOARD_KEY_9c=kpenter
 #+end_src
+** EoS
+Add empty line to separate devices.
+#+begin_src conf :padline yes
+#+end_src
 * IdeaPad Flex 5i
 ** device identifier
 #+begin_src conf
-
 ###################################################
 ###               IdeaPad Flex 5i               ###
 ###################################################
-evdev:atkbd:dmi:?????
+evdev:atkbd:dmi:bvnLENOVO:bvrJ7CN31WW:bd05/17/2022:br1.31:efr1.26:svnLENOVO:pn82R7:pvrIdeaPadFlex514IAU7:rvnLENOVO:rnLNVNB161216:rvrSDK0T76463WIN:cvnLENOVO:ct31:cvrIdeaPadFlex514IAU7:skuLENOVO_MT_82R7_BU_idea_FM_IdeaPadFlex514IAU7:
 #+end_src
 ** row 0 (FN)
 | key    | value |
@@ -409,6 +413,7 @@ evdev:atkbd:dmi:?????
   KEYBOARD_KEY_34=backspace
   KEYBOARD_KEY_35=reserved
   KEYBOARD_KEY_36=reserved
+#+end_src
 ** row 5 (A)
 | key   | value |
 |-------+-------|
