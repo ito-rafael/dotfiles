@@ -1,0 +1,9 @@
+[Unit]
+Description=KMonad service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/kmonad /home/rafael/.config/kmonad/inkl-1ru.kbd
+
+[Install]
+WantedBy=default.target
