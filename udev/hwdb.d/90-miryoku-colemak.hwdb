@@ -73,6 +73,7 @@ evdev:atkbd:dmi:bvnDellInc.:bvr2.11.1:bd06/09/2022:br2.11:svnDellInc.:pnVostro15
   KEYBOARD_KEY_52=0
   KEYBOARD_KEY_53=dot
   KEYBOARD_KEY_9c=kpenter
+
 ###################################################
 ###               IdeaPad Flex 5i               ###
 ###################################################
