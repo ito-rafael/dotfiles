@@ -533,7 +533,7 @@ bindsym mod1+9 exec "$SCRIPT_PATH/navigate2ws.sh 19"
 bindsym mod1+0 exec "$SCRIPT_PATH/navigate2ws.sh 10"
 #+end_src
 **** Home row (qwerty)
-#+begin_src sh :tangle no
+#+begin_src sh
 bindsym mod1+a exec "$SCRIPT_PATH/navigate2ws.sh 11"
 bindsym mod1+s exec "$SCRIPT_PATH/navigate2ws.sh 12"
 bindsym mod1+d exec "$SCRIPT_PATH/navigate2ws.sh 13"
@@ -546,7 +546,7 @@ bindsym mod1+l exec "$SCRIPT_PATH/navigate2ws.sh 19"
 bindcode mod1+48 exec "$SCRIPT_PATH/navigate2ws.sh 10"
 #+end_src
 **** Numpad (qwerty)
-#+begin_src sh
+#+begin_src sh :tangle no
 bindsym mod1+s exec "$SCRIPT_PATH/navigate2ws.sh 11"
 bindsym mod1+d exec "$SCRIPT_PATH/navigate2ws.sh 12"
 bindsym mod1+f exec "$SCRIPT_PATH/navigate2ws.sh 13"
@@ -558,6 +558,18 @@ bindsym mod1+c exec "$SCRIPT_PATH/navigate2ws.sh 18"
 bindsym mod1+v exec "$SCRIPT_PATH/navigate2ws.sh 19"
 bindsym mod1+space exec "$SCRIPT_PATH/navigate2ws.sh 10"
 #+end_src
+**** Numpad (colemak)
+#+begin_src sh
+bindsym mod1+r exec "$SCRIPT_PATH/navigate2ws.sh 11"
+bindsym mod1+s exec "$SCRIPT_PATH/navigate2ws.sh 12"
+bindsym mod1+t exec "$SCRIPT_PATH/navigate2ws.sh 13"
+bindsym mod1+w exec "$SCRIPT_PATH/navigate2ws.sh 14"
+bindsym mod1+f exec "$SCRIPT_PATH/navigate2ws.sh 15"
+bindsym mod1+p exec "$SCRIPT_PATH/navigate2ws.sh 16"
+bindsym mod1+x exec "$SCRIPT_PATH/navigate2ws.sh 17"
+bindsym mod1+c exec "$SCRIPT_PATH/navigate2ws.sh 18"
+bindsym mod1+d exec "$SCRIPT_PATH/navigate2ws.sh 19"
+bindsym mod1+space exec "$SCRIPT_PATH/navigate2ws.sh 10"
 *** Tertiary monitor
 **** Numbers
 #+begin_src sh
