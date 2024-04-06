@@ -493,7 +493,7 @@ bindsym $mod+l exec "$SCRIPT_PATH/navigate2ws.sh 9"
 bindcode $mod+48 exec "$SCRIPT_PATH/navigate2ws.sh 0"
 #+end_src
 **** Numpad (qwerty)
-#+begin_src sh
+#+begin_src sh :tangle no
 bindsym $mod+s exec "$SCRIPT_PATH/navigate2ws.sh 1"
 bindsym $mod+d exec "$SCRIPT_PATH/navigate2ws.sh 2"
 bindsym $mod+f exec "$SCRIPT_PATH/navigate2ws.sh 3"
@@ -503,6 +503,19 @@ bindsym $mod+r exec "$SCRIPT_PATH/navigate2ws.sh 6"
 bindsym $mod+x exec "$SCRIPT_PATH/navigate2ws.sh 7"
 bindsym $mod+c exec "$SCRIPT_PATH/navigate2ws.sh 8"
 bindsym $mod+v exec "$SCRIPT_PATH/navigate2ws.sh 9"
+bindsym $mod+space exec "$SCRIPT_PATH/navigate2ws.sh 0"
+#+end_src
+**** Numpad (colemak)
+#+begin_src sh :tangle no
+bindsym $mod+r exec "$SCRIPT_PATH/navigate2ws.sh 1"
+bindsym $mod+s exec "$SCRIPT_PATH/navigate2ws.sh 2"
+bindsym $mod+t exec "$SCRIPT_PATH/navigate2ws.sh 3"
+bindsym $mod+w exec "$SCRIPT_PATH/navigate2ws.sh 4"
+bindsym $mod+f exec "$SCRIPT_PATH/navigate2ws.sh 5"
+bindsym $mod+p exec "$SCRIPT_PATH/navigate2ws.sh 6"
+bindsym $mod+x exec "$SCRIPT_PATH/navigate2ws.sh 7"
+bindsym $mod+c exec "$SCRIPT_PATH/navigate2ws.sh 8"
+bindsym $mod+d exec "$SCRIPT_PATH/navigate2ws.sh 9"
 bindsym $mod+space exec "$SCRIPT_PATH/navigate2ws.sh 0"
 #+end_src
 *** Secondary monitor
