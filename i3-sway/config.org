@@ -162,6 +162,13 @@ set $primary   HDMI1
 set $secondary HDMI3
 set $tertiary  VGA1
 #+end_src
+*** Set resolution
+**** i3
+#+begin_src sh :tangle no
+exec xrandr --output $primary   --mode 1920x1080 --rate 60.00 --brightness 1 --pos 0x0 --primary
+exec xrandr --output $secondary --mode 1920x1080 --rate 60.00 --brightness 1 --pos -1920x0
+exec xrandr --output $tertiary  --mode 1920x1080 --rate 60.00 --brightness 1 --pos 1920x0 --rotate right
+#+end_src
 #+end_src
 * Workspaces definition
 ** Default output
