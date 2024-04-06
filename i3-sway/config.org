@@ -175,6 +175,45 @@ output $primary   mode 1920x1080@60hz position     0,0 scale 1
 output $secondary mode 1920x1080@60hz position -1920,0 scale 1
 output $tertiary  mode 1920x1080@60hz position  1920,0 scale 1 transform 90
 #+end_src
+** MSc presentation
+*** Set order
+# Room:
+#
+#   +----------------------+
+#   |                      |
+#   |    +-----+ +-----+   |
+#   |    | tv1 | | tv2 |   |
+#   |    +-----+ +-----+   |
+#   |                      |
+#   |     +--+     +--+    |
+#   |   x |  |  3  |  | x  |
+#   |   x |  |     |  | x  |
+#   |   x |  |     |  | x  |
+#   |   x |  |     |  | x  |
+#   |      \  \___/  /     |
+#   |    x  \___ 1 _/  x   |
+#   |           x          |
+#   |                      |
+#   |       === 2 ===      |
+#   +----------------------+
+#
+#   x: seats
+#
+#   1: laptop     native screen
+#   2: projector  native HDMI --> EPSON projector
+#   3: educart    USB-C HDMI --> Dell monitor
+#
+#+begin_src sh :tangle no
+set $laptop    eDP-1
+set $projector HDMI-A-1
+set $educart   VGA1
+#+end_src
+*** Set resolution
+#+begin_src sh :tangle no
+output $laptop    mode 1920x1080@60hz position 0,0
+output $projector mode 1920x1200@60hz position 0,1080 scale 1
+output $educart   mode 1920x1080@60hz position 0,-1080 scale 1
+#+end_src
 #+end_src
 * Workspaces definition
 ** Default output
