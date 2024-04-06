@@ -250,42 +250,42 @@ output $laptop    mode 1920x1080@60hz position 411,1542 scale 1
 ** Default output
 *** Primary output
 #+begin_src sh
-workspace "1:1" output $primary_screen
-workspace "2:2" output $primary_screen
-workspace "3:3" output $primary_screen
-workspace "4:4" output $primary_screen
-workspace "5:5" output $primary_screen
-workspace "6:6" output $primary_screen
-workspace "7:7" output $primary_screen
-workspace "8:8" output $primary_screen
-workspace "9:9" output $primary_screen
-workspace "10:0" output $primary_screen
+workspace "1:1" output $primary
+workspace "2:2" output $primary
+workspace "3:3" output $primary
+workspace "4:4" output $primary
+workspace "5:5" output $primary
+workspace "6:6" output $primary
+workspace "7:7" output $primary
+workspace "8:8" output $primary
+workspace "9:9" output $primary
+workspace "10:0" output $primary
 #+end_src
 *** Secondary output
 #+begin_src sh
-workspace "11:11" output $secondary_screen
-workspace "12:12" output $secondary_screen
-workspace "13:13" output $secondary_screen
-workspace "14:14" output $secondary_screen
-workspace "15:15" output $secondary_screen
-workspace "16:16" output $secondary_screen
-workspace "17:17" output $secondary_screen
-workspace "18:18" output $secondary_screen
-workspace "19:19" output $secondary_screen
-workspace "20:10" output $secondary_screen
+workspace "11:11" output $secondary
+workspace "12:12" output $secondary
+workspace "13:13" output $secondary
+workspace "14:14" output $secondary
+workspace "15:15" output $secondary
+workspace "16:16" output $secondary
+workspace "17:17" output $secondary
+workspace "18:18" output $secondary
+workspace "19:19" output $secondary
+workspace "20:10" output $secondary
 #+end_src
 *** Tertiary output
 #+begin_src sh
-workspace "21:21" output $tertiary_screen
-workspace "22:22" output $tertiary_screen
-workspace "23:23" output $tertiary_screen
-workspace "24:24" output $tertiary_screen
-workspace "25:25" output $tertiary_screen
-workspace "26:26" output $tertiary_screen
-workspace "27:27" output $tertiary_screen
-workspace "28:28" output $tertiary_screen
-workspace "29:29" output $tertiary_screen
-workspace "30:20" output $tertiary_screen
+workspace "21:21" output $tertiary
+workspace "22:22" output $tertiary
+workspace "23:23" output $tertiary
+workspace "24:24" output $tertiary
+workspace "25:25" output $tertiary
+workspace "26:26" output $tertiary
+workspace "27:27" output $tertiary
+workspace "28:28" output $tertiary
+workspace "29:29" output $tertiary
+workspace "30:20" output $tertiary
 #+end_src
 ** WS names (icons)
 *** Primary monitor
