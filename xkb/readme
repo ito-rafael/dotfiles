@@ -1,0 +1,4 @@
+https://www.charvolant.org/doug/xkb/html/node5.html
+
+Load inet(evdev) config before my custom config. This is done to prevent it from overwriting my config (what happens for some F13+ function keys).
+source: https://www.reddit.com/r/swaywm/comments/s8g758/configuring_extra_keys/
