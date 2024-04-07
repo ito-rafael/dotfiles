@@ -131,20 +131,20 @@ set $htext_color #9575cd
 #+end_src
 * Sway
 ** xdg-desktop-portal-wlr
-#+begin_src sh
+#+begin_src conf
 include /etc/sway/config.d/*
 #+end_src
 ** Inputs
 documentation:
 https://wayland.freedesktop.org/libinput/doc/latest/index.html
-#+begin_src sh
+#+begin_src conf
 input type:touchpad {
     tap enabled                                   # tap-to-click
     natural_scroll enabled                        # natural scrolling
 }
 #+end_src
 ** Enable NumLock
-#+begin_src sh
+#+begin_src conf
 input type:keyboard xkb_numlock enabled
 #+end_src
 ** Keyboard
@@ -170,26 +170,26 @@ input type:keyboard {
 #
 **** i3
 For X11, it's possible to get the output names directly from xrandr.
-#+begin_src sh :tangle no
+#+begin_src conf :tangle no
 set $primary   $(xrandr | grep ' connected' | awk '{print $1}' | head -n1 | tail -n1)
 set $secondary $(xrandr | grep ' connected' | awk '{print $1}' | head -n2 | tail -n1)
 set $tertiary  $(xrandr | grep ' connected' | awk '{print $1}' | head -n3 | tail -n1)
 #+end_src
 **** Sway
-#+begin_src sh
+#+begin_src conf
 set $primary   HDMI1
 set $secondary HDMI3
 set $tertiary  VGA1
 #+end_src
 *** Set resolution
 **** i3
-#+begin_src sh :tangle no
+#+begin_src conf :tangle no
 exec xrandr --output $primary   --mode 1920x1080 --rate 60.00 --brightness 1 --pos 0x0 --primary
 exec xrandr --output $secondary --mode 1920x1080 --rate 60.00 --brightness 1 --pos -1920x0
 exec xrandr --output $tertiary  --mode 1920x1080 --rate 60.00 --brightness 1 --pos 1920x0 --rotate right
 #+end_src
 **** Sway
-#+begin_src sh :tangle no
+#+begin_src conf :tangle no
 output $primary   mode 1920x1080@60hz position     0,0 scale 1
 output $secondary mode 1920x1080@60hz position -1920,0 scale 1
 output $tertiary  mode 1920x1080@60hz position  1920,0 scale 1 transform 90
@@ -222,13 +222,13 @@ output $tertiary  mode 1920x1080@60hz position  1920,0 scale 1 transform 90
 #   2: projector  native HDMI --> EPSON projector
 #   3: educart    USB-C HDMI --> Dell monitor
 #
-#+begin_src sh :tangle no
+#+begin_src conf :tangle no
 set $laptop    eDP-1
 set $projector HDMI-A-1
 set $educart   VGA1
 #+end_src
 *** Set resolution
-#+begin_src sh :tangle no
+#+begin_src conf :tangle no
 output $laptop    mode 1920x1080@60hz position 0,0
 output $projector mode 1920x1200@60hz position 0,1080 scale 1
 output $educart   mode 1920x1080@60hz position 0,-1080 scale 1
@@ -248,7 +248,7 @@ output $educart   mode 1920x1080@60hz position 0,-1080 scale 1
 #   2: Samsung UR55
 #   3: VB laptop
 #
-#+begin_src sh :tangle no
+#+begin_src conf :tangle no
 set $primary   HDMI-A-1
 set $secondary HDMI-A-1
 set $laptop    VGA1
@@ -259,7 +259,7 @@ Since scale of output #0 is 1.4, the position offset is:
   - laptop [H]: 3840/1.4 - 1920 = 411
   - laptop [V]: 2160/1.4 = 1542
 
-#+begin_src sh :tangle no
+#+begin_src conf :tangle no
 output $primary   mode 3840x2160@60hz position      0,0 scale 1.4
 output $secondary mode 3840x2160@60hz position  -2742,0 scale 1.4
 output $laptop    mode 1920x1080@60hz position 411,1542 scale 1
@@ -268,7 +268,7 @@ output $laptop    mode 1920x1080@60hz position 411,1542 scale 1
 * Workspaces definition
 ** Default output
 *** Primary output
-#+begin_src sh
+#+begin_src conf
 workspace "1:1" output $primary
 workspace "2:2" output $primary
 workspace "3:3" output $primary
@@ -281,7 +281,7 @@ workspace "9:9" output $primary
 workspace "10:0" output $primary
 #+end_src
 *** Secondary output
-#+begin_src sh
+#+begin_src conf
 workspace "11:11" output $secondary
 workspace "12:12" output $secondary
 workspace "13:13" output $secondary
@@ -294,7 +294,7 @@ workspace "19:19" output $secondary
 workspace "20:10" output $secondary
 #+end_src
 *** Tertiary output
-#+begin_src sh
+#+begin_src conf
 workspace "21:21" output $tertiary
 workspace "22:22" output $tertiary
 workspace "23:23" output $tertiary
@@ -308,7 +308,6 @@ workspace "30:20" output $tertiary
 #+end_src
 ** WS names (icons)
 *** Primary monitor
-#+begin_src sh :tangle no
 #set $ws1 "1 "
 #set $ws2 "2 "
 #set $ws3 "3 "
@@ -320,9 +319,9 @@ workspace "30:20" output $tertiary
 #set $ws9 "9 "
 #set $ws0 "10 "
 #set $ws0 "10 "
+#+begin_src conf :tangle no
 #+end_src
 *** Secondary monitor
-#+begin_src sh :tangle no
 #set $ws11 "11 "
 #set $ws12 "12 "
 #set $ws13 "13 "
@@ -333,10 +332,11 @@ workspace "30:20" output $tertiary
 #set $ws18 "18 "
 #set $ws19 "19 J"
 #set $ws10 "20 E"
+#+begin_src conf :tangle no
 #+end_src
 ** WS names
 *** Primary monitor
-#+begin_src sh
+#+begin_src conf
 set $ws1 "1:1"
 set $ws2 "2:2"
 set $ws3 "3:3"
@@ -349,7 +349,7 @@ set $ws9 "9:9"
 set $ws0 "10:0"
 #+end_src
 *** Secondary monitor
-#+begin_src sh
+#+begin_src conf
 set $ws11 "11:11"
 set $ws12 "12:12"
 set $ws13 "13:13"
@@ -362,7 +362,7 @@ set $ws19 "19:19"
 set $ws10 "20:10"
 #+end_src
 *** Tertiary monitor
-#+begin_src sh
+#+begin_src conf
 set $ws21 "21:21"
 set $ws22 "22:22"
 set $ws23 "23:23"
@@ -375,16 +375,16 @@ set $ws29 "29:29"
 set $ws20 "30:20"
 #+end_src
 * i3bang: raw section (beginning)
-# make keybinds reusable in other modes (like inheritance)
-# check https://github.com/tckmn/i3bang for more details
-#+begin_src sh
+Make keybinds reusable in other modes (like inheritance).
+Check https://github.com/tckmn/i3bang for more details.
+#+begin_src conf
 #!nobracket
 !@<+default_keybindings
 #+end_src
 * Volume control
 ** i3blocks
 Use pactl to adjust volume in PulseAudio.
-#+begin_src sh
+#+begin_src conf :tangle no
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl list sinks | grep 'Sink #' | grep -o '[0-9]*' | xargs -i pactl set-sink-volume {} +5% && pkill -RTMIN+1 i3blocks
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl list sinks | grep 'Sink #' | grep -o '[0-9]*' | xargs -i pactl set-sink-volume {} -5% && pkill -RTMIN+1 i3blocks
 bindsym XF86AudioMute exec --no-startup-id pactl list sinks | grep 'Sink #' | grep -o '[0-9]*' | xargs -i pactl set-sink-mute {} toggle && pkill -RTMIN+1 i3blocks
@@ -393,21 +393,21 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl list sources | grep 'Source 
 * Window settings
 ** Change focus
 *** hjkl
-#+begin_src sh :tangle no
+#+begin_src conf :tangle no
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 #+end_src
 *** jkl;
-#+begin_src sh
+#+begin_src conf :tangle no
 bindsym $mod+j focus left
 bindsym $mod+k focus down
 bindsym $mod+l focus up
 bindsym $mod+semicolon focus right
 #+end_src
 *** Arrows
-#+begin_src sh
+#+begin_src conf
 bindsym $mod+Left  focus left
 bindsym $mod+Down  focus down
 bindsym $mod+Up    focus up
@@ -415,21 +415,21 @@ bindsym $mod+Right focus right
 #+end_src
 ** Move window
 *** hjkl
-#+begin_src sh :tangle no
+#+begin_src conf :tangle no
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 #+end_src
 *** jkl;
-#+begin_src sh
+#+begin_src conf :tangle no
 bindsym $mod+Shift+j move left
 bindsym $mod+Shift+k move down
 bindsym $mod+Shift+l move up
 bindsym $mod+Shift+semicolon move right
 #+end_src
 *** Arrows
-#+begin_src sh
+#+begin_src conf
 bindsym $mod+Shift+Left  move left
 bindsym $mod+Shift+Down  move down
 bindsym $mod+Shift+Up    move up
@@ -437,25 +437,25 @@ bindsym $mod+Shift+Right move right
 #+end_src
 ** General
 *** Split
-#+begin_src sh
+#+begin_src conf
 bindsym mod1+h split h                            # split in horizontal orientation
 bindsym mod1+v split v                            # split in vertical orientation
 #+end_src
 *** Container layout
-#+begin_src sh
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
+#+begin_src conf
 #+end_src
 *** Other
-#+begin_src sh
 bindsym $mod+f fullscreen toggle                  # enter fullscreen mode for the focused container
 bindsym $mod+d floating toggle                    # toggle tiling / floating
 bindsym ctrl+q kill                               # kill focused window
+#+begin_src conf
 #+end_src
 * Focus
 ** Windows
-#+begin_src sh
+#+begin_src conf
 bindsym $mod+space focus mode_toggle              # change focus between tiling / floating windows
 bindsym $mod+a focus parent                       # focus the parent container
 #bindsym $mod+d focus child                       # focus the child container
@@ -486,7 +486,7 @@ Navigate to workspace and check if there is any window opened there:
     - open windows
 *** Primary monitor
 **** Numbers
-#+begin_src sh
+#+begin_src conf
 bindsym $mod+1 exec "$SCRIPT_PATH/navigate2ws.sh 1"
 bindsym $mod+2 exec "$SCRIPT_PATH/navigate2ws.sh 2"
 bindsym $mod+3 exec "$SCRIPT_PATH/navigate2ws.sh 3"
@@ -539,7 +539,7 @@ bindsym $mod+space exec "$SCRIPT_PATH/navigate2ws.sh 0"
 #+end_src
 *** Secondary monitor
 **** Numbers
-#+begin_src sh
+#+begin_src conf
 bindsym shift+$mod+1 exec "$SCRIPT_PATH/navigate2ws.sh 11"
 bindsym shift+$mod+2 exec "$SCRIPT_PATH/navigate2ws.sh 12"
 bindsym shift+$mod+3 exec "$SCRIPT_PATH/navigate2ws.sh 13"
@@ -591,7 +591,7 @@ bindsym shift+$mod+d exec "$SCRIPT_PATH/navigate2ws.sh 19"
 bindsym shift+$mod+space exec "$SCRIPT_PATH/navigate2ws.sh 10"
 *** Tertiary monitor
 **** Numbers
-#+begin_src sh
+#+begin_src conf
 bindsym mod3+1 exec "$SCRIPT_PATH/navigate2ws.sh 21"
 bindsym mod3+2 exec "$SCRIPT_PATH/navigate2ws.sh 22"
 bindsym mod3+3 exec "$SCRIPT_PATH/navigate2ws.sh 23"
@@ -644,7 +644,7 @@ bindsym mod3+space exec "$SCRIPT_PATH/navigate2ws2.sh 20"
 ** Move container to WS
 *** Primary monitor
 **** Numbers
-#+begin_src sh
+#+begin_src conf
 bindsym ctrl+$mod+1 move container to workspace number $ws1; workspace $ws1
 bindsym ctrl+$mod+2 move container to workspace number $ws2; workspace $ws2
 bindsym ctrl+$mod+3 move container to workspace number $ws3; workspace $ws3
@@ -657,7 +657,7 @@ bindsym ctrl+$mod+8 move container to workspace number $ws9; workspace $ws9
 bindsym ctrl+$mod+0 move container to workspace number $ws0; workspace $ws0
 #+end_src
 **** Home row (qwerty)
-#+begin_src sh :tangle no
+#+begin_src conf :tangle no
 bindsym ctrl+$mod+a move container to workspace number $ws1; workspace $ws1
 bindsym ctrl+$mod+s move container to workspace number $ws2; workspace $ws2
 bindsym ctrl+$mod+d move container to workspace number $ws3; workspace $ws3
@@ -670,7 +670,7 @@ bindsym ctrl+$mod+l move container to workspace number $ws9; workspace $ws9
 bindcode ctrl+$mod+48 move container to workspace number $ws0; workspace $ws0
 #+end_src
 **** Upper row (qwerty)
-#+begin_src sh :tangle no
+#+begin_src conf :tangle no
 bindsym $mod+q move container to workspace number $ws1; workspace $ws1
 bindsym $mod+w move container to workspace number $ws2; workspace $ws2
 bindsym $mod+e move container to workspace number $ws3; workspace $ws3
@@ -683,7 +683,7 @@ bindsym $mod+o move container to workspace number $ws9; workspace $ws9
 bindsym $mod+p move container to workspace number $ws0; workspace $ws0
 #+end_src
 **** Numpad (qwerty)
-#+begin_src sh :tangle no
+#+begin_src conf :tangle no
 bindsym ctrl+$mod+s move container to workspace number $ws1; workspace $ws1
 bindsym ctrl+$mod+d move container to workspace number $ws2; workspace $ws2
 bindsym ctrl+$mod+f move container to workspace number $ws3; workspace $ws3
@@ -697,7 +697,7 @@ bindsym ctrl+$mod+space move container to workspace number $ws0; workspace $ws0
 #+end_src
 *** Secondary monitor
 **** Numbers
-#+begin_src sh
+#+begin_src conf
 bindsym shift+ctrl+$mod+1 move container to workspace number $ws11; workspace $ws11
 bindsym shift+ctrl+$mod+2 move container to workspace number $ws12; workspace $ws12
 bindsym shift+ctrl+$mod+3 move container to workspace number $ws13; workspace $ws13
@@ -710,7 +710,7 @@ bindsym shift+ctrl+$mod+9 move container to workspace number $ws19; workspace $w
 bindsym shift+ctrl+$mod+0 move container to workspace number $ws10; workspace $ws10
 #+end_src
 **** Home row (qwerty)
-#+begin_src sh :tangle no
+#+begin_src conf :tangle no
 bindsym shift+ctrl+$mod+a move container to workspace number $ws11; workspace $ws11
 bindsym shift+ctrl+$mod+s move container to workspace number $ws12; workspace $ws12
 bindsym shift+ctrl+$mod+d move container to workspace number $ws13; workspace $ws13
@@ -723,7 +723,7 @@ bindsym shift+ctrl+$mod+l move container to workspace number $ws19; workspace $w
 bindcode shift+ctrl+$mod+48 move container to workspace number $ws10; workspace $ws10
 #+end_src
 **** Upper row (qwerty)
-#+begin_src sh :tangle no
+#+begin_src conf :tangle no
 bindsym ctrl+$mod+q move container to workspace number $ws11; workspace $ws11
 bindsym ctrl+$mod+w move container to workspace number $ws12; workspace $ws12
 bindsym ctrl+$mod+e move container to workspace number $ws13; workspace $ws13
@@ -736,7 +736,7 @@ bindsym ctrl+$mod+o move container to workspace number $ws19; workspace $ws19
 bindsym ctrl+$mod+p move container to workspace number $ws10; workspace $ws10
 #+end_src
 **** Numpad (qwerty)
-#+begin_src sh :tangle no
+#+begin_src conf :tangle no
 bindsym shift+ctrl+$mod+s move container to workspace number $ws11; workspace $ws11
 bindsym shift+ctrl+$mod+d move container to workspace number $ws12; workspace $ws12
 bindsym shift+ctrl+$mod+f move container to workspace number $ws13; workspace $ws13
@@ -750,7 +750,7 @@ bindsym shift+ctrl+$mod+space move container to workspace number $ws10; workspac
 #+end_src
 *** Tertiary monitor
 **** Numbers
-#+begin_src sh
+#+begin_src conf
 bindsym ctrl+mod3+0 move container to workspace number $ws20; workspace $ws20
 bindsym ctrl+mod3+1 move container to workspace number $ws21; workspace $ws21
 bindsym ctrl+mod3+2 move container to workspace number $ws22; workspace $ws22
@@ -763,7 +763,7 @@ bindsym ctrl+mod3+8 move container to workspace number $ws28; workspace $ws28
 bindsym ctrl+mod3+9 move container to workspace number $ws29; workspace $ws29
 #+end_src
 **** Home row (qwerty)
-#+begin_src sh :tangle no
+#+begin_src conf :tangle no
 bindsym ctrl+mod3+a move container to workspace number $ws20; workspace $ws20
 bindsym ctrl+mod3+s move container to workspace number $ws21; workspace $ws21
 bindsym ctrl+mod3+d move container to workspace number $ws22; workspace $ws22
@@ -776,7 +776,7 @@ bindsym ctrl+mod3+l move container to workspace number $ws28; workspace $ws28
 bindcode ctrl+mod3+48 move container to workspace number $ws29; workspace $ws29
 #+end_src
 **** Upper row (qwerty)
-#+begin_src sh :tangle no
+#+begin_src conf :tangle no
 bindsym mod3+q move container to workspace number $ws20; workspace $ws20
 bindsym mod3+w move container to workspace number $ws21; workspace $ws21
 bindsym mod3+e move container to workspace number $ws22; workspace $ws22
@@ -788,7 +788,7 @@ bindsym mod3+i move container to workspace number $ws27; workspace $ws27
 bindsym mod3+o move container to workspace number $ws28; workspace $ws28
 #+end_src
 **** Numpad (qwerty)
-#+begin_src sh
+#+begin_src conf :tangle no
 bindsym ctrl+mod3+s move container to workspace number $ws20; workspace $ws20
 bindsym ctrl+mod3+d move container to workspace number $ws21; workspace $ws21
 bindsym ctrl+mod3+f move container to workspace number $ws22; workspace $ws22
@@ -802,7 +802,7 @@ bindsym ctrl+mod3+space move container to workspace number $ws29; workspace $ws2
 bindsym ctrl+mod3+p move container to workspace number $ws29; workspace $ws29
 #+end_src
 ** Same monitor
-#+begin_src sh
+#+begin_src conf
 bindsym ctrl+$mod+Right workspace next
 bindsym ctrl+$mod+k     workspace next
 bindsym ctrl+$mod+Left  workspace prev
@@ -810,37 +810,37 @@ bindsym ctrl+$mod+l     workspace prev
 #+end_src
 ** Among monitors
 *** Arrows
-#+begin_src sh
 bindsym shift+mod5+Left  move container to output left;  focus output left
 bindsym shift+mod5+Right move container to output right; focus output right
+#+begin_src conf
 #+end_src
 *** Numbers
-#+begin_src sh
 bindsym ctrl+mod1+1 move workspace to output $primary_screen;   focus output $primary_screen
 bindsym ctrl+mod1+2 move workspace to output $secondary_screen; focus output $secondary_screen
 bindsym ctrl+mod1+3 move workspace to output $tertiary_screen;  focus output $tertiary_screen
+#+begin_src conf
 #+end_src
 reserved
 * Restart i3/sway
 ** Reload
-#+begin_src sh
+#+begin_src conf
 #bindsym $mod+Shift+c reload
 bindsym $mod+Shift+c exec ~/.config/i3/i3bang.rb; reload
 #+end_src
 ** Restart
 Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-#+begin_src sh
+#+begin_src conf
 #bindsym $mod+Shift+r restart
 bindsym $mod+Shift+r exec ~/.config/i3/i3bang.rb; restart
 #+end_src
 ** Exit
 Exit i3 (logs you out of your X session)
-#+begin_src sh
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+#+begin_src conf
 #+end_src
 * Custom keybinds
 ** Applications
-#+begin_src sh
+#+begin_src conf
 bindsym $mod+b exec firefox                       # Firefox
 #bindsym $mod+c exec chromium                      # Chromium
 bindsym $mod+n exec thunar                        # Thunar
@@ -851,25 +851,25 @@ bindsym $mod+g exec kitty ranger                  # ranger
 #bindsym $mod+p exec spotify --force-device-scale-factor=2 # shortcut to open Spotify
 #+end_src
 ** Terminal
-#+begin_src sh
 bindsym $mod+t exec i3-sensible-terminal
 bindsym ctrl+mod1+t exec i3-sensible-terminal
+#+begin_src conf
 #bindsym ctrl+$mod+t exec i3-sensible-terminal
 #+end_src
 ** Brightness
-#+begin_src sh
+#+begin_src conf
 bindsym XF86MonBrightnessUp   exec --no-startup-id xbacklight -inc 5
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
 #+end_src
 ** Screenshot
-#+begin_src sh
+#+begin_src conf
 #bindsym Print exec shutter
 bindsym Print exec grim
 bindsym shift+Print exec 'grim -g "$(slurp)"'
 bindsym ctrl+Print exec 'grim -g "$(slurp)" - | swappy -f -'
 #+end_src
 ** Rofi
-#+begin_src sh
+#+begin_src conf
 bindsym $mod+Return       exec rofi -show run    -monitor $(swaymsg -t get_outputs | jq '.[] | select(.focused==true).name')
 bindsym $mod+bracketright exec rofi -show window -monitor $(swaymsg -t get_outputs | jq '.[] | select(.focused==true).name')
 bindsym $mod+backslash    exec rofi -show ssh    -monitor $(swaymsg -t get_outputs | jq '.[] | select(.focused==true).name')
@@ -877,59 +877,59 @@ bindsym $mod+backslash    exec rofi -show ssh    -monitor $(swaymsg -t get_outpu
 * Logitech MX
 ** Change host
 Change host for MX Keys and MX Master 3
-#+begin_src sh
+#+begin_src conf
 bindsym F13 exec /home/rafael/mx_script.sh
 #+end_src
 ** MX Master 3
 *** Copy
 "copy" shortcut: "i" button + down gesture
-#+begin_src sh
+#+begin_src conf
 bindsym XF86Copy [class="Xfce4-terminal"] exec "xdotool keydown ctrl keydown shift keydown c keyup ctrl keyup shift keyup c"; exec "sleep 0.1"
 #+end_src
 *** Paste
 "paste" shortcut: "i" button + up gesture
-#+begin_src sh
+#+begin_src conf
 bindsym XF86Paste [class="Xfce4-terminal"] exec "xdotool keydown ctrl keydown shift keydown v keyup ctrl keyup shift keyup v"; exec "sleep 0.1"
 #+end_src
-#+begin_src sh
+#+begin_src conf
 #+end_src
 * Mouse keybinds
 ** Volume control
 Use button9 + scroll to control volume
   --> button9 is mapped as Super_R using the interception tool, which is mapped as mod3 using xmodmap
-#+begin_src sh :tangle no
+#+begin_src conf :tangle no
 bindsym mod3+ --whole-window button4 exec "pactl set-sink-volume @DEFAULT_SINK@ +5% && pkill -RTMIN+10 i3blocks"
 bindsym mod3+ --whole-window button5 exec "pactl set-sink-volume @DEFAULT_SINK@ -5% && pkill -RTMIN+10 i3blocks"
 #+end_src
 ** Mouse keys
 *** Cursor
-#+begin_src sh
 bindsym kp_4 seat - cursor move -10  0   # cursor left
 bindsym kp_2 seat - cursor move  0   10  # cursor down
 bindsym kp_8 seat - cursor move  0  -10  # cursor up
 bindsym kp_6 seat - cursor move  10  0   # cursor right
+#+begin_src conf
 #+end_src
 *** Buttons
-#+begin_src sh
 bindsym kp_divide   seat - cursor press button1  # left click
 bindsym kp_multiply seat - cursor press button2  # middle click
 bindsym kp_subtract seat - cursor press button3  # right click
+#+begin_src conf
 #+end_src
 *** Wheel
-#+begin_src sh
 bindsym kp_1 seat - cursor press button4  # wheel up
 bindsym kp_3 seat - cursor press button5  # wheel down
 bindsym kp_7 seat - cursor press button6  # wheel right
 bindsym kp_9 seat - cursor press button7  # wheel left
+#+begin_src conf
 #+end_src
 * Keyboard keybinds
 ** Ctrl + Space = Return
-#+begin_src sh
+#+begin_src conf
 bindsym --release ctrl+space exec xdotool key Return
 #+end_src
 ** Mod5 (hold Tab)
 Navigation with vim keys
-#+begin_src sh
+#+begin_src conf
 bindsym --release Mod5+h exec xdotool key Left
 bindsym --release Mod5+j exec xdotool key Down
 bindsym --release Mod5+k exec xdotool key Up
@@ -941,7 +941,7 @@ bindsym --release Mod5+l exec xdotool key Right
 - rotate touchscreen
 - disable touchpad
 - disable touchpad click
-#+begin_src sh
+#+begin_src conf
 bindsym ctrl+$mod+Up exec "\
     echo 'rotate screen' &&\
     xrandr --output eDP-1 --rotate left &&\
@@ -959,7 +959,7 @@ bindsym ctrl+$mod+Up exec "\
 - rotate touchscreen
 - enable touchpad
 - enable touchpad click
-#+begin_src sh
+#+begin_src conf
 bindsym ctrl+$mod+Down exec "\
     echo 'rotate screen' &&\
     xrandr --output eDP-1 --rotate normal && \
@@ -974,7 +974,7 @@ bindsym ctrl+$mod+Down exec "\
 #+end_src
 * i3bang: raw section (end)
 End raw section: !@<+default_keybindings
-#+begin_src sh
+#+begin_src conf
 >
 #+end_src
 * Modes
@@ -983,7 +983,7 @@ End raw section: !@<+default_keybindings
 source:
 https://wiki.archlinux.org/index.php/I3#Shutdown,_reboot,_lock_screen
 *** Mode
-#+begin_src sh
+#+begin_src conf
 set $mode_system System: (s)hutdown, (r)eboot, (l)ock, (S)uspend, (h)ibernate, (e)xit/logout
 #-----------------------------
 set $locker i3lock --color 000000 && sleep 1
@@ -1008,7 +1008,7 @@ mode "$mode_system" {
 # obs: the -i argument for systemctl poweroff causes a shutdown even if other users are logged-in (this requires polkit), or when logind (wrongly) assumes so.
 #+end_src
 *** Keybinding
-#+begin_src sh
+#+begin_src conf
 bindsym $mod+Home mode "$mode_system"
 #+end_src
 ** Resize
@@ -1020,7 +1020,7 @@ Resize window (you can also use the mouse for that)
   - Pressing up will shrink the window’s height.
   - Pressing down will grow the window’s height.
 *** Mode
-#+begin_src sh
+#+begin_src conf
 mode "resize" {
     bindsym j resize shrink width  5 px or 5 ppt
     bindsym k resize shrink height 5 px or 5 ppt
@@ -1043,7 +1043,7 @@ mode "resize" {
 }
 #+end_src
 *** Keybinding
-#+begin_src sh
+#+begin_src conf
 bindsym mod1+$mod+r mode "resize"
 #+end_src
 ** Number
@@ -1068,7 +1068,7 @@ Edit top right keyboard keys to work as a numpad (for Lenovo Yoga 2 Pro)
 | Enter     | ' & " |    48   |
 +-----------------------------+
 *** Mode
-#+begin_src sh
+#+begin_src conf
 mode "number" {
     #-----------------------------
     # exit "number" mode and load default Xmodmap file
@@ -1084,12 +1084,12 @@ mode "number" {
 #+end_src
 *** Keybinding
 Enter "number" mode and load Xmodmap file with number modifications
-#+begin_src sh
+#+begin_src conf
 bindsym $mod+Next mode "number"; exec "xmodmap ~/.Xmodmap_numbers"
 #+end_src
 * i3bar
 Start i3bar to display a workspace bar (plus the system information i3status finds out, if available)
-#+begin_src sh
+#+begin_src conf
 bar {
     # set i3bar position
     position top
@@ -1112,12 +1112,12 @@ bar {
 #+end_src
 * Applications default WS
 ** Wayland / X11
-#+begin_src sh
+#+begin_src conf
 set $prop class     # X11
 #set $prop app_id   # Wayland
 #+end_src
 ** Applications
-#+begin_src sh
+#+begin_src conf
 assign [$prop="thunderbird"] → $ws4               # workspace 4: email
 assign [$prop="libreoffice"] → $ws5               # workspace 5: spreadsheet
 assign [$prop="lutris"] → $ws6                    # workspace 6: game
@@ -1132,13 +1132,13 @@ assign [$prop="pavucontrol"] → $ws10              # workspace 10: volume contr
 * Window-specific
 ** Tkinter
 Floating window for Tkinter (Python GUI)
-#+begin_src sh
+#+begin_src conf
 for_window [class="Tk"] floating enable
 for_window [class="Toplevel"] floating enable
 #+end_src
 * Scratchpads
 ** Python
-#+begin_src sh
+#+begin_src conf
 exec --no-startup-id kitty --class="dropdown_python" -o font_size=20 python -q
 bindsym $mod+y [$prop="^dropdown_python$"] scratchpad show; resize set 1000 600
 for_window [$prop="^dropdown_python$"] floating enable
@@ -1147,7 +1147,7 @@ for_window [$prop="^dropdown_python$"] move scratchpad
 for_window [$prop="^dropdown_python$"] border pixel 5
 #+end_src
 ** Terminal
-#+begin_src sh
+#+begin_src conf
 exec --no-startup-id kitty --class="dropdown_terminal"
 bindsym $mod+h [$prop="^dropdown_terminal$"] scratchpad show; resize set 1000 600
 for_window [$prop="^dropdown_terminal$"] floating enable
@@ -1156,31 +1156,31 @@ for_window [$prop="^dropdown_terminal$"] move scratchpad
 for_window [$prop="^dropdown_terminal$"] border pixel 5
 #+end_src
 * Applets
-#+begin_src sh
+#+begin_src conf
 exec "blueman-applet &"                           # Bluetooth
 exec "nm-applet --indicator &"                    # NetworkManager
 #+end_src
 * Startup commands
 ** Background images
-#+begin_src sh
+#+begin_src conf
 exec_always feh --bg-scale ~/.config/feh/london.jpg
 #+end_src
 ** Touchpad
 Enable touchpad horizontal scroll
-#+begin_src sh
+#+begin_src conf
 exec xinput --set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Two-Finger Scrolling" 1 1
 #+end_src
 ** Compositor
 *** X.Org
-#+begin_src sh
+#+begin_src conf
 exec_always --no-startup-id picom -b --config ~/.config/picom/picom.conf
 #+end_src
 *** Sway
-#+begin_src sh
+#+begin_src conf
 exec /usr/share/sway-contrib/inactive-windows-transparency.py --opacity 0.85
 #+end_src
 ** Daemons
-#+begin_src sh
+#+begin_src conf
 exec nohup autokey-gtk                           # launch AutoKey
 exec nohup /usr/bin/dunst                        # dunst: notification daemon
 exec --no-startup-id autotiling                  # autotiling
