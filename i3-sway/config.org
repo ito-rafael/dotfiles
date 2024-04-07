@@ -83,7 +83,17 @@
   - [[#daemons][Daemons]]
 * General config
 ** Modifiers
-#+begin_src sh
+| modifier | keys                           |
+|----------+--------------------------------|
+| Shift    | Shift_L, Shift_R, Henkan       |
+| Control  | Control_L, Control_R, Muhenkan |
+| Lock     | Caps_Lock                      |
+| Mod1     | Alt_L, Alt_R                   |
+| Mod2     | Num_Lock                       |
+| Mod3     | Super_R                        |
+| Mod4     | Super_L                        |
+#+begin_src conf
+set $alt Mod1
 set $mod Mod4
 #+end_src
 ** General
