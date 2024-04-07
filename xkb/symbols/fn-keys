@@ -1,0 +1,15 @@
+default partial alphanumeric_keys
+xkb_symbols "fnkeys" {
+    key <FK13> { [ F13 ] };    // keycode 191: XF86Tools
+    key <FK14> { [ F14 ] };    // keycode 192: XF86Launch5
+    key <FK15> { [ F15 ] };    // keycode 193: XF86Launch6
+    key <FK16> { [ F16 ] };    // keycode 194: XF86Launch7
+    key <FK17> { [ F17 ] };    // keycode 195: XF86Launch8
+    key <FK18> { [ F18 ] };    // keycode 196: XF86Launch9
+    key <FK19> { [ F19 ] };    // keycode 197: N/A
+    key <FK20> { [ F20 ] };    // keycode 198: XF86AudioMicMute
+    key <FK21> { [ F21 ] };    // keycode 199: XF86TouchpadToggle
+    key <FK22> { [ F22 ] };    // keycode 200: XF86TouchpadOn
+    key <FK23> { [ F23 ] };    // keycode 201: XF86TouchpadOff
+    key <FK24> { [ F24 ] };    // keycode 202:
+};

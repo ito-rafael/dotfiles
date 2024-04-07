@@ -1,0 +1,5 @@
+// Include the system 'evdev' file
+! include %S/evdev
+
+! option = symbols
+  fn-keys:fnkeys = +fn-keys(fnkeys)
