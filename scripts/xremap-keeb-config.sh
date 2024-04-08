@@ -7,7 +7,7 @@ variant, of these keyboards. The keyboards supported so far are:
 
 keyboards:
   - ZSA Moonlander
-  - ZSA Plenck EZ
+  - ZSA Planck EZ
   - laptop native keyboards
 '''
 
