@@ -6,7 +6,9 @@ xkb_symbols "modifiers" {
     modifier_map Lock   { Caps_Lock };
     modifier_map Control{ Control_L, Control_R };
     modifier_map Mod2   { Num_Lock };
-    modifier_map Mod4   { Super_L, Super_R };
+    modifier_map Mod3   { Super_R };
+    modifier_map Mod4   { Super_L };
+
 
     // Fake keys for virtual<->real modifiers mapping:
 
