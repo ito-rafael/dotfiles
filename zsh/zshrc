@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/rafael/.oh-my-zsh"
+export ZSH="/home/rafael/.config/oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -318,15 +318,15 @@ REMOTE="lbic"
 #REMOTE="vb"
 #-----------------------------
 # reload config files
-alias {rzz,rz}='source ~/.zshrc'
-alias {rze}='source ~/.zshenv'
+alias {rzz,rz}='source ~/.config/zsh/.zshrc'
+alias {rze}='source ~/.config/zsh/.zshenv'
 alias {rii,ri}='~/.config/i3/i3bang.rb && i3-msg restart'
 alias {rxx,rx}='xmodmap ~/.Xmodmap'
 #-----------------------------
 # open config files
 alias vv='vim ~/.config/nvim/init.vim'
-alias zz='vim ~/.zshrc'
-alias ze='vim ~/.zshenv'
+alias zz='vim ~/.config/zsh/.zshrc'
+alias ze='vim ~/.config/zsh/.zshenv'
 alias xx='vim ~/.Xmodmap'
 alias kk='vim ~/.config/kitty/kitty.conf'
 alias bb='vim ~/.config/i3/i3blocks.conf'
@@ -348,8 +348,8 @@ function ii () {
 #-----------------------------
 # open config files in remote PC
 alias lvv='ssh $REMOTE cat ~/.config/nvim/init.vim | vim -'
-alias lzz='ssh $REMOTE cat ~/.zshrc | vim -'
-alias lze='ssh $REMOTE cat ~/.zshenv | vim -'
+alias lzz='ssh $REMOTE cat ~/.config/zsh/.zshrc | vim -'
+alias lze='ssh $REMOTE cat ~/.config/zsh/.zshenv | vim -'
 alias lii='ssh $REMOTE cat ~/.config/i3/_config | vim -'
 alias lxx='ssh $REMOTE cat ~/.Xmodmap | vim -'
 alias lkk='ssh $REMOTE cat ~/.config/kitty/kitty.conf | vim -'
@@ -359,8 +359,8 @@ alias lee='ssh $REMOTE cat ~/.config/doom/config.el | vim -'
 #-----------------------------
 # diff config files in remote PC
 alias dvv='ssh $REMOTE cat ~/.config/nvim/init.vim | diff - ~/.vimrc'
-alias dzz='ssh $REMOTE cat ~/.zshrc | diff - ~/.zshrc'
-alias dze='ssh $REMOTE cat ~/.zshenv | diff - ~/.zshenv'
+alias dzz='ssh $REMOTE cat ~/.config/zsh/.zshrc | diff - ~/.config/zsh/.zshrc'
+alias dze='ssh $REMOTE cat ~/.config/zsh/.zshenv | diff - ~/.config/zsh/.zshenv'
 alias dii='ssh $REMOTE cat ~/.config/i3/_config | diff - ~/.config/i3/_config'
 alias dxx='ssh $REMOTE cat ~/.Xmodmap | diff - ~/.Xmodmap'
 alias dkk='ssh $REMOTE cat ~/.config/kitty/kitty.conf | diff - ~/.config/kitty/kitty.conf'
@@ -381,8 +381,8 @@ alias gee='vim ~/git/pc-general-config/doom/config.el'
 #-----------------------------
 # diff between git repo and current config files
 alias gdvv='diff ~/git/pc-general-config/nvim/init.vim ~/.config/nvim/init.vim'
-alias gdzz='diff ~/git/pc-general-config/zsh/zshrc ~/.zshrc'
-alias gdze='diff ~/git/pc-general-config/zsh/zshenv ~/.zshenv'
+alias gdzz='diff ~/git/pc-general-config/zsh/zshrc ~/.config/zsh/.zshrc'
+alias gdze='diff ~/git/pc-general-config/zsh/zshenv ~/.config/zsh/.zshenv'
 alias gdxx='diff ~/git/pc-general-config/X.Org/Xmodmap ~/.Xmodmap'
 alias gdkk='diff ~/git/pc-general-config/kitty/kitty.conf ~/.config/kitty/kitty.conf'
 alias gdbb='diff ~/git/pc-general-config/i3/i3blocks.conf ~/.config/i3/i3blocks.conf'
