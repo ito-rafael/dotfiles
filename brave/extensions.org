@@ -1,0 +1,33 @@
+#+TITLE: Brave Extensions
+#+AUTHOR: Rafael Ito
+#+PROPERTY: header-args :padline no :tangle extension_install_policy.json
+#+DESCRIPTION: config file to automate the installation of Brave extensions
+#+STARTUP: showeverything
+#+auto_tangle: t
+
+* Table of contents :toc:
+- [[#init][Init]]
+- [[#extensions][Extensions]]
+  - [[#exemple][Exemple]]
+- [[#end][End]]
+
+* Init
+Source:
+- https://github.com/brave/brave-browser/issues/23966
+- https://chromeenterprise.google/policies/#ExtensionInstallForcelist
+#+begin_src json
+{
+   "ExtensionInstallForcelist": [
+#+end_src
+* Extensions
+** Exemple
+- link: https://chromewebstore.google.com/detail/<EXTENSION-ID>
+- description: TLDR extension usage
+#+begin_src json
+<EXTENSION-ID>
+#+end_src
+* End
+#+begin_src json
+    ]
+}
+#+end_src
