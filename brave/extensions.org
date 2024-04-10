@@ -9,6 +9,7 @@
 - [[#init][Init]]
 - [[#extensions][Extensions]]
   - [[#dark-reader][Dark Reader]]
+  - [[#vimium][Vimium]]
 - [[#end][End]]
 
 * Init
@@ -25,6 +26,12 @@ Source:
 - description: dark mode everywhere
 #+begin_src json
 eimadpbcbfnmbkopoojfekhnkhdbieeh
+#+end_src
+** Vimium
+- link: https://chromewebstore.google.com/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb
+- description: vim-like navigation
+#+begin_src json
+dbepggeogbaibhgnhhndojpepiihcmeb
 #+end_src
 * End
 #+begin_src json
