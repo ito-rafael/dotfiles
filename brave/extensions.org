@@ -10,6 +10,7 @@
 - [[#extensions][Extensions]]
   - [[#dark-reader][Dark Reader]]
   - [[#vimium][Vimium]]
+  - [[#better-onetab][Better OneTab]]
 - [[#end][End]]
 
 * Init
@@ -23,15 +24,21 @@ Source:
 * Extensions
 ** Dark Reader
 - link: https://chromewebstore.google.com/detail/dark-reader/eimadpbcbfnmbkopoojfekhnkhdbieeh
-- description: dark mode everywhere
+- description: dark mode everywhere.
 #+begin_src json
-eimadpbcbfnmbkopoojfekhnkhdbieeh
+"eimadpbcbfnmbkopoojfekhnkhdbieeh"
 #+end_src
 ** Vimium
 - link: https://chromewebstore.google.com/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb
-- description: vim-like navigation
+- description: vim-like navigation.
 #+begin_src json
-dbepggeogbaibhgnhhndojpepiihcmeb
+"dbepggeogbaibhgnhhndojpepiihcmeb"
+#+end_src
+** Better OneTab
+- link: https://chromewebstore.google.com/detail/better-onetab/eookhngofldnbnidjlbkeecljkfpmfpg
+- description: save and restore tabs.
+#+begin_src json
+"eookhngofldnbnidjlbkeecljkfpmfpg"
 #+end_src
 * End
 #+begin_src json
