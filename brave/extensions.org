@@ -8,7 +8,7 @@
 * Table of contents :toc:
 - [[#init][Init]]
 - [[#extensions][Extensions]]
-  - [[#exemple][Exemple]]
+  - [[#dark-reader][Dark Reader]]
 - [[#end][End]]
 
 * Init
@@ -20,11 +20,11 @@ Source:
    "ExtensionInstallForcelist": [
 #+end_src
 * Extensions
-** Exemple
-- link: https://chromewebstore.google.com/detail/<EXTENSION-ID>
-- description: TLDR extension usage
+** Dark Reader
+- link: https://chromewebstore.google.com/detail/dark-reader/eimadpbcbfnmbkopoojfekhnkhdbieeh
+- description: dark mode everywhere
 #+begin_src json
-<EXTENSION-ID>
+eimadpbcbfnmbkopoojfekhnkhdbieeh
 #+end_src
 * End
 #+begin_src json
