@@ -7,3 +7,6 @@ export PATH=$PATH:~/.emacs.d/bin    # Emacs
 # Java
 # font rendering
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on'
+
+# Zsh
+export ZDOTDIR=$HOME/.config/zsh
