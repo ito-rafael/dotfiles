@@ -7,17 +7,24 @@
 
 * Table of contents :toc:
 - [[#init][Init]]
+  - [[#source][Source:]]
+  - [[#extensioninstallforcelist][ExtensionInstallForcelist]]
+  - [[#extensionsettings][ExtensionSettings]]
+  - [[#template][Template]]
 - [[#extensions][Extensions]]
-  - [[#dark-reader][Dark Reader]]
-  - [[#vimium][Vimium]]
-  - [[#better-onetab][Better OneTab]]
+  - [[#essential][Essential]]
 - [[#end][End]]
+  - [[#extensioninstallforcelist-1][ExtensionInstallForcelist]]
+  - [[#extensionsettings-1][ExtensionSettings]]
 
 * Init
-#+begin_src json
 ** Source:
 - +[[https://chromeenterprise.google/policies/#ExtensionInstallForcelist][ExtensionInstallForcelist]]+
   - +[[https://github.com/brave/brave-browser/issues/23966][Cannot automate installation of extensions on Linux]]+
+- [[https://chromeenterprise.google/policies/?policy=ExtensionSettings][ExtensionSettings]]
+  - [[https://support.google.com/chrome/a/answer/9867568][Configure ExtensionSettings policy]]
+  - [[https://support.google.com/chrome/a/answer/7666985][App and extension policies]]
+  - [[https://support.google.com/chrome/a/answer/7517525?sjid=12770101199311978400-SA#choose&zippy=%2Cset-installation-policies-automatically-install-force-install-allow-or-block%2Cpin-app-or-extension-updates][Pre-install apps that users can remove]]
 ** ExtensionInstallForcelist
 #+begin_src js :tangle no
 {
