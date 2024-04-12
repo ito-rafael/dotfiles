@@ -28,20 +28,44 @@
 {
    "ExtensionSettings": {
 #+end_src
+** Template
+#+name: install
+#+begin_src js :var pin=0 comma=1 extension_id="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" :results output :tangle no
+console.log(`"${extension_id}": {`);
+if (pin == true){
+    console.log(`"toolbar_pin": "force_pinned",`);
+}
+console.log(`"installation_mode": "normal_installed",`);
+console.log(`"update_url": "https://clients2.google.com/service/update2/crx"`);
+if (comma == true){
+    console.log(`},`);
+} else {
+    console.log(`}`);
+}
+#+end_src
 * Extensions
 ** Essential
 *** Dark Reader
 - link: https://chromewebstore.google.com/detail/dark-reader/eimadpbcbfnmbkopoojfekhnkhdbieeh
 - description: dark mode everywhere.
+#+begin_src js :noweb yes
+  <<install(extension_id="eimadpbcbfnmbkopoojfekhnkhdbieeh")>>
+#+end_src
 *** +Vimium+
 Deprecated in favour of [[Surfingkeys]].
 +- link: https://chromewebstore.google.com/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb+
++- description: vim-like navigation.+
+#+begin_src js :tangle no
+<<install(extension_id="dbepggeogbaibhgnhhndojpepiihcmeb")>>,
 #+end_src
 - description: vim-like navigation.
 #+end_src
 *** Better OneTab
 - link: https://chromewebstore.google.com/detail/better-onetab/eookhngofldnbnidjlbkeecljkfpmfpg
 - description: save and restore tabs.
+#+begin_src js :noweb yes
+<<install(extension_id="eookhngofldnbnidjlbkeecljkfpmfpg")>>,
+#+end_src
 #+end_src
 * End
 #+begin_src json
