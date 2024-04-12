@@ -13,6 +13,7 @@
   - [[#template][Template]]
 - [[#extensions][Extensions]]
   - [[#essential][Essential]]
+  - [[#scholar][Scholar]]
 - [[#end][End]]
   - [[#extensioninstallforcelist-1][ExtensionInstallForcelist]]
   - [[#extensionsettings-1][ExtensionSettings]]
@@ -94,6 +95,13 @@ Deprecated in favour of [[Surfingkeys]].
 - description: password manager.
 #+begin_src js :noweb yes
 <<install(extension_id="nngceckbapebfimnlniiiahkandclblb")>>,
+#+end_src
+** Scholar
+*** Google Scholar Button
+- link: https://chromewebstore.google.com/detail/ldipcbpaocekfooobnbcddclnhejkcpn
+- description: Google Scholar support.
+#+begin_src js :noweb yes
+<<install(extension_id="ldipcbpaocekfooobnbcddclnhejkcpn")>>,
 #+end_src
 #+end_src
 * End
