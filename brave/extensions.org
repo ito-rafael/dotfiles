@@ -123,6 +123,12 @@ Deprecated in favour of [[Surfingkeys]].
 #+begin_src js :noweb yes
 <<install(extension_id="gfgpkepllngchpmcippidfhmbhlljhoo")>>,
 #+end_src
+*** Read Aloud
+- link: https://chromewebstore.google.com/detail/hdhinadidafjejdhmfkjgnolgimiaplp
+- description: Text-to-speech (TTS) support.
+#+begin_src js :noweb yes
+<<install(extension_id="hdhinadidafjejdhmfkjgnolgimiaplp")>>,
+#+end_src
 #+end_src
 * End
 Don't forget to remove the trailing comma on the previous block of JSON code (last extension)
