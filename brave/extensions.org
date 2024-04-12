@@ -109,6 +109,13 @@ Deprecated in favour of [[Surfingkeys]].
 #+begin_src js :noweb yes
 <<install(extension_id="ekhagklcjbdpajgpjgmbionohlpdbjgc")>>,
 #+end_src
+** Misc
+*** Grammarly
+- link: https://chromewebstore.google.com/detail/kbfnbcaeplbcioakkpcpgfkobkghlhen
+- description: grammar & spell checker.
+#+begin_src js :noweb yes
+<<install(extension_id="kbfnbcaeplbcioakkpcpgfkobkghlhen")>>,
+#+end_src
 #+end_src
 * End
 Don't forget to remove the trailing comma on the previous block of JSON code (last extension)
