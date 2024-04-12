@@ -14,31 +14,34 @@
 - [[#end][End]]
 
 * Init
-Source:
-- https://github.com/brave/brave-browser/issues/23966
-- https://chromeenterprise.google/policies/#ExtensionInstallForcelist
 #+begin_src json
+** Source:
+- +[[https://chromeenterprise.google/policies/#ExtensionInstallForcelist][ExtensionInstallForcelist]]+
+  - +[[https://github.com/brave/brave-browser/issues/23966][Cannot automate installation of extensions on Linux]]+
+** ExtensionInstallForcelist
+#+begin_src js :tangle no
 {
    "ExtensionInstallForcelist": [
 #+end_src
+** ExtensionSettings
+#+begin_src js
+{
+   "ExtensionSettings": {
+#+end_src
 * Extensions
-** Dark Reader
+** Essential
+*** Dark Reader
 - link: https://chromewebstore.google.com/detail/dark-reader/eimadpbcbfnmbkopoojfekhnkhdbieeh
 - description: dark mode everywhere.
-#+begin_src json
-"eimadpbcbfnmbkopoojfekhnkhdbieeh"
+*** +Vimium+
+Deprecated in favour of [[Surfingkeys]].
++- link: https://chromewebstore.google.com/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb+
 #+end_src
-** Vimium
-- link: https://chromewebstore.google.com/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb
 - description: vim-like navigation.
-#+begin_src json
-"dbepggeogbaibhgnhhndojpepiihcmeb"
 #+end_src
-** Better OneTab
+*** Better OneTab
 - link: https://chromewebstore.google.com/detail/better-onetab/eookhngofldnbnidjlbkeecljkfpmfpg
 - description: save and restore tabs.
-#+begin_src json
-"eookhngofldnbnidjlbkeecljkfpmfpg"
 #+end_src
 * End
 #+begin_src json
