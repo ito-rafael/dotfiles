@@ -65,7 +65,11 @@ Deprecated in favour of [[Surfingkeys]].
 #+begin_src js :tangle no
 <<install(extension_id="dbepggeogbaibhgnhhndojpepiihcmeb")>>,
 #+end_src
+*** Surfingkeys
+- link: https://chromewebstore.google.com/detail/gfbliohnnapiefjpjlpjnehglfpaknnc
 - description: vim-like navigation.
+#+begin_src js :noweb yes
+<<install(extension_id="gfbliohnnapiefjpjlpjnehglfpaknnc", pin=1)>>
 #+end_src
 *** Better OneTab
 - link: https://chromewebstore.google.com/detail/better-onetab/eookhngofldnbnidjlbkeecljkfpmfpg
@@ -75,7 +79,14 @@ Deprecated in favour of [[Surfingkeys]].
 #+end_src
 #+end_src
 * End
-#+begin_src json
+Don't forget to remove the trailing comma on the previous block of JSON code (last extension)
+** ExtensionInstallForcelist
+#+begin_src js :tangle no
     ]
+}
+#+end_src
+** ExtensionSettings
+#+begin_src js
+    }
 }
 #+end_src
