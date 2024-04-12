@@ -14,6 +14,7 @@
 - [[#extensions][Extensions]]
   - [[#essential][Essential]]
   - [[#scholar][Scholar]]
+  - [[#misc][Misc]]
 - [[#end][End]]
   - [[#extensioninstallforcelist-1][ExtensionInstallForcelist]]
   - [[#extensionsettings-1][ExtensionSettings]]
@@ -115,6 +116,12 @@ Deprecated in favour of [[Surfingkeys]].
 - description: grammar & spell checker.
 #+begin_src js :noweb yes
 <<install(extension_id="kbfnbcaeplbcioakkpcpgfkobkghlhen")>>,
+#+end_src
+*** XTranslate
+- link: https://chromewebstore.google.com/detail/gfgpkepllngchpmcippidfhmbhlljhoo
+- description: language translation.
+#+begin_src js :noweb yes
+<<install(extension_id="gfgpkepllngchpmcippidfhmbhlljhoo")>>,
 #+end_src
 #+end_src
 * End
