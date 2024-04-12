@@ -15,6 +15,7 @@
   - [[#essential][Essential]]
   - [[#scholar][Scholar]]
   - [[#misc][Misc]]
+  - [[#youtube][YouTube]]
 - [[#end][End]]
   - [[#extensioninstallforcelist-1][ExtensionInstallForcelist]]
   - [[#extensionsettings-1][ExtensionSettings]]
@@ -140,6 +141,14 @@ Deprecated in favour of [[Surfingkeys]].
 - description: free VPN.
 #+begin_src js :noweb yes
 <<install(extension_id="gkojfkhlekighikafcpjkiklfbnlmeio")>>,
+#+end_src
+** YouTube
+*** +Youtube Playback Speed Control+
+*** Return YouTube Dislike
+- link: https://chromewebstore.google.com/detail/gebbhagfogifgggkldgodflihgfeippi
+- description: return dislike button/views on YouTube.
+#+begin_src js :noweb yes
+<<install(extension_id="gebbhagfogifgggkldgodflihgfeippi")>>,
 #+end_src
 #+end_src
 * End
