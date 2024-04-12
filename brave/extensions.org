@@ -15,6 +15,7 @@
   - [[#essential][Essential]]
   - [[#scholar][Scholar]]
   - [[#misc][Misc]]
+  - [[#shopping][Shopping]]
   - [[#youtube][YouTube]]
 - [[#end][End]]
   - [[#extensioninstallforcelist-1][ExtensionInstallForcelist]]
@@ -141,6 +142,13 @@ Deprecated in favour of [[Surfingkeys]].
 - description: free VPN.
 #+begin_src js :noweb yes
 <<install(extension_id="gkojfkhlekighikafcpjkiklfbnlmeio")>>,
+#+end_src
+** Shopping
+*** AliExpress Superstar
+- link: https://chromewebstore.google.com/detail/eodaonbgmhniagpgfepdflgjhmmkbnfi
+- description: AliExpress price tracking.
+#+begin_src js :noweb yes
+<<install(extension_id="eodaonbgmhniagpgfepdflgjhmmkbnfi")>>,
 #+end_src
 ** YouTube
 *** +Youtube Playback Speed Control+
