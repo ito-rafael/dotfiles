@@ -168,6 +168,12 @@ Deprecated in favour of [[Surfingkeys]].
 #+begin_src js :noweb yes
 <<install(extension_id="jdcfmebflppkljibgpdlboifpcaalolg")>>,
 #+end_src
+*** Honey
+- link: https://chromewebstore.google.com/detail/bmnlcjabgnpnenekpadlanbbkooimhnj
+- description: cashback for global stores.
+#+begin_src js :noweb yes
+<<install(extension_id="bmnlcjabgnpnenekpadlanbbkooimhnj")>>,
+#+end_src
 ** YouTube
 *** +Youtube Playback Speed Control+
 *** Return YouTube Dislike
