@@ -5,33 +5,55 @@
 #+STARTUP: showeverything
 #+auto_tangle: t
 
-* Table of contents :toc:
+* Table of contents :toc_3:
 - [[#init][Init]]
-  - [[#source][Source:]]
+  - [[#sources][Sources]]
   - [[#extensionsettings][ExtensionSettings]]
   - [[#template][Template]]
 - [[#extensions][Extensions]]
   - [[#essential][Essential]]
+    - [[#dark-reader][Dark Reader]]
+    - [[#vimium][+Vimium+]]
+    - [[#surfingkeys][Surfingkeys]]
+    - [[#better-onetab][Better OneTab]]
+    - [[#google-arts--culture][Google Arts & Culture]]
+    - [[#jiffy-reader][Jiffy Reader]]
+    - [[#bitwarden][Bitwarden]]
   - [[#scholar][Scholar]]
+    - [[#google-scholar-button][Google Scholar Button]]
+    - [[#zotero][Zotero]]
   - [[#misc][Misc]]
+    - [[#grammarly][Grammarly]]
+    - [[#xtranslate][XTranslate]]
+    - [[#read-aloud][Read Aloud]]
+    - [[#kde-connect][KDE Connect]]
+    - [[#hola-vpn][Hola VPN]]
   - [[#shopping][Shopping]]
+    - [[#aliexpress-superstar][AliExpress Superstar]]
+    - [[#descontos-aliexpress][Descontos AliExpress]]
+    - [[#mercado-livre][Mercado Livre]]
+    - [[#méliuz][Méliuz]]
+    - [[#honey][Honey]]
+    - [[#camelcamelcamel][camelcamelcamel]]
   - [[#youtube][YouTube]]
+    - [[#return-youtube-dislike][Return YouTube Dislike]]
+    - [[#sponsorblock][SponsorBlock]]
+    - [[#ublock-origin][uBlock Origin]]
+    - [[#unhook][Unhook]]
+    - [[#video-downloadhelper][Video DownloadHelper]]
+    - [[#video-speed-controller][Video Speed Controller]]
+    - [[#watch-on-odysee][Watch on Odysee]]
 - [[#end][End]]
   - [[#extensionsettings-1][ExtensionSettings]]
 
 * Init
-** Source:
+** Sources
 - +[[https://chromeenterprise.google/policies/#ExtensionInstallForcelist][ExtensionInstallForcelist]]+
   - +[[https://github.com/brave/brave-browser/issues/23966][Cannot automate installation of extensions on Linux]]+
 - [[https://chromeenterprise.google/policies/?policy=ExtensionSettings][ExtensionSettings]]
   - [[https://support.google.com/chrome/a/answer/9867568][Configure ExtensionSettings policy]]
   - [[https://support.google.com/chrome/a/answer/7666985][App and extension policies]]
   - [[https://support.google.com/chrome/a/answer/7517525?sjid=12770101199311978400-SA#choose&zippy=%2Cset-installation-policies-automatically-install-force-install-allow-or-block%2Cpin-app-or-extension-updates][Pre-install apps that users can remove]]
-** ExtensionInstallForcelist
-#+begin_src js :tangle no
-{
-   "ExtensionInstallForcelist": [
-#+end_src
 ** ExtensionSettings
 #+begin_src js
 {
@@ -65,7 +87,7 @@ Deprecated in favour of [[Surfingkeys]].
 +- link: https://chromewebstore.google.com/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb+
 +- description: vim-like navigation.+
 #+begin_src js :tangle no
-<<install(extension_id="dbepggeogbaibhgnhhndojpepiihcmeb")>>,
+<<install(extension_id="dbepggeogbaibhgnhhndojpepiihcmeb")>>
 #+end_src
 *** Surfingkeys
 - link: https://chromewebstore.google.com/detail/gfbliohnnapiefjpjlpjnehglfpaknnc
@@ -77,106 +99,106 @@ Deprecated in favour of [[Surfingkeys]].
 - link: https://chromewebstore.google.com/detail/better-onetab/eookhngofldnbnidjlbkeecljkfpmfpg
 - description: save and restore tabs.
 #+begin_src js :noweb yes
-<<install(extension_id="eookhngofldnbnidjlbkeecljkfpmfpg")>>,
+<<install(extension_id="eookhngofldnbnidjlbkeecljkfpmfpg")>>
 #+end_src
 *** Google Arts & Culture
 - link: https://chromewebstore.google.com/detail/akimgimeeoiognljlfchpbkpfbmeapkh
 - description: arts on new tabs.
 #+begin_src js :noweb yes
-<<install(extension_id="akimgimeeoiognljlfchpbkpfbmeapkh")>>,
+<<install(extension_id="akimgimeeoiognljlfchpbkpfbmeapkh")>>
 #+end_src
 *** Jiffy Reader
 - link: https://chromewebstore.google.com/detail/lljedihjnnjjefafchaljkhbpfhfkdic
 - description: faster reading evewywhere.
 #+begin_src js :noweb yes
-<<install(extension_id="lljedihjnnjjefafchaljkhbpfhfkdic")>>,
+<<install(extension_id="lljedihjnnjjefafchaljkhbpfhfkdic")>>
 #+end_src
 *** Bitwarden
 - link: https://chromewebstore.google.com/detail/nngceckbapebfimnlniiiahkandclblb
 - description: password manager.
 #+begin_src js :noweb yes
-<<install(extension_id="nngceckbapebfimnlniiiahkandclblb")>>,
+<<install(extension_id="nngceckbapebfimnlniiiahkandclblb")>>
 #+end_src
 ** Scholar
 *** Google Scholar Button
 - link: https://chromewebstore.google.com/detail/ldipcbpaocekfooobnbcddclnhejkcpn
 - description: Google Scholar support.
 #+begin_src js :noweb yes
-<<install(extension_id="ldipcbpaocekfooobnbcddclnhejkcpn")>>,
+<<install(extension_id="ldipcbpaocekfooobnbcddclnhejkcpn")>>
 #+end_src
 *** Zotero
 - link: https://chromewebstore.google.com/detail/ekhagklcjbdpajgpjgmbionohlpdbjgc
 - description: save references to Zotero.
 #+begin_src js :noweb yes
-<<install(extension_id="ekhagklcjbdpajgpjgmbionohlpdbjgc")>>,
+<<install(extension_id="ekhagklcjbdpajgpjgmbionohlpdbjgc")>>
 #+end_src
 ** Misc
 *** Grammarly
 - link: https://chromewebstore.google.com/detail/kbfnbcaeplbcioakkpcpgfkobkghlhen
 - description: grammar & spell checker.
 #+begin_src js :noweb yes
-<<install(extension_id="kbfnbcaeplbcioakkpcpgfkobkghlhen")>>,
+<<install(extension_id="kbfnbcaeplbcioakkpcpgfkobkghlhen")>>
 #+end_src
 *** XTranslate
 - link: https://chromewebstore.google.com/detail/gfgpkepllngchpmcippidfhmbhlljhoo
 - description: language translation.
 #+begin_src js :noweb yes
-<<install(extension_id="gfgpkepllngchpmcippidfhmbhlljhoo")>>,
+<<install(extension_id="gfgpkepllngchpmcippidfhmbhlljhoo")>>
 #+end_src
 *** Read Aloud
 - link: https://chromewebstore.google.com/detail/hdhinadidafjejdhmfkjgnolgimiaplp
 - description: Text-to-speech (TTS) support.
 #+begin_src js :noweb yes
-<<install(extension_id="hdhinadidafjejdhmfkjgnolgimiaplp")>>,
+<<install(extension_id="hdhinadidafjejdhmfkjgnolgimiaplp")>>
 #+end_src
 *** KDE Connect
 - link: https://chromewebstore.google.com/detail/ofmplbbfigookafjahpeepbggpofdhbo
 - description: browser/phone connection.
 #+begin_src js :noweb yes
-<<install(extension_id="ofmplbbfigookafjahpeepbggpofdhbo")>>,
+<<install(extension_id="ofmplbbfigookafjahpeepbggpofdhbo")>>
 #+end_src
 *** Hola VPN
 - link: https://chromewebstore.google.com/detail/gkojfkhlekighikafcpjkiklfbnlmeio
 - description: free VPN.
 #+begin_src js :noweb yes
-<<install(extension_id="gkojfkhlekighikafcpjkiklfbnlmeio")>>,
+<<install(extension_id="gkojfkhlekighikafcpjkiklfbnlmeio")>>
 #+end_src
 ** Shopping
 *** AliExpress Superstar
 - link: https://chromewebstore.google.com/detail/eodaonbgmhniagpgfepdflgjhmmkbnfi
 - description: AliExpress price tracking.
 #+begin_src js :noweb yes
-<<install(extension_id="eodaonbgmhniagpgfepdflgjhmmkbnfi")>>,
+<<install(extension_id="eodaonbgmhniagpgfepdflgjhmmkbnfi")>>
 #+end_src
 *** Descontos AliExpress
 - link: https://chromewebstore.google.com/detail/adnhncnnbkmceciifdkfkinocceiojdb
 - description: AliExpress coupons & discounts.
 #+begin_src js :noweb yes
-<<install(extension_id="adnhncnnbkmceciifdkfkinocceiojdb")>>,
+<<install(extension_id="adnhncnnbkmceciifdkfkinocceiojdb")>>
 #+end_src
 *** Mercado Livre
 - link: https://chromewebstore.google.com/detail/nidpcgnchpokfhpdpdmobjkjefnofojo
 - description: Mercado Livre coupons.
 #+begin_src js :noweb yes
-<<install(extension_id="nidpcgnchpokfhpdpdmobjkjefnofojo")>>,
+<<install(extension_id="nidpcgnchpokfhpdpdmobjkjefnofojo")>>
 #+end_src
 *** Méliuz
 - link: https://chromewebstore.google.com/detail/jdcfmebflppkljibgpdlboifpcaalolg
 - description: cashback for brazilian stores.
 #+begin_src js :noweb yes
-<<install(extension_id="jdcfmebflppkljibgpdlboifpcaalolg")>>,
+<<install(extension_id="jdcfmebflppkljibgpdlboifpcaalolg")>>
 #+end_src
 *** Honey
 - link: https://chromewebstore.google.com/detail/bmnlcjabgnpnenekpadlanbbkooimhnj
 - description: cashback for global stores.
 #+begin_src js :noweb yes
-<<install(extension_id="bmnlcjabgnpnenekpadlanbbkooimhnj")>>,
+<<install(extension_id="bmnlcjabgnpnenekpadlanbbkooimhnj")>>
 #+end_src
 *** camelcamelcamel
 - link: https://chromewebstore.google.com/detail/ghnomdcacenbmilgjigehppbamfndblo
 - description: Amazon price tracking.
 #+begin_src js :noweb yes
-<<install(extension_id="ghnomdcacenbmilgjigehppbamfndblo")>>,
+<<install(extension_id="ghnomdcacenbmilgjigehppbamfndblo")>>
 #+end_src
 ** YouTube
 *** +Youtube Playback Speed Control+
@@ -184,37 +206,37 @@ Deprecated in favour of [[Surfingkeys]].
 - link: https://chromewebstore.google.com/detail/gebbhagfogifgggkldgodflihgfeippi
 - description: return dislike button/views on YouTube.
 #+begin_src js :noweb yes
-<<install(extension_id="gebbhagfogifgggkldgodflihgfeippi")>>,
+<<install(extension_id="gebbhagfogifgggkldgodflihgfeippi")>>
 #+end_src
 *** SponsorBlock
 - link: https://chromewebstore.google.com/detail/mnjggcdmjocbbbhaepdhchncahnbgone
 - description: skip sponsorship on YouTube videos.
 #+begin_src js :noweb yes
-<<install(extension_id="mnjggcdmjocbbbhaepdhchncahnbgone")>>,
+<<install(extension_id="mnjggcdmjocbbbhaepdhchncahnbgone")>>
 #+end_src
 *** uBlock Origin
 - link: https://chromewebstore.google.com/detail/cjpalhdlnbpafiamejdnhcphjbkeiagm
 - description: content blocker.
 #+begin_src js :noweb yes
-<<install(extension_id="cjpalhdlnbpafiamejdnhcphjbkeiagm")>>,
+<<install(extension_id="cjpalhdlnbpafiamejdnhcphjbkeiagm")>>
 #+end_src
 *** Unhook
 - link: https://chromewebstore.google.com/detail/khncfooichmfjbepaaaebmommgaepoid
 - description: hide YouTube bloats.
 #+begin_src js :noweb yes
-<<install(extension_id="khncfooichmfjbepaaaebmommgaepoid")>>,
+<<install(extension_id="khncfooichmfjbepaaaebmommgaepoid")>>
 #+end_src
 *** Video DownloadHelper
 - link: https://chromewebstore.google.com/detail/lmjnegcaeklhafolokijcfjliaokphfk
 - description: download videos.
 #+begin_src js :noweb yes
-<<install(extension_id="lmjnegcaeklhafolokijcfjliaokphfk")>>,
+<<install(extension_id="lmjnegcaeklhafolokijcfjliaokphfk")>>
 #+end_src
 *** Video Speed Controller
 - link: https://chromewebstore.google.com/detail/nffaoalbilbmmfgbnbgppjihopabppdk
 - description: speed up and slow down HTML5 audio & video.
 #+begin_src js :noweb yes
-<<install(extension_id="nffaoalbilbmmfgbnbgppjihopabppdk")>>,
+<<install(extension_id="nffaoalbilbmmfgbnbgppjihopabppdk")>>
 #+end_src
 *** Watch on Odysee
 - link: https://chromewebstore.google.com/detail/kofmhmemalhemmpkfjhjfkkhifonoann
@@ -224,11 +246,6 @@ Deprecated in favour of [[Surfingkeys]].
 #+end_src
 * End
 Don't forget to remove the trailing comma on the previous block of JSON code (last extension)
-** ExtensionInstallForcelist
-#+begin_src js :tangle no
-    ]
-}
-#+end_src
 ** ExtensionSettings
 #+begin_src js
     }
