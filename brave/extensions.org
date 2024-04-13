@@ -162,6 +162,12 @@ Deprecated in favour of [[Surfingkeys]].
 #+begin_src js :noweb yes
 <<install(extension_id="nidpcgnchpokfhpdpdmobjkjefnofojo")>>,
 #+end_src
+*** Méliuz
+- link: https://chromewebstore.google.com/detail/jdcfmebflppkljibgpdlboifpcaalolg
+- description: cashback for brazilian stores.
+#+begin_src js :noweb yes
+<<install(extension_id="jdcfmebflppkljibgpdlboifpcaalolg")>>,
+#+end_src
 ** YouTube
 *** +Youtube Playback Speed Control+
 *** Return YouTube Dislike
