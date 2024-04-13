@@ -188,6 +188,12 @@ Deprecated in favour of [[Surfingkeys]].
 #+begin_src js :noweb yes
 <<install(extension_id="gebbhagfogifgggkldgodflihgfeippi")>>,
 #+end_src
+*** SponsorBlock
+- link: https://chromewebstore.google.com/detail/mnjggcdmjocbbbhaepdhchncahnbgone
+- description: skip sponsorship on YouTube videos.
+#+begin_src js :noweb yes
+<<install(extension_id="mnjggcdmjocbbbhaepdhchncahnbgone")>>,
+#+end_src
 #+end_src
 * End
 Don't forget to remove the trailing comma on the previous block of JSON code (last extension)
