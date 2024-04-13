@@ -150,6 +150,12 @@ Deprecated in favour of [[Surfingkeys]].
 #+begin_src js :noweb yes
 <<install(extension_id="eodaonbgmhniagpgfepdflgjhmmkbnfi")>>,
 #+end_src
+*** Descontos AliExpress
+- link: https://chromewebstore.google.com/detail/adnhncnnbkmceciifdkfkinocceiojdb
+- description: AliExpress coupons & discounts.
+#+begin_src js :noweb yes
+<<install(extension_id="adnhncnnbkmceciifdkfkinocceiojdb")>>,
+#+end_src
 ** YouTube
 *** +Youtube Playback Speed Control+
 *** Return YouTube Dislike
