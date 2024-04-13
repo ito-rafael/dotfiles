@@ -1,7 +1,109 @@
 {
-   "ExtensionInstallForcelist": [
-"eimadpbcbfnmbkopoojfekhnkhdbieeh"
-"dbepggeogbaibhgnhhndojpepiihcmeb"
-"eookhngofldnbnidjlbkeecljkfpmfpg"
-    ]
+  "ExtensionSettings": {
+    "eimadpbcbfnmbkopoojfekhnkhdbieeh": {
+      "installation_mode": "normal_installed",
+      "update_url": "https://clients2.google.com/service/update2/crx"
+    },
+    "gfbliohnnapiefjpjlpjnehglfpaknnc": {
+      "toolbar_pin": "force_pinned",
+      "installation_mode": "normal_installed",
+      "update_url": "https://clients2.google.com/service/update2/crx"
+    },
+    "eookhngofldnbnidjlbkeecljkfpmfpg": {
+      "installation_mode": "normal_installed",
+      "update_url": "https://clients2.google.com/service/update2/crx"
+    },
+    "akimgimeeoiognljlfchpbkpfbmeapkh": {
+      "installation_mode": "normal_installed",
+      "update_url": "https://clients2.google.com/service/update2/crx"
+    },
+    "lljedihjnnjjefafchaljkhbpfhfkdic": {
+      "installation_mode": "normal_installed",
+      "update_url": "https://clients2.google.com/service/update2/crx"
+    },
+    "nngceckbapebfimnlniiiahkandclblb": {
+      "installation_mode": "normal_installed",
+      "update_url": "https://clients2.google.com/service/update2/crx"
+    },
+    "ldipcbpaocekfooobnbcddclnhejkcpn": {
+      "installation_mode": "normal_installed",
+      "update_url": "https://clients2.google.com/service/update2/crx"
+    },
+    "ekhagklcjbdpajgpjgmbionohlpdbjgc": {
+      "installation_mode": "normal_installed",
+      "update_url": "https://clients2.google.com/service/update2/crx"
+    },
+    "kbfnbcaeplbcioakkpcpgfkobkghlhen": {
+      "installation_mode": "normal_installed",
+      "update_url": "https://clients2.google.com/service/update2/crx"
+    },
+    "gfgpkepllngchpmcippidfhmbhlljhoo": {
+      "installation_mode": "normal_installed",
+      "update_url": "https://clients2.google.com/service/update2/crx"
+    },
+    "hdhinadidafjejdhmfkjgnolgimiaplp": {
+      "installation_mode": "normal_installed",
+      "update_url": "https://clients2.google.com/service/update2/crx"
+    },
+    "ofmplbbfigookafjahpeepbggpofdhbo": {
+      "installation_mode": "normal_installed",
+      "update_url": "https://clients2.google.com/service/update2/crx"
+    },
+    "gkojfkhlekighikafcpjkiklfbnlmeio": {
+      "installation_mode": "normal_installed",
+      "update_url": "https://clients2.google.com/service/update2/crx"
+    },
+    "eodaonbgmhniagpgfepdflgjhmmkbnfi": {
+      "installation_mode": "normal_installed",
+      "update_url": "https://clients2.google.com/service/update2/crx"
+    },
+    "adnhncnnbkmceciifdkfkinocceiojdb": {
+      "installation_mode": "normal_installed",
+      "update_url": "https://clients2.google.com/service/update2/crx"
+    },
+    "nidpcgnchpokfhpdpdmobjkjefnofojo": {
+      "installation_mode": "normal_installed",
+      "update_url": "https://clients2.google.com/service/update2/crx"
+    },
+    "jdcfmebflppkljibgpdlboifpcaalolg": {
+      "installation_mode": "normal_installed",
+      "update_url": "https://clients2.google.com/service/update2/crx"
+    },
+    "bmnlcjabgnpnenekpadlanbbkooimhnj": {
+      "installation_mode": "normal_installed",
+      "update_url": "https://clients2.google.com/service/update2/crx"
+    },
+    "ghnomdcacenbmilgjigehppbamfndblo": {
+      "installation_mode": "normal_installed",
+      "update_url": "https://clients2.google.com/service/update2/crx"
+    },
+    "gebbhagfogifgggkldgodflihgfeippi": {
+      "installation_mode": "normal_installed",
+      "update_url": "https://clients2.google.com/service/update2/crx"
+    },
+    "mnjggcdmjocbbbhaepdhchncahnbgone": {
+      "installation_mode": "normal_installed",
+      "update_url": "https://clients2.google.com/service/update2/crx"
+    },
+    "cjpalhdlnbpafiamejdnhcphjbkeiagm": {
+      "installation_mode": "normal_installed",
+      "update_url": "https://clients2.google.com/service/update2/crx"
+    },
+    "khncfooichmfjbepaaaebmommgaepoid": {
+      "installation_mode": "normal_installed",
+      "update_url": "https://clients2.google.com/service/update2/crx"
+    },
+    "lmjnegcaeklhafolokijcfjliaokphfk": {
+      "installation_mode": "normal_installed",
+      "update_url": "https://clients2.google.com/service/update2/crx"
+    },
+    "nffaoalbilbmmfgbnbgppjihopabppdk": {
+      "installation_mode": "normal_installed",
+      "update_url": "https://clients2.google.com/service/update2/crx"
+    },
+    "kofmhmemalhemmpkfjhjfkkhifonoann": {
+      "installation_mode": "normal_installed",
+      "update_url": "https://clients2.google.com/service/update2/crx"
+    }
+  }
 }

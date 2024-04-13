@@ -8,7 +8,6 @@
 * Table of contents :toc:
 - [[#init][Init]]
   - [[#source][Source:]]
-  - [[#extensioninstallforcelist][ExtensionInstallForcelist]]
   - [[#extensionsettings][ExtensionSettings]]
   - [[#template][Template]]
 - [[#extensions][Extensions]]
@@ -18,7 +17,6 @@
   - [[#shopping][Shopping]]
   - [[#youtube][YouTube]]
 - [[#end][End]]
-  - [[#extensioninstallforcelist-1][ExtensionInstallForcelist]]
   - [[#extensionsettings-1][ExtensionSettings]]
 
 * Init
