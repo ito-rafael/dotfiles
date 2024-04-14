@@ -308,31 +308,31 @@ workspace "30:20" output $tertiary
 #+end_src
 ** WS names (icons)
 *** Primary monitor
-#set $ws1 "1 "
-#set $ws2 "2 "
-#set $ws3 "3 "
-#set $ws4 "4 "
-#set $ws5 "5 "
-#set $ws6 "6 "
-#set $ws7 "7 "
-#set $ws8 "8 "
-#set $ws9 "9 "
-#set $ws0 "10 "
-#set $ws0 "10 "
 #+begin_src conf :tangle no
+set $ws1 "1 "
+set $ws2 "2 "
+set $ws3 "3 "
+set $ws4 "4 "
+set $ws5 "5 "
+set $ws6 "6 "
+set $ws7 "7 "
+set $ws8 "8 "
+set $ws9 "9 "
+set $ws0 "10 "
+set $ws0 "10 "
 #+end_src
 *** Secondary monitor
-#set $ws11 "11 "
-#set $ws12 "12 "
-#set $ws13 "13 "
-#set $ws14 "14 "
-#set $ws15 "15 "
-#set $ws16 "16 "
-#set $ws17 "17 "
-#set $ws18 "18 "
-#set $ws19 "19 J"
-#set $ws10 "20 E"
 #+begin_src conf :tangle no
+set $ws11 "11 "
+set $ws12 "12 "
+set $ws13 "13 "
+set $ws14 "14 "
+set $ws15 "15 "
+set $ws16 "16 "
+set $ws17 "17 "
+set $ws18 "18 "
+set $ws19 "19 J"
+set $ws10 "20 E"
 #+end_src
 ** WS names
 *** Primary monitor
