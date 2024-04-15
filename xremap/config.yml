@@ -50,3 +50,11 @@ keymap:
       only: emacs
     remap:
       F19: [C-w, C-w]
+
+  - name: Kill buffer
+    exact_match: true
+    application:
+      #only: Emacs
+      only: emacs
+    remap:
+      SUPER-ALT-w: [space, b, k]
