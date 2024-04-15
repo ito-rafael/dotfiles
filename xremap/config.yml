@@ -1,25 +1,6 @@
-virtual_modifiers:
-  - rightalt
-
 keymap:
-  - name: ctrl+j to enter
+
     remap:
-      C-j: enter
-
-  - name: navigate2ws
-    remap:
-      C-SUPER-j:
-        launch: ["bash", "-c", "~/.config/scripts/navigate2ws_next.py --next"]
-      C-SUPER-k: 
-        launch: ["bash", "-c", "~/.config/scripts/navigate2ws_next.py --prev"]
-
-   - name: colon/semicolon
-     remap:
-       rightalt-apostrophe:
-         launch: ["bash", "-c", "ydotool key colon"]
-       C-apostrophe:
-         launch: ["bash", "-c", "ydotool key semicolon"]
-
   - name: copy and paste in Terminal
     application:
       only: kitty
@@ -29,87 +10,8 @@ keymap:
       rightalt-v:
         launch: ["bash", "-c", "ydotool key --clearmodifiers 'ctrl+shift+v'"]
 
-  - name: vim motion
     remap:
-      #rightalt-h: Left
-      #rightalt-j: Down
-      #rightalt-k: Up
-      #rightalt-l: Right
-      #rightalt-0: Home
-      #rightalt-4: End
-      #rightalt-d: PgDn
-      #rightalt-u: PgUp
-      rightalt-h:
-        launch: ["bash", "-c", "ydotool key 105:1 105:0"]
-      rightalt-j:
-        launch: ["bash", "-c", "ydotool key 108:1 108:0"]
-      rightalt-k:
-        launch: ["bash", "-c", "ydotool key 103:1 103:0"]
-      rightalt-l:
-        launch: ["bash", "-c", "ydotool key 106:1 106:0"]
-      rightalt-0:
-        launch: ["bash", "-c", "ydotool key 102:1 102:0"]
-      rightalt-4:
-        launch: ["bash", "-c", "ydotool key 107:1 107:0"]
-      rightalt-u:
-        launch: ["bash", "-c", "ydotool key 104:1 104:0"]
-      rightalt-d:
-        launch: ["bash", "-c", "ydotool key 109:1 109:0"]
-
-  - name: keybinds with AltGr (in Tab position)
     remap:
-      #rightalt-backspace: Delete
-      #rightalt-slash: backslash
-      rightalt-backspace:
-        launch: ["bash", "-c", "ydotool key Delete"]
-      rightalt-slash:
-        launch: ["bash", "-c", "ydotool key backslash"]
-
-  - name: navigate to screen 3
-    remap:
-      rightalt-1:
-        launch: ["bash", "-c", "/home/rafael/.config/scripts/navigate2ws.sh 21"]
-      rightalt-2:
-        launch: ["bash", "-c", "/home/rafael/.config/scripts/navigate2ws.sh 22"]
-      rightalt-3:
-        launch: ["bash", "-c", "/home/rafael/.config/scripts/navigate2ws.sh 23"]
-      rightalt-4:
-        launch: ["bash", "-c", "/home/rafael/.config/scripts/navigate2ws.sh 24"]
-      rightalt-5:
-        launch: ["bash", "-c", "/home/rafael/.config/scripts/navigate2ws.sh 25"]
-      rightalt-6:
-        launch: ["bash", "-c", "/home/rafael/.config/scripts/navigate2ws.sh 26"]
-      rightalt-7:
-        launch: ["bash", "-c", "/home/rafael/.config/scripts/navigate2ws.sh 27"]
-      rightalt-8:
-        launch: ["bash", "-c", "/home/rafael/.config/scripts/navigate2ws.sh 28"]
-      rightalt-9:
-        launch: ["bash", "-c", "/home/rafael/.config/scripts/navigate2ws.sh 29"]
-      rightalt-0:
-        launch: ["bash", "-c", "/home/rafael/.config/scripts/navigate2ws.sh 20"]
-
-  - name: move container to screen 3
-    remap:
-      C-rightalt-1:
-        launch: ["bash", "-c", "swaymsg move container to workspace 21 && swaymsg workspace 21"]
-      C-rightalt-2:
-        launch: ["bash", "-c", "swaymsg move container to workspace 22 && swaymsg workspace 22"]
-      C-rightalt-3:
-        launch: ["bash", "-c", "swaymsg move container to workspace 23 && swaymsg workspace 23"]
-      C-rightalt-4:
-        launch: ["bash", "-c", "swaymsg move container to workspace 24 && swaymsg workspace 24"]
-      C-rightalt-5:
-        launch: ["bash", "-c", "swaymsg move container to workspace 25 && swaymsg workspace 25"]
-      C-rightalt-6:
-        launch: ["bash", "-c", "swaymsg move container to workspace 26 && swaymsg workspace 26"]
-      C-rightalt-7:
-        launch: ["bash", "-c", "swaymsg move container to workspace 27 && swaymsg workspace 27"]
-      C-rightalt-8:
-        launch: ["bash", "-c", "swaymsg move container to workspace 28 && swaymsg workspace 28"]
-      C-rightalt-9:
-        launch: ["bash", "-c", "swaymsg move container to workspace 29 && swaymsg workspace 29"]
-      C-rightalt-0:
-        launch: ["bash", "-c", "swaymsg move container to workspace 20 && swaymsg workspace 20"]
 
 keymap:
   - name: copy and paste - general
