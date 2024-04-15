@@ -59,3 +59,20 @@ keymap:
     remap:
       SUPER-ALT-w: [space, b, k]
       SUPER-ALT-q: [C-w, q]
+
+# dead_acute
+  - name: forward char / dead_acute
+    exact_match: true
+    application:
+      #not: Emacs
+      not: emacs
+    remap:
+      F13:
+        remap:
+          n: [APOSTROPHE, SPACE, n]
+          m: [APOSTROPHE, SPACE, m]
+          r: [APOSTROPHE, SPACE, r]
+          s: [APOSTROPHE, SPACE, s]
+          t: [APOSTROPHE, SPACE, t]
+          F13: [APOSTROPHE, SPACE]
+          space: [APOSTROPHE, SPACE]
