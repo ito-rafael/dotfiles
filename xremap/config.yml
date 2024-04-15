@@ -30,3 +30,15 @@ keymap:
       F16: C-x
       F17: C-c
       F18: C-v
+
+# Emacs
+  - name: Window navigation
+    exact_match: true
+    application:
+      #only: Emacs
+      only: emacs
+    remap:
+      Super_L-left: [C-w, C-h]
+      Super_L-down: [C-w, C-j]
+      Super_L-up: [C-w, C-k]
+      Super_L-right: [C-w, C-l]
