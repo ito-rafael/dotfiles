@@ -8,8 +8,21 @@ keymap:
       F17: C-S-c
       F18: C-S-v
 
+  - name: paste - Emacs (insert)
+    application:
+      #only: Emacs
+      only: emacs
     remap:
+      F16: M-x
+      F18: [C-r, SHIFT-apostrophe, space]
+
+  - name: cut
+    exact_match: true
+    application:
+      #not: Emacs
+      not: emacs
     remap:
+      F16: CTRL-x
 
   - name: copy/paste/cut - general
     application:
