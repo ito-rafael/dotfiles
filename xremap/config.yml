@@ -1,9 +1,10 @@
 keymap:
 
-  - name: copy and paste in Terminal
+  - name: copy/paste/cut - terminal
     application:
       only: kitty
     remap:
+      F16: C-S-x
       F17: C-S-c
       F18: C-S-v
 
