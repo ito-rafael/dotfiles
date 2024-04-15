@@ -2,7 +2,7 @@ keymap:
 
   - name: copy/paste/cut - terminal
     application:
-      only: kitty
+      only: [kitty, dropdown_terminal, dropdown_python]
     remap:
       F16: C-S-x
       F17: C-S-c
@@ -11,10 +11,9 @@ keymap:
     remap:
     remap:
 
-keymap:
-  - name: copy and paste - general
+  - name: copy/paste/cut - general
     application:
-      not: [kitty, emacs, dropdown_terminal, dropdown_python]
     remap:
+      F16: C-x
       F17: C-c
       F18: C-v
