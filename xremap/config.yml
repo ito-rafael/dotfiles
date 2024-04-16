@@ -81,6 +81,12 @@ keymap:
           i: [APOSTROPHE, i]
           o: [APOSTROPHE, o]
           u: [APOSTROPHE, u]
+          # uppercase vowels
+          SHIFT-a: [APOSTROPHE, SHIFT-a]
+          SHIFT-e: [APOSTROPHE, SHIFT-e]
+          SHIFT-i: [APOSTROPHE, SHIFT-i]
+          SHIFT-o: [APOSTROPHE, SHIFT-o]
+          SHIFT-u: [APOSTROPHE, SHIFT-u]
           # miscellaneous lowercase
           n: [APOSTROPHE, SPACE, n]
           m: [APOSTROPHE, SPACE, m]
