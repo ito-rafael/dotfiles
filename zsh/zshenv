@@ -12,3 +12,9 @@ export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on'
 
 # Zsh
 export ZDOTDIR=$HOME/.config/zsh
+
+# TeX Live
+export TEXMFDIST='/usr/local/texlive/2024/texmf-dist'
+export TEXMFHOME=$XDG_DATA_HOME/texmf
+export TEXMFVAR=$XDG_CACHE_HOME/texlive/texmf-var
+export TEXMFCONFIG=$XDG_CONFIG_HOME/texlive/texmf-config
