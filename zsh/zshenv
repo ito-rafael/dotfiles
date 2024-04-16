@@ -1,8 +1,10 @@
 # environment variables
 export GTK_THEME=Adwaita:dark
+
 # PATH
-export PATH=$PATH:~/.cargo/bin      # Rust
-export PATH=$PATH:~/.emacs.d/bin    # Emacs
+export PATH=$PATH:~/.cargo/bin                              # Rust
+export PATH=$PATH:~/.emacs.d/bin                            # Emacs
+export PATH=$PATH:/usr/local/texlive/2024/bin/x86_64-linux  # TeX Live
 #-----------------------------
 # Java
 # font rendering
