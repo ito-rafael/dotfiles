@@ -75,6 +75,12 @@ keymap:
           # cedilla
           c: [APOSTROPHE, c]
           SHIFT-c: [APOSTROPHE, SHIFT-c]
+          # lowercase vowels
+          a: [APOSTROPHE, a]
+          e: [APOSTROPHE, e]
+          i: [APOSTROPHE, i]
+          o: [APOSTROPHE, o]
+          u: [APOSTROPHE, u]
           # miscellaneous lowercase
           n: [APOSTROPHE, SPACE, n]
           m: [APOSTROPHE, SPACE, m]
