@@ -69,21 +69,25 @@ keymap:
     remap:
       F13:
         remap:
+          # apostrophe
+          F13: [APOSTROPHE, SPACE]
+          space: [APOSTROPHE, SPACE]
           n: [APOSTROPHE, SPACE, n]
           m: [APOSTROPHE, SPACE, m]
           r: [APOSTROPHE, SPACE, r]
           s: [APOSTROPHE, SPACE, s]
           t: [APOSTROPHE, SPACE, t]
-          F13: [APOSTROPHE, SPACE]
-          space: [APOSTROPHE, SPACE]
       SHIFT-F13:
         remap:
-          a: [SHIFT-GRAVE, a]
-          o: [SHIFT-GRAVE, o]
-          n: [SHIFT-GRAVE, n]
-          SHIFT-A: [SHIFT-GRAVE, SHIFT-A]
-          SHIFT-O: [SHIFT-GRAVE, SHIFT-O]
-          SHIFT-N: [SHIFT-GRAVE, SHIFT-N]
+          # double quotes
           SHIFT-F13: [SHIFT-APOSTROPHE, SPACE]
           F13: [SHIFT-APOSTROPHE, SPACE]
           space: [SHIFT-APOSTROPHE, SPACE]
+          # lowercase
+          a: [SHIFT-GRAVE, a]
+          o: [SHIFT-GRAVE, o]
+          n: [SHIFT-GRAVE, n]
+          # uppercase vowels
+          SHIFT-A: [SHIFT-GRAVE, SHIFT-A]
+          SHIFT-O: [SHIFT-GRAVE, SHIFT-O]
+          SHIFT-N: [SHIFT-GRAVE, SHIFT-N]
