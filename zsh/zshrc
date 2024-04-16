@@ -319,7 +319,7 @@ REMOTE="lbic"
 #-----------------------------
 # reload config files
 alias {rzz,rz}='source ~/.config/zsh/.zshrc'
-alias {rze}='source ~/.config/zsh/.zshenv'
+alias rze='source ~/.config/zsh/.zshenv'
 alias {rii,ri}='~/.config/i3/i3bang.rb && i3-msg restart'
 alias {rxx,rx}='xmodmap ~/.Xmodmap'
 #-----------------------------
