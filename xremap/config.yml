@@ -93,6 +93,12 @@ keymap:
           r: [APOSTROPHE, SPACE, r]
           s: [APOSTROPHE, SPACE, s]
           t: [APOSTROPHE, SPACE, t]
+          # miscellaneous uppercase
+          SHIFT-n: [APOSTROPHE, SPACE, SHIFT-n]
+          SHIFT-m: [APOSTROPHE, SPACE, SHIFT-m]
+          SHIFT-r: [APOSTROPHE, SPACE, SHIFT-r]
+          SHIFT-s: [APOSTROPHE, SPACE, SHIFT-s]
+          SHIFT-t: [APOSTROPHE, SPACE, SHIFT-t]
       SHIFT-F13:
         remap:
           # double quotes
