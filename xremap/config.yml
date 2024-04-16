@@ -72,6 +72,10 @@ keymap:
           # apostrophe
           F13: [APOSTROPHE, SPACE]
           space: [APOSTROPHE, SPACE]
+          # cedilla
+          c: [APOSTROPHE, c]
+          SHIFT-c: [APOSTROPHE, SHIFT-c]
+          # miscellaneous lowercase
           n: [APOSTROPHE, SPACE, n]
           m: [APOSTROPHE, SPACE, m]
           r: [APOSTROPHE, SPACE, r]
