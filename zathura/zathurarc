@@ -5,3 +5,8 @@ map <C-i> recolor
 # enable copy to clipboard
 set selection-clipboard clipboard
 
+# scroll
+map [normal] j scroll left
+map [normal] k scroll down
+map [normal] l scroll up
+map [normal] / scroll right
