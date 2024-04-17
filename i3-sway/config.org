@@ -156,6 +156,7 @@ input type:keyboard {
 #+end_src
 * Outputs
 ** Default Scenario
+This setup is used for the main workstation.
 *** Set order
 # Outputs:
 #
@@ -225,7 +226,7 @@ output $tertiary  mode 1920x1080@60hz position  1920,0 scale 1 transform 90
 #+begin_src conf :tangle no
 set $laptop    eDP-1
 set $projector HDMI-A-1
-set $educart   VGA1
+set $educart   DP-1
 #+end_src
 *** Set resolution
 #+begin_src conf :tangle no
@@ -233,7 +234,7 @@ output $laptop    mode 1920x1080@60hz position 0,0
 output $projector mode 1920x1200@60hz position 0,1080 scale 1
 output $educart   mode 1920x1080@60hz position 0,-1080 scale 1
 #+end_src
-** Hub Viva-Bem
+** Hub Viva-Bem 1
 *** Set order
 # Outputs:
 #
@@ -250,8 +251,8 @@ output $educart   mode 1920x1080@60hz position 0,-1080 scale 1
 #
 #+begin_src conf :tangle no
 set $primary   HDMI-A-1
-set $secondary HDMI-A-1
-set $laptop    VGA1
+set $secondary DP-1
+set $laptop    eDP-1
 #+end_src
 *** Set resolution
 Since scale of output #0 is 1.4, the position offset is:
