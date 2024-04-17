@@ -265,6 +265,36 @@ output $primary   mode 3840x2160@60hz position      0,0 scale 1.4
 output $secondary mode 3840x2160@60hz position  -2742,0 scale 1.4
 output $laptop    mode 1920x1080@60hz position 411,1542 scale 1
 #+end_src
+** Hub Viva-Bem 2
+*** Set order
+# Outputs:
+#
+#           +---------+ +---------+
+#           |         | |         |
+#  +-----+  |    1    | |    2    |
+#  |  3  |  |         | |         |
+#  +-----+  +---------+ +---------+
+#
+#   1: Samsung UR55
+#   2: Samsung UR55
+#   3: VB laptop
+#
+#+begin_src conf :tangle no
+set $primary   HDMI-A-1
+set $secondary DP-1
+set $laptop    eDP-1
+#+end_src
+*** Set resolution
+Since scale of output #0 is 1.4, the position offset is:
+  - secondary screen [H]: 3840/1.4 = 2742
+  - laptop [H]: 3840/1.4 - 1920 = 411
+  - laptop [V]: 2160/1.4 = 1542
+
+#+begin_src conf :tangle no
+output $primary   mode 3840x2160@60hz position     0,0 scale 1.4
+output $secondary mode 3840x2160@60hz position  2742,0 scale 1.4
+output $laptop    mode 1920x1080@60hz position -1920,0 scale 1
+#+end_src
 #+end_src
 * Workspaces definition
 ** Default output
