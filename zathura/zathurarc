@@ -10,3 +10,6 @@ map [normal] j scroll left
 map [normal] k scroll down
 map [normal] l scroll up
 map [normal] / scroll right
+# page navigation
+map [normal] K navigate next
+map [normal] L navigate previous
