@@ -10,10 +10,10 @@ map [normal] d scroll full-down
 map [normal] u scroll full-up
 
 # scroll
-map [normal] j scroll left
-map [normal] k scroll down
-map [normal] l scroll up
-map [normal] / scroll right
+map [normal] n scroll left
+map [normal] e scroll down
+map [normal] i scroll up
+map [normal] o scroll right
 # page navigation
-map [normal] K navigate next
-map [normal] L navigate previous
+map [normal] E navigate next
+map [normal] I navigate previous
