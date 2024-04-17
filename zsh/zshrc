@@ -182,6 +182,7 @@ alias tarx='tar -xvzf'
 alias wdf='watch -n1 df -h'
 alias fl='faillock --user $USER --reset'
 alias kb='pkill brave && brave &'
+function cv() { cat $1 | vim - }
 #-----------------------------
 # LaTeX
 alias tlmgr='$TEXMFDIST/scripts/texlive/tlmgr.pl --usermode'
