@@ -2,7 +2,7 @@
 set recolor true
 map <C-i> recolor
 
-# enable copy to clipboard
+# copy to clipboard
 set selection-clipboard clipboard
 
 # page down/up
