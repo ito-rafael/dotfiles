@@ -17,3 +17,7 @@ map [normal] o scroll right
 # page navigation
 map [normal] E navigate next
 map [normal] I navigate previous
+
+# zoom in/out
+map [normal] <C-+> zoom in
+map [normal] <C--> zoom out
