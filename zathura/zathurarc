@@ -18,6 +18,8 @@ map [normal] o scroll right
 map [normal] E navigate next
 map [normal] I navigate previous
 
+#map [normal] D side-by-side
+
 # zoom in/out
 map [normal] <C-+> zoom in
 map [normal] <C--> zoom out
