@@ -113,3 +113,5 @@ keymap:
           SHIFT-A: [SHIFT-GRAVE, SHIFT-A]
           SHIFT-O: [SHIFT-GRAVE, SHIFT-O]
           SHIFT-N: [SHIFT-GRAVE, SHIFT-N]
+          # tilde miscellaneous
+          SLASH: [SHIFT-GRAVE, SPACE, SLASH]
