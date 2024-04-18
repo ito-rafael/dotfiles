@@ -102,7 +102,6 @@ keymap:
       SHIFT-F13:
         remap:
           # double quotes
-          SHIFT-F13: [SHIFT-APOSTROPHE, SPACE]
           F13: [SHIFT-APOSTROPHE, SPACE]
           space: [SHIFT-APOSTROPHE, SPACE]
           # tilde lowercase
@@ -116,3 +115,4 @@ keymap:
           # tilde miscellaneous
           DOT: [SHIFT-GRAVE, SPACE, SLASH, DOT]
           SLASH: [SHIFT-GRAVE, SPACE, SLASH]
+          SHIFT-F13: [SHIFT-GRAVE, SPACE]
