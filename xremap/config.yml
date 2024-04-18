@@ -105,11 +105,11 @@ keymap:
           SHIFT-F13: [SHIFT-APOSTROPHE, SPACE]
           F13: [SHIFT-APOSTROPHE, SPACE]
           space: [SHIFT-APOSTROPHE, SPACE]
-          # lowercase
+          # tilde lowercase
           a: [SHIFT-GRAVE, a]
           o: [SHIFT-GRAVE, o]
           n: [SHIFT-GRAVE, n]
-          # uppercase vowels
+          # tilde uppercase
           SHIFT-A: [SHIFT-GRAVE, SHIFT-A]
           SHIFT-O: [SHIFT-GRAVE, SHIFT-O]
           SHIFT-N: [SHIFT-GRAVE, SHIFT-N]
