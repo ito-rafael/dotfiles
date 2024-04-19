@@ -460,6 +460,12 @@ Mic volume up/down coarse.
 bindsym ctrl+F14 exec --no-startup-id amixer -q sset Capture 5%-
 bindsym ctrl+F15 exec --no-startup-id amixer -q sset Capture 5%+
 #+end_src
+
+Mic volume up/down fine.
+#+begin_src conf
+bindsym shift+F14 exec --no-startup-id amixer -q sset Capture 1%-
+bindsym shift+F15 exec --no-startup-id amixer -q sset Capture 1%+
+#+end_src
 * Window settings
 ** Change focus
 *** hjkl
