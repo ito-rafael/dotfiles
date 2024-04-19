@@ -454,6 +454,12 @@ Set volume to 50%.
 #+begin_src conf
 bindsym $mod+F15 exec --no-startup-id amixer -q sset Master 50%
 #+end_src
+*** Microphone
+Mic volume up/down coarse.
+#+begin_src conf
+bindsym ctrl+F14 exec --no-startup-id amixer -q sset Capture 5%-
+bindsym ctrl+F15 exec --no-startup-id amixer -q sset Capture 5%+
+#+end_src
 * Window settings
 ** Change focus
 *** hjkl
