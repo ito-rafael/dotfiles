@@ -438,6 +438,12 @@ Volume up/down coarse.
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q sset Master 5%+
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q sset Master 5%-
 #+end_src
+
+Volume up/down fine.
+#+begin_src conf
+bindsym ctrl+shift+F14 exec --no-startup-id amixer -q sset Master 1%-
+bindsym ctrl+shift+F15 exec --no-startup-id amixer -q sset Master 1%+
+#+end_src
 * Window settings
 ** Change focus
 *** hjkl
