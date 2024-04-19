@@ -192,7 +192,7 @@ alias rmm='rm moonlander_*.bin'
 alias wcm='wally-cli moonlander_*.bin'
 #-----------------------------
 # Package manager
-alias {paru,yay}='paru --aur'        # paru/yay
+alias {paru,yay}='paru --aur'       # paru/yay
 alias {sps,spi}='sudo pacman -S'    # pacman install
 alias spu='sudo pacman -Syu'        # pacman update/upgrade
 alias spr='sudo pacman -Rns'        # pacman uninstall
