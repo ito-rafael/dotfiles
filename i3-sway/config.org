@@ -471,6 +471,12 @@ Set mic volume to 50%.
 #+begin_src conf
 bindsym $mod+F14 exec --no-startup-id amixer -q sset Capture 50%
 #+end_src
+
+Mute/unmute mic.
+#+begin_src conf
+bindsym XF86AudioMicMute exec --no-startup-id amixer -q sset Capture toggle
+bindsym shift+$mod+F14 exec --no-startup-id amixer -q sset Capture toggle
+#+end_src
 * Window settings
 ** Change focus
 *** hjkl
