@@ -295,6 +295,16 @@ output $primary   mode 3840x2160@60hz position     0,0 scale 1.4
 output $secondary mode 3840x2160@60hz position  2742,0 scale 1.4
 output $laptop    mode 1920x1080@60hz position -1920,0 scale 1
 #+end_src
+** Duplicated cursor
+https://github.com/swaywm/sway/issues/1666
+For HDMI 4K@60Hz:
+#+begin_src conf :tangle no
+output HDMI-A-1 mode 3840x2160@60hz position 0,0
+#+end_src
+
+For USB-C 4K@60Hz:
+#+begin_src conf :tangle no
+output DP-1 mode 3840x2160@60hz position 0,0
 #+end_src
 * Workspaces definition
 ** Default output
