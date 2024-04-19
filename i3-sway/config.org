@@ -449,6 +449,11 @@ Mute/unmute audio.
 #+begin_src conf
 bindsym XF86AudioMute exec --no-startup-id amixer -q sset Master toggle
 #+end_src
+
+Set volume to 50%.
+#+begin_src conf
+bindsym $mod+F15 exec --no-startup-id amixer -q sset Master 50%
+#+end_src
 * Window settings
 ** Change focus
 *** hjkl
