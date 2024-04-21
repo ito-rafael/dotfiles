@@ -900,6 +900,19 @@ bindsym ctrl+$mod+u move container to workspace number $ws18; workspace $ws18
 bindsym ctrl+$mod+y move container to workspace number $ws19; workspace $ws19
 bindcode ctrl+$mod+48 move container to workspace number $ws10; workspace $ws10
 #+end_src
+**** Numpad (colemak)
+#+begin_src conf :tangle no
+bindsym shift+ctrl+$mod+r move container to workspace number $ws11; workspace $ws11
+bindsym shift+ctrl+$mod+s move container to workspace number $ws12; workspace $ws12
+bindsym shift+ctrl+$mod+t move container to workspace number $ws13; workspace $ws13
+bindsym shift+ctrl+$mod+w move container to workspace number $ws14; workspace $ws14
+bindsym shift+ctrl+$mod+f move container to workspace number $ws15; workspace $ws15
+bindsym shift+ctrl+$mod+p move container to workspace number $ws16; workspace $ws16
+bindsym shift+ctrl+$mod+x move container to workspace number $ws17; workspace $ws17
+bindsym shift+ctrl+$mod+c move container to workspace number $ws18; workspace $ws18
+bindsym shift+ctrl+$mod+d move container to workspace number $ws19; workspace $ws19
+bindsym shift+ctrl+$mod+space move container to workspace number $ws10; workspace $ws10
+#+end_src
 *** Tertiary monitor
 **** Numbers
 #+begin_src conf
