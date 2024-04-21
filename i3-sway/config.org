@@ -572,7 +572,6 @@ Navigate to workspace and check if there is any window opened there:
     - restore its layout
     - open windows
 *** Primary monitor
-**** Numbers
 #+begin_src conf
 bindsym $mod+1 exec "$SCRIPT_PATH/navigate2ws.sh 1"
 bindsym $mod+2 exec "$SCRIPT_PATH/navigate2ws.sh 2"
@@ -585,47 +584,7 @@ bindsym $mod+8 exec "$SCRIPT_PATH/navigate2ws.sh 8"
 bindsym $mod+9 exec "$SCRIPT_PATH/navigate2ws.sh 9"
 bindsym $mod+0 exec "$SCRIPT_PATH/navigate2ws.sh 0"
 #+end_src
-**** Home row (qwerty)
-#+begin_src sh :tangle no
-bindsym $mod+a exec "$SCRIPT_PATH/navigate2ws.sh 1"
-bindsym $mod+s exec "$SCRIPT_PATH/navigate2ws.sh 2"
-bindsym $mod+d exec "$SCRIPT_PATH/navigate2ws.sh 3"
-bindsym $mod+f exec "$SCRIPT_PATH/navigate2ws.sh 4"
-bindsym $mod+g exec "$SCRIPT_PATH/navigate2ws.sh 5"
-bindsym $mod+h exec "$SCRIPT_PATH/navigate2ws.sh 6"
-bindsym $mod+j exec "$SCRIPT_PATH/navigate2ws.sh 7"
-bindsym $mod+k exec "$SCRIPT_PATH/navigate2ws.sh 8"
-bindsym $mod+l exec "$SCRIPT_PATH/navigate2ws.sh 9"
-bindcode $mod+48 exec "$SCRIPT_PATH/navigate2ws.sh 0"
-#+end_src
-**** Numpad (qwerty)
-#+begin_src sh :tangle no
-bindsym $mod+s exec "$SCRIPT_PATH/navigate2ws.sh 1"
-bindsym $mod+d exec "$SCRIPT_PATH/navigate2ws.sh 2"
-bindsym $mod+f exec "$SCRIPT_PATH/navigate2ws.sh 3"
-bindsym $mod+w exec "$SCRIPT_PATH/navigate2ws.sh 4"
-bindsym $mod+e exec "$SCRIPT_PATH/navigate2ws.sh 5"
-bindsym $mod+r exec "$SCRIPT_PATH/navigate2ws.sh 6"
-bindsym $mod+x exec "$SCRIPT_PATH/navigate2ws.sh 7"
-bindsym $mod+c exec "$SCRIPT_PATH/navigate2ws.sh 8"
-bindsym $mod+v exec "$SCRIPT_PATH/navigate2ws.sh 9"
-bindsym $mod+space exec "$SCRIPT_PATH/navigate2ws.sh 0"
-#+end_src
-**** Numpad (colemak)
-#+begin_src sh :tangle no
-bindsym $mod+r exec "$SCRIPT_PATH/navigate2ws.sh 1"
-bindsym $mod+s exec "$SCRIPT_PATH/navigate2ws.sh 2"
-bindsym $mod+t exec "$SCRIPT_PATH/navigate2ws.sh 3"
-bindsym $mod+w exec "$SCRIPT_PATH/navigate2ws.sh 4"
-bindsym $mod+f exec "$SCRIPT_PATH/navigate2ws.sh 5"
-bindsym $mod+p exec "$SCRIPT_PATH/navigate2ws.sh 6"
-bindsym $mod+x exec "$SCRIPT_PATH/navigate2ws.sh 7"
-bindsym $mod+c exec "$SCRIPT_PATH/navigate2ws.sh 8"
-bindsym $mod+d exec "$SCRIPT_PATH/navigate2ws.sh 9"
-bindsym $mod+space exec "$SCRIPT_PATH/navigate2ws.sh 0"
-#+end_src
 *** Secondary monitor
-**** Numbers
 #+begin_src conf
 bindsym shift+$mod+1 exec "$SCRIPT_PATH/navigate2ws.sh 11"
 bindsym shift+$mod+2 exec "$SCRIPT_PATH/navigate2ws.sh 12"
@@ -638,46 +597,7 @@ bindsym shift+$mod+8 exec "$SCRIPT_PATH/navigate2ws.sh 18"
 bindsym shift+$mod+9 exec "$SCRIPT_PATH/navigate2ws.sh 19"
 bindsym shift+$mod+0 exec "$SCRIPT_PATH/navigate2ws.sh 10"
 #+end_src
-**** Home row (qwerty)
-#+begin_src sh :tangle no
-bindsym shift+$mod+a exec "$SCRIPT_PATH/navigate2ws.sh 11"
-bindsym shift+$mod+s exec "$SCRIPT_PATH/navigate2ws.sh 12"
-bindsym shift+$mod+d exec "$SCRIPT_PATH/navigate2ws.sh 13"
-bindsym shift+$mod+f exec "$SCRIPT_PATH/navigate2ws.sh 14"
-bindsym shift+$mod+g exec "$SCRIPT_PATH/navigate2ws.sh 15"
-bindsym shift+$mod+h exec "$SCRIPT_PATH/navigate2ws.sh 16"
-bindsym shift+$mod+j exec "$SCRIPT_PATH/navigate2ws.sh 17"
-bindsym shift+$mod+k exec "$SCRIPT_PATH/navigate2ws.sh 18"
-bindsym shift+$mod+l exec "$SCRIPT_PATH/navigate2ws.sh 19"
-bindcode shift+$mod+48 exec "$SCRIPT_PATH/navigate2ws.sh 10"
-#+end_src
-**** Numpad (qwerty)
-#+begin_src sh :tangle no
-bindsym shift+$mod+s exec "$SCRIPT_PATH/navigate2ws.sh 11"
-bindsym shift+$mod+d exec "$SCRIPT_PATH/navigate2ws.sh 12"
-bindsym shift+$mod+f exec "$SCRIPT_PATH/navigate2ws.sh 13"
-bindsym shift+$mod+w exec "$SCRIPT_PATH/navigate2ws.sh 14"
-bindsym shift+$mod+e exec "$SCRIPT_PATH/navigate2ws.sh 15"
-bindsym shift+$mod+r exec "$SCRIPT_PATH/navigate2ws.sh 16"
-bindsym shift+$mod+x exec "$SCRIPT_PATH/navigate2ws.sh 17"
-bindsym shift+$mod+c exec "$SCRIPT_PATH/navigate2ws.sh 18"
-bindsym shift+$mod+v exec "$SCRIPT_PATH/navigate2ws.sh 19"
-bindsym shift+$mod+space exec "$SCRIPT_PATH/navigate2ws.sh 10"
-#+end_src
-**** Numpad (colemak)
-#+begin_src sh
-bindsym shift+$mod+r exec "$SCRIPT_PATH/navigate2ws.sh 11"
-bindsym shift+$mod+s exec "$SCRIPT_PATH/navigate2ws.sh 12"
-bindsym shift+$mod+t exec "$SCRIPT_PATH/navigate2ws.sh 13"
-bindsym shift+$mod+w exec "$SCRIPT_PATH/navigate2ws.sh 14"
-bindsym shift+$mod+f exec "$SCRIPT_PATH/navigate2ws.sh 15"
-bindsym shift+$mod+p exec "$SCRIPT_PATH/navigate2ws.sh 16"
-bindsym shift+$mod+x exec "$SCRIPT_PATH/navigate2ws.sh 17"
-bindsym shift+$mod+c exec "$SCRIPT_PATH/navigate2ws.sh 18"
-bindsym shift+$mod+d exec "$SCRIPT_PATH/navigate2ws.sh 19"
-bindsym shift+$mod+space exec "$SCRIPT_PATH/navigate2ws.sh 10"
 *** Tertiary monitor
-**** Numbers
 #+begin_src conf
 bindsym mod3+1 exec "$SCRIPT_PATH/navigate2ws.sh 21"
 bindsym mod3+2 exec "$SCRIPT_PATH/navigate2ws.sh 22"
@@ -690,47 +610,8 @@ bindsym mod3+8 exec "$SCRIPT_PATH/navigate2ws.sh 28"
 bindsym mod3+9 exec "$SCRIPT_PATH/navigate2ws.sh 29"
 bindsym mod3+0 exec "$SCRIPT_PATH/navigate2ws.sh 20"
 #+end_src
-**** Home row (qwerty)
-#+begin_src sh :tangle no
-bindsym mod3+a exec "$SCRIPT_PATH/navigate2ws.sh 21"
-bindsym mod3+s exec "$SCRIPT_PATH/navigate2ws.sh 22"
-bindsym mod3+d exec "$SCRIPT_PATH/navigate2ws.sh 23"
-bindsym mod3+f exec "$SCRIPT_PATH/navigate2ws.sh 24"
-bindsym mod3+g exec "$SCRIPT_PATH/navigate2ws.sh 25"
-bindsym mod3+h exec "$SCRIPT_PATH/navigate2ws.sh 26"
-bindsym mod3+j exec "$SCRIPT_PATH/navigate2ws.sh 27"
-bindsym mod3+k exec "$SCRIPT_PATH/navigate2ws.sh 28"
-bindsym mod3+l exec "$SCRIPT_PATH/navigate2ws.sh 29"
-bindcode mod3+48 exec "$SCRIPT_PATH/navigate2ws.sh 20"
-#+end_src
-**** Numpad (qwerty)
-#+begin_src sh :tangle no
-bindsym mod3+s exec "$SCRIPT_PATH/navigate2ws.sh 21"
-bindsym mod3+d exec "$SCRIPT_PATH/navigate2ws.sh 22"
-bindsym mod3+f exec "$SCRIPT_PATH/navigate2ws.sh 23"
-bindsym mod3+w exec "$SCRIPT_PATH/navigate2ws.sh 24"
-bindsym mod3+e exec "$SCRIPT_PATH/navigate2ws.sh 25"
-bindsym mod3+r exec "$SCRIPT_PATH/navigate2ws.sh 26"
-bindsym mod3+x exec "$SCRIPT_PATH/navigate2ws.sh 27"
-bindsym mod3+c exec "$SCRIPT_PATH/navigate2ws.sh 28"
-bindsym mod3+v exec "$SCRIPT_PATH/navigate2ws.sh 29"
-bindsym mod3+space exec "$SCRIPT_PATH/navigate2ws.sh 20"
-#+end_src
-**** Numpad (colemak)
-#+begin_src sh
-bindsym mod3+r exec "$SCRIPT_PATH/navigate2ws.sh 21"
-bindsym mod3+s exec "$SCRIPT_PATH/navigate2ws.sh 22"
-bindsym mod3+t exec "$SCRIPT_PATH/navigate2ws.sh 23"
-bindsym mod3+w exec "$SCRIPT_PATH/navigate2ws.sh 24"
-bindsym mod3+f exec "$SCRIPT_PATH/navigate2ws.sh 25"
-bindsym mod3+p exec "$SCRIPT_PATH/navigate2ws.sh 26"
-bindsym mod3+x exec "$SCRIPT_PATH/navigate2ws.sh 27"
-bindsym mod3+c exec "$SCRIPT_PATH/navigate2ws.sh 28"
-bindsym mod3+d exec "$SCRIPT_PATH/navigate2ws.sh 29"
-bindsym mod3+space exec "$SCRIPT_PATH/navigate2ws2.sh 20"
 ** Move container to WS
 *** Primary monitor
-**** Numbers
 #+begin_src conf
 bindsym ctrl+$mod+1 move container to workspace number $ws1; workspace $ws1
 bindsym ctrl+$mod+2 move container to workspace number $ws2; workspace $ws2
@@ -743,86 +624,7 @@ bindsym ctrl+$mod+9 move container to workspace number $ws8; workspace $ws8
 bindsym ctrl+$mod+8 move container to workspace number $ws9; workspace $ws9
 bindsym ctrl+$mod+0 move container to workspace number $ws0; workspace $ws0
 #+end_src
-**** Home row (qwerty)
-#+begin_src conf :tangle no
-bindsym ctrl+$mod+a move container to workspace number $ws1; workspace $ws1
-bindsym ctrl+$mod+s move container to workspace number $ws2; workspace $ws2
-bindsym ctrl+$mod+d move container to workspace number $ws3; workspace $ws3
-bindsym ctrl+$mod+f move container to workspace number $ws4; workspace $ws4
-bindsym ctrl+$mod+g move container to workspace number $ws5; workspace $ws5
-bindsym ctrl+$mod+h move container to workspace number $ws6; workspace $ws6
-bindsym ctrl+$mod+j move container to workspace number $ws7; workspace $ws7
-bindsym ctrl+$mod+k move container to workspace number $ws8; workspace $ws8
-bindsym ctrl+$mod+l move container to workspace number $ws9; workspace $ws9
-bindcode ctrl+$mod+48 move container to workspace number $ws0; workspace $ws0
-#+end_src
-**** Upper row (qwerty)
-#+begin_src conf :tangle no
-bindsym $mod+q move container to workspace number $ws1; workspace $ws1
-bindsym $mod+w move container to workspace number $ws2; workspace $ws2
-bindsym $mod+e move container to workspace number $ws3; workspace $ws3
-bindsym $mod+r move container to workspace number $ws4; workspace $ws4
-bindsym $mod+t move container to workspace number $ws5; workspace $ws5
-bindsym $mod+y move container to workspace number $ws6; workspace $ws6
-bindsym $mod+u move container to workspace number $ws7; workspace $ws7
-bindsym $mod+i move container to workspace number $ws8; workspace $ws8
-bindsym $mod+o move container to workspace number $ws9; workspace $ws9
-bindsym $mod+p move container to workspace number $ws0; workspace $ws0
-#+end_src
-**** Numpad (qwerty)
-#+begin_src conf :tangle no
-bindsym ctrl+$mod+s move container to workspace number $ws1; workspace $ws1
-bindsym ctrl+$mod+d move container to workspace number $ws2; workspace $ws2
-bindsym ctrl+$mod+f move container to workspace number $ws3; workspace $ws3
-bindsym ctrl+$mod+w move container to workspace number $ws4; workspace $ws4
-bindsym ctrl+$mod+e move container to workspace number $ws5; workspace $ws5
-bindsym ctrl+$mod+r move container to workspace number $ws6; workspace $ws6
-bindsym ctrl+$mod+x move container to workspace number $ws7; workspace $ws7
-bindsym ctrl+$mod+c move container to workspace number $ws8; workspace $ws8
-bindsym ctrl+$mod+v move container to workspace number $ws9; workspace $ws9
-bindsym ctrl+$mod+space move container to workspace number $ws0; workspace $ws0
-#+end_src
-**** Home row (colemak)
-#+begin_src conf :tangle no
-bindsym ctrl+$mod+a move container to workspace number $ws1; workspace $ws1
-bindsym ctrl+$mod+r move container to workspace number $ws2; workspace $ws2
-bindsym ctrl+$mod+s move container to workspace number $ws3; workspace $ws3
-bindsym ctrl+$mod+t move container to workspace number $ws4; workspace $ws4
-bindsym ctrl+$mod+g move container to workspace number $ws5; workspace $ws5
-bindsym ctrl+$mod+m move container to workspace number $ws6; workspace $ws6
-bindsym ctrl+$mod+n move container to workspace number $ws7; workspace $ws7
-bindsym ctrl+$mod+e move container to workspace number $ws8; workspace $ws8
-bindsym ctrl+$mod+i move container to workspace number $ws9; workspace $ws9
-bindsym ctrl+$mod+o move container to workspace number $ws0; workspace $ws0
-#+end_src
-**** Upper row (colemak)
-#+begin_src conf :tangle no
-bindsym $mod+q move container to workspace number $ws1; workspace $ws1
-bindsym $mod+w move container to workspace number $ws2; workspace $ws2
-bindsym $mod+f move container to workspace number $ws3; workspace $ws3
-bindsym $mod+p move container to workspace number $ws4; workspace $ws4
-bindsym $mod+b move container to workspace number $ws5; workspace $ws5
-bindsym $mod+j move container to workspace number $ws6; workspace $ws6
-bindsym $mod+l move container to workspace number $ws7; workspace $ws7
-bindsym $mod+u move container to workspace number $ws8; workspace $ws8
-bindsym $mod+y move container to workspace number $ws9; workspace $ws9
-bindcode $mod+48 move container to workspace number $ws0; workspace $ws0
-#+end_src
-**** Numpad (colemak)
-#+begin_src conf :tangle no
-bindsym ctrl+$mod+r move container to workspace number $ws1; workspace $ws1
-bindsym ctrl+$mod+s move container to workspace number $ws2; workspace $ws2
-bindsym ctrl+$mod+t move container to workspace number $ws3; workspace $ws3
-bindsym ctrl+$mod+w move container to workspace number $ws4; workspace $ws4
-bindsym ctrl+$mod+f move container to workspace number $ws5; workspace $ws5
-bindsym ctrl+$mod+p move container to workspace number $ws6; workspace $ws6
-bindsym ctrl+$mod+x move container to workspace number $ws7; workspace $ws7
-bindsym ctrl+$mod+c move container to workspace number $ws8; workspace $ws8
-bindsym ctrl+$mod+d move container to workspace number $ws9; workspace $ws9
-bindsym ctrl+$mod+space move container to workspace number $ws0; workspace $ws0
-#+end_src
 *** Secondary monitor
-**** Numbers
 #+begin_src conf
 bindsym shift+ctrl+$mod+1 move container to workspace number $ws11; workspace $ws11
 bindsym shift+ctrl+$mod+2 move container to workspace number $ws12; workspace $ws12
@@ -835,86 +637,7 @@ bindsym shift+ctrl+$mod+8 move container to workspace number $ws18; workspace $w
 bindsym shift+ctrl+$mod+9 move container to workspace number $ws19; workspace $ws19
 bindsym shift+ctrl+$mod+0 move container to workspace number $ws10; workspace $ws10
 #+end_src
-**** Home row (qwerty)
-#+begin_src conf :tangle no
-bindsym shift+ctrl+$mod+a move container to workspace number $ws11; workspace $ws11
-bindsym shift+ctrl+$mod+s move container to workspace number $ws12; workspace $ws12
-bindsym shift+ctrl+$mod+d move container to workspace number $ws13; workspace $ws13
-bindsym shift+ctrl+$mod+f move container to workspace number $ws14; workspace $ws14
-bindsym shift+ctrl+$mod+g move container to workspace number $ws15; workspace $ws15
-bindsym shift+ctrl+$mod+h move container to workspace number $ws16; workspace $ws16
-bindsym shift+ctrl+$mod+j move container to workspace number $ws17; workspace $ws17
-bindsym shift+ctrl+$mod+k move container to workspace number $ws18; workspace $ws18
-bindsym shift+ctrl+$mod+l move container to workspace number $ws19; workspace $ws19
-bindcode shift+ctrl+$mod+48 move container to workspace number $ws10; workspace $ws10
-#+end_src
-**** Upper row (qwerty)
-#+begin_src conf :tangle no
-bindsym ctrl+$mod+q move container to workspace number $ws11; workspace $ws11
-bindsym ctrl+$mod+w move container to workspace number $ws12; workspace $ws12
-bindsym ctrl+$mod+e move container to workspace number $ws13; workspace $ws13
-bindsym ctrl+$mod+r move container to workspace number $ws14; workspace $ws14
-bindsym ctrl+$mod+t move container to workspace number $ws15; workspace $ws15
-bindsym ctrl+$mod+y move container to workspace number $ws16; workspace $ws16
-bindsym ctrl+$mod+u move container to workspace number $ws17; workspace $ws17
-bindsym ctrl+$mod+i move container to workspace number $ws18; workspace $ws18
-bindsym ctrl+$mod+o move container to workspace number $ws19; workspace $ws19
-bindsym ctrl+$mod+p move container to workspace number $ws10; workspace $ws10
-#+end_src
-**** Numpad (qwerty)
-#+begin_src conf :tangle no
-bindsym shift+ctrl+$mod+s move container to workspace number $ws11; workspace $ws11
-bindsym shift+ctrl+$mod+d move container to workspace number $ws12; workspace $ws12
-bindsym shift+ctrl+$mod+f move container to workspace number $ws13; workspace $ws13
-bindsym shift+ctrl+$mod+w move container to workspace number $ws14; workspace $ws14
-bindsym shift+ctrl+$mod+e move container to workspace number $ws15; workspace $ws15
-bindsym shift+ctrl+$mod+r move container to workspace number $ws16; workspace $ws16
-bindsym shift+ctrl+$mod+x move container to workspace number $ws17; workspace $ws17
-bindsym shift+ctrl+$mod+c move container to workspace number $ws18; workspace $ws18
-bindsym shift+ctrl+$mod+v move container to workspace number $ws19; workspace $ws19
-bindsym shift+ctrl+$mod+space move container to workspace number $ws10; workspace $ws10
-#+end_src
-**** Home row (colemak)
-#+begin_src conf :tangle no
-bindsym shift+ctrl+$mod+a move container to workspace number $ws11; workspace $ws11
-bindsym shift+ctrl+$mod+r move container to workspace number $ws12; workspace $ws12
-bindsym shift+ctrl+$mod+s move container to workspace number $ws13; workspace $ws13
-bindsym shift+ctrl+$mod+t move container to workspace number $ws14; workspace $ws14
-bindsym shift+ctrl+$mod+g move container to workspace number $ws15; workspace $ws15
-bindsym shift+ctrl+$mod+m move container to workspace number $ws16; workspace $ws16
-bindsym shift+ctrl+$mod+n move container to workspace number $ws17; workspace $ws17
-bindsym shift+ctrl+$mod+e move container to workspace number $ws18; workspace $ws18
-bindsym shift+ctrl+$mod+i move container to workspace number $ws19; workspace $ws19
-bindsym shift+ctrl+$mod+o move container to workspace number $ws10; workspace $ws10
-#+end_src
-**** Upper row (colemak)
-#+begin_src conf :tangle no
-bindsym ctrl+$mod+q move container to workspace number $ws11; workspace $ws11
-bindsym ctrl+$mod+w move container to workspace number $ws12; workspace $ws12
-bindsym ctrl+$mod+f move container to workspace number $ws13; workspace $ws13
-bindsym ctrl+$mod+p move container to workspace number $ws14; workspace $ws14
-bindsym ctrl+$mod+b move container to workspace number $ws15; workspace $ws15
-bindsym ctrl+$mod+j move container to workspace number $ws16; workspace $ws16
-bindsym ctrl+$mod+l move container to workspace number $ws17; workspace $ws17
-bindsym ctrl+$mod+u move container to workspace number $ws18; workspace $ws18
-bindsym ctrl+$mod+y move container to workspace number $ws19; workspace $ws19
-bindcode ctrl+$mod+48 move container to workspace number $ws10; workspace $ws10
-#+end_src
-**** Numpad (colemak)
-#+begin_src conf :tangle no
-bindsym shift+ctrl+$mod+r move container to workspace number $ws11; workspace $ws11
-bindsym shift+ctrl+$mod+s move container to workspace number $ws12; workspace $ws12
-bindsym shift+ctrl+$mod+t move container to workspace number $ws13; workspace $ws13
-bindsym shift+ctrl+$mod+w move container to workspace number $ws14; workspace $ws14
-bindsym shift+ctrl+$mod+f move container to workspace number $ws15; workspace $ws15
-bindsym shift+ctrl+$mod+p move container to workspace number $ws16; workspace $ws16
-bindsym shift+ctrl+$mod+x move container to workspace number $ws17; workspace $ws17
-bindsym shift+ctrl+$mod+c move container to workspace number $ws18; workspace $ws18
-bindsym shift+ctrl+$mod+d move container to workspace number $ws19; workspace $ws19
-bindsym shift+ctrl+$mod+space move container to workspace number $ws10; workspace $ws10
-#+end_src
 *** Tertiary monitor
-**** Numbers
 #+begin_src conf
 bindsym ctrl+mod3+0 move container to workspace number $ws20; workspace $ws20
 bindsym ctrl+mod3+1 move container to workspace number $ws21; workspace $ws21
@@ -927,85 +650,7 @@ bindsym ctrl+mod3+7 move container to workspace number $ws27; workspace $ws27
 bindsym ctrl+mod3+8 move container to workspace number $ws28; workspace $ws28
 bindsym ctrl+mod3+9 move container to workspace number $ws29; workspace $ws29
 #+end_src
-**** Home row (qwerty)
-#+begin_src conf :tangle no
-bindsym ctrl+mod3+a move container to workspace number $ws20; workspace $ws20
-bindsym ctrl+mod3+s move container to workspace number $ws21; workspace $ws21
-bindsym ctrl+mod3+d move container to workspace number $ws22; workspace $ws22
-bindsym ctrl+mod3+f move container to workspace number $ws23; workspace $ws23
-bindsym ctrl+mod3+g move container to workspace number $ws24; workspace $ws24
-bindsym ctrl+mod3+h move container to workspace number $ws25; workspace $ws25
-bindsym ctrl+mod3+j move container to workspace number $ws26; workspace $ws26
-bindsym ctrl+mod3+k move container to workspace number $ws27; workspace $ws27
-bindsym ctrl+mod3+l move container to workspace number $ws28; workspace $ws28
-bindcode ctrl+mod3+48 move container to workspace number $ws29; workspace $ws29
-#+end_src
-**** Upper row (qwerty)
-#+begin_src conf :tangle no
-bindsym mod3+q move container to workspace number $ws20; workspace $ws20
-bindsym mod3+w move container to workspace number $ws21; workspace $ws21
-bindsym mod3+e move container to workspace number $ws22; workspace $ws22
-bindsym mod3+r move container to workspace number $ws23; workspace $ws23
-bindsym mod3+t move container to workspace number $ws24; workspace $ws24
-bindsym mod3+y move container to workspace number $ws25; workspace $ws25
-bindsym mod3+u move container to workspace number $ws26; workspace $ws26
-bindsym mod3+i move container to workspace number $ws27; workspace $ws27
-bindsym mod3+o move container to workspace number $ws28; workspace $ws28
-#+end_src
-**** Numpad (qwerty)
-#+begin_src conf :tangle no
-bindsym ctrl+mod3+s move container to workspace number $ws20; workspace $ws20
-bindsym ctrl+mod3+d move container to workspace number $ws21; workspace $ws21
-bindsym ctrl+mod3+f move container to workspace number $ws22; workspace $ws22
-bindsym ctrl+mod3+w move container to workspace number $ws23; workspace $ws23
-bindsym ctrl+mod3+e move container to workspace number $ws24; workspace $ws24
-bindsym ctrl+mod3+r move container to workspace number $ws25; workspace $ws25
-bindsym ctrl+mod3+x move container to workspace number $ws26; workspace $ws26
-bindsym ctrl+mod3+c move container to workspace number $ws27; workspace $ws27
-bindsym ctrl+mod3+v move container to workspace number $ws28; workspace $ws28
-bindsym ctrl+mod3+space move container to workspace number $ws29; workspace $ws29
-bindsym ctrl+mod3+p move container to workspace number $ws29; workspace $ws29
-#+end_src
 ** Same monitor
-**** Home row (colemak)
-#+begin_src conf :tangle no
-bindsym ctrl+mod3+a move container to workspace number $ws20; workspace $ws20
-bindsym ctrl+mod3+r move container to workspace number $ws21; workspace $ws21
-bindsym ctrl+mod3+s move container to workspace number $ws22; workspace $ws22
-bindsym ctrl+mod3+t move container to workspace number $ws23; workspace $ws23
-bindsym ctrl+mod3+g move container to workspace number $ws24; workspace $ws24
-bindsym ctrl+mod3+m move container to workspace number $ws25; workspace $ws25
-bindsym ctrl+mod3+n move container to workspace number $ws26; workspace $ws26
-bindsym ctrl+mod3+e move container to workspace number $ws27; workspace $ws27
-bindsym ctrl+mod3+i move container to workspace number $ws28; workspace $ws28
-bindsym ctrl+mod3+o move container to workspace number $ws29; workspace $ws29
-#+end_src
-**** Upper row (colemak)
-#+begin_src conf :tangle no
-bindsym mod3+q move container to workspace number $ws20; workspace $ws20
-bindsym mod3+w move container to workspace number $ws21; workspace $ws21
-bindsym mod3+f move container to workspace number $ws22; workspace $ws22
-bindsym mod3+p move container to workspace number $ws23; workspace $ws23
-bindsym mod3+b move container to workspace number $ws24; workspace $ws24
-bindsym mod3+j move container to workspace number $ws25; workspace $ws25
-bindsym mod3+l move container to workspace number $ws26; workspace $ws26
-bindsym mod3+u move container to workspace number $ws27; workspace $ws27
-bindsym mod3+y move container to workspace number $ws28; workspace $ws28
-bindcode mod3+48 move container to workspace number $ws29; workspace $ws29
-#+end_src
-**** Numpad (colemak)
-#+begin_src conf :tangle no
-bindsym ctrl+mod3+r move container to workspace number $ws20; workspace $ws20
-bindsym ctrl+mod3+s move container to workspace number $ws21; workspace $ws21
-bindsym ctrl+mod3+t move container to workspace number $ws22; workspace $ws22
-bindsym ctrl+mod3+w move container to workspace number $ws23; workspace $ws23
-bindsym ctrl+mod3+f move container to workspace number $ws24; workspace $ws24
-bindsym ctrl+mod3+p move container to workspace number $ws25; workspace $ws25
-bindsym ctrl+mod3+x move container to workspace number $ws26; workspace $ws26
-bindsym ctrl+mod3+c move container to workspace number $ws27; workspace $ws27
-bindsym ctrl+mod3+d move container to workspace number $ws28; workspace $ws28
-bindsym ctrl+mod3+space move container to workspace number $ws29; workspace $ws29
-#+end_src
 #+begin_src conf
 bindsym ctrl+$mod+Right workspace next
 bindsym ctrl+$mod+k     workspace next
