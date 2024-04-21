@@ -135,6 +135,7 @@ set $htext_color #9575cd
 include /etc/sway/config.d/*
 #+end_src
 ** Inputs
+*** Trackpad
 documentation:
 https://wayland.freedesktop.org/libinput/doc/latest/index.html
 #+begin_src conf
@@ -143,11 +144,13 @@ input type:touchpad {
     natural_scroll enabled                        # natural scrolling
 }
 #+end_src
-** Enable NumLock
-#+begin_src conf
+*** Enable NumLock
+#+begin_src conf :tangle no
 input type:keyboard xkb_numlock enabled
 #+end_src
-** Keyboard
+*** Keyboard
+**** Model, layout and variant
+Load model, layout and variant for all keyboards.
 input type:keyboard {
     xkb_model "pc105"
     xkb_layout "us"
@@ -524,9 +527,10 @@ bindsym $mod+Shift+Right move right
 #+end_src
 ** General
 *** Split
+Split window in horizontal/vertical orientation
 #+begin_src conf
-bindsym mod1+h split h                            # split in horizontal orientation
-bindsym mod1+v split v                            # split in vertical orientation
+bindsym mod1+h split h
+bindsym mod1+v split v
 #+end_src
 *** Container layout
 bindsym $mod+s layout stacking
@@ -550,17 +554,17 @@ bindsym $mod+z [urgent=latest] focus              # switch to latest urgent wind
 #+end_src
 ** Monitor
 *** Arrows
-#+begin_src sh
+#+begin_src conf
 bindsym mod1+Left  focus output left
 bindsym mod1+Right focus output right
 #+end_src
 *** hjkl
-#+begin_src sh
+#+begin_src conf
 #bindsym ctrl+$mod+h focus output left
 #bindsym ctrl+$mod+l focus output right
 #+end_src
 * Workspaces navigation
-#+begin_src sh
+#+begin_src conf
 set $SCRIPT_PATH $HOME/.config/scripts
 #+end_src
 ** Switch to workspace
@@ -650,14 +654,14 @@ bindsym ctrl+mod3+7 move container to workspace number $ws27; workspace $ws27
 bindsym ctrl+mod3+8 move container to workspace number $ws28; workspace $ws28
 bindsym ctrl+mod3+9 move container to workspace number $ws29; workspace $ws29
 #+end_src
-** Same monitor
+** Navigate on same monitor
 #+begin_src conf
 bindsym ctrl+$mod+Right workspace next
 bindsym ctrl+$mod+k     workspace next
 bindsym ctrl+$mod+Left  workspace prev
 bindsym ctrl+$mod+l     workspace prev
 #+end_src
-** Among monitors
+** Navigate among monitors
 *** Arrows
 bindsym shift+mod5+Left  move container to output left;  focus output left
 bindsym shift+mod5+Right move container to output right; focus output right
