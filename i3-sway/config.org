@@ -694,13 +694,12 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 * Custom keybinds
 ** Applications
 #+begin_src conf
-bindsym $mod+b exec firefox                       # Firefox
-#bindsym $mod+c exec chromium                      # Chromium
-bindsym $mod+n exec thunar                        # Thunar
-#bindsym $mod+l exec lollypop                     # Lollypop
-#bindsym $mod+g exec gvim                          # gvim
-#bindsym $mod+m exec thunderbird                  # Thunderbird
-bindsym $mod+g exec kitty ranger                  # ranger
+bindsym $mod+b exec firefox
+#bindsym $mod+c exec chromium
+#bindsym $mod+n exec thunar
+#bindsym $mod+l exec lollypop
+#bindsym $mod+m exec thunderbird
+bindsym $mod+g exec kitty ranger
 #bindsym $mod+p exec spotify --force-device-scale-factor=2 # shortcut to open Spotify
 #+end_src
 ** Terminal
