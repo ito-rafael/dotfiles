@@ -915,6 +915,19 @@ bindsym ctrl+mod3+space move container to workspace number $ws29; workspace $ws2
 bindsym ctrl+mod3+p move container to workspace number $ws29; workspace $ws29
 #+end_src
 ** Same monitor
+**** Home row (colemak)
+#+begin_src conf :tangle no
+bindsym ctrl+mod3+a move container to workspace number $ws20; workspace $ws20
+bindsym ctrl+mod3+r move container to workspace number $ws21; workspace $ws21
+bindsym ctrl+mod3+s move container to workspace number $ws22; workspace $ws22
+bindsym ctrl+mod3+t move container to workspace number $ws23; workspace $ws23
+bindsym ctrl+mod3+g move container to workspace number $ws24; workspace $ws24
+bindsym ctrl+mod3+m move container to workspace number $ws25; workspace $ws25
+bindsym ctrl+mod3+n move container to workspace number $ws26; workspace $ws26
+bindsym ctrl+mod3+e move container to workspace number $ws27; workspace $ws27
+bindsym ctrl+mod3+i move container to workspace number $ws28; workspace $ws28
+bindsym ctrl+mod3+o move container to workspace number $ws29; workspace $ws29
+#+end_src
 #+begin_src conf
 bindsym ctrl+$mod+Right workspace next
 bindsym ctrl+$mod+k     workspace next
