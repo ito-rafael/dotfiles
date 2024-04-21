@@ -954,6 +954,19 @@ bindsym ctrl+mod3+e move container to workspace number $ws27; workspace $ws27
 bindsym ctrl+mod3+i move container to workspace number $ws28; workspace $ws28
 bindsym ctrl+mod3+o move container to workspace number $ws29; workspace $ws29
 #+end_src
+**** Upper row (colemak)
+#+begin_src conf :tangle no
+bindsym mod3+q move container to workspace number $ws20; workspace $ws20
+bindsym mod3+w move container to workspace number $ws21; workspace $ws21
+bindsym mod3+f move container to workspace number $ws22; workspace $ws22
+bindsym mod3+p move container to workspace number $ws23; workspace $ws23
+bindsym mod3+b move container to workspace number $ws24; workspace $ws24
+bindsym mod3+j move container to workspace number $ws25; workspace $ws25
+bindsym mod3+l move container to workspace number $ws26; workspace $ws26
+bindsym mod3+u move container to workspace number $ws27; workspace $ws27
+bindsym mod3+y move container to workspace number $ws28; workspace $ws28
+bindcode mod3+48 move container to workspace number $ws29; workspace $ws29
+#+end_src
 #+begin_src conf
 bindsym ctrl+$mod+Right workspace next
 bindsym ctrl+$mod+k     workspace next
