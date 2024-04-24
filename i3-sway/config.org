@@ -747,8 +747,12 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
 #+end_src
 ** Screenshot
+*** i3
+#+begin_src conf :tangle no
+bindsym Print exec shutter
+#+end_src
+*** Sway
 #+begin_src conf
-#bindsym Print exec shutter
 bindsym Print exec grim
 bindsym shift+Print exec 'grim -g "$(slurp)"'
 bindsym ctrl+Print exec 'grim -g "$(slurp)" - | swappy -f -'
