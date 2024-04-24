@@ -689,10 +689,11 @@ bindsym shift+mod3+Up  workspace prev_on_output
 bindsym shift+mod3+Left  focus output left
 bindsym shift+mod3+Right focus output right
 #+end_src
+** Move container among monitors
 *** Arrows
-bindsym shift+mod5+Left  move container to output left;  focus output left
-bindsym shift+mod5+Right move container to output right; focus output right
 #+begin_src conf
+bindsym $mod+shift+mod3+Left  move container to output left;  focus output left
+bindsym $mod+shift+mod3+Right move container to output right; focus output right
 #+end_src
 *** Numbers
 bindsym ctrl+mod1+1 move workspace to output $primary_screen;   focus output $primary_screen
