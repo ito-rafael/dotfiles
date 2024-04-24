@@ -554,11 +554,20 @@ Change container layout (stacked, tabbed, toggle split).
 #bindsym mod1+$mod+e layout toggle split
 bindsym mod1+$mod+e layout toggle stacked tabbed
 #+end_src
-*** Other
-bindsym $mod+f fullscreen toggle                  # enter fullscreen mode for the focused container
-bindsym $mod+d floating toggle                    # toggle tiling / floating
-bindsym ctrl+q kill                               # kill focused window
+*** Fullscreen
+Enter fullscreen mode for the focused container.
 #+begin_src conf
+bindsym mod1+$mod+f fullscreen toggle
+#+end_src
+*** Tiling/Floating
+Toggle between tiling/floating window.
+#+begin_src conf
+bindsym mod1+$mod+d floating toggle
+#+end_src
+*** Kill window
+Kill focused window, unless it's a scratchpad. Check the [[https://github.com/ito-rafael/dotfiles/blob/master/scripts/sway-kill.sh][sway-kill.sh]] script for more details.
+#+begin_src conf
+bindsym mod1+$mod+q kill $SCRIPT_PATH/sway-kill.sh
 #+end_src
 * Focus
 ** Windows
