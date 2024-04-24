@@ -788,24 +788,41 @@ bindsym mod3+ --whole-window button5 exec "pactl set-sink-volume @DEFAULT_SINK@ 
 #+end_src
 ** Mouse keys
 *** Cursor
-bindsym kp_4 seat - cursor move -10  0   # cursor left
-bindsym kp_2 seat - cursor move  0   10  # cursor down
-bindsym kp_8 seat - cursor move  0  -10  # cursor up
-bindsym kp_6 seat - cursor move  10  0   # cursor right
+| key | cursor movement |
+|-----+-----------------|
+| kp4 | left            |
+| kp2 | down            |
+| kp8 | up              |
+| kp6 | right           |
 #+begin_src conf
+bindsym kp_4 seat - cursor move -10  0
+bindsym kp_2 seat - cursor move  0   10
+bindsym kp_8 seat - cursor move  0  -10
+bindsym kp_6 seat - cursor move  10  0
 #+end_src
 *** Buttons
-bindsym kp_divide   seat - cursor press button1  # left click
-bindsym kp_multiply seat - cursor press button2  # middle click
-bindsym kp_subtract seat - cursor press button3  # right click
+| key | mouse button |
+|-----+--------------|
+| kp/ | left click   |
+| kp* | middle click |
+| kb- | right click  |
 #+begin_src conf
+bindsym kp_divide   seat - cursor press button1
+bindsym kp_multiply seat - cursor press button2
+bindsym kp_subtract seat - cursor press button3
 #+end_src
 *** Wheel
-bindsym kp_1 seat - cursor press button4  # wheel up
-bindsym kp_3 seat - cursor press button5  # wheel down
-bindsym kp_7 seat - cursor press button6  # wheel right
-bindsym kp_9 seat - cursor press button7  # wheel left
+| key | wheel movement |
+|-----+----------------|
+| kp1 | up             |
+| kp3 | down           |
+| kp7 | right          |
+| kp9 | left           |
 #+begin_src conf
+bindsym kp_1 seat - cursor press button4
+bindsym kp_3 seat - cursor press button5
+bindsym kp_7 seat - cursor press button6
+bindsym kp_9 seat - cursor press button7
 #+end_src
 * Keyboard keybinds
 ** Ctrl + Space = Return
