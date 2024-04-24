@@ -761,27 +761,29 @@ bindsym $mod+backslash    exec rofi -show ssh    -monitor $(swaymsg -t get_outpu
 #+end_src
 * Logitech MX
 ** Change host
-Change host for MX Keys and MX Master 3
-#+begin_src conf
-bindsym F13 exec /home/rafael/mx_script.sh
+Change host for MX Keys and MX Master 3.
+#+begin_src conf :tangle no
+#bindsym F13 exec /home/rafael/mx_script.sh
+bindsym --release F20 exec $SCRIPT_PATH/mx_script.sh
 #+end_src
 ** MX Master 3
 *** Copy
-"copy" shortcut: "i" button + down gesture
-#+begin_src conf
+"copy" shortcut: "i" button + down gesture.
+#+begin_src conf :tangle no
 bindsym XF86Copy [class="Xfce4-terminal"] exec "xdotool keydown ctrl keydown shift keydown c keyup ctrl keyup shift keyup c"; exec "sleep 0.1"
 #+end_src
 *** Paste
-"paste" shortcut: "i" button + up gesture
-#+begin_src conf
+"paste" shortcut: "i" button + up gesture.
+#+begin_src conf :tangle no
 bindsym XF86Paste [class="Xfce4-terminal"] exec "xdotool keydown ctrl keydown shift keydown v keyup ctrl keyup shift keyup v"; exec "sleep 0.1"
 #+end_src
-#+begin_src conf
+#+begin_src conf :tangle no
 #+end_src
 * Mouse keybinds
 ** Volume control
-Use button9 + scroll to control volume
-  --> button9 is mapped as Super_R using the interception tool, which is mapped as mod3 using xmodmap
+*** i3
+Use button9 + scroll to control volume.
+  --> button9 is mapped as Super_R using the interception tool, which is mapped as mod3 using xmodmap.
 #+begin_src conf :tangle no
 bindsym mod3+ --whole-window button4 exec "pactl set-sink-volume @DEFAULT_SINK@ +5% && pkill -RTMIN+10 i3blocks"
 bindsym mod3+ --whole-window button5 exec "pactl set-sink-volume @DEFAULT_SINK@ -5% && pkill -RTMIN+10 i3blocks"
@@ -826,12 +828,12 @@ bindsym kp_9 seat - cursor press button7
 #+end_src
 * Keyboard keybinds
 ** Ctrl + Space = Return
-#+begin_src conf
+#+begin_src conf :tangle no
 bindsym --release ctrl+space exec xdotool key Return
 #+end_src
 ** Mod5 (hold Tab)
 Navigation with vim keys
-#+begin_src conf
+#+begin_src conf :tangle no
 bindsym --release Mod5+h exec xdotool key Left
 bindsym --release Mod5+j exec xdotool key Down
 bindsym --release Mod5+k exec xdotool key Up
@@ -970,7 +972,7 @@ Edit top right keyboard keys to work as a numpad (for Lenovo Yoga 2 Pro)
 | Enter     | ' & " |    48   |
 +-----------------------------+
 *** Mode
-#+begin_src conf
+#+begin_src conf :tangle no
 mode "number" {
     #-----------------------------
     # exit "number" mode and load default Xmodmap file
@@ -991,7 +993,7 @@ bindsym $mod+Next mode "number"; exec "xmodmap ~/.Xmodmap_numbers"
 #+end_src
 * i3bar
 Start i3bar to display a workspace bar (plus the system information i3status finds out, if available)
-#+begin_src conf
+#+begin_src conf :tangle no
 bar {
     # set i3bar position
     position top
