@@ -705,18 +705,20 @@ bindsym ctrl+mod1+3 move workspace to output $tertiary;  focus output $tertiary
 ** Reload
 #+begin_src conf
 #bindsym $mod+Shift+c reload
-bindsym $mod+Shift+c exec ~/.config/i3/i3bang.rb; reload
+#bindsym mod1+$mod+c exec ~/.config/i3/i3bang.rb; reload
+bindsym mod1+$mod+c exec ~/.config/sway/i3bang.rb; reload
 #+end_src
 ** Restart
 Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 #+begin_src conf
-#bindsym $mod+Shift+r restart
-bindsym $mod+Shift+r exec ~/.config/i3/i3bang.rb; restart
+#bindsym mod1+$mod+s exec ~/.config/i3/i3bang.rb; restart
+bindsym mod1+$mod+s exec ~/.config/sway/i3bang.rb; restart
 #+end_src
 ** Exit
 Exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 #+begin_src conf
+#bindsym mod1+$mod+x exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym mod1+$mod+x exec "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit Sway? This will end your X session.' -B 'Yes, exit Sway' 'swaymsg exit'"
 #+end_src
 * Custom keybinds
 ** Applications
@@ -733,6 +735,7 @@ bindsym $mod+g exec kitty ranger
 bindsym $mod+t exec i3-sensible-terminal
 bindsym ctrl+mod1+t exec i3-sensible-terminal
 #+begin_src conf
+#bindsym mod1+$mod+t exec i3-sensible-terminal
 #bindsym ctrl+$mod+t exec i3-sensible-terminal
 #+end_src
 ** Brightness
