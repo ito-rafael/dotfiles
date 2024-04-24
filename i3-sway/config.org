@@ -681,10 +681,8 @@ bindsym ctrl+mod3+9 move container to workspace number $ws29; workspace $ws29
 #+end_src
 ** Navigate on same monitor
 #+begin_src conf
-bindsym ctrl+$mod+Right workspace next
-bindsym ctrl+$mod+k     workspace next
-bindsym ctrl+$mod+Left  workspace prev
-bindsym ctrl+$mod+l     workspace prev
+bindsym shift+mod3+Down workspace next_on_output
+bindsym shift+mod3+Up  workspace prev_on_output
 #+end_src
 ** Navigate among monitors
 *** Arrows
