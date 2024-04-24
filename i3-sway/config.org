@@ -696,12 +696,11 @@ bindsym $mod+shift+mod3+Left  move container to output left;  focus output left
 bindsym $mod+shift+mod3+Right move container to output right; focus output right
 #+end_src
 *** Numbers
-bindsym ctrl+mod1+1 move workspace to output $primary_screen;   focus output $primary_screen
-bindsym ctrl+mod1+2 move workspace to output $secondary_screen; focus output $secondary_screen
-bindsym ctrl+mod1+3 move workspace to output $tertiary_screen;  focus output $tertiary_screen
 #+begin_src conf
+bindsym ctrl+mod1+1 move workspace to output $primary;   focus output $primary
+bindsym ctrl+mod1+2 move workspace to output $secondary; focus output $secondary
+bindsym ctrl+mod1+3 move workspace to output $tertiary;  focus output $tertiary
 #+end_src
-reserved
 * Restart i3/sway
 ** Reload
 #+begin_src conf
