@@ -740,8 +740,10 @@ bindsym ctrl+mod1+t exec i3-sensible-terminal
 #+end_src
 ** Brightness
 #+begin_src conf
-bindsym XF86MonBrightnessUp   exec --no-startup-id xbacklight -inc 5
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
+#bindsym XF86MonBrightnessUp   exec --no-startup-id xbacklight -inc 5
+#bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
 #+end_src
 ** Screenshot
 #+begin_src conf
