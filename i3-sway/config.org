@@ -1045,16 +1045,30 @@ set $prop class     # X11
 #+end_src
 ** Applications
 #+begin_src conf
-assign [$prop="thunderbird"] → $ws4               # workspace 4: email
-assign [$prop="libreoffice"] → $ws5               # workspace 5: spreadsheet
-assign [$prop="lutris"] → $ws6                    # workspace 6: game
-assign [$prop="deluge"] → $ws7                    # workspace 7: torrent
-assign [$prop="nicotine"] → $ws7                  # workspace 7: P2P music
-assign [$prop="lollypop"] → $ws8                  # workspace 8: music player (local)
-# music player (web) [both Wayland/X11 uses "class" for Spotify]
-for_window [class="Spotify"] move --no-auto-back-and-forth to workspace $ws9 # workspace 9: music player (web)
-assign [$prop="blueman-manager"] → $ws10          # workspace 10: bluetooth
-assign [$prop="pavucontrol"] → $ws10              # workspace 10: volume control
+#+end_src
+** Applications
+| workspace | application | description          |
+|-----------+-------------+----------------------|
+|         4 | Thunderbird | Email client         |
+|         5 | spreadsheet | LibreOffice          |
+|         6 | Lutris      | Gaming               |
+|         7 | Nicotine+   | P2P music            |
+|         7 | Deluge      | BitTorrent           |
+|         8 | Lollypop    | Music player (local) |
+|         9 | Spotify     | Music player (web)   |
+|        10 | Blueman     | Bluetooth manager    |
+|        10 | pavucontrol | Volume control       |
+Obs.: both i3/Sway uses "class" for Spotify client.
+#+begin_src conf
+assign [$prop="thunderbird"] → $ws4
+assign [$prop="libreoffice"] → $ws5
+assign [$prop="lutris"] → $ws6
+assign [$prop="deluge"] → $ws7
+assign [$prop="nicotine"] → $ws7
+assign [$prop="lollypop"] → $ws8
+for_window [class="Spotify"] move --no-auto-back-and-forth to workspace $ws9
+assign [$prop="blueman-manager"] → $ws10
+assign [$prop="pavucontrol"] → $ws10
 #+end_src
 * Window-specific
 ** Tkinter
