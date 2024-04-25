@@ -860,7 +860,7 @@ bindsym --release Mod5+l exec xdotool key Right
 - disable touchpad
 - disable touchpad click
 #+begin_src conf
-bindsym ctrl+$mod+Up exec "\
+bindsym mod1+$mod+Up exec "\
     echo 'rotate screen' &&\
     xrandr --output eDP-1 --rotate left &&\
     echo 'rotate touchscreen' &&\
@@ -878,7 +878,7 @@ bindsym ctrl+$mod+Up exec "\
 - enable touchpad
 - enable touchpad click
 #+begin_src conf
-bindsym ctrl+$mod+Down exec "\
+bindsym mod1+$mod+Down exec "\
     echo 'rotate screen' &&\
     xrandr --output eDP-1 --rotate normal && \
     echo 'rotate touchscreen' &&\
