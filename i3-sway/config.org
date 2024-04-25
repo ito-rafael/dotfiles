@@ -900,12 +900,19 @@ End raw section: !@<+default_keybindings
 *** Description
 source:
 https://wiki.archlinux.org/index.php/I3#Shutdown,_reboot,_lock_screen
+*** Locker
+Adds 1 second delay to prevent possible race conditions with suspend.
+**** i3
+#+begin_src conf :tangle no
+set $locker i3lock --color 000000 && sleep 1
+#+end_src
+**** Sway
+#+begin_src conf
+set $locker swaylock --color 000000 && sleep 1
+#+end_src
 *** Mode
 #+begin_src conf
 set $mode_system System: (s)hutdown, (r)eboot, (l)ock, (S)uspend, (h)ibernate, (e)xit/logout
-#-----------------------------
-set $locker i3lock --color 000000 && sleep 1
-# sleep 1 adds a small delay to prevent possible race conditions with suspend
 #-----------------------------
 mode "$mode_system" {
     bindsym l       exec --no-startup-id $locker,                         mode "default"
