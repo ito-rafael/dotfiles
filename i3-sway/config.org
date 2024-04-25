@@ -1038,13 +1038,14 @@ bar {
 }
 #+end_src
 * Applications default WS
-** Wayland / X11
+** Window property
+*** i3
 #+begin_src conf
-set $prop class     # X11
-#set $prop app_id   # Wayland
+#set $prop class
 #+end_src
-** Applications
+*** Sway
 #+begin_src conf
+set $prop app_id
 #+end_src
 ** Applications
 | workspace | application | description          |
