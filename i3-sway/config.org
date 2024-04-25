@@ -157,6 +157,16 @@ input type:keyboard {
     xkb_variant "intl"
 }
 #+end_src
+**** Options
+Load generic modifications for all inputs.
+#+begin_src conf
+input * {
+    xkb_options "\
+        modifiers:modifiers, \
+        fn-keys:fnkeys, \
+    "
+}
+#+end_src
 * Outputs
 ** Default Scenario
 This setup is used for the main workstation.
