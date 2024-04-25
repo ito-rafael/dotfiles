@@ -947,10 +947,12 @@ Resize window (you can also use the mouse for that)
 *** Mode
 #+begin_src conf
 mode "resize" {
-    bindsym j resize shrink width  5 px or 5 ppt
-    bindsym k resize shrink height 5 px or 5 ppt
-    bindsym l resize grow   height 5 px or 5 ppt
-    bindcode 48 resize grow   width  5 px or 5 ppt
+    #-----------------------------
+    # colemak home row
+    bindsym n resize shrink width  5 px or 5 ppt
+    bindsym e resize shrink height 5 px or 5 ppt
+    bindsym i resize grow   height 5 px or 5 ppt
+    bindsym o resize grow   width  5 px or 5 ppt
     #-----------------------------
     # same bindings, but for the arrow keys
     bindsym Left  resize shrink width  5 px or 5 ppt
