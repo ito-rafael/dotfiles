@@ -1097,7 +1097,14 @@ for_window [$prop="^dropdown_terminal$"] move position center
 for_window [$prop="^dropdown_terminal$"] move scratchpad
 for_window [$prop="^dropdown_terminal$"] border pixel 5
 #+end_src
-* Applets
+* Panel
+** i3
+i3blocks already configured (or better yet, use polybar).
+** Sway
+#+begin_src conf
+exec_always --no-startup-id ~/.config/waybar/waybar.sh
+#+end_src
+** Applets
 #+begin_src conf
 exec "blueman-applet &"                           # Bluetooth
 exec "nm-applet --indicator &"                    # NetworkManager
