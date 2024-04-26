@@ -69,6 +69,7 @@
   - [[#number][Number]]
   - [[#double-click-dc][Double-click (dc)]]
   - [[#presentation][Presentation]]
+  - [[#studio][Studio]]
 - [[#i3bar][i3bar]]
 - [[#applications-default-ws][Applications default WS]]
   - [[#window-property][Window property]]
