@@ -1106,8 +1106,9 @@ exec_always --no-startup-id ~/.config/waybar/waybar.sh
 #+end_src
 ** Applets
 #+begin_src conf
-exec "blueman-applet &"                           # Bluetooth
-exec "nm-applet --indicator &"                    # NetworkManager
+exec "blueman-applet &"                 # Bluetooth
+exec "nm-applet --indicator &"          # NetworkManager
+exec "syncthing &"                      # Syncthing
 #+end_src
 * Startup commands
 ** Background images
