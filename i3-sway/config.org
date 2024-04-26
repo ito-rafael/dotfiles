@@ -68,6 +68,7 @@
   - [[#resize][Resize]]
   - [[#number][Number]]
   - [[#double-click-dc][Double-click (dc)]]
+  - [[#presentation][Presentation]]
 - [[#i3bar][i3bar]]
 - [[#applications-default-ws][Applications default WS]]
   - [[#window-property][Window property]]
@@ -1072,6 +1073,43 @@ bindsym --whole-window button3 exec "xdotool key 248 && i3-msg 'mode dc'; sleep 
 bindsym --whole-window button3 exec "sleep 0.5 && xdotool key 248"
 bindsym --whole-window button3 exec "i3-msg 'mode dc'; sleep 0.2; xdotool key Menu; i3-msg 'mode default'"
 bindsym --whole-window button2 exec kill
+#+end_src
+** Presentation
+*** Description
+tmode to be used with a presentation pointer alongside with Projecteur software:
+https://github.com/jahnf/Projecteur
+*** Mode
+#+begin_src conf :tangle no
+mode "presentation" {
+    # test
+    # !!! TO BE IMPLEMENTED !!!
+    # projecteur -c spot=toggle
+    #-----------------------------
+    # projecteur -c zoom=true
+    # projecteur -c zoom=false
+    #-----------------------------
+    # projecteur -c zoom.factor=1.5
+    # projecteur -c border.size=0
+    # projecteur -c zoom.factor=20
+    # projecteur -c border.size=100
+    #-----------------------------
+    # projecteur -c spot.size=5
+    # projecteur -c spot.size=100
+    #-----------------------------
+    # projecteur -c border.color=red
+    # projecteur -c border.color=green
+    #-----------------------------
+    # back to normal mode ($mod+P) and stop Projecteur
+    bindsym mod1+p mode "default"; exec killall projecteur
+    #-----------------------------
+    # inherent default keybinds (i3bang)
+    !@default_keybindings
+}
+#+end_src
+*** Keybinding
+Start "presentation" mode and run Projecteur
+#+begin_src conf :tangle no
+bindsym mod1+P mode "presentation"; exec projecteur -D 25a7:1047
 #+end_src
 * i3bar
 Start i3bar to display a workspace bar (plus the system information i3status finds out, if available)
