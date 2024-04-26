@@ -52,6 +52,7 @@
 - [[#logitech-mx][Logitech MX]]
   - [[#change-host][Change host]]
   - [[#mx-master-3][MX Master 3]]
+  - [[#mx-keys][MX Keys]]
 - [[#mouse-keybinds][Mouse keybinds]]
   - [[#volume-control-1][Volume control]]
   - [[#mouse-keys][Mouse keys]]
@@ -68,18 +69,21 @@
   - [[#number][Number]]
 - [[#i3bar][i3bar]]
 - [[#applications-default-ws][Applications default WS]]
-  - [[#wayland--x11][Wayland / X11]]
+  - [[#window-property][Window property]]
   - [[#applications-1][Applications]]
 - [[#window-specific][Window-specific]]
   - [[#tkinter][Tkinter]]
 - [[#scratchpads][Scratchpads]]
   - [[#python][Python]]
   - [[#terminal-1][Terminal]]
-- [[#applets][Applets]]
+- [[#panel][Panel]]
+  - [[#i3][i3]]
+  - [[#sway-1][Sway]]
+  - [[#applets][Applets]]
 - [[#startup-commands][Startup commands]]
   - [[#background-images][Background images]]
   - [[#touchpad][Touchpad]]
-  - [[#compositor][Compositor]]
+  - [[#transparency][Transparency]]
   - [[#daemons][Daemons]]
 * General config
 ** Modifiers
@@ -95,6 +99,7 @@
 #+begin_src conf
 set $alt Mod1
 set $mod Mod4
+set $super_R Mod3
 #+end_src
 ** General
 Set window border.
@@ -162,6 +167,7 @@ input type:keyboard xkb_numlock enabled
 #+end_src
 *** Keyboard
 **** Model, layout and variant
+#+begin_src conf :tangle no
 Load model, layout and variant for all keyboards.
 input type:keyboard {
     xkb_model "pc105"
@@ -594,8 +600,8 @@ bindsym mod1+$mod+q kill $SCRIPT_PATH/sway-kill.sh
 * Focus
 ** Windows
 #+begin_src conf
-bindsym $mod+space focus mode_toggle              # change focus between tiling / floating windows
-bindsym $mod+a focus parent                       # focus the parent container
+#bindsym $mod+space focus mode_toggle              # change focus between tiling / floating windows
+#bindsym $mod+a focus parent                       # focus the parent container
 #bindsym $mod+d focus child                       # focus the child container
 bindsym $mod+z [urgent=latest] focus              # switch to latest urgent window
 #+end_src
@@ -803,7 +809,10 @@ bindsym XF86Copy [class="Xfce4-terminal"] exec "xdotool keydown ctrl keydown shi
 #+begin_src conf :tangle no
 bindsym XF86Paste [class="Xfce4-terminal"] exec "xdotool keydown ctrl keydown shift keydown v keyup ctrl keyup shift keyup v"; exec "sleep 0.1"
 #+end_src
+** MX Keys
+Workaround to open terminal.
 #+begin_src conf :tangle no
+bindsym ctrl+space exec i3-sensible-terminal
 #+end_src
 * Mouse keybinds
 ** Volume control
@@ -1131,6 +1140,10 @@ exec "syncthing &"                      # Syncthing
 ** Background images
 #+begin_src conf
 exec_always feh --bg-scale ~/.config/feh/london.jpg
+#output $primary   background ~/.config/feh/london.jpg fill
+#output $secondary background ~/.config/feh/london.jpg fill
+#output $tertiary  background ~/.config/feh/nasa.png fill
+#output $laptop background ~/.config/feh/london.jpg fill
 #+end_src
 ** Touchpad
 Enable touchpad horizontal scroll
@@ -1149,8 +1162,9 @@ exec /usr/share/sway-contrib/inactive-windows-transparency.py --opacity 0.85
 #+end_src
 ** Daemons
 #+begin_src conf
-exec nohup autokey-gtk                           # launch AutoKey
-exec nohup /usr/bin/dunst                        # dunst: notification daemon
+#exec nohup autokey-gtk                           # launch AutoKey
+#exec nohup /usr/bin/dunst                        # dunst: notification daemon
+exec /usr/bin/dunst &                            # dunst: notification daemon
 exec --no-startup-id autotiling                  # autotiling
 exec /usr/bin/emacs --daemon &                   # Emacs daemon
 #+end_src
