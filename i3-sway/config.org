@@ -1167,4 +1167,6 @@ exec /usr/share/sway-contrib/inactive-windows-transparency.py --opacity 0.85
 exec /usr/bin/dunst &                            # dunst: notification daemon
 exec --no-startup-id autotiling                  # autotiling
 exec /usr/bin/emacs --daemon &                   # Emacs daemon
+exec --no-startup-id "$SCRIPT_PATH/xremap-keeb-config.sh"
+#+end_src
 #+end_src
