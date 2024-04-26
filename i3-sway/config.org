@@ -1120,8 +1120,9 @@ Enable touchpad horizontal scroll
 #+begin_src conf
 exec xinput --set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Two-Finger Scrolling" 1 1
 #+end_src
-** Compositor
-*** X.Org
+** Transparency
+Set inactive window transparency.
+*** i3
 #+begin_src conf
 exec_always --no-startup-id picom -b --config ~/.config/picom/picom.conf
 #+end_src
