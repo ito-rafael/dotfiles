@@ -67,6 +67,7 @@
   - [[#system][System]]
   - [[#resize][Resize]]
   - [[#number][Number]]
+  - [[#double-click-dc][Double-click (dc)]]
 - [[#i3bar][i3bar]]
 - [[#applications-default-ws][Applications default WS]]
   - [[#window-property][Window property]]
@@ -1039,6 +1040,38 @@ mode "number" {
 Enter "number" mode and load Xmodmap file with number modifications
 #+begin_src conf
 bindsym $mod+Next mode "number"; exec "xmodmap ~/.Xmodmap_numbers"
+#+end_src
+** Double-click (dc)
+*** Description
+Double-click (dc) mode makes (x2)button3 click close the current window.
+*** Tests
+#+begin_src conf :tangle no
+# !!! TO BE IMPLEMENTED !!!
+bindsym --whole-window button2 exec "xdotool key control+w"
+bindsym --whole-window button2 exec "xdotool getwindowfocus windowkill"
+bindsym --whole-window button2 exec 'xte "key XF86Close"'
+#+end_src
+*** Mode
+#+begin_src conf :tangle no
+# !!! TO BE IMPLEMENTED !!!
+mode "dc" {
+    # close window
+    #bindsym --whole-window button3 exec kill
+    bindsym --whole-window button3 exec "thunar"
+    bindsym button1 mode "default"
+    #-----------------------------
+    # inherent default keybinds (i3bang)
+    !@default_keybindings
+}
+#+end_src
+*** Keybinding
+#+begin_src conf :tangle no
+# !!! TO BE IMPLEMENTED !!!
+bindsym --whole-window button3 exec "i3-msg 'mode dc'; sleep 0.5; i3-msg 'mode default'"
+bindsym --whole-window button3 exec "xdotool key 248 && i3-msg 'mode dc'; sleep 5; i3-msg 'mode default'"
+bindsym --whole-window button3 exec "sleep 0.5 && xdotool key 248"
+bindsym --whole-window button3 exec "i3-msg 'mode dc'; sleep 0.2; xdotool key Menu; i3-msg 'mode default'"
+bindsym --whole-window button2 exec kill
 #+end_src
 * i3bar
 Start i3bar to display a workspace bar (plus the system information i3status finds out, if available)
