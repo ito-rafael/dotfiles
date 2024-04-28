@@ -511,30 +511,10 @@ Mute/unmute mic.
 bindsym XF86AudioMicMute exec --no-startup-id amixer -q sset Capture toggle
 bindsym shift+$mod+F14 exec --no-startup-id amixer -q sset Capture toggle
 #+end_src
+#+end_src
+#+end_src
 * Window settings
 ** Change focus
-*** hjkl
-#+begin_src conf :tangle no
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
-#+end_src
-*** jkl;
-#+begin_src conf :tangle no
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
-#+end_src
-*** neio
-#+begin_src conf
-bindsym $mod+n focus left
-bindsym $mod+e focus down
-bindsym $mod+i focus up
-bindsym $mod+o focus right
-#+end_src
-*** Arrows
 #+begin_src conf
 bindsym $mod+Left  focus left
 bindsym $mod+Down  focus down
