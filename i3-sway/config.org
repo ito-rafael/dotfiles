@@ -528,6 +528,26 @@ bindsym $mod+Shift+Down  move down
 bindsym $mod+Shift+Up    move up
 bindsym $mod+Shift+Right move right
 #+end_src
+** Other focus
+Change focus between tiling / floating windows
+#+begin_src conf :tangle no
+bindsym $mod+space focus mode_toggle
+#+end_src
+
+Focus the parent container
+#+begin_src conf :tangle no
+bindsym $mod+a focus parent
+#+end_src
+
+Focus the child container
+#+begin_src conf :tangle no
+bindsym $mod+d focus child
+#+end_src
+
+Switch to latest urgent window
+#+begin_src conf :tangle no
+bindsym $mod+z [urgent=latest] focus
+#+end_src
 ** General
 *** Split
 Split window in horizontal/vertical orientation
@@ -538,9 +558,6 @@ bindsym mod1+v split v
 *** Container layout
 Change container layout (stacked, tabbed, toggle split).
 #+begin_src conf
-#bindsym mod1+$mod+s layout stacked
-#bindsym mod1+$mod+w layout tabbed
-#bindsym mod1+$mod+e layout toggle split
 bindsym mod1+$mod+e layout toggle stacked tabbed
 #+end_src
 *** Fullscreen
@@ -557,25 +574,6 @@ bindsym mod1+$mod+d floating toggle
 Kill focused window, unless it's a scratchpad. Check the [[https://github.com/ito-rafael/dotfiles/blob/master/scripts/sway-kill.sh][sway-kill.sh]] script for more details.
 #+begin_src conf
 bindsym mod1+$mod+q kill $SCRIPT_PATH/sway-kill.sh
-#+end_src
-* Focus
-** Windows
-#+begin_src conf
-#bindsym $mod+space focus mode_toggle              # change focus between tiling / floating windows
-#bindsym $mod+a focus parent                       # focus the parent container
-#bindsym $mod+d focus child                       # focus the child container
-bindsym $mod+z [urgent=latest] focus              # switch to latest urgent window
-#+end_src
-** Monitor
-*** Arrows
-#+begin_src conf
-bindsym mod1+Left  focus output left
-bindsym mod1+Right focus output right
-#+end_src
-*** hjkl
-#+begin_src conf
-#bindsym ctrl+$mod+h focus output left
-#bindsym ctrl+$mod+l focus output right
 #+end_src
 * Workspaces navigation
 #+begin_src conf
