@@ -1118,28 +1118,6 @@ Start "studio" mode.
 #+begin_src conf :tangle no
 bindsym $mod+O mode "studio"; exec video-script
 #+end_src
-* i3bar
-Start i3bar to display a workspace bar (plus the system information i3status finds out, if available)
-#+begin_src conf :tangle no
-bar {
-    # set i3bar position
-    position top
-    #-----------------------------
-    # display only ws names
-    strip_workspace_numbers yes
-    #-----------------------------
-    #status_command i3status
-    status_command i3blocks -c /home/rafael/.config/i3/i3blocks.conf
-    #-----------------------------
-    # set font
-    #font pango:DejaVu Sans Mono 4
-    font pango:monospace 8
-    #-----------------------------
-    # system tray area
-    tray_output eDP-1   # Y2P
-    #tray_output VGA1   # LBiC_L
-    #tray_output HDMI3  # LBiC_R
-}
 #+end_src
 * Applications default WS
 ** Window property
@@ -1203,9 +1181,35 @@ for_window [$prop="^dropdown_terminal$"] border pixel 5
 #+end_src
 * Panel
 ** i3
-i3blocks already configured (or better yet, use polybar).
-** Sway
-#+begin_src conf
+*** Polybar
+#+begin_src conf :noweb-ref i3-polybar
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+#+end_src
+*** i3bar
+Start i3bar to display a workspace bar (plus the system information i3status finds out, if available)
+#+begin_src conf :noweb-ref i3-i3bar
+bar {
+    # set i3bar position
+    position top
+    #-----------------------------
+    # display only ws names
+    strip_workspace_numbers yes
+    #-----------------------------
+    #status_command i3status
+    status_command i3blocks -c /home/rafael/.config/i3/i3blocks.conf
+    #-----------------------------
+    # set font
+    #font pango:DejaVu Sans Mono 4
+    font pango:monospace 8
+    #-----------------------------
+    # system tray area
+    tray_output eDP-1   # Y2P
+    #tray_output VGA1   # LBiC_L
+    #tray_output HDMI3  # LBiC_R
+}
+#+end_src
+** Sway (Waybar)
+#+begin_src conf :noweb-ref sway-waybar
 exec_always --no-startup-id ~/.config/waybar/waybar.sh
 #+end_src
 ** Applets
