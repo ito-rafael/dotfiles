@@ -572,6 +572,39 @@ Kill focused window, unless it's a scratchpad. Check the [[https://github.com/it
 #+begin_src conf
 bindsym mod1+$mod+q kill $SCRIPT_PATH/sway-kill.sh
 #+end_src
+* Restart i3/sway
+** i3
+*** Reload
+#+begin_src conf :noweb-ref i3-restart
+#bindsym $mod+Shift+c reload
+bindsym mod1+$mod+c exec ~/.config/i3/i3bang.rb; reload
+#+end_src
+*** Restart
+Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+#+begin_src conf :noweb-ref i3-restart
+bindsym mod1+$mod+s exec ~/.config/i3/i3bang.rb; restart
+#+end_src
+*** Exit
+Exit i3 (logs you out of your X session)
+#+begin_src conf :noweb-ref i3-restart
+bindsym mod1+$mod+x exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+#+end_src
+** Sway
+*** Reload
+#+begin_src conf :noweb-ref sway-restart
+#bindsym $mod+Shift+c reload
+bindsym mod1+$mod+c exec ~/.config/sway/i3bang.rb; reload
+#+end_src
+*** Restart
+Restart Sway inplace (preserves your layout/session, can be used to upgrade Sway)
+#+begin_src conf :noweb-ref sway-restart
+bindsym mod1+$mod+s exec ~/.config/sway/i3bang.rb; restart
+#+end_src
+*** Exit
+Exit Sway (logs you out of your session)
+#+begin_src conf :noweb-ref sway-restart
+bindsym mod1+$mod+x exec "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit Sway? This will end your session.' -B 'Yes, exit Sway' 'swaymsg exit'"
+#+end_src
 * Workspaces navigation
 #+begin_src conf
 set $SCRIPT_PATH $HOME/.config/scripts
@@ -685,24 +718,10 @@ bindsym ctrl+mod1+1 move workspace to output $primary;   focus output $primary
 bindsym ctrl+mod1+2 move workspace to output $secondary; focus output $secondary
 bindsym ctrl+mod1+3 move workspace to output $tertiary;  focus output $tertiary
 #+end_src
-* Restart i3/sway
-** Reload
-#+begin_src conf
-#bindsym $mod+Shift+c reload
-#bindsym mod1+$mod+c exec ~/.config/i3/i3bang.rb; reload
-bindsym mod1+$mod+c exec ~/.config/sway/i3bang.rb; reload
 #+end_src
-** Restart
-Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-#+begin_src conf
-#bindsym mod1+$mod+s exec ~/.config/i3/i3bang.rb; restart
-bindsym mod1+$mod+s exec ~/.config/sway/i3bang.rb; restart
-#+end_src
-** Exit
-Exit i3 (logs you out of your X session)
-#+begin_src conf
-#bindsym mod1+$mod+x exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-bindsym mod1+$mod+x exec "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit Sway? This will end your X session.' -B 'Yes, exit Sway' 'swaymsg exit'"
+*** Sway
+#+begin_src conf :noweb yes :tangle _config_sway
+<<ws-navigation>>
 #+end_src
 * Custom keybinds
 ** Applications
