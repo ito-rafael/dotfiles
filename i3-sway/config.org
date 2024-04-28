@@ -522,28 +522,6 @@ bindsym $mod+Up    focus up
 bindsym $mod+Right focus right
 #+end_src
 ** Move window
-*** hjkl
-#+begin_src conf :tangle no
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
-#+end_src
-*** jkl;
-#+begin_src conf :tangle no
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
-#+end_src
-*** neio
-#+begin_src conf
-bindsym $mod+Shift+n move left
-bindsym $mod+Shift+e move down
-bindsym $mod+Shift+i move up
-bindsym $mod+Shift+o move right
-#+end_src
-*** Arrows
 #+begin_src conf
 bindsym $mod+Shift+Left  move left
 bindsym $mod+Shift+Down  move down
