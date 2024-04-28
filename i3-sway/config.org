@@ -1406,4 +1406,15 @@ exec --no-startup-id autotiling                  # autotiling
 exec /usr/bin/emacs --daemon &                   # Emacs daemon
 exec --no-startup-id "$SCRIPT_PATH/xremap-keeb-config.sh"
 #+end_src
+** Tangle :noexport:
+*** i3
+#+begin_src conf :noweb yes :tangle _config_i3
+<<i3-transparency>>
+<<startup-commands>>
+#+end_src
+*** Sway
+#+begin_src conf :noweb yes :tangle _config_sway
+<<sway-transparency>>
+<<startup-commands>>
+#+end_src
 #+end_src
