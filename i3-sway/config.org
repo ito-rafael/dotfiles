@@ -4,6 +4,7 @@
 #+DESCRIPTION: config file for i3/Sway window manager
 #+STARTUP: showeverything
 #+auto_tangle: t
+
 * Table of contents :toc:
 - [[#general-config][General config]]
   - [[#modifiers][Modifiers]]
