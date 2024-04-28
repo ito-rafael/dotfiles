@@ -57,9 +57,6 @@
 - [[#mouse-keybinds][Mouse keybinds]]
   - [[#volume-control-1][Volume control]]
   - [[#mouse-keys][Mouse keys]]
-- [[#keyboard-keybinds][Keyboard keybinds]]
-  - [[#ctrl--space--return][Ctrl + Space = Return]]
-  - [[#mod5-hold-tab][Mod5 (hold Tab)]]
 - [[#rotate-screen][Rotate screen]]
   - [[#portrait][Portrait]]
   - [[#landscape][Landscape]]
@@ -825,18 +822,7 @@ bindsym kp_3 seat - cursor press button5
 bindsym kp_7 seat - cursor press button6
 bindsym kp_9 seat - cursor press button7
 #+end_src
-* Keyboard keybinds
-** Ctrl + Space = Return
-#+begin_src conf :tangle no
-bindsym --release ctrl+space exec xdotool key Return
 #+end_src
-** Mod5 (hold Tab)
-Navigation with vim keys
-#+begin_src conf :tangle no
-bindsym --release Mod5+h exec xdotool key Left
-bindsym --release Mod5+j exec xdotool key Down
-bindsym --release Mod5+k exec xdotool key Up
-bindsym --release Mod5+l exec xdotool key Right
 #+end_src
 * Rotate screen
 ** Portrait
