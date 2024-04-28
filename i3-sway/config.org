@@ -1,6 +1,6 @@
 #+TITLE: Config file for i3/Sway window manager
 #+AUTHOR: Rafael Ito
-#+PROPERTY: header-args :tangle config_from_org
+#+PROPERTY: header-args
 #+DESCRIPTION: config file for i3/Sway window manager
 #+STARTUP: showeverything
 #+auto_tangle: t
@@ -30,31 +30,28 @@
 - [[#window-settings][Window settings]]
   - [[#change-focus][Change focus]]
   - [[#move-window][Move window]]
+  - [[#other-focus][Other focus]]
   - [[#general-1][General]]
-- [[#focus][Focus]]
-  - [[#windows][Windows]]
-  - [[#monitor][Monitor]]
+- [[#restart-i3sway][Restart i3/sway]]
+  - [[#i3][i3]]
+  - [[#sway-1][Sway]]
 - [[#workspaces-navigation][Workspaces navigation]]
   - [[#switch-to-workspace][Switch to workspace]]
   - [[#move-container-to-ws][Move container to WS]]
   - [[#navigate-on-same-monitor][Navigate on same monitor]]
   - [[#navigate-among-monitors][Navigate among monitors]]
   - [[#move-container-among-monitors][Move container among monitors]]
-- [[#restart-i3sway][Restart i3/sway]]
-  - [[#reload][Reload]]
-  - [[#restart][Restart]]
-  - [[#exit][Exit]]
-- [[#custom-keybinds][Custom keybinds]]
+- [[#custom-keybindings][Custom keybindings]]
   - [[#applications][Applications]]
   - [[#terminal][Terminal]]
   - [[#brightness][Brightness]]
-  - [[#screenshot][Screenshot]]
   - [[#rofi][Rofi]]
+  - [[#screenshot][Screenshot]]
 - [[#logitech-mx][Logitech MX]]
   - [[#change-host][Change host]]
   - [[#mx-master-3][MX Master 3]]
   - [[#mx-keys][MX Keys]]
-- [[#mouse-keybinds][Mouse keybinds]]
+- [[#mouse-keybindings][Mouse keybindings]]
   - [[#volume-control-1][Volume control]]
   - [[#mouse-keys][Mouse keys]]
 - [[#rotate-screen][Rotate screen]]
@@ -68,23 +65,21 @@
   - [[#double-click-dc][Double-click (dc)]]
   - [[#presentation][Presentation]]
   - [[#studio][Studio]]
-- [[#i3bar][i3bar]]
 - [[#applications-default-ws][Applications default WS]]
   - [[#window-property][Window property]]
   - [[#applications-1][Applications]]
-- [[#window-specific][Window-specific]]
-  - [[#tkinter][Tkinter]]
+  - [[#window-specific][Window-specific]]
 - [[#scratchpads][Scratchpads]]
   - [[#python][Python]]
   - [[#terminal-1][Terminal]]
 - [[#panel][Panel]]
-  - [[#i3][i3]]
-  - [[#sway-1][Sway]]
+  - [[#i3-1][i3]]
+  - [[#sway-waybar][Sway (Waybar)]]
   - [[#applets][Applets]]
 - [[#startup-commands][Startup commands]]
+  - [[#transparency][Transparency]]
   - [[#background-images][Background images]]
   - [[#touchpad][Touchpad]]
-  - [[#transparency][Transparency]]
   - [[#daemons][Daemons]]
 * General config
 ** Modifiers
@@ -97,47 +92,47 @@
 | Mod2     | Num_Lock                       |
 | Mod3     | Super_R                        |
 | Mod4     | Super_L                        |
-#+begin_src conf
+#+begin_src conf :noweb-ref general
 set $alt Mod1
 set $mod Mod4
 set $super_R Mod3
 #+end_src
 ** General
 Set window border.
-#+begin_src conf
+#+begin_src conf :noweb-ref general
 #for_window [class=".*"] border pixel 3
 default_border pixel 5
 #+end_src
 
 Use Mouse+$mod to drag floating windows.
-#+begin_src conf
+#+begin_src conf :noweb-ref general
 floating_modifier $mod
 #+end_src
 
 Enable previous workspace switching.
-#+begin_src conf
+#+begin_src conf :noweb-ref general
 workspace_auto_back_and_forth yes
 #+end_src
 
 Gaps size
-#+begin_src conf
+#+begin_src conf :noweb-ref general
 gaps inner 10
 #+end_src
 ** Font & color
 Set font for window titles.
-#+begin_src conf
+#+begin_src conf :noweb-ref general
 font pango:monospace 10
 #+end_src
 
 Set ws background, text and htext colors.
-#+begin_src conf
+#+begin_src conf :noweb-ref general
 set $bg-color    #2f343f
 set $text-color  #f3f4f5
 set $htext_color #9575cd
 #+end_src
 
 Change colors.
-#+begin_src conf
+#+begin_src conf :noweb-ref general
 # class                 border  backgr. text    indicator child_border
 #client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
 client.focused          #8cB8D9 #285577 #ffffff #2e9ef4   #285577
@@ -147,28 +142,37 @@ client.urgent           #2f343a #900000 #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 client.background       #ffffff
 #+end_src
+** Tangle :noexport:
+*** i3
+#+begin_src conf :noweb yes :tangle _config_i3
+<<general>>
+#+end_src
+*** Sway
+#+begin_src conf :noweb yes :tangle _config_sway
+<<general>>
+#+end_src
 * Sway
 ** xdg-desktop-portal-wlr
-#+begin_src conf
+#+begin_src conf :noweb-ref sway-input
 include /etc/sway/config.d/*
 #+end_src
 ** Inputs
 *** Trackpad
 documentation:
 https://wayland.freedesktop.org/libinput/doc/latest/index.html
-#+begin_src conf
+#+begin_src conf :noweb-ref sway-input
 input type:touchpad {
     tap enabled                                   # tap-to-click
     natural_scroll enabled                        # natural scrolling
 }
 #+end_src
 *** Enable NumLock
-#+begin_src conf :tangle no
+#+begin_src conf :noweb-ref sway-input
 input type:keyboard xkb_numlock enabled
 #+end_src
 *** Keyboard
 **** Model, layout and variant
-#+begin_src conf :tangle no
+#+begin_src conf :noweb-ref sway-input
 Load model, layout and variant for all keyboards.
 input type:keyboard {
     xkb_model "pc105"
@@ -178,13 +182,18 @@ input type:keyboard {
 #+end_src
 **** Options
 Load generic modifications for all inputs.
-#+begin_src conf
+#+begin_src conf :noweb-ref sway-input
 input * {
     xkb_options "\
         modifiers:modifiers, \
         fn-keys:fnkeys, \
     "
 }
+#+end_src
+** Tangle :noexport:
+*** Sway
+#+begin_src conf :noweb yes :tangle _config_sway
+<<sway-input>>
 #+end_src
 * Outputs
 ** Default Scenario
@@ -205,26 +214,26 @@ This setup is used for the main workstation.
 #+end_src
 **** i3
 For X11, it's possible to get the output names directly from xrandr.
-#+begin_src conf :tangle no
+#+begin_src conf :noweb-ref i3-output-default
 set $primary   $(xrandr | grep ' connected' | awk '{print $1}' | head -n1 | tail -n1)
 set $secondary $(xrandr | grep ' connected' | awk '{print $1}' | head -n2 | tail -n1)
 set $tertiary  $(xrandr | grep ' connected' | awk '{print $1}' | head -n3 | tail -n1)
 #+end_src
 **** Sway
-#+begin_src conf
+#+begin_src conf :noweb-ref sway-output-default
 set $primary   HDMI1
 set $secondary HDMI3
 set $tertiary  VGA1
 #+end_src
 *** Set resolution
 **** i3
-#+begin_src conf :tangle no
+#+begin_src conf :noweb-ref i3-output-default
 exec xrandr --output $primary   --mode 1920x1080 --rate 60.00 --brightness 1 --pos 0x0 --primary
 exec xrandr --output $secondary --mode 1920x1080 --rate 60.00 --brightness 1 --pos -1920x0
 exec xrandr --output $tertiary  --mode 1920x1080 --rate 60.00 --brightness 1 --pos 1920x0 --rotate right
 #+end_src
 **** Sway
-#+begin_src conf :tangle no
+#+begin_src conf :noweb-ref sway-output-default
 output $primary   mode 1920x1080@60hz position     0,0 scale 1
 output $secondary mode 1920x1080@60hz position -1920,0 scale 1
 output $tertiary  mode 1920x1080@60hz position  1920,0 scale 1 transform 90
@@ -258,14 +267,14 @@ output $tertiary  mode 1920x1080@60hz position  1920,0 scale 1 transform 90
 #   2: projector  native HDMI --> EPSON projector
 #   3: educart    USB-C HDMI --> Dell monitor
 #
-#+begin_src conf :tangle no
 #+end_src
+#+begin_src conf :noweb-ref sway-output-msc
 set $laptop    eDP-1
 set $projector HDMI-A-1
 set $educart   DP-1
 #+end_src
 *** Set resolution
-#+begin_src conf :tangle no
+#+begin_src conf :noweb-ref sway-output-msc
 output $laptop    mode 1920x1080@60hz position 0,0
 output $projector mode 1920x1200@60hz position 0,1080 scale 1
 output $educart   mode 1920x1080@60hz position 0,-1080 scale 1
@@ -286,8 +295,8 @@ output $educart   mode 1920x1080@60hz position 0,-1080 scale 1
 #   2: Samsung UR55
 #   3: VB laptop
 #
-#+begin_src conf :tangle no
 #+end_src
+#+begin_src conf :noweb-ref sway-output-hvb1
 set $primary   HDMI-A-1
 set $secondary DP-1
 set $laptop    eDP-1
@@ -298,7 +307,7 @@ Since scale of output #0 is 1.4, the position offset is:
   - laptop [H]: 3840/1.4 - 1920 = 411
   - laptop [V]: 2160/1.4 = 1542
 
-#+begin_src conf :tangle no
+#+begin_src conf :noweb-ref sway-output-hvb1
 output $primary   mode 3840x2160@60hz position      0,0 scale 1.4
 output $secondary mode 3840x2160@60hz position  -2742,0 scale 1.4
 output $laptop    mode 1920x1080@60hz position 411,1542 scale 1
@@ -318,8 +327,8 @@ output $laptop    mode 1920x1080@60hz position 411,1542 scale 1
 #   2: Samsung UR55
 #   3: VB laptop
 #
-#+begin_src conf :tangle no
 #+end_src
+#+begin_src conf :noweb-ref sway-output-hvb2
 set $primary   HDMI-A-1
 set $secondary DP-1
 set $laptop    eDP-1
@@ -330,7 +339,7 @@ Since scale of output #0 is 1.4, the position offset is:
   - laptop [H]: 3840/1.4 - 1920 = 411
   - laptop [V]: 2160/1.4 = 1542
 
-#+begin_src conf :tangle no
+#+begin_src conf :noweb-ref sway-output-hvb2
 output $primary   mode 3840x2160@60hz position     0,0 scale 1.4
 output $secondary mode 3840x2160@60hz position  2742,0 scale 1.4
 output $laptop    mode 1920x1080@60hz position -1920,0 scale 1
@@ -338,18 +347,31 @@ output $laptop    mode 1920x1080@60hz position -1920,0 scale 1
 ** Duplicated cursor
 https://github.com/swaywm/sway/issues/1666
 For HDMI 4K@60Hz:
-#+begin_src conf :tangle no
+#+begin_src conf :noweb-ref sway-output-mirror
 output HDMI-A-1 mode 3840x2160@60hz position 0,0
 #+end_src
 
 For USB-C 4K@60Hz:
-#+begin_src conf :tangle no
+#+begin_src conf :noweb-ref sway-output-mirror
 output DP-1 mode 3840x2160@60hz position 0,0
+#+end_src
+** Tangle :noexport:
+*** i3
+#+begin_src conf :noweb yes :tangle _config_i3
+<<i3-output-default>>
+#+end_src
+*** Sway
+#+begin_src conf :noweb yes :tangle _config_sway
+<<sway-output-default>>
+#<<sway-output-msc>>
+#<<sway-output-hvb1>>
+#<<sway-output-hvb2>>
+#<<sway-output-mirror>>
 #+end_src
 * Workspaces definition
 ** Default output
 *** Primary output
-#+begin_src conf
+#+begin_src conf :noweb-ref ws
 workspace "1:1" output $primary
 workspace "2:2" output $primary
 workspace "3:3" output $primary
@@ -362,7 +384,7 @@ workspace "9:9" output $primary
 workspace "10:0" output $primary
 #+end_src
 *** Secondary output
-#+begin_src conf
+#+begin_src conf :noweb-ref ws
 workspace "11:11" output $secondary
 workspace "12:12" output $secondary
 workspace "13:13" output $secondary
@@ -375,7 +397,7 @@ workspace "19:19" output $secondary
 workspace "20:10" output $secondary
 #+end_src
 *** Tertiary output
-#+begin_src conf
+#+begin_src conf :noweb-ref ws
 workspace "21:21" output $tertiary
 workspace "22:22" output $tertiary
 workspace "23:23" output $tertiary
@@ -417,7 +439,7 @@ set $ws10 "20 E"
 #+end_src
 ** WS names
 *** Primary monitor
-#+begin_src conf
+#+begin_src conf :noweb-ref ws
 set $ws1 "1:1"
 set $ws2 "2:2"
 set $ws3 "3:3"
@@ -430,7 +452,7 @@ set $ws9 "9:9"
 set $ws0 "10:0"
 #+end_src
 *** Secondary monitor
-#+begin_src conf
+#+begin_src conf :noweb-ref ws
 set $ws11 "11:11"
 set $ws12 "12:12"
 set $ws13 "13:13"
@@ -443,7 +465,7 @@ set $ws19 "19:19"
 set $ws10 "20:10"
 #+end_src
 *** Tertiary monitor
-#+begin_src conf
+#+begin_src conf :noweb-ref ws
 set $ws21 "21:21"
 set $ws22 "22:22"
 set $ws23 "23:23"
@@ -455,12 +477,30 @@ set $ws28 "28:28"
 set $ws29 "29:29"
 set $ws20 "30:20"
 #+end_src
+** Tangle :noexport:
+*** i3
+#+begin_src conf :noweb yes :tangle _config_i3
+<<ws>>
+#+end_src
+*** Sway
+#+begin_src conf :noweb yes :tangle _config_sway
+<<ws>>
+#+end_src
 * i3bang: raw section (beginning)
 Make keybinds reusable in other modes (like inheritance).
 Check https://github.com/tckmn/i3bang for more details.
-#+begin_src conf
+#+begin_src conf :noweb-ref i3bang-begin
 #!nobracket
 !@<+default_keybindings
+#+end_src
+** Tangle :noexport:
+*** i3
+#+begin_src conf :noweb yes :tangle _config_i3
+<<i3bang-begin>>
+#+end_src
+*** Sway
+#+begin_src conf :noweb yes :tangle _config_sway
+<<i3bang-begin>>
 #+end_src
 * Volume control
 ** i3blocks
@@ -473,61 +513,68 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl list sources | grep 'Source 
 #+end_src
 ** Volume
 Volume up/down coarse.
-#+begin_src conf
+#+begin_src conf :noweb-ref volume
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q sset Master 5%+
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q sset Master 5%-
 #+end_src
 
 Volume up/down fine.
-#+begin_src conf
+#+begin_src conf :noweb-ref volume
 bindsym ctrl+shift+F14 exec --no-startup-id amixer -q sset Master 1%-
 bindsym ctrl+shift+F15 exec --no-startup-id amixer -q sset Master 1%+
 #+end_src
 
 Mute/unmute audio.
-#+begin_src conf
+#+begin_src conf :noweb-ref volume
 bindsym XF86AudioMute exec --no-startup-id amixer -q sset Master toggle
 #+end_src
 
 Set volume to 50%.
-#+begin_src conf
+#+begin_src conf :noweb-ref volume
 bindsym $mod+F15 exec --no-startup-id amixer -q sset Master 50%
 #+end_src
 ** Microphone
 Mic volume up/down coarse.
-#+begin_src conf
+#+begin_src conf :noweb-ref volume
 bindsym ctrl+F14 exec --no-startup-id amixer -q sset Capture 5%-
 bindsym ctrl+F15 exec --no-startup-id amixer -q sset Capture 5%+
 #+end_src
 
 Mic volume up/down fine.
-#+begin_src conf
+#+begin_src conf :noweb-ref volume
 bindsym shift+F14 exec --no-startup-id amixer -q sset Capture 1%-
 bindsym shift+F15 exec --no-startup-id amixer -q sset Capture 1%+
 #+end_src
 
 Set mic volume to 50%.
-#+begin_src conf
+#+begin_src conf :noweb-ref volume
 bindsym $mod+F14 exec --no-startup-id amixer -q sset Capture 50%
 #+end_src
 
 Mute/unmute mic.
-#+begin_src conf
+#+begin_src conf :noweb-ref volume
 bindsym XF86AudioMicMute exec --no-startup-id amixer -q sset Capture toggle
 bindsym shift+$mod+F14 exec --no-startup-id amixer -q sset Capture toggle
 #+end_src
+** Tangle :noexport:
+*** i3
+#+begin_src conf :noweb yes :tangle _config_i3
+<<volume>>
 #+end_src
+*** Sway
+#+begin_src conf :noweb yes :tangle _config_sway
+<<volume>>
 #+end_src
 * Window settings
 ** Change focus
-#+begin_src conf
+#+begin_src conf :noweb-ref window-settings
 bindsym $mod+Left  focus left
 bindsym $mod+Down  focus down
 bindsym $mod+Up    focus up
 bindsym $mod+Right focus right
 #+end_src
 ** Move window
-#+begin_src conf
+#+begin_src conf :noweb-ref window-settings
 bindsym $mod+Shift+Left  move left
 bindsym $mod+Shift+Down  move down
 bindsym $mod+Shift+Up    move up
@@ -556,29 +603,38 @@ bindsym $mod+z [urgent=latest] focus
 ** General
 *** Split
 Split window in horizontal/vertical orientation
-#+begin_src conf
+#+begin_src conf :noweb-ref window-settings
 bindsym mod1+h split h
 bindsym mod1+v split v
 #+end_src
 *** Container layout
 Change container layout (stacked, tabbed, toggle split).
-#+begin_src conf
+#+begin_src conf :noweb-ref window-settings
 bindsym mod1+$mod+e layout toggle stacked tabbed
 #+end_src
 *** Fullscreen
 Enter fullscreen mode for the focused container.
-#+begin_src conf
+#+begin_src conf :noweb-ref window-settings
 bindsym mod1+$mod+f fullscreen toggle
 #+end_src
 *** Tiling/Floating
 Toggle between tiling/floating window.
-#+begin_src conf
+#+begin_src conf :noweb-ref window-settings
 bindsym mod1+$mod+d floating toggle
 #+end_src
 *** Kill window
 Kill focused window, unless it's a scratchpad. Check the [[https://github.com/ito-rafael/dotfiles/blob/master/scripts/sway-kill.sh][sway-kill.sh]] script for more details.
-#+begin_src conf
+#+begin_src conf :noweb-ref window-settings
 bindsym mod1+$mod+q kill $SCRIPT_PATH/sway-kill.sh
+#+end_src
+** Tangle :noexport:
+*** i3
+#+begin_src conf :noweb yes :tangle _config_i3
+<<window-settings>>
+#+end_src
+*** Sway
+#+begin_src conf :noweb yes :tangle _config_sway
+<<window-settings>>
 #+end_src
 * Restart i3/sway
 ** i3
@@ -613,8 +669,17 @@ Exit Sway (logs you out of your session)
 #+begin_src conf :noweb-ref sway-restart
 bindsym mod1+$mod+x exec "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit Sway? This will end your session.' -B 'Yes, exit Sway' 'swaymsg exit'"
 #+end_src
+** Tangle :noexport:
+*** i3
+#+begin_src conf :noweb yes :tangle _config_i3
+<<i3-restart>>
+#+end_src
+*** Sway
+#+begin_src conf :noweb yes :tangle _config_sway
+<<sway-restart>>
+#+end_src
 * Workspaces navigation
-#+begin_src conf
+#+begin_src conf :noweb-ref ws-navigation
 set $SCRIPT_PATH $HOME/.config/scripts
 #+end_src
 ** Switch to workspace
@@ -626,7 +691,7 @@ Navigate to workspace and check if there is any window opened there:
     - restore its layout
     - open windows
 *** Primary monitor
-#+begin_src conf
+#+begin_src conf :noweb-ref ws-navigation
 bindsym $mod+1 exec "$SCRIPT_PATH/navigate2ws.sh 1"
 bindsym $mod+2 exec "$SCRIPT_PATH/navigate2ws.sh 2"
 bindsym $mod+3 exec "$SCRIPT_PATH/navigate2ws.sh 3"
@@ -639,7 +704,7 @@ bindsym $mod+9 exec "$SCRIPT_PATH/navigate2ws.sh 9"
 bindsym $mod+0 exec "$SCRIPT_PATH/navigate2ws.sh 0"
 #+end_src
 *** Secondary monitor
-#+begin_src conf
+#+begin_src conf :noweb-ref ws-navigation
 bindsym shift+$mod+1 exec "$SCRIPT_PATH/navigate2ws.sh 11"
 bindsym shift+$mod+2 exec "$SCRIPT_PATH/navigate2ws.sh 12"
 bindsym shift+$mod+3 exec "$SCRIPT_PATH/navigate2ws.sh 13"
@@ -652,7 +717,7 @@ bindsym shift+$mod+9 exec "$SCRIPT_PATH/navigate2ws.sh 19"
 bindsym shift+$mod+0 exec "$SCRIPT_PATH/navigate2ws.sh 10"
 #+end_src
 *** Tertiary monitor
-#+begin_src conf
+#+begin_src conf :noweb-ref ws-navigation
 bindsym mod3+1 exec "$SCRIPT_PATH/navigate2ws.sh 21"
 bindsym mod3+2 exec "$SCRIPT_PATH/navigate2ws.sh 22"
 bindsym mod3+3 exec "$SCRIPT_PATH/navigate2ws.sh 23"
@@ -666,7 +731,7 @@ bindsym mod3+0 exec "$SCRIPT_PATH/navigate2ws.sh 20"
 #+end_src
 ** Move container to WS
 *** Primary monitor
-#+begin_src conf
+#+begin_src conf :noweb-ref ws-navigation
 bindsym ctrl+$mod+1 move container to workspace number $ws1; workspace $ws1
 bindsym ctrl+$mod+2 move container to workspace number $ws2; workspace $ws2
 bindsym ctrl+$mod+3 move container to workspace number $ws3; workspace $ws3
@@ -679,7 +744,7 @@ bindsym ctrl+$mod+8 move container to workspace number $ws9; workspace $ws9
 bindsym ctrl+$mod+0 move container to workspace number $ws0; workspace $ws0
 #+end_src
 *** Secondary monitor
-#+begin_src conf
+#+begin_src conf :noweb-ref ws-navigation
 bindsym shift+ctrl+$mod+1 move container to workspace number $ws11; workspace $ws11
 bindsym shift+ctrl+$mod+2 move container to workspace number $ws12; workspace $ws12
 bindsym shift+ctrl+$mod+3 move container to workspace number $ws13; workspace $ws13
@@ -692,7 +757,7 @@ bindsym shift+ctrl+$mod+9 move container to workspace number $ws19; workspace $w
 bindsym shift+ctrl+$mod+0 move container to workspace number $ws10; workspace $ws10
 #+end_src
 *** Tertiary monitor
-#+begin_src conf
+#+begin_src conf :noweb-ref ws-navigation
 bindsym ctrl+mod3+0 move container to workspace number $ws20; workspace $ws20
 bindsym ctrl+mod3+1 move container to workspace number $ws21; workspace $ws21
 bindsym ctrl+mod3+2 move container to workspace number $ws22; workspace $ws22
@@ -705,35 +770,39 @@ bindsym ctrl+mod3+8 move container to workspace number $ws28; workspace $ws28
 bindsym ctrl+mod3+9 move container to workspace number $ws29; workspace $ws29
 #+end_src
 ** Navigate on same monitor
-#+begin_src conf
+#+begin_src conf :noweb-ref ws-navigation
 bindsym shift+mod3+Down workspace next_on_output
 bindsym shift+mod3+Up  workspace prev_on_output
 #+end_src
 ** Navigate among monitors
-#+begin_src conf
+#+begin_src conf :noweb-ref ws-navigation
 bindsym shift+mod3+Left  focus output left
 bindsym shift+mod3+Right focus output right
 #+end_src
 ** Move container among monitors
 *** Arrows
-#+begin_src conf
+#+begin_src conf :noweb-ref ws-navigation
 bindsym $mod+shift+mod3+Left  move container to output left;  focus output left
 bindsym $mod+shift+mod3+Right move container to output right; focus output right
 #+end_src
 *** Numbers
-#+begin_src conf
+#+begin_src conf :noweb-ref ws-navigation
 bindsym ctrl+mod1+1 move workspace to output $primary;   focus output $primary
 bindsym ctrl+mod1+2 move workspace to output $secondary; focus output $secondary
 bindsym ctrl+mod1+3 move workspace to output $tertiary;  focus output $tertiary
 #+end_src
+** Tangle :noexport:
+*** i3
+#+begin_src conf :noweb yes :tangle _config_i3
+<<ws-navigation>>
 #+end_src
 *** Sway
 #+begin_src conf :noweb yes :tangle _config_sway
 <<ws-navigation>>
 #+end_src
-* Custom keybinds
+* Custom keybindings
 ** Applications
-#+begin_src conf
+#+begin_src conf :noweb-ref keybindings
 bindsym $mod+b exec firefox
 #bindsym $mod+c exec chromium
 #bindsym $mod+n exec thunar
@@ -743,7 +812,7 @@ bindsym $mod+g exec kitty ranger
 #bindsym $mod+p exec spotify --force-device-scale-factor=2 # shortcut to open Spotify
 #+end_src
 ** Terminal
-#+begin_src conf
+#+begin_src conf :noweb-ref keybindings
 bindsym $mod+t exec kitty
 bindsym mod1+$mod+t exec kitty
 #bindsym $mod+t exec i3-sensible-terminal
@@ -751,28 +820,43 @@ bindsym mod1+$mod+t exec kitty
 #bindsym ctrl+$mod+t exec i3-sensible-terminal
 #+end_src
 ** Brightness
-#+begin_src conf
-#bindsym XF86MonBrightnessUp   exec --no-startup-id xbacklight -inc 5
-#bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
+*** xbacklight
+#+begin_src conf :tangle no
+bindsym XF86MonBrightnessUp   exec --no-startup-id xbacklight -inc 5
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
+#+end_src
+*** brightnessctl
+#+begin_src conf :noweb-ref keybindings
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
 #+end_src
+** Rofi
+#+begin_src conf :noweb-ref keybindings
+bindsym $mod+Return       exec rofi -show run    -monitor $(swaymsg -t get_outputs | jq '.[] | select(.focused==true).name')
+bindsym $mod+bracketright exec rofi -show window -monitor $(swaymsg -t get_outputs | jq '.[] | select(.focused==true).name')
+bindsym $mod+backslash    exec rofi -show ssh    -monitor $(swaymsg -t get_outputs | jq '.[] | select(.focused==true).name')
+#+end_src
 ** Screenshot
 *** i3
-#+begin_src conf :tangle no
+#+begin_src conf :noweb-ref i3-screenshot
 bindsym Print exec shutter
 #+end_src
 *** Sway
-#+begin_src conf
+#+begin_src conf :noweb-ref sway-screenshot
 bindsym Print exec grim
 bindsym shift+Print exec 'grim -g "$(slurp)"'
 bindsym ctrl+Print exec 'grim -g "$(slurp)" - | swappy -f -'
 #+end_src
-** Rofi
-#+begin_src conf
-bindsym $mod+Return       exec rofi -show run    -monitor $(swaymsg -t get_outputs | jq '.[] | select(.focused==true).name')
-bindsym $mod+bracketright exec rofi -show window -monitor $(swaymsg -t get_outputs | jq '.[] | select(.focused==true).name')
-bindsym $mod+backslash    exec rofi -show ssh    -monitor $(swaymsg -t get_outputs | jq '.[] | select(.focused==true).name')
+** Tangle :noexport:
+*** i3
+#+begin_src conf :noweb yes :tangle _config_i3
+<<keybindings>>
+<<i3-screenshot>>
+#+end_src
+*** Sway
+#+begin_src conf :noweb yes :tangle _config_sway
+<<keybindings>>
+<<sway-screenshot>>
 #+end_src
 * Logitech MX
 ** Change host
@@ -797,7 +881,7 @@ Workaround to open terminal.
 #+begin_src conf :tangle no
 bindsym ctrl+space exec i3-sensible-terminal
 #+end_src
-* Mouse keybinds
+* Mouse keybindings
 ** Volume control
 *** i3
 Use button9 + scroll to control volume.
@@ -807,7 +891,7 @@ bindsym mod3+ --whole-window button4 exec "pactl set-sink-volume @DEFAULT_SINK@ 
 bindsym mod3+ --whole-window button5 exec "pactl set-sink-volume @DEFAULT_SINK@ -5% && pkill -RTMIN+10 i3blocks"
 #+end_src
 
-#+begin_src conf :tangle no
+#+begin_src conf :noweb-ref mouse-keybindings
 bindsym --whole-window Shift+button4 exec --no-startup-id amixer -q sset Master 1%+
 bindsym --whole-window Shift+button5 exec --no-startup-id amixer -q sset Master 1%-
 #+end_src
@@ -819,7 +903,7 @@ bindsym --whole-window Shift+button5 exec --no-startup-id amixer -q sset Master 
 | kp2 | down            |
 | kp8 | up              |
 | kp6 | right           |
-#+begin_src conf
+#+begin_src conf :noweb-ref mouse-keybindings
 bindsym kp_4 seat - cursor move -10  0
 bindsym kp_2 seat - cursor move  0   10
 bindsym kp_8 seat - cursor move  0  -10
@@ -831,7 +915,7 @@ bindsym kp_6 seat - cursor move  10  0
 | kp/ | left click   |
 | kp* | middle click |
 | kb- | right click  |
-#+begin_src conf
+#+begin_src conf :noweb-ref mouse-keybindings
 bindsym kp_divide   seat - cursor press button1
 bindsym kp_multiply seat - cursor press button2
 bindsym kp_subtract seat - cursor press button3
@@ -843,13 +927,20 @@ bindsym kp_subtract seat - cursor press button3
 | kp3 | down           |
 | kp7 | right          |
 | kp9 | left           |
-#+begin_src conf
+#+begin_src conf :noweb-ref mouse-keybindings
 bindsym kp_1 seat - cursor press button4
 bindsym kp_3 seat - cursor press button5
 bindsym kp_7 seat - cursor press button6
 bindsym kp_9 seat - cursor press button7
 #+end_src
+** Tangle :noexport:
+*** i3
+#+begin_src conf :noweb yes :tangle _config_i3
+<<mouse-keybindings>>
 #+end_src
+*** Sway
+#+begin_src conf :noweb yes :tangle _config_sway
+<<mouse-keybindings>>
 #+end_src
 * Rotate screen
 ** Portrait
@@ -857,7 +948,7 @@ bindsym kp_9 seat - cursor press button7
 - rotate touchscreen
 - disable touchpad
 - disable touchpad click
-#+begin_src conf
+#+begin_src conf :noweb-ref rotate-screen
 bindsym mod1+$mod+Up exec "\
     echo 'rotate screen' &&\
     xrandr --output eDP-1 --rotate left &&\
@@ -875,7 +966,7 @@ bindsym mod1+$mod+Up exec "\
 - rotate touchscreen
 - enable touchpad
 - enable touchpad click
-#+begin_src conf
+#+begin_src conf :noweb-ref rotate-screen
 bindsym mod1+$mod+Down exec "\
     echo 'rotate screen' &&\
     xrandr --output eDP-1 --rotate normal && \
@@ -888,33 +979,54 @@ bindsym mod1+$mod+Down exec "\
     synclient RightButtonAreaTop=4080 \
 "
 #+end_src
+** Tangle :noexport:
+*** i3
+#+begin_src conf :noweb yes :tangle _config_i3
+<<rotate-screen>>
+#+end_src
+*** Sway
+#+begin_src conf :noweb yes :tangle _config_sway
+<<rotate-screen>>
+#+end_src
 * i3bang: raw section (end)
 End raw section: !@<+default_keybindings
-#+begin_src conf
+#+begin_src conf :noweb-ref i3bang-end
 >
+#+end_src
+** Tangle :noexport:
+*** i3
+#+begin_src conf :noweb yes :tangle _config_i3
+<<i3bang-end>>
+#+end_src
+*** Sway
+#+begin_src conf :noweb yes :tangle _config_sway
+<<i3bang-end>>
 #+end_src
 * Modes
 ** System
 *** Description
 source:
 https://wiki.archlinux.org/index.php/I3#Shutdown,_reboot,_lock_screen
-*** Locker
+*** Locker & messanger
 Adds 1 second delay to prevent possible race conditions with suspend.
 **** i3
-#+begin_src conf :tangle no
+#+begin_src conf :noweb-ref i3-mode-system
 set $locker i3lock --color 000000 && sleep 1
+set $messanger i3-msg exit
 #+end_src
 **** Sway
-#+begin_src conf
+#+begin_src conf :noweb-ref sway-mode-system
 set $locker swaylock --color 000000 && sleep 1
+set $messanger swaymsg exit
 #+end_src
 *** Mode
-#+begin_src conf
+Obs: the -i argument for systemctl poweroff causes a shutdown even if other users are logged-in (this requires polkit), or when logind (wrongly) assumes so.
+#+begin_src conf :noweb-ref mode-system
 set $mode_system System: (s)hutdown, (r)eboot, (l)ock, (S)uspend, (h)ibernate, (e)xit/logout
 #-----------------------------
 mode "$mode_system" {
     bindsym l       exec --no-startup-id $locker,                         mode "default"
-    bindsym e       exec --no-startup-id i3-msg exit,                     mode "default"
+    bindsym e       exec --no-startup-id $messenger,                      mode "default"
     bindsym Shift+s exec --no-startup-id $locker && systemctl suspend,    mode "default"
     bindsym h       exec --no-startup-id $locker && systemctl hibernate,  mode "default"
     bindsym r       exec --no-startup-id systemctl reboot,                mode "default"
@@ -928,10 +1040,9 @@ mode "$mode_system" {
     # inherent default keybinds (i3bang)
     !@default_keybindings
 }
-# obs: the -i argument for systemctl poweroff causes a shutdown even if other users are logged-in (this requires polkit), or when logind (wrongly) assumes so.
 #+end_src
 *** Keybinding
-#+begin_src conf
+#+begin_src conf :noweb-ref mode-system
 bindsym $mod+Home mode "$mode_system"
 #+end_src
 ** Resize
@@ -943,7 +1054,7 @@ Resize window (you can also use the mouse for that)
   - Pressing up will shrink the window’s height.
   - Pressing down will grow the window’s height.
 *** Mode
-#+begin_src conf
+#+begin_src conf :noweb-ref mode-resize
 mode "resize" {
     #-----------------------------
     # colemak home row
@@ -968,7 +1079,7 @@ mode "resize" {
 }
 #+end_src
 *** Keybinding
-#+begin_src conf
+#+begin_src conf :noweb-ref mode-resize
 bindsym mod1+$mod+r mode "resize"
 #+end_src
 ** Number
@@ -1009,7 +1120,7 @@ mode "number" {
 #+end_src
 *** Keybinding
 Enter "number" mode and load Xmodmap file with number modifications
-#+begin_src conf
+#+begin_src conf :tangle no
 bindsym $mod+Next mode "number"; exec "xmodmap ~/.Xmodmap_numbers"
 #+end_src
 ** Double-click (dc)
@@ -1118,15 +1229,27 @@ Start "studio" mode.
 #+begin_src conf :tangle no
 bindsym $mod+O mode "studio"; exec video-script
 #+end_src
+** Tangle :noexport:
+*** i3
+#+begin_src conf :noweb yes :tangle _config_i3
+<<i3-mode-system>>
+<<mode-system>>
+<<mode-resize>>
+#+end_src
+*** Sway
+#+begin_src conf :noweb yes :tangle _config_sway
+<<sway-mode-system>>
+<<mode-system>>
+<<mode-resize>>
 #+end_src
 * Applications default WS
 ** Window property
 *** i3
-#+begin_src conf
-#set $prop class
+#+begin_src conf :noweb-ref i3-window-property
+set $prop class
 #+end_src
 *** Sway
-#+begin_src conf
+#+begin_src conf :noweb-ref sway-window-property
 set $prop app_id
 #+end_src
 ** Applications
@@ -1142,7 +1265,7 @@ set $prop app_id
 |        10 | Blueman     | Bluetooth manager    |
 |        10 | pavucontrol | Volume control       |
 Obs.: both i3/Sway uses "class" for Spotify client.
-#+begin_src conf
+#+begin_src conf :noweb-ref window-property
 assign [$prop="thunderbird"] → $ws4
 assign [$prop="libreoffice"] → $ws5
 assign [$prop="lutris"] → $ws6
@@ -1153,16 +1276,27 @@ for_window [class="Spotify"] move --no-auto-back-and-forth to workspace $ws9
 assign [$prop="blueman-manager"] → $ws10
 assign [$prop="pavucontrol"] → $ws10
 #+end_src
-* Window-specific
-** Tkinter
+** Window-specific
+*** Tkinter
 Floating window for Tkinter (Python GUI)
-#+begin_src conf
-for_window [class="Tk"] floating enable
-for_window [class="Toplevel"] floating enable
+#+begin_src conf :noweb-ref window-property
+for_window [$prop="Tk"] floating enable
+for_window [$prop="Toplevel"] floating enable
+#+end_src
+** Tangle :noexport:
+*** i3
+#+begin_src conf :noweb yes :tangle _config_i3
+<<i3-window-property>>
+<<window-property>>
+#+end_src
+*** Sway
+#+begin_src conf :noweb yes :tangle _config_sway
+<<sway-window-property>>
+<<window-property>>
 #+end_src
 * Scratchpads
 ** Python
-#+begin_src conf
+#+begin_src conf :noweb-ref scratchpads
 exec --no-startup-id kitty --class="dropdown_python" -o font_size=20 python -q
 bindsym $mod+y [$prop="^dropdown_python$"] scratchpad show; resize set 1000 600
 for_window [$prop="^dropdown_python$"] floating enable
@@ -1171,13 +1305,22 @@ for_window [$prop="^dropdown_python$"] move scratchpad
 for_window [$prop="^dropdown_python$"] border pixel 5
 #+end_src
 ** Terminal
-#+begin_src conf
+#+begin_src conf :noweb-ref scratchpads
 exec --no-startup-id kitty --class="dropdown_terminal"
 bindsym $mod+h [$prop="^dropdown_terminal$"] scratchpad show; resize set 1000 600
 for_window [$prop="^dropdown_terminal$"] floating enable
 for_window [$prop="^dropdown_terminal$"] move position center
 for_window [$prop="^dropdown_terminal$"] move scratchpad
 for_window [$prop="^dropdown_terminal$"] border pixel 5
+#+end_src
+** Tangle :noexport:
+*** i3
+#+begin_src conf :noweb yes :tangle _config_i3
+<<scratchpads>>
+#+end_src
+*** Sway
+#+begin_src conf :noweb yes :tangle _config_sway
+<<scratchpads>>
 #+end_src
 * Panel
 ** i3
@@ -1213,14 +1356,36 @@ bar {
 exec_always --no-startup-id ~/.config/waybar/waybar.sh
 #+end_src
 ** Applets
-#+begin_src conf
+#+begin_src conf :noweb-ref applets
 exec "blueman-applet &"                 # Bluetooth
 exec "nm-applet --indicator &"          # NetworkManager
 exec "syncthing &"                      # Syncthing
 #+end_src
+** Tangle :noexport:
+*** i3
+#+begin_src conf :noweb yes :tangle _config_i3
+#<<i3-i3bar>>
+<<i3-polybar>>
+<<applets>>
+#+end_src
+*** Sway
+#+begin_src conf :noweb yes :tangle _config_sway
+<<sway-waybar>>
+<<applets>>
+#+end_src
 * Startup commands
+** Transparency
+Set inactive window transparency.
+*** i3
+#+begin_src conf :noweb-ref i3-transparency
+exec_always --no-startup-id picom -b --config ~/.config/picom/picom.conf
+#+end_src
+*** Sway
+#+begin_src conf :noweb-ref sway-transparency
+exec /usr/share/sway-contrib/inactive-windows-transparency.py --opacity 0.85
+#+end_src
 ** Background images
-#+begin_src conf
+#+begin_src conf :noweb-ref startup-commands
 exec_always feh --bg-scale ~/.config/feh/london.jpg
 #output $primary   background ~/.config/feh/london.jpg fill
 #output $secondary background ~/.config/feh/london.jpg fill
@@ -1229,21 +1394,11 @@ exec_always feh --bg-scale ~/.config/feh/london.jpg
 #+end_src
 ** Touchpad
 Enable touchpad horizontal scroll
-#+begin_src conf
+#+begin_src conf :noweb-ref startup-commands
 exec xinput --set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Two-Finger Scrolling" 1 1
 #+end_src
-** Transparency
-Set inactive window transparency.
-*** i3
-#+begin_src conf
-exec_always --no-startup-id picom -b --config ~/.config/picom/picom.conf
-#+end_src
-*** Sway
-#+begin_src conf
-exec /usr/share/sway-contrib/inactive-windows-transparency.py --opacity 0.85
-#+end_src
 ** Daemons
-#+begin_src conf
+#+begin_src conf :noweb-ref startup-commands
 #exec nohup autokey-gtk                           # launch AutoKey
 #exec nohup /usr/bin/dunst                        # dunst: notification daemon
 exec /usr/bin/dunst &                            # dunst: notification daemon
