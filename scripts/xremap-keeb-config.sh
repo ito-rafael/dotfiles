@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-## start xremap
+# kill xremap
+killall xremap
+
+# start xremap
 xremap \
     --device "ZSA Technology Labs Moonlander Mark I" \
     --device "ZSA Technology Labs Planck EZ Glow" \
