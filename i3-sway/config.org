@@ -1405,7 +1405,7 @@ exec xinput --set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Two-Finger Scroll
 exec /usr/bin/dunst &                            # dunst: notification daemon
 exec --no-startup-id autotiling                  # autotiling
 exec /usr/bin/emacs --daemon &                   # Emacs daemon
-exec --no-startup-id "$SCRIPT_PATH/xremap-keeb-config.sh"
+exec_always --no-startup-id "$SCRIPT_PATH/xremap-keeb-config.sh"
 #+end_src
 ** Tangle :noexport:
 *** i3
