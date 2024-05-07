@@ -1015,12 +1015,12 @@ Adds 1 second delay to prevent possible race conditions with suspend.
 **** i3
 #+begin_src conf :noweb-ref i3-mode-system
 set $locker i3lock --color 000000 && sleep 1
-set $messanger i3-msg exit
+set $messenger i3-msg exit
 #+end_src
 **** Sway
 #+begin_src conf :noweb-ref sway-mode-system
 set $locker swaylock --color 000000 && sleep 1
-set $messanger swaymsg exit
+set $messenger swaymsg exit
 #+end_src
 *** Mode
 Obs: the -i argument for systemctl poweroff causes a shutdown even if other users are logged-in (this requires polkit), or when logind (wrongly) assumes so.
