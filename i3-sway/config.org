@@ -73,15 +73,12 @@
 - [[#scratchpads][Scratchpads]]
   - [[#python][Python]]
   - [[#terminal-1][Terminal]]
-- [[#panel][Panel]]
-  - [[#i3-1][i3]]
-  - [[#sway-waybar][Sway (Waybar)]]
-  - [[#applets][Applets]]
 - [[#startup-commands][Startup commands]]
   - [[#transparency][Transparency]]
   - [[#touchpad][Touchpad]]
   - [[#background-images][Background images]]
   - [[#daemons][Daemons]]
+  - [[#panel][Panel]]
 * General config
 ** Modifiers
 | modifier | keys                           |
@@ -1325,13 +1322,30 @@ for_window [$prop="^dropdown_terminal$"] border pixel 5
 #+begin_src conf :noweb yes :tangle _config_sway
 <<scratchpads>>
 #+end_src
-* Panel
-** i3
-*** Polybar
+* Startup commands
+** Transparency
+Set inactive window transparency.
+*** i3
+#+begin_src conf :noweb-ref i3-transparency
+exec_always --no-startup-id picom -b --config ~/.config/picom/picom.conf
+#+end_src
+*** Sway
+#+begin_src conf :noweb-ref sway-transparency
+exec /usr/share/sway-contrib/inactive-windows-transparency.py --opacity 0.85
+#+end_src
+** Touchpad
+*** i3
+Enable touchpad horizontal scroll
+#+begin_src conf :noweb-ref i3-touchpad
+exec xinput --set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Two-Finger Scrolling" 1 1
+#+end_src
+** Panel
+*** i3
+**** Polybar
 #+begin_src conf :noweb-ref i3-polybar
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 #+end_src
-*** i3bar
+**** i3bar
 Start i3bar to display a workspace bar (plus the system information i3status finds out, if available)
 #+begin_src conf :noweb-ref i3-i3bar
 bar {
@@ -1354,44 +1368,27 @@ bar {
     #tray_output HDMI3  # LBiC_R
 }
 #+end_src
-** Sway (Waybar)
+*** Sway (Waybar)
 #+begin_src conf :noweb-ref sway-waybar
 exec_always --no-startup-id ~/.config/waybar/waybar.sh
 #+end_src
-** Applets
+*** Applets
 #+begin_src conf :noweb-ref applets
 exec "blueman-applet &"                 # Bluetooth
 exec "nm-applet --indicator &"          # NetworkManager
 exec "syncthing &"                      # Syncthing
 #+end_src
-** Tangle :noexport:
-*** i3
+*** Tangle :noexport:
+**** i3
 #+begin_src conf :noweb yes :tangle _config_i3
 #<<i3-i3bar>>
 <<i3-polybar>>
 <<applets>>
 #+end_src
-*** Sway
+**** Sway
 #+begin_src conf :noweb yes :tangle _config_sway
 <<sway-waybar>>
 <<applets>>
-#+end_src
-* Startup commands
-** Transparency
-Set inactive window transparency.
-*** i3
-#+begin_src conf :noweb-ref i3-transparency
-exec_always --no-startup-id picom -b --config ~/.config/picom/picom.conf
-#+end_src
-*** Sway
-#+begin_src conf :noweb-ref sway-transparency
-exec /usr/share/sway-contrib/inactive-windows-transparency.py --opacity 0.85
-#+end_src
-** Touchpad
-*** i3
-Enable touchpad horizontal scroll
-#+begin_src conf :noweb-ref i3-touchpad
-exec xinput --set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Two-Finger Scrolling" 1 1
 #+end_src
 ** Background images
 *** i3
