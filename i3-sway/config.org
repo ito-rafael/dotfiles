@@ -627,17 +627,24 @@ bindsym mod1+$mod+d floating toggle
 #+end_src
 *** Kill window
 Kill focused window, unless it's a scratchpad. Check the [[https://github.com/ito-rafael/dotfiles/blob/master/scripts/sway-kill.sh][sway-kill.sh]] script for more details.
-#+begin_src conf :noweb-ref window-settings
-bindsym mod1+$mod+q kill $SCRIPT_PATH/sway-kill.sh
+**** i3
+#+begin_src conf :noweb-ref i3-kill-window
+bindsym mod1+$mod+q kill
+#+end_src
+**** Sway
+#+begin_src conf :noweb-ref sway-kill-window
+bindsym mod1+$mod+q exec $SCRIPT_PATH/sway-kill.sh
 #+end_src
 ** Tangle :noexport:
 *** i3
 #+begin_src conf :noweb yes :tangle _config_i3
 <<window-settings>>
+<<i3-kill-window>>
 #+end_src
 *** Sway
 #+begin_src conf :noweb yes :tangle _config_sway
 <<window-settings>>
+<<sway-kill-window>>
 #+end_src
 * Restart i3/sway
 ** i3
