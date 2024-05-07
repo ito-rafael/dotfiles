@@ -1108,7 +1108,7 @@ Edit top right keyboard keys to work as a numpad (for Lenovo Yoga 2 Pro)
 mode "number" {
     #-----------------------------
     # exit "number" mode and load default Xmodmap file
-    #bindsym Escape mode "default"; exec "xmodmap ~/.Xmodmap";
+    bindsym Escape mode "default"; exec "xmodmap ~/.Xmodmap";
     bindsym $mod+Next mode "default"; exec "xmodmap ~/.Xmodmap";
     #-----------------------------
     # test
@@ -1339,6 +1339,31 @@ Enable touchpad horizontal scroll
 #+begin_src conf :noweb-ref i3-touchpad
 exec xinput --set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Two-Finger Scrolling" 1 1
 #+end_src
+** Background images
+*** i3
+#+begin_src conf :noweb-ref i3-wallpaper
+exec_always feh \
+    --bg-scale ~/.config/wallpaper/london.jpg \
+    --bg-scale ~/.config/wallpaper/london.jpg \
+    --bg-scale ~/.config/wallpaper/nasa.png
+#+end_src
+*** Sway
+#+begin_src conf :noweb-ref sway-wallpaper
+output $laptop    background ~/.config/wallpaper/london.jpg fill
+output $primary   background ~/.config/wallpaper/london.jpg fill
+output $secondary background ~/.config/wallpaper/london.jpg fill
+output $tertiary  background ~/.config/wallpaper/nasa.png fill
+#+end_src
+** Daemons
+#+begin_src conf :noweb-ref startup-commands
+#exec nohup autokey-gtk                           # launch AutoKey
+#exec nohup /usr/bin/dunst                        # dunst: notification daemon
+exec /usr/bin/dunst &                            # dunst: notification daemon
+#exec_always dunstctl set-paused true             # dunst: start with notifications paused
+exec --no-startup-id autotiling                  # autotiling
+exec /usr/bin/emacs --daemon &                   # Emacs daemon
+exec_always --no-startup-id "$SCRIPT_PATH/xremap-keeb-config.sh"
+#+end_src
 ** Panel
 *** i3
 **** Polybar
@@ -1390,29 +1415,7 @@ exec "syncthing &"                      # Syncthing
 <<sway-waybar>>
 <<applets>>
 #+end_src
-** Background images
-*** i3
-#+begin_src conf :noweb-ref i3-wallpaper
-exec_always feh \
-    --bg-scale ~/.config/wallpaper/london.jpg \
-    --bg-scale ~/.config/wallpaper/london.jpg \
-    --bg-scale ~/.config/wallpaper/nasa.png
-#+end_src
-*** Sway
-#+begin_src conf :noweb-ref sway-wallpaper
-output $laptop    background ~/.config/wallpaper/london.jpg fill
-output $primary   background ~/.config/wallpaper/london.jpg fill
-output $secondary background ~/.config/wallpaper/london.jpg fill
-output $tertiary  background ~/.config/wallpaper/nasa.png fill
-#+end_src
-** Daemons
 #+begin_src conf :noweb-ref startup-commands
-#exec nohup autokey-gtk                           # launch AutoKey
-#exec nohup /usr/bin/dunst                        # dunst: notification daemon
-exec /usr/bin/dunst &                            # dunst: notification daemon
-exec --no-startup-id autotiling                  # autotiling
-exec /usr/bin/emacs --daemon &                   # Emacs daemon
-exec_always --no-startup-id "$SCRIPT_PATH/xremap-keeb-config.sh"
 #+end_src
 ** Tangle :noexport:
 *** i3
