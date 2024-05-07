@@ -173,8 +173,8 @@ input type:keyboard xkb_numlock enabled
 #+end_src
 *** Keyboard
 **** Model, layout and variant
-#+begin_src conf :noweb-ref sway-input
 Load model, layout and variant for all keyboards.
+#+begin_src conf :noweb-ref sway-input
 input type:keyboard {
     xkb_model "pc105"
     xkb_layout "us"
