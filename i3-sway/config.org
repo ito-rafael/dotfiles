@@ -79,8 +79,8 @@
   - [[#applets][Applets]]
 - [[#startup-commands][Startup commands]]
   - [[#transparency][Transparency]]
-  - [[#background-images][Background images]]
   - [[#touchpad][Touchpad]]
+  - [[#background-images][Background images]]
   - [[#daemons][Daemons]]
 * General config
 ** Modifiers
@@ -1385,18 +1385,25 @@ exec_always --no-startup-id picom -b --config ~/.config/picom/picom.conf
 #+begin_src conf :noweb-ref sway-transparency
 exec /usr/share/sway-contrib/inactive-windows-transparency.py --opacity 0.85
 #+end_src
-** Background images
-#+begin_src conf :noweb-ref startup-commands
-exec_always feh --bg-scale ~/.config/feh/london.jpg
-#output $primary   background ~/.config/feh/london.jpg fill
-#output $secondary background ~/.config/feh/london.jpg fill
-#output $tertiary  background ~/.config/feh/nasa.png fill
-#output $laptop background ~/.config/feh/london.jpg fill
-#+end_src
 ** Touchpad
 Enable touchpad horizontal scroll
 #+begin_src conf :noweb-ref startup-commands
 exec xinput --set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Two-Finger Scrolling" 1 1
+#+end_src
+** Background images
+*** i3
+#+begin_src conf :noweb-ref i3-wallpaper
+exec_always feh \
+    --bg-scale ~/.config/wallpaper/london.jpg \
+    --bg-scale ~/.config/wallpaper/london.jpg \
+    --bg-scale ~/.config/wallpaper/nasa.png
+#+end_src
+*** Sway
+#+begin_src conf :noweb-ref sway-wallpaper
+output $laptop    background ~/.config/wallpaper/london.jpg fill
+output $primary   background ~/.config/wallpaper/london.jpg fill
+output $secondary background ~/.config/wallpaper/london.jpg fill
+output $tertiary  background ~/.config/wallpaper/nasa.png fill
 #+end_src
 ** Daemons
 #+begin_src conf :noweb-ref startup-commands
