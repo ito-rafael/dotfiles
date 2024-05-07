@@ -216,12 +216,14 @@ This setup is used for the main workstation.
 **** i3
 For X11, it's possible to get the output names directly from xrandr.
 #+begin_src conf :noweb-ref i3-output-default
+set $laptop    eDP-1
 set $primary   $(xrandr | grep ' connected' | awk '{print $1}' | head -n1 | tail -n1)
 set $secondary $(xrandr | grep ' connected' | awk '{print $1}' | head -n2 | tail -n1)
 set $tertiary  $(xrandr | grep ' connected' | awk '{print $1}' | head -n3 | tail -n1)
 #+end_src
 **** Sway
 #+begin_src conf :noweb-ref sway-output-default
+set $laptop    eDP-1
 set $primary   HDMI1
 set $secondary HDMI3
 set $tertiary  VGA1
