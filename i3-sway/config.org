@@ -1386,8 +1386,9 @@ exec_always --no-startup-id picom -b --config ~/.config/picom/picom.conf
 exec /usr/share/sway-contrib/inactive-windows-transparency.py --opacity 0.85
 #+end_src
 ** Touchpad
+*** i3
 Enable touchpad horizontal scroll
-#+begin_src conf :noweb-ref startup-commands
+#+begin_src conf :noweb-ref i3-touchpad
 exec xinput --set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Two-Finger Scrolling" 1 1
 #+end_src
 ** Background images
@@ -1418,11 +1419,14 @@ exec_always --no-startup-id "$SCRIPT_PATH/xremap-keeb-config.sh"
 *** i3
 #+begin_src conf :noweb yes :tangle _config_i3
 <<i3-transparency>>
+<<i3-touchpad>>
+<<i3-wallpaper>>
 <<startup-commands>>
 #+end_src
 *** Sway
 #+begin_src conf :noweb yes :tangle _config_sway
 <<sway-transparency>>
+<<sway-wallpaper>>
 <<startup-commands>>
 #+end_src
 #+end_src
