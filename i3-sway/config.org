@@ -212,11 +212,19 @@ This setup is used for the main workstation.
 #+end_src
 **** i3
 For X11, it's possible to get the output names directly from xrandr.
-#+begin_src conf :noweb-ref i3-output-default
+#+begin_src conf :tangle no
 set $laptop    eDP-1
 set $primary   $(xrandr | grep ' connected' | awk '{print $1}' | head -n1 | tail -n1)
 set $secondary $(xrandr | grep ' connected' | awk '{print $1}' | head -n2 | tail -n1)
 set $tertiary  $(xrandr | grep ' connected' | awk '{print $1}' | head -n3 | tail -n1)
+#+end_src
+
+However, setting the outputs "hardcoded" seems to be more consistent.
+#+begin_src conf :noweb-ref i3-output-default
+set $laptop    eDP-1
+set $primary   HDMI1
+set $secondary VGA1
+set $tertiary  HDMI3
 #+end_src
 **** Sway
 #+begin_src conf :noweb-ref sway-output-default
@@ -228,7 +236,7 @@ set $tertiary  VGA1
 *** Set resolution
 **** i3
 Outputs in i3wm is now being configured through a script (=xrandr-config.sh=), called in the [[*Startup commands]].
-#+begin_src conf :noweb-ref i3-output-default
+#+begin_src conf :noweb-ref i3-output-xrandr
 exec xrandr --output $primary   --mode 1920x1080 --rate 60.00 --brightness 1 --pos 0x0 --primary
 exec xrandr --output $secondary --mode 1920x1080 --rate 60.00 --brightness 1 --pos -1920x0
 exec xrandr --output $tertiary  --mode 1920x1080 --rate 60.00 --brightness 1 --pos 1920x0 --rotate right
@@ -360,7 +368,8 @@ output DP-1 mode 3840x2160@60hz position 0,0
 *** i3
 The outputs settings are being managed by the display manager (e.g.: LightDM, SDDM) instead of the window manager.
 #+begin_src conf :noweb yes :tangle _config_i3
-#<<i3-output-default>>
+<<i3-output-default>>
+#<<i3-output-xrandr>>
 #+end_src
 *** Sway
 #+begin_src conf :noweb yes :tangle _config_sway
