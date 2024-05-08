@@ -1,31 +1,31 @@
-# Y2P HiDPI screen (resolution and DPI)
-xrandr \
-    --output eDP-1  --mode 3200x1800 --rate 60.00 --dpi 276 --primary
-#    --output HDMI-1 --mode 1920x1080 --rate 60.00
-
-# LBiC screens
+## Y2P HiDPI screen (resolution and DPI)
 #xrandr \
-#    --output HDMI3 --mode 1920x1080 --rate 60.00 --primary \
-#    --output VGA1  --mode 1920x1080 --rate 60.00 --left-of HDMI3
-
-# natural scrolling
-xinput set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Scrolling Distance" -114 -114
-
-# set default terminal to be used in i3
-export TERMINAL=kitty
-
-# set path to i3blocks-contrib scripts
-export SCRIPT_DIR=/usr/lib/i3blocks
-
-# load ~./xbindkeysrc (custom keybinds)
-xbindkeys
-
-# load Xmodmap keyboard config
-xmodmap ~/.Xmodmap
-
-# set mouse buttons 8 & 9 to page down/up
-#xcape -e 'Alt_L=Page_Down;Control_L=Page_Up' -t 700
-xcape -e "Alt_L=Page_Down;Hyper_L=Page_Up" -t 700
-
-# disable system beep (PC Speaker)
-xset -b
+#    --output eDP-1  --mode 3200x1800 --rate 60.00 --dpi 276 --primary
+##    --output HDMI-1 --mode 1920x1080 --rate 60.00
+#
+## LBiC screens
+##xrandr \
+##    --output HDMI3 --mode 1920x1080 --rate 60.00 --primary \
+##    --output VGA1  --mode 1920x1080 --rate 60.00 --left-of HDMI3
+#
+## natural scrolling
+#xinput set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Scrolling Distance" -114 -114
+#
+## set default terminal to be used in i3
+#export TERMINAL=kitty
+#
+## set path to i3blocks-contrib scripts
+#export SCRIPT_DIR=/usr/lib/i3blocks
+#
+## load ~./xbindkeysrc (custom keybinds)
+#xbindkeys
+#
+## load Xmodmap keyboard config
+#xmodmap ~/.Xmodmap
+#
+## set mouse buttons 8 & 9 to page down/up
+##xcape -e 'Alt_L=Page_Down;Control_L=Page_Up' -t 700
+#xcape -e "Alt_L=Page_Down;Hyper_L=Page_Up" -t 700
+#
+## disable system beep (PC Speaker)
+#xset -b
