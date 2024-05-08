@@ -1353,7 +1353,7 @@ exec_always feh \
 
 However, this is done through a script (=xrandr-config.sh=) now.
 #+begin_src conf :noweb-ref i3-wallpaper
-exec_always --no-startup-id "$SCRIPT_PATH/xrandr-wallpapers.sh"
+exec_always --no-startup-id "$SCRIPT_PATH/xrandr-wallpaper.sh"
 #+end_src
 *** Sway
 #+begin_src conf :noweb-ref sway-wallpaper

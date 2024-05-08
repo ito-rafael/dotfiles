@@ -348,7 +348,7 @@ exec "syncthing &"                      # Syncthing
 
 exec_always --no-startup-id picom -b --config ~/.config/picom/picom.conf
 exec xinput --set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Two-Finger Scrolling" 1 1
-exec_always --no-startup-id "$SCRIPT_PATH/xrandr-wallpapers.sh"
+exec_always --no-startup-id "$SCRIPT_PATH/xrandr-wallpaper.sh"
 #exec nohup autokey-gtk                           # launch AutoKey
 #exec nohup /usr/bin/dunst                        # dunst: notification daemon
 exec /usr/bin/dunst &                            # dunst: notification daemon
