@@ -5,6 +5,9 @@ killall -q polybar
 # If all your bars have ipc enabled, you can also use 
 # polybar-msg cmd quit
 
+# small delay
+sleep 1
+
 # Launch Polybar, using default config location ~/.config/polybar/config.ini
 polybar i3 2>&1 | tee -a /tmp/polybar.log & disown
 
