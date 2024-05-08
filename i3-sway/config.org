@@ -227,6 +227,7 @@ set $tertiary  VGA1
 #+end_src
 *** Set resolution
 **** i3
+Outputs in i3wm is now being configured through a script (=xrandr-config.sh=), called in the [[*Startup commands]].
 #+begin_src conf :noweb-ref i3-output-default
 exec xrandr --output $primary   --mode 1920x1080 --rate 60.00 --brightness 1 --pos 0x0 --primary
 exec xrandr --output $secondary --mode 1920x1080 --rate 60.00 --brightness 1 --pos -1920x0
@@ -357,8 +358,9 @@ output DP-1 mode 3840x2160@60hz position 0,0
 #+end_src
 ** Tangle :noexport:
 *** i3
+The outputs settings are being managed by the display manager (e.g.: LightDM, SDDM) instead of the window manager.
 #+begin_src conf :noweb yes :tangle _config_i3
-<<i3-output-default>>
+#<<i3-output-default>>
 #+end_src
 *** Sway
 #+begin_src conf :noweb yes :tangle _config_sway
@@ -1341,11 +1343,17 @@ exec xinput --set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Two-Finger Scroll
 #+end_src
 ** Background images
 *** i3
-#+begin_src conf :noweb-ref i3-wallpaper
+Before, wallpapers were set calling =feh= directly in i3wm.
+#+begin_src conf :tangle no
 exec_always feh \
     --bg-scale ~/.config/wallpaper/london.jpg \
     --bg-scale ~/.config/wallpaper/london.jpg \
     --bg-scale ~/.config/wallpaper/nasa.png
+#+end_src
+
+However, this is done through a script (=xrandr-config.sh=) now.
+#+begin_src conf :noweb-ref i3-wallpaper
+exec_always --no-startup-id "$SCRIPT_PATH/xrandr-wallpapers.sh"
 #+end_src
 *** Sway
 #+begin_src conf :noweb-ref sway-wallpaper
