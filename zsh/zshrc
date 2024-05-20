@@ -206,6 +206,7 @@ alias pru='paru -Syu'               # paru update/upgrade
 alias prm='paru -Rns'               # paru uninstall
 alias prc='paru -Scc'               # paru clean
 alias prd='paru -Sccd'              # paru clean & delete
+alias pqc='sudo pacman -Rs $(pacman -Qtdq)'  # delete unused packages
 #-----------------------------
 # Python
 alias {p,py}=python                             # interpreter
