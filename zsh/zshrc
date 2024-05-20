@@ -412,6 +412,7 @@ alias la='exa -a   --color=always --group-directories-first'    # all files & di
 alias ll='exa -l   --color=always --group-directories-first'    # long
 alias lt='exa -aT  --color=always --group-directories-first'    # tree
 alias l.='exa -a | egrep "^\."'                                 # hidden
+alias lsd='exa --list-dirs */'                                  # dirs only
 alias lsl='exa'                                                 # minimal
 alias lso='exa --oneline'                                       # oneline
 # bat: cat replacement
