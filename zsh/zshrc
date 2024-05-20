@@ -406,15 +406,15 @@ function gdii () {
 # Modern Unix
 # https://github.com/ibraheemdev/modern-unix
 #-----------------------------
-# exa: ls replacement
-alias ls='exa -algh --color=always --group-directories-first'   # default
-alias la='exa -a   --color=always --group-directories-first'    # all files & dirs
-alias ll='exa -l   --color=always --group-directories-first'    # long
-alias lt='exa -aT  --color=always --group-directories-first'    # tree
-alias l.='exa -a | egrep "^\."'                                 # hidden
-alias lsd='exa --list-dirs */'                                  # dirs only
-alias lsl='exa'                                                 # minimal
-alias lso='exa --oneline'                                       # oneline
+# eza: ls replacement
+alias ls='eza -algh --color=always --group-directories-first'   # default
+alias la='eza -a   --color=always --group-directories-first'    # all files & dirs
+alias ll='eza -l   --color=always --group-directories-first'    # long
+alias lt='eza -aT  --color=always --group-directories-first'    # tree
+alias l.='eza -a | egrep "^\."'                                 # hidden
+alias lsd='eza --list-dirs */'                                  # dirs only
+alias lsl='eza'                                                 # minimal
+alias lso='eza --oneline'                                       # oneline
 # bat: cat replacement
 alias cat=bat
 
