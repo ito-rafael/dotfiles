@@ -6,8 +6,8 @@
 * Preparation
 ** Documents
 sources:
-https://wiki.archlinux.org/index.php/Installation_guide
-https://itsfoss.com/install-arch-linux/
+- https://wiki.archlinux.org/index.php/Installation_guide
+- https://itsfoss.com/install-arch-linux/
 ** Boot from the live USB
 download image from:
 https://www.archlinux.org/download/
