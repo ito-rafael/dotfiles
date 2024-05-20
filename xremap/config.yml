@@ -1,6 +1,7 @@
 # used for i3wm
 virtual_modifiers:
   - Henkan
+  - Muhenkan
 
 keymap:
 
