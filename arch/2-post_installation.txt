@@ -27,7 +27,6 @@ systemctl enable dhcpcd			            # enable DHCP
 ==============================
 pacman -S 		    \
     gvim		    \
-    xorg		    \	
     xorg-server		
 
 ==============================
