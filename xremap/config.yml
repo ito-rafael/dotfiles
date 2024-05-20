@@ -1,3 +1,7 @@
+# used for i3wm
+virtual_modifiers:
+  - Henkan
+
 keymap:
 
   - name: copy/paste/cut - terminal
