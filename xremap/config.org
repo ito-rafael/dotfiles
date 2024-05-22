@@ -1,0 +1,16 @@
+#+TITLE: Config file for xremap
+#+AUTHOR: Rafael Ito
+#+PROPERTY: header-args :tangle config_from_org
+# +PROPERTY: header-args :tangle config.yml
+#+DESCRIPTION: config file for xremap
+#+STARTUP: showeverything
+#+auto_tangle: t
+
+
+* Modifiers
+Used for i3wm
+#+begin_src conf :noweb-ref modifiers
+virtual_modifiers:
+  - Henkan
+  - Muhenkan
+#+end_src
