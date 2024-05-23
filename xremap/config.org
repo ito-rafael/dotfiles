@@ -14,3 +14,16 @@ virtual_modifiers:
   - Henkan
   - Muhenkan
 #+end_src
+* Keymap
+#+begin_src conf :noweb-ref keymap
+keymap:
+#+end_src
+* Tangle :noexport:
+** i3
+#+begin_src conf :noweb yes :tangle _config_i3
+<<keymap>>
+#+end_src
+** Sway
+#+begin_src conf :noweb yes :tangle _config_sway
+<<keymap>>
+#+end_src
