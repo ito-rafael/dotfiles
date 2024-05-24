@@ -1239,6 +1239,11 @@ mode "presentation-obs" {
     bindsym x exec "$SCRIPT_PATH/obs-tools.py --scene scene-7"
     bindsym c exec "$SCRIPT_PATH/obs-tools.py --scene scene-8"
     bindsym d exec "$SCRIPT_PATH/obs-tools.py --scene scene-9"
+    #-----------------------------
+    bindsym q exec "$SCRIPT_PATH/obs-tools.py --scene output-0"
+    bindsym a exec "$SCRIPT_PATH/obs-tools.py --scene output-1"
+    bindsym z exec "$SCRIPT_PATH/obs-tools.py --scene output-2"
+    #-----------------------------
     # back to normal
     bindsym shift+$alt+F13 mode "default"
     #-----------------------------
