@@ -48,6 +48,7 @@
   - [[#brightness][Brightness]]
   - [[#rofi][Rofi]]
   - [[#screenshot][Screenshot]]
+  - [[#obs][OBS]]
 - [[#logitech-mx][Logitech MX]]
   - [[#change-host][Change host]]
   - [[#mx-master-3][MX Master 3]]
@@ -857,6 +858,18 @@ bindsym Print exec shutter
 bindsym Print exec grim
 bindsym shift+Print exec 'grim -g "$(slurp)"'
 bindsym ctrl+Print exec 'grim -g "$(slurp)" - | swappy -f -'
+#+end_src
+** OBS
+#+begin_src conf :noweb-ref keybindings
+bindsym shift+$alt+F1 exec "$SCRIPT_PATH/obs-tools.py --scene camera"
+bindsym shift+$alt+F2 exec "$SCRIPT_PATH/obs-tools.py --scene presentation"
+bindsym shift+$alt+F3 exec "$SCRIPT_PATH/obs-tools.py --scene scene-3"
+bindsym shift+$alt+F4 exec "$SCRIPT_PATH/obs-tools.py --scene scene-4"
+bindsym shift+$alt+F5 exec "$SCRIPT_PATH/obs-tools.py --scene scene-5"
+bindsym shift+$alt+F6 exec "$SCRIPT_PATH/obs-tools.py --scene scene-6"
+bindsym shift+$alt+F7 exec "$SCRIPT_PATH/obs-tools.py --scene scene-7"
+bindsym shift+$alt+F8 exec "$SCRIPT_PATH/obs-tools.py --scene scene-8"
+bindsym shift+$alt+F9 exec "$SCRIPT_PATH/obs-tools.py --scene scene-9"
 #+end_src
 ** Tangle :noexport:
 *** i3
