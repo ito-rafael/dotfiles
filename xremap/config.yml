@@ -121,3 +121,18 @@ keymap:
           DOT: [SHIFT-GRAVE, SPACE, SLASH, DOT]
           SLASH: [SHIFT-GRAVE, SPACE, SLASH]
           SHIFT-F13: [SHIFT-GRAVE, SPACE]
+# pdfpc
+  - name: presentation with pdfpc
+    exact_match: true
+    application:
+      only: pdfpc
+    remap:
+      KEY_R: KEY_1
+      KEY_S: KEY_2
+      KEY_T: KEY_3
+      KEY_W: KEY_4
+      KEY_F: KEY_5
+      KEY_P: KEY_6
+      KEY_X: KEY_7
+      KEY_C: KEY_8
+      KEY_D: KEY_9
