@@ -46,6 +46,7 @@ bind S+Home             prevSeen
 
 # Undo and redo
 bind C+z                undo
+bind C+S+z              redo
 bind C+y                redo
 
 # The overview mode
