@@ -870,6 +870,9 @@ bindsym shift+$alt+F6 exec "$SCRIPT_PATH/obs-tools.py --scene scene-6"
 bindsym shift+$alt+F7 exec "$SCRIPT_PATH/obs-tools.py --scene scene-7"
 bindsym shift+$alt+F8 exec "$SCRIPT_PATH/obs-tools.py --scene scene-8"
 bindsym shift+$alt+F9 exec "$SCRIPT_PATH/obs-tools.py --scene scene-9"
+bindsym shift+$alt+F10 exec "$SCRIPT_PATH/obs-tools.py --scene output-0"
+bindsym shift+$alt+F11 exec "$SCRIPT_PATH/obs-tools.py --scene output-1"
+bindsym shift+$alt+F12 exec "$SCRIPT_PATH/obs-tools.py --scene output-2"
 #+end_src
 ** Tangle :noexport:
 *** i3
