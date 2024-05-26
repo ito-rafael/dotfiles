@@ -127,12 +127,14 @@ keymap:
     application:
       only: pdfpc
     remap:
-      KEY_R: KEY_1
-      KEY_S: KEY_2
-      KEY_T: KEY_3
-      KEY_W: KEY_4
-      KEY_F: KEY_5
-      KEY_P: KEY_6
-      KEY_X: KEY_7
-      KEY_C: KEY_8
-      KEY_D: KEY_9
+      KEY_R: { launch: ["/home/rafael/.config/scripts/obs-tools.py", "--scene", "camera"] }
+      KEY_S: KEY_1
+      KEY_T: { launch: ["/home/rafael/.config/scripts/obs-tools.py", "--scene", "presentation"] }
+      #--------------
+      KEY_W: { launch: ["/home/rafael/.config/scripts/obs-tools.py", "--scene", "scene-4"] }
+      KEY_F: KEY_2
+      KEY_P: { launch: ["/home/rafael/.config/scripts/obs-tools.py", "--scene", "scene-6"] }
+      #--------------
+      KEY_X: { launch: ["/home/rafael/.config/scripts/obs-tools.py", "--scene", "scene-7"] }
+      KEY_C: KEY_3
+      KEY_D: { launch: ["/home/rafael/.config/scripts/obs-tools.py", "--scene", "scene-9"] }
