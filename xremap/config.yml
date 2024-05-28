@@ -140,3 +140,5 @@ keymap:
       KEY_X: { launch: ["/home/rafael/.config/scripts/obs-tools.py", "--scene", "scene-7"] }
       KEY_C: KEY_3
       KEY_D: { launch: ["/home/rafael/.config/scripts/obs-tools.py", "--scene", "scene-9"] }
+      #--------------
+      KEY_B: { launch: ["/home/rafael/.config/scripts/obs-tools.py", "--record"] }
