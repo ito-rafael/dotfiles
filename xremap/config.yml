@@ -145,5 +145,9 @@ keymap:
       KEY_G: KEY_MINUS
       KEY_V: S-EQUAL
       #--------------
+      KEY_Q: KEY_5
+      KEY_A: KEY_4
+      #KEY_Z:
+      #--------------
       KEY_SPACE: KEY_DOWN
       KEY_ESC: KEY_UP
