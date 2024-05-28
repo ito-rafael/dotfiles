@@ -144,3 +144,6 @@ keymap:
       KEY_B: { launch: ["/home/rafael/.config/scripts/obs-tools.py", "--record"] }
       KEY_G: KEY_MINUS
       KEY_V: S-EQUAL
+      #--------------
+      KEY_SPACE: KEY_DOWN
+      KEY_ESC: KEY_UP
