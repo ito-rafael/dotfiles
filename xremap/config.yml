@@ -121,6 +121,8 @@ keymap:
           DOT: [SHIFT-GRAVE, SPACE, SLASH, DOT]
           SLASH: [SHIFT-GRAVE, SPACE, SLASH]
           SHIFT-F13: [SHIFT-GRAVE, SPACE]
+          c: [SHIFT-GRAVE, SPACE, SLASH, DOT, c, o, n, f, i, g, SLASH]
+
 # pdfpc
   - name: presentation with pdfpc
     exact_match: true
