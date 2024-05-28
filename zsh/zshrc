@@ -437,7 +437,7 @@ alias firefox=firefox-developer-edition
 # connections
 #-----------------------------
 # OpenVPN LBiC
-alias vpn-lbic='sudo openvpn /etc/openvpn/client/ito_rafael-conf-file.conf'
+alias vpn-lbic='sudo openvpn /etc/openvpn/client/vpn-lbic.conf'
 # Recod (bind TCP port)
 alias recod='$HOME/.config/scripts/recod-ssh.sh'
 #-----------------------------
