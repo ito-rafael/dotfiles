@@ -1,7 +1,5 @@
 #+TITLE: Config file for xremap
 #+AUTHOR: Rafael Ito
-#+PROPERTY: header-args :tangle config_from_org
-# +PROPERTY: header-args :tangle config.yml
 #+DESCRIPTION: config file for xremap
 #+STARTUP: showeverything
 #+auto_tangle: t
@@ -20,10 +18,10 @@ keymap:
 #+end_src
 * Tangle :noexport:
 ** i3
-#+begin_src conf :noweb yes :tangle _config_i3
+#+begin_src conf :noweb yes :tangle config_i3.yml
 <<keymap>>
 #+end_src
 ** Sway
-#+begin_src conf :noweb yes :tangle _config_sway
+#+begin_src conf :noweb yes :tangle config_sway.yml
 <<keymap>>
 #+end_src
