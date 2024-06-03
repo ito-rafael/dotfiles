@@ -16,12 +16,25 @@ virtual_modifiers:
 #+begin_src conf :noweb-ref keymap
 keymap:
 #+end_src
+** CPC: Copy/Paste/Cut
+*** Terminal
+#+begin_src conf :noweb-ref cpc-terminal
+  - name: copy/paste/cut - terminal
+    application:
+      only: [kitty, dropdown_terminal, dropdown_python]
+    remap:
+      F16: C-S-x
+      F17: C-S-c
+      F18: C-S-v
+#+end_src
 * Tangle :noexport:
 ** i3
 #+begin_src conf :noweb yes :tangle config_i3.yml
 <<keymap>>
+<<cpc-terminal>>
 #+end_src
 ** Sway
 #+begin_src conf :noweb yes :tangle config_sway.yml
 <<keymap>>
+<<cpc-terminal>>
 #+end_src
