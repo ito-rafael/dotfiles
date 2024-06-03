@@ -209,6 +209,19 @@ bindsym mod1+$mod+t exec kitty
 #bindsym ctrl+$mod+t exec i3-sensible-terminal
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
+bindsym shift+$alt+F1 exec "$SCRIPT_PATH/obs-tools.py --scene camera"
+bindsym shift+$alt+F2 exec "$SCRIPT_PATH/obs-tools.py --scene presentation"
+bindsym shift+$alt+F3 exec "$SCRIPT_PATH/obs-tools.py --scene scene-3"
+bindsym shift+$alt+F4 exec "$SCRIPT_PATH/obs-tools.py --scene scene-4"
+bindsym shift+$alt+F5 exec "$SCRIPT_PATH/obs-tools.py --scene scene-5"
+bindsym shift+$alt+F6 exec "$SCRIPT_PATH/obs-tools.py --scene scene-6"
+bindsym shift+$alt+F7 exec "$SCRIPT_PATH/obs-tools.py --scene scene-7"
+bindsym shift+$alt+F8 exec "$SCRIPT_PATH/obs-tools.py --scene scene-8"
+bindsym shift+$alt+F9 exec "$SCRIPT_PATH/obs-tools.py --scene scene-9"
+bindsym shift+$alt+F10 exec "$SCRIPT_PATH/obs-tools.py --scene output-0"
+bindsym shift+$alt+F11 exec "$SCRIPT_PATH/obs-tools.py --scene output-1"
+bindsym shift+$alt+F12 exec "$SCRIPT_PATH/obs-tools.py --scene output-2"
+bindsym shift+$alt+F14 exec "$SCRIPT_PATH/obs-tools.py --record"
 bindsym $mod+Return exec rofi -show run
 bindsym Print exec shutter
 
