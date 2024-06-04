@@ -27,6 +27,14 @@ keymap:
       F17: C-S-c
       F18: C-S-v
 #+end_src
+*** Emacs
+#+begin_src conf :noweb-ref cpc-emacs
+  - name: paste - Emacs (insert)
+    application:
+      only: emacs
+    remap:
+      F16: M-x
+#+end_src
 * Tangle :noexport:
 ** i3
 #+begin_src conf :noweb yes :tangle config_i3.yml
