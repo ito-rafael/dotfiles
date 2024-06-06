@@ -34,6 +34,7 @@ keymap:
       only: emacs
     remap:
       F16: M-x
+      F18: [C-r, SHIFT-apostrophe, space]
 #+end_src
 * Tangle :noexport:
 ** i3
