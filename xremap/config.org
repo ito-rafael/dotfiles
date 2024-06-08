@@ -54,6 +54,7 @@ keymap:
       only: emacs
     remap:
       Super_L-left: [C-w, C-h]
+      Super_L-down: [C-w, C-j]
 #+end_src
 * Tangle :noexport:
 ** i3
