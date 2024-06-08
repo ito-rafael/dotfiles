@@ -84,6 +84,7 @@ keymap:
 <<emacs>>
 <<cpc-terminal>>
 <<cpc-emacs>>
+<<cpc-default>>
 #+end_src
 ** Sway
 #+begin_src conf :noweb yes :tangle config_sway.yml
@@ -91,4 +92,5 @@ keymap:
 <<emacs>>
 <<cpc-terminal>>
 <<cpc-emacs>>
+<<cpc-default>>
 #+end_src
