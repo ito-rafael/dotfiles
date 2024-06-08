@@ -43,6 +43,7 @@ keymap:
     remap:
       F16: C-x
       F17: C-c
+      F18: C-v
 #+end_src
 * Tangle :noexport:
 ** i3
