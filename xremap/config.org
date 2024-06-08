@@ -81,10 +81,12 @@ keymap:
 ** i3
 #+begin_src conf :noweb yes :tangle config_i3.yml
 <<keymap>>
+<<emacs>>
 <<cpc-terminal>>
 #+end_src
 ** Sway
 #+begin_src conf :noweb yes :tangle config_sway.yml
 <<keymap>>
+<<emacs>>
 <<cpc-terminal>>
 #+end_src
