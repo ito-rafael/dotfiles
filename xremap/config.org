@@ -41,6 +41,7 @@ keymap:
   - name: copy/paste/cut - general
     application:
     remap:
+      F16: C-x
       F17: C-c
 #+end_src
 * Tangle :noexport:
