@@ -45,6 +45,16 @@ keymap:
       F17: C-c
       F18: C-v
 #+end_src
+** Emacs
+*** Window navigation
+#+begin_src conf :noweb-ref emacs
+  - name: Window navigation
+    exact_match: true
+    application:
+      only: emacs
+    remap:
+      Super_L-left: [C-w, C-h]
+#+end_src
 * Tangle :noexport:
 ** i3
 #+begin_src conf :noweb yes :tangle config_i3.yml
