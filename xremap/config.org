@@ -36,6 +36,13 @@ keymap:
       F16: M-x
       F18: [C-r, SHIFT-apostrophe, space]
 #+end_src
+*** Default
+#+begin_src conf :noweb-ref default
+  - name: copy/paste/cut - general
+    application:
+    remap:
+      F17: C-c
+#+end_src
 * Tangle :noexport:
 ** i3
 #+begin_src conf :noweb yes :tangle config_i3.yml
