@@ -67,6 +67,15 @@ keymap:
     remap:
       F19: [C-w, C-w]
 #+end_src
+*** Kill buffer & window
+#+begin_src conf :noweb-ref emacs
+  - name: Kill buffer and window
+    exact_match: true
+    application:
+      only: emacs
+    remap:
+      SUPER-ALT-w: [space, b, k]
+#+end_src
 * Tangle :noexport:
 ** i3
 #+begin_src conf :noweb yes :tangle config_i3.yml
