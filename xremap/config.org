@@ -75,6 +75,7 @@ keymap:
       only: emacs
     remap:
       SUPER-ALT-w: [space, b, k]
+      SUPER-ALT-q: [C-w, q]
 #+end_src
 * Tangle :noexport:
 ** i3
