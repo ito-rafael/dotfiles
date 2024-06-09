@@ -8,6 +8,7 @@
 * Table of contents :toc:
 - [[#general-config][General config]]
   - [[#modifiers][Modifiers]]
+  - [[#variables][Variables]]
   - [[#general][General]]
   - [[#font--color][Font & color]]
 - [[#sway][Sway]]
