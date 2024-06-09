@@ -97,6 +97,10 @@ set $alt Mod1
 set $mod Mod4
 set $super_R Mod3
 #+end_src
+** Variables
+#+begin_src conf :noweb-ref general
+set $XDG_CONFIG_HOME $HOME/.config
+#+end_src
 ** General
 Set window border.
 #+begin_src conf :noweb-ref general
