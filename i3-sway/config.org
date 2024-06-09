@@ -1365,7 +1365,7 @@ for_window [$prop="Toplevel"] floating enable
 * Scratchpads
 ** Python
 #+begin_src conf :noweb-ref scratchpads
-exec --no-startup-id kitty --class="dropdown_python" -o font_size=20 python -q
+exec --no-startup-id kitty --class="dropdown_python" -o font_size=20 -o include=$XDG_CONFIG_HOME/kitty/themes/python.conf python -q
 bindsym $mod+y [$prop="^dropdown_python$"] scratchpad show; resize set 1000 600
 for_window [$prop="^dropdown_python$"] floating enable
 for_window [$prop="^dropdown_python$"] move position center
