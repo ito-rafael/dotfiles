@@ -100,6 +100,7 @@ set $super_R Mod3
 ** Variables
 #+begin_src conf :noweb-ref general
 set $XDG_CONFIG_HOME $HOME/.config
+set $SCRIPT_PATH $XDG_CONFIG_HOME/scripts
 #+end_src
 ** General
 Set window border.
@@ -696,9 +697,6 @@ bindsym mod1+$mod+x exec "swaynag -t warning -m 'You pressed the exit shortcut. 
 <<sway-restart>>
 #+end_src
 * Workspaces navigation
-#+begin_src conf :noweb-ref ws-navigation
-set $SCRIPT_PATH $HOME/.config/scripts
-#+end_src
 ** Switch to workspace
 Navigate to workspace and check if there is any window opened there:
   - if there is a window:
