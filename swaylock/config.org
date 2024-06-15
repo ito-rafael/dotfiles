@@ -1,0 +1,15 @@
+#+TITLE: Swaylock-effects config
+#+AUTHOR: Rafael Ito
+#+DESCRIPTION: config file for swaylock-effects
+#+PROPERTY: header-args :tangle ./config
+#+STARTUP: showeverything
+#+auto_tangle: t
+* Table of Contents :toc:
+- [[#general][General]]
+  - [[#indicator][Indicator]]
+
+* General
+** Indicator
+#+begin_src conf
+indicator-idle-visible
+#+end_src
