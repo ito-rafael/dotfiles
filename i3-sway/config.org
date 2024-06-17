@@ -1048,7 +1048,7 @@ set $messenger i3-msg exit
 #+end_src
 **** Sway
 #+begin_src conf :noweb-ref sway-mode-system
-set $locker swaylock --color 000000 && sleep 1
+set $locker swaylock --config $XDG_CONFIG_HOME/swaylock/config
 set $messenger swaymsg exit
 #+end_src
 *** Mode
