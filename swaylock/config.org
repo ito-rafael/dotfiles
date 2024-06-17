@@ -12,4 +12,5 @@
 ** Indicator
 #+begin_src conf
 indicator-idle-visible
+indicator-radius=120
 #+end_src
