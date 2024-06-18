@@ -1039,21 +1039,49 @@ End raw section: !@<+default_keybindings
 *** Description
 source:
 https://wiki.archlinux.org/index.php/I3#Shutdown,_reboot,_lock_screen
-*** Locker & messanger
+*** i3
+**** Locker & messanger
 Adds 1 second delay to prevent possible race conditions with suspend.
-**** i3
 #+begin_src conf :noweb-ref i3-mode-system
-set $locker i3lock --color 000000 && sleep 1
+set $PATH_LOCKER /home/rafael/.config/i3lock
+set $locker /home/rafael/.config/i3lock/lock-screen.sh
 set $messenger i3-msg exit
 #+end_src
-**** Sway
+**** Mode
+Obs: the -i argument for systemctl poweroff causes a shutdown even if other users are logged-in (this requires polkit), or when logind (wrongly) assumes so.
+#+begin_src conf :noweb-ref i3-mode-system
+set $mode_system System: (s)hutdown, (r)eboot, (l)ock, (S)uspend, (h)ibernate, (e)xit/logout
+#-----------------------------
+mode "$mode_system" {
+    bindsym l       exec --no-startup-id $locker,                         mode "default"
+    bindsym h       exec --no-startup-id $locker && systemctl hibernate,  mode "default"
+    bindsym Shift+s exec --no-startup-id $locker && systemctl suspend,    mode "default"
+    bindsym e       exec --no-startup-id $PATH_LOCKER/del-screenshot.sh; exec --no-startup-id $messenger,            mode "default"
+    bindsym r       exec --no-startup-id $PATH_LOCKER/del-screenshot.sh; exec --no-startup-id systemctl reboot,      mode "default"
+    bindsym s       exec --no-startup-id $PATH_LOCKER/del-screenshot.sh; exec --no-startup-id systemctl poweroff -i, mode "default"
+    #-----------------------------
+    # back to normal: Enter or Escape
+    bindsym Return    exec --no-startup-id $PATH_LOCKER/del-screenshot.sh; mode "default"
+    bindsym Escape    exec --no-startup-id $PATH_LOCKER/del-screenshot.sh; mode "default"
+    bindsym $mod+Home exec --no-startup-id $PATH_LOCKER/del-screenshot.sh; mode "default"
+    #-----------------------------
+    # inherent default keybinds (i3bang)
+    !@default_keybindings
+}
+#+end_src
+**** Keybinding
+#+begin_src conf :noweb-ref i3-mode-system
+bindsym $mod+Home exec --no-startup-id $PATH_LOCKER/take-screenshot.sh; mode "$mode_system"
+#+end_src
+*** Sway
+**** Locker & messanger
 #+begin_src conf :noweb-ref sway-mode-system
 set $locker swaylock --config $XDG_CONFIG_HOME/swaylock/config
 set $messenger swaymsg exit
 #+end_src
-*** Mode
+**** Mode
 Obs: the -i argument for systemctl poweroff causes a shutdown even if other users are logged-in (this requires polkit), or when logind (wrongly) assumes so.
-#+begin_src conf :noweb-ref mode-system
+#+begin_src conf :noweb-ref sway-mode-system
 set $mode_system System: (s)hutdown, (r)eboot, (l)ock, (S)uspend, (h)ibernate, (e)xit/logout
 #-----------------------------
 mode "$mode_system" {
@@ -1073,8 +1101,8 @@ mode "$mode_system" {
     !@default_keybindings
 }
 #+end_src
-*** Keybinding
-#+begin_src conf :noweb-ref mode-system
+**** Keybinding
+#+begin_src conf :noweb-ref sway-mode-system
 bindsym $mod+Home mode "$mode_system"
 #+end_src
 ** Resize
@@ -1300,14 +1328,12 @@ bindsym $mod+O mode "studio"; exec video-script
 *** i3
 #+begin_src conf :noweb yes :tangle _config_i3
 <<i3-mode-system>>
-<<mode-system>>
 <<mode-resize>>
 <<mode-obs>>
 #+end_src
 *** Sway
 #+begin_src conf :noweb yes :tangle _config_sway
 <<sway-mode-system>>
-<<mode-system>>
 <<mode-resize>>
 <<mode-obs>>
 #+end_src
