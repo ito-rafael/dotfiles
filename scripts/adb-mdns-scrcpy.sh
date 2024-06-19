@@ -37,7 +37,8 @@ SCRATCHPAD=$(swaymsg -t get_tree | jq -re '.. | select(type == "object") | selec
 # display scratchpad if it's active, or try to launch if it isn't
 if [[ $SCRATCHPAD ]]; then
     echo "Scratchpad found! Displaying it..."
-    swaymsg '[app_id="scrcpy" title="dropdown_scrcpy"] scratchpad show'
+    MSG='[app_id="scrcpy" title="dropdown_scrcpy"] scratchpad show; move position center; resize set '$WIN_WIDTH' '$WIN_HEIGHT
+    swaymsg $MSG
     exit 0
 else
     # try to discover IP & port of device ADB via mDNS
@@ -68,7 +69,8 @@ else
 
         # display scratchpad
         sleep 2
-        swaymsg '[app_id="scrcpy" title="dropdown_scrcpy"] scratchpad show'
+        MSG='[app_id="scrcpy" title="dropdown_scrcpy"] scratchpad show; move position center; resize set '$WIN_WIDTH' '$WIN_HEIGHT
+        swaymsg $MSG
         exit 0
     fi
 fi
