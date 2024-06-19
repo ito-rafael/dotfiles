@@ -76,6 +76,7 @@
 - [[#scratchpads][Scratchpads]]
   - [[#python][Python]]
   - [[#terminal-1][Terminal]]
+  - [[#scrcpy][scrcpy]]
 - [[#startup-commands][Startup commands]]
   - [[#transparency][Transparency]]
   - [[#touchpad][Touchpad]]
@@ -1407,6 +1408,14 @@ for_window [$prop="^dropdown_terminal$"] floating enable
 for_window [$prop="^dropdown_terminal$"] move position center
 for_window [$prop="^dropdown_terminal$"] move scratchpad
 for_window [$prop="^dropdown_terminal$"] border pixel 5
+#+end_src
+** scrcpy
+#+begin_src conf :noweb-ref scratchpads
+bindsym $mod+n exec "$SCRIPT_PATH/adb-mdns-scrcpy.sh"
+for_window [title="^dropdown_scrcpy" $prop="^scrcpy$"] floating enable
+for_window [title="^dropdown_scrcpy" $prop="^scrcpy$"] move position center
+for_window [title="^dropdown_scrcpy" $prop="^scrcpy$"] move scratchpad
+for_window [title="^dropdown_scrcpy" $prop="^scrcpy$"] border pixel 5
 #+end_src
 ** Tangle :noexport:
 *** i3
