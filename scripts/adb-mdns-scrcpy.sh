@@ -14,11 +14,27 @@
 #   3. If it finds, start =scrcpy= and display it. If not, exit.
 #
 
+# get output resolution
+case "${XDG_SESSION_TYPE}" in
+    "x11")
+        FOCUSED_OUTPUT=$(i3-msg -t get_workspaces | jq '.[] | select(.focused).output')
+        RESOLUTION=$(i3-msg -t get_outputs | jq '.[] | select(.name==$FOCUSED_OUTPUT)')
+        ;;
+    "wayland")
+        RESOLUTION=$(swaymsg -t get_outputs | jq '.[] | select(.focused==true).current_mode')
+        ;;
+    "tty")
+        exit 0
+        ;;
+    *)
+        exit 0
+        ;;
+esac
+
 # calc height (int) of the window (90% of full height)
 # examples:
 #   - for Full HD (1920x1080): height = 972
 #   - for 4K (3840x2160): height = 1944
-RESOLUTION=$(swaymsg -t get_outputs | jq '.[] | select(.focused==true).current_mode')
 #RES_WIDTH=$(echo $RESOLUTION | jq '.width')
 RES_HEIGHT=$(echo $RESOLUTION | jq '.height')
 WIN_HEIGHT=$(echo "0.9 * $RES_HEIGHT / 1" | bc)
