@@ -18,14 +18,16 @@
 case "${XDG_SESSION_TYPE}" in
     "x11")
         FOCUSED_OUTPUT=$(i3-msg -t get_workspaces | jq '.[] | select(.focused).output')
-        RESOLUTION=$(i3-msg -t get_outputs | jq '.[] | select(.name==$FOCUSED_OUTPUT)')
+        RESOLUTION=$(i3-msg -t get_outputs | jq '.[] | select(.name=='$FOCUSED_OUTPUT')')
         WM_CMD="i3-msg"
         PROP="class"
+        CAPTION="title"
         ;;
     "wayland")
         RESOLUTION=$(swaymsg -t get_outputs | jq '.[] | select(.focused==true).current_mode')
         WM_CMD="swaymsg"
         PROP="app_id"
+        CAPTION="name"
         ;;
     "tty")
         exit 0
@@ -52,7 +54,7 @@ WIN_HEIGHT=$(echo "0.9 * $RES_HEIGHT / 1" | bc)
 WIN_WIDTH=$(echo "0.455 * $WIN_HEIGHT / 1" | bc)
 
 # check if scratchpad is already active
-SCRATCHPAD=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.'$PROP' == "scrcpy" and .name == "dropdown_scrcpy")')
+SCRATCHPAD=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.'$PROP' == "scrcpy" and .'$CAPTION' == "dropdown_scrcpy")')
 
 # display scratchpad if it's active, or try to launch if it isn't
 if [[ $SCRATCHPAD ]]; then
@@ -76,13 +78,13 @@ else
         scrcpy -s $IP:$PORT --window-title="dropdown_scrcpy" >& /dev/null &
 
         # wait for scrcpy window to be launched
-        SCRATCHPAD=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.'$PROP' == "scrcpy" and .name == "dropdown_scrcpy")')
+        SCRATCHPAD=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.'$PROP' == "scrcpy" and .'$CAPTION' == "dropdown_scrcpy")')
         if [ -z $SCRATCHPAD ]; then
             echo "Waiting scratchpad to be launched."
             while [[ $SCRATCHPAD ]]; do
                 sleep 0.2
                 echo "..."
-                SCRATCHPAD=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.'$PROP' == "scrcpy" and .name == "dropdown_scrcpy")')
+                SCRATCHPAD=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.'$PROP' == "scrcpy" and .'$CAPTION' == "dropdown_scrcpy")')
             done
         fi
 
