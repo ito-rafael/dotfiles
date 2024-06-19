@@ -10,7 +10,8 @@ window, then the window is killed normally.
 # check if the app_id is one of the listed bellow
 is_scratchpad=$(swaymsg -t get_tree | jq -re '.. | select(type == "object") | select(.focused) |
     .app_id == "dropdown_terminal" or
-    .app_id == "dropdown_python"
+    .app_id == "dropdown_python" or
+    .app_id == "scrcpy" and .name == "dropdown_scrcpy" 
     ')
 
 # decide whether to hide (if scratchpad) of kill the window
