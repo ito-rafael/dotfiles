@@ -19,9 +19,13 @@ case "${XDG_SESSION_TYPE}" in
     "x11")
         FOCUSED_OUTPUT=$(i3-msg -t get_workspaces | jq '.[] | select(.focused).output')
         RESOLUTION=$(i3-msg -t get_outputs | jq '.[] | select(.name==$FOCUSED_OUTPUT)')
+        WM_CMD="i3-msg"
+        PROP="class"
         ;;
     "wayland")
         RESOLUTION=$(swaymsg -t get_outputs | jq '.[] | select(.focused==true).current_mode')
+        WM_CMD="swaymsg"
+        PROP="app_id"
         ;;
     "tty")
         exit 0
@@ -48,13 +52,12 @@ WIN_HEIGHT=$(echo "0.9 * $RES_HEIGHT / 1" | bc)
 WIN_WIDTH=$(echo "0.455 * $WIN_HEIGHT / 1" | bc)
 
 # check if scratchpad is already active
-SCRATCHPAD=$(swaymsg -t get_tree | jq -re '.. | select(type == "object") | select(.app_id == "scrcpy" and .name == "dropdown_scrcpy")')
+SCRATCHPAD=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.'$PROP' == "scrcpy" and .name == "dropdown_scrcpy")')
 
 # display scratchpad if it's active, or try to launch if it isn't
 if [[ $SCRATCHPAD ]]; then
     echo "Scratchpad found! Displaying it..."
-    MSG='[app_id="scrcpy" title="dropdown_scrcpy"] scratchpad show; move position center; resize set '$WIN_WIDTH' '$WIN_HEIGHT
-    swaymsg $MSG
+    $WM_CMD '['$PROP'="scrcpy" title="dropdown_scrcpy"] scratchpad show; move position center; resize set '$WIN_WIDTH' '$WIN_HEIGHT
     exit 0
 else
     # try to discover IP & port of device ADB via mDNS
@@ -73,20 +76,19 @@ else
         scrcpy -s $IP:$PORT --window-title="dropdown_scrcpy" >& /dev/null &
 
         # wait for scrcpy window to be launched
-        SCRATCHPAD=$(swaymsg -t get_tree | jq -re '.. | select(type == "object") | select(.app_id == "scrcpy" and .name == "dropdown_scrcpy")')
+        SCRATCHPAD=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.'$PROP' == "scrcpy" and .name == "dropdown_scrcpy")')
         if [ -z $SCRATCHPAD ]; then
             echo "Waiting scratchpad to be launched."
             while [[ $SCRATCHPAD ]]; do
                 sleep 0.2
                 echo "..."
-                SCRATCHPAD=$(swaymsg -t get_tree | jq -re '.. | select(type == "object") | select(.app_id == "scrcpy" and .name == "dropdown_scrcpy")')
+                SCRATCHPAD=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.'$PROP' == "scrcpy" and .name == "dropdown_scrcpy")')
             done
         fi
 
         # display scratchpad
         sleep 2
-        MSG='[app_id="scrcpy" title="dropdown_scrcpy"] scratchpad show; move position center; resize set '$WIN_WIDTH' '$WIN_HEIGHT
-        swaymsg $MSG
+        $WM_CMD '['$PROP'="scrcpy" title="dropdown_scrcpy"] scratchpad show; move position center; resize set '$WIN_WIDTH' '$WIN_HEIGHT
         exit 0
     fi
 fi
