@@ -184,6 +184,9 @@ alias fl='faillock --user $USER --reset'
 alias kb='pkill brave && brave &'
 function cv() { cat $1 | vim - }
 #-----------------------------
+# scripts
+alias wlprop='$SCRIPTS/wlprop.sh'
+#-----------------------------
 # LaTeX
 alias tlmgr='$TEXMFDIST/scripts/texlive/tlmgr.pl --usermode'
 #-----------------------------
