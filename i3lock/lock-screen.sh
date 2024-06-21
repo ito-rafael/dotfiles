@@ -2,6 +2,9 @@
 
 SCREENSHOT_PNG='/tmp/lock-screen.png'
 
+# pause notifications
+dunstctl set-paused true
+
 # lock screen
 i3lock \
     --image=$SCREENSHOT_PNG         \
@@ -9,6 +12,9 @@ i3lock \
 
 # The "--nofork" flag of the i3lock command garantees that the
 # next commands will run only after the system is unlocked.
+
+# unpause notifications
+dunstctl set-paused false
 
 # delete screenshots
 rm -f $SCREENSHOT_PNG
