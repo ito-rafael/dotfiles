@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 
+SCREENSHOT_XWD='/tmp/lock-screen.xwd'
 SCREENSHOT_PNG='/tmp/lock-screen.png'
 
 # pause notifications
@@ -17,4 +18,5 @@ i3lock \
 dunstctl set-paused false
 
 # delete screenshots
+rm -f $SCREENSHOT_XWD
 rm -f $SCREENSHOT_PNG
