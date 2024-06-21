@@ -1387,7 +1387,7 @@ for_window [$prop="Toplevel"] floating enable
 ** Python
 #+begin_src conf :noweb-ref scratchpads
 exec --no-startup-id kitty --class="dropdown_python" -o font_size=20 -o include=$XDG_CONFIG_HOME/kitty/themes/python.conf python -q
-bindsym $mod+y [$prop="^dropdown_python$"] scratchpad show; resize set 1000 600
+bindsym $mod+y [$prop="^dropdown_python$"] scratchpad show; [$prop="^dropdown_python$"] move position center
 for_window [$prop="^dropdown_python$"] floating enable
 for_window [$prop="^dropdown_python$"] move position center
 for_window [$prop="^dropdown_python$"] move scratchpad
@@ -1396,7 +1396,7 @@ for_window [$prop="^dropdown_python$"] border pixel 5
 ** Terminal
 #+begin_src conf :noweb-ref scratchpads
 exec --no-startup-id kitty --class="dropdown_terminal" -o font_size=14 -o include=$XDG_CONFIG_HOME/kitty/themes/terminal.conf -o background_opacity=0.80
-bindsym $mod+h [$prop="^dropdown_terminal$"] scratchpad show; resize set 1000 600
+bindsym $mod+h [$prop="^dropdown_terminal$"] scratchpad show; [$prop="^dropdown_terminal"] move position center
 for_window [$prop="^dropdown_terminal$"] floating enable
 for_window [$prop="^dropdown_terminal$"] move position center
 for_window [$prop="^dropdown_terminal$"] move scratchpad
