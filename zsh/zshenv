@@ -13,6 +13,9 @@ export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on'
 # XDG
 export XDG_CONFIG_HOME=$HOME/.config
 
+# directories
+export SCRIPTS=$XDG_CONFIG_HOME/scripts
+
 # Zsh
 export ZDOTDIR=$HOME/.config/zsh
 
