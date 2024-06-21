@@ -10,6 +10,9 @@ export PATH=$PATH:/usr/local/texlive/2024/bin/x86_64-linux  # TeX Live
 # font rendering
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on'
 
+# XDG
+export XDG_CONFIG_HOME=$HOME/.config
+
 # Zsh
 export ZDOTDIR=$HOME/.config/zsh
 
