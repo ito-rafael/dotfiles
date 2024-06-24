@@ -10,6 +10,7 @@
   - [[#how-to-load-config-file][How to load config file]]
 - [[#config-file][Config file]]
   - [[#scroll][Scroll]]
+  - [[#history-navigation][History navigation]]
   - [[#characters-for-links][Characters for links]]
 
 * Information
@@ -30,6 +31,11 @@ api.map("n", "h");
 api.map("e", "j");
 api.map("i", "k");
 api.map("o", "l");
+#+end_src
+** History navigation
+#+begin_src js
+api.map("N", "S");
+api.map("O", "D");
 #+end_src
 ** Characters for links
 #+begin_src js
