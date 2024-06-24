@@ -40,6 +40,9 @@ api.map("_k",  "k");
 api.map("_l",  "l");
 api.map("_S",  "S");
 api.map("_D",  "D");
+api.map("_E",  "E");
+api.map("_R",  "R");
+api.map("_I",  "I");
 api.map("_af", "af");
 #+end_src
 *** Unmap
@@ -55,6 +58,9 @@ api.unmap("k");
 api.unmap("l");
 api.unmap("S");
 api.unmap("D");
+api.unmap("E");
+api.unmap("R");
+api.unmap("I");
 api.unmap("af");
 #+end_src
 *** Remap
@@ -70,6 +76,11 @@ api.map("o", "_l");
 api.map("N", "_S");
 api.map("O", "_D");
 #+end_src
+**** Tab navigation
+#+begin_src js
+api.map("E", "_R");
+api.map("I", "_E");
+#+end_src
 **** Open links
 #+begin_src js
 api.map("F", "_af");
@@ -83,5 +94,8 @@ api.unmap("_k");
 api.unmap("_l");
 api.unmap("_S");
 api.unmap("_D");
+api.unmap("_E");
+api.unmap("_R");
+api.unmap("_I");
 #+end_src
 #+end_src
