@@ -11,6 +11,7 @@
 - [[#config-file][Config file]]
   - [[#open-link-in-active-new-tab][Open link in active new tab]]
   - [[#scroll][Scroll]]
+  - [[#cursor-movement][Cursor movement]]
   - [[#history-navigation][History navigation]]
   - [[#characters-for-links][Characters for links]]
 
@@ -36,6 +37,13 @@ api.map("n", "h");
 api.map("e", "j");
 api.map("i", "k");
 api.map("o", "l");
+#+end_src
+** Cursor movement
+#+begin_src js
+api.vmap("n", "h");
+api.vmap("e", "j");
+api.vmap("i", "k");
+api.vmap("o", "l");
 #+end_src
 ** History navigation
 #+begin_src js
