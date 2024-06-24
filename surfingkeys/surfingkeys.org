@@ -9,6 +9,7 @@
 - [[#information][Information]]
   - [[#how-to-load-config-file][How to load config file]]
 - [[#config-file][Config file]]
+  - [[#open-link-in-active-new-tab][Open link in active new tab]]
   - [[#scroll][Scroll]]
   - [[#history-navigation][History navigation]]
   - [[#characters-for-links][Characters for links]]
@@ -25,6 +26,10 @@ cp ./surfingkeys.js $XDG_CONFIG_HOME/surfingkeys.js
 
 2. Change the =Load settings from= field and insert the *full* path for your config file: =file:///home/<USERNAME>/.config/surfingkeys/surfingkeys.js=
 * Config file
+** Open link in active new tab
+#+begin_src js
+api.map("F", "af");
+#+end_src
 ** Scroll
 #+begin_src js
 api.map("n", "h");

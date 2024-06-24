@@ -1,3 +1,5 @@
+api.map("F", "af");
+
 api.map("n", "h");
 api.map("e", "j");
 api.map("i", "k");
