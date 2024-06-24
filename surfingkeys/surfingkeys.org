@@ -10,7 +10,6 @@
   - [[#how-to-load-config-file][How to load config file]]
   - [[#inspiration][Inspiration]]
 - [[#config-file][Config file]]
-  - [[#cursor-movement][Cursor movement]]
   - [[#characters-for-links][Characters for links]]
   - [[#normal-mode][Normal mode]]
 
@@ -28,7 +27,9 @@ cp ./surfingkeys.js $XDG_CONFIG_HOME/surfingkeys.js
 ** Inspiration
 https://github.com/kalbasit/soxincfg/blob/57847175e30dd9d0cc3a79816e44c87b02e16fc0/modules/programs/chromium/surfingkeys.js#L4
 * Config file
+** Characters for links
 #+begin_src js
+api.Hints.setCharacters('neiohtsrad');
 #+end_src
 ** Normal mode
 *** Backup
