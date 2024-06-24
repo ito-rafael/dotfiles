@@ -12,6 +12,7 @@
 - [[#config-file][Config file]]
   - [[#characters-for-links][Characters for links]]
   - [[#normal-mode][Normal mode]]
+  - [[#exceptions][Exceptions]]
 
 * Information
 ** How to load config file
@@ -99,4 +100,7 @@ api.unmap("_E");
 api.unmap("_R");
 api.unmap("_I");
 #+end_src
+** Exceptions
+#+begin_src js
+api.unmapAllExcept([], /localhost/);
 #+end_src
