@@ -1,13 +1,14 @@
 #+TITLE: Surfingkeys
 #+AUTHOR: Rafael Ito
 #+PROPERTY: header-args :tangle surfingkeys.js
-#+DESCRIPTION: config file for the Surfingkeys browser extension
+#+DESCRIPTION: config file for the Surfingkeys browser extension using the Colemak-DH keyboard layout
 #+STARTUP: showeverything
 #+auto_tangle: t
 
 * Table of Contents :toc:
 - [[#information][Information]]
   - [[#how-to-load-config-file][How to load config file]]
+  - [[#inspiration][Inspiration]]
 - [[#config-file][Config file]]
   - [[#open-link-in-active-new-tab][Open link in active new tab]]
   - [[#scroll][Scroll]]
@@ -26,6 +27,8 @@ cp ./surfingkeys.js $XDG_CONFIG_HOME/surfingkeys.js
 1. Open the SurfingKeys settings page: =chrome-extension://gfbliohnnapiefjpjlpjnehglfpaknnc/pages/options.html=
 
 2. Change the =Load settings from= field and insert the *full* path for your config file: =file:///home/<USERNAME>/.config/surfingkeys/surfingkeys.js=
+** Inspiration
+https://github.com/kalbasit/soxincfg/blob/57847175e30dd9d0cc3a79816e44c87b02e16fc0/modules/programs/chromium/surfingkeys.js#L4
 * Config file
 ** Open link in active new tab
 #+begin_src js
