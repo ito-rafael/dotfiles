@@ -15,6 +15,7 @@
   - [[#cursor-movement][Cursor movement]]
   - [[#history-navigation][History navigation]]
   - [[#characters-for-links][Characters for links]]
+  - [[#normal-mode][Normal mode]]
 
 * Information
 ** How to load config file
@@ -30,9 +31,7 @@ cp ./surfingkeys.js $XDG_CONFIG_HOME/surfingkeys.js
 ** Inspiration
 https://github.com/kalbasit/soxincfg/blob/57847175e30dd9d0cc3a79816e44c87b02e16fc0/modules/programs/chromium/surfingkeys.js#L4
 * Config file
-** Open link in active new tab
 #+begin_src js
-api.map("F", "af");
 #+end_src
 ** Normal mode
 *** Backup
@@ -66,9 +65,11 @@ api.map("e", "_j");
 api.map("i", "_k");
 api.map("o", "_l");
 #+end_src
-** Characters for links
 #+begin_src js
-api.Hints.setCharacters('neiohtsrad');
+**** Open links
+#+begin_src js
+api.map("F", "_af");
+#+end_src
 *** Delete
 Remove the old bindings.
 #+begin_src js
