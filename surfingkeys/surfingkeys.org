@@ -8,6 +8,8 @@
 * Table of Contents :toc:
 - [[#information][Information]]
   - [[#how-to-load-config-file][How to load config file]]
+- [[#config-file][Config file]]
+  - [[#characters-for-links][Characters for links]]
 
 * Information
 ** How to load config file
@@ -20,3 +22,8 @@ cp ./surfingkeys.js $XDG_CONFIG_HOME/surfingkeys.js
 1. Open the SurfingKeys settings page: =chrome-extension://gfbliohnnapiefjpjlpjnehglfpaknnc/pages/options.html=
 
 2. Change the =Load settings from= field and insert the *full* path for your config file: =file:///home/<USERNAME>/.config/surfingkeys/surfingkeys.js=
+* Config file
+** Characters for links
+#+begin_src js
+api.Hints.setCharacters('neiohtsrad');
+#+end_src

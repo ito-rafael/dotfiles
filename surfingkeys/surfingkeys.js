@@ -1,0 +1,1 @@
+api.Hints.setCharacters('neiohtsrad');
