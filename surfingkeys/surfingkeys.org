@@ -1,0 +1,22 @@
+#+TITLE: Surfingkeys
+#+AUTHOR: Rafael Ito
+#+PROPERTY: header-args :tangle surfingkeys.js
+#+DESCRIPTION: config file for the Surfingkeys browser extension
+#+STARTUP: showeverything
+#+auto_tangle: t
+
+* Table of Contents :toc:
+- [[#information][Information]]
+  - [[#how-to-load-config-file][How to load config file]]
+
+* Information
+** How to load config file
+1. Copy the config file into your $XDG_CONFIG_HOME ($HOME/.config).
+#+begin_src sh :tangle no
+mkdir -p $XDG_CONFIG_HOME/surfingkeys
+cp ./surfingkeys.js $XDG_CONFIG_HOME/surfingkeys.js
+#+end_src
+
+1. Open the SurfingKeys settings page: =chrome-extension://gfbliohnnapiefjpjlpjnehglfpaknnc/pages/options.html=
+
+2. Change the =Load settings from= field and insert the *full* path for your config file: =file:///home/<USERNAME>/.config/surfingkeys/surfingkeys.js=
