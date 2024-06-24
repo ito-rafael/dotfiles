@@ -10,10 +10,7 @@
   - [[#how-to-load-config-file][How to load config file]]
   - [[#inspiration][Inspiration]]
 - [[#config-file][Config file]]
-  - [[#open-link-in-active-new-tab][Open link in active new tab]]
-  - [[#scroll][Scroll]]
   - [[#cursor-movement][Cursor movement]]
-  - [[#history-navigation][History navigation]]
   - [[#characters-for-links][Characters for links]]
   - [[#normal-mode][Normal mode]]
 
@@ -41,6 +38,9 @@ api.map("_h",  "h");
 api.map("_j",  "j");
 api.map("_k",  "k");
 api.map("_l",  "l");
+api.map("_S",  "S");
+api.map("_D",  "D");
+api.map("_af", "af");
 #+end_src
 *** Unmap
 Unmap the orinal bindings that were backed up.
@@ -53,19 +53,23 @@ api.unmap("h");
 api.unmap("j");
 api.unmap("k");
 api.unmap("l");
+api.unmap("S");
+api.unmap("D");
+api.unmap("af");
 #+end_src
-** History navigation
 *** Remap
 **** Scroll
 #+begin_src js
-api.map("N", "S");
-api.map("O", "D");
 api.map("n", "_h");
 api.map("e", "_j");
 api.map("i", "_k");
 api.map("o", "_l");
 #+end_src
+**** History navigation
 #+begin_src js
+api.map("N", "_S");
+api.map("O", "_D");
+#+end_src
 **** Open links
 #+begin_src js
 api.map("F", "_af");
@@ -77,5 +81,7 @@ api.unmap("_h");
 api.unmap("_j");
 api.unmap("_k");
 api.unmap("_l");
+api.unmap("_S");
+api.unmap("_D");
 #+end_src
 #+end_src
