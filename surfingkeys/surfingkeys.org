@@ -34,26 +34,47 @@ https://github.com/kalbasit/soxincfg/blob/57847175e30dd9d0cc3a79816e44c87b02e16f
 #+begin_src js
 api.map("F", "af");
 #+end_src
-** Scroll
+** Normal mode
+*** Backup
+Save the original bindings into aliases to avoids dependency/order issues.
 #+begin_src js
-api.map("n", "h");
-api.map("e", "j");
-api.map("i", "k");
-api.map("o", "l");
+api.map("_h",  "h");
+api.map("_j",  "j");
+api.map("_k",  "k");
+api.map("_l",  "l");
 #+end_src
-** Cursor movement
+*** Unmap
+Unmap the orinal bindings that were backed up.
 #+begin_src js
 api.vmap("n", "h");
 api.vmap("e", "j");
 api.vmap("i", "k");
 api.vmap("o", "l");
+api.unmap("h");
+api.unmap("j");
+api.unmap("k");
+api.unmap("l");
 #+end_src
 ** History navigation
+*** Remap
+**** Scroll
 #+begin_src js
 api.map("N", "S");
 api.map("O", "D");
+api.map("n", "_h");
+api.map("e", "_j");
+api.map("i", "_k");
+api.map("o", "_l");
 #+end_src
 ** Characters for links
 #+begin_src js
 api.Hints.setCharacters('neiohtsrad');
+*** Delete
+Remove the old bindings.
+#+begin_src js
+api.unmap("_h");
+api.unmap("_j");
+api.unmap("_k");
+api.unmap("_l");
+#+end_src
 #+end_src
