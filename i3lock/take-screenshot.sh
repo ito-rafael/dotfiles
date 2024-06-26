@@ -15,6 +15,7 @@ xwd -root -silent -out $SCREENSHOT_XWD
 
 magick              \
     $SCREENSHOT_XWD \
+    -format png     \
     $SCREENSHOT_PNG
 
 # use file as flag to signal image processing has finished
