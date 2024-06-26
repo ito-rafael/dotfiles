@@ -13,11 +13,12 @@ rm -f $SCREENSHOT_DONE
 #scrot --overwrite $SCREENSHOT_PNG
 xwd -root -silent -out $SCREENSHOT_XWD
 
-# pixelate
+# pixelate & blur
 magick              \
     $SCREENSHOT_XWD \
     -format png     \
     -scale 25%      \
+    -blur 2x2       \
     -scale 400%     \
     $SCREENSHOT_PNG
 
