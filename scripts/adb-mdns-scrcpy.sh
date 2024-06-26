@@ -13,6 +13,9 @@
 #   2. If not, try to find the ADB IP & port of the device.
 #   3. If it finds, start =scrcpy= and display it. If not, exit.
 #
+# Source
+#   https://stackoverflow.com/questions/65991502/adb-over-wi-fi-android-11-on-windows-how-to-keep-a-fixed-port-or-connect-aut
+#
 
 # get output resolution
 case "${XDG_SESSION_TYPE}" in
