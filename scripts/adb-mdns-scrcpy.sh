@@ -75,7 +75,11 @@ else
     else
         echo "Device found: trying to connect to $IP:$PORT."
         adb connect $IP:$PORT
-        scrcpy -s $IP:$PORT --window-title="dropdown_scrcpy" >& /dev/null &
+        scrcpy \
+            -s $IP:$PORT \
+            --prefer-text \
+            --window-title="dropdown_scrcpy" \
+            >& /dev/null &
 
         # wait for scrcpy window to be launched
         SCRATCHPAD=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.'$PROP' == "scrcpy" and .'$CAPTION' == "dropdown_scrcpy")')
