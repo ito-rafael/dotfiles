@@ -24,5 +24,10 @@ magick              \
     -scale 400%     \
     $SCREENSHOT_PNG
 
+# check if last command executed without any errors
+EXITCODE=$?
+
 # use file as flag to signal image processing has finished
-touch $SCREENSHOT_DONE
+if [ $EXITCODE -eq 0 ]; then
+    touch $SCREENSHOT_DONE
+fi
