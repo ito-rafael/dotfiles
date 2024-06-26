@@ -13,9 +13,12 @@ rm -f $SCREENSHOT_DONE
 #scrot --overwrite $SCREENSHOT_PNG
 xwd -root -silent -out $SCREENSHOT_XWD
 
+# pixelate
 magick              \
     $SCREENSHOT_XWD \
     -format png     \
+    -scale 25%      \
+    -scale 400%     \
     $SCREENSHOT_PNG
 
 # use file as flag to signal image processing has finished
