@@ -10,6 +10,10 @@ timeout $TIMEOUT bash -c -- 'while [ ! -f \$SCREENSHOT_DONE ]; do sleep 0.1; don
 
 # if $SCREENSHOT_DONE does not exist after timeout, send notification & exit
 if [ ! -f $SCREENSHOT_DONE ]; then
+
+    # delete raw screenshot
+    rm -f $SCREENSHOT_XWD
+
     # send alert notification
     notify-send \
         --expire-time=0 \
