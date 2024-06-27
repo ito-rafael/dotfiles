@@ -4,11 +4,9 @@ SCREENSHOT_XWD='/tmp/lock-screen.xwd'
 SCREENSHOT_PNG='/tmp/lock-screen.png'
 SCREENSHOT_DONE='/tmp/lock-screen.done'
 
-# wait screenshot
-while [ ! -f $SCREENSHOT_DONE ]
-do
-  sleep 0.1
-done
+# wait screenshot (or timeout)
+TIMEOUT=3
+timeout $TIMEOUT bash -c -- 'while [ ! -f \$SCREENSHOT_DONE ]; do sleep 0.1; done'
 
 # pause notifications
 dunstctl set-paused true
