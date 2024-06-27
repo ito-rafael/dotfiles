@@ -44,6 +44,10 @@ i3lock \
     --time-str="%H:%M:%S"           \
     --time-size=38                  \
                                     \
+    --date-color=1793d1bb           \
+    --date-str="%d %b"              \
+    --date-size=20                  \
+                                    \
     --nofork
 
 # The "--nofork" flag of the i3lock command garantees that the
