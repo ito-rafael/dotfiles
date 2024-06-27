@@ -58,6 +58,11 @@ i3lock \
     --insidever-color=0077ff88      \
     --ringver-color=3300ffff        \
                                     \
+    --wrong-text="Wrong"            \
+    --wrong-size=38                 \
+    --insidewrong-color=883300cc    \
+    --ringwrong-color=fa0000aa      \
+                                    \
     --nofork
 
 # The "--nofork" flag of the i3lock command garantees that the
