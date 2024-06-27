@@ -63,6 +63,8 @@ i3lock \
     --insidewrong-color=883300cc    \
     --ringwrong-color=fa0000aa      \
                                     \
+    --noinput-text="Cleared"        \
+                                    \
     --nofork
 
 # The "--nofork" flag of the i3lock command garantees that the
