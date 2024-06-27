@@ -48,6 +48,11 @@ i3lock \
     --date-str="%d %b"              \
     --date-size=20                  \
                                     \
+    --inside-color=111111aa         \
+    --ring-color=1793d155           \
+    --keyhl-color=1793d1            \
+    --bshl-color=fa000077           \
+                                    \
     --nofork
 
 # The "--nofork" flag of the i3lock command garantees that the
