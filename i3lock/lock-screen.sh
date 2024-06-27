@@ -39,6 +39,11 @@ i3lock \
     --ring-width=10                 \
     --line-color=000000             \
                                     \
+    --clock                         \
+    --time-color=1793d1bb           \
+    --time-str="%H:%M:%S"           \
+    --time-size=38                  \
+                                    \
     --nofork
 
 # The "--nofork" flag of the i3lock command garantees that the
