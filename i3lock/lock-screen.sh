@@ -33,6 +33,12 @@ dunstctl set-paused true
 # lock screen
 i3lock \
     --image=$SCREENSHOT_PNG         \
+                                    \
+    --indicator                     \
+    --radius=120                    \
+    --ring-width=10                 \
+    --line-color=000000             \
+                                    \
     --nofork
 
 # The "--nofork" flag of the i3lock command garantees that the
