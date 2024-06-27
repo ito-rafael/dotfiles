@@ -17,6 +17,10 @@ if [ ! -f $SCREENSHOT_DONE ]; then
         --icon='/usr/share/icons/Papirus/symbolic/status/dialog-error-symbolic.svg' \
         "i3locker failed!" \
         "File $SCREENSHOT_DONE not found."
+
+    # play alert sound
+    paplay /usr/share/sounds/freedesktop/stereo/suspend-error.oga
+    exit 1
 fi
 
 # pause notifications
