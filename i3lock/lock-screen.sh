@@ -53,6 +53,11 @@ i3lock \
     --keyhl-color=1793d1            \
     --bshl-color=fa000077           \
                                     \
+    --verif-text="Verifying"        \
+    --verif-size=38                 \
+    --insidever-color=0077ff88      \
+    --ringver-color=3300ffff        \
+                                    \
     --nofork
 
 # The "--nofork" flag of the i3lock command garantees that the
