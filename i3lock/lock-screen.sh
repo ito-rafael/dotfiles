@@ -33,6 +33,8 @@ dunstctl set-paused true
 # lock screen
 i3lock \
     --image=$SCREENSHOT_PNG         \
+    --color=00000099                \
+    --screen=1                      \
                                     \
     --indicator                     \
     --radius=120                    \
