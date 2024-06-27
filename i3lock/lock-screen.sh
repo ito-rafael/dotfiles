@@ -8,6 +8,17 @@ SCREENSHOT_DONE='/tmp/lock-screen.done'
 TIMEOUT=3
 timeout $TIMEOUT bash -c -- 'while [ ! -f \$SCREENSHOT_DONE ]; do sleep 0.1; done'
 
+# if $SCREENSHOT_DONE does not exist after timeout, send notification & exit
+if [ ! -f $SCREENSHOT_DONE ]; then
+    # send alert notification
+    notify-send \
+        --expire-time=0 \
+        --urgency=CRITICAL \
+        --icon='/usr/share/icons/Papirus/symbolic/status/dialog-error-symbolic.svg' \
+        "i3locker failed!" \
+        "File $SCREENSHOT_DONE not found."
+fi
+
 # pause notifications
 dunstctl set-paused true
 
