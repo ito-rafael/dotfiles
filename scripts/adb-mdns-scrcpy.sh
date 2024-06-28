@@ -21,7 +21,7 @@
 case "${XDG_SESSION_TYPE}" in
     "x11")
         FOCUSED_OUTPUT=$(i3-msg -t get_workspaces | jq '.[] | select(.focused).output')
-        RESOLUTION=$(i3-msg -t get_outputs | jq '.[] | select(.name=='$FOCUSED_OUTPUT')')
+        RESOLUTION=$(i3-msg -t get_outputs | jq -r '.[] | select(.name=='"$FOCUSED_OUTPUT"')')
         WM_CMD="i3-msg"
         PROP="class"
         CAPTION="title"
@@ -44,8 +44,8 @@ esac
 # examples:
 #   - for Full HD (1920x1080): height = 972
 #   - for 4K (3840x2160): height = 1944
-#RES_WIDTH=$(echo $RESOLUTION | jq '.width')
-RES_HEIGHT=$(echo $RESOLUTION | jq '.height')
+#RES_WIDTH=$(echo $RESOLUTION | jq '.rect.width')
+RES_HEIGHT=$(echo $RESOLUTION | jq '.rect.height')
 WIN_HEIGHT=$(echo "0.9 * $RES_HEIGHT / 1" | bc)
 
 # calc width (int) of the window based on the resolution of the device
