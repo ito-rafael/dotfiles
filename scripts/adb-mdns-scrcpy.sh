@@ -62,7 +62,7 @@ SCRATCHPAD=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | selec
 # display scratchpad if it's active, or try to launch if it isn't
 if [[ $SCRATCHPAD ]]; then
     echo "Scratchpad found! Displaying it..."
-    $WM_CMD '['$PROP'="scrcpy" title="dropdown_scrcpy"] scratchpad show; move position center; resize set '$WIN_WIDTH' '$WIN_HEIGHT
+    $WM_CMD '['$PROP'="scrcpy" title="dropdown_scrcpy"] scratchpad show; ['$PROP'="scrcpy" title="dropdown_scrcpy"] resize set '$WIN_WIDTH' '$WIN_HEIGHT'; ['$PROP'="scrcpy" title="dropdown_scrcpy"] move position center'
     exit 0
 else
     # try to discover IP & port of device ADB via mDNS
@@ -97,7 +97,7 @@ else
 
         # display scratchpad
         sleep 2
-        $WM_CMD '['$PROP'="scrcpy" title="dropdown_scrcpy"] scratchpad show; move position center; resize set '$WIN_WIDTH' '$WIN_HEIGHT
+        $WM_CMD '['$PROP'="scrcpy" title="dropdown_scrcpy"] scratchpad show; ['$PROP'="scrcpy" title="dropdown_scrcpy"] resize set '$WIN_WIDTH' '$WIN_HEIGHT'; ['$PROP'="scrcpy" title="dropdown_scrcpy"] move position center'
         exit 0
     fi
 fi
