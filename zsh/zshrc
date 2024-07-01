@@ -446,6 +446,7 @@ alias recod='$HOME/.config/scripts/recod-ssh.sh'
 #-----------------------------
 # adb / scrcpy
 #-----------------------------
+alias ap='$HOME/.config/scripts/adb-mdns-pair.sh'       # ADB pair
 # phone: S20
 function s() {
     adb connect 192.168.0.101:5555
