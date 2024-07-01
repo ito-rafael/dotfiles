@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# This script is meant to be used with i3wm to mirror a device (eg: phone, smartwatch) screen on the desktop.
+# This script is meant to be used with i3wm/Sway to mirror a device (eg: phone, smartwatch) screen on the desktop.
 #
 # Prerequisites:
 #   - device already paired with the desktop: "adb pair IP:PORT".
