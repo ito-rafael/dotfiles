@@ -9,9 +9,10 @@
 #   - Avahi: tool to discover the IP & port of the device (wireless ADB) via mDNS.
 #
 # How it works:
-#   1. Check if =scrcpy= scratchpad exists. If it does, show it and exit.
-#   2. If not, try to find the ADB IP & port of the device.
-#   3. If it finds, start =scrcpy= and display it. If not, exit.
+#   1. Identify the session (i3wm/Sway) to run the respective commands.
+#   2. Check if =scrcpy= scratchpad exists. If it does, show it and exit.
+#   3. If not, try to find the ADB IP & port of the device.
+#   4. If it finds, start =scrcpy= and display it. If not, exit.
 #
 # Source
 #   https://stackoverflow.com/questions/65991502/adb-over-wi-fi-android-11-on-windows-how-to-keep-a-fixed-port-or-connect-aut
@@ -21,16 +22,22 @@
 case "${XDG_SESSION_TYPE}" in
     "x11")
         FOCUSED_OUTPUT=$(i3-msg -t get_workspaces | jq '.[] | select(.focused).output')
-        RESOLUTION=$(i3-msg -t get_outputs | jq -r '.[] | select(.name=='"$FOCUSED_OUTPUT"')')
         WM_CMD="i3-msg"
         PROP="class"
         CAPTION="title"
+        # get height & width of current output
+        RESOLUTION=$(i3-msg -t get_outputs | jq -r '.[] | select(.name=='"$FOCUSED_OUTPUT"')')
+        RES_HEIGHT=$(echo $RESOLUTION | jq '.rect.height')
+        #RES_WIDTH=$(echo $RESOLUTION | jq '.rect.width')
         ;;
     "wayland")
-        RESOLUTION=$(swaymsg -t get_outputs | jq '.[] | select(.focused==true).current_mode')
         WM_CMD="swaymsg"
         PROP="app_id"
         CAPTION="name"
+        # get height & width of current output
+        RESOLUTION=$(swaymsg -t get_outputs | jq '.[] | select(.focused==true).current_mode')
+        RES_HEIGHT=$(echo $RESOLUTION | jq '.height')
+        #RES_WIDTH=$(echo $RESOLUTION | jq '.width')
         ;;
     "tty")
         exit 0
@@ -44,8 +51,6 @@ esac
 # examples:
 #   - for Full HD (1920x1080): height = 972
 #   - for 4K (3840x2160): height = 1944
-#RES_WIDTH=$(echo $RESOLUTION | jq '.rect.width')
-RES_HEIGHT=$(echo $RESOLUTION | jq '.rect.height')
 WIN_HEIGHT=$(echo "0.9 * $RES_HEIGHT / 1" | bc)
 
 # calc width (int) of the window based on the resolution of the device
