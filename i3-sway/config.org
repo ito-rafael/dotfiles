@@ -25,8 +25,8 @@
   - [[#ws-names-icons][WS names (icons)]]
   - [[#ws-names][WS names]]
 - [[#i3bang-raw-section-beginning][i3bang: raw section (beginning)]]
-- [[#volume-control][Volume control]]
-  - [[#i3blocks][i3blocks]]
+- [[#media-control][Media control]]
+  - [[#volume-i3blocks][Volume (i3blocks)]]
   - [[#volume][Volume]]
   - [[#microphone][Microphone]]
 - [[#window-settings][Window settings]]
@@ -55,7 +55,7 @@
   - [[#mx-master-3][MX Master 3]]
   - [[#mx-keys][MX Keys]]
 - [[#mouse-keybindings][Mouse keybindings]]
-  - [[#volume-control-1][Volume control]]
+  - [[#volume-control][Volume control]]
   - [[#mouse-keys][Mouse keys]]
 - [[#rotate-screen][Rotate screen]]
   - [[#portrait][Portrait]]
@@ -523,8 +523,8 @@ Check https://github.com/tckmn/i3bang for more details.
 #+begin_src conf :noweb yes :tangle _config_sway
 <<i3bang-begin>>
 #+end_src
-* Volume control
-** i3blocks
+* Media control
+** Volume (i3blocks)
 Use pactl to adjust volume in PulseAudio.
 #+begin_src conf :tangle no
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl list sinks | grep 'Sink #' | grep -o '[0-9]*' | xargs -i pactl set-sink-volume {} +5% && pkill -RTMIN+1 i3blocks
