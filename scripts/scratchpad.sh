@@ -45,5 +45,24 @@ SCALE_H=${3:-"0.66"}
 WIN_WIDTH=$(echo "$SCALE_W * $RES_WIDTH / 1" | bc)
 WIN_HEIGHT=$(echo "$SCALE_H * $RES_HEIGHT / 1" | bc)
 
-# resize, center & display scratchpad
+# get focused window
+FOCUSED=$(swaymsg -t get_tree | jq -re '.. | select(type == "object") | select(.focused == true) | .app_id')
+
+# check if scratchpad requested is different than the focused one
+if [ $FOCUSED != $APPLICATION ]; then
+    # then check if the app_id is one of the listed bellow
+    is_scratchpad=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.focused) |
+        .'$PROP' == "dropdown_terminal" or
+        .'$PROP' == "dropdown_python" or
+        .'$PROP' == "scrcpy" and .'$CAPTION' == "dropdown_scrcpy" or
+        .'$PROP' == "brave-music.youtube.com__-Default"
+        ')
+
+    # if focused window is a scratchpad (according to the above list), hide it
+    if [ $is_scratchpad = "true" ]; then
+        $WM_CMD scratchpad show
+    fi
+fi
+
+# proceed to resize, center & display requested scratchpad
 $WM_CMD '['$PROP'='$APPLICATION'] scratchpad show; ['$PROP'='$APPLICATION'] resize set '$WIN_WIDTH' '$WIN_HEIGHT'; ['$PROP'='$APPLICATION'] move position center'
