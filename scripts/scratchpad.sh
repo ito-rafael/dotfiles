@@ -66,3 +66,9 @@ fi
 
 # proceed to resize, center & display requested scratchpad
 $WM_CMD '['$PROP'='$APPLICATION'] scratchpad show; ['$PROP'='$APPLICATION'] resize set '$WIN_WIDTH' '$WIN_HEIGHT'; ['$PROP'='$APPLICATION'] move position center'
+
+# set transparency for "YouTube Music" scratchpad
+if [ $APPLICATION = "brave-music.youtube.com__-Default" ]; then
+    sleep 0.01
+    $WM_CMD '['$PROP'='$APPLICATION'] opacity set 0.9'
+fi
