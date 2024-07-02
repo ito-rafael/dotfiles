@@ -28,7 +28,8 @@ esac
 is_scratchpad=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.focused) |
     .'$PROP' == "dropdown_terminal" or
     .'$PROP' == "dropdown_python" or
-    .'$PROP' == "scrcpy" and .'$CAPTION' == "dropdown_scrcpy"
+    .'$PROP' == "scrcpy" and .'$CAPTION' == "dropdown_scrcpy" or
+    .'$PROP' == "brave-music.youtube.com__-Default"
     ')
 
 # decide whether to hide (if scratchpad) of kill the window
