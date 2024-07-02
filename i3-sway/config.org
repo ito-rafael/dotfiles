@@ -530,6 +530,7 @@ Check https://github.com/tckmn/i3bang for more details.
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioPause exec playerctl play-pause
+bindsym XF86AudioPrev exec playerctl previous
 #+end_src
 ** Volume (i3blocks)
 Use pactl to adjust volume in PulseAudio.
