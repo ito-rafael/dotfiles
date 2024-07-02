@@ -26,6 +26,7 @@
   - [[#ws-names][WS names]]
 - [[#i3bang-raw-section-beginning][i3bang: raw section (beginning)]]
 - [[#media-control][Media control]]
+  - [[#playerctl][Playerctl]]
   - [[#volume-i3blocks][Volume (i3blocks)]]
   - [[#volume][Volume]]
   - [[#microphone][Microphone]]
@@ -524,6 +525,10 @@ Check https://github.com/tckmn/i3bang for more details.
 <<i3bang-begin>>
 #+end_src
 * Media control
+** Playerctl
+#+begin_src conf :noweb-ref playerctl
+bindsym XF86AudioPlay exec playerctl play-pause
+#+end_src
 ** Volume (i3blocks)
 Use pactl to adjust volume in PulseAudio.
 #+begin_src conf :tangle no
@@ -580,10 +585,12 @@ bindsym shift+$mod+F14 exec --no-startup-id amixer -q sset Capture toggle
 ** Tangle :noexport:
 *** i3
 #+begin_src conf :noweb yes :tangle _config_i3
+<<playerctl>>
 <<volume>>
 #+end_src
 *** Sway
 #+begin_src conf :noweb yes :tangle _config_sway
+<<playerctl>>
 <<volume>>
 #+end_src
 * Window settings
