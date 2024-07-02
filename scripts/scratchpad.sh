@@ -66,6 +66,30 @@ if [ $FOCUSED != $APPLICATION ]; then
     fi
 fi
 
+# check if scratchpad exists
+SCRATCHPAD=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.'$PROP' == "'$APPLICATION'")')
+
+# if it does not exist, launch it
+if [[ ! $SCRATCHPAD ]]; then
+    case "${APPLICATION}" in
+        "dropdown_terminal")
+            kitty --detach --class="dropdown_terminal" -o font_size=14 -o include=$XDG_CONFIG_HOME/kitty/themes/terminal.conf -o background_opacity=0.85
+            sleep 0.05
+            ;;
+        "dropdown_python")
+            kitty --detach --class="dropdown_python" -o font_size=20 -o include=$XDG_CONFIG_HOME/kitty/themes/python.conf python -q
+            sleep 0.05
+            ;;
+        "brave-music.youtube.com__-Default")
+            brave --app=https://music.youtube.com &
+            sleep 2
+            ;;
+        *)
+            exit 0
+            ;;
+    esac
+fi
+
 # proceed to resize, center & display requested scratchpad
 $WM_CMD '['$PROP'='$APPLICATION'] scratchpad show; ['$PROP'='$APPLICATION'] resize set '$WIN_WIDTH' '$WIN_HEIGHT'; ['$PROP'='$APPLICATION'] move position center'
 
