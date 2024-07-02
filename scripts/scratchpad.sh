@@ -15,6 +15,7 @@ case "${XDG_SESSION_TYPE}" in
         FOCUSED_OUTPUT=$(i3-msg -t get_workspaces | jq '.[] | select(.focused).output')
         WM_CMD="i3-msg"
         PROP="class"
+        CAPTION="title"
         # get height & width of current output
         RESOLUTION=$(i3-msg -t get_outputs | jq -r '.[] | select(.name=='"$FOCUSED_OUTPUT"')')
         RES_WIDTH=$(echo $RESOLUTION | jq '.rect.width')
@@ -23,6 +24,7 @@ case "${XDG_SESSION_TYPE}" in
     "wayland")
         WM_CMD="swaymsg"
         PROP="app_id"
+        CAPTION="name"
         # get height & width of current output
         RESOLUTION=$(swaymsg -t get_outputs | jq '.[] | select(.focused==true).current_mode')
         RES_WIDTH=$(echo $RESOLUTION | jq '.width')
