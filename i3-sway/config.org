@@ -829,7 +829,7 @@ bindsym $mod+b exec firefox
 #bindsym $mod+n exec thunar
 #bindsym $mod+l exec lollypop
 #bindsym $mod+m exec thunderbird
-bindsym $mod+g exec kitty ranger
+#bindsym $mod+g exec kitty ranger
 #bindsym $mod+p exec spotify --force-device-scale-factor=2 # shortcut to open Spotify
 #+end_src
 ** Terminal
