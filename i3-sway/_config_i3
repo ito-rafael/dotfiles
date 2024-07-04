@@ -1,6 +1,8 @@
 set $alt Mod1
 set $mod Mod4
 set $super_R Mod3
+set $XDG_CONFIG_HOME $HOME/.config
+set $SCRIPT_PATH $XDG_CONFIG_HOME/scripts
 #for_window [class=".*"] border pixel 3
 default_border pixel 5
 floating_modifier $mod
@@ -91,6 +93,10 @@ set $ws20 "30:20"
 #!nobracket
 !@<+default_keybindings
 
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPause exec playerctl play-pause
+bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q sset Master 5%+
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q sset Master 5%-
 bindsym ctrl+shift+F14 exec --no-startup-id amixer -q sset Master 1%-
@@ -118,13 +124,12 @@ bindsym mod1+v split v
 bindsym mod1+$mod+e layout toggle stacked tabbed
 bindsym mod1+$mod+f fullscreen toggle
 bindsym mod1+$mod+d floating toggle
-bindsym mod1+$mod+q kill
+bindsym mod1+$mod+q exec $SCRIPT_PATH/hide-or-kill.sh
 
 bindsym mod1+$mod+s exec ~/.config/i3/i3bang.rb; reload
 bindsym mod1+$mod+c exec ~/.config/i3/i3bang.rb; restart
 bindsym mod1+$mod+x exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
-set $SCRIPT_PATH $HOME/.config/scripts
 bindsym $mod+1 exec "$SCRIPT_PATH/navigate2ws.sh 1"
 bindsym $mod+2 exec "$SCRIPT_PATH/navigate2ws.sh 2"
 bindsym $mod+3 exec "$SCRIPT_PATH/navigate2ws.sh 3"
@@ -200,7 +205,7 @@ bindsym $mod+b exec firefox
 #bindsym $mod+n exec thunar
 #bindsym $mod+l exec lollypop
 #bindsym $mod+m exec thunderbird
-bindsym $mod+g exec kitty ranger
+#bindsym $mod+g exec kitty ranger
 #bindsym $mod+p exec spotify --force-device-scale-factor=2 # shortcut to open Spotify
 bindsym $mod+t exec kitty
 bindsym mod1+$mod+t exec kitty
@@ -264,27 +269,28 @@ bindsym mod1+$mod+Down exec "\
 
 >
 
-set $locker i3lock --color 000000 && sleep 1
+set $PATH_LOCKER /home/rafael/.config/i3lock
+set $locker /home/rafael/.config/i3lock/lock-screen.sh
 set $messenger i3-msg exit
 set $mode_system System: (s)hutdown, (r)eboot, (l)ock, (S)uspend, (h)ibernate, (e)xit/logout
 #-----------------------------
 mode "$mode_system" {
     bindsym l       exec --no-startup-id $locker,                         mode "default"
-    bindsym e       exec --no-startup-id $messenger,                      mode "default"
-    bindsym Shift+s exec --no-startup-id $locker && systemctl suspend,    mode "default"
     bindsym h       exec --no-startup-id $locker && systemctl hibernate,  mode "default"
-    bindsym r       exec --no-startup-id systemctl reboot,                mode "default"
-    bindsym s       exec --no-startup-id systemctl poweroff -i,           mode "default"
+    bindsym Shift+s exec --no-startup-id $locker && systemctl suspend,    mode "default"
+    bindsym e       exec --no-startup-id $PATH_LOCKER/del-screenshot.sh; exec --no-startup-id $messenger,            mode "default"
+    bindsym r       exec --no-startup-id $PATH_LOCKER/del-screenshot.sh; exec --no-startup-id systemctl reboot,      mode "default"
+    bindsym s       exec --no-startup-id $PATH_LOCKER/del-screenshot.sh; exec --no-startup-id systemctl poweroff -i, mode "default"
     #-----------------------------
     # back to normal: Enter or Escape
-    bindsym Return    mode "default"
-    bindsym Escape    mode "default"
-    bindsym $mod+Home mode "default"
+    bindsym Return    exec --no-startup-id $PATH_LOCKER/del-screenshot.sh; mode "default"
+    bindsym Escape    exec --no-startup-id $PATH_LOCKER/del-screenshot.sh; mode "default"
+    bindsym $mod+Home exec --no-startup-id $PATH_LOCKER/del-screenshot.sh; mode "default"
     #-----------------------------
     # inherent default keybinds (i3bang)
     !@default_keybindings
 }
-bindsym $mod+Home mode "$mode_system"
+bindsym $mod+Home exec --no-startup-id $PATH_LOCKER/take-screenshot.sh; mode "$mode_system"
 mode "resize" {
     #-----------------------------
     # colemak home row
@@ -322,18 +328,30 @@ assign [$prop="pavucontrol"] → $ws10
 for_window [$prop="Tk"] floating enable
 for_window [$prop="Toplevel"] floating enable
 
-exec --no-startup-id kitty --class="dropdown_python" -o font_size=20 python -q
-bindsym $mod+y [$prop="^dropdown_python$"] scratchpad show; resize set 1000 600
+exec --no-startup-id kitty --class="dropdown_python" -o font_size=20 -o include=$XDG_CONFIG_HOME/kitty/themes/python.conf python -q
+bindsym $mod+y exec "$SCRIPT_PATH/scratchpad.sh dropdown_python 0.6 0.6"
 for_window [$prop="^dropdown_python$"] floating enable
 for_window [$prop="^dropdown_python$"] move position center
 for_window [$prop="^dropdown_python$"] move scratchpad
 for_window [$prop="^dropdown_python$"] border pixel 5
-exec --no-startup-id kitty --class="dropdown_terminal"
-bindsym $mod+h [$prop="^dropdown_terminal$"] scratchpad show; resize set 1000 600
+exec --no-startup-id kitty --class="dropdown_terminal" -o font_size=14 -o include=$XDG_CONFIG_HOME/kitty/themes/terminal.conf -o background_opacity=0.80
+bindsym $mod+h exec "$SCRIPT_PATH/scratchpad.sh dropdown_terminal 0.75 0.75"
 for_window [$prop="^dropdown_terminal$"] floating enable
 for_window [$prop="^dropdown_terminal$"] move position center
 for_window [$prop="^dropdown_terminal$"] move scratchpad
 for_window [$prop="^dropdown_terminal$"] border pixel 5
+bindsym $mod+n exec "$SCRIPT_PATH/adb-mdns-scrcpy.sh"
+for_window [title="^dropdown_scrcpy" $prop="^scrcpy$"] floating enable
+for_window [title="^dropdown_scrcpy" $prop="^scrcpy$"] move position center
+for_window [title="^dropdown_scrcpy" $prop="^scrcpy$"] move scratchpad
+for_window [title="^dropdown_scrcpy" $prop="^scrcpy$"] border pixel 5
+exec --no-startup-id brave --app=https://music.youtube.com
+bindsym $mod+g exec "$SCRIPT_PATH/scratchpad.sh "brave-music.youtube.com__-Default" 0.9 0.9
+for_window [$prop="^brave-music.youtube.com__-Default$"] floating enable
+for_window [$prop="^brave-music.youtube.com__-Default$"] move position center
+for_window [$prop="^brave-music.youtube.com__-Default$"] move scratchpad
+for_window [$prop="^brave-music.youtube.com__-Default$"] border pixel 5
+for_window [$prop="^brave-music.youtube.com__-Default$"] opacity 0.9
 
 #bar {
 #    # set i3bar position
@@ -366,8 +384,8 @@ exec_always --no-startup-id "$SCRIPT_PATH/xrandr-wallpaper.sh"
 #exec nohup /usr/bin/dunst                        # dunst: notification daemon
 exec /usr/bin/dunst &                            # dunst: notification daemon
 #exec_always dunstctl set-paused true             # dunst: start with notifications paused
-exec --no-startup-id autotiling                  # autotiling
 exec /usr/bin/emacs --daemon &                   # Emacs daemon
+exec_always --no-startup-id autotiling           # autotiling
 exec_always --no-startup-id "$SCRIPT_PATH/xremap-keeb-config.sh"
 exec --no-startup-id "$SCRIPT_PATH/navigate2ws.sh 5"
 #exec --no-startup-id "$SCRIPT_PATH/navigate2ws.sh 2"
