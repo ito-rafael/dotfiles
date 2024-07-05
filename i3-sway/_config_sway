@@ -381,17 +381,16 @@ for_window [$prop="^dropdown_terminal$"] move position center
 for_window [$prop="^dropdown_terminal$"] move scratchpad
 for_window [$prop="^dropdown_terminal$"] border pixel 5
 bindsym $mod+n exec "$SCRIPT_PATH/adb-mdns-scrcpy.sh"
-for_window [title="^dropdown_scrcpy" $prop="^scrcpy$"] floating enable
-for_window [title="^dropdown_scrcpy" $prop="^scrcpy$"] move position center
-for_window [title="^dropdown_scrcpy" $prop="^scrcpy$"] move scratchpad
-for_window [title="^dropdown_scrcpy" $prop="^scrcpy$"] border pixel 5
+for_window [title="^dropdown_scrcpy$" $prop="^scrcpy$"] floating enable
+for_window [title="^dropdown_scrcpy$" $prop="^scrcpy$"] move position center
+for_window [title="^dropdown_scrcpy$" $prop="^scrcpy$"] move scratchpad
+for_window [title="^dropdown_scrcpy$" $prop="^scrcpy$"] border pixel 5
 exec --no-startup-id brave --app=https://music.youtube.com
-bindsym $mod+g exec "$SCRIPT_PATH/scratchpad.sh "brave-music.youtube.com__-Default" 0.9 0.9
-for_window [$prop="^brave-music.youtube.com__-Default$"] floating enable
-for_window [$prop="^brave-music.youtube.com__-Default$"] move position center
-for_window [$prop="^brave-music.youtube.com__-Default$"] move scratchpad
-for_window [$prop="^brave-music.youtube.com__-Default$"] border pixel 5
-for_window [$prop="^brave-music.youtube.com__-Default$"] opacity 0.9
+bindsym $mod+g exec "$SCRIPT_PATH/scratchpad.sh "Brave-browser" 0.9 0.9
+for_window [title="^YouTube Music$" instance="^music.youtube.com$"] floating enable
+for_window [title="^YouTube Music$" instance="^music.youtube.com$"] move position center
+for_window [title="^YouTube Music$" instance="^music.youtube.com$"] move scratchpad
+for_window [title="^YouTube Music$" instance="^music.youtube.com$"] border pixel 5
 
 exec_always --no-startup-id ~/.config/waybar/waybar.sh
 exec "blueman-applet &"                 # Bluetooth
