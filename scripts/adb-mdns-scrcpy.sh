@@ -23,6 +23,7 @@ case "${XDG_SESSION_TYPE}" in
     "x11")
         FOCUSED_OUTPUT=$(i3-msg -t get_workspaces | jq '.[] | select(.focused).output')
         WM_CMD="i3-msg"
+        PROP_PREFIX="window_properties."
         PROP="class"
         CAPTION="title"
         # get height & width of current output
@@ -61,8 +62,28 @@ WIN_HEIGHT=$(echo "0.9 * $RES_HEIGHT / 1" | bc)
 #       - 4K: width = 875
 WIN_WIDTH=$(echo "0.455 * $WIN_HEIGHT / 1" | bc)
 
-# check if scratchpad is already active
+# get focused window
+FOCUSED=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.focused == true) | .'$PROP_PREFIX''$PROP'')
+
+# check if ADB scratchpad is already running
 SCRATCHPAD=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.'$PROP' == "scrcpy" and .'$CAPTION' == "dropdown_scrcpy")')
+
+# check if current focused window is a scratchpad
+if [ $FOCUSED != "scrcpy" ]; then
+    # then check if the {class,app_id} is one of the listed bellow
+    is_scratchpad=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.focused) |
+        .'$PROP_PREFIX''$PROP' == "dropdown_terminal" or
+        .'$PROP_PREFIX''$PROP' == "dropdown_python" or
+        .'$PROP_PREFIX''$PROP' == "scrcpy" and .'$PROP_PREFIX''$CAPTION' == "dropdown_scrcpy" or
+        .'$PROP_PREFIX''$PROP' == "brave-music.youtube.com__-Default" or
+        .'$PROP_PREFIX'class == "Brave-browser" and .'$PROP_PREFIX'title == "YouTube Music" and .'$PROP_PREFIX'instance == "music.youtube.com"
+        ')
+
+    # if focused window is a scratchpad (according to the above list), hide it
+    if [ $is_scratchpad = "true" ]; then
+        $WM_CMD scratchpad show
+    fi
+fi
 
 # display scratchpad if it's active, or try to launch if it isn't
 if [[ $SCRATCHPAD ]]; then
