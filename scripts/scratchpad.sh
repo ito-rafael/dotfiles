@@ -14,6 +14,7 @@ case "${XDG_SESSION_TYPE}" in
     "x11")
         FOCUSED_OUTPUT=$(i3-msg -t get_workspaces | jq '.[] | select(.focused).output')
         WM_CMD="i3-msg"
+        PROP_PREFIX="window_properties."
         PROP="class"
         CAPTION="title"
         # get height & width of current output
@@ -48,16 +49,16 @@ WIN_WIDTH=$(echo "$SCALE_W * $RES_WIDTH / 1" | bc)
 WIN_HEIGHT=$(echo "$SCALE_H * $RES_HEIGHT / 1" | bc)
 
 # get focused window
-FOCUSED=$(swaymsg -t get_tree | jq -re '.. | select(type == "object") | select(.focused == true) | .app_id')
+FOCUSED=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.focused == true) | .'$PROP_PREFIX''$PROP'')
 
 # check if scratchpad requested is different than the focused one
 if [ $FOCUSED != $APPLICATION ]; then
-    # then check if the app_id is one of the listed bellow
+    # then check if the {class,app_id} is one of the listed bellow
     is_scratchpad=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.focused) |
-        .'$PROP' == "dropdown_terminal" or
-        .'$PROP' == "dropdown_python" or
-        .'$PROP' == "scrcpy" and .'$CAPTION' == "dropdown_scrcpy" or
-        .'$PROP' == "brave-music.youtube.com__-Default"
+        .'$PROP_PREFIX''$PROP' == "dropdown_terminal" or
+        .'$PROP_PREFIX''$PROP' == "dropdown_python" or
+        .'$PROP_PREFIX''$PROP' == "scrcpy" and .'$PROP_PREFIX''$CAPTION' == "dropdown_scrcpy" or
+        .'$PROP_PREFIX''$PROP' == "brave-music.youtube.com__-Default"
         ')
 
     # if focused window is a scratchpad (according to the above list), hide it
@@ -67,7 +68,7 @@ if [ $FOCUSED != $APPLICATION ]; then
 fi
 
 # check if scratchpad exists
-SCRATCHPAD=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.'$PROP' == "'$APPLICATION'")')
+SCRATCHPAD=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.'$PROP_PREFIX''$PROP' == "'$APPLICATION'")')
 
 # if it does not exist, launch it
 if [[ ! $SCRATCHPAD ]]; then
