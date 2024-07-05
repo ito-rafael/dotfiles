@@ -251,4 +251,7 @@ autocmd FileType html inoremap ;b <b></b><Space><++><Esc>FbT>i
 " paragraph
 autocmd FileType html inoremap ;p <p></p><Enter><Enter><++><Esc>2ki
 
-
+"================================================
+" revert to default color scheme
+"================================================
+colorscheme vim
