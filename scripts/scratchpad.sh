@@ -48,6 +48,11 @@ SCALE_H=${3:-"0.66"}
 WIN_WIDTH=$(echo "$SCALE_W * $RES_WIDTH / 1" | bc)
 WIN_HEIGHT=$(echo "$SCALE_H * $RES_HEIGHT / 1" | bc)
 
+# special case for YouTube Music on i3wm (use "instance" instead of "class")
+if [ $APPLICATION = "music.youtube.com" ]; then
+    PROP="instance"
+fi
+
 # get focused window
 FOCUSED=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.focused == true) | .'$PROP_PREFIX''$PROP'')
 
@@ -58,7 +63,8 @@ if [ $FOCUSED != $APPLICATION ]; then
         .'$PROP_PREFIX''$PROP' == "dropdown_terminal" or
         .'$PROP_PREFIX''$PROP' == "dropdown_python" or
         .'$PROP_PREFIX''$PROP' == "scrcpy" and .'$PROP_PREFIX''$CAPTION' == "dropdown_scrcpy" or
-        .'$PROP_PREFIX''$PROP' == "brave-music.youtube.com__-Default"
+        .'$PROP_PREFIX''$PROP' == "brave-music.youtube.com__-Default" or
+        .'$PROP_PREFIX'class == "Brave-browser" and .'$PROP_PREFIX'title == "YouTube Music" and .'$PROP_PREFIX'instance == "music.youtube.com"
         ')
 
     # if focused window is a scratchpad (according to the above list), hide it
@@ -85,6 +91,10 @@ if [[ ! $SCRATCHPAD ]]; then
             brave --app=https://music.youtube.com &
             sleep 2
             ;;
+        "music.youtube.com")
+            brave --app=https://music.youtube.com &
+            sleep 2
+            ;;
         *)
             exit 0
             ;;
@@ -94,8 +104,15 @@ fi
 # proceed to resize, center & display requested scratchpad
 $WM_CMD '['$PROP'='$APPLICATION'] scratchpad show; ['$PROP'='$APPLICATION'] resize set '$WIN_WIDTH' '$WIN_HEIGHT'; ['$PROP'='$APPLICATION'] move position center'
 
-# set transparency for "YouTube Music" scratchpad
-if [ $APPLICATION = "brave-music.youtube.com__-Default" ]; then
+# set transparency for "YouTube Music" scratchpad on Sway
+if [ "$APPLICATION" = "brave-music.youtube.com__-Default" ] ; then
     sleep 0.01
     $WM_CMD '['$PROP'='$APPLICATION'] opacity set 0.9'
+fi
+
+# set transparency for "YouTube Music" scratchpad on i3wm
+if [ "$APPLICATION" = "music.youtube.com" ]; then
+    WINDOW_ID=$(i3-msg -t get_tree | jq -re '.. | select(type == "object") | select(.name == "YouTube Music") | .window')
+    echo $WINDOW_ID > /home/rafael/AAA
+    picom-trans -w $WINDOW_ID -o 90
 fi
