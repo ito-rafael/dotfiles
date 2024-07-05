@@ -1416,10 +1416,10 @@ for_window [$prop="^dropdown_terminal$"] border pixel 5
 ** scrcpy
 #+begin_src conf :noweb-ref scratchpads
 bindsym $mod+n exec "$SCRIPT_PATH/adb-mdns-scrcpy.sh"
-for_window [title="^dropdown_scrcpy" $prop="^scrcpy$"] floating enable
-for_window [title="^dropdown_scrcpy" $prop="^scrcpy$"] move position center
-for_window [title="^dropdown_scrcpy" $prop="^scrcpy$"] move scratchpad
-for_window [title="^dropdown_scrcpy" $prop="^scrcpy$"] border pixel 5
+for_window [title="^dropdown_scrcpy$" $prop="^scrcpy$"] floating enable
+for_window [title="^dropdown_scrcpy$" $prop="^scrcpy$"] move position center
+for_window [title="^dropdown_scrcpy$" $prop="^scrcpy$"] move scratchpad
+for_window [title="^dropdown_scrcpy$" $prop="^scrcpy$"] border pixel 5
 #+end_src
 ** YouTube Music (on Brave)
 #+begin_src conf :noweb-ref scratchpads
