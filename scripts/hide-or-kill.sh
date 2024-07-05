@@ -8,8 +8,10 @@ This script is used as a replacement for the "swaymsg kill" command. Instead of 
 case "${XDG_SESSION_TYPE}" in
     "x11")
         WM_CMD="i3-msg"
-        PROP="window_properties.class"
-        CAPTION="window_properties.title"
+        PROP_PREFIX="window_properties."
+        PROP="class"
+        CAPTION="title"
+        INSTANCE="instance"
         ;;
     "wayland")
         WM_CMD="swaymsg"
@@ -26,10 +28,11 @@ esac
 
 # check if the app_id is one of the listed bellow
 is_scratchpad=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.focused) |
-    .'$PROP' == "dropdown_terminal" or
-    .'$PROP' == "dropdown_python" or
-    .'$PROP' == "scrcpy" and .'$CAPTION' == "dropdown_scrcpy" or
-    .'$PROP' == "brave-music.youtube.com__-Default"
+    .'$PROP_PREFIX''$PROP' == "dropdown_terminal" or
+    .'$PROP_PREFIX''$PROP' == "dropdown_python" or
+    .'$PROP_PREFIX''$PROP' == "scrcpy" and .'$PROP_PREFIX''$CAPTION' == "dropdown_scrcpy" or
+    .'$PROP_PREFIX''$PROP' == "brave-music.youtube.com__-Default" or
+    .'$PROP_PREFIX''$PROP' == "Brave-browser" and .'$PROP_PREFIX''$CAPTION' == "YouTube Music" and .'$PROP_PREFIX''$INSTANCE' == "music.youtube.com"
     ')
 
 # decide whether to hide (if scratchpad) of kill the window
