@@ -1,3 +1,7 @@
 indicator-idle-visible
 indicator-radius=120
 indicator-thickness=10
+
+clock
+timestr=%H:%M:%S
+datestr=%d %b
