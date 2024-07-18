@@ -8,6 +8,7 @@
 - [[#general][General]]
   - [[#indicator][Indicator]]
   - [[#clock--date][Clock & Date]]
+  - [[#effects][Effects]]
 
 * General
 ** Indicator
@@ -21,4 +22,11 @@ indicator-thickness=10
 clock
 timestr=%H:%M:%S
 datestr=%d %b
+#+end_src
+** Effects
+#+begin_src conf
+screenshots
+effect-blur=12x7
+effect-pixelate=3
+effect-vignette=0.2:0.2
 #+end_src

@@ -5,3 +5,8 @@ indicator-thickness=10
 clock
 timestr=%H:%M:%S
 datestr=%d %b
+
+screenshots
+effect-blur=12x7
+effect-pixelate=3
+effect-vignette=0.2:0.2
