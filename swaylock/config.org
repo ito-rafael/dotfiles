@@ -9,6 +9,7 @@
   - [[#indicator][Indicator]]
   - [[#clock--date][Clock & Date]]
   - [[#effects][Effects]]
+  - [[#other][Other]]
 
 * General
 ** Indicator
@@ -29,4 +30,9 @@ screenshots
 effect-blur=12x7
 effect-pixelate=3
 effect-vignette=0.2:0.2
+#+end_src
+** Other
+#+begin_src conf
+fade-in=0.4
+grace=1
 #+end_src
