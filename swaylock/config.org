@@ -54,6 +54,8 @@ bs-hl-color=fa000077
 #+begin_src conf
 text-caps-lock-color=fa0000
 inside-caps-lock-color=aa333333
+caps-lock-key-hl-color=fa0000dd
+caps-lock-bs-hl-color=1793d177
 #+end_src
 ** Verifying
 #+begin_src conf
