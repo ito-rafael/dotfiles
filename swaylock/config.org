@@ -51,6 +51,7 @@ inside-color=111111aa
 ** Caps Lock
 #+begin_src conf
 text-caps-lock-color=fa0000
+inside-caps-lock-color=aa333333
 #+end_src
 ** Verifying
 #+begin_src conf
