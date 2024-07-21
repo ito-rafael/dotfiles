@@ -47,6 +47,7 @@ grace=1
 #+begin_src conf
 text-color=1793d1dd
 inside-color=111111aa
+key-hl-color=1793d1
 #+end_src
 ** Caps Lock
 #+begin_src conf
