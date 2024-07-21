@@ -14,6 +14,7 @@
   - [[#default][Default]]
   - [[#caps-lock][Caps Lock]]
   - [[#verifying][Verifying]]
+  - [[#cleared][Cleared]]
 
 * General
 ** Indicator
@@ -44,6 +45,7 @@ grace=1
 ** Default
 #+begin_src conf
 text-color=1793d1dd
+#+end_src
 ** Caps Lock
 #+begin_src conf
 text-caps-lock-color=fa0000
@@ -52,4 +54,6 @@ text-caps-lock-color=fa0000
 #+begin_src conf
 text-ver-color=000000
 #+end_src
+** Cleared
+#+begin_src conf
 #+end_src
