@@ -66,4 +66,5 @@ inside-clear-color=aa6611
 ** Invalid
 #+begin_src conf
 text-wrong-color=000000
+inside-wrong-color=883300cc
 #+end_src
