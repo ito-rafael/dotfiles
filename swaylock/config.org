@@ -61,6 +61,7 @@ inside-ver-color=0077ff88
 ** Cleared
 #+begin_src conf
 text-clear-color=222222
+inside-clear-color=aa6611
 #+end_src
 ** Invalid
 #+begin_src conf
