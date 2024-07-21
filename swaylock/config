@@ -17,6 +17,7 @@ grace=1
 text-color=1793d1dd
 inside-color=111111aa
 key-hl-color=1793d1
+bs-hl-color=fa000077
 
 text-caps-lock-color=fa0000
 inside-caps-lock-color=aa333333
