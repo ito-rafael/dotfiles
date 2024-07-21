@@ -13,6 +13,7 @@
 - [[#text-scenarios][Text scenarios]]
   - [[#default][Default]]
   - [[#caps-lock][Caps Lock]]
+  - [[#verifying][Verifying]]
 
 * General
 ** Indicator
@@ -46,5 +47,9 @@ text-color=1793d1dd
 ** Caps Lock
 #+begin_src conf
 text-caps-lock-color=fa0000
+#+end_src
+** Verifying
+#+begin_src conf
+text-ver-color=000000
 #+end_src
 #+end_src
