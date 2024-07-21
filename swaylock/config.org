@@ -56,6 +56,7 @@ inside-caps-lock-color=aa333333
 ** Verifying
 #+begin_src conf
 text-ver-color=000000
+inside-ver-color=0077ff88
 #+end_src
 ** Cleared
 #+begin_src conf
