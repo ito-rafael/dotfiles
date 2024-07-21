@@ -12,6 +12,7 @@
   - [[#other][Other]]
 - [[#text-scenarios][Text scenarios]]
   - [[#default][Default]]
+  - [[#caps-lock][Caps Lock]]
 
 * General
 ** Indicator
@@ -42,4 +43,8 @@ grace=1
 ** Default
 #+begin_src conf
 text-color=1793d1dd
+** Caps Lock
+#+begin_src conf
+text-caps-lock-color=fa0000
+#+end_src
 #+end_src
