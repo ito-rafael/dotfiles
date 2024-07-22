@@ -78,6 +78,7 @@ Not needed if an EFI partition already exists.
 | command |       description       |
 |---------+-------------------------|
 |    n    |   add a new partition   |
+|    p    |     partition type      |
 |    2    |    partition number     |
 | <ENTER> |      first sector       |
 |  +300M  |       last sector       |
@@ -94,6 +95,7 @@ Update 2021/05: EFI partition type "ef"
 | command |       description       |
 |---------+-------------------------|
 |    n    |   add a new partition   |
+|    p    |     partition type      |
 |    3    |    partition number     |
 | <ENTER> |      first sector       |
 | <ENTER> |       last sector       |
