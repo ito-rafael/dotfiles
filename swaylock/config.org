@@ -47,6 +47,7 @@ grace=1
 #+begin_src conf
 text-color=1793d1dd
 inside-color=111111aa
+ring-color=1793d155
 key-hl-color=1793d1
 bs-hl-color=fa000077
 #+end_src
