@@ -63,6 +63,7 @@ caps-lock-bs-hl-color=1793d177
 #+begin_src conf
 text-ver-color=000000
 inside-ver-color=0077ff88
+ring-ver-color=3300ffff
 #+end_src
 ** Cleared
 #+begin_src conf
