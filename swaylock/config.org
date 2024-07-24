@@ -69,6 +69,7 @@ ring-ver-color=3300ffff
 #+begin_src conf
 text-clear-color=222222
 inside-clear-color=aa6611
+ring-clear-color=eeaa55
 #+end_src
 ** Invalid
 #+begin_src conf

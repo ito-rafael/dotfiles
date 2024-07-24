@@ -32,6 +32,7 @@ ring-ver-color=3300ffff
 
 text-clear-color=222222
 inside-clear-color=aa6611
+ring-clear-color=eeaa55
 
 text-wrong-color=000000
 inside-wrong-color=883300cc
