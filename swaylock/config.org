@@ -48,6 +48,7 @@ grace=1
 text-color=1793d1dd
 inside-color=111111aa
 ring-color=1793d155
+line-color=000000
 key-hl-color=1793d1
 bs-hl-color=fa000077
 #+end_src
