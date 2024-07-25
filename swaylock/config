@@ -35,6 +35,7 @@ line-ver-color=000000
 text-clear-color=222222
 inside-clear-color=aa6611
 ring-clear-color=eeaa55
+line-clear-color=000000
 
 text-wrong-color=000000
 inside-wrong-color=883300cc
