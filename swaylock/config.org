@@ -79,4 +79,5 @@ line-clear-color=000000
 text-wrong-color=000000
 inside-wrong-color=883300cc
 ring-wrong-color=fa0000aa
+line-wrong-color=000000
 #+end_src
