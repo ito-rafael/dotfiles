@@ -27,9 +27,8 @@
 - [[#i3bang-raw-section-beginning][i3bang: raw section (beginning)]]
 - [[#media-control][Media control]]
   - [[#playerctl][Playerctl]]
-  - [[#volume-i3blocks][Volume (i3blocks)]]
-  - [[#volume][Volume]]
-  - [[#microphone][Microphone]]
+  - [[#volume-control][Volume control]]
+  - [[#microphone-control][Microphone control]]
 - [[#window-settings][Window settings]]
   - [[#change-focus][Change focus]]
   - [[#move-window][Move window]]
@@ -532,7 +531,7 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioPause exec playerctl play-pause
 bindsym XF86AudioPrev exec playerctl previous
 #+end_src
-** Volume (i3blocks)
+** Volume control
 Use pactl to adjust volume in PulseAudio.
 #+begin_src conf :tangle no
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl list sinks | grep 'Sink #' | grep -o '[0-9]*' | xargs -i pactl set-sink-volume {} +5% && pkill -RTMIN+1 i3blocks
@@ -540,7 +539,7 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl list sinks | grep 'Sink 
 bindsym XF86AudioMute exec --no-startup-id pactl list sinks | grep 'Sink #' | grep -o '[0-9]*' | xargs -i pactl set-sink-mute {} toggle && pkill -RTMIN+1 i3blocks
 bindsym XF86AudioMicMute exec --no-startup-id pactl list sources | grep 'Source #' | grep -o '[0-9]*' | xargs -i pactl set-sink-mute {} toggle && pkill -RTMIN+1 i3blocks
 #+end_src
-** Volume
+*** Volume
 Volume up/down coarse.
 #+begin_src conf :noweb-ref volume
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q sset Master 5%+
@@ -549,8 +548,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q sset Master 5%-
 
 Volume up/down fine.
 #+begin_src conf :noweb-ref volume
-bindsym ctrl+shift+F14 exec --no-startup-id amixer -q sset Master 1%-
-bindsym ctrl+shift+F15 exec --no-startup-id amixer -q sset Master 1%+
+bindsym F15 exec --no-startup-id amixer -q sset Master 1%-
+bindsym ctrl+F15 exec --no-startup-id amixer -q sset Master 1%+
 #+end_src
 
 Mute/unmute audio.
