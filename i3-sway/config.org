@@ -29,6 +29,8 @@
   - [[#playerctl][Playerctl]]
   - [[#volume-control][Volume control]]
   - [[#microphone-control][Microphone control]]
+- [[#opacity][Opacity]]
+  - [[#sway-1][Sway]]
 - [[#window-settings][Window settings]]
   - [[#change-focus][Change focus]]
   - [[#move-window][Move window]]
@@ -596,6 +598,18 @@ bindsym shift+$mod+F14 exec --no-startup-id amixer -q sset Capture toggle
 <<playerctl>>
 <<microphone>>
 <<volume>>
+#+end_src
+* Opacity
+** Sway
+Windows transparency/opacity can be achieved with the inactive-windows-transparency.py script:
+https://github.com/OctopusET/sway-contrib
+*** Current window
+#+begin_src conf :noweb-ref sway-opacity
+bindsym F19      exec --no-startup-id pkill -f inactive-windows-transparency; exec "$SCRIPT_PATH/opacity.sh current dec"
+#+end_src
+*** Sway
+#+begin_src conf :noweb yes :tangle _config_sway
+<<sway-opacity>>
 #+end_src
 * Window settings
 ** Change focus
