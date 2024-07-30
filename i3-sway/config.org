@@ -561,26 +561,26 @@ Set volume to 50%.
 #+begin_src conf :noweb-ref volume
 bindsym $mod+F15 exec --no-startup-id amixer -q sset Master 50%
 #+end_src
-** Microphone
+** Microphone control
 Mic volume up/down coarse.
-#+begin_src conf :noweb-ref volume
-bindsym ctrl+F14 exec --no-startup-id amixer -q sset Capture 5%-
-bindsym ctrl+F15 exec --no-startup-id amixer -q sset Capture 5%+
+#+begin_src conf :noweb-ref microphone
+bindsym F14      exec --no-startup-id amixer -q sset Capture 5%-
+bindsym ctrl+F14 exec --no-startup-id amixer -q sset Capture 5%+
 #+end_src
 
 Mic volume up/down fine.
-#+begin_src conf :noweb-ref volume
-bindsym shift+F14 exec --no-startup-id amixer -q sset Capture 1%-
-bindsym shift+F15 exec --no-startup-id amixer -q sset Capture 1%+
+#+begin_src conf :noweb-ref microphone
+bindsym shift+F14      exec --no-startup-id amixer -q sset Capture 1%-
+bindsym ctrl+shift+F14 exec --no-startup-id amixer -q sset Capture 1%+
 #+end_src
 
 Set mic volume to 50%.
-#+begin_src conf :noweb-ref volume
+#+begin_src conf :noweb-ref microphone
 bindsym $mod+F14 exec --no-startup-id amixer -q sset Capture 50%
 #+end_src
 
 Mute/unmute mic.
-#+begin_src conf :noweb-ref volume
+#+begin_src conf :noweb-ref microphone
 bindsym XF86AudioMicMute exec --no-startup-id amixer -q sset Capture toggle
 bindsym shift+$mod+F14 exec --no-startup-id amixer -q sset Capture toggle
 #+end_src
@@ -588,11 +588,13 @@ bindsym shift+$mod+F14 exec --no-startup-id amixer -q sset Capture toggle
 *** i3
 #+begin_src conf :noweb yes :tangle _config_i3
 <<playerctl>>
+<<microphone>>
 <<volume>>
 #+end_src
 *** Sway
 #+begin_src conf :noweb yes :tangle _config_sway
 <<playerctl>>
+<<microphone>>
 <<volume>>
 #+end_src
 * Window settings
