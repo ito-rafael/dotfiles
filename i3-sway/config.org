@@ -871,8 +871,8 @@ bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
 ** Rofi
 #+begin_src conf :noweb-ref keybindings
 bindsym $mod+Return       exec rofi -show run    -monitor $(swaymsg -t get_outputs | jq '.[] | select(.focused==true).name')
-bindsym $mod+bracketright exec rofi -show window -monitor $(swaymsg -t get_outputs | jq '.[] | select(.focused==true).name')
-bindsym $mod+backslash    exec rofi -show ssh    -monitor $(swaymsg -t get_outputs | jq '.[] | select(.focused==true).name')
+bindsym Shift+$mod+Return exec rofi -show ssh    -monitor $(swaymsg -t get_outputs | jq '.[] | select(.focused==true).name')
+bindsym Ctrl+$mod+Return  exec rofi -show window -monitor $(swaymsg -t get_outputs | jq '.[] | select(.focused==true).name')
 #+end_src
 ** Screenshot
 *** i3
