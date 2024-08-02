@@ -78,6 +78,7 @@
 - [[#scratchpads][Scratchpads]]
   - [[#python][Python]]
   - [[#terminal-1][Terminal]]
+  - [[#temporary-scratchpad][Temporary scratchpad]]
   - [[#youtube-music-on-brave][YouTube Music (on Brave)]]
   - [[#scrcpy][scrcpy]]
 - [[#startup-commands][Startup commands]]
@@ -1436,6 +1437,9 @@ for_window [title="^dropdown_scrcpy$" $prop="^scrcpy$"] floating enable
 for_window [title="^dropdown_scrcpy$" $prop="^scrcpy$"] move position center
 for_window [title="^dropdown_scrcpy$" $prop="^scrcpy$"] move scratchpad
 for_window [title="^dropdown_scrcpy$" $prop="^scrcpy$"] border pixel 5
+** Temporary scratchpad
+#+begin_src conf :noweb-ref scratchpads
+bindsym $mod+b exec "$SCRIPT_PATH/scratchpad_temp.sh show"
 #+end_src
 ** YouTube Music (on Brave)
 *** i3
@@ -1446,6 +1450,7 @@ for_window [title="^YouTube Music$" instance="^music.youtube.com$"] floating ena
 for_window [title="^YouTube Music$" instance="^music.youtube.com$"] move position center
 for_window [title="^YouTube Music$" instance="^music.youtube.com$"] move scratchpad
 for_window [title="^YouTube Music$" instance="^music.youtube.com$"] border pixel 5
+#+end_src
 *** Sway
 #+begin_src conf :noweb-ref sway-yt-music
 exec --no-startup-id brave-beta --app=https://music.youtube.com
