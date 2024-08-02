@@ -869,7 +869,14 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
 #+end_src
 ** Rofi
-#+begin_src conf :noweb-ref keybindings
+*** i3
+#+begin_src conf :noweb-ref i3-rofi
+bindsym $mod+Return       exec rofi -show run
+bindsym Shift+$mod+Return exec rofi -show ssh
+bindsym Ctrl+$mod+Return  exec rofi -show window
+#+end_src
+*** Sway
+#+begin_src conf :noweb-ref sway-rofi
 bindsym $mod+Return       exec rofi -show run    -monitor $(swaymsg -t get_outputs | jq '.[] | select(.focused==true).name')
 bindsym Shift+$mod+Return exec rofi -show ssh    -monitor $(swaymsg -t get_outputs | jq '.[] | select(.focused==true).name')
 bindsym Ctrl+$mod+Return  exec rofi -show window -monitor $(swaymsg -t get_outputs | jq '.[] | select(.focused==true).name')
@@ -905,11 +912,13 @@ bindsym shift+$alt+F14 exec "$SCRIPT_PATH/obs-tools.py --record"
 *** i3
 #+begin_src conf :noweb yes :tangle _config_i3
 <<keybindings>>
+<<i3-rofi>>
 <<i3-screenshot>>
 #+end_src
 *** Sway
 #+begin_src conf :noweb yes :tangle _config_sway
 <<keybindings>>
+<<sway-rofi>>
 <<sway-screenshot>>
 #+end_src
 * Logitech MX
