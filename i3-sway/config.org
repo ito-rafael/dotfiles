@@ -1443,6 +1443,7 @@ for_window [$prop="^dropdown_terminal$"] border pixel 5
 ** Temporary scratchpad
 #+begin_src conf :noweb-ref scratchpads
 bindsym $mod+b exec "$SCRIPT_PATH/scratchpad_temp.sh show"
+bindsym ctrl+$mod+b exec "$SCRIPT_PATH/scratchpad_temp.sh destroy"
 #+end_src
 ** YouTube Music (on Brave)
 *** i3
