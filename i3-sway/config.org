@@ -612,6 +612,7 @@ bindsym ctrl+F19 exec --no-startup-id pkill -f inactive-windows-transparency; ex
 *** All windows
 #+begin_src conf :noweb-ref sway-opacity
 bindsym shift+F19      exec --no-startup-id pkill -f inactive-windows-transparency; exec "$SCRIPT_PATH/opacity.sh all dec"
+bindsym shift+ctrl+F19 exec --no-startup-id pkill -f inactive-windows-transparency; exec "$SCRIPT_PATH/opacity.sh all inc"
 #+end_src
 *** Sway
 #+begin_src conf :noweb yes :tangle _config_sway
