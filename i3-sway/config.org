@@ -609,6 +609,10 @@ https://github.com/OctopusET/sway-contrib
 bindsym F19      exec --no-startup-id pkill -f inactive-windows-transparency; exec "$SCRIPT_PATH/opacity.sh current dec"
 bindsym ctrl+F19 exec --no-startup-id pkill -f inactive-windows-transparency; exec "$SCRIPT_PATH/opacity.sh current inc"
 #+end_src
+*** All windows
+#+begin_src conf :noweb-ref sway-opacity
+bindsym shift+F19      exec --no-startup-id pkill -f inactive-windows-transparency; exec "$SCRIPT_PATH/opacity.sh all dec"
+#+end_src
 *** Sway
 #+begin_src conf :noweb yes :tangle _config_sway
 <<sway-opacity>>
