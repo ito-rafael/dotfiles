@@ -193,7 +193,7 @@ alias tlmgr='$TEXMFDIST/scripts/texlive/tlmgr.pl --usermode'
 #-----------------------------
 # ZSA Moonlander
 alias rmm='rm moonlander_*.bin'
-alias wcm='wally-cli moonlander_*.bin'
+alias wcm='wally-cli "$(command ls -t moonlander_inkl-m-*.bin | head -1)"'
 #-----------------------------
 # Package manager
 alias {paru,yay}='paru --aur'       # paru/yay
