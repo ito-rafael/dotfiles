@@ -64,7 +64,7 @@ if [ $FOCUSED != $APPLICATION ]; then
         .'$PROP_PREFIX''$PROP' == "dropdown_python" or
         .'$PROP_PREFIX''$PROP' == "scrcpy" and .'$PROP_PREFIX''$CAPTION' == "dropdown_scrcpy" or
         .'$PROP_PREFIX''$PROP' == "brave-music.youtube.com__-Default" or
-        .'$PROP_PREFIX'class == "Brave-browser" and .'$PROP_PREFIX'title == "YouTube Music" and .'$PROP_PREFIX'instance == "music.youtube.com"
+        .'$PROP_PREFIX'class == "Brave-browser-beta" and .'$PROP_PREFIX'title == "YouTube Music" and .'$PROP_PREFIX'instance == "music.youtube.com"
         ')
 
     # if focused window is a scratchpad (according to the above list), hide it
@@ -88,11 +88,11 @@ if [[ ! $SCRATCHPAD ]]; then
             sleep 0.05
             ;;
         "brave-music.youtube.com__-Default")
-            brave --app=https://music.youtube.com &
+            brave-beta --app=https://music.youtube.com &
             sleep 2
             ;;
         "music.youtube.com")
-            brave --app=https://music.youtube.com &
+            brave-beta --app=https://music.youtube.com &
             sleep 2
             ;;
         *)
