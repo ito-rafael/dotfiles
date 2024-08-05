@@ -1,8 +1,6 @@
 #!/usr/bin/env sh
 
-'''
-This script is used as a replacement for the "swaymsg kill" command. Instead of instantly killing a window, it first checks if the app_id is a scratchpad. If it is, it simply hides the scratchpad instead of killing it. If it is a regular window, then the window is killed normally.
-'''
+#This script is used as a replacement for the "swaymsg kill" command. Instead of instantly killing a window, it first checks if the app_id is a scratchpad. If it is, it simply hides the scratchpad instead of killing it. If it is a regular window, then the window is killed normally.
 
 SCRATCHPAD_TEMP='/tmp/scratchpad_pid.tmp'
 # check if file exists
