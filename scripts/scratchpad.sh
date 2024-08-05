@@ -113,6 +113,5 @@ fi
 # set transparency for "YouTube Music" scratchpad on i3wm
 if [ "$APPLICATION" = "music.youtube.com" ]; then
     WINDOW_ID=$(i3-msg -t get_tree | jq -re '.. | select(type == "object") | select(.name == "YouTube Music") | .window')
-    echo $WINDOW_ID > /home/rafael/AAA
     picom-trans -w $WINDOW_ID -o 90
 fi
