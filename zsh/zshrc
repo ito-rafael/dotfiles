@@ -191,8 +191,8 @@ alias wlprop='$SCRIPTS/wlprop.sh'
 # LaTeX
 alias tlmgr='$TEXMFDIST/scripts/texlive/tlmgr.pl --usermode'
 #-----------------------------
-alias rmm='rm moonlander_*.bin'
 # ZSA Moonlander/Planck EZ
+alias rmm='find ~/Downloads -type f -name "planck_ez_glow_inkl-p-*.bin" -or -name "moonlander_inkl-m-*.bin" | xargs rm -f --'
 alias wcm='wally-cli "$(command ls -t moonlander_inkl-m-*.bin | head -1)"'
 alias wcp='wally-cli "$(command ls -t planck_ez_glow_inkl-p-*.bin | head -1)"'
 #-----------------------------
