@@ -360,6 +360,7 @@ grub-mkconfig -o /efi/EFI/arch/grub/grub.cfg
 Exit chroot environment, unmount partitions and reboot
 #+begin_src sh
 exit
+swapoff /mnt/swap/swapfile
 umount -R /mnt
 reboot
 #+end_src
