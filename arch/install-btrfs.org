@@ -121,6 +121,7 @@ Update: instead of a partition, use a swap file or zram kernel mod!
 ** Format, mount and create subvolumes
 *** Format & mount partition
 #+begin_src sh
+mkfs.fat -F32 /dev/sda2
 mkfs.btrfs /dev/nvme0n1p3
 mount /dev/nvme0n1p3 /mnt
 #+end_src
