@@ -40,7 +40,7 @@ is_scratchpad=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | se
     .'$PROP_PREFIX''$PROP' == "dropdown_python" or
     .'$PROP_PREFIX''$PROP' == "scrcpy" and .'$PROP_PREFIX''$CAPTION' == "dropdown_scrcpy" or
     .'$PROP_PREFIX''$PROP' == "brave-music.youtube.com__-Default" or
-    .'$PROP_PREFIX''$PROP' == "Brave-browser" and .'$PROP_PREFIX''$INSTANCE' == "music.youtube.com" or
+    .'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX''$INSTANCE' == "music.youtube.com" or
     .pid == '$TEMP_PID'
     ')
 
