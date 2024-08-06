@@ -77,6 +77,18 @@ keymap:
       SUPER-ALT-w: [space, b, k]
       SUPER-ALT-q: [C-w, q]
 #+end_src
+** Brave
+*** Tab navigation with on forbidden pages (Surfingkeys)
+#+begin_src conf :noweb-ref surfingkeys
+  - name: Prev/Next tab
+    exact_match: true
+    application:
+      only: brave-browser
+    window:
+      only: ["better onetab - Brave", "Extensions - Brave", "chrome://newtab - Brave", "Chrome Web Store - Brave"]
+    remap:
+      SHIFT-E: C-Tab
+#+end_src
 * Tangle :noexport:
 ** i3
 #+begin_src conf :noweb yes :tangle config_i3.yml
