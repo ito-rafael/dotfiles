@@ -88,6 +88,7 @@ keymap:
       only: ["better onetab - Brave", "Extensions - Brave", "chrome://newtab - Brave", "Chrome Web Store - Brave"]
     remap:
       SHIFT-E: C-Tab
+      SHIFT-I: C-SHIFT-Tab
 #+end_src
 * Tangle :noexport:
 ** i3
