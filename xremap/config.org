@@ -89,6 +89,7 @@ keymap:
     remap:
       SHIFT-E: C-Tab
       SHIFT-I: C-SHIFT-Tab
+      SHIFT-X: C-SHIFT-T
 #+end_src
 * Tangle :noexport:
 ** i3
