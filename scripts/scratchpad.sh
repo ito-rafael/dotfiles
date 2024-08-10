@@ -64,7 +64,8 @@ if [ $FOCUSED != $APPLICATION ]; then
         .'$PROP_PREFIX''$PROP' == "dropdown_python" or
         .'$PROP_PREFIX''$PROP' == "scrcpy" and .'$PROP_PREFIX''$CAPTION' == "dropdown_scrcpy" or
         .'$PROP_PREFIX''$PROP' == "brave-music.youtube.com__-Default" or
-        .'$PROP_PREFIX'class == "Brave-browser-beta" and .'$PROP_PREFIX'title == "YouTube Music" and .'$PROP_PREFIX'instance == "music.youtube.com"
+        .'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX'title == "YouTube Music" and .'$PROP_PREFIX'instance == "music.youtube.com" or
+        .'$PROP_PREFIX''$PROP' == "keymapp"
         ')
 
     # if focused window is a scratchpad (according to the above list), hide it
@@ -94,6 +95,10 @@ if [[ ! $SCRATCHPAD ]]; then
         "music.youtube.com")
             brave-beta --app=https://music.youtube.com &
             sleep 2
+            ;;
+        "keymapp")
+            keymapp
+            sleep 1
             ;;
         *)
             exit 0
