@@ -2,6 +2,7 @@
 #
 # This script is meant to be used to turn on/off/dim the backlit RGB LEDs from specific keyboards. Currently, only two keyboards are supported:
 #   - ZSA Moonlander MK1
+#   - ZSA Planck EZ Glow
 #
 # Prerequisites:
 #   - ZSA's Keymapp (paru -S zsa-keymapp-bin)
@@ -29,6 +30,21 @@ else
     KEYBOARD=$(kontroll status | grep "Connected keyboard" | sed "s/Connected keyboard: *\s\(.*\)/\1/")
     echo "Found ZSA keyboard connected: $KEYBOARD"
     case "${KEYBOARD}" in
+        # Planck EZ keyboard connected
+        "Planck EZ Glow")
+            # Planck EZ Left
+            L1=$(seq 0 4)
+            L2=$(seq 12 16)
+            L3=$(seq 24 28)
+            L4=$(seq 38 40)
+            LT=""
+            # Planck EZ Right
+            R1=$(seq 7 11)
+            R2=$(seq 19 23)
+            R3=$(seq 31 35)
+            R4=$(seq 42 44)
+            RT=""
+            ;;
         # Moonlander keyboard connected
         "Moonlander MK1")
             # Moonlander Left
