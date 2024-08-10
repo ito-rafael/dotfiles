@@ -78,6 +78,7 @@
 - [[#scratchpads][Scratchpads]]
   - [[#python][Python]]
   - [[#terminal-1][Terminal]]
+  - [[#zsa-keymapp][ZSA Keymapp]]
   - [[#temporary-scratchpad][Temporary scratchpad]]
   - [[#youtube-music-on-brave][YouTube Music (on Brave)]]
   - [[#scrcpy][scrcpy]]
@@ -1465,7 +1466,15 @@ for_window [$prop="^dropdown_terminal$"] move position center
 for_window [$prop="^dropdown_terminal$"] move scratchpad
 for_window [$prop="^dropdown_terminal$"] border pixel 5
 #+end_src
+** ZSA Keymapp
 #+begin_src conf :noweb-ref scratchpads
+exec --no-startup-id /usr/bin/keymapp
+bindsym $mod+k exec "$SCRIPT_PATH/scratchpad.sh keymapp 0.75 0.75"
+for_window [$prop="^keymapp$"] floating enable
+for_window [$prop="^keymapp$"] move position center
+for_window [$prop="^keymapp$"] move scratchpad
+for_window [$prop="^keymapp$"] border pixel 5
+#+end_src
 ** Temporary scratchpad
 #+begin_src conf :noweb-ref scratchpads
 exec --no-startup-id "rm /tmp/scratchpad_pid.tmp"
