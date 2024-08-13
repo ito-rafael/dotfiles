@@ -29,6 +29,8 @@ fi
 
 # pause notifications
 dunstctl set-paused true
+# pause medias
+playerctl --all-players pause
 
 # lock screen
 i3lock \
