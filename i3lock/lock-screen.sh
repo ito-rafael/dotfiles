@@ -76,6 +76,9 @@ i3lock \
 # The "--nofork" flag of the i3lock command garantees that the
 # next commands will run only after the system is unlocked.
 
+# turn on keyboard LEDs
+$XDG_CONFIG_HOME/scripts/keyboard-leds.sh on
+
 # unpause notifications
 dunstctl set-paused false
 
