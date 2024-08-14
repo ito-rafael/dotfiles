@@ -12,3 +12,10 @@ dunstctl set-paused true
 #-----------------------------
 # lock screen
 swaylock --config $XDG_CONFIG_HOME/swaylock/config
+
+#-----------------------------
+# after screen locking
+#-----------------------------
+
+# unpause notifications
+dunstctl set-paused false
