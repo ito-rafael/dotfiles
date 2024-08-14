@@ -7,6 +7,9 @@
 # pause notifications
 dunstctl set-paused true
 
+# dim LEDs of keyboard
+$XDG_CONFIG_HOME/scripts/keyboard-leds.sh dim
+
 #-----------------------------
 # screen locking
 #-----------------------------
