@@ -1451,7 +1451,7 @@ for_window [$prop="Toplevel"] floating enable
 ** Python
 #+begin_src conf :noweb-ref scratchpads
 exec --no-startup-id kitty --class="dropdown_python" -o font_size=20 -o include=$XDG_CONFIG_HOME/kitty/themes/python.conf python -q
-bindsym $mod+j exec "$SCRIPT_PATH/scratchpad.sh dropdown_python 0.6 0.6"
+bindsym $mod+j exec "$SCRIPT_PATH/show-or-launch.sh dropdown_python 0.6 0.6"
 for_window [$prop="^dropdown_python$"] floating enable
 for_window [$prop="^dropdown_python$"] move position center
 for_window [$prop="^dropdown_python$"] move scratchpad
@@ -1460,7 +1460,7 @@ for_window [$prop="^dropdown_python$"] border pixel 5
 ** Terminal
 #+begin_src conf :noweb-ref scratchpads
 exec --no-startup-id kitty --class="dropdown_terminal" -o font_size=14 -o include=$XDG_CONFIG_HOME/kitty/themes/terminal.conf -o background_opacity=0.85
-bindsym $mod+m exec "$SCRIPT_PATH/scratchpad.sh dropdown_terminal 0.75 0.75"
+bindsym $mod+m exec "$SCRIPT_PATH/show-or-launch.sh dropdown_terminal 0.75 0.75"
 for_window [$prop="^dropdown_terminal$"] floating enable
 for_window [$prop="^dropdown_terminal$"] move position center
 for_window [$prop="^dropdown_terminal$"] move scratchpad
@@ -1469,7 +1469,7 @@ for_window [$prop="^dropdown_terminal$"] border pixel 5
 ** ZSA Keymapp
 #+begin_src conf :noweb-ref scratchpads
 exec --no-startup-id /usr/bin/keymapp
-bindsym $mod+k exec "$SCRIPT_PATH/scratchpad.sh keymapp 0.75 0.75"
+bindsym $mod+k exec "$SCRIPT_PATH/show-or-launch.sh keymapp 0.75 0.75"
 for_window [$prop="^keymapp$"] floating enable
 for_window [$prop="^keymapp$"] move position center
 for_window [$prop="^keymapp$"] move scratchpad
@@ -1485,7 +1485,7 @@ bindsym ctrl+$mod+b exec "$SCRIPT_PATH/scratchpad_temp.sh destroy"
 *** i3
 #+begin_src conf :noweb-ref i3-yt-music
 exec --no-startup-id brave-beta --app=https://music.youtube.com
-bindsym $mod+g exec "$SCRIPT_PATH/scratchpad.sh "Brave-browser-beta" 0.9 0.9"
+bindsym $mod+g exec "$SCRIPT_PATH/show-or-launch.sh "Brave-browser-beta" 0.9 0.9"
 for_window [title="^YouTube Music$" instance="^music.youtube.com$"] floating enable
 for_window [title="^YouTube Music$" instance="^music.youtube.com$"] move position center
 for_window [title="^YouTube Music$" instance="^music.youtube.com$"] move scratchpad
@@ -1494,7 +1494,7 @@ for_window [title="^YouTube Music$" instance="^music.youtube.com$"] border pixel
 *** Sway
 #+begin_src conf :noweb-ref sway-yt-music
 exec --no-startup-id brave-beta --app=https://music.youtube.com
-bindsym $mod+g exec "$SCRIPT_PATH/scratchpad.sh "brave-music.youtube.com__-Default" 0.9 0.9"
+bindsym $mod+g exec "$SCRIPT_PATH/show-or-launch.sh "brave-music.youtube.com__-Default" 0.9 0.9"
 for_window [$prop="^brave-music.youtube.com__-Default$"] floating enable
 for_window [$prop="^brave-music.youtube.com__-Default$"] move position center
 for_window [$prop="^brave-music.youtube.com__-Default$"] move scratchpad
