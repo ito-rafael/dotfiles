@@ -1,6 +1,13 @@
 #!/usr/bin/env sh
 
 #-----------------------------
+# before screen locking
+#-----------------------------
+
+# pause notifications
+dunstctl set-paused true
+
+#-----------------------------
 # screen locking
 #-----------------------------
 # lock screen
