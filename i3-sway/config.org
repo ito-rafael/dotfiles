@@ -647,7 +647,15 @@ bindsym $mod+F19 exec --no-startup-id pkill -f inactive-windows-transparency; ex
 #+end_src
 * Window settings
 ** Change focus
-#+begin_src conf :noweb-ref window-settings
+*** i3
+#+begin_src conf :noweb-ref i3-change-focus
+bindsym $mod+Left  focus left;  exec "$SCRIPT_PATH/mouse-warp.sh"
+bindsym $mod+Down  focus down;  exec "$SCRIPT_PATH/mouse-warp.sh"
+bindsym $mod+Up    focus up;    exec "$SCRIPT_PATH/mouse-warp.sh"
+bindsym $mod+Right focus right; exec "$SCRIPT_PATH/mouse-warp.sh"
+#+end_src
+*** Sway
+#+begin_src conf :noweb-ref sway-change-focus
 bindsym $mod+Left  focus left
 bindsym $mod+Down  focus down
 bindsym $mod+Up    focus up
@@ -710,10 +718,12 @@ bindsym mod1+$mod+q exec $SCRIPT_PATH/hide-or-kill.sh
 ** Tangle :noexport:
 *** i3
 #+begin_src conf :noweb yes :tangle _config_i3
+<<i3-change-focus>>
 <<window-settings>>
 #+end_src
 *** Sway
 #+begin_src conf :noweb yes :tangle _config_sway
+<<sway-change-focus>>
 <<window-settings>>
 #+end_src
 * Restart i3/sway
