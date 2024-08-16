@@ -1484,12 +1484,12 @@ bindsym ctrl+$mod+b exec "$SCRIPT_PATH/scratchpad-temp.sh destroy"
 ** YouTube Music (on Brave)
 *** i3
 #+begin_src conf :noweb-ref i3-yt-music
+for_window [$prop="^Brave-browser-beta$" instance="^music.youtube.com$"] floating enable
+for_window [$prop="^Brave-browser-beta$" instance="^music.youtube.com$"] move position center
+for_window [$prop="^Brave-browser-beta$" instance="^music.youtube.com$"] move scratchpad
+for_window [$prop="^Brave-browser-beta$" instance="^music.youtube.com$"] border pixel 5
 exec --no-startup-id brave-beta --app=https://music.youtube.com
-bindsym $mod+g exec "$SCRIPT_PATH/show-or-launch.sh "Brave-browser-beta" 0.9 0.9"
-for_window [title="^YouTube Music$" instance="^music.youtube.com$"] floating enable
-for_window [title="^YouTube Music$" instance="^music.youtube.com$"] move position center
-for_window [title="^YouTube Music$" instance="^music.youtube.com$"] move scratchpad
-for_window [title="^YouTube Music$" instance="^music.youtube.com$"] border pixel 5
+bindsym $mod+g exec "$SCRIPT_PATH/show-or-launch.sh music.youtube.com 0.9 0.9"
 #+end_src
 *** Sway
 #+begin_src conf :noweb-ref sway-yt-music
