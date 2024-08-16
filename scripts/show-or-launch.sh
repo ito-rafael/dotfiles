@@ -17,6 +17,7 @@ case "${XDG_SESSION_TYPE}" in
         PROP_PREFIX="window_properties."
         PROP="class"
         CAPTION="title"
+        INSTANCE="instance"
         # get height & width of current output
         RESOLUTION=$(i3-msg -t get_outputs | jq -r '.[] | select(.name=='"$FOCUSED_OUTPUT"')')
         RES_WIDTH=$(echo $RESOLUTION | jq '.rect.width')
@@ -48,11 +49,6 @@ SCALE_H=${3:-"0.66"}
 WIN_WIDTH=$(echo "$SCALE_W * $RES_WIDTH / 1" | bc)
 WIN_HEIGHT=$(echo "$SCALE_H * $RES_HEIGHT / 1" | bc)
 
-# special case for YouTube Music on i3wm (use "instance" instead of "class")
-if [ $APPLICATION = "music.youtube.com" ]; then
-    PROP="instance"
-fi
-
 # get focused window
 FOCUSED=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.focused == true) | .'$PROP_PREFIX''$PROP'')
 
@@ -64,16 +60,21 @@ if [ $FOCUSED != $APPLICATION ]; then
         .'$PROP_PREFIX''$PROP' == "dropdown_python" or
         .'$PROP_PREFIX''$PROP' == "scrcpy" and .'$PROP_PREFIX''$CAPTION' == "dropdown_scrcpy" or
         .'$PROP_PREFIX''$PROP' == "brave-music.youtube.com__-Default" or
-        .'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX'title == "YouTube Music" and .'$PROP_PREFIX'instance == "music.youtube.com" or
         .'$PROP_PREFIX''$PROP' == "keymapp"
+        .'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX''$INSTANCE' == "music.youtube.com" or
         ')
 
     # if focused window is a scratchpad (according to the above list), hide it
     if [ $is_scratchpad = "true" ]; then
         $WM_CMD scratchpad show
+        exit 0
     fi
 fi
 
+# special case for YouTube Music on i3wm (use "instance" instead of "class")
+if [ $APPLICATION = "music.youtube.com" ]; then
+    PROP="instance"
+fi
 # check if scratchpad exists
 SCRATCHPAD=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.'$PROP_PREFIX''$PROP' == "'$APPLICATION'")')
 
