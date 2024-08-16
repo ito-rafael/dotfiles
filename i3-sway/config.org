@@ -1101,8 +1101,8 @@ https://wiki.archlinux.org/index.php/I3#Shutdown,_reboot,_lock_screen
 **** Locker & messanger
 Adds 1 second delay to prevent possible race conditions with suspend.
 #+begin_src conf :noweb-ref i3-mode-system
-set $PATH_LOCKER /home/rafael/.config/i3lock
-set $locker /home/rafael/.config/i3lock/lock-screen.sh
+set $PATH_LOCKER $XDG_CONFIG_HOME/i3lock
+set $locker $XDG_CONFIG_HOME/i3lock/lock-screen.sh
 set $messenger i3-msg exit
 #+end_src
 **** Mode
@@ -1134,7 +1134,7 @@ bindsym $mod+Home exec --no-startup-id $PATH_LOCKER/take-screenshot.sh; mode "$m
 *** Sway
 **** Locker & messanger
 #+begin_src conf :noweb-ref sway-mode-system
-set $locker swaylock --config $XDG_CONFIG_HOME/swaylock/config
+set $locker $XDG_CONFIG_HOME/swaylock/lock-screen.sh
 set $messenger swaymsg exit
 #+end_src
 **** Mode
@@ -1584,7 +1584,7 @@ bar {
     strip_workspace_numbers yes
     #-----------------------------
     #status_command i3status
-    status_command i3blocks -c /home/rafael/.config/i3/i3blocks.conf
+    status_command i3blocks -c $XDG_CONFIG_HOME/i3/i3blocks.conf
     #-----------------------------
     # set font
     #font pango:DejaVu Sans Mono 4
