@@ -13,6 +13,7 @@
   - [[#font--color][Font & color]]
 - [[#sway][Sway]]
   - [[#xdg-desktop-portal-wlr][xdg-desktop-portal-wlr]]
+  - [[#mouse-warping][Mouse warping]]
   - [[#inputs][Inputs]]
 - [[#outputs][Outputs]]
   - [[#default-scenario][Default Scenario]]
@@ -167,6 +168,10 @@ client.background       #ffffff
 ** xdg-desktop-portal-wlr
 #+begin_src conf :noweb-ref sway-input
 include /etc/sway/config.d/*
+#+end_src
+** Mouse warping
+#+begin_src conf :noweb-ref sway-mouse-warping
+mouse_warping container
 #+end_src
 ** Inputs
 *** Trackpad
