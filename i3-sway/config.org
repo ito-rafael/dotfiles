@@ -1463,6 +1463,33 @@ for_window [$prop="Toplevel"] floating enable
 <<window-property>>
 #+end_src
 * Scratchpads
+** YouTube Music (on Brave Beta)
+*** i3
+#+begin_src conf :noweb-ref i3-yt-music
+for_window [$prop="^Brave-browser-beta$" instance="^music.youtube.com$"] floating enable
+for_window [$prop="^Brave-browser-beta$" instance="^music.youtube.com$"] move position center
+for_window [$prop="^Brave-browser-beta$" instance="^music.youtube.com$"] move scratchpad
+for_window [$prop="^Brave-browser-beta$" instance="^music.youtube.com$"] border pixel 5
+exec --no-startup-id brave-beta --app=https://music.youtube.com
+bindsym $mod+g exec "$SCRIPT_PATH/show-or-launch.sh music.youtube.com 0.9 0.9"
+#+end_src
+*** Sway
+#+begin_src conf :noweb-ref sway-yt-music
+for_window [$prop="^brave-music.youtube.com__-Default$"] floating enable
+for_window [$prop="^brave-music.youtube.com__-Default$"] move position center
+for_window [$prop="^brave-music.youtube.com__-Default$"] move scratchpad
+for_window [$prop="^brave-music.youtube.com__-Default$"] border pixel 5
+exec --no-startup-id brave-beta --app=https://music.youtube.com
+bindsym $mod+g exec "$SCRIPT_PATH/show-or-launch.sh brave-music.youtube.com__-Default 0.9 0.9"
+#+end_src
+** scrcpy
+#+begin_src conf :noweb-ref scratchpads
+bindsym $mod+v exec "$SCRIPT_PATH/adb-mdns-scrcpy.sh"
+for_window [title="^dropdown_scrcpy$" $prop="^scrcpy$"] floating enable
+for_window [title="^dropdown_scrcpy$" $prop="^scrcpy$"] move position center
+for_window [title="^dropdown_scrcpy$" $prop="^scrcpy$"] move scratchpad
+for_window [title="^dropdown_scrcpy$" $prop="^scrcpy$"] border pixel 5
+#+end_src
 ** Python
 #+begin_src conf :noweb-ref scratchpads
 exec --no-startup-id kitty --class="dropdown_python" -o font_size=20 -o include=$XDG_CONFIG_HOME/kitty/themes/python.conf python -q
@@ -1496,32 +1523,8 @@ exec --no-startup-id "rm /tmp/scratchpad_pid.tmp"
 bindsym $mod+b exec "$SCRIPT_PATH/scratchpad-temp.sh show"
 bindsym ctrl+$mod+b exec "$SCRIPT_PATH/scratchpad-temp.sh destroy"
 #+end_src
-** YouTube Music (on Brave)
-*** i3
-#+begin_src conf :noweb-ref i3-yt-music
-for_window [$prop="^Brave-browser-beta$" instance="^music.youtube.com$"] floating enable
-for_window [$prop="^Brave-browser-beta$" instance="^music.youtube.com$"] move position center
-for_window [$prop="^Brave-browser-beta$" instance="^music.youtube.com$"] move scratchpad
-for_window [$prop="^Brave-browser-beta$" instance="^music.youtube.com$"] border pixel 5
-exec --no-startup-id brave-beta --app=https://music.youtube.com
-bindsym $mod+g exec "$SCRIPT_PATH/show-or-launch.sh music.youtube.com 0.9 0.9"
 #+end_src
-*** Sway
-#+begin_src conf :noweb-ref sway-yt-music
-for_window [$prop="^brave-music.youtube.com__-Default$"] floating enable
-for_window [$prop="^brave-music.youtube.com__-Default$"] move position center
-for_window [$prop="^brave-music.youtube.com__-Default$"] move scratchpad
-for_window [$prop="^brave-music.youtube.com__-Default$"] border pixel 5
-exec --no-startup-id brave-beta --app=https://music.youtube.com
-bindsym $mod+g exec "$SCRIPT_PATH/show-or-launch.sh brave-music.youtube.com__-Default 0.9 0.9"
-#+end_src
-** scrcpy
 #+begin_src conf :noweb-ref scratchpads
-bindsym $mod+v exec "$SCRIPT_PATH/adb-mdns-scrcpy.sh"
-for_window [title="^dropdown_scrcpy$" $prop="^scrcpy$"] floating enable
-for_window [title="^dropdown_scrcpy$" $prop="^scrcpy$"] move position center
-for_window [title="^dropdown_scrcpy$" $prop="^scrcpy$"] move scratchpad
-for_window [title="^dropdown_scrcpy$" $prop="^scrcpy$"] border pixel 5
 #+end_src
 ** Tangle :noexport:
 *** i3
@@ -1648,5 +1651,4 @@ exec "syncthing &"                      # Syncthing
 <<sway-transparency>>
 <<sway-wallpaper>>
 <<startup-commands>>
-#+end_src
 #+end_src
