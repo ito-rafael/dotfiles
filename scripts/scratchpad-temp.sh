@@ -43,12 +43,14 @@ case "${XDG_SESSION_TYPE}" in
         RESOLUTION=$(i3-msg -t get_outputs | jq -r '.[] | select(.name=='"$FOCUSED_OUTPUT"')')
         RES_WIDTH=$(echo $RESOLUTION | jq '.rect.width')
         RES_HEIGHT=$(echo $RESOLUTION | jq '.rect.height')
+        OUTPUT_SCALE=1.0  # TBD
         ;;
     "wayland")
         WM_CMD="swaymsg"
         RESOLUTION=$(swaymsg -t get_outputs | jq '.[] | select(.focused==true).current_mode')
         RES_WIDTH=$(echo $RESOLUTION | jq '.width')
         RES_HEIGHT=$(echo $RESOLUTION | jq '.height')
+        OUTPUT_SCALE=$(swaymsg -t get_outputs | jq '.[] | select(.focused==true).scale')
         ;;
     "tty")
         exit 0
@@ -61,8 +63,8 @@ esac
 # calc height & width (as int) according to the scale parameter
 SCALE_W="0.90"
 SCALE_H="0.90"
-WIN_WIDTH=$(echo "$SCALE_W * $RES_WIDTH / 1" | bc)
-WIN_HEIGHT=$(echo "$SCALE_H * $RES_HEIGHT / 1" | bc)
+WIN_WIDTH=$(echo "$SCALE_W * $RES_WIDTH / $OUTPUT_SCALE / 1" | bc)
+WIN_HEIGHT=$(echo "$SCALE_H * $RES_HEIGHT / $OUTPUT_SCALE / 1" | bc)
 
 #=================================================
 # create or show temporary scratchpad
