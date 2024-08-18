@@ -77,12 +77,12 @@
   - [[#applications-1][Applications]]
   - [[#window-specific][Window-specific]]
 - [[#scratchpads][Scratchpads]]
+  - [[#youtube-music-on-brave-beta][YouTube Music (on Brave Beta)]]
+  - [[#scrcpy][scrcpy]]
   - [[#python][Python]]
   - [[#terminal-1][Terminal]]
   - [[#zsa-keymapp][ZSA Keymapp]]
-  - [[#temporary-scratchpad][Temporary scratchpad]]
-  - [[#youtube-music-on-brave][YouTube Music (on Brave)]]
-  - [[#scrcpy][scrcpy]]
+  - [[#temporary-scratchpads][Temporary scratchpads]]
 - [[#startup-commands][Startup commands]]
   - [[#transparency][Transparency]]
   - [[#touchpad][Touchpad]]
@@ -1509,7 +1509,6 @@ for_window [$prop="^dropdown_terminal$"] move scratchpad
 for_window [$prop="^dropdown_terminal$"] border pixel 5
 #+end_src
 ** ZSA Keymapp
-#+begin_src conf :noweb-ref scratchpads
 exec --no-startup-id /usr/bin/keymapp
 bindsym $mod+k exec "$SCRIPT_PATH/show-or-launch.sh keymapp 0.75 0.75"
 for_window [$prop="^keymapp$"] floating enable
@@ -1517,14 +1516,24 @@ for_window [$prop="^keymapp$"] move position center
 for_window [$prop="^keymapp$"] move scratchpad
 for_window [$prop="^keymapp$"] border pixel 5
 #+end_src
-** Temporary scratchpad
+** Temporary scratchpads
+*** 1: comma
 #+begin_src conf :noweb-ref scratchpads
-exec --no-startup-id "rm /tmp/scratchpad_pid.tmp"
-bindsym $mod+b exec "$SCRIPT_PATH/scratchpad-temp.sh show"
-bindsym ctrl+$mod+b exec "$SCRIPT_PATH/scratchpad-temp.sh destroy"
+exec --no-startup-id "rm /tmp/scratchpad_pid_1.tmp"
+bindsym $mod+comma exec "$SCRIPT_PATH/scratchpad-temp.sh 1 show"
+bindsym ctrl+$mod+comma exec "$SCRIPT_PATH/scratchpad-temp.sh 1 destroy"
 #+end_src
-#+end_src
+*** 2: dot
 #+begin_src conf :noweb-ref scratchpads
+exec --no-startup-id "rm /tmp/scratchpad_pid_2.tmp"
+bindsym $mod+period exec "$SCRIPT_PATH/scratchpad-temp.sh 2 show"
+bindsym ctrl+$mod+period exec "$SCRIPT_PATH/scratchpad-temp.sh 2 destroy"
+#+end_src
+*** 3: slash
+#+begin_src conf :noweb-ref scratchpads
+exec --no-startup-id "rm /tmp/scratchpad_pid_3.tmp"
+bindsym $mod+slash exec "$SCRIPT_PATH/scratchpad-temp.sh 3 show"
+bindsym ctrl+$mod+slash exec "$SCRIPT_PATH/scratchpad-temp.sh 3 destroy"
 #+end_src
 ** Tangle :noexport:
 *** i3
