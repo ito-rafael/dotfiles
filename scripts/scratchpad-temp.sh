@@ -31,10 +31,27 @@ fi
 
 #=================================================
 # parse parameters
+SCRATCHPAD_ID=$1
 ACTION=$2
 
 # use temp file as flag to signal if scratchpad exists or not
-SCRATCHPAD_TEMP='/tmp/scratchpad_pid.tmp'
+#SCRATCHPAD_TEMP='/tmp/scratchpad_pid.tmp'
+
+case "${SCRATCHPAD_ID}" in
+    "1")
+        SCRATCHPAD_TEMP='/tmp/scratchpad_pid_1.tmp'
+        ;;
+    "2")
+        SCRATCHPAD_TEMP='/tmp/scratchpad_pid_2.tmp'
+        ;;
+    "3")
+        SCRATCHPAD_TEMP='/tmp/scratchpad_pid_3.tmp'
+        ;;
+    *)
+        echo "Scratchpad ID not supported (options available: 1, 2 or 3)."
+        exit 0
+        ;;
+esac
 
 # get output resolution
 case "${XDG_SESSION_TYPE}" in
