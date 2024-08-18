@@ -693,8 +693,9 @@ bindsym $mod+z [urgent=latest] focus
 *** Split
 Split window in horizontal/vertical orientation
 #+begin_src conf :noweb-ref window-settings
-bindsym mod1+h split h
-bindsym mod1+v split v
+bindsym mod1+h split toggle
+#bindsym mod1+h split h
+#bindsym mod1+v split v
 #+end_src
 *** Container layout
 Change container layout (stacked, tabbed, toggle split).
