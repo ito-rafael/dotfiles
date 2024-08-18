@@ -212,6 +212,7 @@ input * {
 *** Sway
 #+begin_src conf :noweb yes :tangle _config_sway
 <<sway-input>>
+<<sway-mouse-warping>>
 #+end_src
 * Outputs
 ** Default Scenario
