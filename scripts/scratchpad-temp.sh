@@ -1,13 +1,12 @@
 #!/usr/bin/env bash
 #
-# This script is meant to be used with i3wm to show/hide scratchpads.
-# When displaying the scratchpad, it resizes the window according to the parameters received and center the window.
+# This script is meant to be used with i3wm and Sway to move a window to a temporary scratchpad. Three temporary scratchpads are supported.
 #
 # Parameters:
-#   1. APPLICATION: $prop ("class" for i3wm, "app_id" for Sway) of the window. Example: "dropdown_terminal".
-#   2. SCALE_W: scale multiplier for the scratchpad width. Example: 0.75 (default: 0.66).
-#   3. SCALE_H: scale multiplier for the scratchpad height. Example: 0.90 (default: 0.66).
-#
+#   1. ID of temporary scratchpad (options: 1, 2 or 3).
+#   2. action: 
+#     - "show"
+#     - "destroy"
 
 #=================================================
 # help menu and usage message
@@ -16,6 +15,7 @@ usage="$(basename "$0") action [-h]
 
 where:
     -h, --help      show this help text
+    scratchpad ID   1, 2 or 3
     action          action to be performed, can be one of the two options:
       \"show\"        show temporary scratchpad (or create it, if it doesn't exit)
       \"destroy\"     kill window on temporary scratchpad
