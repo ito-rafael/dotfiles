@@ -77,6 +77,7 @@
   - [[#applications-1][Applications]]
   - [[#window-specific][Window-specific]]
 - [[#scratchpads][Scratchpads]]
+  - [[#whatsapp-web-on-brave-beta][WhatsApp Web (on Brave Beta)]]
   - [[#youtube-music-on-brave-beta][YouTube Music (on Brave Beta)]]
   - [[#scrcpy][scrcpy]]
   - [[#python][Python]]
@@ -1463,6 +1464,16 @@ for_window [$prop="Toplevel"] floating enable
 <<window-property>>
 #+end_src
 * Scratchpads
+** WhatsApp Web (on Brave Beta)
+*** i3
+#+begin_src conf :noweb-ref i3-whatsapp
+for_window [$prop="^Brave-browser-beta$" instance="^web.whatsapp.com$"] floating enable
+for_window [$prop="^Brave-browser-beta$" instance="^web.whatsapp.com$"] move position center
+for_window [$prop="^Brave-browser-beta$" instance="^web.whatsapp.com$"] move scratchpad
+for_window [$prop="^Brave-browser-beta$" instance="^web.whatsapp.com$"] border pixel 5
+exec --no-startup-id brave-beta --app=https://web.whatsapp.com
+bindsym $mod+b exec "$SCRIPT_PATH/show-or-launch.sh web.whatsapp.com 0.6 0.9"
+#+end_src
 ** YouTube Music (on Brave Beta)
 *** i3
 #+begin_src conf :noweb-ref i3-yt-music
@@ -1539,6 +1550,7 @@ bindsym ctrl+$mod+slash exec "$SCRIPT_PATH/scratchpad-temp.sh 3 destroy"
 *** i3
 #+begin_src conf :noweb yes :tangle _config_i3
 <<scratchpads>>
+<<i3-whatsapp>>
 <<i3-yt-music>>
 #+end_src
 *** Sway
