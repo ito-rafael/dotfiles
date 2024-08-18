@@ -97,34 +97,38 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioPause exec playerctl play-pause
 bindsym XF86AudioPrev exec playerctl previous
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q sset Master 5%+
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q sset Master 5%-
-bindsym ctrl+shift+F14 exec --no-startup-id amixer -q sset Master 1%-
-bindsym ctrl+shift+F15 exec --no-startup-id amixer -q sset Master 1%+
-bindsym XF86AudioMute exec --no-startup-id amixer -q sset Master toggle
-bindsym $mod+F15 exec --no-startup-id amixer -q sset Master 50%
-bindsym ctrl+F14 exec --no-startup-id amixer -q sset Capture 5%-
-bindsym ctrl+F15 exec --no-startup-id amixer -q sset Capture 5%+
-bindsym shift+F14 exec --no-startup-id amixer -q sset Capture 1%-
-bindsym shift+F15 exec --no-startup-id amixer -q sset Capture 1%+
+bindsym F14      exec --no-startup-id amixer -q sset Capture 5%-
+bindsym ctrl+F14 exec --no-startup-id amixer -q sset Capture 5%+
+bindsym shift+F14      exec --no-startup-id amixer -q sset Capture 1%-
+bindsym ctrl+shift+F14 exec --no-startup-id amixer -q sset Capture 1%+
 bindsym $mod+F14 exec --no-startup-id amixer -q sset Capture 50%
 bindsym XF86AudioMicMute exec --no-startup-id amixer -q sset Capture toggle
 bindsym shift+$mod+F14 exec --no-startup-id amixer -q sset Capture toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q sset Master 5%+
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q sset Master 5%-
+bindsym F15 exec --no-startup-id amixer -q sset Master 1%-
+bindsym ctrl+F15 exec --no-startup-id amixer -q sset Master 1%+
+bindsym XF86AudioMute exec --no-startup-id amixer -q sset Master toggle
+bindsym $mod+F15 exec --no-startup-id amixer -q sset Master 50%
 
-bindsym $mod+Left  focus left
-bindsym $mod+Down  focus down
-bindsym $mod+Up    focus up
-bindsym $mod+Right focus right
+
+
+bindsym $mod+Left  focus left;  exec "$SCRIPT_PATH/mouse-warp.sh"
+bindsym $mod+Down  focus down;  exec "$SCRIPT_PATH/mouse-warp.sh"
+bindsym $mod+Up    focus up;    exec "$SCRIPT_PATH/mouse-warp.sh"
+bindsym $mod+Right focus right; exec "$SCRIPT_PATH/mouse-warp.sh"
 bindsym $mod+Shift+Left  move left
 bindsym $mod+Shift+Down  move down
 bindsym $mod+Shift+Up    move up
 bindsym $mod+Shift+Right move right
-bindsym mod1+h split h
-bindsym mod1+v split v
+bindsym mod1+h split toggle
+#bindsym mod1+h split h
+#bindsym mod1+v split v
 bindsym mod1+$mod+e layout toggle stacked tabbed
 bindsym mod1+$mod+f fullscreen toggle
 bindsym mod1+$mod+d floating toggle
 bindsym mod1+$mod+q exec $SCRIPT_PATH/hide-or-kill.sh
+bindsym shift+mod1+$mod+q kill
 
 bindsym mod1+$mod+s exec ~/.config/i3/i3bang.rb; reload
 bindsym mod1+$mod+c exec ~/.config/i3/i3bang.rb; restart
@@ -200,11 +204,11 @@ bindsym ctrl+mod1+1 move workspace to output $primary;   focus output $primary
 bindsym ctrl+mod1+2 move workspace to output $secondary; focus output $secondary
 bindsym ctrl+mod1+3 move workspace to output $tertiary;  focus output $tertiary
 
-bindsym $mod+b exec firefox
+#bindsym $mod+b exec firefox
 #bindsym $mod+c exec chromium
 #bindsym $mod+n exec thunar
 #bindsym $mod+l exec lollypop
-#bindsym $mod+m exec thunderbird
+#bindsym $mod+e exec thunderbird
 #bindsym $mod+g exec kitty ranger
 #bindsym $mod+p exec spotify --force-device-scale-factor=2 # shortcut to open Spotify
 bindsym $mod+t exec kitty
@@ -227,7 +231,9 @@ bindsym shift+$alt+F10 exec "$SCRIPT_PATH/obs-tools.py --scene output-0"
 bindsym shift+$alt+F11 exec "$SCRIPT_PATH/obs-tools.py --scene output-1"
 bindsym shift+$alt+F12 exec "$SCRIPT_PATH/obs-tools.py --scene output-2"
 bindsym shift+$alt+F14 exec "$SCRIPT_PATH/obs-tools.py --record"
-bindsym $mod+Return exec rofi -show run
+bindsym $mod+Return       exec rofi -show run
+bindsym Shift+$mod+Return exec rofi -show ssh
+bindsym Ctrl+$mod+Return  exec rofi -show window
 bindsym Print exec shutter
 
 bindsym --whole-window Shift+button4 exec --no-startup-id amixer -q sset Master 1%+
@@ -269,8 +275,8 @@ bindsym mod1+$mod+Down exec "\
 
 >
 
-set $PATH_LOCKER /home/rafael/.config/i3lock
-set $locker /home/rafael/.config/i3lock/lock-screen.sh
+set $PATH_LOCKER $XDG_CONFIG_HOME/i3lock
+set $locker $XDG_CONFIG_HOME/i3lock/lock-screen.sh
 set $messenger i3-msg exit
 set $mode_system System: (s)hutdown, (r)eboot, (l)ock, (S)uspend, (h)ibernate, (e)xit/logout
 #-----------------------------
@@ -328,29 +334,50 @@ assign [$prop="pavucontrol"] → $ws10
 for_window [$prop="Tk"] floating enable
 for_window [$prop="Toplevel"] floating enable
 
-exec --no-startup-id kitty --class="dropdown_python" -o font_size=20 -o include=$XDG_CONFIG_HOME/kitty/themes/python.conf python -q
-bindsym $mod+y exec "$SCRIPT_PATH/scratchpad.sh dropdown_python 0.6 0.6"
-for_window [$prop="^dropdown_python$"] floating enable
-for_window [$prop="^dropdown_python$"] move position center
-for_window [$prop="^dropdown_python$"] move scratchpad
-for_window [$prop="^dropdown_python$"] border pixel 5
-exec --no-startup-id kitty --class="dropdown_terminal" -o font_size=14 -o include=$XDG_CONFIG_HOME/kitty/themes/terminal.conf -o background_opacity=0.80
-bindsym $mod+h exec "$SCRIPT_PATH/scratchpad.sh dropdown_terminal 0.75 0.75"
-for_window [$prop="^dropdown_terminal$"] floating enable
-for_window [$prop="^dropdown_terminal$"] move position center
-for_window [$prop="^dropdown_terminal$"] move scratchpad
-for_window [$prop="^dropdown_terminal$"] border pixel 5
-bindsym $mod+n exec "$SCRIPT_PATH/adb-mdns-scrcpy.sh"
+bindsym $mod+v exec "$SCRIPT_PATH/adb-mdns-scrcpy.sh"
 for_window [title="^dropdown_scrcpy$" $prop="^scrcpy$"] floating enable
 for_window [title="^dropdown_scrcpy$" $prop="^scrcpy$"] move position center
 for_window [title="^dropdown_scrcpy$" $prop="^scrcpy$"] move scratchpad
 for_window [title="^dropdown_scrcpy$" $prop="^scrcpy$"] border pixel 5
-exec --no-startup-id brave --app=https://music.youtube.com
-bindsym $mod+g exec "$SCRIPT_PATH/scratchpad.sh "brave-music.youtube.com__-Default" 0.9 0.9
-for_window [$prop="^brave-music.youtube.com__-Default$"] floating enable
-for_window [$prop="^brave-music.youtube.com__-Default$"] move position center
-for_window [$prop="^brave-music.youtube.com__-Default$"] move scratchpad
-for_window [$prop="^brave-music.youtube.com__-Default$"] border pixel 5
+exec --no-startup-id kitty --class="dropdown_python" -o font_size=20 -o include=$XDG_CONFIG_HOME/kitty/themes/python.conf python -q
+bindsym $mod+j exec "$SCRIPT_PATH/show-or-launch.sh dropdown_python 0.6 0.6"
+for_window [$prop="^dropdown_python$"] floating enable
+for_window [$prop="^dropdown_python$"] move position center
+for_window [$prop="^dropdown_python$"] move scratchpad
+for_window [$prop="^dropdown_python$"] border pixel 5
+exec --no-startup-id kitty --class="dropdown_terminal" -o font_size=14 -o include=$XDG_CONFIG_HOME/kitty/themes/terminal.conf -o background_opacity=0.85
+bindsym $mod+m exec "$SCRIPT_PATH/show-or-launch.sh dropdown_terminal 0.75 0.75"
+for_window [$prop="^dropdown_terminal$"] floating enable
+for_window [$prop="^dropdown_terminal$"] move position center
+for_window [$prop="^dropdown_terminal$"] move scratchpad
+for_window [$prop="^dropdown_terminal$"] border pixel 5
+exec --no-startup-id "rm /tmp/scratchpad_pid_1.tmp"
+bindsym $mod+comma exec "$SCRIPT_PATH/scratchpad-temp.sh 1 show"
+bindsym ctrl+$mod+comma exec "$SCRIPT_PATH/scratchpad-temp.sh 1 destroy"
+exec --no-startup-id "rm /tmp/scratchpad_pid_2.tmp"
+bindsym $mod+period exec "$SCRIPT_PATH/scratchpad-temp.sh 2 show"
+bindsym ctrl+$mod+period exec "$SCRIPT_PATH/scratchpad-temp.sh 2 destroy"
+exec --no-startup-id "rm /tmp/scratchpad_pid_3.tmp"
+bindsym $mod+slash exec "$SCRIPT_PATH/scratchpad-temp.sh 3 show"
+bindsym ctrl+$mod+slash exec "$SCRIPT_PATH/scratchpad-temp.sh 3 destroy"
+for_window [$prop="^Brave-browser-beta$" instance="^web.whatsapp.com$"] floating enable
+for_window [$prop="^Brave-browser-beta$" instance="^web.whatsapp.com$"] move position center
+for_window [$prop="^Brave-browser-beta$" instance="^web.whatsapp.com$"] move scratchpad
+for_window [$prop="^Brave-browser-beta$" instance="^web.whatsapp.com$"] border pixel 5
+exec --no-startup-id brave-beta --app=https://web.whatsapp.com
+bindsym $mod+b exec "$SCRIPT_PATH/show-or-launch.sh web.whatsapp.com 0.6 0.9"
+for_window [$prop="^Brave-browser-beta$" instance="^music.youtube.com$"] floating enable
+for_window [$prop="^Brave-browser-beta$" instance="^music.youtube.com$"] move position center
+for_window [$prop="^Brave-browser-beta$" instance="^music.youtube.com$"] move scratchpad
+for_window [$prop="^Brave-browser-beta$" instance="^music.youtube.com$"] border pixel 5
+exec --no-startup-id brave-beta --app=https://music.youtube.com
+bindsym $mod+g exec "$SCRIPT_PATH/show-or-launch.sh music.youtube.com 0.9 0.9"
+exec --no-startup-id /usr/bin/keymapp
+bindsym $mod+k exec "$SCRIPT_PATH/show-or-launch.sh Keymapp 0.75 0.75"
+for_window [$prop="^Keymapp$"] floating enable
+for_window [$prop="^Keymapp$"] move position center
+for_window [$prop="^Keymapp$"] move scratchpad
+for_window [$prop="^Keymapp$"] border pixel 5
 
 #bar {
 #    # set i3bar position
@@ -360,7 +387,7 @@ for_window [$prop="^brave-music.youtube.com__-Default$"] border pixel 5
 #    strip_workspace_numbers yes
 #    #-----------------------------
 #    #status_command i3status
-#    status_command i3blocks -c /home/rafael/.config/i3/i3blocks.conf
+#    status_command i3blocks -c $XDG_CONFIG_HOME/i3/i3blocks.conf
 #    #-----------------------------
 #    # set font
 #    #font pango:DejaVu Sans Mono 4
