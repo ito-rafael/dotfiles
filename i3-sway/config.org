@@ -1529,6 +1529,17 @@ for_window [$prop="^dropdown_terminal$"] move scratchpad
 for_window [$prop="^dropdown_terminal$"] border pixel 5
 #+end_src
 ** ZSA Keymapp
+*** i3
+#+begin_src conf :noweb-ref i3-keymapp
+exec --no-startup-id /usr/bin/keymapp
+bindsym $mod+k exec "$SCRIPT_PATH/show-or-launch.sh Keymapp 0.75 0.75"
+for_window [$prop="^Keymapp$"] floating enable
+for_window [$prop="^Keymapp$"] move position center
+for_window [$prop="^Keymapp$"] move scratchpad
+for_window [$prop="^Keymapp$"] border pixel 5
+#+end_src
+*** Sway
+#+begin_src conf :noweb-ref sway-keymapp
 exec --no-startup-id /usr/bin/keymapp
 bindsym $mod+k exec "$SCRIPT_PATH/show-or-launch.sh keymapp 0.75 0.75"
 for_window [$prop="^keymapp$"] floating enable
@@ -1561,12 +1572,14 @@ bindsym ctrl+$mod+slash exec "$SCRIPT_PATH/scratchpad-temp.sh 3 destroy"
 <<scratchpads>>
 <<i3-whatsapp>>
 <<i3-yt-music>>
+<<i3-keymapp>>
 #+end_src
 *** Sway
 #+begin_src conf :noweb yes :tangle _config_sway
 <<scratchpads>>
 <<sway-whatsapp>>
 <<sway-yt-music>>
+<<sway-keymapp>>
 #+end_src
 * Startup commands
 ** Transparency
