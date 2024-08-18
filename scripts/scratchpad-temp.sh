@@ -30,6 +30,9 @@ if [[ $1 == '-h' || $1 == '--help' ]]; then
 fi
 
 #=================================================
+# parse parameters
+ACTION=$2
+
 # use temp file as flag to signal if scratchpad exists or not
 SCRATCHPAD_TEMP='/tmp/scratchpad_pid.tmp'
 
@@ -64,7 +67,7 @@ WIN_HEIGHT=$(echo "$SCALE_H * $RES_HEIGHT / 1" | bc)
 #=================================================
 # create or show temporary scratchpad
 #=================================================
-if [[ $1 == 'show' ]]; then
+if [[ $ACTION == 'show' ]]; then
     # check if $SCRATCHPAD_ID file exists (i.e., if a window was previously moved to temporary scratchpad)
     if [ -f $SCRATCHPAD_TEMP ]; then
         # file exists --> scratchpad already in use
@@ -80,7 +83,7 @@ if [[ $1 == 'show' ]]; then
 #=================================================
 # destroy temporary scratchpad
 #=================================================
-elif [[ $1 == 'destroy' ]]; then
+elif [[ $ACTION == 'destroy' ]]; then
     kill $(cat $SCRATCHPAD_TEMP)
     rm $SCRATCHPAD_TEMP
 #=================================================
