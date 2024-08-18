@@ -1474,6 +1474,15 @@ for_window [$prop="^Brave-browser-beta$" instance="^web.whatsapp.com$"] border p
 exec --no-startup-id brave-beta --app=https://web.whatsapp.com
 bindsym $mod+b exec "$SCRIPT_PATH/show-or-launch.sh web.whatsapp.com 0.6 0.9"
 #+end_src
+*** Sway
+#+begin_src conf :noweb-ref sway-whatsapp
+for_window [$prop="^brave-web.whatsapp.com__-Default$"] floating enable
+for_window [$prop="^brave-web.whatsapp.com__-Default$"] move position center
+for_window [$prop="^brave-web.whatsapp.com__-Default$"] move scratchpad
+for_window [$prop="^brave-web.whatsapp.com__-Default$"] border pixel 5
+exec --no-startup-id brave-beta --app=https://web.whatsapp.com
+bindsym $mod+b exec "$SCRIPT_PATH/show-or-launch.sh brave-web.whatsapp.com__-Default 0.6 0.9"
+#+end_src
 ** YouTube Music (on Brave Beta)
 *** i3
 #+begin_src conf :noweb-ref i3-yt-music
@@ -1556,6 +1565,7 @@ bindsym ctrl+$mod+slash exec "$SCRIPT_PATH/scratchpad-temp.sh 3 destroy"
 *** Sway
 #+begin_src conf :noweb yes :tangle _config_sway
 <<scratchpads>>
+<<sway-whatsapp>>
 <<sway-yt-music>>
 #+end_src
 * Startup commands
