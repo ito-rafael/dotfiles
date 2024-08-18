@@ -38,6 +38,7 @@ input * {
         fn-keys:fnkeys, \
     "
 }
+mouse_warping container
 
 set $laptop    eDP-1
 set $primary   HDMI1
@@ -135,19 +136,25 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioPause exec playerctl play-pause
 bindsym XF86AudioPrev exec playerctl previous
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q sset Master 5%+
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q sset Master 5%-
-bindsym ctrl+shift+F14 exec --no-startup-id amixer -q sset Master 1%-
-bindsym ctrl+shift+F15 exec --no-startup-id amixer -q sset Master 1%+
-bindsym XF86AudioMute exec --no-startup-id amixer -q sset Master toggle
-bindsym $mod+F15 exec --no-startup-id amixer -q sset Master 50%
-bindsym ctrl+F14 exec --no-startup-id amixer -q sset Capture 5%-
-bindsym ctrl+F15 exec --no-startup-id amixer -q sset Capture 5%+
-bindsym shift+F14 exec --no-startup-id amixer -q sset Capture 1%-
-bindsym shift+F15 exec --no-startup-id amixer -q sset Capture 1%+
+bindsym F14      exec --no-startup-id amixer -q sset Capture 5%-
+bindsym ctrl+F14 exec --no-startup-id amixer -q sset Capture 5%+
+bindsym shift+F14      exec --no-startup-id amixer -q sset Capture 1%-
+bindsym ctrl+shift+F14 exec --no-startup-id amixer -q sset Capture 1%+
 bindsym $mod+F14 exec --no-startup-id amixer -q sset Capture 50%
 bindsym XF86AudioMicMute exec --no-startup-id amixer -q sset Capture toggle
 bindsym shift+$mod+F14 exec --no-startup-id amixer -q sset Capture toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q sset Master 5%+
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q sset Master 5%-
+bindsym F15 exec --no-startup-id amixer -q sset Master 1%-
+bindsym ctrl+F15 exec --no-startup-id amixer -q sset Master 1%+
+bindsym XF86AudioMute exec --no-startup-id amixer -q sset Master toggle
+bindsym $mod+F15 exec --no-startup-id amixer -q sset Master 50%
+
+bindsym F19      exec --no-startup-id pkill -f inactive-windows-transparency; exec "$SCRIPT_PATH/opacity.sh current dec"
+bindsym ctrl+F19 exec --no-startup-id pkill -f inactive-windows-transparency; exec "$SCRIPT_PATH/opacity.sh current inc"
+bindsym shift+F19      exec --no-startup-id pkill -f inactive-windows-transparency; exec "$SCRIPT_PATH/opacity.sh all dec"
+bindsym shift+ctrl+F19 exec --no-startup-id pkill -f inactive-windows-transparency; exec "$SCRIPT_PATH/opacity.sh all inc"
+bindsym $mod+F19 exec --no-startup-id pkill -f inactive-windows-transparency; exec "/usr/share/sway-contrib/inactive-windows-transparency.py --opacity 0.85 &"
 
 bindsym $mod+Left  focus left
 bindsym $mod+Down  focus down
@@ -157,12 +164,14 @@ bindsym $mod+Shift+Left  move left
 bindsym $mod+Shift+Down  move down
 bindsym $mod+Shift+Up    move up
 bindsym $mod+Shift+Right move right
-bindsym mod1+h split h
-bindsym mod1+v split v
+bindsym mod1+h split toggle
+#bindsym mod1+h split h
+#bindsym mod1+v split v
 bindsym mod1+$mod+e layout toggle stacked tabbed
 bindsym mod1+$mod+f fullscreen toggle
 bindsym mod1+$mod+d floating toggle
 bindsym mod1+$mod+q exec $SCRIPT_PATH/hide-or-kill.sh
+bindsym shift+mod1+$mod+q kill
 
 bindsym mod1+$mod+c exec ~/.config/sway/i3bang.rb; reload
 bindsym mod1+$mod+x exec "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit Sway? This will end your session.' -B 'Yes, exit Sway' 'swaymsg exit'"
@@ -237,11 +246,11 @@ bindsym ctrl+mod1+1 move workspace to output $primary;   focus output $primary
 bindsym ctrl+mod1+2 move workspace to output $secondary; focus output $secondary
 bindsym ctrl+mod1+3 move workspace to output $tertiary;  focus output $tertiary
 
-bindsym $mod+b exec firefox
+#bindsym $mod+b exec firefox
 #bindsym $mod+c exec chromium
 #bindsym $mod+n exec thunar
 #bindsym $mod+l exec lollypop
-#bindsym $mod+m exec thunderbird
+#bindsym $mod+e exec thunderbird
 #bindsym $mod+g exec kitty ranger
 #bindsym $mod+p exec spotify --force-device-scale-factor=2 # shortcut to open Spotify
 bindsym $mod+t exec kitty
@@ -265,8 +274,8 @@ bindsym shift+$alt+F11 exec "$SCRIPT_PATH/obs-tools.py --scene output-1"
 bindsym shift+$alt+F12 exec "$SCRIPT_PATH/obs-tools.py --scene output-2"
 bindsym shift+$alt+F14 exec "$SCRIPT_PATH/obs-tools.py --record"
 bindsym $mod+Return       exec rofi -show run    -monitor $(swaymsg -t get_outputs | jq '.[] | select(.focused==true).name')
-bindsym $mod+bracketright exec rofi -show window -monitor $(swaymsg -t get_outputs | jq '.[] | select(.focused==true).name')
-bindsym $mod+backslash    exec rofi -show ssh    -monitor $(swaymsg -t get_outputs | jq '.[] | select(.focused==true).name')
+bindsym Shift+$mod+Return exec rofi -show ssh    -monitor $(swaymsg -t get_outputs | jq '.[] | select(.focused==true).name')
+bindsym Ctrl+$mod+Return  exec rofi -show window -monitor $(swaymsg -t get_outputs | jq '.[] | select(.focused==true).name')
 bindsym Print exec grim
 bindsym shift+Print exec 'grim -g "$(slurp)"'
 bindsym ctrl+Print exec 'grim -g "$(slurp)" - | swappy -f -'
@@ -310,7 +319,7 @@ bindsym mod1+$mod+Down exec "\
 
 >
 
-set $locker swaylock --config $XDG_CONFIG_HOME/swaylock/config
+set $locker $XDG_CONFIG_HOME/swaylock/lock-screen.sh
 set $messenger swaymsg exit
 set $mode_system System: (s)hutdown, (r)eboot, (l)ock, (S)uspend, (h)ibernate, (e)xit/logout
 #-----------------------------
@@ -368,29 +377,50 @@ assign [$prop="pavucontrol"] → $ws10
 for_window [$prop="Tk"] floating enable
 for_window [$prop="Toplevel"] floating enable
 
-exec --no-startup-id kitty --class="dropdown_python" -o font_size=20 -o include=$XDG_CONFIG_HOME/kitty/themes/python.conf python -q
-bindsym $mod+y exec "$SCRIPT_PATH/scratchpad.sh dropdown_python 0.6 0.6"
-for_window [$prop="^dropdown_python$"] floating enable
-for_window [$prop="^dropdown_python$"] move position center
-for_window [$prop="^dropdown_python$"] move scratchpad
-for_window [$prop="^dropdown_python$"] border pixel 5
-exec --no-startup-id kitty --class="dropdown_terminal" -o font_size=14 -o include=$XDG_CONFIG_HOME/kitty/themes/terminal.conf -o background_opacity=0.80
-bindsym $mod+h exec "$SCRIPT_PATH/scratchpad.sh dropdown_terminal 0.75 0.75"
-for_window [$prop="^dropdown_terminal$"] floating enable
-for_window [$prop="^dropdown_terminal$"] move position center
-for_window [$prop="^dropdown_terminal$"] move scratchpad
-for_window [$prop="^dropdown_terminal$"] border pixel 5
-bindsym $mod+n exec "$SCRIPT_PATH/adb-mdns-scrcpy.sh"
+bindsym $mod+v exec "$SCRIPT_PATH/adb-mdns-scrcpy.sh"
 for_window [title="^dropdown_scrcpy$" $prop="^scrcpy$"] floating enable
 for_window [title="^dropdown_scrcpy$" $prop="^scrcpy$"] move position center
 for_window [title="^dropdown_scrcpy$" $prop="^scrcpy$"] move scratchpad
 for_window [title="^dropdown_scrcpy$" $prop="^scrcpy$"] border pixel 5
-exec --no-startup-id brave --app=https://music.youtube.com
-bindsym $mod+g exec "$SCRIPT_PATH/scratchpad.sh "Brave-browser" 0.9 0.9
-for_window [title="^YouTube Music$" instance="^music.youtube.com$"] floating enable
-for_window [title="^YouTube Music$" instance="^music.youtube.com$"] move position center
-for_window [title="^YouTube Music$" instance="^music.youtube.com$"] move scratchpad
-for_window [title="^YouTube Music$" instance="^music.youtube.com$"] border pixel 5
+exec --no-startup-id kitty --class="dropdown_python" -o font_size=20 -o include=$XDG_CONFIG_HOME/kitty/themes/python.conf python -q
+bindsym $mod+j exec "$SCRIPT_PATH/show-or-launch.sh dropdown_python 0.6 0.6"
+for_window [$prop="^dropdown_python$"] floating enable
+for_window [$prop="^dropdown_python$"] move position center
+for_window [$prop="^dropdown_python$"] move scratchpad
+for_window [$prop="^dropdown_python$"] border pixel 5
+exec --no-startup-id kitty --class="dropdown_terminal" -o font_size=14 -o include=$XDG_CONFIG_HOME/kitty/themes/terminal.conf -o background_opacity=0.85
+bindsym $mod+m exec "$SCRIPT_PATH/show-or-launch.sh dropdown_terminal 0.75 0.75"
+for_window [$prop="^dropdown_terminal$"] floating enable
+for_window [$prop="^dropdown_terminal$"] move position center
+for_window [$prop="^dropdown_terminal$"] move scratchpad
+for_window [$prop="^dropdown_terminal$"] border pixel 5
+exec --no-startup-id "rm /tmp/scratchpad_pid_1.tmp"
+bindsym $mod+comma exec "$SCRIPT_PATH/scratchpad-temp.sh 1 show"
+bindsym ctrl+$mod+comma exec "$SCRIPT_PATH/scratchpad-temp.sh 1 destroy"
+exec --no-startup-id "rm /tmp/scratchpad_pid_2.tmp"
+bindsym $mod+period exec "$SCRIPT_PATH/scratchpad-temp.sh 2 show"
+bindsym ctrl+$mod+period exec "$SCRIPT_PATH/scratchpad-temp.sh 2 destroy"
+exec --no-startup-id "rm /tmp/scratchpad_pid_3.tmp"
+bindsym $mod+slash exec "$SCRIPT_PATH/scratchpad-temp.sh 3 show"
+bindsym ctrl+$mod+slash exec "$SCRIPT_PATH/scratchpad-temp.sh 3 destroy"
+for_window [$prop="^brave-web.whatsapp.com__-Default$"] floating enable
+for_window [$prop="^brave-web.whatsapp.com__-Default$"] move position center
+for_window [$prop="^brave-web.whatsapp.com__-Default$"] move scratchpad
+for_window [$prop="^brave-web.whatsapp.com__-Default$"] border pixel 5
+exec --no-startup-id brave-beta --app=https://web.whatsapp.com
+bindsym $mod+b exec "$SCRIPT_PATH/show-or-launch.sh brave-web.whatsapp.com__-Default 0.6 0.9"
+for_window [$prop="^brave-music.youtube.com__-Default$"] floating enable
+for_window [$prop="^brave-music.youtube.com__-Default$"] move position center
+for_window [$prop="^brave-music.youtube.com__-Default$"] move scratchpad
+for_window [$prop="^brave-music.youtube.com__-Default$"] border pixel 5
+exec --no-startup-id brave-beta --app=https://music.youtube.com
+bindsym $mod+g exec "$SCRIPT_PATH/show-or-launch.sh brave-music.youtube.com__-Default 0.9 0.9"
+exec --no-startup-id /usr/bin/keymapp
+bindsym $mod+k exec "$SCRIPT_PATH/show-or-launch.sh keymapp 0.75 0.75"
+for_window [$prop="^keymapp$"] floating enable
+for_window [$prop="^keymapp$"] move position center
+for_window [$prop="^keymapp$"] move scratchpad
+for_window [$prop="^keymapp$"] border pixel 5
 
 exec_always --no-startup-id ~/.config/waybar/waybar.sh
 exec "blueman-applet &"                 # Bluetooth
