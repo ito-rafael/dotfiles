@@ -18,13 +18,14 @@ where:
     scratchpad ID   1, 2 or 3
     action          action to be performed, can be one of the two options:
       \"show\"        show temporary scratchpad (or create it, if it doesn't exit)
+      \"detach\"      detach window from scratchpad
       \"destroy\"     kill window on temporary scratchpad
 "
 
 #=================================================
 # print help menu
 if [[ $1 == '-h' || $1 == '--help' ]]; then
-	printf "script to create, show or destroy temporary scratchpad\n\n"
+	printf "script to create, show, detach or destroy temporary scratchpad\n\n"
 	echo "$usage"
 	exit
 fi
@@ -105,6 +106,29 @@ if [[ $ACTION == 'show' ]]; then
 elif [[ $ACTION == 'destroy' ]]; then
     kill $(cat $SCRATCHPAD_TEMP)
     rm $SCRATCHPAD_TEMP
+#=================================================
+# detach window from scratchpad
+#=================================================
+elif [[ $ACTION == 'detach' ]]; then
+    if [ -f $SCRATCHPAD_TEMP ]; then
+        # file exists --> detach window
+        PID=$(cat $SCRATCHPAD_TEMP)
+        FOCUSED_PID=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.focused) | .pid')
+        # if scratchpad is focused, detach it
+        if [ "$FOCUSED_PID" == "$PID" ]; then
+            $WM_CMD '[pid='$PID'] floating disable'
+        else
+            # if scratchpad is not focused, display it first, then detach it
+            $WM_CMD '[pid='$PID'] scratchpad show; floating disable'
+        fi
+        # delete tmp file
+        rm $SCRATCHPAD_TEMP
+        exit 0
+    else
+        # file does not exist --> ignore
+        exit 0
+    #$WM_CMD '[pid='$PID'] floating disable; [pid='$PID'] move scratchpad'
+    fi
 #=================================================
 else
     exit 1
