@@ -128,7 +128,7 @@ bindsym mod1+$mod+e layout toggle stacked tabbed
 bindsym mod1+$mod+f fullscreen toggle
 bindsym mod1+$mod+d floating toggle
 bindsym mod1+$mod+q exec $SCRIPT_PATH/hide-or-kill.sh
-bindsym shift+mod1+$mod+q kill
+bindsym shift+mod1+$mod+q exec $SCRIPT_PATH/kill-window.sh
 
 bindsym mod1+$mod+s exec ~/.config/i3/i3bang.rb; reload
 bindsym mod1+$mod+c exec ~/.config/i3/i3bang.rb; restart
@@ -352,14 +352,17 @@ for_window [$prop="^dropdown_terminal$"] move position center
 for_window [$prop="^dropdown_terminal$"] move scratchpad
 for_window [$prop="^dropdown_terminal$"] border pixel 5
 exec --no-startup-id "rm /tmp/scratchpad_pid_1.tmp"
-bindsym $mod+comma exec "$SCRIPT_PATH/scratchpad-temp.sh 1 show"
-bindsym ctrl+$mod+comma exec "$SCRIPT_PATH/scratchpad-temp.sh 1 destroy"
+bindsym $mod+comma       exec "$SCRIPT_PATH/scratchpad-temp.sh 1 show"
+bindsym shift+$mod+comma exec "$SCRIPT_PATH/scratchpad-temp.sh 1 detach"
+bindsym ctrl+$mod+comma  exec "$SCRIPT_PATH/scratchpad-temp.sh 1 destroy"
 exec --no-startup-id "rm /tmp/scratchpad_pid_2.tmp"
-bindsym $mod+period exec "$SCRIPT_PATH/scratchpad-temp.sh 2 show"
-bindsym ctrl+$mod+period exec "$SCRIPT_PATH/scratchpad-temp.sh 2 destroy"
+bindsym $mod+period       exec "$SCRIPT_PATH/scratchpad-temp.sh 2 show"
+bindsym shift+$mod+period exec "$SCRIPT_PATH/scratchpad-temp.sh 2 detach"
+bindsym ctrl+$mod+period  exec "$SCRIPT_PATH/scratchpad-temp.sh 2 destroy"
 exec --no-startup-id "rm /tmp/scratchpad_pid_3.tmp"
-bindsym $mod+slash exec "$SCRIPT_PATH/scratchpad-temp.sh 3 show"
-bindsym ctrl+$mod+slash exec "$SCRIPT_PATH/scratchpad-temp.sh 3 destroy"
+bindsym $mod+slash       exec "$SCRIPT_PATH/scratchpad-temp.sh 3 show"
+bindsym shift+$mod+slash exec "$SCRIPT_PATH/scratchpad-temp.sh 3 detach"
+bindsym ctrl+$mod+slash  exec "$SCRIPT_PATH/scratchpad-temp.sh 3 destroy"
 for_window [$prop="^Brave-browser-beta$" instance="^web.whatsapp.com$"] floating enable
 for_window [$prop="^Brave-browser-beta$" instance="^web.whatsapp.com$"] move position center
 for_window [$prop="^Brave-browser-beta$" instance="^web.whatsapp.com$"] move scratchpad
