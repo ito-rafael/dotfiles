@@ -104,7 +104,49 @@ WIN_HEIGHT=$(echo "$SCALE_H * $RES_HEIGHT / $OUTPUT_SCALE / 1" | bc)
 #=================================================
 # create or show temporary scratchpad
 #=================================================
-if [[ $ACTION == 'show' ]]; then
+if [[ $ACTION == 'create-show' ]]; then
+    # check if $SCRATCHPAD_ID file exists (i.e., if a window was previously moved to temporary scratchpad)
+    #---------------------------------------
+    # check if scratchpad requested is different than the focused one
+    #---------------------------------------
+    # get focused window
+    FOCUSED_ID=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.focused == true) | .'$ID_PROP'')
+    #---------------------------------------
+    if [ "$FOCUSED_ID" != "$WID" ]; then
+        # then check if the {class,app_id} is one of the listed bellow
+        is_scratchpad=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.focused) |
+            .'$PROP_PREFIX''$PROP' == "dropdown_terminal" or
+            .'$PROP_PREFIX''$PROP' == "dropdown_python" or
+            .'$PROP_PREFIX''$PROP' == "scrcpy" and .'$PROP_PREFIX''$CAPTION' == "dropdown_scrcpy" or
+            .'$PROP_PREFIX''$PROP' == "brave-music.youtube.com__-Default" or
+            .'$PROP_PREFIX''$PROP' == "brave-web.whatsapp.com__-Default" or
+            .'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX''$INSTANCE' == "music.youtube.com" or
+            .'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX''$INSTANCE' == "web.whatsapp.com" or
+            .'$PROP_PREFIX''$PROP' == "keymapp" or .'$PROP_PREFIX''$PROP' == "Keymapp" or
+            .'$ID_PROP' == '$TEMP_PID_1' or 
+            .'$ID_PROP' == '$TEMP_PID_2' or 
+            .'$ID_PROP' == '$TEMP_PID_3'
+            ')
+        # if focused window is a scratchpad (according to the above list), hide it
+        if [ "$is_scratchpad" == "true" ]; then
+            $WM_CMD scratchpad show
+        fi
+    fi
+    #---------------------------------------
+    # file exists --> scratchpad already in use
+    #---------------------------------------
+    if [ -f $SCRATCHPAD_TEMP ]; then
+        PID=$(cat $SCRATCHPAD_TEMP)
+        $WM_CMD '['$ID'='$WID'] scratchpad show; ['$ID'='$WID'] resize set '$WIN_WIDTH' '$WIN_HEIGHT'; ['$ID'='$WID'] move position center'
+        exit 0
+    #---------------------------------------
+    # file does not exist --> create scratchpad
+    #---------------------------------------
+    else
+        WID=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.focused == true) | .'$ID_PROP'')
+        $WM_CMD '['$ID'='$WID'] floating enable; ['$ID'='$WID'] move scratchpad'
+        echo $WID > $SCRATCHPAD_TEMP
+    fi
     # check if $SCRATCHPAD_ID file exists (i.e., if a window was previously moved to temporary scratchpad)
     if [ -f $SCRATCHPAD_TEMP ]; then
         # file exists --> scratchpad already in use
