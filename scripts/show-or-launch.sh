@@ -50,7 +50,14 @@ WIN_WIDTH=$(echo "$SCALE_W * $RES_WIDTH / 1" | bc)
 WIN_HEIGHT=$(echo "$SCALE_H * $RES_HEIGHT / 1" | bc)
 
 # get focused window
-FOCUSED=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.focused == true) | .'$PROP_PREFIX''$PROP'')
+if [ $APPLICATION = "music.youtube.com" ] || [ $APPLICATION = "web.whatsapp.com" ]; then
+    # special cases for i3wm (use "instance" instead of "class")
+    #   - YouTube Music
+    #   - WhatsApp Web
+    FOCUSED=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.focused == true) | .'$PROP_PREFIX''$INSTANCE'')
+else
+    FOCUSED=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.focused == true) | .'$PROP_PREFIX''$PROP'')
+fi
 
 # check if scratchpad requested is different than the focused one
 if [ $FOCUSED != $APPLICATION ]; then
@@ -75,9 +82,14 @@ fi
 
 # special case for YouTube Music on i3wm (use "instance" instead of "class")
 if [ $APPLICATION = "music.youtube.com" ]; then
+# check if scratchpad exists
+# special cases for i3wm (use "instance" instead of "class")
+#   - YouTube Music
+#   - WhatsApp Web
+if [ $APPLICATION = "music.youtube.com" ] || [ $APPLICATION = "web.whatsapp.com" ]; then
     PROP="instance"
 fi
-# check if scratchpad exists
+# search for scratchpad
 SCRATCHPAD=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.'$PROP_PREFIX''$PROP' == "'$APPLICATION'")')
 
 # if it does not exist, launch it
