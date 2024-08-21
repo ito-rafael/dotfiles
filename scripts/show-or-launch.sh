@@ -10,6 +10,33 @@
 #
 
 #=======================================
+# temporary scratchpads
+#=======================================
+# scratchpad tmp files
+SCRATCHPAD_TEMP_1='/tmp/scratchpad_pid_1.tmp'
+SCRATCHPAD_TEMP_2='/tmp/scratchpad_pid_2.tmp'
+SCRATCHPAD_TEMP_3='/tmp/scratchpad_pid_3.tmp'
+# set default PID to 0
+TEMP_PID_1=0
+TEMP_PID_2=0
+TEMP_PID_3=0
+#----------------------------------
+# temporary scratchpad #1 (comma)
+if [ -f $SCRATCHPAD_TEMP_1 ]; then
+    TEMP_PID_1=$(cat $SCRATCHPAD_TEMP_1)
+fi 
+#----------------------------------
+# temporary scratchpad #2 (period)
+if [ -f $SCRATCHPAD_TEMP_2 ]; then
+    TEMP_PID_2=$(cat $SCRATCHPAD_TEMP_2)
+fi 
+#----------------------------------
+# temporary scratchpad #3 (slash)
+if [ -f $SCRATCHPAD_TEMP_3 ]; then
+    TEMP_PID_3=$(cat $SCRATCHPAD_TEMP_3)
+fi
+
+#=======================================
 # identify session (i3wm/Sway) and set vars accordingly
 #=======================================
 case "${XDG_SESSION_TYPE}" in
@@ -20,6 +47,7 @@ case "${XDG_SESSION_TYPE}" in
         PROP="class"
         CAPTION="title"
         INSTANCE="instance"
+        ID_PROP="window"
         # get height & width of current output
         RESOLUTION=$(i3-msg -t get_outputs | jq -r '.[] | select(.name=='"$FOCUSED_OUTPUT"')')
         RES_WIDTH=$(echo $RESOLUTION | jq '.rect.width')
@@ -29,6 +57,7 @@ case "${XDG_SESSION_TYPE}" in
         WM_CMD="swaymsg"
         PROP="app_id"
         CAPTION="name"
+        ID_PROP="pid"
         # get height & width of current output
         RESOLUTION=$(swaymsg -t get_outputs | jq '.[] | select(.focused==true).current_mode')
         RES_WIDTH=$(echo $RESOLUTION | jq '.width')
@@ -75,8 +104,11 @@ if [ $FOCUSED != $APPLICATION ]; then
         .'$PROP_PREFIX''$PROP' == "brave-music.youtube.com__-Default" or
         .'$PROP_PREFIX''$PROP' == "brave-web.whatsapp.com__-Default" or
         .'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX''$INSTANCE' == "music.youtube.com" or
-        .'$PROP_PREFIX''$PROP' == "keymapp" or .'$PROP_PREFIX''$PROP' == "Keymapp"
         .'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX''$INSTANCE' == "web.whatsapp.com" or
+        .'$PROP_PREFIX''$PROP' == "keymapp" or .'$PROP_PREFIX''$PROP' == "Keymapp" or
+        .'$ID_PROP' == '$TEMP_PID_1' or 
+        .'$ID_PROP' == '$TEMP_PID_2' or 
+        .'$ID_PROP' == '$TEMP_PID_3'
         ')
 
     # if focused window is a scratchpad (according to the above list), hide it
