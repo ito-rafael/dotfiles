@@ -32,10 +32,13 @@ fi
 
 #=================================================
 # parse parameters
+#=================================================
 SCRATCHPAD_ID=$1
 ACTION=$2
 
+#=================================================
 # use temp file as flag to signal if scratchpad exists or not
+#=================================================
 #SCRATCHPAD_TEMP='/tmp/scratchpad_pid.tmp'
 
 case "${SCRATCHPAD_ID}" in
@@ -54,7 +57,9 @@ case "${SCRATCHPAD_ID}" in
         ;;
 esac
 
+#=================================================
 # get output resolution
+#=================================================
 case "${XDG_SESSION_TYPE}" in
     "x11")
         WM_CMD="i3-msg"
@@ -62,6 +67,11 @@ case "${XDG_SESSION_TYPE}" in
         RES_WIDTH=$(echo $RESOLUTION | jq '.rect.width')
         RES_HEIGHT=$(echo $RESOLUTION | jq '.rect.height')
         OUTPUT_SCALE=1.0  # TBD
+        ID="id"
+        ID_PROP="window"
+        # get window ID and convert it to PID
+        WID=$(cat $SCRATCHPAD_TEMP)
+        PID=$(xdotool getwindowpid $WID)
         ;;
     "wayland")
         WM_CMD="swaymsg"
@@ -69,6 +79,11 @@ case "${XDG_SESSION_TYPE}" in
         RES_WIDTH=$(echo $RESOLUTION | jq '.width')
         RES_HEIGHT=$(echo $RESOLUTION | jq '.height')
         OUTPUT_SCALE=$(swaymsg -t get_outputs | jq '.[] | select(.focused==true).scale')
+        ID="pid"
+        ID_PROP="pid"
+        # get PID directly from tmp file
+        PID=$(cat $SCRATCHPAD_TEMP)
+        WID=$(cat $SCRATCHPAD_TEMP)
         ;;
     "tty")
         exit 0
@@ -78,7 +93,9 @@ case "${XDG_SESSION_TYPE}" in
         ;;
 esac
 
+#=================================================
 # calc height & width (as int) according to the scale parameter
+#=================================================
 SCALE_W="0.90"
 SCALE_H="0.90"
 WIN_WIDTH=$(echo "$SCALE_W * $RES_WIDTH / $OUTPUT_SCALE / 1" | bc)
@@ -92,19 +109,15 @@ if [[ $ACTION == 'show' ]]; then
     if [ -f $SCRATCHPAD_TEMP ]; then
         # file exists --> scratchpad already in use
         PID=$(cat $SCRATCHPAD_TEMP)
-        $WM_CMD '[pid='$PID'] scratchpad show; [pid='$PID'] resize set '$WIN_WIDTH' '$WIN_HEIGHT'; [pid='$PID'] move position center'
+        $WM_CMD '['$ID'='$WID'] scratchpad show; ['$ID'='$WID'] resize set '$WIN_WIDTH' '$WIN_HEIGHT'; ['$ID'='$WID'] move position center'
         exit 0
-    else
-        # file does not exist --> create scratchpad
-        PID=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.focused == true) | .pid')
-        $WM_CMD '[pid='$PID'] floating enable; [pid='$PID'] move scratchpad'
-        echo $PID > $SCRATCHPAD_TEMP
     fi
 #=================================================
 # destroy temporary scratchpad
 #=================================================
 elif [[ $ACTION == 'destroy' ]]; then
-    kill $(cat $SCRATCHPAD_TEMP)
+    # kill window and delete file
+    kill $PID
     rm $SCRATCHPAD_TEMP
 #=================================================
 # detach window from scratchpad
@@ -112,14 +125,13 @@ elif [[ $ACTION == 'destroy' ]]; then
 elif [[ $ACTION == 'detach' ]]; then
     if [ -f $SCRATCHPAD_TEMP ]; then
         # file exists --> detach window
-        PID=$(cat $SCRATCHPAD_TEMP)
-        FOCUSED_PID=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.focused) | .pid')
+        FOCUSED_PID=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.focused) | .'$ID_PROP'')
         # if scratchpad is focused, detach it
-        if [ "$FOCUSED_PID" == "$PID" ]; then
-            $WM_CMD '[pid='$PID'] floating disable'
+        if [ "$FOCUSED_PID" == "$WID" ]; then
+            $WM_CMD '['$ID'='$WID'] floating disable'
         else
             # if scratchpad is not focused, display it first, then detach it
-            $WM_CMD '[pid='$PID'] scratchpad show; floating disable'
+            $WM_CMD '['$ID'='$WID'] scratchpad show; floating disable'
         fi
         # delete tmp file
         rm $SCRATCHPAD_TEMP
@@ -127,7 +139,6 @@ elif [[ $ACTION == 'detach' ]]; then
     else
         # file does not exist --> ignore
         exit 0
-    #$WM_CMD '[pid='$PID'] floating disable; [pid='$PID'] move scratchpad'
     fi
 #=================================================
 else
