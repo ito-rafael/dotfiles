@@ -18,7 +18,9 @@
 #   https://stackoverflow.com/questions/65991502/adb-over-wi-fi-android-11-on-windows-how-to-keep-a-fixed-port-or-connect-aut
 #
 
-# get output resolution
+#=======================================
+# identify session (i3wm/Sway) and set vars accordingly
+#=======================================
 case "${XDG_SESSION_TYPE}" in
     "x11")
         FOCUSED_OUTPUT=$(i3-msg -t get_workspaces | jq '.[] | select(.focused).output')
@@ -26,6 +28,8 @@ case "${XDG_SESSION_TYPE}" in
         PROP_PREFIX="window_properties."
         PROP="class"
         CAPTION="title"
+        INSTANCE="instance"
+        ID_PROP="window"
         # get height & width of current output
         RESOLUTION=$(i3-msg -t get_outputs | jq -r '.[] | select(.name=='"$FOCUSED_OUTPUT"')')
         RES_HEIGHT=$(echo $RESOLUTION | jq '.rect.height')
@@ -35,6 +39,7 @@ case "${XDG_SESSION_TYPE}" in
         WM_CMD="swaymsg"
         PROP="app_id"
         CAPTION="name"
+        ID_PROP="pid"
         # get height & width of current output
         RESOLUTION=$(swaymsg -t get_outputs | jq '.[] | select(.focused==true).current_mode')
         RES_HEIGHT=$(echo $RESOLUTION | jq '.height')
@@ -75,6 +80,9 @@ if [ -f $SCRATCHPAD_TEMP_3 ]; then
     TEMP_PID_3=$(cat $SCRATCHPAD_TEMP_3)
 fi
 
+#=======================================
+# calculate window size
+#=======================================
 # calc height (int) of the window (90% of full height)
 # examples:
 #   - for Full HD (1920x1080): height = 972
@@ -89,13 +97,19 @@ WIN_HEIGHT=$(echo "0.9 * $RES_HEIGHT / 1" | bc)
 #       - 4K: width = 875
 WIN_WIDTH=$(echo "0.455 * $WIN_HEIGHT / 1" | bc)
 
+#=======================================
 # get focused window
+#=======================================
 FOCUSED=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.focused == true) | .'$PROP_PREFIX''$PROP'')
 
+#=======================================
 # check if ADB scratchpad is already running
+#=======================================
 SCRATCHPAD=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.'$PROP' == "scrcpy" and .'$CAPTION' == "dropdown_scrcpy")')
 
+#=======================================
 # check if current focused window is a scratchpad
+#=======================================
 if [ $FOCUSED != "scrcpy" ]; then
     # then check if the {class,app_id} is one of the listed bellow
     is_scratchpad=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.focused) |
@@ -103,7 +117,9 @@ if [ $FOCUSED != "scrcpy" ]; then
         .'$PROP_PREFIX''$PROP' == "dropdown_python" or
         .'$PROP_PREFIX''$PROP' == "scrcpy" and .'$PROP_PREFIX''$CAPTION' == "dropdown_scrcpy" or
         .'$PROP_PREFIX''$PROP' == "brave-music.youtube.com__-Default" or
+        .'$PROP_PREFIX''$PROP' == "brave-web.whatsapp.com__-Default" or
         .'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX''$INSTANCE' == "music.youtube.com" or
+        .'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX''$INSTANCE' == "web.whatsapp.com" or
         .'$ID_PROP' == '$TEMP_PID_1' or 
         .'$ID_PROP' == '$TEMP_PID_2' or 
         .'$ID_PROP' == '$TEMP_PID_3'
