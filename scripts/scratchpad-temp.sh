@@ -2,6 +2,10 @@
 #
 # This script is meant to be used with i3wm and Sway to move a window to a temporary scratchpad. Three temporary scratchpads are supported.
 #
+# Prerequisites:
+#   i3wm:
+#     - xdotool
+#
 # Parameters:
 #   1. ID of temporary scratchpad (options: 1, 2 or 3).
 #   2. action: 
@@ -35,6 +39,33 @@ fi
 #=================================================
 SCRATCHPAD_ID=$1
 ACTION=$2
+
+#=======================================
+# temporary scratchpads
+#=======================================
+# scratchpad tmp files
+SCRATCHPAD_TEMP_1='/tmp/scratchpad_pid_1.tmp'
+SCRATCHPAD_TEMP_2='/tmp/scratchpad_pid_2.tmp'
+SCRATCHPAD_TEMP_3='/tmp/scratchpad_pid_3.tmp'
+# set default PID to 0
+TEMP_PID_1=0
+TEMP_PID_2=0
+TEMP_PID_3=0
+#----------------------------------
+# temporary scratchpad #1 (comma)
+if [ -f $SCRATCHPAD_TEMP_1 ]; then
+    TEMP_PID_1=$(cat $SCRATCHPAD_TEMP_1)
+fi 
+#----------------------------------
+# temporary scratchpad #2 (period)
+if [ -f $SCRATCHPAD_TEMP_2 ]; then
+    TEMP_PID_2=$(cat $SCRATCHPAD_TEMP_2)
+fi 
+#----------------------------------
+# temporary scratchpad #3 (slash)
+if [ -f $SCRATCHPAD_TEMP_3 ]; then
+    TEMP_PID_3=$(cat $SCRATCHPAD_TEMP_3)
+fi
 
 #=================================================
 # use temp file as flag to signal if scratchpad exists or not
