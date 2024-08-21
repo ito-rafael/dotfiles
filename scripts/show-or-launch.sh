@@ -136,14 +136,17 @@ fi
 # proceed to resize, center & display requested scratchpad
 $WM_CMD '['$PROP'='$APPLICATION'] scratchpad show; ['$PROP'='$APPLICATION'] resize set '$WIN_WIDTH' '$WIN_HEIGHT'; ['$PROP'='$APPLICATION'] move position center'
 
-# set transparency for "YouTube Music" scratchpad on Sway
+# set transparency for "YouTube Music" scratchpad on i3wm/Sway
 if [ "$APPLICATION" = "brave-music.youtube.com__-Default" ] ; then
+    # Sway
     sleep 0.01
     $WM_CMD '['$PROP'='$APPLICATION'] opacity set 0.9'
+    exit 0
+elif [ "$APPLICATION" = "music.youtube.com" ]; then
+    # i3wm
+    WINDOW_ID=$(i3-msg -t get_tree | jq -re '.. | select(type == "object") | select(.'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX''$INSTANCE' == "music.youtube.com") | .window')
+    picom-trans -w $WINDOW_ID -o 90
+    exit 0
 fi
 
-# set transparency for "YouTube Music" scratchpad on i3wm
-if [ "$APPLICATION" = "music.youtube.com" ]; then
-    WINDOW_ID=$(i3-msg -t get_tree | jq -re '.. | select(type == "object") | select(.name == "YouTube Music") | .window')
-    picom-trans -w $WINDOW_ID -o 90
 fi
