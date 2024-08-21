@@ -9,7 +9,9 @@
 #   3. SCALE_H: scale multiplier for the scratchpad height. Example: 0.90 (default: 0.66).
 #
 
+#=======================================
 # identify session (i3wm/Sway) and set vars accordingly
+#=======================================
 case "${XDG_SESSION_TYPE}" in
     "x11")
         FOCUSED_OUTPUT=$(i3-msg -t get_workspaces | jq '.[] | select(.focused).output')
@@ -49,7 +51,9 @@ SCALE_H=${3:-"0.66"}
 WIN_WIDTH=$(echo "$SCALE_W * $RES_WIDTH / 1" | bc)
 WIN_HEIGHT=$(echo "$SCALE_H * $RES_HEIGHT / 1" | bc)
 
+#=======================================
 # get focused window
+#=======================================
 if [ $APPLICATION = "music.youtube.com" ] || [ $APPLICATION = "web.whatsapp.com" ]; then
     # special cases for i3wm (use "instance" instead of "class")
     #   - YouTube Music
@@ -59,7 +63,9 @@ else
     FOCUSED=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.focused == true) | .'$PROP_PREFIX''$PROP'')
 fi
 
+#=======================================
 # check if scratchpad requested is different than the focused one
+#=======================================
 if [ $FOCUSED != $APPLICATION ]; then
     # then check if the {class,app_id} is one of the listed bellow
     is_scratchpad=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.focused) |
@@ -74,15 +80,14 @@ if [ $FOCUSED != $APPLICATION ]; then
         ')
 
     # if focused window is a scratchpad (according to the above list), hide it
-    if [ $is_scratchpad = "true" ]; then
+    if [ "$is_scratchpad" == "true" ]; then
         $WM_CMD scratchpad show
-        exit 0
     fi
 fi
 
-# special case for YouTube Music on i3wm (use "instance" instead of "class")
-if [ $APPLICATION = "music.youtube.com" ]; then
+#=======================================
 # check if scratchpad exists
+#=======================================
 # special cases for i3wm (use "instance" instead of "class")
 #   - YouTube Music
 #   - WhatsApp Web
@@ -92,7 +97,9 @@ fi
 # search for scratchpad
 SCRATCHPAD=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.'$PROP_PREFIX''$PROP' == "'$APPLICATION'")')
 
+#=======================================
 # if it does not exist, launch it
+#=======================================
 if [[ ! $SCRATCHPAD ]]; then
     case "${APPLICATION}" in
         "dropdown_terminal")
@@ -133,10 +140,14 @@ if [[ ! $SCRATCHPAD ]]; then
     esac
 fi
 
+#=======================================
 # proceed to resize, center & display requested scratchpad
+#=======================================
 $WM_CMD '['$PROP'='$APPLICATION'] scratchpad show; ['$PROP'='$APPLICATION'] resize set '$WIN_WIDTH' '$WIN_HEIGHT'; ['$PROP'='$APPLICATION'] move position center'
 
+#=======================================
 # set transparency for "YouTube Music" scratchpad on i3wm/Sway
+#=======================================
 if [ "$APPLICATION" = "brave-music.youtube.com__-Default" ] ; then
     # Sway
     sleep 0.01
@@ -149,7 +160,9 @@ elif [ "$APPLICATION" = "music.youtube.com" ]; then
     exit 0
 fi
 
+#=======================================
 # set transparency for "WhatsApp Web" scratchpad on i3wm/Sway
+#=======================================
 if [ "$APPLICATION" = "brave-web.whatsapp.com__-Default" ] ; then
     # Sway
     sleep 0.01
