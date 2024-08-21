@@ -62,7 +62,12 @@ esac
 #=================================================
 case "${XDG_SESSION_TYPE}" in
     "x11")
+        FOCUSED_OUTPUT=$(i3-msg -t get_workspaces | jq '.[] | select(.focused).output')
         WM_CMD="i3-msg"
+        PROP_PREFIX="window_properties."
+        PROP="class"
+        CAPTION="title"
+        INSTANCE="instance"
         RESOLUTION=$(i3-msg -t get_outputs | jq -r '.[] | select(.name=='"$FOCUSED_OUTPUT"')')
         RES_WIDTH=$(echo $RESOLUTION | jq '.rect.width')
         RES_HEIGHT=$(echo $RESOLUTION | jq '.rect.height')
@@ -75,6 +80,8 @@ case "${XDG_SESSION_TYPE}" in
         ;;
     "wayland")
         WM_CMD="swaymsg"
+        PROP="app_id"
+        CAPTION="name"
         RESOLUTION=$(swaymsg -t get_outputs | jq '.[] | select(.focused==true).current_mode')
         RES_WIDTH=$(echo $RESOLUTION | jq '.width')
         RES_HEIGHT=$(echo $RESOLUTION | jq '.height')
@@ -147,7 +154,38 @@ if [[ $ACTION == 'create-show' ]]; then
         $WM_CMD '['$ID'='$WID'] floating enable; ['$ID'='$WID'] move scratchpad'
         echo $WID > $SCRATCHPAD_TEMP
     fi
+#=================================================
+# display temporary scratchpad if it exists
+#=================================================
+elif [[ $ACTION == 'display' ]]; then
     # check if $SCRATCHPAD_ID file exists (i.e., if a window was previously moved to temporary scratchpad)
+    #---------------------------------------
+    # check if scratchpad requested is different than the focused one
+    #---------------------------------------
+    # get focused window
+    FOCUSED_ID=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.focused == true) | .'$ID_PROP'')
+    #---------------------------------------
+    if [ "$FOCUSED_ID" != "$WID" ]; then
+        # then check if the {class,app_id} is one of the listed bellow
+        is_scratchpad=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.focused) |
+            .'$PROP_PREFIX''$PROP' == "dropdown_terminal" or
+            .'$PROP_PREFIX''$PROP' == "dropdown_python" or
+            .'$PROP_PREFIX''$PROP' == "scrcpy" and .'$PROP_PREFIX''$CAPTION' == "dropdown_scrcpy" or
+            .'$PROP_PREFIX''$PROP' == "brave-music.youtube.com__-Default" or
+            .'$PROP_PREFIX''$PROP' == "brave-web.whatsapp.com__-Default" or
+            .'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX''$INSTANCE' == "music.youtube.com" or
+            .'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX''$INSTANCE' == "web.whatsapp.com" or
+            .'$PROP_PREFIX''$PROP' == "keymapp" or .'$PROP_PREFIX''$PROP' == "Keymapp" or
+            .'$ID_PROP' == '$TEMP_PID_1' or 
+            .'$ID_PROP' == '$TEMP_PID_2' or 
+            .'$ID_PROP' == '$TEMP_PID_3'
+            ')
+        # if focused window is a scratchpad (according to the above list), hide it
+        if [ "$is_scratchpad" == "true" ]; then
+            $WM_CMD scratchpad show
+        fi
+    fi
+    #---------------------------------------
     if [ -f $SCRATCHPAD_TEMP ]; then
         # file exists --> scratchpad already in use
         PID=$(cat $SCRATCHPAD_TEMP)
