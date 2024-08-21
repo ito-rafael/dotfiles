@@ -149,4 +149,15 @@ elif [ "$APPLICATION" = "music.youtube.com" ]; then
     exit 0
 fi
 
+# set transparency for "WhatsApp Web" scratchpad on i3wm/Sway
+if [ "$APPLICATION" = "brave-web.whatsapp.com__-Default" ] ; then
+    # Sway
+    sleep 0.01
+    $WM_CMD '['$PROP'='$APPLICATION'] opacity set 0.95'
+    exit 0
+elif [ "$APPLICATION" = "web.whatsapp.com" ]; then
+    # i3wm
+    WINDOW_ID=$(i3-msg -t get_tree | jq -re '.. | select(type == "object") | select(.'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX''$INSTANCE' == "web.whatsapp.com") | .window')
+    picom-trans -w $WINDOW_ID -o 95
+    exit 0
 fi
