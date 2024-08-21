@@ -48,6 +48,33 @@ case "${XDG_SESSION_TYPE}" in
         ;;
 esac
 
+#=======================================
+# temporary scratchpads
+#=======================================
+# scratchpad tmp files
+SCRATCHPAD_TEMP_1='/tmp/scratchpad_pid_1.tmp'
+SCRATCHPAD_TEMP_2='/tmp/scratchpad_pid_2.tmp'
+SCRATCHPAD_TEMP_3='/tmp/scratchpad_pid_3.tmp'
+# set default PID to 0
+TEMP_PID_1=0
+TEMP_PID_2=0
+TEMP_PID_3=0
+#----------------------------------
+# temporary scratchpad #1 (comma)
+if [ -f $SCRATCHPAD_TEMP_1 ]; then
+    TEMP_PID_1=$(cat $SCRATCHPAD_TEMP_1)
+fi 
+#----------------------------------
+# temporary scratchpad #2 (period)
+if [ -f $SCRATCHPAD_TEMP_2 ]; then
+    TEMP_PID_2=$(cat $SCRATCHPAD_TEMP_2)
+fi 
+#----------------------------------
+# temporary scratchpad #3 (slash)
+if [ -f $SCRATCHPAD_TEMP_3 ]; then
+    TEMP_PID_3=$(cat $SCRATCHPAD_TEMP_3)
+fi
+
 # calc height (int) of the window (90% of full height)
 # examples:
 #   - for Full HD (1920x1080): height = 972
@@ -76,16 +103,21 @@ if [ $FOCUSED != "scrcpy" ]; then
         .'$PROP_PREFIX''$PROP' == "dropdown_python" or
         .'$PROP_PREFIX''$PROP' == "scrcpy" and .'$PROP_PREFIX''$CAPTION' == "dropdown_scrcpy" or
         .'$PROP_PREFIX''$PROP' == "brave-music.youtube.com__-Default" or
-        .'$PROP_PREFIX'class == "Brave-browser" and .'$PROP_PREFIX'title == "YouTube Music" and .'$PROP_PREFIX'instance == "music.youtube.com"
+        .'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX''$INSTANCE' == "music.youtube.com" or
+        .'$ID_PROP' == '$TEMP_PID_1' or 
+        .'$ID_PROP' == '$TEMP_PID_2' or 
+        .'$ID_PROP' == '$TEMP_PID_3'
         ')
 
     # if focused window is a scratchpad (according to the above list), hide it
-    if [ $is_scratchpad = "true" ]; then
+    if [ "$is_scratchpad" == "true" ]; then
         $WM_CMD scratchpad show
     fi
 fi
 
+#=======================================
 # display scratchpad if it's active, or try to launch if it isn't
+#=======================================
 if [[ $SCRATCHPAD ]]; then
     echo "Scratchpad found! Displaying it..."
     $WM_CMD '['$PROP'="scrcpy" title="dropdown_scrcpy"] scratchpad show; ['$PROP'="scrcpy" title="dropdown_scrcpy"] resize set '$WIN_WIDTH' '$WIN_HEIGHT'; ['$PROP'="scrcpy" title="dropdown_scrcpy"] move position center'
