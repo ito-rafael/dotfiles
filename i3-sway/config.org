@@ -851,6 +851,7 @@ bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
 #+end_src
 ** Rofi
 #+begin_src conf :noweb-ref rofi
+bindsym $mod+Return       exec "$SCRIPT_PATH/rofi.sh drun"
 bindsym Shift+$mod+Return exec "$SCRIPT_PATH/rofi.sh ssh"
 bindsym Ctrl+$mod+Return  exec "$SCRIPT_PATH/rofi.sh window"
 bindsym $alt+$mod+Return  exec "$SCRIPT_PATH/rofi.sh run"
