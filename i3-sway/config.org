@@ -1567,14 +1567,22 @@ output $secondary background ~/.config/wallpaper/london.jpg fill
 output $tertiary  background ~/.config/wallpaper/nasa.png fill
 #+end_src
 ** Daemons
-#+begin_src conf :noweb-ref startup-commands
-#exec nohup autokey-gtk                           # launch AutoKey
-#exec nohup /usr/bin/dunst                        # dunst: notification daemon
-exec /usr/bin/dunst &                            # dunst: notification daemon
-#exec_always dunstctl set-paused true             # dunst: start with notifications paused
-exec /usr/bin/emacs --daemon &                   # Emacs daemon
-exec_always --no-startup-id autotiling           # autotiling
+*** Common
+#+begin_src conf :noweb-ref daemons
+exec --no-startup-id /usr/bin/dunst &             # dunst: notification daemon
+#exec_always dunstctl set-paused true              # dunst: start with notifications paused
+exec --no-startup-id /usr/bin/emacs --daemon &    # Emacs daemon
+exec_always --no-startup-id autotiling            # autotiling
 exec_always --no-startup-id "$SCRIPT_PATH/xremap-keeb-config.sh"
+#+end_src
+*** Tangle :noexport:
+**** i3
+#+begin_src conf :noweb yes :tangle _config_i3
+<<daemons>>
+#+end_src
+**** Sway
+#+begin_src conf :noweb yes :tangle _config_sway
+<<daemons>>
 #+end_src
 ** Panel
 *** i3
