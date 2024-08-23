@@ -889,6 +889,10 @@ Save window properties into "/tmp/window_prop.tmp" file.
 #+begin_src conf :noweb-ref i3-xprop
 bindsym $alt+ctrl+n exec i3-msg -t get_tree | jq -re '.. | select(type == "object") | select(.focused)' > /tmp/window_prop.tmp
 #+end_src
+*** Sway
+#+begin_src conf :noweb-ref sway-wlprop
+bindsym $alt+ctrl+n exec "$SCRIPT_PATH/wlprop.sh focused"
+#+end_src
 ** Tangle :noexport:
 *** i3
 #+begin_src conf :noweb yes :tangle _config_i3
@@ -902,6 +906,7 @@ bindsym $alt+ctrl+n exec i3-msg -t get_tree | jq -re '.. | select(type == "objec
 <<keybindings>>
 <<rofi>>
 <<sway-screenshot>>
+<<sway-wlprop>>
 #+end_src
 * Logitech MX
 ** Change host
