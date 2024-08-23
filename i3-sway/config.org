@@ -850,17 +850,10 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
 #+end_src
 ** Rofi
-*** i3
-#+begin_src conf :noweb-ref i3-rofi
-bindsym $mod+Return       exec rofi -show run
-bindsym Shift+$mod+Return exec rofi -show ssh
-bindsym Ctrl+$mod+Return  exec rofi -show window
-#+end_src
-*** Sway
-#+begin_src conf :noweb-ref sway-rofi
-bindsym $mod+Return       exec rofi -show run    -monitor $(swaymsg -t get_outputs | jq '.[] | select(.focused==true).name')
-bindsym Shift+$mod+Return exec rofi -show ssh    -monitor $(swaymsg -t get_outputs | jq '.[] | select(.focused==true).name')
-bindsym Ctrl+$mod+Return  exec rofi -show window -monitor $(swaymsg -t get_outputs | jq '.[] | select(.focused==true).name')
+#+begin_src conf :noweb-ref rofi
+bindsym Shift+$mod+Return exec "$SCRIPT_PATH/rofi.sh ssh"
+bindsym Ctrl+$mod+Return  exec "$SCRIPT_PATH/rofi.sh window"
+bindsym $alt+$mod+Return  exec "$SCRIPT_PATH/rofi.sh run"
 #+end_src
 ** Screenshot
 *** i3
