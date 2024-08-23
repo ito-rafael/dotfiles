@@ -886,13 +886,13 @@ bindsym shift+$alt+F14 exec "$SCRIPT_PATH/obs-tools.py --record"
 *** i3
 #+begin_src conf :noweb yes :tangle _config_i3
 <<keybindings>>
-<<i3-rofi>>
+<<rofi>>
 <<i3-screenshot>>
 #+end_src
 *** Sway
 #+begin_src conf :noweb yes :tangle _config_sway
 <<keybindings>>
-<<sway-rofi>>
+<<rofi>>
 <<sway-screenshot>>
 #+end_src
 * Logitech MX
