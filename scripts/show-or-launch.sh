@@ -52,6 +52,7 @@ case "${XDG_SESSION_TYPE}" in
         RESOLUTION=$(i3-msg -t get_outputs | jq -r '.[] | select(.name=='"$FOCUSED_OUTPUT"')')
         RES_WIDTH=$(echo $RESOLUTION | jq '.rect.width')
         RES_HEIGHT=$(echo $RESOLUTION | jq '.rect.height')
+        OUTPUT_SCALE=1.0  # to be implemented
         ;;
     "wayland")
         WM_CMD="swaymsg"
@@ -62,6 +63,7 @@ case "${XDG_SESSION_TYPE}" in
         RESOLUTION=$(swaymsg -t get_outputs | jq '.[] | select(.focused==true).current_mode')
         RES_WIDTH=$(echo $RESOLUTION | jq '.width')
         RES_HEIGHT=$(echo $RESOLUTION | jq '.height')
+        OUTPUT_SCALE=$(swaymsg -t get_outputs | jq '.[] | select(.focused==true).scale')
         ;;
     "tty")
         exit 0
@@ -77,8 +79,8 @@ SCALE_W=${2:-"0.66"}
 SCALE_H=${3:-"0.66"}
 
 # calc height & width (as int) according to the scale parameter
-WIN_WIDTH=$(echo "$SCALE_W * $RES_WIDTH / 1" | bc)
-WIN_HEIGHT=$(echo "$SCALE_H * $RES_HEIGHT / 1" | bc)
+WIN_WIDTH=$(echo "$SCALE_W * $RES_WIDTH / $OUTPUT_SCALE / 1" | bc)
+WIN_HEIGHT=$(echo "$SCALE_H * $RES_HEIGHT / $OUTPUT_SCALE / 1" | bc)
 
 #=======================================
 # get focused window
