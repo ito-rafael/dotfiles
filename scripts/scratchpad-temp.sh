@@ -102,7 +102,7 @@ case "${XDG_SESSION_TYPE}" in
         RESOLUTION=$(i3-msg -t get_outputs | jq -r '.[] | select(.name=='"$FOCUSED_OUTPUT"')')
         RES_WIDTH=$(echo $RESOLUTION | jq '.rect.width')
         RES_HEIGHT=$(echo $RESOLUTION | jq '.rect.height')
-        OUTPUT_SCALE=1.0  # TBD
+        OUTPUT_SCALE=1.0  # to be implemented
         ID="id"
         ID_PROP="window"
         # get window ID and convert it to PID

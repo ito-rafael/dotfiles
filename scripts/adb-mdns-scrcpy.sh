@@ -34,6 +34,7 @@ case "${XDG_SESSION_TYPE}" in
         RESOLUTION=$(i3-msg -t get_outputs | jq -r '.[] | select(.name=='"$FOCUSED_OUTPUT"')')
         RES_HEIGHT=$(echo $RESOLUTION | jq '.rect.height')
         #RES_WIDTH=$(echo $RESOLUTION | jq '.rect.width')
+        OUTPUT_SCALE=1.0  # to be implemented
         ;;
     "wayland")
         WM_CMD="swaymsg"
@@ -44,6 +45,7 @@ case "${XDG_SESSION_TYPE}" in
         RESOLUTION=$(swaymsg -t get_outputs | jq '.[] | select(.focused==true).current_mode')
         RES_HEIGHT=$(echo $RESOLUTION | jq '.height')
         #RES_WIDTH=$(echo $RESOLUTION | jq '.width')
+        OUTPUT_SCALE=$(swaymsg -t get_outputs | jq '.[] | select(.focused==true).scale')
         ;;
     "tty")
         exit 0
@@ -87,7 +89,7 @@ fi
 # examples:
 #   - for Full HD (1920x1080): height = 972
 #   - for 4K (3840x2160): height = 1944
-WIN_HEIGHT=$(echo "0.9 * $RES_HEIGHT / 1" | bc)
+WIN_HEIGHT=$(echo "0.9 * $RES_HEIGHT / $OUTPUT_SCALE / 1" | bc)
 
 # calc width (int) of the window based on the resolution of the device
 # examples:
@@ -95,7 +97,7 @@ WIN_HEIGHT=$(echo "0.9 * $RES_HEIGHT / 1" | bc)
 #     - width = 1440/3200 * $WIN_HEIGHT
 #       - Full HD: width = 437
 #       - 4K: width = 875
-WIN_WIDTH=$(echo "0.455 * $WIN_HEIGHT / 1" | bc)
+WIN_WIDTH=$(echo "0.455 * $WIN_HEIGHT / $OUTPUT_SCALE / 1" | bc)
 
 #=======================================
 # get focused window
