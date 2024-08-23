@@ -883,12 +883,19 @@ bindsym shift+$alt+F11 exec "$SCRIPT_PATH/obs-tools.py --scene output-1"
 bindsym shift+$alt+F12 exec "$SCRIPT_PATH/obs-tools.py --scene output-2"
 bindsym shift+$alt+F14 exec "$SCRIPT_PATH/obs-tools.py --record"
 #+end_src
+** Window properties
+Save window properties into "/tmp/window_prop.tmp" file.
+*** i3
+#+begin_src conf :noweb-ref i3-xprop
+bindsym $alt+ctrl+n exec i3-msg -t get_tree | jq -re '.. | select(type == "object") | select(.focused)' > /tmp/window_prop.tmp
+#+end_src
 ** Tangle :noexport:
 *** i3
 #+begin_src conf :noweb yes :tangle _config_i3
 <<keybindings>>
 <<rofi>>
 <<i3-screenshot>>
+<<i3-xprop>>
 #+end_src
 *** Sway
 #+begin_src conf :noweb yes :tangle _config_sway
