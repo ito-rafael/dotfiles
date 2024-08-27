@@ -91,3 +91,15 @@
 |----------+------|
 | HOME     |  102 |
 | END      |  107 |
+** Other symbols
+| DELETE     | 111 |
+| MINUS      |  12 |
+| EQUAL      |  13 |
+| LEFTBRACE  |  26 |
+| RIGHTBRACE |  27 |
+| SEMICOLON  |  39 |
+| APOSTROPHE |  40 |
+| GRAVE      |  41 |
+| BACKSLASH  |  43 |
+| SLASH      |  53 |
+| CAPSLOCK   |  58 |
