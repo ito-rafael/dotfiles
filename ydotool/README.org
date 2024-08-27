@@ -4,6 +4,7 @@
 
 * Table of Contents :toc_1:
 - [[#modifiers][Modifiers]]
+- [[#symbols][Symbols]]
 
 * Modifiers
 | key        | code |
@@ -19,3 +20,15 @@
 |------------+------|
 | LEFTMETA   |  125 |
 | RIGHTMETA  |  126 |
+* Symbols
+| key       | code |
+|-----------+------|
+| ESC       |    1 |
+| SPACE     |   57 |
+| TAB       |   15 |
+|-----------+------|
+| COMMA     |   51 |
+| DOT       |   52 |
+|-----------+------|
+| BACKSPACE |   14 |
+| ENTER     |   28 |
