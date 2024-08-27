@@ -7,6 +7,7 @@
 - [[#symbols][Symbols]]
 - [[#letters][Letters]]
 - [[#numbers][Numbers]]
+- [[#others][Others]]
 
 * Modifiers
 | key        | code |
@@ -76,3 +77,17 @@
 |   7 |    8 |
 |   8 |    9 |
 |   9 |   10 |
+* Others
+** Directions
+| key      | code |
+|----------+------|
+| LEFT     |  105 |
+| DOWN     |  108 |
+| RIGHT    |  106 |
+| UP       |  103 |
+|----------+------|
+| PAGEUP   |  104 |
+| PAGEDOWN |  109 |
+|----------+------|
+| HOME     |  102 |
+| END      |  107 |
