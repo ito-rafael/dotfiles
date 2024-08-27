@@ -1,0 +1,21 @@
+#+TITLE: /usr/include/linux/input-event-codes.h
+#+AUTHOR: Rafael Ito
+#+DESCRIPTION: table of input event codes
+
+* Table of Contents :toc_1:
+- [[#modifiers][Modifiers]]
+
+* Modifiers
+| key        | code |
+|------------+------|
+| LEFTSHIFT  |   42 |
+| RIGHTSHIFT |   54 |
+|------------+------|
+| LEFTCTRL   |   29 |
+| RIGHTCTRL  |   97 |
+|------------+------|
+| LEFTALT    |   56 |
+| RIGHTALT   |  100 |
+|------------+------|
+| LEFTMETA   |  125 |
+| RIGHTMETA  |  126 |
