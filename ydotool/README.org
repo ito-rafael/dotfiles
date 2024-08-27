@@ -6,6 +6,7 @@
 - [[#modifiers][Modifiers]]
 - [[#symbols][Symbols]]
 - [[#letters][Letters]]
+- [[#numbers][Numbers]]
 
 * Modifiers
 | key        | code |
@@ -62,3 +63,16 @@
 | X   |   45 |
 | Y   |   21 |
 | Z   |   44 |
+* Numbers
+| key | code |
+|-----+------|
+|   0 |   11 |
+|   1 |    2 |
+|   2 |    3 |
+|   3 |    4 |
+|   4 |    5 |
+|   5 |    6 |
+|   6 |    7 |
+|   7 |    8 |
+|   8 |    9 |
+|   9 |   10 |
