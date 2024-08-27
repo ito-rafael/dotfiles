@@ -103,3 +103,24 @@
 | BACKSLASH  |  43 |
 | SLASH      |  53 |
 | CAPSLOCK   |  58 |
+** KP numbers
+| key        | code |
+|------------+------|
+| KP0        |   82 |
+| y          |      |
+| KP1        |   79 |
+| KP2        |   80 |
+| KP3        |   81 |
+| KP4        |   75 |
+| KP5        |   76 |
+| KP6        |   77 |
+| KP7        |   71 |
+| KP8        |   72 |
+| KP9        |   73 |
+|------------+------|
+| KPMINUS    |   74 |
+| KPPLUS     |   78 |
+| KPDOT      |   83 |
+| KPASTERISK |   55 |
+| KPENTER    |   96 |
+| KPSLASH    |   98 |
