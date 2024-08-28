@@ -34,9 +34,9 @@ keymap:
     application:
       only: [kitty, dropdown_terminal, dropdown_python]
     remap:
-      F16: C-S-x
-      F17: C-S-c
-      F18: C-S-v
+      F16: Ctrl-Shift-x
+      F17: Ctrl-Shift-c
+      F18: Ctrl-Shift-v
 #+end_src
 *** Emacs
 #+begin_src conf :noweb-ref cpc-emacs
@@ -45,16 +45,16 @@ keymap:
       only: emacs
     remap:
       F16: M-x
-      F18: [C-r, SHIFT-apostrophe, space]
+      F18: [Ctrl-r, Shift-apostrophe, space]
 #+end_src
 *** Default
 #+begin_src conf :noweb-ref default
   - name: copy/paste/cut - general
     application:
     remap:
-      F16: C-x
-      F17: C-c
-      F18: C-v
+      F16: Ctrl-x
+      F17: Ctrl-c
+      F18: Ctrl-v
 #+end_src
 ** Emacs
 *** Window navigation
@@ -64,9 +64,9 @@ keymap:
     application:
       only: emacs
     remap:
-      Super_L-left: [C-w, C-h]
-      Super_L-down: [C-w, C-j]
-      Super_L-up: [C-w, C-k]
+      Super_L-left:  [C-w, C-h]
+      Super_L-down:  [C-w, C-j]
+      Super_L-up:    [C-w, C-k]
       Super_L-right: [C-w, C-l]
 #+end_src
 *** Previous window
@@ -86,7 +86,7 @@ keymap:
       only: emacs
     remap:
       SUPER-ALT-w: [space, b, k]
-      SUPER-ALT-q: [C-w, q]
+      Super-Alt-q: [C-w, q]
 #+end_src
 ** Brave
 *** Tab navigation with on forbidden pages (Surfingkeys)
@@ -98,9 +98,9 @@ keymap:
     window:
       only: ["better onetab - Brave", "Extensions - Brave", "chrome://newtab - Brave", "Chrome Web Store - Brave"]
     remap:
-      SHIFT-E: C-Tab
-      SHIFT-I: C-SHIFT-Tab
-      SHIFT-X: C-SHIFT-T
+      Shift-E: Ctrl-Tab        # next tab
+      Shift-I: Ctrl-Shift-Tab  # previous tab
+      Shift-X: Ctrl-Shift-T    # reopen tab
 #+end_src
 * Tangle :noexport:
 ** i3
