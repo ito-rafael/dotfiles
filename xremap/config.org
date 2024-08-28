@@ -101,6 +101,7 @@ keymap:
       Shift-N: Alt-Left        # go back
       Shift-E: Ctrl-Tab        # next tab
       Shift-I: Ctrl-Shift-Tab  # previous tab
+      Shift-O: Alt-Right       # go forward
       Shift-X: Ctrl-Shift-T    # reopen tab
 #+end_src
 * Tangle :noexport:
