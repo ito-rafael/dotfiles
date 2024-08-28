@@ -1,9 +1,20 @@
 #+TITLE: Config file for xremap
 #+AUTHOR: Rafael Ito
+# +PROPERTY: header-args :tangle config.yml
 #+DESCRIPTION: config file for xremap
 #+STARTUP: showeverything
 #+auto_tangle: t
 
+* Table of Contents :toc:
+- [[#modifiers][Modifiers]]
+- [[#keymap][Keymap]]
+  - [[#cpc-copypastecut][CPC: Copy/Paste/Cut]]
+  - [[#emacs][Emacs]]
+  - [[#brave][Brave]]
+  - [[#dead-acute][Dead acute]]
+  - [[#scratchpad-navigation][Scratchpad navigation]]
+  - [[#miscellaneous-macro-currency--superscript][Miscellaneous: macro, currency & superscript]]
+  - [[#emote-navigation][Emote navigation]]
 
 * Modifiers
 Used for i3wm
