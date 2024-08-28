@@ -98,6 +98,7 @@ keymap:
     window:
       only: ["better onetab - Brave", "Extensions - Brave", "chrome://newtab - Brave", "Chrome Web Store - Brave"]
     remap:
+      Shift-N: Alt-Left        # go back
       Shift-E: Ctrl-Tab        # next tab
       Shift-I: Ctrl-Shift-Tab  # previous tab
       Shift-X: Ctrl-Shift-T    # reopen tab
