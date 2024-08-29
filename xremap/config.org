@@ -172,6 +172,7 @@ keymap:
     application:
       only: [emote, Emote]
     remap:
+      Shift-N: Ctrl-Shift-Tab  # previous category
       Shift-O: Ctrl-Tab        # next category
 #+end_src
 * Tangle :noexport:
