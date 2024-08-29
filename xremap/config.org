@@ -121,6 +121,7 @@ keymap:
 #+begin_src conf :noweb-ref dead-acute
           # apostrophe
           F13: [APOSTROPHE, SPACE]
+          space: [APOSTROPHE, SPACE]
 #+end_src
 * Tangle :noexport:
 ** i3
