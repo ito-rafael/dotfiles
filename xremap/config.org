@@ -123,6 +123,12 @@ keymap:
           F13: [APOSTROPHE, SPACE]
           space: [APOSTROPHE, SPACE]
 #+end_src
+**** Cedilla
+#+begin_src conf :noweb-ref dead-acute
+          # cedilla
+          c: [APOSTROPHE, c]
+          Shift-c: [APOSTROPHE, Shift-c]
+#+end_src
 * Tangle :noexport:
 ** i3
 #+begin_src conf :noweb yes :tangle config_i3.yml
