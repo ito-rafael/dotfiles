@@ -166,6 +166,14 @@ keymap:
           Shift-s: [APOSTROPHE, SPACE, Shift-s]
           Shift-t: [APOSTROPHE, SPACE, Shift-t]
 #+end_src
+** Emote navigation
+#+begin_src conf :noweb-ref emote
+  - name: navigate through emoji categories
+    application:
+      only: [emote, Emote]
+    remap:
+      Shift-O: Ctrl-Tab        # next category
+#+end_src
 * Tangle :noexport:
 ** i3
 #+begin_src conf :noweb yes :tangle config_i3.yml
