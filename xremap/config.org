@@ -148,6 +148,15 @@ keymap:
           Shift-o: [APOSTROPHE, Shift-o]
           Shift-u: [APOSTROPHE, Shift-u]
 #+end_src
+**** Misc lowercase
+#+begin_src conf :noweb-ref dead-acute
+          # miscellaneous lowercase
+          n: [APOSTROPHE, SPACE, n]
+          m: [APOSTROPHE, SPACE, m]
+          r: [APOSTROPHE, SPACE, r]
+          s: [APOSTROPHE, SPACE, s]
+          t: [APOSTROPHE, SPACE, t]
+#+end_src
 * Tangle :noexport:
 ** i3
 #+begin_src conf :noweb yes :tangle config_i3.yml
