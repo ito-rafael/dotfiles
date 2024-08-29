@@ -139,6 +139,15 @@ keymap:
           u: [APOSTROPHE, u]
 
 #+end_src
+**** Vowel uppercase
+#+begin_src conf :noweb-ref dead-acute
+          # uppercase vowels
+          Shift-a: [APOSTROPHE, Shift-a]
+          Shift-e: [APOSTROPHE, Shift-e]
+          Shift-i: [APOSTROPHE, Shift-i]
+          Shift-o: [APOSTROPHE, Shift-o]
+          Shift-u: [APOSTROPHE, Shift-u]
+#+end_src
 * Tangle :noexport:
 ** i3
 #+begin_src conf :noweb yes :tangle config_i3.yml
