@@ -104,6 +104,24 @@ keymap:
       Shift-O: Alt-Right       # go forward
       Shift-X: Ctrl-Shift-T    # reopen tab
 #+end_src
+** Dead acute
+#+begin_src conf :noweb-ref dead-acute
+  - name: forward char / dead_acute
+    exact_match: true
+    application:
+      not: emacs
+    remap:
+#+end_src
+*** F13
+#+begin_src conf :noweb-ref dead-acute
+      F13:
+        remap:
+#+end_src
+**** Apostrophe
+#+begin_src conf :noweb-ref dead-acute
+          # apostrophe
+          F13: [APOSTROPHE, SPACE]
+#+end_src
 * Tangle :noexport:
 ** i3
 #+begin_src conf :noweb yes :tangle config_i3.yml
