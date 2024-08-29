@@ -129,6 +129,16 @@ keymap:
           c: [APOSTROPHE, c]
           Shift-c: [APOSTROPHE, Shift-c]
 #+end_src
+**** Vowel lowercase
+#+begin_src conf :noweb-ref dead-acute
+          # lowercase vowels
+          a: [APOSTROPHE, a]
+          e: [APOSTROPHE, e]
+          i: [APOSTROPHE, i]
+          o: [APOSTROPHE, o]
+          u: [APOSTROPHE, u]
+
+#+end_src
 * Tangle :noexport:
 ** i3
 #+begin_src conf :noweb yes :tangle config_i3.yml
