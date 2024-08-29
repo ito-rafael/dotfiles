@@ -157,6 +157,15 @@ keymap:
           s: [APOSTROPHE, SPACE, s]
           t: [APOSTROPHE, SPACE, t]
 #+end_src
+**** Misc uppercase
+#+begin_src conf :noweb-ref dead-acute
+          # miscellaneous uppercase
+          Shift-n: [APOSTROPHE, SPACE, Shift-n]
+          Shift-m: [APOSTROPHE, SPACE, Shift-m]
+          Shift-r: [APOSTROPHE, SPACE, Shift-r]
+          Shift-s: [APOSTROPHE, SPACE, Shift-s]
+          Shift-t: [APOSTROPHE, SPACE, Shift-t]
+#+end_src
 * Tangle :noexport:
 ** i3
 #+begin_src conf :noweb yes :tangle config_i3.yml
