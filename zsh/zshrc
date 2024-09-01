@@ -280,6 +280,7 @@ alias cdm='cd $HOME/git/machine-learning'
 alias cdu='cd $HOME/RAFAEL/UNICAMP'
 alias cdc='cd $XDG_CONFIG_HOME'
 alias cds='cd $XDG_CONFIG_HOME/scripts'
+alias cdx='cd $XDG_CONFIG_HOME/xremap'
 #-----------------------------
 # confirm before overwriting
 alias cp="cp -i"
