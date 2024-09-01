@@ -271,8 +271,6 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias cdd='cd $HOME/Downloads'
-alias cdc='cd $HOME/.config'
-alias cds='cd $HOME/.config/scripts'
 alias cdg='cd $HOME/git'
 alias cde='cd $HOME/venvs'
 alias cdh='cd $HOME/git/homelab'
@@ -280,6 +278,8 @@ alias cdp='cd $HOME/git/dotfiles'
 alias cda='cd $HOME/git/ansible-provision'
 alias cdm='cd $HOME/git/machine-learning'
 alias cdu='cd $HOME/RAFAEL/UNICAMP'
+alias cdc='cd $XDG_CONFIG_HOME'
+alias cds='cd $XDG_CONFIG_HOME/scripts'
 #-----------------------------
 # confirm before overwriting
 alias cp="cp -i"
