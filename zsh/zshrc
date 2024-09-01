@@ -95,6 +95,7 @@ GLOBALIAS_FILTER_VALUES+=(grep)
 GLOBALIAS_FILTER_VALUES+=(paru)
 GLOBALIAS_FILTER_VALUES+=(sudo)
 GLOBALIAS_FILTER_VALUES+=(tlmgr)
+GLOBALIAS_FILTER_VALUES+=(ssh)
 
 #=======================================
 # hook functions
@@ -183,6 +184,7 @@ alias {tarx,tx}='tar -xvzf'
 alias wdf='watch -n1 df -h'
 alias fl='faillock --user $USER --reset'
 alias kb='pkill brave && brave &'
+alias ssh='kitten ssh --kitten=color_scheme=themes/ssh.conf'
 function cv() { cat $1 | vim - }
 #-----------------------------
 # scripts
