@@ -6,7 +6,6 @@ configuration {
 /*	xoffset: 0;*/
 	fixed-num-lines: true;
 	show-icons: true;
-/*	terminal: "rofi-sensible-terminal";*/
 /*	ssh-client: "ssh";*/
 /*	ssh-command: "{terminal} -e {ssh-client} {host} [-p {port}]";*/
 /*	run-command: "{cmd}";*/
@@ -138,6 +137,8 @@ configuration {
 /*	me-select-entry: "MousePrimary";*/
 /*	me-accept-entry: "MouseDPrimary";*/
 /*	me-accept-custom: "Control+MouseDPrimary";*/
+/*  terminal: "rofi-sensible-terminal";*/
+    terminal: "kitty";
   timeout {
       action: "kb-cancel";
       delay:  0;
