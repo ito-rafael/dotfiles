@@ -1,15 +1,14 @@
 configuration {
-	font: "monospace 28";
-	fixed-num-lines: true;
-	show-icons: true;
-	icon-theme: "Papirus";
-	eh: 2;
 	kb-mode-next: "Super+Right,Super+l";
 	kb-mode-previous: "Super+Left,Super+h";
 /*  modi: "window,run,ssh";*/
+/*  font: "monospace 28";*/
+    font: "monospace 14";
 /*  location: 0;*/
 /*  yoffset: 0;*/
 /*  xoffset: 0;*/
+    fixed-num-lines: true;
+    show-icons: true;
 /*  terminal: "rofi-sensible-terminal";*/
     terminal: "kitty";
 /*  ssh-client: "ssh";*/
@@ -20,6 +19,7 @@ configuration {
 /*  run-shell-command: "{terminal} -e {cmd}";*/
 /*  window-command: "wmctrl -i -R {window}";*/
 /*  window-match-fields: "all";*/
+    icon-theme: "Papirus";
 /*  drun-match-fields: "name,generic,exec,categories,keywords";*/
 /*  drun-categories: ;*/
 /*  drun-show-actions: false;*/
@@ -32,6 +32,8 @@ configuration {
 /*  case-sensitive: false;*/
 /*  cycle: true;*/
 /*  sidebar-mode: false;*/
+/*  hover-select: false;*/
+    eh: 2;
 /*  auto-select: false;*/
 /*  parse-hosts: false;*/
 /*  parse-known-hosts: true;*/
