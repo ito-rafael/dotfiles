@@ -7,7 +7,6 @@ configuration {
 	fixed-num-lines: true;
 	show-icons: true;
 /*	ssh-client: "ssh";*/
-/*	ssh-command: "{terminal} -e {ssh-client} {host} [-p {port}]";*/
 /*	run-command: "{cmd}";*/
 /*	run-list-command: "";*/
 /*	run-shell-command: "{terminal} -e {cmd}";*/
@@ -139,6 +138,8 @@ configuration {
 /*	me-accept-custom: "Control+MouseDPrimary";*/
 /*  terminal: "rofi-sensible-terminal";*/
     terminal: "kitty";
+/*  ssh-command: "{terminal} -e {ssh-client} {host} [-p {port}]";*/
+    ssh-command: "{terminal} kitten {ssh-client} --kitten=color_scheme=themes/ssh.conf {host} [-p {port}]";
   timeout {
       action: "kb-cancel";
       delay:  0;
