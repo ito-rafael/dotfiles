@@ -172,6 +172,7 @@ alias df='df -h'                        # df
 alias cpr='cp -R'                       # cp
 alias hg='history | grep'               # history + grep
 alias wt='watch -n 1'                   # watch
+alias wtc='watch -n 1 "cat '            # watch "cat"
 alias psa='ps aux'                      # ps aux
 alias psag='ps aux | grep'              # ps aux | grep
 alias {chx,cx}='chmod +x'               # chmod
