@@ -544,4 +544,14 @@ zvm_after_init_commands+=(
     "bindkey '5~' kill-word"
 )
 
+#-----------------------------
+# fix yank to clipboard
+#-----------------------------
+# Wayland (needs "wl-clipboard")
+zvm_vi_yank () {
+	zvm_yank
+	printf %s "${CUTBUFFER}" |  wl-copy -n
+	zvm_exit_visual_mode
+}
+
 #=======================================
