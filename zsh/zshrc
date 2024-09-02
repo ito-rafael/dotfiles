@@ -120,6 +120,9 @@ source /usr/share/powerline/bindings/zsh/powerline.zsh
 #-----------------------------
 # zsh-vi-mode
 source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.zsh
+#-----------------------------
+# zsh-system-clipboard
+#source /usr/share/zsh/plugins/zsh-system-clipboard/zsh-system-clipboard.zsh
 #=======================================
 
 source $ZSH/oh-my-zsh.sh
