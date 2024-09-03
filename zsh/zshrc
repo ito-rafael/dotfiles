@@ -564,7 +564,7 @@ zvm_vi_yank () {
 # X11 (needs "wl-clipboard")
 #zvm_vi_yank () {
 #	zvm_yank
-#	printf %s "${CUTBUFFER}" | xclip -sel c
+#	printf %s "${CUTBUFFER}" | xclip -selection clipboard
 #	zvm_exit_visual_mode
 #}
 
