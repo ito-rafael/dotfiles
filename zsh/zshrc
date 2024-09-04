@@ -102,7 +102,11 @@ GLOBALIAS_FILTER_VALUES+=(ssh)
 # hook functions
 #=======================================
 # ls after changing dir
-ls_after_cd() ls
+#ls_after_cd() ls
+ls_after_cd() {
+	emulate -L zsh
+    exa -alg --color=always --group-directories-first
+}
 chpwd_functions+=( ls_after_cd )
 
 #=======================================
