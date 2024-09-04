@@ -80,8 +80,9 @@ else
     APPLICATION=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.focused) | .'$PROP_PREFIX''$PROP'')
 
     # delete temp PID file
-    case "{$APPLICATION}" in
-        "showmethekey-gtk")
+    case $APPLICATION in
+        # Show Me The Key
+        "one.alynx.showmethekey")
             rm /tmp/showmethekey_pid.tmp
             ;;
         *)
