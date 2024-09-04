@@ -39,13 +39,13 @@ case "${XDG_SESSION_TYPE}" in
         PROP="class"
         CAPTION="title"
         INSTANCE="instance"
-        PID_PROP="window"
+        ID_PROP="window"
         ;;
     "wayland")
         WM_CMD="swaymsg"
         PROP="app_id"
         CAPTION="name"
-        PID_PROP="pid"
+        ID_PROP="pid"
         ;;
     "tty")
         exit 0
@@ -67,9 +67,9 @@ is_scratchpad=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | se
     .'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX''$INSTANCE' == "music.youtube.com" or
     .'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX''$INSTANCE' == "web.whatsapp.com" or
     .'$PROP_PREFIX''$PROP' == "keymapp" or .'$PROP_PREFIX''$PROP' == "Keymapp" or
-    .'$PID_PROP' == '$TEMP_PID_1' or 
-    .'$PID_PRID' == '$TEMP_PID_2' or 
-    .'$PID_PRID' == '$TEMP_PID_3'
+    .'$ID_PROP' == '$TEMP_PID_1' or 
+    .'$ID_PROP' == '$TEMP_PID_2' or 
+    .'$ID_PROP' == '$TEMP_PID_3'
     ')
 
 # decide whether to hide (if scratchpad) of kill the window
