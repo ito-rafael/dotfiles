@@ -76,5 +76,18 @@ is_scratchpad=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | se
 if [ $is_scratchpad = "true" ]; then
     $WM_CMD scratchpad show
 else
+    # special case for applications that keep a PID temp file
+    APPLICATION=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.focused) | .'$PROP_PREFIX''$PROP'')
+
+    # delete temp PID file
+    case "{$APPLICATION}" in
+        "showmethekey-gtk")
+            rm /tmp/showmethekey_pid.tmp
+            ;;
+        *)
+            ;;
+    esac
+
+    # kill window
     $WM_CMD kill
 fi
