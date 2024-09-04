@@ -4,11 +4,8 @@
 #
 
 #=================================================
-
-while read -r line 
-do
-    WINDOW_ID_HEX=$(echo $line | awk '/_NET_ACTIVE_WINDOW\(WINDOW\)/{print $NF}')
-    #OUTPUT=$(i3-msg -t get_tree | jq -re '.. | select(type == "object") | select(.window == '$WINDOW_ID') | .output'
-    WINDOW_ID_INT=$((WINDOW_ID_HEX))
-    OUTPUT=$(i3-msg -t get_tree | jq -re '.. | select(type == "object") | select(.window == '$WINDOW_ID_INT') | .output')
-done < <(xprop -spy -root _NET_ACTIVE_WINDOW)
+	
+i3-msg -t subscribe -m '[ "window" ]' | while read line ; do 
+    FOCUSED_OUTPUT=$(echo $line | jq -re '.container.output')
+    echo $FOCUSED_OUTPUT
+done
