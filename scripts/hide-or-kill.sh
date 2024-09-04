@@ -81,10 +81,15 @@ else
 
     # delete temp PID file
     case $APPLICATION in
-        # Show Me The Key
+        # Show Me The Key (Wayland)
         "one.alynx.showmethekey")
             rm /tmp/showmethekey_pid.tmp
             ;;
+        # Show Me The Key (X11)
+        "showmethekey-gtk")
+            rm /tmp/showmethekey_pid.tmp
+            ;;
+
         *)
             ;;
     esac
