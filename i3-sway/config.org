@@ -946,38 +946,39 @@ bindsym --whole-window Shift+button4 exec --no-startup-id amixer -q sset Master 
 bindsym --whole-window Shift+button5 exec --no-startup-id amixer -q sset Master 1%-
 #+end_src
 ** Mouse keys
-*** Cursor
+*** Sway
+**** Cursor
 | key | cursor movement |
 |-----+-----------------|
 | kp4 | left            |
 | kp2 | down            |
 | kp8 | up              |
 | kp6 | right           |
-#+begin_src conf :noweb-ref mouse-keybindings
+#+begin_src conf :noweb-ref sway-mouse-keybindings
 bindsym kp_4 seat - cursor move -10  0
 bindsym kp_2 seat - cursor move  0   10
 bindsym kp_8 seat - cursor move  0  -10
 bindsym kp_6 seat - cursor move  10  0
 #+end_src
-*** Buttons
+**** Buttons
 | key | mouse button |
 |-----+--------------|
 | kp/ | left click   |
 | kp* | middle click |
 | kb- | right click  |
-#+begin_src conf :noweb-ref mouse-keybindings
+#+begin_src conf :noweb-ref sway-mouse-keybindings
 bindsym kp_divide   seat - cursor press button1
 bindsym kp_multiply seat - cursor press button2
 bindsym kp_subtract seat - cursor press button3
 #+end_src
-*** Wheel
+**** Wheel
 | key | wheel movement |
 |-----+----------------|
 | kp1 | up             |
 | kp3 | down           |
 | kp7 | right          |
 | kp9 | left           |
-#+begin_src conf :noweb-ref mouse-keybindings
+#+begin_src conf :noweb-ref sway-mouse-keybindings
 bindsym kp_1 seat - cursor press button4
 bindsym kp_3 seat - cursor press button5
 bindsym kp_7 seat - cursor press button6
@@ -990,7 +991,7 @@ bindsym kp_9 seat - cursor press button7
 #+end_src
 *** Sway
 #+begin_src conf :noweb yes :tangle _config_sway
-<<mouse-keybindings>>
+<<sway-mouse-keybindings>>
 #+end_src
 * Rotate screen
 ** Portrait
