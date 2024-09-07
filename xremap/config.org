@@ -175,6 +175,16 @@ keymap:
           Shift-s: [APOSTROPHE, SPACE, Shift-s]
           Shift-t: [APOSTROPHE, SPACE, Shift-t]
 #+end_src
+*** Shift-F13
+#+begin_src conf :noweb-ref dead-acute
+      Shift-F13:
+        remap:
+#+end_src
+**** Double quotes
+#+begin_src conf :noweb-ref dead-acute
+          # double quotes
+          F13: [Shift-APOSTROPHE, SPACE]
+#+end_src
 ** Emote navigation
 #+begin_src conf :noweb-ref emote
   - name: navigate through emoji categories
@@ -190,17 +200,21 @@ keymap:
 #+begin_src conf :noweb yes :tangle config_i3.yml
 <<keymap>>
 <<emacs>>
+<<kitty>>
 <<cpc-terminal>>
 <<cpc-emacs>>
 <<cpc-default>>
+<<dead-acute>>
 <<emote>>
 #+end_src
 ** Sway
 #+begin_src conf :noweb yes :tangle config_sway.yml
 <<keymap>>
 <<emacs>>
+<<kitty>>
 <<cpc-terminal>>
 <<cpc-emacs>>
 <<cpc-default>>
+<<dead-acute>>
 <<emote>>
 #+end_src
