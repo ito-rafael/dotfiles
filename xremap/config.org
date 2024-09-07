@@ -187,6 +187,13 @@ keymap:
           space: [Shift-APOSTROPHE, SPACE]
           #Shift-F13: [Shift-APOSTROPHE, SPACE]
 #+end_src
+**** Tilde lowercase
+#+begin_src conf :noweb-ref dead-acute
+          # tilde lowercase
+          a: [Shift-GRAVE, a]
+          o: [Shift-GRAVE, o]
+          n: [Shift-GRAVE, n]
+#+end_src
 ** Emote navigation
 #+begin_src conf :noweb-ref emote
   - name: navigate through emoji categories
