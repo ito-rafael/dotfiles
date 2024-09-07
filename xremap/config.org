@@ -184,6 +184,8 @@ keymap:
 #+begin_src conf :noweb-ref dead-acute
           # double quotes
           F13: [Shift-APOSTROPHE, SPACE]
+          space: [Shift-APOSTROPHE, SPACE]
+          #Shift-F13: [Shift-APOSTROPHE, SPACE]
 #+end_src
 ** Emote navigation
 #+begin_src conf :noweb-ref emote
