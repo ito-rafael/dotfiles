@@ -201,6 +201,11 @@ keymap:
           Shift-O: [Shift-GRAVE, Shift-O]
           Shift-N: [Shift-GRAVE, Shift-N]
 #+end_src
+**** Tilde misc
+#+begin_src conf :noweb-ref dead-acute
+          # tilde miscellaneous
+          DOT:       [Shift-GRAVE, SPACE, SLASH, DOT]
+#+end_src
 ** Emote navigation
 #+begin_src conf :noweb-ref emote
   - name: navigate through emoji categories
