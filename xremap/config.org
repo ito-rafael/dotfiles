@@ -10,6 +10,7 @@
 - [[#keymap][Keymap]]
   - [[#cpc-copypastecut][CPC: Copy/Paste/Cut]]
   - [[#emacs][Emacs]]
+  - [[#kitty][Kitty]]
   - [[#brave][Brave]]
   - [[#dead-acute][Dead acute]]
   - [[#scratchpad-navigation][Scratchpad navigation]]
@@ -87,6 +88,14 @@ keymap:
     remap:
       SUPER-ALT-w: [space, b, k]
       Super-Alt-q: [C-w, q]
+#+end_src
+** Kitty
+#+begin_src conf :noweb-ref kitty
+  - name: delete next word
+    application:
+      only: kitty
+    remap:
+      Ctrl-Shift-Backspace: Ctrl-Delete
 #+end_src
 ** Brave
 *** Tab navigation with on forbidden pages (Surfingkeys)
