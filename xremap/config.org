@@ -194,6 +194,13 @@ keymap:
           o: [Shift-GRAVE, o]
           n: [Shift-GRAVE, n]
 #+end_src
+**** Tilde uppercase
+#+begin_src conf :noweb-ref dead-acute
+          # tilde uppercase
+          Shift-A: [Shift-GRAVE, Shift-A]
+          Shift-O: [Shift-GRAVE, Shift-O]
+          Shift-N: [Shift-GRAVE, Shift-N]
+#+end_src
 ** Emote navigation
 #+begin_src conf :noweb-ref emote
   - name: navigate through emoji categories
