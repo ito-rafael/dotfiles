@@ -204,8 +204,9 @@ keymap:
 **** Tilde misc
 #+begin_src conf :noweb-ref dead-acute
           # tilde miscellaneous
-          DOT:       [Shift-GRAVE, SPACE, SLASH, DOT]
+          Shift-F13: [Shift-GRAVE, SPACE]
           SLASH:     [Shift-GRAVE, SPACE, SLASH]
+          DOT:       [Shift-GRAVE, SPACE, SLASH, DOT]
 #+end_src
 ** Emote navigation
 #+begin_src conf :noweb-ref emote
