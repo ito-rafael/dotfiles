@@ -48,7 +48,7 @@ keymap:
       F18: [Ctrl-r, Shift-apostrophe, space]
 #+end_src
 *** Default
-#+begin_src conf :noweb-ref default
+#+begin_src conf :noweb-ref cpc-default
   - name: copy/paste/cut - general
     application:
     remap:
