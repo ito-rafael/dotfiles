@@ -1397,6 +1397,11 @@ Floating window for Tkinter (Python GUI)
 for_window [$prop="Tk"] floating enable
 for_window [$prop="Toplevel"] floating enable
 #+end_src
+*** yad (Yet Another Dialog)
+Floating window for yad (dialogs)
+#+begin_src conf :noweb-ref window-property
+for_window [$prop="yad"] floating enable
+#+end_src
 ** Tangle :noexport:
 *** i3
 #+begin_src conf :noweb yes :tangle _config_i3
