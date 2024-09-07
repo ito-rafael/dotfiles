@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
 #
-# This script toggles the status of the screencast tool. That is:
-#   - if the tool is running, this script kills it.
-#   - if the tool is not running, this script launches it.
+# This script start/stop/toggle the status of the screencast tool. 
+# The parameters are:
+#   - start: start the tool (or ignore if it's already running)
+#   - stop: stop the tool (or ignore if it's already stopped)
+#   - toggle:
+#     - if the tool is running, this script kills it.
+#     - if the tool is not running, this script launches it.
 #
 # The tool is chosen according to the environment:
 #   - (deprecated) for X11: screenkey (https://gitlab.com/screenkey/screenkey)
