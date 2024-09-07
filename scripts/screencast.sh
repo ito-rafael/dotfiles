@@ -26,7 +26,7 @@ usage="$(basename "$0") action [-h]
 
 where:
     -h, --help      show this help text
-    action          action to be performed, can be one of the two options:
+    action          action to be performed, can be one of the three options:
       \"start\"       start showmethekey (if it's not already running)
       \"stop\"        stop showmethekey
       \"toggle\"      toggle showmethekey status (start if it's not running, stop if it is)
@@ -34,7 +34,7 @@ where:
 #=================================================
 # print help menu
 if [[ $1 == '-h' || $1 == '--help' || $1 == '' ]]; then
-    printf "script to create, show, detach or destroy temporary scratchpad\n\n"
+    printf "Script to start, stop or toggle the state of the screencast tool (Show Me The Key).\n\n"
     echo "$usage"
     exit
 fi
