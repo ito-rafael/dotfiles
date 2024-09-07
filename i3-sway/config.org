@@ -1426,76 +1426,92 @@ bindsym $mod+b exec "$SCRIPT_PATH/show-or-launch.sh web.whatsapp.com 0.6 0.9"
 #+end_src
 *** Sway
 #+begin_src conf :noweb-ref sway-whatsapp
-for_window [$prop="^brave-web.whatsapp.com__-Default$"] floating enable
-for_window [$prop="^brave-web.whatsapp.com__-Default$"] move position center
-for_window [$prop="^brave-web.whatsapp.com__-Default$"] move scratchpad
-for_window [$prop="^brave-web.whatsapp.com__-Default$"] border pixel 5
+for_window [$prop="^brave-web.whatsapp.com__-Default$"] {
+    floating enable
+    move position center
+    move scratchpad
+    border pixel 5
+}
 exec --no-startup-id brave-beta --app=https://web.whatsapp.com
 bindsym $mod+b exec "$SCRIPT_PATH/show-or-launch.sh brave-web.whatsapp.com__-Default 0.6 0.9"
 #+end_src
 ** YouTube Music (on Brave Beta)
 *** i3
 #+begin_src conf :noweb-ref i3-yt-music
-for_window [$prop="^Brave-browser-beta$" instance="^music.youtube.com$"] floating enable
-for_window [$prop="^Brave-browser-beta$" instance="^music.youtube.com$"] move position center
-for_window [$prop="^Brave-browser-beta$" instance="^music.youtube.com$"] move scratchpad
-for_window [$prop="^Brave-browser-beta$" instance="^music.youtube.com$"] border pixel 5
+for_window [$prop="^Brave-browser-beta$" instance="^music.youtube.com$"] {
+    floating enable
+    move position center
+    move scratchpad
+    border pixel 5
+}
 exec --no-startup-id brave-beta --app=https://music.youtube.com
 bindsym $mod+g exec "$SCRIPT_PATH/show-or-launch.sh music.youtube.com 0.9 0.9"
 #+end_src
 *** Sway
 #+begin_src conf :noweb-ref sway-yt-music
-for_window [$prop="^brave-music.youtube.com__-Default$"] floating enable
-for_window [$prop="^brave-music.youtube.com__-Default$"] move position center
-for_window [$prop="^brave-music.youtube.com__-Default$"] move scratchpad
-for_window [$prop="^brave-music.youtube.com__-Default$"] border pixel 5
+for_window [$prop="^brave-music.youtube.com__-Default$"] {
+    floating enable
+    move position center
+    move scratchpad
+    border pixel 5
+}
 exec --no-startup-id brave-beta --app=https://music.youtube.com
 bindsym $mod+g exec "$SCRIPT_PATH/show-or-launch.sh brave-music.youtube.com__-Default 0.9 0.9"
 #+end_src
 ** scrcpy
 #+begin_src conf :noweb-ref scratchpads
 bindsym $mod+v exec "$SCRIPT_PATH/adb-mdns-scrcpy.sh"
-for_window [title="^dropdown_scrcpy$" $prop="^scrcpy$"] floating enable
-for_window [title="^dropdown_scrcpy$" $prop="^scrcpy$"] move position center
-for_window [title="^dropdown_scrcpy$" $prop="^scrcpy$"] move scratchpad
-for_window [title="^dropdown_scrcpy$" $prop="^scrcpy$"] border pixel 5
+for_window [title="^dropdown_scrcpy$" $prop="^scrcpy$"] {
+    floating enable
+    move position center
+    move scratchpad
+    border pixel 5
+}
 #+end_src
 ** Python
 #+begin_src conf :noweb-ref scratchpads
+for_window [$prop="^dropdown_python$"] {
+    floating enable
+    move position center
+    move scratchpad
+    border pixel 5
+}
 exec --no-startup-id kitty --class="dropdown_python" -o font_size=20 -o include=$XDG_CONFIG_HOME/kitty/themes/python.conf python -q
 bindsym $mod+j exec "$SCRIPT_PATH/show-or-launch.sh dropdown_python 0.6 0.6"
-for_window [$prop="^dropdown_python$"] floating enable
-for_window [$prop="^dropdown_python$"] move position center
-for_window [$prop="^dropdown_python$"] move scratchpad
-for_window [$prop="^dropdown_python$"] border pixel 5
 #+end_src
 ** Terminal
 #+begin_src conf :noweb-ref scratchpads
 exec --no-startup-id kitty --class="dropdown_terminal" -o font_size=14 -o include=$XDG_CONFIG_HOME/kitty/themes/terminal.conf -o background_opacity=0.85
 bindsym $mod+m exec "$SCRIPT_PATH/show-or-launch.sh dropdown_terminal 0.75 0.75"
-for_window [$prop="^dropdown_terminal$"] floating enable
-for_window [$prop="^dropdown_terminal$"] move position center
-for_window [$prop="^dropdown_terminal$"] move scratchpad
-for_window [$prop="^dropdown_terminal$"] border pixel 5
+for_window [$prop="^dropdown_terminal$"] {
+    floating enable
+    move position center
+    move scratchpad
+    border pixel 5
+}
 #+end_src
 ** ZSA Keymapp
 *** i3
 #+begin_src conf :noweb-ref i3-keymapp
+for_window [$prop="^Keymapp$"] {
+    floating enable
+    move position center
+    move scratchpad
+    border pixel 5
+}
 exec --no-startup-id /usr/bin/keymapp
 bindsym $mod+k exec "$SCRIPT_PATH/show-or-launch.sh Keymapp 0.75 0.75"
-for_window [$prop="^Keymapp$"] floating enable
-for_window [$prop="^Keymapp$"] move position center
-for_window [$prop="^Keymapp$"] move scratchpad
-for_window [$prop="^Keymapp$"] border pixel 5
 #+end_src
 *** Sway
 #+begin_src conf :noweb-ref sway-keymapp
+for_window [$prop="^keymapp$"] {
+    floating enable
+    move position center
+    move scratchpad
+    border pixel 5
+}
 exec --no-startup-id /usr/bin/keymapp
 bindsym $mod+k exec "$SCRIPT_PATH/show-or-launch.sh keymapp 0.75 0.75"
-for_window [$prop="^keymapp$"] floating enable
-for_window [$prop="^keymapp$"] move position center
-for_window [$prop="^keymapp$"] move scratchpad
-for_window [$prop="^keymapp$"] border pixel 5
 #+end_src
 ** Temporary scratchpads
 *** 1: comma
