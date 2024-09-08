@@ -457,9 +457,9 @@ alias firefox=firefox-developer-edition
 # connections
 #-----------------------------
 # OpenVPN LBiC
-alias vpn-lbic='sudo openvpn /etc/openvpn/client/vpn-lbic.conf'
+alias vpn-lbic='$XDG_CONFIG_HOME/vpn/lbic/vpn-lbic.sh'
 # Recod (bind TCP port)
-alias recod='$HOME/.config/scripts/recod-ssh.sh'
+alias recod='$XDG_CONFIG_HOME/scripts/recod-ssh.sh'
 #-----------------------------
 # adb / scrcpy
 #-----------------------------
