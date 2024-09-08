@@ -46,6 +46,9 @@ if ! [[ $ACTION == 'connect' || $ACTION == 'disconnect' || $ACTION == 'toggle' ]
     exit 1
 fi
 
+# get password with dialog
+PASSWORD="$(yad --center --image=/usr/share/icons/Papirus-Dark/32x32/status/dialog-password.svg --entry --hide-text --title="Authentication required" --text="Enter password:")"
+
 #=================================================
 # check option selected
 case "${ACTION}" in
@@ -56,14 +59,9 @@ case "${ACTION}" in
             echo "PID file already exists. Exiting..."
             exit 0
         else
-           # get password with dialog
-           PASSWORD="$(yad --center --image=/usr/share/icons/Papirus-Dark/32x32/status/dialog-password.svg --entry --hide-text --title="Authentication required" --text="Enter password:")"
-            # start application and save its PID to file
+            # start application and save its PID to file (this is done inside $LAUNCHER)
             echo "Starting application..."
-            echo $PASSWORD | sudo -S $LAUNCHER &
-            sleep 0.1
-            PID=$(ps --ppid $! -o pid=)
-            sudo echo $PID > $PID_FILE
+            echo $PASSWORD | sudo -S $LAUNCHER $PID_FILE &
             exit 0
         fi
         ;;
@@ -73,8 +71,8 @@ case "${ACTION}" in
             # stop and remove PID file
             echo "Stopping application..."
             PID=$(cat "$PID_FILE")
-            rm $PID_FILE
-            kill $PID
+            echo $PASSWORD | sudo -S rm $PID_FILE
+            echo $PASSWORD | sudo -S kill $PID
             exit 0
         else
             # ignore
@@ -88,18 +86,13 @@ case "${ACTION}" in
             # stop and remove PID file
             echo "Stopping application..."
             PID=$(cat "$PID_FILE")
-            rm $PID_FILE
-            kill $PID
+            echo $PASSWORD | sudo -S sudo rm $PID_FILE
+            echo $PASSWORD | sudo -S sudo kill $PID
             exit 0
         else
-           # get password with dialog
-           PASSWORD="$(yad --center --image=/usr/share/icons/Papirus-Dark/32x32/status/dialog-password.svg --entry --hide-text --title="Authentication required" --text="Enter password:")"
-            # start application and save its PID to file
+            # start application and save its PID to file (this is done inside $LAUNCHER)
             echo "Starting application..."
-            echo $PASSWORD | sudo -S $LAUNCHER &
-            sleep 0.1
-            PID=$(ps --ppid $! -o pid=)
-            sudo echo $PID > $PID_FILE
+            echo $PASSWORD | sudo -S $LAUNCHER $PID_FILE &
             exit 0
         fi
         ;;
