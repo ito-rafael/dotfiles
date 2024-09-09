@@ -1567,6 +1567,11 @@ exec --no-startup-id "rm /tmp/vpn_unicamp.tmp"
 bindsym $alt+$mod+3 exec "$SCRIPT_PATH/vpn-connecter.sh lbic toggle"
 exec --no-startup-id "rm /tmp/vpn_lbic.tmp"
 #+end_src
+** Samsung
+#+begin_src conf :noweb-ref vpn
+bindsym $alt+$mod+4 exec "$SCRIPT_PATH/vpn-connecter.sh samsung toggle"
+exec --no-startup-id "rm /tmp/vpn_samsung.tmp"
+#+end_src
 ** Tangle :noexport:
 *** i3
 #+begin_src conf :noweb yes :tangle _config_i3
