@@ -1557,6 +1557,11 @@ bindsym ctrl+$mod+slash  exec "$SCRIPT_PATH/scratchpad-temp.sh 3 destroy"
 bindsym $alt+$mod+1 exec "$SCRIPT_PATH/vpn-connecter.sh lcn toggle"
 exec --no-startup-id "rm /tmp/vpn_lcn.tmp"
 #+end_src
+** Unicamp
+#+begin_src conf :noweb-ref vpn
+bindsym $alt+$mod+2 exec "$SCRIPT_PATH/vpn-connecter.sh unicamp toggle"
+exec --no-startup-id "rm /tmp/vpn_unicamp.tmp"
+#+end_src
 ** Tangle :noexport:
 *** i3
 #+begin_src conf :noweb yes :tangle _config_i3
