@@ -5,12 +5,13 @@ USERNAME=<USER>
 HOST=<VPN-DOMAIN>
 PASSWD=$(gpg --decrypt ~/.config/scripts/openconnect/<ENCRYPTED-FILE>.gpg 2>/dev/null)
 TOKEN=$(stoken tokencode)
+PID_FILE='/tmp/vpn_samsung_pid.tmp'
 
 # create tun device
 sudo ip tuntap add vpn-samsung mode tun user rafael
 
 # connect to VPN
-sudo openconnect $HOST \
+echo $$ > $PID_FILE; exec sudo openconnect $HOST \
     --interface=vpn-samsung \
     --script='sudo -E /etc/vpnc/vpnc-script' \
     --form-entry=main:username=$USERNAME \
