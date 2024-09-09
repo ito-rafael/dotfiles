@@ -1652,8 +1652,9 @@ exec_always --no-startup-id "$SCRIPT_PATH/xremap-keeb-config.sh"
 #+end_src
 *** Config
 #+begin_src conf :noweb-ref daemons
-bindsym $alt+ctrl+l exec dunstctl set-paused toggle  # pause/unpause dunst notifications
-bindsym $alt+ctrl+k exec "$SCRIPT_PATH/screencast.sh"  # screenkey / wshowkeys
+exec --no-startup-id "rm /tmp/showmethekey_pid.tmp"           # ensure there is no temp file from previous boot
+bindsym $alt+ctrl+k exec "$SCRIPT_PATH/screencast.sh toggle"  # showmethekey
+bindsym $alt+ctrl+l exec dunstctl set-paused toggle           # pause/unpause dunst notifications
 #+end_src
 *** i3
 #+begin_src conf :noweb-ref i3-daemons
