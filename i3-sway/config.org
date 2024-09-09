@@ -24,6 +24,7 @@
 - [[#modes][Modes]]
 - [[#applications-default-ws][Applications default WS]]
 - [[#scratchpads][Scratchpads]]
+- [[#vpn][VPN]]
 - [[#startup-commands][Startup commands]]
 * General config
 ** Modifiers
@@ -1549,6 +1550,21 @@ bindsym ctrl+$mod+slash  exec "$SCRIPT_PATH/scratchpad-temp.sh 3 destroy"
 <<sway-whatsapp>>
 <<sway-yt-music>>
 <<sway-keymapp>>
+#+end_src
+* VPN
+** La Casa Nostra
+#+begin_src conf :noweb-ref vpn
+bindsym $alt+$mod+1 exec "$SCRIPT_PATH/vpn-connecter.sh lcn toggle"
+exec --no-startup-id "rm /tmp/vpn_lcn.tmp"
+#+end_src
+** Tangle :noexport:
+*** i3
+#+begin_src conf :noweb yes :tangle _config_i3
+<<vpn>>
+#+end_src
+*** Sway
+#+begin_src conf :noweb yes :tangle _config_sway
+<<vpn>>
 #+end_src
 * Startup commands
 ** Transparency
