@@ -1411,6 +1411,17 @@ for_window [$prop="showmethekey-gtk" title="Show Me The Key"] floating enable
 #for_window [$prop="showmethekey-gtk" title="Floating Window - Show Me The Key"] floating enable
 #for_window [$prop="showmethekey-gtk" title="Floating Window - Show Me The Key"] sticky enable
 #+end_src
+**** Sway
+#+begin_src conf :noweb-ref sway-screencast
+for_window [$prop="showmethekey-gtk"] {
+    floating enable
+    sticky enable
+    resize set width 1920 height 100
+    # x=0; y=(width - 200)
+    move position 0 880
+}
+for_window [$prop="one.alynx.showmethekey"] floating enable
+#+end_src
 ** Tangle :noexport:
 *** i3
 #+begin_src conf :noweb yes :tangle _config_i3
@@ -1422,6 +1433,7 @@ for_window [$prop="showmethekey-gtk" title="Show Me The Key"] floating enable
 #+begin_src conf :noweb yes :tangle _config_sway
 <<sway-window-property>>
 <<window-property>>
+<<sway-screencast>>
 #+end_src
 * Scratchpads
 ** WhatsApp Web (on Brave Beta)
