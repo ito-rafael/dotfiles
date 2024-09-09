@@ -1562,6 +1562,11 @@ exec --no-startup-id "rm /tmp/vpn_lcn.tmp"
 bindsym $alt+$mod+2 exec "$SCRIPT_PATH/vpn-connecter.sh unicamp toggle"
 exec --no-startup-id "rm /tmp/vpn_unicamp.tmp"
 #+end_src
+** LBiC
+#+begin_src conf :noweb-ref vpn
+bindsym $alt+$mod+3 exec "$SCRIPT_PATH/vpn-connecter.sh lbic toggle"
+exec --no-startup-id "rm /tmp/vpn_lbic.tmp"
+#+end_src
 ** Tangle :noexport:
 *** i3
 #+begin_src conf :noweb yes :tangle _config_i3
