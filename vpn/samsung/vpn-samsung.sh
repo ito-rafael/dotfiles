@@ -3,8 +3,8 @@
 # input info
 USERNAME=<USER>
 HOST=<VPN-DOMAIN>
-PASSWD=$(gpg --decrypt ~/.config/scripts/openconnect/<ENCRYPTED-FILE>.gpg 2>/dev/null)
-TOKEN=$(stoken tokencode)
+PASSWD=$(sudo -u rafael gpg --decrypt /home/rafael/.config/vpn/samsung/samsung_dmz.gpg 2>/dev/null)
+TOKEN=$(sudo -u rafael stoken tokencode)
 PID_FILE='/tmp/vpn_samsung_pid.tmp'
 
 # create tun device
