@@ -1403,11 +1403,20 @@ Floating window for yad (dialogs)
 #+begin_src conf :noweb-ref window-property
 for_window [$prop="yad"] floating enable
 #+end_src
+*** Show Me The Key
+Floating window for showmethekey screencast tool.
+**** i3
+#+begin_src conf :noweb-ref i3-screencast
+for_window [$prop="showmethekey-gtk" title="Show Me The Key"] floating enable
+#for_window [$prop="showmethekey-gtk" title="Floating Window - Show Me The Key"] floating enable
+#for_window [$prop="showmethekey-gtk" title="Floating Window - Show Me The Key"] sticky enable
+#+end_src
 ** Tangle :noexport:
 *** i3
 #+begin_src conf :noweb yes :tangle _config_i3
 <<i3-window-property>>
 <<window-property>>
+<<i3-screencast>>
 #+end_src
 *** Sway
 #+begin_src conf :noweb yes :tangle _config_sway
