@@ -33,6 +33,7 @@ VPN=$1
 ACTION=$2
 PID_FILE='/tmp/vpn_'${VPN}'_pid.tmp'
 LAUNCHER=${XDG_CONFIG_HOME}'/vpn/'${VPN}'/vpn-'${VPN}'.sh'
+IMAGE=${XDG_CONFIG_HOME}'/vpn/'${VPN}'/icon/icon.png'
 
 # check if VPN is supported
 if ! [[ $VPN == 'lcn' || $VPN == 'unicamp' || $VPN == 'lbic' || $VPN == 'samsung' ]]; then
@@ -53,6 +54,8 @@ PASSWORD="$(yad \
     --hide-text \
     --text="$TEXT" \
     --title="Authentication required" \
+    --licon=/usr/share/icons/Papirus-Dark/32x32/status/dialog-password.svg \
+    --image=$IMAGE \
     )"
 
 #=================================================
