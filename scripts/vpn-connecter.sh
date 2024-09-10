@@ -32,7 +32,7 @@ fi
 VPN=$1
 ACTION=$2
 PID_FILE='/tmp/vpn_'${VPN}'_pid.tmp'
-LAUNCHER=${XDG_CONFIG_HOME}'/scripts/vpn/'${VPN}'/vpn-'${VPN}'.sh'
+LAUNCHER=${XDG_CONFIG_HOME}'/vpn/'${VPN}'/vpn-'${VPN}'.sh'
 
 # check if VPN is supported
 if ! [[ $VPN == 'lcn' || $VPN == 'unicamp' || $VPN == 'lbic' || $VPN == 'samsung' ]]; then
