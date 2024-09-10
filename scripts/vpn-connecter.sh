@@ -35,6 +35,26 @@ PID_FILE='/tmp/vpn_'${VPN}'_pid.tmp'
 LAUNCHER=${XDG_CONFIG_HOME}'/vpn/'${VPN}'/vpn-'${VPN}'.sh'
 IMAGE=${XDG_CONFIG_HOME}'/vpn/'${VPN}'/icon/icon.png'
 
+# get text to be displayed
+case "${VPN}" in
+    "lcn")
+        VPN_NAME="\"La Casa Nostra\""
+        ;;
+    "unicamp")
+        VPN_NAME="Unicamp"
+        ;;
+    "lbic")
+        VPN_NAME="LBiC"
+        ;;
+    "samsung")
+        VPN_NAME="Samsung"
+        ;;
+    *)
+        ;;
+esac
+# prepare message for dialog
+TEXT="  VPN $VPN_NAME\n  Enter password:"
+
 # check if VPN is supported
 if ! [[ $VPN == 'lcn' || $VPN == 'unicamp' || $VPN == 'lbic' || $VPN == 'samsung' ]]; then
     echo VPN option not supported. Exiting...
