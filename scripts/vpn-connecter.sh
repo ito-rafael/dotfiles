@@ -61,7 +61,7 @@ case "${ACTION}" in
         else
             # start application and save its PID to file (this is done inside $LAUNCHER)
             echo "Starting application..."
-            echo $PASSWORD | sudo -S $LAUNCHER $PID_FILE &
+            echo $PASSWORD | sudo -S $LAUNCHER &
             exit 0
         fi
         ;;
@@ -92,7 +92,7 @@ case "${ACTION}" in
         else
             # start application and save its PID to file (this is done inside $LAUNCHER)
             echo "Starting application..."
-            echo $PASSWORD | sudo -S $LAUNCHER $PID_FILE &
+            echo $PASSWORD | sudo -S $LAUNCHER &
             exit 0
         fi
         ;;
