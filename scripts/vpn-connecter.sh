@@ -47,7 +47,13 @@ if ! [[ $ACTION == 'connect' || $ACTION == 'disconnect' || $ACTION == 'toggle' ]
 fi
 
 # get password with dialog
-PASSWORD="$(yad --center --image=/usr/share/icons/Papirus-Dark/32x32/status/dialog-password.svg --entry --hide-text --title="Authentication required" --text="Enter password:")"
+PASSWORD="$(yad \
+    --center \
+    --entry \
+    --hide-text \
+    --text="$TEXT" \
+    --title="Authentication required" \
+    )"
 
 #=================================================
 # check option selected
