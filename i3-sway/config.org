@@ -1401,6 +1401,12 @@ for_window [$prop="Toplevel"] floating enable
 *** yad (Yet Another Dialog)
 Floating window for yad (dialogs)
 #+begin_src conf :noweb-ref window-property
+**** i3
+#+begin_src conf :noweb-ref i3-dialog
+for_window [$prop="Yad"] floating enable
+#+end_src
+**** Sway
+#+begin_src conf :noweb-ref sway-dialog
 for_window [$prop="yad"] floating enable
 #+end_src
 *** Show Me The Key
@@ -1427,12 +1433,14 @@ for_window [$prop="one.alynx.showmethekey"] floating enable
 #+begin_src conf :noweb yes :tangle _config_i3
 <<i3-window-property>>
 <<window-property>>
+<<i3-dialog>>
 <<i3-screencast>>
 #+end_src
 *** Sway
 #+begin_src conf :noweb yes :tangle _config_sway
 <<sway-window-property>>
 <<window-property>>
+<<sway-dialog>>
 <<sway-screencast>>
 #+end_src
 * Scratchpads
