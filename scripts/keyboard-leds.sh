@@ -25,7 +25,7 @@ STATUS=$(kontroll status | grep "No keyboard connected")
 if [[ $STATUS ]]; then
     # keyboard not connected
     echo "Keyboard not connected. Exiting..."
-    exit 0
+    exit 1
 else
     KEYBOARD=$(kontroll status | grep "Connected keyboard" | sed "s/Connected keyboard: *\s\(.*\)/\1/")
     echo "Found ZSA keyboard connected: $KEYBOARD"
@@ -62,7 +62,7 @@ else
             ;;
         *)
             echo "Keyboard not supported!"
-            exit 0
+            exit 1
             ;;
     esac
 fi
@@ -92,6 +92,6 @@ case "${ACTION}" in
         exit 0
         ;;
     *)
-        exit 0
+        exit 1
         ;;
 esac
