@@ -78,6 +78,21 @@ PASSWORD="$(yad \
     --image=$IMAGE \
     )"
 
+# check password
+if echo $PASSWORD | su - $USER -c true; then
+    # password is correct, ignoring...
+    true
+else
+    # password is wrong, exiting...
+    yad \
+        --center \
+        --button=yad-ok \
+        --buttons-layout=center \
+        --text="Password incorrect." \
+        --image=/usr/share/icons/Papirus-Dark/32x32/status/dialog-error.svg \
+    exit 1
+fi
+
 #=================================================
 # check option selected
 case "${ACTION}" in
