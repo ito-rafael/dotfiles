@@ -238,7 +238,17 @@ bindsym $alt+$mod+Return  exec "$SCRIPT_PATH/rofi.sh run"
 bindsym Print exec shutter
 bindsym $alt+ctrl+n exec i3-msg -t get_tree | jq -re '.. | select(type == "object") | select(.focused)' > /tmp/window_prop.tmp
 
-
+#bindsym kp_4 seat - cursor move -10  0
+#bindsym kp_2 seat - cursor move  0   10
+#bindsym kp_8 seat - cursor move  0  -10
+#bindsym kp_6 seat - cursor move  10  0
+#bindsym kp_divide   seat - cursor press button1
+#bindsym kp_multiply seat - cursor press button2
+#bindsym kp_subtract seat - cursor press button3
+#bindsym kp_1 seat - cursor press button4
+#bindsym kp_3 seat - cursor press button5
+#bindsym kp_7 seat - cursor press button6
+#bindsym kp_9 seat - cursor press button7
 
 bindsym mod1+$mod+Up exec "\
     echo 'rotate screen' &&\
@@ -323,7 +333,7 @@ assign [$prop="blueman-manager"] → $ws10
 assign [$prop="pavucontrol"] → $ws10
 for_window [$prop="Tk"] floating enable
 for_window [$prop="Toplevel"] floating enable
-for_window [$prop="yad"] floating enable
+for_window [$prop="Yad"] floating enable
 for_window [$prop="showmethekey-gtk" title="Show Me The Key"] floating enable
 #for_window [$prop="showmethekey-gtk" title="Floating Window - Show Me The Key"] floating enable
 #for_window [$prop="showmethekey-gtk" title="Floating Window - Show Me The Key"] sticky enable
