@@ -1646,6 +1646,11 @@ Enable touchpad horizontal scroll
 #+begin_src conf :noweb-ref i3-touchpad
 exec xinput --set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Two-Finger Scrolling" 1 1
 #+end_src
+** Caps Lock
+Create file to track status of Caps Lock (used by status bar).
+#+begin_src conf :noweb-ref capslock
+exec echo 0 > /tmp/capslock_status.tmp
+#+end_src
 ** Background images
 *** i3
 Before, wallpapers were set calling =feh= directly in i3wm.
@@ -1764,4 +1769,5 @@ exec "syncthing &"                      # Syncthing
 <<sway-transparency>>
 <<sway-wallpaper>>
 <<startup-commands>>
+<<capslock>>
 #+end_src
