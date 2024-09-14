@@ -1427,7 +1427,6 @@ for_window [$prop="Toplevel"] floating enable
 #+end_src
 *** yad (Yet Another Dialog)
 Floating window for yad (dialogs)
-#+begin_src conf :noweb-ref window-property
 **** i3
 #+begin_src conf :noweb-ref i3-dialog
 for_window [$prop="Yad"] floating enable
