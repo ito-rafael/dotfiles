@@ -16,6 +16,7 @@
   - [[#scratchpad-navigation][Scratchpad navigation]]
   - [[#miscellaneous-macro-currency--superscript][Miscellaneous: macro, currency & superscript]]
   - [[#emote-navigation][Emote navigation]]
+  - [[#capslock][Capslock]]
 
 * Modifiers
 Used for i3wm
@@ -218,6 +219,12 @@ keymap:
       Shift-O: Ctrl-Tab        # next category
       Shift-I: Ctrl-F          # focus search
 #+end_src
+** Capslock
+#+begin_src conf :noweb-ref capslock
+  - name: toggle capslock status & update temp file (/tmp/capslock_status.tmp)
+    remap:
+      CAPSLOCK: { launch: ["bash", "-c", "$XDG_CONFIG_HOME/scripts/capslock_status.sh toggle"] }
+#+end_src
 * Tangle :noexport:
 ** i3
 #+begin_src conf :noweb yes :tangle config_i3.yml
@@ -240,4 +247,5 @@ keymap:
 <<cpc-default>>
 <<dead-acute>>
 <<emote>>
+<<capslock>>
 #+end_src
