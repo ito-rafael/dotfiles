@@ -31,7 +31,7 @@ where:
 if [[ $1 == '-h' || $1 == '--help' ]]; then
 	printf "script to create, show, detach or destroy temporary scratchpad\n\n"
 	echo "$usage"
-	exit
+	exit 0
 fi
 
 #=================================================
@@ -84,7 +84,7 @@ case "${SCRATCHPAD_ID}" in
         ;;
     *)
         echo "Scratchpad ID not supported (options available: 1, 2 or 3)."
-        exit 0
+        exit 1
         ;;
 esac
 
@@ -124,10 +124,10 @@ case "${XDG_SESSION_TYPE}" in
         WID=$(cat $SCRATCHPAD_TEMP)
         ;;
     "tty")
-        exit 0
+        exit 1
         ;;
     *)
-        exit 0
+        exit 1
         ;;
 esac
 
