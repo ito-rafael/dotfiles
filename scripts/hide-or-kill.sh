@@ -48,10 +48,10 @@ case "${XDG_SESSION_TYPE}" in
         ID_PROP="pid"
         ;;
     "tty")
-        exit 0
+        exit 1
         ;;
     *)
-        exit 0
+        exit 1
         ;;
 esac
 
