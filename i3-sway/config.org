@@ -985,10 +985,37 @@ bindsym kp_3 seat - cursor press button5
 bindsym kp_7 seat - cursor press button6
 bindsym kp_9 seat - cursor press button7
 #+end_src
+*** i3
+**** Cursor
+| key | cursor movement |
+|-----+-----------------|
+| kp4 | left            |
+| kp2 | down            |
+| kp8 | up              |
+| kp6 | right           |
+#+begin_src conf :noweb-ref i3-mouse-keybindings
+#+end_src
+**** Buttons
+| key | mouse button |
+|-----+--------------|
+| kp/ | left click   |
+| kp* | middle click |
+| kb- | right click  |
+#+begin_src conf :noweb-ref i3-mouse-keybindings
+#+end_src
+**** Wheel
+| key | wheel movement |
+|-----+----------------|
+| kp9 | left           |
+| kp3 | down           |
+| kp1 | up             |
+| kp7 | right          |
+#+begin_src conf :noweb-ref i3-mouse-keybindings
+#+end_src
 ** Tangle :noexport:
 *** i3
 #+begin_src conf :noweb yes :tangle _config_i3
-<<mouse-keybindings>>
+<<i3-mouse-keybindings>>
 #+end_src
 *** Sway
 #+begin_src conf :noweb yes :tangle _config_sway
