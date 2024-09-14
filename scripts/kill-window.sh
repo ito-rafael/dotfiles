@@ -19,10 +19,10 @@ case "${XDG_SESSION_TYPE}" in
         #CAPTION="name"
         ;;
     "tty")
-        exit 0
+        exit 1
         ;;
     *)
-        exit 0
+        exit 1
         ;;
 esac
 
