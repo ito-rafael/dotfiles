@@ -66,10 +66,10 @@ case "${XDG_SESSION_TYPE}" in
         OUTPUT_SCALE=$(swaymsg -t get_outputs | jq '.[] | select(.focused==true).scale')
         ;;
     "tty")
-        exit 0
+        exit 1
         ;;
     *)
-        exit 0
+        exit 1
         ;;
 esac
 
@@ -169,7 +169,7 @@ if [[ ! $SCRATCHPAD ]]; then
             sleep 1
             ;;
         *)
-            exit 0
+            exit 1
             ;;
     esac
 fi
