@@ -1647,8 +1647,9 @@ Enable touchpad horizontal scroll
 exec xinput --set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Two-Finger Scrolling" 1 1
 #+end_src
 ** Caps Lock
+*** Sway
 Create file to track status of Caps Lock (used by status bar).
-#+begin_src conf :noweb-ref capslock
+#+begin_src conf :noweb-ref sway-capslock
 exec echo 0 > /tmp/capslock_status.tmp
 #+end_src
 ** Background images
@@ -1693,16 +1694,6 @@ bindsym $alt+ctrl+l exec dunstctl set-paused toggle           # pause/unpause du
 #+begin_src conf :noweb-ref i3-daemons
 exec_always --no-startup-id flashfocus
 #+end_src
-*** Tangle :noexport:
-**** i3
-#+begin_src conf :noweb yes :tangle _config_i3
-<<daemons>>
-<<i3-daemons>>
-#+end_src
-**** Sway
-#+begin_src conf :noweb yes :tangle _config_sway
-<<daemons>>
-#+end_src
 ** Panel
 *** i3
 **** Polybar
@@ -1742,18 +1733,6 @@ exec "blueman-applet &"                 # Bluetooth
 exec "nm-applet --indicator &"          # NetworkManager
 exec "syncthing &"                      # Syncthing
 #+end_src
-*** Tangle :noexport:
-**** i3
-#+begin_src conf :noweb yes :tangle _config_i3
-#<<i3-i3bar>>
-<<i3-polybar>>
-<<applets>>
-#+end_src
-**** Sway
-#+begin_src conf :noweb yes :tangle _config_sway
-<<sway-waybar>>
-<<applets>>
-#+end_src
 #+begin_src conf :noweb-ref startup-commands
 #+end_src
 ** Tangle :noexport:
@@ -1762,12 +1741,20 @@ exec "syncthing &"                      # Syncthing
 <<i3-transparency>>
 <<i3-touchpad>>
 <<i3-wallpaper>>
+<<daemons>>
+<<i3-daemons>>
+#<<i3-i3bar>>
+<<i3-polybar>>
+<<applets>>
 <<startup-commands>>
 #+end_src
 *** Sway
 #+begin_src conf :noweb yes :tangle _config_sway
 <<sway-transparency>>
+<<sway-capslock>>
 <<sway-wallpaper>>
+<<daemons>>
+<<sway-waybar>>
+<<applets>>
 <<startup-commands>>
-<<capslock>>
 #+end_src
