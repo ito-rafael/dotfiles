@@ -165,6 +165,16 @@
     //"on-click-right": "exec swaymsg 'move scratchpad'"
 },
 #+end_src
+** Temp #2: period
+#+begin_src json
+"custom/scratchpad-temp-2": {
+    "interval": 1,
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/scratchpad-temp.sh 2",
+    "format": " {} ",
+    "on-click": "~/.config/scripts/scratchpad-temp.sh 2 display",
+},
+#+end_src
 * JSON footer
 #+begin_src json
 }
