@@ -154,6 +154,17 @@
     "on-click-right": "exec swaymsg 'move scratchpad'"
 },
 #+end_src
+** Temp #1: comma
+#+begin_src json
+"custom/scratchpad-temp-1": {
+    "interval": 1,
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/scratchpad-temp.sh 1",
+    "format": " {} ",
+    "on-click": "~/.config/scripts/scratchpad-temp.sh 1 display",
+    //"on-click-right": "exec swaymsg 'move scratchpad'"
+},
+#+end_src
 * JSON footer
 #+begin_src json
 }
