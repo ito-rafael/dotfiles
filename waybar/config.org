@@ -267,6 +267,15 @@
     "format": " {} ",
 },
 #+end_src
+** LBiC
+#+begin_src json
+"custom/vpn-lbic": {
+    "interval": 1,
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/vpn.sh lbic",
+    "format": " {} ",
+},
+#+end_src
 * JSON footer
 #+begin_src json
 }
