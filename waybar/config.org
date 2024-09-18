@@ -248,6 +248,16 @@
     //"on-click": "~/.config/scripts/show-or-launch.sh Keymapp 0.75 0.75",
 },
 #+end_src
+* VPN
+** La Casa Nostra
+#+begin_src json
+"custom/vpn-lcn": {
+    "interval": 1,
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/vpn.sh lcn",
+    "format": " {} ",
+},
+#+end_src
 * JSON footer
 #+begin_src json
 }
