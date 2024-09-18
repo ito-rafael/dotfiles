@@ -196,6 +196,17 @@
     //"on-click": "~/.config/scripts/show-or-launch.sh web.whatsapp.com 0.6 0.9",
 },
 #+end_src
+** YouTube Music
+#+begin_src json
+"custom/scratchpad-ytmusic": {
+    "interval": 1,
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/scratchpad-ytmusic.sh",
+    "format": " {} ",
+    "on-click": "~/.config/scripts/show-or-launch.sh brave-music.youtube.com__-Default 0.9 0.9",
+    //"on-click": "~/.config/scripts/show-or-launch.sh music.youtube.com 0.9 0.9",
+},
+#+end_src
 * JSON footer
 #+begin_src json
 }
