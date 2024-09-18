@@ -258,6 +258,15 @@
     "format": " {} ",
 },
 #+end_src
+** Unicamp
+#+begin_src json
+"custom/vpn-unicamp": {
+    "interval": 1,
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/vpn.sh unicamp",
+    "format": " {} ",
+},
+#+end_src
 * JSON footer
 #+begin_src json
 }
