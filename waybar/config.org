@@ -276,6 +276,15 @@
     "format": " {} ",
 },
 #+end_src
+** Samsung
+#+begin_src json
+"custom/vpn-samsung": {
+    "interval": 1,
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/vpn.sh samsung",
+    "format": " {} ",
+},
+#+end_src
 * JSON footer
 #+begin_src json
 }
