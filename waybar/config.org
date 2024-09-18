@@ -227,6 +227,16 @@
         "on-click": "~/.config/scripts/show-or-launch.sh dropdown_python 0.6 0.6",
     },
 #+end_src
+** Terminal
+#+begin_src json
+"custom/scratchpad-terminal": {
+    "interval": 1,
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/scratchpad-terminal.sh",
+    "format": " {} ",
+    "on-click": "~/.config/scripts/show-or-launch.sh dropdown_terminal 0.75 0.75",
+},
+#+end_src
 * JSON footer
 #+begin_src json
 }
