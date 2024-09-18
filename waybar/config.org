@@ -207,6 +207,16 @@
     //"on-click": "~/.config/scripts/show-or-launch.sh music.youtube.com 0.9 0.9",
 },
 #+end_src
+** scrcpy
+#+begin_src json
+"custom/scratchpad-scrcpy": {
+    "interval": 1,
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/scratchpad-scrcpy.sh",
+    "format": " {} ",
+    "on-click": "~/.config/scripts/adb-mdns-scrcpy.sh",
+},
+#+end_src
 * JSON footer
 #+begin_src json
 }
