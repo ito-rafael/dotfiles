@@ -175,6 +175,16 @@
     "on-click": "~/.config/scripts/scratchpad-temp.sh 2 display",
 },
 #+end_src
+** Temp #3: slash
+#+begin_src json
+"custom/scratchpad-temp-3": {
+    "interval": 1,
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/scratchpad-temp.sh 3",
+    "format": " {} ",
+    "on-click": "~/.config/scripts/scratchpad-temp.sh 3 display",
+},
+#+end_src
 * JSON footer
 #+begin_src json
 }
