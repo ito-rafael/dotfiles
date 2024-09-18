@@ -123,6 +123,25 @@
         }
 },
 #+end_src
+* MPRIS
+#+begin_src json
+    "mpris": {
+        "interval": 1,
+        "format": "{player_icon} {dynamic}  ",
+        "dynamic-order": ["artist", "title"],
+        "format-paused": "{status_icon} <i>{dynamic}</i>",
+        "player-icons": {
+            "default": "▶",
+            "mpv": "🎵"
+        },
+        "status-icons": {
+            "paused": "⏸"
+        },
+        //"ignored-players": ["firefox"]
+        "on-scroll-up": "amixer -q sset Master 1%-",
+        "on-scroll-down": "amixer -q sset Master 1%+",
+    },
+#+end_src
 * JSON footer
 #+begin_src json
 }
