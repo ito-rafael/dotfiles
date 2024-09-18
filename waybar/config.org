@@ -237,6 +237,17 @@
     "on-click": "~/.config/scripts/show-or-launch.sh dropdown_terminal 0.75 0.75",
 },
 #+end_src
+** Keymapp
+#+begin_src json
+"custom/scratchpad-keymapp": {
+    "interval": 1,
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/scratchpad-keymapp.sh",
+    "format": " {} ",
+    "on-click": "~/.config/scripts/show-or-launch.sh keymapp 0.75 0.75",
+    //"on-click": "~/.config/scripts/show-or-launch.sh Keymapp 0.75 0.75",
+},
+#+end_src
 * JSON footer
 #+begin_src json
 }
