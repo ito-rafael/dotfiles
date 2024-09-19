@@ -285,6 +285,18 @@
     "format": " {} ",
 },
 #+end_src
+* Caps Lock
+#+begin_src json :tangle no
+//"keyboard-state": {
+//    "capslock": true,
+//    "format": "{name} {icon}",
+//    "format-icons": {
+//        "locked": "",
+//        "unlocked": ""
+//    },
+//    "device-path": "/dev/input/eventXX",
+//},
+#+end_src
 * JSON footer
 #+begin_src json
 }
