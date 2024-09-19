@@ -297,6 +297,14 @@
 //    "device-path": "/dev/input/eventXX",
 //},
 #+end_src
+* Caps Lock
+#+begin_src json
+"custom/capslock": {
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/capslock.sh",
+    "format": "{}",
+},
+#+end_src
 * JSON footer
 #+begin_src json
 }
