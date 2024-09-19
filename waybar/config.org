@@ -11,29 +11,29 @@
 #+end_src
 * Positioning
 #+begin_src json
-    "layer": "top",
-    "modules-left": ["sway/workspaces", "sway/mode"],
-    "modules-center": ["sway/window"],
-    "modules-right": [
-        "cpu",
-        "memory",
-        "temperature",
-        "disk",
-        "pulseaudio",
-        "backlight",
-        "battery",
-        "clock",
-        "tray",
-    ],
+"layer": "top",
+"modules-left": ["sway/workspaces", "sway/mode"],
+"modules-center": ["sway/window"],
+"modules-right": [
+    "cpu",
+    "memory",
+    "temperature",
+    "disk",
+    "pulseaudio",
+    "backlight",
+    "battery",
+    "clock",
+    "tray",
+],
 #+end_src
 * Sway
 #+begin_src json
-    "sway/window": {
-        "max-length": 50
-    },
-    "sway/workspaces": {
-        "format": "{name}",
-    },
+"sway/window": {
+    "max-length": 50
+},
+"sway/workspaces": {
+    "format": "{name}",
+},
 #+end_src
 * CPU
 #+begin_src json
