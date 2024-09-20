@@ -52,3 +52,10 @@ window#waybar.termite {
     background-color: #3F3F3F;
 }
 #+end_src
+*** Chromium
+#+begin_src css
+window#waybar.chromium {
+    background-color: #000000;
+    border: none;
+}
+#+end_src
