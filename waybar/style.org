@@ -28,3 +28,9 @@ window#waybar {
     transition-duration: .5s;
 }
 #+end_src
+*** Hidden
+#+begin_src css
+window#waybar.hidden {
+    opacity: 0.2;
+}
+#+end_src
