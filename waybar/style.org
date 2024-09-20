@@ -46,3 +46,9 @@ window#waybar.solo {
     background-color: #FFFFFF;
 }
 #+end_src
+*** Termite
+#+begin_src css
+window#waybar.termite {
+    background-color: #3F3F3F;
+}
+#+end_src
