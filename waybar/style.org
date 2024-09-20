@@ -84,3 +84,7 @@ window#waybar.chromium {
     color: #ffffff;
 }
 #+end_src
+** Window :noexport:
+#+begin_src css
+#window,
+#+end_src
