@@ -34,3 +34,9 @@ window#waybar.hidden {
     opacity: 0.2;
 }
 #+end_src
+*** Empty
+#+begin_src css :tangle no
+window#waybar.empty {
+    background-color: transparent;
+}
+#+end_src
