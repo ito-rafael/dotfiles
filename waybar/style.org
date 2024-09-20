@@ -4,3 +4,16 @@
 #+description: Waybar style configuration
 #+startup: showeverything
 #+auto_tangle: t
+
+* Table of contents :toc:
+- [[#initial-config][Initial config]]
+
+* Initial config
+** Font :noexport:
+#+begin_src css
+,* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 10px;
+}
+#+end_src
