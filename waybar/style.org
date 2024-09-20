@@ -88,3 +88,11 @@ window#waybar.chromium {
 #+begin_src css
 #window,
 #+end_src
+* Modules
+** Left :noexport:
+If workspaces is the leftmost module, omit left margin
+#+begin_src css
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+#+end_src
