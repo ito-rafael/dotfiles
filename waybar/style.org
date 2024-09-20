@@ -8,6 +8,7 @@
 * Table of contents :toc:
 - [[#initial-config][Initial config]]
 - [[#modules][Modules]]
+- [[#workspaces][Workspaces]]
 
 * Initial config
 ** Font :noexport:
@@ -102,5 +103,12 @@ If workspaces is the rightmost module, omit right margin
 #+begin_src css
 .modules-right > widget:last-child > #workspaces {
     margin-right: 0;
+}
+#+end_src
+* Workspaces
+** Main :noexport:
+#+begin_src css
+#workspaces {
+    margin: 0 4px;
 }
 #+end_src
