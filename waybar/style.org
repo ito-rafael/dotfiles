@@ -40,3 +40,9 @@ window#waybar.empty {
     background-color: transparent;
 }
 #+end_src
+*** Solo
+#+begin_src css :tangle no
+window#waybar.solo {
+    background-color: #FFFFFF;
+}
+#+end_src
