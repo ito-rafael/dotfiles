@@ -78,7 +78,7 @@ keymap:
     application:
       only: emacs
     remap:
-      SUPER-ALT-w: [space, b, k]
+      Super-w: [space, b, k]
       Super-Alt-q: [C-w, q]
 #+end_src
 ** Kitty
