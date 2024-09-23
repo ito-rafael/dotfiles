@@ -209,6 +209,16 @@ keymap:
           SLASH:     [Shift-GRAVE, SPACE, SLASH]
           DOT:       [Shift-GRAVE, SPACE, SLASH, DOT]
 #+end_src
+** Scratchpad navigation
+#+name: scratchpad-navigation
+#+begin_src python :var ipc_cmd="swaymsg" :results output
+print('  - name: window navigation from scratchpads')
+print('   application:')
+print('     only: [dropdown_terminal, dropdown_python, scrcpy, Brave-browser-beta, Keymapp]')
+print('   remap:')
+print('     Super-Left:  { launch: ["' + ipc_cmd + '", "focus", "output", "left"] }')
+print('     Super-Right: { launch: ["' + ipc_cmd + '", "focus", "output", "right"] }')
+#+end_src
 ** Miscellaneous: macro, currency & superscript
 *** Macros
 #+name: macros
@@ -302,6 +312,7 @@ print('      Alt_R-o:  { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"º\\"  
 <<emacs>>
 <<kitty>>
 <<dead-acute>>
+<<scratchpad-navigation(ipc_cmd="i3-msg")>>
 <<macros(copy_cmd="xclip -sel clip")>>
 <<macros-terminal(copy_cmd="xclip -sel clip")>>
 <<currency-superscript-terminal(copy_cmd="xclip -sel clip")>>
@@ -317,6 +328,7 @@ print('      Alt_R-o:  { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"º\\"  
 <<cpc-emacs>>
 <<cpc-default>>
 <<dead-acute>>
+<<scratchpad-navigation(ipc_cmd="swaymsg")>>
 <<macros(copy_cmd="wl-copy")>>
 <<macros-terminal(copy_cmd="wl-copy")>>
 <<currency-superscript-terminal(copy_cmd="wl-copy")>>
