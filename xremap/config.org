@@ -304,12 +304,14 @@ print('      Alt_R-o:  { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"º\\"  
 * Tangle :noexport:
 ** i3
 #+begin_src conf :noweb yes :tangle config_i3.yml
+<<modifiers>>
 <<keymap>>
 <<cpc-terminal>>
 <<cpc-emacs>>
 <<cpc-default>>
 <<emacs>>
 <<kitty>>
+<<surfingkeys>>
 <<dead-acute>>
 <<scratchpad-navigation(ipc_cmd="i3-msg")>>
 <<macros(copy_cmd="xclip -sel clip")>>
@@ -326,6 +328,7 @@ print('      Alt_R-o:  { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"º\\"  
 <<cpc-terminal>>
 <<cpc-emacs>>
 <<cpc-default>>
+<<surfingkeys>>
 <<dead-acute>>
 <<scratchpad-navigation(ipc_cmd="swaymsg")>>
 <<macros(copy_cmd="wl-copy")>>
