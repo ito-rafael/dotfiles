@@ -71,15 +71,6 @@ keymap:
       Super_L-up:    [C-w, C-k]
       Super_L-right: [C-w, C-l]
 #+end_src
-*** Previous window
-#+begin_src conf :noweb-ref emacs
-  - name: Previous window
-    exact_match: true
-    application:
-      only: emacs
-    remap:
-      F19: [C-w, C-w]
-#+end_src
 *** Kill buffer & window
 #+begin_src conf :noweb-ref emacs
   - name: Kill buffer and window
