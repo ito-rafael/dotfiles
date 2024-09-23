@@ -215,14 +215,14 @@ keymap:
   - name: miscellaneous text - macros
     remap:
       # macro
-      Alt_R-s:  { launch: ["bash", "-c", "sleep 0.1 && ydotool type \"$(cat $XDG_CONFIG_HOME/macros/address_1)\""] }
-      Alt_R-t:  { launch: ["bash", "-c", "sleep 0.1 && ydotool type \"$(cat $XDG_CONFIG_HOME/macros/address_2)\""] }
-      Alt_R-g:  { launch: ["bash", "-c", "sleep 0.1 && ydotool type \"$(cat $XDG_CONFIG_HOME/macros/address_3)\""] }
-      Alt_R-c:  { launch: ["bash", "-c", "sleep 0.1 && ydotool type \"$(cat $XDG_CONFIG_HOME/macros/zip_code)\""] }
-      Alt_R-d:  { launch: ["bash", "-c", "sleep 0.1 && ydotool type \"$(cat $XDG_CONFIG_HOME/macros/phone)\""] }
-      Alt_R-n:  { launch: ["bash", "-c", "sleep 0.1 && ydotool type \"$(cat $XDG_CONFIG_HOME/macros/email)\""] }
-      Alt_R-h:  { launch: ["bash", "-c", "sleep 0.1 && ydotool type \"$(cat $XDG_CONFIG_HOME/macros/name)\""] }
-      Alt_R-i:  { launch: ["bash", "-c", "sleep 0.1 && ydotool type \"$(cat $XDG_CONFIG_HOME/macros/id)\""] }
+      Alt_R-s:  { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/address_1 | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
+      Alt_R-t:  { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/address_2 | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
+      Alt_R-g:  { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/address_3 | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
+      Alt_R-c:  { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/zip_code  | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
+      Alt_R-d:  { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/phone     | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
+      Alt_R-n:  { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/email     | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
+      Alt_R-h:  { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/name      | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
+      Alt_R-i:  { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/id        | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
 #+end_src
 ** Emote navigation
 #+begin_src conf :noweb-ref emote
