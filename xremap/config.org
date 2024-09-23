@@ -254,6 +254,22 @@ print('     # superscript')
 print('     Alt_R-a:  { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"ª\\"  | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
 print('     Alt_R-o:  { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"º\\"  | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
 #+end_src
+*** Currency & superscript (terminal)
+#+name: currency-superscript-terminal
+#+begin_src python :var copy_cmd="wl-copy" :results output
+print('  - name: miscellaneous text - currency & superscript (terminal)')
+print('     application:')
+print('      only: [kitty, dropdown_terminal, dropdown_python]')
+print('    remap:')
+print('      # currency')
+print('      Alt_R-e:  { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"€\\"  | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
+print('      Alt_R-p:  { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"£\\"  | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
+print('      Alt_R-y:  { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"￥\\" | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
+print('      Alt_R-r:  { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"₽\\"  | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
+print('      # superscript')
+print('      Alt_R-a:  { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"ª\\"  | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
+print('      Alt_R-o:  { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"º\\"  | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
+#+end_src
     remap:
 #+end_src
 ** Emote navigation
@@ -284,6 +300,7 @@ print('     Alt_R-o:  { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"º\\"  |
 <<dead-acute>>
 <<macros(copy_cmd="xclip -sel clip")>>
 <<macros-terminal(copy_cmd="xclip -sel clip")>>
+<<currency-superscript-terminal(copy_cmd="xclip -sel clip")>>
 <<currency-superscript(copy_cmd="xclip -sel clip")>>
 <<emote>>
 #+end_src
@@ -298,6 +315,7 @@ print('     Alt_R-o:  { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"º\\"  |
 <<dead-acute>>
 <<macros(copy_cmd="wl-copy")>>
 <<macros-terminal(copy_cmd="wl-copy")>>
+<<currency-superscript-terminal(copy_cmd="wl-copy")>>
 <<currency-superscript(copy_cmd="wl-copy")>>
 <<emote>>
 <<capslock>>
