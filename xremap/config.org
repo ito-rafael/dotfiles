@@ -205,6 +205,7 @@ keymap:
           # tilde paths
           c: [Shift-GRAVE, SPACE, SLASH, DOT, c,o,n,f,i,g, SLASH]
           s: [Shift-GRAVE, SPACE, SLASH, DOT, c,o,n,f,i,g, SLASH, s,c,r,i,p,t,s, SLASH]
+          g: [Shift-GRAVE, SPACE, SLASH, g,i,t, SLASH]
 #+end_src
 ** Scratchpad navigation
 #+name: scratchpad-navigation
