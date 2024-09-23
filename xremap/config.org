@@ -270,65 +270,8 @@ print('      # superscript')
 print('      Alt_R-a:  { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"ª\\"  | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
 print('      Alt_R-o:  { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"º\\"  | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
 #+end_src
-** i3
-**** Currency & superscript (terminal)
-#+begin_src conf :noweb yes :noweb-ref i3-macro
-  - name: miscellaneous text - currency & superscript (terminal)
-    application:
-      only: [kitty, dropdown_terminal, dropdown_python]
-    remap:
-      # currency
-      Alt_R-e:  { launch: ["bash", "-c", "sleep 0.1 && echo -n \"€\"  | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
-      Alt_R-p:  { launch: ["bash", "-c", "sleep 0.1 && echo -n \"£\"  | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
-      Alt_R-y:  { launch: ["bash", "-c", "sleep 0.1 && echo -n \"￥\" | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
-      Alt_R-r:  { launch: ["bash", "-c", "sleep 0.1 && echo -n \"₽\"  | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
-      # superscript
-      Alt_R-a:  { launch: ["bash", "-c", "sleep 0.1 && echo -n \"ª\"  | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
-      Alt_R-o:  { launch: ["bash", "-c", "sleep 0.1 && echo -n \"º\"  | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
-#+end_src
-**** Currency & superscript
-#+begin_src conf :noweb-ref i3-macro
-  - name: miscellaneous text - currency & superscript
-    remap:
-      # currency
-      Alt_R-e:  { launch: ["bash", "-c", "sleep 0.1 && echo -n \"€\"  | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-p:  { launch: ["bash", "-c", "sleep 0.1 && echo -n \"£\"  | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-y:  { launch: ["bash", "-c", "sleep 0.1 && echo -n \"￥\" | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-r:  { launch: ["bash", "-c", "sleep 0.1 && echo -n \"₽\"  | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
-      # superscript
-      Alt_R-a:  { launch: ["bash", "-c", "sleep 0.1 && echo -n \"ª\"  | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-o:  { launch: ["bash", "-c", "sleep 0.1 && echo -n \"º\"  | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
-#+end_src
-** Sway
-**** Currency & superscript (terminal)
-#+begin_src conf :noweb yes :noweb-ref sway-macro
-  - name: miscellaneous text - currency & superscript (terminal)
-    application:
-      only: [kitty, dropdown_terminal, dropdown_python]
-    remap:
-      # currency
-      Alt_R-e:  { launch: ["bash", "-c", "sleep 0.1 && echo -n \"€\"  | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
-      Alt_R-p:  { launch: ["bash", "-c", "sleep 0.1 && echo -n \"£\"  | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
-      Alt_R-y:  { launch: ["bash", "-c", "sleep 0.1 && echo -n \"￥\" | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
-      Alt_R-r:  { launch: ["bash", "-c", "sleep 0.1 && echo -n \"₽\"  | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
-      # superscript
-      Alt_R-a:  { launch: ["bash", "-c", "sleep 0.1 && echo -n \"ª\"  | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
-      Alt_R-o:  { launch: ["bash", "-c", "sleep 0.1 && echo -n \"º\"  | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
-#+end_src
-**** Currency & superscript
-#+begin_src conf :noweb-ref sway-macro
-  - name: miscellaneous text - currency & superscript
-    remap:
-      # currency
-      Alt_R-e:  { launch: ["bash", "-c", "sleep 0.1 && echo -n \"€\"  | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-p:  { launch: ["bash", "-c", "sleep 0.1 && echo -n \"£\"  | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-y:  { launch: ["bash", "-c", "sleep 0.1 && echo -n \"￥\" | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-r:  { launch: ["bash", "-c", "sleep 0.1 && echo -n \"₽\"  | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
-      # superscript
-      Alt_R-a:  { launch: ["bash", "-c", "sleep 0.1 && echo -n \"ª\"  | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-o:  { launch: ["bash", "-c", "sleep 0.1 && echo -n \"º\"  | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
-#+end_src
 ** Emote navigation
+*** Common
 #+begin_src conf :noweb-ref emote
   - name: navigate through emoji categories
     application:
@@ -337,6 +280,11 @@ print('      Alt_R-o:  { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"º\\"  
       Shift-N: Ctrl-Shift-Tab  # previous category
       Shift-O: Ctrl-Tab        # next category
       Shift-I: Ctrl-F          # focus search
+#+end_src
+*** Sway
+#+begin_src conf :noweb-ref emote-sway
+      # Enter; Ctrl+V
+      Enter: { launch: ["bash", "-c", "ydotool key 28:1 28:0 29:1 47:1 47:0 29:0"] }
 #+end_src
 ** Capslock
 #+begin_src conf :noweb-ref capslock
@@ -374,5 +322,6 @@ print('      Alt_R-o:  { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"º\\"  
 <<currency-superscript-terminal(copy_cmd="wl-copy")>>
 <<currency-superscript(copy_cmd="wl-copy")>>
 <<emote>>
+<<emote-sway>>
 <<capslock>>
 #+end_src
