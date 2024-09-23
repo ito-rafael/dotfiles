@@ -215,13 +215,14 @@ keymap:
   - name: miscellaneous text - macros
     remap:
       # macro
-      Alt_R-s:  { launch: ["bash", "-c", "sleep 0.1 && ydotool type \"address 1\""] }
-      Alt_R-t:  { launch: ["bash", "-c", "sleep 0.1 && ydotool type \"address 2\""] }
-      Alt_R-c:  { launch: ["bash", "-c", "sleep 0.1 && ydotool type \"zip code\""] }
-      Alt_R-d:  { launch: ["bash", "-c", "sleep 0.1 && ydotool type \"phone\""] }
-      Alt_R-n:  { launch: ["bash", "-c", "sleep 0.1 && ydotool type \"email\""] }
-      Alt_R-h:  { launch: ["bash", "-c", "sleep 0.1 && ydotool type \"name\""] }
-      Alt_R-i:  { launch: ["bash", "-c", "sleep 0.1 && ydotool type \"ID\""] }
+      Alt_R-s:  { launch: ["bash", "-c", "sleep 0.1 && ydotool type \"$(cat $XDG_CONFIG_HOME/macros/address_1)\""] }
+      Alt_R-t:  { launch: ["bash", "-c", "sleep 0.1 && ydotool type \"$(cat $XDG_CONFIG_HOME/macros/address_2)\""] }
+      Alt_R-g:  { launch: ["bash", "-c", "sleep 0.1 && ydotool type \"$(cat $XDG_CONFIG_HOME/macros/address_3)\""] }
+      Alt_R-c:  { launch: ["bash", "-c", "sleep 0.1 && ydotool type \"$(cat $XDG_CONFIG_HOME/macros/zip_code)\""] }
+      Alt_R-d:  { launch: ["bash", "-c", "sleep 0.1 && ydotool type \"$(cat $XDG_CONFIG_HOME/macros/phone)\""] }
+      Alt_R-n:  { launch: ["bash", "-c", "sleep 0.1 && ydotool type \"$(cat $XDG_CONFIG_HOME/macros/email)\""] }
+      Alt_R-h:  { launch: ["bash", "-c", "sleep 0.1 && ydotool type \"$(cat $XDG_CONFIG_HOME/macros/name)\""] }
+      Alt_R-i:  { launch: ["bash", "-c", "sleep 0.1 && ydotool type \"$(cat $XDG_CONFIG_HOME/macros/id)\""] }
 #+end_src
 ** Emote navigation
 #+begin_src conf :noweb-ref emote
