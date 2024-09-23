@@ -210,19 +210,22 @@ keymap:
           DOT:       [Shift-GRAVE, SPACE, SLASH, DOT]
 #+end_src
 ** Miscellaneous: macro, currency & superscript
-*** Macros original
-#+begin_src conf :noweb-ref macros-original
-  - name: miscellaneous text - macros
+*** Macros
+#+name: macros
+#+begin_src python :var copy_cmd="wl-copy" :results output
+print('  - name: miscellaneous text - macros')
+print('   remap:')
+print('     # macro')
+print('     Alt_R-s:  { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/address_1 | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
+print('     Alt_R-t:  { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/address_2 | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
+print('     Alt_R-g:  { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/address_3 | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
+print('     Alt_R-c:  { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/zip_code  | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
+print('     Alt_R-d:  { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/phone     | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
+print('     Alt_R-n:  { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/email     | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
+print('     Alt_R-h:  { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/name      | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
+print('     Alt_R-i:  { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/id        | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
+#+end_src
     remap:
-      # macro
-      Alt_R-s:  { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/address_1 | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
-      Alt_R-t:  { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/address_2 | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
-      Alt_R-g:  { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/address_3 | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
-      Alt_R-c:  { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/zip_code  | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
-      Alt_R-d:  { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/phone     | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
-      Alt_R-n:  { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/email     | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
-      Alt_R-h:  { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/name      | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
-      Alt_R-i:  { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/id        | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
 #+end_src
 ** Emote navigation
 #+begin_src conf :noweb-ref emote
