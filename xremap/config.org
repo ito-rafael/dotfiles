@@ -200,6 +200,11 @@ keymap:
           SLASH:     [Shift-GRAVE, SPACE, SLASH]
           DOT:       [Shift-GRAVE, SPACE, SLASH, DOT]
 #+end_src
+**** Tilde paths
+#+begin_src conf :noweb-ref dead-acute
+          # tilde paths
+          c: [Shift-GRAVE, SPACE, SLASH, DOT, c,o,n,f,i,g, SLASH]
+#+end_src
 ** Scratchpad navigation
 #+name: scratchpad-navigation
 #+begin_src python :var ipc_cmd="swaymsg" :results output
