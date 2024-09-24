@@ -1,6 +1,6 @@
 #+TITLE: Config file for xremap
 #+AUTHOR: Rafael Ito
-# +PROPERTY: header-args :tangle config.yml
+# +PROPERTY: header-args :noweb-sep "\n\n"
 #+DESCRIPTION: config file for xremap
 #+STARTUP: showeverything
 #+auto_tangle: t
@@ -59,6 +59,9 @@ keymap:
       F18: Ctrl-v
 #+end_src
 ** Emacs
+:PROPERTIES:
+:header-args: :noweb-sep "\n\n"
+:END:
 *** Window navigation
 #+begin_src conf :noweb-ref emacs
   - name: Window navigation
@@ -106,6 +109,9 @@ keymap:
       Shift-X: Ctrl-Shift-T    # reopen tab
 #+end_src
 ** Dead acute
+:PROPERTIES:
+:header-args: :noweb-sep "\n"
+:END:
 #+begin_src conf :noweb-ref dead-acute
   - name: forward char / dead_acute
     exact_match: true
