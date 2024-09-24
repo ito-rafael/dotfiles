@@ -13,10 +13,10 @@
   - [[#kitty][Kitty]]
   - [[#brave][Brave]]
   - [[#dead-acute][Dead acute]]
-  - [[#scratchpad-navigation][Scratchpad navigation]]
-  - [[#miscellaneous-macro-currency--superscript][Miscellaneous: macro, currency & superscript]]
   - [[#emote-navigation][Emote navigation]]
   - [[#capslock][Capslock]]
+  - [[#scratchpad-navigation][Scratchpad navigation]]
+  - [[#miscellaneous-macro-currency--superscript][Miscellaneous: macro, currency & superscript]]
 
 * Modifiers
 Used for i3wm
@@ -144,7 +144,6 @@ keymap:
           i: [APOSTROPHE, i]
           o: [APOSTROPHE, o]
           u: [APOSTROPHE, u]
-
 #+end_src
 **** Vowel uppercase
 #+begin_src conf :noweb-ref dead-acute
@@ -299,49 +298,70 @@ print('    application:')
 print('      only: [kitty, dropdown_terminal, dropdown_python]')
 print('    remap:')
 print('      # currency')
-print('      Alt_R-e:  { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"€\\"  | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
-print('      Alt_R-p:  { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"£\\"  | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
-print('      Alt_R-y:  { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"￥\\" | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
-print('      Alt_R-r:  { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"₽\\"  | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
+print('      Alt_R-e: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"€\\"  | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
+print('      Alt_R-p: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"£\\"  | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
+print('      Alt_R-y: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"￥\\" | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
+print('      Alt_R-r: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"₽\\"  | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
 print('      # superscript')
-print('      Alt_R-a:  { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"ª\\"  | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
-print('      Alt_R-o:  { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"º\\"  | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
+print('      Alt_R-a: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"ª\\"  | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
+print('      Alt_R-o: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"º\\"  | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
 #+end_src
 * Tangle :noexport:
 ** i3
 #+begin_src conf :noweb yes :tangle config_i3.yml
 <<modifiers>>
+
 <<keymap>>
+
 <<cpc-terminal>>
+
 <<cpc-emacs>>
+
 <<cpc-default>>
+
 <<emacs>>
+
 <<kitty>>
+
 <<surfingkeys>>
+
 <<dead-acute>>
+
+<<emote>>
+
 <<scratchpad-navigation(ipc_cmd="i3-msg")>>
 <<macros(copy_cmd="xclip -sel clip")>>
 <<macros-terminal(copy_cmd="xclip -sel clip")>>
 <<currency-superscript-terminal(copy_cmd="xclip -sel clip")>>
 <<currency-superscript(copy_cmd="xclip -sel clip")>>
-<<emote>>
 #+end_src
 ** Sway
 #+begin_src conf :noweb yes :tangle config_sway.yml :results output
 <<keymap>>
-<<emacs>>
-<<kitty>>
+
 <<cpc-terminal>>
+
 <<cpc-emacs>>
+
 <<cpc-default>>
+
+<<emacs>>
+
+<<kitty>>
+
 <<surfingkeys>>
+
 <<dead-acute>>
+
+<<emote>>
+<<emote-sway>>
+
+<<capslock>>
+
 <<scratchpad-navigation(ipc_cmd="swaymsg")>>
 <<macros(copy_cmd="wl-copy")>>
 <<macros-terminal(copy_cmd="wl-copy")>>
 <<currency-superscript-terminal(copy_cmd="wl-copy")>>
 <<currency-superscript(copy_cmd="wl-copy")>>
-<<emote>>
-<<emote-sway>>
-<<capslock>>
+#+end_src
 #+end_src
