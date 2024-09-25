@@ -16,7 +16,7 @@
   - [[#emote-navigation][Emote navigation]]
   - [[#capslock][Capslock]]
   - [[#scratchpad-navigation][Scratchpad navigation]]
-  - [[#miscellaneous-macro-currency--superscript][Miscellaneous: macro, currency & superscript]]
+  - [[#miscellaneous][Miscellaneous]]
 
 * Modifiers
 Used for i3wm
@@ -245,7 +245,24 @@ print('    remap:')
 print('      Super-Left:  { launch: ["' + ipc_cmd + '", "focus", "output", "left"] }')
 print('      Super-Right: { launch: ["' + ipc_cmd + '", "focus", "output", "right"] }')
 #+end_src
-** Miscellaneous: macro, currency & superscript
+** Miscellaneous
+*** Macros (terminal)
+#+name: macros-terminal
+#+begin_src python :var copy_cmd="wl-copy" :results output
+print('  - name: miscellaneous text - macros (terminal)')
+print('    application:')
+print('      only: [kitty, dropdown_terminal, dropdown_python]')
+print('    remap:')
+print('      # macro')
+print('      Alt_R-s: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/address_1 | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
+print('      Alt_R-t: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/address_2 | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
+print('      Alt_R-g: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/address_3 | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
+print('      Alt_R-c: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/zip_code  | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
+print('      Alt_R-d: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/phone     | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
+print('      Alt_R-n: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/email     | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
+print('      Alt_R-h: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/name      | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
+print('      Alt_R-i: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/id        | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
+#+end_src
 *** Macros
 #+name: macros
 #+begin_src python :var copy_cmd="wl-copy" :results output
@@ -260,35 +277,6 @@ print('      Alt_R-d: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOM
 print('      Alt_R-n: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/email     | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
 print('      Alt_R-h: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/name      | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
 print('      Alt_R-i: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/id        | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
-#+end_src
-*** Macros (terminal)
-#+name: macros-terminal
-#+begin_src python :var copy_cmd="wl-copy" :results output
-print('  - name: miscellaneous text - macros (terminal)')
-print('    remap:')
-print('      # macro')
-print('      Alt_R-s: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/address_1 | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
-print('      Alt_R-t: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/address_2 | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
-print('      Alt_R-g: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/address_3 | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
-print('      Alt_R-c: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/zip_code  | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
-print('      Alt_R-d: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/phone     | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
-print('      Alt_R-n: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/email     | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
-print('      Alt_R-h: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/name      | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
-print('      Alt_R-i: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/id        | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
-#+end_src
-*** Currency & superscript
-#+name: currency-superscript
-#+begin_src python :var copy_cmd="wl-copy" :results output
-print('  - name: miscellaneous text - currency & superscript')
-print('    remap:')
-print('      # currency')
-print('      Alt_R-e: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"€\\"  | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
-print('      Alt_R-p: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"£\\"  | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
-print('      Alt_R-y: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"￥\\" | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
-print('      Alt_R-r: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"₽\\"  | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
-print('      # superscript')
-print('      Alt_R-a: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"ª\\"  | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
-print('      Alt_R-o: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"º\\"  | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
 #+end_src
 *** Currency & superscript (terminal)
 #+name: currency-superscript-terminal
@@ -305,6 +293,20 @@ print('      Alt_R-r: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"₽\\"  
 print('      # superscript')
 print('      Alt_R-a: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"ª\\"  | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
 print('      Alt_R-o: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"º\\"  | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
+#+end_src
+*** Currency & superscript
+#+name: currency-superscript
+#+begin_src python :var copy_cmd="wl-copy" :results output
+print('  - name: miscellaneous text - currency & superscript')
+print('    remap:')
+print('      # currency')
+print('      Alt_R-e: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"€\\"  | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
+print('      Alt_R-p: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"£\\"  | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
+print('      Alt_R-y: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"￥\\" | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
+print('      Alt_R-r: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"₽\\"  | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
+print('      # superscript')
+print('      Alt_R-a: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"ª\\"  | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
+print('      Alt_R-o: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"º\\"  | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
 #+end_src
 * Tangle :noexport:
 ** i3
@@ -330,8 +332,8 @@ print('      Alt_R-o: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"º\\"  |
 <<emote>>
 
 <<scratchpad-navigation(ipc_cmd="i3-msg")>>
-<<macros(copy_cmd="xclip -sel clip")>>
 <<macros-terminal(copy_cmd="xclip -sel clip")>>
+<<macros(copy_cmd="xclip -sel clip")>>
 <<currency-superscript-terminal(copy_cmd="xclip -sel clip")>>
 <<currency-superscript(copy_cmd="xclip -sel clip")>>
 #+end_src
@@ -359,8 +361,8 @@ print('      Alt_R-o: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"º\\"  |
 <<capslock>>
 
 <<scratchpad-navigation(ipc_cmd="swaymsg")>>
-<<macros(copy_cmd="wl-copy")>>
 <<macros-terminal(copy_cmd="wl-copy")>>
+<<macros(copy_cmd="wl-copy")>>
 <<currency-superscript-terminal(copy_cmd="wl-copy")>>
 <<currency-superscript(copy_cmd="wl-copy")>>
 #+end_src
