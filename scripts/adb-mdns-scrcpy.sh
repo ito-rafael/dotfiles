@@ -197,6 +197,46 @@ adb_connect () {
     fi
 }
 #=======================================
+# fn that tries to pair with device with ADB
+#=======================================
+adb_pair () {
+    # ask pair code
+    IMAGE=/usr/share/icons/Papirus-Dark/32x32/panel/keepassxc-dark.svg
+    PAIR_CODE="$(yad \
+        --center \
+        --entry \
+        --text="Insert ADB pair code:" \
+        --title="Pair code" \
+        --licon=$IMAGE \
+        --image=$XDG_CONFIG_HOME/icon/android.svg \
+        )"
+
+    # try to discover IP & port of device ADB via mDNS
+    MDNS_OUTPUT=$(avahi-browse --all --ignore-local --resolve --terminate --parsable | grep adb-RQ8N400FVCP-bNfaUl | grep pairing | tail -1)
+    PORT_PAIR=$(echo $MDNS_OUTPUT | cut -d ";" -f9)
+    IP=$1
+
+    # check if ADB pair is running
+    if [ -z "${MDNS_OUTPUT}" ]; then
+        echo "Device not found! Exiting."
+        # send alert notification
+        notify-send \
+            --expire-time=0 \
+            --urgency=NORMAL \
+            --icon='/usr/share/icons/Papirus/symbolic/status/dialog-warning-symbolic.svg' \
+            "Failed to pair with device $IP" \
+            "Make sure ADB is in pairing mode."
+        # play alert sound
+        paplay /usr/share/sounds/freedesktop/stereo/bell.oga
+        exit 1
+    else
+        echo "Device found: trying to pair with $IP:$PORT_PAIR. Please enter the pairing code:"
+        adb pair $IP:$PORT_PAIR $PAIR_CODE
+        return 0
+    fi
+}
+
+#=======================================
 # display scratchpad if it's active, or try to launch if it isn't
 #=======================================
 if [[ $SCRATCHPAD ]]; then
