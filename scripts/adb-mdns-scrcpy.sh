@@ -264,6 +264,16 @@ else
         paplay /usr/share/sounds/freedesktop/stereo/bell.oga
         exit 1
     else
+        echo "Device found. Trying to connect to $IP:$PORT_CON."
+        adb_connect
+        # check if connect was unsuccessful, and if yes, try to pair with device
+        if [ $? -eq 1 ]; then
+            echo "Device not paired. Trying to connect to pair with $IP."
+            adb_pair $IP
+            # check if pairing was successful, and if yes, try to connect again
+            if [ $? -eq 0 ]; then
+                echo "Device found. Trying to connect again to $IP:$PORT_CON."
+                adb_connect
             fi
         fi
     fi
