@@ -135,6 +135,68 @@ if [ $FOCUSED != "scrcpy" ]; then
 fi
 
 #=======================================
+# fn that tries to connect to device via ADB
+#=======================================
+adb_connect () {
+    ADB_RESPONSE=$(adb connect $IP:$PORT_CON)
+    # if ADB connection succeed, launch scrcpy as scratchpad
+    if [ "$ADB_RESPONSE" == "connected to $IP:$PORT_CON" ]; then
+        scrcpy \
+            -s $IP:$PORT_CON \
+            --prefer-text \
+            --window-title="dropdown_scrcpy" \
+            >& /dev/null &
+
+        # wait for scrcpy window to be launched
+        SCRATCHPAD=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.'$PROP' == "scrcpy" and .'$CAPTION' == "dropdown_scrcpy")')
+        if [ -z $SCRATCHPAD ]; then
+            echo "Waiting scratchpad to be launched."
+            while [[ $SCRATCHPAD ]]; do
+                sleep 0.2
+                echo "..."
+                SCRATCHPAD=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.'$PROP' == "scrcpy" and .'$CAPTION' == "dropdown_scrcpy")')
+            done
+        fi
+
+        # display scratchpad
+        sleep 2
+        $WM_CMD '['$PROP'="scrcpy" title="dropdown_scrcpy"] scratchpad show; ['$PROP'="scrcpy" title="dropdown_scrcpy"] resize set '$WIN_WIDTH' '$WIN_HEIGHT'; ['$PROP'="scrcpy" title="dropdown_scrcpy"] move position center'
+        exit 0
+
+    #-------------------------------------------------
+    # if ADB connection failed, try to pair first
+    #-------------------------------------------------
+    elif [ "$ADB_RESPONSE" == "failed to connect to $IP:$PORT_CON" ]; then
+        return 1
+
+    #-------------------------------------------------
+    # if ADB connection timed out, send notification
+    #-------------------------------------------------
+    #elif [ "$ADB_RESPONSE" == "Failed to resolve service \'adb-RQ8N400FVCP-bNfaUl\' of type \'_adb-tls-connect._tcp\' in domain \'local\': Timeout reached" ]; then
+    elif [ "$ADB_RESPONSE" == "Failed to resolve service 'adb-RQ8N400FVCP-bNfaUl' of type '_adb-tls-connect._tcp' in domain 'local': Timeout reached" ]; then
+        # send alert notification
+        notify-send \
+            --expire-time=0 \
+            --urgency=NORMAL \
+            --icon='/usr/share/icons/Papirus/symbolic/status/dialog-warning-symbolic.svg' \
+            "Failed to resolve service!" \
+            "Timeout reached."
+        # play alert sound
+        paplay /usr/share/sounds/freedesktop/stereo/bell.oga
+        exit 1
+
+    #-------------------------------------------------
+    # different error from ADB
+    #-------------------------------------------------
+    else
+        # TBD
+        echo $ADB_RESPONSE
+        echo $ADB_RESPONSE >> output_of_adb
+        # TBD
+        exit 1
+    fi
+}
+#=======================================
 # display scratchpad if it's active, or try to launch if it isn't
 #=======================================
 if [[ $SCRATCHPAD ]]; then
