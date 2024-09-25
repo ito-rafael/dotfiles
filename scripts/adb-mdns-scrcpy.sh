@@ -246,9 +246,9 @@ if [[ $SCRATCHPAD ]]; then
 else
     # try to discover IP & port of device ADB via mDNS
     echo "Scratchpad not found! Searching for ADB IP & port on device..."
-    MDNS_OUTPUT=$(avahi-browse --all --ignore-local --resolve --terminate --parsable | grep adb-RQ8N400FVCP-bNfaUl | grep v=ADB_SECURE_SERVICE_VERSION | tail -1)
+    MDNS_OUTPUT=$(avahi-browse --all --ignore-local --resolve --terminate --parsable | grep adb-RQ8N400FVCP-bNfaUl | grep connect | grep v=ADB_SECURE_SERVICE_VERSION | tail -1)
     IP=$(echo $MDNS_OUTPUT | cut -d ";" -f8)
-    PORT=$(echo $MDNS_OUTPUT | cut -d ";" -f9)
+    PORT_CON=$(echo $MDNS_OUTPUT | cut -d ";" -f9)
 
     # check if ADB is running
     if [ -z "${MDNS_OUTPUT}" ]; then
