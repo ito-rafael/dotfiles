@@ -17,6 +17,7 @@
   - [[#capslock][Capslock]]
   - [[#scratchpad-navigation][Scratchpad navigation]]
   - [[#miscellaneous][Miscellaneous]]
+  - [[#pdfpc][pdfpc]]
 
 * Modifiers
 Used for i3wm
@@ -308,6 +309,50 @@ print('      # superscript')
 print('      Alt_R-a: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"ª\\"  | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
 print('      Alt_R-o: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"º\\"  | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
 #+end_src
+** pdfpc
+#+begin_src conf :noweb-ref pdfpc
+  - name: presentation with pdfpc
+    exact_match: true
+    application:
+      only: pdfpc
+    remap:
+#+end_src
+*** Home row: RST
+#+begin_src conf :noweb-ref pdfpc
+      KEY_R: { launch: ["$XDG_CONFIG_HOME/scripts/obs-tools.py", "--scene", "camera"] }
+      KEY_S: KEY_1
+      KEY_T: { launch: ["$XDG_CONFIG_HOME/scripts/obs-tools.py", "--scene", "presentation"] }
+#+end_src
+*** Top row: WFP
+#+begin_src conf :noweb-ref pdfpc
+      KEY_W: { launch: ["$XDG_CONFIG_HOME/scripts/obs-tools.py", "--scene", "scene-4"] }
+      KEY_F: KEY_2
+      KEY_P: { launch: ["$XDG_CONFIG_HOME/scripts/obs-tools.py", "--scene", "scene-6"] }
+#+end_src
+*** Bottom row: XCD
+#+begin_src conf :noweb-ref pdfpc
+      KEY_X: { launch: ["$XDG_CONFIG_HOME/scripts/obs-tools.py", "--scene", "scene-7"] }
+      KEY_C: KEY_3
+      KEY_D: { launch: ["$XDG_CONFIG_HOME/scripts/obs-tools.py", "--scene", "scene-9"] }
+#+end_src
+*** Right column: BGV
+#+begin_src conf :noweb-ref pdfpc
+      KEY_B: { launch: ["$XDG_CONFIG_HOME/scripts/obs-tools.py", "--record"] }
+      KEY_G: KEY_MINUS
+      KEY_V: S-EQUAL
+#+end_src
+*** Right column: QAZ
+#+begin_src conf :noweb-ref pdfpc
+      KEY_Q: KEY_5
+      KEY_A: KEY_4
+      #KEY_Z:
+#+end_src
+*** Thumb cluster: Space, ESC, Tab
+#+begin_src conf :noweb-ref pdfpc
+      KEY_SPACE: KEY_DOWN
+      KEY_ESC: KEY_UP
+      #KEY_TAB:
+#+end_src
 * Tangle :noexport:
 ** i3
 #+begin_src conf :noweb yes :tangle config_i3.yml
@@ -336,6 +381,8 @@ print('      Alt_R-o: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"º\\"  |
 <<macros(copy_cmd="xclip -sel clip")>>
 <<currency-superscript-terminal(copy_cmd="xclip -sel clip")>>
 <<currency-superscript(copy_cmd="xclip -sel clip")>>
+
+#<<pdfpc>>
 #+end_src
 ** Sway
 #+begin_src conf :noweb yes :tangle config_sway.yml :results output
@@ -365,5 +412,7 @@ print('      Alt_R-o: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"º\\"  |
 <<macros(copy_cmd="wl-copy")>>
 <<currency-superscript-terminal(copy_cmd="wl-copy")>>
 <<currency-superscript(copy_cmd="wl-copy")>>
+
+#<<pdfpc>>
 #+end_src
 #+end_src
