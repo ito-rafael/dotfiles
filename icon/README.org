@@ -9,6 +9,8 @@
   - [[#android][Android]]
   - [[#error][Error]]
   - [[#password][Password]]
+- [[#notification-battery][Notification battery]]
+  - [[#half][Half]]
 
 * Installation
 On ArchLinux:
@@ -28,3 +30,8 @@ sudo pacman -S papirus-icon-theme
 /usr/share/icons/Papirus-Dark/32x32/status/dialog-password.svg
 #+ATTR_ORG: :width 75
 [[./dialog-password.svg]]
+* Notification battery
+** Half
+/usr/share/icons/Papirus-Dark/32x32/panel/battery-020.svg
+#+ATTR_ORG: :width 75
+[[./battery-half.svg]]
