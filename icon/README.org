@@ -8,6 +8,7 @@
 - [[#dialog][Dialog]]
   - [[#android][Android]]
   - [[#error][Error]]
+  - [[#password][Password]]
 
 * Installation
 On ArchLinux:
@@ -23,3 +24,7 @@ sudo pacman -S papirus-icon-theme
 /usr/share/icons/Papirus-Dark/32x32/status/dialog-error.svg
 #+ATTR_ORG: :width 75
 [[./dialog-error.svg]]
+** Password
+/usr/share/icons/Papirus-Dark/32x32/status/dialog-password.svg
+#+ATTR_ORG: :width 75
+[[./dialog-password.svg]]
