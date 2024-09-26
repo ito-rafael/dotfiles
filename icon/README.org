@@ -11,6 +11,7 @@
   - [[#password][Password]]
 - [[#notification-battery][Notification battery]]
   - [[#half][Half]]
+  - [[#low][Low]]
 
 * Installation
 On ArchLinux:
@@ -35,3 +36,7 @@ sudo pacman -S papirus-icon-theme
 /usr/share/icons/Papirus-Dark/32x32/panel/battery-020.svg
 #+ATTR_ORG: :width 75
 [[./battery-half.svg]]
+** Low
+/usr/share/icons/Papirus-Dark/32x32/panel/battery-010.svg
+#+ATTR_ORG: :width 75
+[[./battery-low.svg]]
