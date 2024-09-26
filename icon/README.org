@@ -17,6 +17,7 @@
   - [[#la-casa-nostra][La Casa Nostra]]
   - [[#unicamp][Unicamp]]
   - [[#lbic][LBiC]]
+  - [[#samsung][Samsung]]
 
 * Installation
 On ArchLinux:
@@ -59,3 +60,6 @@ sudo pacman -S papirus-icon-theme
 ** LBiC
 #+ATTR_ORG: :width 75
 [[./lbic.png]]
+** Samsung
+#+ATTR_ORG: :width 75
+[[./samsung.png]]
