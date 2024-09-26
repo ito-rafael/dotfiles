@@ -16,6 +16,7 @@
 - [[#vpn][VPN]]
   - [[#la-casa-nostra][La Casa Nostra]]
   - [[#unicamp][Unicamp]]
+  - [[#lbic][LBiC]]
 
 * Installation
 On ArchLinux:
@@ -55,3 +56,6 @@ sudo pacman -S papirus-icon-theme
 ** Unicamp
 #+ATTR_ORG: :width 75
 [[./unicamp.png]]
+** LBiC
+#+ATTR_ORG: :width 75
+[[./lbic.png]]
