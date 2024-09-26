@@ -1,0 +1,13 @@
+#+TITLE: Icons
+#+AUTHOR: Rafael Ito
+#+DESCRIPTION: Icons used by custom scripts
+#+STARTUP: showeverything
+
+* Table of Contents :toc:
+- [[#installation][Installation]]
+
+* Installation
+On ArchLinux:
+#+begin_src sh
+sudo pacman -S papirus-icon-theme
+#+end_src
