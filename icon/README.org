@@ -7,6 +7,7 @@
 - [[#installation][Installation]]
 - [[#dialog][Dialog]]
   - [[#android][Android]]
+  - [[#error][Error]]
 
 * Installation
 On ArchLinux:
@@ -18,3 +19,7 @@ sudo pacman -S papirus-icon-theme
 /usr/share/icons/Papirus-Dark/48x48/apps/android-sdk.svg
 #+ATTR_ORG: :width 75
 [[./android.svg]]
+** Error
+/usr/share/icons/Papirus-Dark/32x32/status/dialog-error.svg
+#+ATTR_ORG: :width 75
+[[./dialog-error.svg]]
