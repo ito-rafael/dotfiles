@@ -45,3 +45,7 @@ sudo pacman -S papirus-icon-theme
 /usr/share/icons/Papirus-Dark/32x32/panel/battery-000.svg
 #+ATTR_ORG: :width 75
 [[./battery-critical.svg]]
+* VPN
+** La Casa Nostra
+#+ATTR_ORG: :width 75
+[[./lcn.png]]
