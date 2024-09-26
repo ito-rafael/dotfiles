@@ -5,9 +5,16 @@
 
 * Table of Contents :toc:
 - [[#installation][Installation]]
+- [[#dialog][Dialog]]
+  - [[#android][Android]]
 
 * Installation
 On ArchLinux:
 #+begin_src sh
 sudo pacman -S papirus-icon-theme
 #+end_src
+* Dialog
+** Android
+/usr/share/icons/Papirus-Dark/48x48/apps/android-sdk.svg
+#+ATTR_ORG: :width 75
+[[./android.svg]]
