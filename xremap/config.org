@@ -9,6 +9,7 @@
 - [[#modifiers][Modifiers]]
 - [[#shared][Shared]]
   - [[#terminals][Terminals]]
+  - [[#scratchpads][Scratchpads]]
 - [[#keymap][Keymap]]
   - [[#cpc-copypastecut][CPC: Copy/Paste/Cut]]
   - [[#emacs][Emacs]]
@@ -38,6 +39,16 @@ keymap:
     - kitty
     - dropdown_terminal
     - dropdown_python
+#+end_src
+** Scratchpads
+#+begin_src conf :noweb-ref shared
+  scratchpads: &scratchpads
+    - dropdown_terminal
+    - dropdown_python
+    - scrcpy
+    - Brave-browser-beta
+    - Keymapp
+    - keymapp
 #+end_src
 * Keymap
 #+begin_src conf :noweb-ref keymap
@@ -253,7 +264,7 @@ keymap:
 #+begin_src python :var ipc_cmd="swaymsg" :results output
 print('  - name: window navigation from scratchpads')
 print('    application:')
-print('      only: [dropdown_terminal, dropdown_python, scrcpy, Brave-browser-beta, Keymapp]')
+print('      only: *scratchpads')
 print('    remap:')
 print('      Super-Left:  { launch: ["' + ipc_cmd + '", "focus", "output", "left"] }')
 print('      Super-Right: { launch: ["' + ipc_cmd + '", "focus", "output", "right"] }')
