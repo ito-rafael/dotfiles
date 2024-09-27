@@ -7,6 +7,8 @@
 
 * Table of Contents :toc:
 - [[#modifiers][Modifiers]]
+- [[#shared][Shared]]
+  - [[#terminals][Terminals]]
 - [[#keymap][Keymap]]
   - [[#cpc-copypastecut][CPC: Copy/Paste/Cut]]
   - [[#emacs][Emacs]]
@@ -26,6 +28,17 @@ virtual_modifiers:
   - Henkan
   - Muhenkan
 #+end_src
+* Shared
+#+begin_src conf :noweb-ref shared
+keymap:
+#+end_src
+** Terminals
+#+begin_src conf :noweb-ref shared
+  terminals: &terminals
+    - kitty
+    - dropdown_terminal
+    - dropdown_python
+#+end_src
 * Keymap
 #+begin_src conf :noweb-ref keymap
 keymap:
@@ -35,7 +48,7 @@ keymap:
 #+begin_src conf :noweb-ref cpc-terminal
   - name: copy/paste/cut - terminal
     application:
-      only: [kitty, dropdown_terminal, dropdown_python]
+      only: *terminals
     remap:
       F16: Ctrl-Shift-x
       F17: Ctrl-Shift-c
@@ -252,7 +265,7 @@ print('      Super-Right: { launch: ["' + ipc_cmd + '", "focus", "output", "righ
 #+begin_src python :var copy_cmd="wl-copy" :results output
 print('  - name: miscellaneous text - macros (terminal)')
 print('    application:')
-print('      only: [kitty, dropdown_terminal, dropdown_python]')
+print('      only: *terminals')
 print('    remap:')
 print('      # macro')
 print('      Alt_R-s: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"$(<$XDG_CONFIG_HOME/macros/address_1)\\" | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
@@ -284,7 +297,7 @@ print('      Alt_R-i: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOM
 #+begin_src python :var copy_cmd="wl-copy" :results output
 print('  - name: miscellaneous text - currency & superscript (terminal)')
 print('    application:')
-print('      only: [kitty, dropdown_terminal, dropdown_python]')
+print('      only: *terminals')
 print('    remap:')
 print('      # currency')
 print('      Alt_R-e: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"€\\"  | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
