@@ -1,1 +1,4 @@
 macros/
+vpn/lbic/openvpn/ca.crt
+vpn/lbic/openvpn/ito_rafael.crt
+vpn/lbic/openvpn/ito_rafael.key
