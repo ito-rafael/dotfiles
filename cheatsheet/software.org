@@ -1,0 +1,12 @@
+#+TITLE: Cheatsheets for Softwares
+#+AUTHOR: Rafael Ito
+#+DESCRIPTION: cheatsheets for tools and applications
+#+STARTUP: showeverything
+
+* Table of contents :toc_2:
+- [[#vim][Vim]]
+
+* Vim :noexport_1:
+** Vertical highlight numbers
+- increment: C-a
+- list of numbers: g C-a
