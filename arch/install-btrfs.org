@@ -167,12 +167,12 @@ umount /mnt
 ** Mount the subvolumes
 *** root
 **** @root
-Mount the @root subvolume in =/=
+Mount the @root subvolume in =/=.
 #+begin_src sh
 mount -o noatime,commit=120,compress=zstd,space_cache=v2,subvol=@root /dev/nvme0n1p3 /mnt
 #+end_src
 **** @snapshot-root
-Mount the @snapshot-root subvolume in =/.snapshot=
+Mount the @snapshot-root subvolume in =/.snapshot=.
 #+begin_src sh
 mkdir /mnt/.snapshot
 mount -o noatime,commit=120,compress=zstd,space_cache=v2,subvol=@snapshot-root /dev/nvme0n1p3 /mnt/.snapshot
@@ -289,7 +289,7 @@ Update 03/2024: not needed anymore.
 #+begin_src sh
 sed -i -e "s/\/mnt//" /mnt/etc/fstab
 #+end_src
-** chroot into the system
+** Chroot into the system
 Change root into the new system.
 #+begin_src sh
 arch-chroot /mnt
@@ -304,7 +304,7 @@ Set the hardware clock.
 #+begin_src sh
 hwclock --systohc
 #+end_src
-** localization
+** Localization
 Edit locale file.
 #+begin_src sh
 vi /etc/locale.gen
@@ -325,7 +325,7 @@ Create the locale.conf file and set the LANG variable accordingly.
 #+begin_src sh
 echo LANG=en_US.UTF-8 >> /etc/locale.conf
 #+end_src
-** network configuration
+** Network configuration
 Create the hostname file and set hostname.
 #+begin_src sh
 echo IPF-ArchLinux >> /etc/hostname
@@ -345,13 +345,13 @@ Install wireless packages.
 #+begin_src sh
 pacman -S iw wpa_supplicant networkmanager
 #+end_src
-** password and update
+** Password and update
 set root password and update the system
 #+begin_src sh
 passwd
 pacman -Syu
 #+end_src
-** boot loader (GRUB)
+** Boot loader (GRUB)
 Install packages.
 #+begin_src sh
 pacman -S grub grub-btrfs efibootmgr
@@ -385,4 +385,4 @@ swapoff /mnt/swap/swapfile
 umount -R /mnt
 reboot
 #+end_src
-** !!! remove USB stick !!!
+** !!! remove USB stick !!! :noexport:
