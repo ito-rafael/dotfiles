@@ -3,6 +3,26 @@
 #+description: Arch install guide: btrfs edition
 #+startup: showeverything
 
+* Table of Contents :toc:
+- [[#preparation][Preparation]]
+  - [[#documents][Documents]]
+  - [[#boot-from-the-live-usb][Boot from the live USB]]
+- [[#live-environment][Live environment]]
+  - [[#increase-font-size][Increase font size]]
+  - [[#configure-network-device][Configure network device]]
+  - [[#set-up-wi-fi-connection][Set up Wi-Fi connection]]
+  - [[#update-the-system-clock][Update the system clock]]
+  - [[#disk-partitioning][Disk partitioning]]
+  - [[#format-mount-and-create-subvolumes][Format, mount and create subvolumes]]
+  - [[#mount-the-subvolumes][Mount the subvolumes]]
+  - [[#install-the-system][Install the system]]
+  - [[#chroot-into-the-system][Chroot into the system]]
+  - [[#localization][Localization]]
+  - [[#network-configuration][Network configuration]]
+  - [[#password-and-update][Password and update]]
+  - [[#boot-loader-grub][Boot loader (GRUB)]]
+  - [[#reboot][Reboot]]
+
 * Preparation
 ** Documents
 - Arch install:
