@@ -1,6 +1,6 @@
 #+title: Waybar config
 #+author: Rafael Ito
-#+property: header-args :tangle ./waybar_config
+#+property: header-args :tangle ./config
 #+description: Waybar configuration
 #+startup: showeverything
 #+auto_tangle: t
