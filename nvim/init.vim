@@ -194,6 +194,20 @@ nnoremap l k
 "nnoremap / l
 "nnoremap ? /
 
+"nnoremap f13 + a = á
+"nnoremap f13 + e = é
+"nnoremap f13 + i = í
+"nnoremap f13 + o = ó
+"nnoremap f13 + u = ú
+"nnoremap f13 + c = ç
+
+"nnoremap f13 + A = Á
+"nnoremap f13 + E = É
+"nnoremap f13 + I = Í
+"nnoremap f13 + O = Ó
+"nnoremap f13 + U = Ú
+"nnoremap f13 + C = Ç
+
 vnoremap h ;
 vnoremap j h
 vnoremap k j
