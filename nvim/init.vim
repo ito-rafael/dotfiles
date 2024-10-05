@@ -214,6 +214,10 @@ vnoremap k j
 vnoremap l k
 "vnoremap / l
 "vnoremap ? /
+
+"nnoremap ? /
+"vnoremap h ;
+
 "================================================
 " General Config
 "================================================
