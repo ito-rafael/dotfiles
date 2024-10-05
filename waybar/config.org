@@ -317,7 +317,7 @@
 "custom/capslock": {
     "return-type": "json",
     "exec": "~/.config/waybar/scripts/capslock.sh",
-    "format": "{}",
+    "format": " {} ",
 },
 #+end_src
 * JSON footer
