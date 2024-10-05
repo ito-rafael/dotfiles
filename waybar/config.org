@@ -5,6 +5,39 @@
 #+startup: showeverything
 #+auto_tangle: t
 
+* Table of contents :toc:
+- [[#json-header][JSON header]]
+- [[#positioning][Positioning]]
+- [[#sway][Sway]]
+- [[#cpu][CPU]]
+- [[#memory][Memory]]
+- [[#temperature][Temperature]]
+- [[#disk][Disk]]
+- [[#audio][Audio]]
+- [[#brightness][Brightness]]
+- [[#battery][Battery]]
+- [[#clock-calendar][Clock (Calendar)]]
+- [[#mpris][MPRIS]]
+- [[#scratchpads][Scratchpads]]
+  - [[#indicator][Indicator]]
+  - [[#temp-1-comma][Temp #1: comma]]
+  - [[#temp-2-period][Temp #2: period]]
+  - [[#temp-3-slash][Temp #3: slash]]
+  - [[#whatsapp][WhatsApp]]
+  - [[#youtube-music][YouTube Music]]
+  - [[#scrcpy][scrcpy]]
+  - [[#python][Python]]
+  - [[#terminal][Terminal]]
+  - [[#keymapp][Keymapp]]
+- [[#vpn][VPN]]
+  - [[#la-casa-nostra][La Casa Nostra]]
+  - [[#unicamp][Unicamp]]
+  - [[#lbic][LBiC]]
+  - [[#samsung][Samsung]]
+- [[#caps-lock][Caps Lock]]
+- [[#caps-lock-1][Caps Lock]]
+- [[#json-footer][JSON footer]]
+
 * JSON header
 #+begin_src json
 {
