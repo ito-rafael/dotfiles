@@ -184,6 +184,23 @@ autocmd FileType html inoremap ;b <b></b><Space><++><Esc>FbT>i
 autocmd FileType html inoremap ;p <p></p><Enter><Enter><++><Esc>2ki
 
 "================================================
+" remap navigation keys
+"================================================
+
+nnoremap h ;
+nnoremap j h
+nnoremap k j
+nnoremap l k
+"nnoremap / l
+"nnoremap ? /
+
+vnoremap h ;
+vnoremap j h
+vnoremap k j
+vnoremap l k
+"vnoremap / l
+"vnoremap ? /
+"================================================
 " General Config
 "================================================
 "
