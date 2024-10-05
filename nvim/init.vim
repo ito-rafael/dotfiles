@@ -111,79 +111,6 @@ let g:limelight_conceal_ctermfg = 240
 let g:instant_markdown_browser = 'brave --new-window'
 
 "================================================
-" General Config
-"================================================
-"
-set nospell
-"----------------------------
-" write with sudo
-"----------------------------
-"cmap W w !sudo tee > /dev/null %
-cnoremap w! SudaWrite
-
-"----------------------------
-" line number
-"----------------------------
-"display line number
-set number
-"display relative line number
-set relativenumber
-
-"----------------------------
-" tab width
-"----------------------------
-"show existing tab with 4 spaces width
-set tabstop=4
-
-"when indenting with '>', use 4 spaces width
-set shiftwidth=4
-
-"on pressing tab, insert spaces
-set expandtab
-
-"----------------------------
-" other config
-"----------------------------
-"disable auto-indentig for pasting
-"set paste
-
-"use clipboard as default register
-set clipboard=unnamedplus
-
-"----------------------------
-" disable system beep
-"----------------------------
-set belloff=all
-
-"----------------------------
-" Mapping keys
-"----------------------------
-"map <Leader> key to <Space>
-nnoremap <SPACE> <Nop>
-let mapleader = "\<Space>" 
-
-"write the current file as sudo
-noremap <Leader>W :w !sudo tee % > /dev/null
-
-"split navigations
-"
-"********* NOT WORKING **********
-"
-"nnoremap <C-J> <C-W><C-J>
-"nnoremap <C-K> <C-W><C-K>
-"nnoremap <C-L> <C-W><C-L>
-"nnoremap <C-H> <C-W><C-H>
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-nnoremap <C-h> <C-w>h
-
-"----------------------------
-" Spell checking
-"----------------------------
-:setlocal spell spelllang=en_us
-
-"================================================
 " LaTeX
 "================================================
 "change frequency that the output PDF is updated
@@ -252,6 +179,79 @@ autocmd FileType html inoremap ;b <b></b><Space><++><Esc>FbT>i
 autocmd FileType html inoremap ;p <p></p><Enter><Enter><++><Esc>2ki
 
 "================================================
-" revert to default color scheme
+" General Config
 "================================================
+"
+set nospell
+"----------------------------
+" write with sudo
+"----------------------------
+"cmap W w !sudo tee > /dev/null %
+cnoremap w! SudaWrite
+
+"----------------------------
+" line number
+"----------------------------
+"display line number
+set number
+"display relative line number
+set relativenumber
+
+"----------------------------
+" tab width
+"----------------------------
+"show existing tab with 4 spaces width
+set tabstop=4
+
+"when indenting with '>', use 4 spaces width
+set shiftwidth=4
+
+"on pressing tab, insert spaces
+set expandtab
+
+"----------------------------
+" other config
+"----------------------------
+"disable auto-indentig for pasting
+"set paste
+
+"use clipboard as default register
+set clipboard=unnamedplus
+
+"----------------------------
+" disable system beep
+"----------------------------
+set belloff=all
+
+"----------------------------
+" Mapping keys
+"----------------------------
+"map <Leader> key to <Space>
+nnoremap <SPACE> <Nop>
+let mapleader = "\<Space>"
+
+"write the current file as sudo
+noremap <Leader>W :w !sudo tee % > /dev/null
+
+"split navigations
+"
+"********* NOT WORKING **********
+"
+"nnoremap <C-J> <C-W><C-J>
+"nnoremap <C-K> <C-W><C-K>
+"nnoremap <C-L> <C-W><C-L>
+"nnoremap <C-H> <C-W><C-H>
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+nnoremap <C-h> <C-w>h
+
+"----------------------------
+"Spell checking
+:setlocal spell spelllang=en_us
+
+"----------------------------
+"fallback original colors
 colorscheme vim
+
+"----------------------------
