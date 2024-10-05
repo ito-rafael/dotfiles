@@ -260,3 +260,5 @@ nnoremap <C-h> <C-w>h
 colorscheme vim
 
 "----------------------------
+" set C-Backspace to delete word (insert mode)
+inoremap <C-BS> <C-W>
