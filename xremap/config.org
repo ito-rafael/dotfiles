@@ -72,6 +72,13 @@ Volume (Oryx/QKM and xremap)
 | F15      | vol- fine   |
 | ctrl+F15 | vol+ fine   |
 | meta+F15 | vol 50%     |
+*** F16/F17/F18
+Cut, copy, paste.
+| binding | description |
+|---------+-------------|
+| F16     | cut         |
+| F17     | copy        |
+| F18     | paste       |
 * Modifiers
 Used for i3wm
 #+begin_src conf :noweb-ref modifiers
