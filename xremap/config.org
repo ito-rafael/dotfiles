@@ -79,6 +79,16 @@ Cut, copy, paste.
 | F16     | cut         |
 | F17     | copy        |
 | F18     | paste       |
+*** F19
+Opacity (Oryx/QKM and xremap)
+| binding        | description                     |
+|----------------+---------------------------------|
+| F19            | stop IWT && opacity current dec |
+| ctrl+F19       | stop IWT && opacity current inc |
+| shift+F19      | stop IWT && opacity all dec     |
+| shift+ctrl+F19 | stop IWT && opacity all inc     |
+| meta+F19       | run IWT with --opacity 0.85     |
+obs: IWT = inactive-windows-transparency.py
 * Modifiers
 Used for i3wm
 #+begin_src conf :noweb-ref modifiers
