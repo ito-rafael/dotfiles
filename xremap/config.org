@@ -6,6 +6,8 @@
 #+auto_tangle: t
 
 * Table of Contents :toc:
+- [[#information][Information]]
+  - [[#table][Table]]
 - [[#modifiers][Modifiers]]
 - [[#shared][Shared]]
   - [[#terminals][Terminals]]
@@ -22,6 +24,33 @@
   - [[#miscellaneous][Miscellaneous]]
   - [[#pdfpc][pdfpc]]
 
+* Information
+** Table
+|----------------+------------------+---------+---------------------+----------------------|
+| Key name       | Xmodmap          | keycode | input-event-codes.h | used for             |
+|----------------+------------------+---------+---------------------+----------------------|
+| left shift     | Shift_L          |      50 | KEY_LEFTSHIFT       | shift (xmodmap)      |
+| right shift    | Shift_R          |      62 | KEY_RIGHTSHIFT      | shift (xmodmap)      |
+|----------------+------------------+---------+---------------------+----------------------|
+| left ctrl      | Control_L        |      37 | KEY_LEFTCTRL        | control (xmodmap)    |
+| right ctrl     | Control_R        |     105 | KEY_RIGHTCTRL       | control (xmodmap)    |
+|----------------+------------------+---------+---------------------+----------------------|
+| left alt       | Alt_L            |      64 | KEY_LEFTALT         | mod1 (xmodmap)       |
+| right alt      | ISO_Level3_Shift |     108 | KEY_RIGHTALT        | mod5 (xmodmap)       |
+|----------------+------------------+---------+---------------------+----------------------|
+| win/super/meta | Super_L          |     133 | KEY_LEFTMETA        | mod4 (xmodmap)       |
+| ???            | Super_R          |     134 | KEY_RIGHTMETA       | mod4 (xmodmap)       |
+|----------------+------------------+---------+---------------------+----------------------|
+| ???            | Hyper_L          |     207 | ?????               | ?????                |
+|----------------+------------------+---------+---------------------+----------------------|
+| F13            | XF86Tools        |     191 | KEY_F13             | single/double quotes |
+| F14            | XF86Launch5      |     192 | KEY_F14             | microphone           |
+| F15            | XF86Launch6      |     193 | KEY_F15             |                      |
+| F16            | XF86Launch7      |     194 | KEY_F16             | TBD                  |
+| F17            | XF86Launch8      |     195 | KEY_F17             | TBD                  |
+| F18            | XF86Launch9      |     196 | KEY_F18             | TBD                  |
+| F19            | -----            |     197 | KEY_F19             | TBD                  |
+|----------------+------------------+---------+---------------------+----------------------|
 * Modifiers
 Used for i3wm
 #+begin_src conf :noweb-ref modifiers
