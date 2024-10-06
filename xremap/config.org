@@ -65,6 +65,13 @@ Microphone (Oryx/QKM and xremap)
 | shift+ctrl+F14   | mic+ fine   |
 | meta+F14         | mic 50%     |
 | XF86AudioMicMute | mic mute    |
+*** F15
+Volume (Oryx/QKM and xremap)
+| binding  | description |
+|----------+-------------|
+| F15      | vol- fine   |
+| ctrl+F15 | vol+ fine   |
+| meta+F15 | vol 50%     |
 * Modifiers
 Used for i3wm
 #+begin_src conf :noweb-ref modifiers
