@@ -31,7 +31,7 @@ virtual_modifiers:
 #+end_src
 * Shared
 #+begin_src conf :noweb-ref shared
-keymap:
+shared:
 #+end_src
 ** Terminals
 #+begin_src conf :noweb-ref shared
@@ -385,6 +385,8 @@ print('      Alt_R-o: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"º\\"  |
 #+begin_src conf :noweb yes :tangle config_i3.yml
 <<modifiers>>
 
+<<shared>>
+
 <<keymap>>
 
 <<cpc-terminal>>
@@ -413,6 +415,8 @@ print('      Alt_R-o: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"º\\"  |
 #+end_src
 ** Sway
 #+begin_src conf :noweb yes :tangle config_sway.yml :results output
+<<shared>>
+
 <<keymap>>
 
 <<cpc-terminal>>
