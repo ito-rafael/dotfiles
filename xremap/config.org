@@ -8,6 +8,7 @@
 * Table of Contents :toc:
 - [[#information][Information]]
   - [[#table][Table]]
+  - [[#fn-keys][Fn keys]]
 - [[#modifiers][Modifiers]]
 - [[#shared][Shared]]
   - [[#terminals][Terminals]]
@@ -51,6 +52,9 @@
 | F18            | XF86Launch9      |     196 | KEY_F18             | TBD                  |
 | F19            | -----            |     197 | KEY_F19             | TBD                  |
 |----------------+------------------+---------+---------------------+----------------------|
+** Fn keys
+*** F13
+Single/double quotes (xremap)
 * Modifiers
 Used for i3wm
 #+begin_src conf :noweb-ref modifiers
