@@ -241,6 +241,11 @@ keymap:
           w: [Shift-GRAVE, SPACE, SLASH, DOT, c,o,n,f,i,g, SLASH, w,a,y,b,a,r, SLASH]
           z: [Shift-GRAVE, SPACE, SLASH, DOT, c,o,n,f,i,g, SLASH, z,s,h, SLASH]
 #+end_src
+***** i3wm/Sway
+#+name: dead-acute-i3sway
+#+begin_src python :var wm="s,w,a,y" :results output
+print('          i: [Shift-GRAVE, SPACE, SLASH, DOT, c,o,n,f,i,g, SLASH, ' + wm + ', SLASH]')
+#+end_src
 ** Emote navigation
 *** Common
 #+begin_src conf :noweb-ref emote
@@ -406,6 +411,7 @@ print('      Alt_R-o: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"º\\"  |
 <<surfingkeys>>
 
 <<dead-acute>>
+<<dead-acute-i3sway(wm="i,3")>>
 
 <<emote>>
 
@@ -436,6 +442,7 @@ print('      Alt_R-o: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"º\\"  |
 <<surfingkeys>>
 
 <<dead-acute>>
+<<dead-acute-i3sway(wm="s,w,a,y")>>
 
 <<emote>>
 <<emote-sway>>
