@@ -89,6 +89,16 @@ Opacity (Oryx/QKM and xremap)
 | shift+ctrl+F19 | stop IWT && opacity all inc     |
 | meta+F19       | run IWT with --opacity 0.85     |
 obs: IWT = inactive-windows-transparency.py
+*** F20
+TBD (suggestion: monitor LED strip)
+*** F21
+TBD (suggestion: keyboard underglow)
+*** F22
+TBD
+*** F23
+TBD
+*** F24
+TBD
 * Modifiers
 Used for i3wm
 #+begin_src conf :noweb-ref modifiers
