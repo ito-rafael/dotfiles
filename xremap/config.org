@@ -55,6 +55,16 @@
 ** Fn keys
 *** F13
 Single/double quotes (xremap)
+*** F14
+Microphone (Oryx/QKM and xremap)
+| binding          | description |
+|------------------+-------------|
+| F14              | mic- coarse |
+| ctrl+F14         | mic+ coarse |
+| shift+F14        | mic- fine   |
+| shift+ctrl+F14   | mic+ fine   |
+| meta+F14         | mic 50%     |
+| XF86AudioMicMute | mic mute    |
 * Modifiers
 Used for i3wm
 #+begin_src conf :noweb-ref modifiers
