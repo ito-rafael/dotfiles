@@ -256,5 +256,7 @@ nnoremap <C-h> <C-w>h
 inoremap <C-BS> <C-W>
 
 "----------------------------
+" yank till end of line
+nnoremap Y y$
 
 "----------------------------
