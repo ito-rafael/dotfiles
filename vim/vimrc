@@ -260,3 +260,5 @@ inoremap <C-BS> <C-W>
 nnoremap Y y$
 
 "----------------------------
+"fallback original colors
+colorscheme vim
