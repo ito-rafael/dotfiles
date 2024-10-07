@@ -5,7 +5,7 @@
 #+startup: showeverything
 #+auto_tangle: t
 
-* Table of contents :toc:
+* Table of contents :toc_2:
 - [[#json-header][JSON header]]
 - [[#positioning][Positioning]]
 - [[#sway][Sway]]
@@ -42,11 +42,20 @@
 #+begin_src json
 {
 #+end_src
-* Positioning
+* Positioning :noexport_1:
 #+begin_src json
 "layer": "top",
+#+end_src
+** Left
+#+begin_src json
 "modules-left": ["sway/workspaces", "sway/mode"],
+#+end_src
+** Center
+#+begin_src json :tangle no
 "modules-center": ["sway/window"],
+#+end_src
+** Right
+#+begin_src json
 "modules-right": [
     "custom/vpn-lcn",
     "custom/vpn-unicamp",
