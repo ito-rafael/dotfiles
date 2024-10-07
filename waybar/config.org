@@ -37,6 +37,7 @@
 - [[#caps-lock][Caps Lock]]
 - [[#caps-lock-1][Caps Lock]]
 - [[#mouse-warping][Mouse warping]]
+- [[#pacman][Pacman]]
 - [[#json-footer][JSON footer]]
 
 * JSON header
@@ -73,6 +74,7 @@
     "custom/scratchpad-temp-3",
     //"custom/scratchpad-indicator",
     "custom/mouse-warping",
+    "custom/pacman",
     "mpris",
     "cpu",
     "memory",
@@ -371,6 +373,16 @@
     "exec": "~/.config/waybar/scripts/mouse-warping.sh monitor",
     "on-click": "~/.config/waybar/scripts/mouse-warping.sh toggle",
     "format": " {} ",
+},
+#+end_src
+* Pacman
+#+begin_src json
+"custom/pacman": {
+    "format": "  {}",
+    "interval": 3600,
+    "exec": "checkupdates | wc -l",
+    "exec-if": "exit 0",
+    "signal": 8,
 },
 #+end_src
 * JSON footer
