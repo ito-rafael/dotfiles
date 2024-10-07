@@ -37,6 +37,7 @@
 - [[#caps-lock][Caps Lock]]
 - [[#caps-lock-1][Caps Lock]]
 - [[#mouse-warping][Mouse warping]]
+- [[#dunst][Dunst]]
 - [[#pacman][Pacman]]
 - [[#json-footer][JSON footer]]
 
@@ -74,6 +75,7 @@
     "custom/scratchpad-temp-3",
     //"custom/scratchpad-indicator",
     "custom/mouse-warping",
+    "custom/dunst",
     "custom/pacman",
     "mpris",
     "cpu",
@@ -372,6 +374,16 @@
     "return-type": "json",
     "exec": "~/.config/waybar/scripts/mouse-warping.sh monitor",
     "on-click": "~/.config/waybar/scripts/mouse-warping.sh toggle",
+    "format": " {} ",
+},
+#+end_src
+* Dunst
+#+begin_src json
+"custom/dunst": {
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/dunst.sh",
+    "on-click": "dunstctl set-paused toggle",
+    "restart-interval": 1,
     "format": " {} ",
 },
 #+end_src
