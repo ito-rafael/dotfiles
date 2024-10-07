@@ -252,6 +252,8 @@ nnoremap <C-h> <C-w>h
 :setlocal spell spelllang=en_us
 
 "----------------------------
+" set C-Backspace to delete word (insert mode)
+inoremap <C-BS> <C-W>
 
 "----------------------------
 
