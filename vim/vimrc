@@ -111,6 +111,76 @@ let g:limelight_conceal_ctermfg = 240
 let g:instant_markdown_browser = 'brave --new-window'
 
 "================================================
+" Python Config
+"================================================
+
+"----------------------------
+" PEP 8: indentation
+au BufNewFile, BufRead *.py
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
+    \ set textwidth=79
+    \ set expandtab
+    \ set autoindent
+    \ set fileformat=unix
+
+"----------------------------
+" flagging extra whitespace
+au BufRead, BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
+"----------------------------
+" Syntax Checking/Highlighting
+let python_highlight_all=1
+syntax on
+
+"================================================
+" HTML
+"================================================
+" bold
+autocmd FileType html inoremap ;b <b></b><Space><++><Esc>FbT>i
+" paragraph
+autocmd FileType html inoremap ;p <p></p><Enter><Enter><++><Esc>2ki
+
+command! Sns set nospell
+
+"================================================
+" LaTeX
+"================================================
+"change frequency that the output PDF is updated
+autocmd Filetype tex setl updatetime=1
+
+"specify PDF viewer
+"let g:livepreview_previewer = 'evince'
+
+"specify TeX engine
+"let g:livepreview_engine = 'pdflatex'
+"let g:livepreview_engine = 'xelatex'
+"let g:livepreview_engine = 'latexmk'
+
+"----------------------------
+" UTF-8 suppport
+"----------------------------
+set encoding=utf-8
+
+"----------------------------
+" code folding
+"----------------------------
+"enable folding
+set foldmethod=indent
+set foldlevel=99
+
+"enable folding with the space bar
+noremap <space> za
+
+"----------------------------
+" jump to last position when reopening a file
+"----------------------------
+if has("autocmd")
+   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
+"================================================
 " General Config
 "================================================
 "
@@ -181,72 +251,8 @@ nnoremap <C-h> <C-w>h
 "----------------------------
 :setlocal spell spelllang=en_us
 
-"================================================
-" LaTeX
-"================================================
-"change frequency that the output PDF is updated
-autocmd Filetype tex setl updatetime=1
-
-"specify PDF viewer
-"let g:livepreview_previewer = 'evince'
-
-"specify TeX engine
-"let g:livepreview_engine = 'pdflatex'
-"let g:livepreview_engine = 'xelatex'
-"let g:livepreview_engine = 'latexmk'
+"----------------------------
 
 "----------------------------
-" UTF-8 suppport
-"----------------------------
-set encoding=utf-8
 
 "----------------------------
-" code folding
-"----------------------------
-"enable folding
-set foldmethod=indent
-set foldlevel=99
-
-"enable folding with the space bar
-noremap <space> za
-
-"----------------------------
-" jump to last position when reopening a file
-"----------------------------
-if has("autocmd")
-   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-endif
-
-"================================================
-" Python Config
-"================================================
-
-"----------------------------
-" PEP 8: indentation
-au BufNewFile, BufRead *.py
-    \ set tabstop=4
-    \ set softtabstop=4
-    \ set shiftwidth=4
-    \ set textwidth=79
-    \ set expandtab
-    \ set autoindent
-    \ set fileformat=unix
-
-"----------------------------
-" flagging extra whitespace
-au BufRead, BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
-
-"----------------------------
-" Syntax Checking/Highlighting
-let python_highlight_all=1
-syntax on
-
-"================================================
-" HTML
-"================================================
-" bold
-autocmd FileType html inoremap ;b <b></b><Space><++><Esc>FbT>i
-" paragraph
-autocmd FileType html inoremap ;p <p></p><Enter><Enter><++><Esc>2ki
-
-command! Sns set nospell
