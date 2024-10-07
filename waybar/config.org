@@ -36,6 +36,7 @@
   - [[#samsung][Samsung]]
 - [[#caps-lock][Caps Lock]]
 - [[#caps-lock-1][Caps Lock]]
+- [[#mouse-warping][Mouse warping]]
 - [[#json-footer][JSON footer]]
 
 * JSON header
@@ -71,6 +72,7 @@
     "custom/scratchpad-temp-2",
     "custom/scratchpad-temp-3",
     //"custom/scratchpad-indicator",
+    "custom/mouse-warping",
     "mpris",
     "cpu",
     "memory",
@@ -359,6 +361,15 @@
 "custom/capslock": {
     "return-type": "json",
     "exec": "~/.config/waybar/scripts/capslock.sh",
+    "format": " {} ",
+},
+#+end_src
+* Mouse warping
+#+begin_src json
+"custom/mouse-warping": {
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/mouse-warping.sh monitor",
+    "on-click": "~/.config/waybar/scripts/mouse-warping.sh toggle",
     "format": " {} ",
 },
 #+end_src
