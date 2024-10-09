@@ -1,0 +1,5 @@
+#+TITLE: EFS config
+#+AUTHOR: Rafael Ito
+#+DESCRIPTION: Emacs from Scratch (EFS) personal config
+#+STARTUP: showeverything
+#+OPTIONS: toc:2
