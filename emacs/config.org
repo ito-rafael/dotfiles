@@ -3,3 +3,12 @@
 #+DESCRIPTION: Emacs from Scratch (EFS) personal config
 #+STARTUP: showeverything
 #+OPTIONS: toc:2
+
+* UI
+#+begin_src emacs-lisp
+(setq inhibit-startup-message t)  ;; disable startup massage
+(menu-bar-mode -1)                ;; disable menu bar
+(tool-bar-mode -1)                ;; disable toolbar
+(scroll-bar-mode -1)              ;; disable scrollbar
+(setq visible-bell t)             ;; disable beep and set visible bell
+#+end_src
