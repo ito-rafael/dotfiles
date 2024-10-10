@@ -4,18 +4,30 @@
 #+STARTUP: showeverything
 #+OPTIONS: toc:2
 
-* UI
+* Table of Contents :toc_2:
+- [[#ui][UI]]
+- [[#miscellaneous][Miscellaneous]]
+- [[#package-manager][Package Manager]]
+
+* UI :noexport_1:
+** Misc
 #+begin_src emacs-lisp
-(setq inhibit-startup-message t)  ;; disable startup massage
-(menu-bar-mode -1)                ;; disable menu bar
-(tool-bar-mode -1)                ;; disable toolbar
-(scroll-bar-mode -1)              ;; disable scrollbar
-(setq visible-bell t)             ;; disable beep and set visible bell
+(setq inhibit-startup-message t)                  ;; disable startup massage
+(setq visible-bell t)                             ;; disable beep and set visible bell
 #+end_src
-* Package Manager
+** Bars
+#+begin_src emacs-lisp
+(menu-bar-mode -1)                                ;; disable menu bar
+(tool-bar-mode -1)                                ;; disable toolbar
+(scroll-bar-mode -1)                              ;; disable scrollbar
+#+end_src
+#+begin_src emacs-lisp
+#+end_src
+* Package Manager :noexport_1:
 Git repo: [[https://github.com/progfolio/elpaca][Elpaca]]
 #+ATTR_ORG: :width 75
 [[./icon/elpaca.svg]]
+** Installation
 #+begin_src emacs-lisp
 (defvar elpaca-installer-version 0.7)
 (defvar elpaca-directory (expand-file-name "elpaca/" user-emacs-directory))
