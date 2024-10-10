@@ -26,6 +26,11 @@
 (global-display-line-numbers-mode t)              ;; enable line number
 (column-number-mode)                              ;; enable column number
 #+end_src
+* Miscellaneous :noexport_1:
+** ESC
+Make ESC quit prompts.
+#+begin_src emacs-lisp
+(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 #+end_src
 * Package Manager :noexport_1:
 Git repo: [[https://github.com/progfolio/elpaca][Elpaca]]
