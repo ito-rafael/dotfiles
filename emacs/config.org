@@ -68,3 +68,9 @@ Git repo: [[https://github.com/progfolio/elpaca][Elpaca]]
 (add-hook 'after-init-hook #'elpaca-process-queues)
 (elpaca `(,@elpaca-order))
 #+end_src
+** use-package integration
+#+begin_src emacs-lisp
+(elpaca elpaca-use-package
+  ;; Enable Elpaca support for use-package's :ensure keyword.
+  (elpaca-use-package-mode))
+#+end_src
