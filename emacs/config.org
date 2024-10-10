@@ -21,7 +21,11 @@
 (tool-bar-mode -1)                                ;; disable toolbar
 (scroll-bar-mode -1)                              ;; disable scrollbar
 #+end_src
+** Line number
 #+begin_src emacs-lisp
+(global-display-line-numbers-mode t)              ;; enable line number
+(column-number-mode)                              ;; enable column number
+#+end_src
 #+end_src
 * Package Manager :noexport_1:
 Git repo: [[https://github.com/progfolio/elpaca][Elpaca]]
