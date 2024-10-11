@@ -84,8 +84,11 @@ plugins+=(globalias)
 GLOBALIAS_FILTER_VALUES=()
 GLOBALIAS_FILTER_VALUES+=(ls)
 GLOBALIAS_FILTER_VALUES+=(cp)
+GLOBALIAS_FILTER_VALUES+=(cpy)
 GLOBALIAS_FILTER_VALUES+=(mv)
+GLOBALIAS_FILTER_VALUES+=(mvy)
 GLOBALIAS_FILTER_VALUES+=(rm)
+GLOBALIAS_FILTER_VALUES+=(rmy)
 GLOBALIAS_FILTER_VALUES+=(ip)
 GLOBALIAS_FILTER_VALUES+=(df)
 GLOBALIAS_FILTER_VALUES+=(cat)
@@ -298,9 +301,9 @@ alias cp="cp -i"
 alias mv='mv -i'
 alias rm='rm -i'
 # skip confirmation
-alias cpy='cp'
-alias mvy='mv'
-alias rmy='rm'
+alias cpy='command cp'
+alias mvy='command mv'
+alias rmy='command rm'
 # recursive
 alias rmf='rm -rf'
 #-----------------------------
