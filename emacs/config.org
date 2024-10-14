@@ -115,3 +115,16 @@ https://github.com/seagle0128/doom-modeline
   (setq org-ellipsis " ▾")  ;; set icon when section is folded (outline-hide-body)
 )
 #+end_src
+* Evil
+** evil
+#+begin_src emacs-lisp
+(use-package evil
+  :init
+  (setq evil-want-integration t)   ;; enable evil-integration
+  (setq evil-want-keybinding nil)  ;; disable evil-keybindings (use )
+  (setq evil-want-C-u-scroll t)    ;; disable =universal-argument= to use C-u to scroll up
+  (setq evil-want-C-i-jump nil)    ;; disable C-i to jump forward in the list
+  :config
+  (evil-mode 1)
+)
+#+end_src
