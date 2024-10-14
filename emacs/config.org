@@ -101,3 +101,10 @@ Install icon fonts.
 #+begin_src emacs-lisp
 (use-package all-the-icons)
 #+end_src
+** doom-modeline
+https://github.com/seagle0128/doom-modeline
+#+begin_src emacs-lisp
+(use-package doom-modeline
+  :init (doom-modeline-mode 1)                    ;; enable modeline
+  :custom ((doom-modeline-height 15)))            ;; adjust modeline height
+#+end_src
