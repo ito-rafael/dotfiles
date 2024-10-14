@@ -108,3 +108,10 @@ https://github.com/seagle0128/doom-modeline
   :init (doom-modeline-mode 1)                    ;; enable modeline
   :custom ((doom-modeline-height 15)))            ;; adjust modeline height
 #+end_src
+* Org
+#+begin_src emacs-lisp
+(use-package org
+  :config
+  (setq org-ellipsis " ▾")  ;; set icon when section is folded (outline-hide-body)
+)
+#+end_src
