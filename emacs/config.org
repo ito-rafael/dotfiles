@@ -94,3 +94,10 @@ https://github.com/doomemacs/themes
 (use-package doom-themes
   :init (load-theme 'doom-one t))
 #+end_src
+* Modeline
+** all-the-icons
+https://github.com/domtronn/all-the-icons.el
+Install icon fonts.
+#+begin_src emacs-lisp
+(use-package all-the-icons)
+#+end_src
