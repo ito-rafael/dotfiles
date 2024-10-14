@@ -83,3 +83,7 @@ Git repo: [[https://github.com/progfolio/elpaca][Elpaca]]
   ;; Enable Elpaca support for use-package's :ensure keyword.
   (elpaca-use-package-mode))
 #+end_src
+** Setup
+#+begin_src emacs-lisp
+(setq use-package-always-ensure t)                ;; set ":ensure t" for every package
+#+end_src
