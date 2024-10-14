@@ -87,3 +87,10 @@ Git repo: [[https://github.com/progfolio/elpaca][Elpaca]]
 #+begin_src emacs-lisp
 (setq use-package-always-ensure t)                ;; set ":ensure t" for every package
 #+end_src
+* Theme
+** doom-themes
+https://github.com/doomemacs/themes
+#+begin_src emacs-lisp
+(use-package doom-themes
+  :init (load-theme 'doom-one t))
+#+end_src
