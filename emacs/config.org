@@ -15,6 +15,8 @@
   - [[#doom-modeline][doom-modeline]]
 - [[#org][Org]]
 - [[#evil][Evil]]
+- [[#general][General]]
+- [[#which-key][which-key]]
 
 * UI :noexport_1:
 ** Misc
@@ -152,6 +154,18 @@ https://github.com/noctuid/general.el
 #+end_src
 ** EoS
 #+begin_src emacs-lisp
+)
+#+end_src
+* which-key
+https://github.com/justbur/emacs-which-key
+#+begin_src emacs-lisp
+(use-package which-key
+  :init
+  (which-key-mode 1)
+  :diminish which-key-mode
+  :config
+  (setq which-key-idle-delay 0.25
+        which-key-separator " → "
 )
 #+end_src
 #+end_src
