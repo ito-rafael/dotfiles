@@ -38,6 +38,7 @@ input * {
         fn-keys:fnkeys, \
     "
 }
+exec echo 1 > /tmp/mouse_warping.tmp
 mouse_warping container
 
 set $laptop    eDP-1
@@ -449,29 +450,29 @@ exec --no-startup-id "rm /tmp/vpn_lbic.tmp"
 bindsym $alt+$mod+4 exec "$SCRIPT_PATH/vpn-connecter.sh samsung toggle"
 exec --no-startup-id "rm /tmp/vpn_samsung.tmp"
 
+exec /usr/share/sway-contrib/inactive-windows-transparency.py --opacity 0.85
+exec echo 0 > /tmp/capslock_status.tmp
+output $laptop    background ~/.config/wallpaper/london.jpg fill
+output $primary   background ~/.config/wallpaper/london.jpg fill
+output $secondary background ~/.config/wallpaper/london.jpg fill
+output $tertiary  background ~/.config/wallpaper/nasa.png fill
 exec --no-startup-id /usr/bin/dunst &             # dunst: notification daemon
 #exec_always dunstctl set-paused true              # dunst: start with notifications paused
 exec --no-startup-id /usr/bin/emacs --daemon &    # Emacs daemon
 exec --no-startup-id emote                        # emoji picker
 exec_always --no-startup-id autotiling            # autotiling
-exec_always --no-startup-id "$SCRIPT_PATH/xremap-keeb-config.sh"
+exec_always --no-startup-id "$SCRIPT_PATH/xremap-keeb-config.sh"  # keyboard setup
 exec --no-startup-id "rm /tmp/showmethekey_pid.tmp"           # ensure there is no temp file from previous boot
 bindsym $alt+ctrl+l exec "emacsclient -c -a 'emacs'"          # emacsclient
 bindsym $alt+ctrl+e exec emote                                # emoji picker
 bindsym $alt+ctrl+k exec "$SCRIPT_PATH/screencast.sh toggle"  # showmethekey
 bindsym $alt+ctrl+d exec dunstctl set-paused toggle           # pause/unpause dunst notifications
+bindsym $alt+ctrl+w exec "$XDG_CONFIG_HOME/waybar/scripts/mouse-warping.sh toggle"  # enable/disable mouse warping
 exec_always --no-startup-id ~/.config/waybar/waybar.sh
 exec "blueman-applet &"                 # Bluetooth
 exec "nm-applet --indicator &"          # NetworkManager
 exec "syncthing &"                      # Syncthing
-
-exec /usr/share/sway-contrib/inactive-windows-transparency.py --opacity 0.85
-output $laptop    background ~/.config/wallpaper/london.jpg fill
-output $primary   background ~/.config/wallpaper/london.jpg fill
-output $secondary background ~/.config/wallpaper/london.jpg fill
-output $tertiary  background ~/.config/wallpaper/nasa.png fill
 exec --no-startup-id "$SCRIPT_PATH/navigate2ws.sh 5"
 #exec --no-startup-id "$SCRIPT_PATH/navigate2ws.sh 2"
 exec brave
 exec --no-startup-id "sleep 5 && swaymsg '[app_id=brave-browser]' move to workspace number '2:2' && swaymsg workspace '2:2'"
-exec echo 0 > /tmp/capslock_status.tmp

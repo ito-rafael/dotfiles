@@ -108,6 +108,7 @@ include /etc/sway/config.d/*
 #+end_src
 ** Mouse warping
 #+begin_src conf :noweb-ref sway-mouse-warping
+exec echo 1 > /tmp/mouse_warping.tmp
 mouse_warping container
 #+end_src
 ** Inputs
@@ -1690,6 +1691,7 @@ bindsym $alt+ctrl+l exec "emacsclient -c -a 'emacs'"          # emacsclient
 bindsym $alt+ctrl+e exec emote                                # emoji picker
 bindsym $alt+ctrl+k exec "$SCRIPT_PATH/screencast.sh toggle"  # showmethekey
 bindsym $alt+ctrl+d exec dunstctl set-paused toggle           # pause/unpause dunst notifications
+bindsym $alt+ctrl+w exec "$XDG_CONFIG_HOME/waybar/scripts/mouse-warping.sh toggle"  # enable/disable mouse warping
 #+end_src
 *** i3
 #+begin_src conf :noweb-ref i3-daemons
