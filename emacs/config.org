@@ -16,6 +16,8 @@
 - [[#org][Org]]
 - [[#evil][Evil]]
 - [[#general][General]]
+- [[#ivy][Ivy]]
+  - [[#ivy-1][Ivy]]
 - [[#which-key][which-key]]
 
 * UI :noexport_1:
@@ -182,6 +184,18 @@ https://github.com/noctuid/general.el
 ** EoS
 #+begin_src emacs-lisp
 )
+#+end_src
+* Ivy
+Alternatives:
+  - [[https://github.com/emacs-helm/helm][Helm]]
+** Ivy
+Generic completion mechanism for Emacs.
+https://github.com/abo-abo/swiper
+#+begin_src emacs-lisp
+(use-package ivy
+  :diminish
+  :config
+  (ivy-mode 1))
 #+end_src
 * which-key
 https://github.com/justbur/emacs-which-key
