@@ -168,6 +168,15 @@ https://github.com/noctuid/general.el
   (efs/leader-keys
     "f"  '(:ignore t :wk "Files")
     "f r" '(counsel-recentf :wk "Find recent files")
+** h --> help
+#+begin_src emacs-lisp
+  (efs/leader-keys
+    "h" '(:ignore t :wk "Help")
+    "h f" '(describe-function :wk "Describe function")
+    "h k" '(describe-key      :wk "Describe key")
+    "h v" '(describe-variable :wk "Describe variable")
+  )
+#+end_src
   )
 #+end_src
 ** EoS
