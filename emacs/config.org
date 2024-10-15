@@ -134,4 +134,24 @@ https://github.com/seagle0128/doom-modeline
   :config
   (evil-mode 1)
 )
+* General :noexport_1:
+Keybindings
+https://github.com/noctuid/general.el
+** Leader key
+#+begin_src emacs-lisp
+(use-package general
+  :config
+  (general-evil-setup)
+
+  ;; set 'SPC' as the global leader key
+  (general-create-definer efs/leader-keys
+    :states '(normal insert visual emacs)
+    :keymaps 'override
+    :prefix "SPC"             ;; set leader
+    :global-prefix "M-SPC")   ;; access leader in insert mode
+#+end_src
+** EoS
+#+begin_src emacs-lisp
+)
+#+end_src
 #+end_src
