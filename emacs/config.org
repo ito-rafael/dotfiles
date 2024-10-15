@@ -18,6 +18,7 @@
 - [[#general][General]]
 - [[#ivy][Ivy]]
   - [[#ivy-1][Ivy]]
+  - [[#ivy-rich][Ivy-rich]]
 - [[#which-key][which-key]]
 
 * UI :noexport_1:
@@ -196,6 +197,16 @@ https://github.com/abo-abo/swiper
   :diminish
   :config
   (ivy-mode 1))
+#+end_src
+** Ivy-rich
+Descriptions M-x commands.
+*** ivy-rich
+https://github.com/Yevgnen/ivy-rich
+#+begin_src emacs-lisp
+(use-package ivy-rich
+  :after ivy
+  :init
+  (ivy-rich-mode 1))
 #+end_src
 * which-key
 https://github.com/justbur/emacs-which-key
