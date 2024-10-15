@@ -1,3 +1,16 @@
+shared:
+  terminals: &terminals
+    - kitty
+    - dropdown_terminal
+    - dropdown_python
+  scratchpads: &scratchpads
+    - dropdown_terminal
+    - dropdown_python
+    - scrcpy
+    - Brave-browser-beta
+    - Keymapp
+    - keymapp
+
 keymap:
 
   - name: copy/paste/cut - terminal
@@ -162,7 +175,8 @@ keymap:
       Alt_R-g: { launch: ["bash", "-c", "sleep 0.1 && echo -n \"$(<$XDG_CONFIG_HOME/macros/address_3)\" | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
       Alt_R-c: { launch: ["bash", "-c", "sleep 0.1 && echo -n \"$(<$XDG_CONFIG_HOME/macros/zip_code)\"  | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
       Alt_R-d: { launch: ["bash", "-c", "sleep 0.1 && echo -n \"$(<$XDG_CONFIG_HOME/macros/phone)\"     | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
-      Alt_R-n: { launch: ["bash", "-c", "sleep 0.1 && echo -n \"$(<$XDG_CONFIG_HOME/macros/email)\"     | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
+      Alt_R-n: { launch: ["bash", "-c", "sleep 0.1 && echo -n \"$(<$XDG_CONFIG_HOME/macros/email_1)\"   | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
+      Alt_R-l: { launch: ["bash", "-c", "sleep 0.1 && echo -n \"$(<$XDG_CONFIG_HOME/macros/email_2)\"   | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
       Alt_R-h: { launch: ["bash", "-c", "sleep 0.1 && echo -n \"$(<$XDG_CONFIG_HOME/macros/name)\"      | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
       Alt_R-i: { launch: ["bash", "-c", "sleep 0.1 && echo -n \"$(<$XDG_CONFIG_HOME/macros/id)\"        | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
 
@@ -176,7 +190,8 @@ keymap:
       Alt_R-g: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/address_3 | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
       Alt_R-c: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/zip_code  | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
       Alt_R-d: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/phone     | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-n: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/email     | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-n: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/email_1   | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-l: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/email_2   | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
       Alt_R-h: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/name      | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
       Alt_R-i: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/id        | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
 
