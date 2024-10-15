@@ -1681,14 +1681,15 @@ exec --no-startup-id /usr/bin/dunst &             # dunst: notification daemon
 exec --no-startup-id /usr/bin/emacs --daemon &    # Emacs daemon
 exec --no-startup-id emote                        # emoji picker
 exec_always --no-startup-id autotiling            # autotiling
-exec_always --no-startup-id "$SCRIPT_PATH/xremap-keeb-config.sh"
+exec_always --no-startup-id "$SCRIPT_PATH/xremap-keeb-config.sh"  # keyboard setup
 #+end_src
 *** Config
 #+begin_src conf :noweb-ref daemons
 exec --no-startup-id "rm /tmp/showmethekey_pid.tmp"           # ensure there is no temp file from previous boot
+bindsym $alt+ctrl+l exec "emacsclient -c -a 'emacs'"          # emacsclient
 bindsym $alt+ctrl+e exec emote                                # emoji picker
 bindsym $alt+ctrl+k exec "$SCRIPT_PATH/screencast.sh toggle"  # showmethekey
-bindsym $alt+ctrl+l exec dunstctl set-paused toggle           # pause/unpause dunst notifications
+bindsym $alt+ctrl+d exec dunstctl set-paused toggle           # pause/unpause dunst notifications
 #+end_src
 *** i3
 #+begin_src conf :noweb-ref i3-daemons
