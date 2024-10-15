@@ -163,6 +163,13 @@ https://github.com/noctuid/general.el
     "b r" '(revert-buffer    :wk "Reload buffer")
   )
 #+end_src
+** f --> files
+#+begin_src emacs-lisp
+  (efs/leader-keys
+    "f"  '(:ignore t :wk "Files")
+    "f r" '(counsel-recentf :wk "Find recent files")
+  )
+#+end_src
 ** EoS
 #+begin_src emacs-lisp
 )
