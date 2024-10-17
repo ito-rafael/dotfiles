@@ -141,3 +141,9 @@ https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-
     box-shadow: inset 0 -3px #ffffff;
 }
 #+end_src
+*** Urgent
+#+begin_src css
+#workspaces button.urgent {
+    background-color: #eb4d4b;
+}
+#+end_src
