@@ -134,3 +134,10 @@ https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-
     box-shadow: inset 0 -3px #ffffff;
 }
 #+end_src
+*** Focused
+#+begin_src css
+#workspaces button.focused {
+    background-color: #64727D;
+    box-shadow: inset 0 -3px #ffffff;
+}
+#+end_src
