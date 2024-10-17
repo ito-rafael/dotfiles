@@ -259,4 +259,20 @@
     },
 },
 
+"custom/pacman": {
+    "return-type": "json",
+    //"interval": 3600,
+    "interval": 10,
+    "exec": "~/.config/waybar/scripts/pacman.sh",
+    "exec-if": "exit 0",
+    //"on-click": "kitty 'sudo pacman -Syu'; pkill -SIGRTMIN+8 waybar",
+    //"signal": 8,
+    "format": " {icon} {0} ",
+    "format-icons": {
+        "low":    "<span color=\"#999\"></span>",
+        "medium": "<span color=\"#FF7\"></span>",
+        "high":   "<span color=\"#F33\"></span>",
+    },
+},
+
 }

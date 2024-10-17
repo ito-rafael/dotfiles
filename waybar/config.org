@@ -398,11 +398,16 @@
 * Pacman
 #+begin_src json
 "custom/pacman": {
-    "format": "  {}",
     "interval": 3600,
-    "exec": "checkupdates | wc -l",
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/pacman.sh",
     "exec-if": "exit 0",
-    "signal": 8,
+    "format": " {icon} {0} ",
+    "format-icons": {
+        "low":    "<span color=\"#999\"></span>",
+        "medium": "<span color=\"#FF7\"></span>",
+        "high":   "<span color=\"#F33\"></span>",
+    },
 },
 #+end_src
 * JSON footer
