@@ -374,7 +374,11 @@
     "return-type": "json",
     "exec": "~/.config/waybar/scripts/mouse-warping.sh monitor",
     "on-click": "~/.config/waybar/scripts/mouse-warping.sh toggle",
-    "format": " {} ",
+    "format": " {} {icon} ",
+    "format-icons": {
+        "enabled": "<span color=\"#090\"></span>",
+        "disabled": "<span color=\"#F00\"></span>",
+    },
 },
 #+end_src
 * Dunst

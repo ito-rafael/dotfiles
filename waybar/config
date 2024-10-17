@@ -236,4 +236,15 @@
     "format": " {} ",
 },
 
+"custom/mouse-warping": {
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/mouse-warping.sh monitor",
+    "on-click": "~/.config/waybar/scripts/mouse-warping.sh toggle",
+    "format": " {} {icon} ",
+    "format-icons": {
+        "enabled": "<span color=\"#090\"></span>",
+        "disabled": "<span color=\"#F00\"></span>",
+    },
+},
+
 }
