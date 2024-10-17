@@ -388,7 +388,11 @@
     "exec": "~/.config/waybar/scripts/dunst.sh",
     "on-click": "dunstctl set-paused toggle",
     "restart-interval": 1,
-    "format": " {} ",
+    "format": " {} {icon} ",
+    "format-icons": {
+        "enabled": "<span color=\"#090\"></span>",
+        "disabled": "<span color=\"#F00\"></span>",
+    },
 },
 #+end_src
 * Pacman
