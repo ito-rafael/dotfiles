@@ -19,6 +19,10 @@
     font-size: 10px;
 }
 #+end_src
+** Color
+#+begin_src css
+@define-color darkergray #505050;
+#+end_src
 ** Window
 *** Normal
 #+begin_src css
