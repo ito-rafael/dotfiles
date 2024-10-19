@@ -466,9 +466,10 @@ alias recod='$XDG_CONFIG_HOME/scripts/recod-ssh.sh'
 #-----------------------------
 # adb / scrcpy
 #-----------------------------
-alias ap='$XDG_CONFIG_HOME/scripts/adb-mdns-pair.sh'       # ADB pair
 alias ac='$XDG_CONFIG_HOME/scripts/adb-mdns-scrcpy.sh'     # ADB connect (scrcpy)
 alias ad='adb devices -l'                               # ADB list devices
+alias asp='$XDG_CONFIG_HOME/scripts/adb-mdns-pair.sh'    # ADB script for pairing
+alias ap='adb pair'        # ADB pair
 # phone: S20
 function s() {
     adb connect 192.168.0.101:5555
