@@ -19,6 +19,7 @@
 - [[#ivy][Ivy]]
   - [[#ivy-1][Ivy]]
   - [[#ivy-rich][Ivy-rich]]
+- [[#rainbow-delimiters][rainbow-delimiters]]
 - [[#which-key][which-key]]
 
 * UI :noexport_1:
@@ -207,6 +208,13 @@ https://github.com/Yevgnen/ivy-rich
   :after ivy
   :init
   (ivy-rich-mode 1))
+#+end_src
+* rainbow-delimiters
+https://github.com/Fanael/rainbow-delimiters
+Add rainbow coloring to parentheses in every programming language mode.
+#+begin_src emacs-lisp
+(use-package rainbow-delimiters
+  :hook (prog-mode . rainbow-delimiters-mode))
 #+end_src
 * which-key
 https://github.com/justbur/emacs-which-key
