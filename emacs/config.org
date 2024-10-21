@@ -210,6 +210,19 @@ https://github.com/Yevgnen/ivy-rich
   :init
   (ivy-rich-mode 1))
 #+end_src
+** prescient
+Sorting and filtering extension for Ivy.
+https://github.com/radian-software/prescient.el
+#+begin_src emacs-lisp
+(use-package ivy-prescient
+  :after counsel
+  :custom
+  (ivy-prescient-enable-filtering nil)
+  :config
+  (setq prescient-sort-length-enable nil)  ;; disable sorting by shortest-first
+  (prescient-persist-mode 1)  ;; keep sorting remembered across sessions
+  (ivy-prescient-mode 1))
+#+end_src
 * rainbow-delimiters
 https://github.com/Fanael/rainbow-delimiters
 Add rainbow coloring to parentheses in every programming language mode.
