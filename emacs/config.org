@@ -1,8 +1,10 @@
-#+TITLE: EFS config
-#+AUTHOR: Rafael Ito
-#+DESCRIPTION: Emacs from Scratch (EFS) personal config
-#+STARTUP: showeverything
-#+OPTIONS: toc:2
+#+title: EFS config
+#+author: Rafael Ito
+#+description: Emacs from Scratch (EFS) personal config
+#+startup: showeverything
+#+options: toc:2
+#+property: header-args :tangle ./init.el
+#+auto_tangle: t
 
 * Table of Contents :toc_2:
 - [[#ui][UI]]
