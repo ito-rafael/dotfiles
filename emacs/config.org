@@ -297,3 +297,14 @@ Define transient keybindings for changing the font size.
 #+begin_src emacs-lisp
 )
 #+end_src
+* Projectile
+https://github.com/bbatsov/projectile
+#+begin_src emacs-lisp
+(use-package projectile
+  :config (projectile-mode)
+  :init
+  ;; set directory that holds the Git repos
+  (when (file-directory-p "~/git")
+    (setq projectile-project-search-path '("~/git")))
+  (setq projectile-switch-project-action #'projectile-dired))  ;; open dired when switching projects
+#+end_src
