@@ -23,6 +23,9 @@
   - [[#prescient][prescient]]
 - [[#rainbow-delimiters][rainbow-delimiters]]
 - [[#which-key][which-key]]
+- [[#hydra][Hydra]]
+  - [[#installation][Installation]]
+  - [[#eos][EoS]]
 
 * UI :noexport_1:
 ** Misc
@@ -269,4 +272,15 @@ https://github.com/justbur/emacs-which-key
         which-key-separator " → "
 )
 #+end_src
+* Hydra
+https://github.com/abo-abo/hydra
+** Installation
+#+begin_src emacs-lisp
+(use-package hydra
+  :defer t
+  :config
+#+end_src
+** EoS
+#+begin_src emacs-lisp
+)
 #+end_src
