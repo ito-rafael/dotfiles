@@ -280,6 +280,17 @@ https://github.com/abo-abo/hydra
   :defer t
   :config
 #+end_src
+** Adjust font size
+Define transient keybindings for changing the font size.
+#+begin_src emacs-lisp
+  (defhydra hydra-text-scale (:timeout 3)
+    "Zoom text"
+    ("i" text-scale-increase "out")
+    ("e" text-scale-decrease "in"))
+
+  (efs/leader-keys
+    "t s" '(hydra-text-scale/body :which-key "scale text"))
+#+end_src
 ** EoS
 #+begin_src emacs-lisp
 )
