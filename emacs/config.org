@@ -37,6 +37,7 @@
 ** Line number
 #+begin_src emacs-lisp
 (global-display-line-numbers-mode t)              ;; enable line number
+(setq display-line-numbers-type 'relative)        ;; set line number to relative
 (column-number-mode)                              ;; enable column number
 #+end_src
 * Miscellaneous :noexport_1:
