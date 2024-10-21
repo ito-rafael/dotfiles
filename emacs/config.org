@@ -19,6 +19,8 @@
 - [[#ivy][Ivy]]
   - [[#ivy-1][Ivy]]
   - [[#ivy-rich][Ivy-rich]]
+  - [[#counsel][Counsel]]
+  - [[#prescient][prescient]]
 - [[#rainbow-delimiters][rainbow-delimiters]]
 - [[#which-key][which-key]]
 
@@ -209,6 +211,15 @@ https://github.com/Yevgnen/ivy-rich
   :after ivy
   :init
   (ivy-rich-mode 1))
+#+end_src
+** Counsel
+Collection of Ivy-enhanced versions of common Emacs commands.
+#+begin_src emacs-lisp
+(use-package counsel
+  :after ivy
+  :diminish
+  :config
+  (counsel-mode 1)
 #+end_src
 ** prescient
 Sorting and filtering extension for Ivy.
