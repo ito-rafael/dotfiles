@@ -217,6 +217,22 @@ Add rainbow coloring to parentheses in every programming language mode.
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
 #+end_src
+* helpful
+Helpful is an alternative to the built-in Emacs help that provides much more contextual information.
+https://github.com/Wilfred/helpful
+#+begin_src emacs-lisp
+(use-package helpful
+  :commands (helpful-callable helpful-variable helpful-command helpful-key)
+  :custom
+  (counsel-describe-function-function #'helpful-callable)  ;; replace describe-function function with helpful variant
+  (counsel-describe-variable-function #'helpful-variable)  ;; replace describe-variable function with helpful variant
+  :bind
+  ([remap describe-function] . counsel-describe-function)  ;; remap keybinding of describe-function to counsel-describe-function
+  ([remap describe-command]  . helpful-command)            ;; remap keybinding of describe-command to helpful-command
+  ([remap describe-variable] . counsel-describe-variable)  ;; remap keybinding of describe-variable to counsel-describe-variable
+  ([remap describe-key]      . helpful-key)                ;; remap keybinding of describe-key to helpful-key
+)
+#+end_src
 * which-key
 https://github.com/justbur/emacs-which-key
 #+begin_src emacs-lisp
