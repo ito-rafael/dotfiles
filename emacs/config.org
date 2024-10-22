@@ -3,7 +3,7 @@
 #+description: Emacs from Scratch (EFS) personal config
 #+startup: showeverything
 #+options: toc:2
-#+property: header-args :tangle ./init.el
+#+property: header-args:emacs-lisp :tangle ./init.el
 #+auto_tangle: t
 
 * Table of Contents :toc_2:
@@ -328,4 +328,23 @@ It's Magit! A Git Porcelain inside Emacs.
 #+begin_src emacs-lisp
 (use-package magit
   :after transient)
+** Forge
+Pulls down all information from repositories: issues, pull requests, notifications, etc.
+https://magit.vc/manual/ghub/Getting-Started.html
+*** Prerequisites
+**** Setting the Username
+https://magit.vc/manual/ghub/Setting-the-Username.html
+***** GitHub
+#+begin_src sh
+git config --global github.user USERNAME
+#+end_src
+***** GitLab
+#+begin_src sh
+git config --global gitlab.user USERNAME
+#+end_src
+***** GitHub Enterprise
+#+begin_src sh
+cd /path/to/repo
+git config --local github.host example.com/api/v3
+#+end_src
 #+end_src
