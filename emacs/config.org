@@ -382,4 +382,14 @@ machine gitlab.com/api/v4 login ito-rafael^forge password <PERSONAL-ACCESS-TOKEN
 - A new file =~/.config/authinfo.gpg= should have been created. Try opening it, while checking for a "Decrypting" message in the minibuffer.
 ***** Delete unencrypted file
 =M-x= --> =find-file= --> select =~/.config/authinfo= --> press =M-o= --> =delete=
+*** Installation & configuration
+#+begin_src emacs-lisp
+(use-package forge
+  :after magit
+  :config
+  ;; define path for the authinfo file (XDG_CONFIG_HOME or HOME, whichever it finds first)
+  (setq auth-sources (list
+                     (concat (getenv "XDG_CONFIG_HOME") "/authinfo.gpg")
+                     "~/.authinfo.gpg")))
+#+end_src
 #+end_src
