@@ -28,6 +28,12 @@
 - [[#hydra][Hydra]]
   - [[#installation][Installation]]
   - [[#eos][EoS]]
+- [[#projectile][Projectile]]
+  - [[#counsel-1][Counsel]]
+- [[#magit][Magit]]
+  - [[#transient][Transient]]
+  - [[#magit-1][Magit]]
+  - [[#forge][Forge]]
 
 * UI :noexport_1:
 ** Misc
@@ -347,4 +353,16 @@ git config --global gitlab.user USERNAME
 cd /path/to/repo
 git config --local github.host example.com/api/v3
 #+end_src
+**** Creating a Token
+https://magit.vc/manual/forge/Token-Creation.html
+https://magit.vc/manual/ghub/Creating-a-Token.html
+***** GitHub
+https://github.com/settings/tokens
+Forge requires the following token scopes:
+- =repo= grants full read/write access to private and public repositories.
+- =user= grants access to profile information.
+- =read:org= grants read-only access to organization membership.
+***** GitLab
+https://gitlab.com/-/profile/personal_access_tokens
+For Gitlab instances =api= is the only required scope. It gives read and write access to everything.
 #+end_src
