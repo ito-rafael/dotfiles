@@ -308,3 +308,10 @@ https://github.com/bbatsov/projectile
     (setq projectile-project-search-path '("~/git")))
   (setq projectile-switch-project-action #'projectile-dired))  ;; open dired when switching projects
 #+end_src
+** Counsel
+Integration with Ivy/Counsel.
+#+begin_src emacs-lisp
+(use-package counsel-projectile
+  :after projectile
+  :config (counsel-projectile-mode))
+#+end_src
