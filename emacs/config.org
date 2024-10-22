@@ -365,4 +365,21 @@ Forge requires the following token scopes:
 ***** GitLab
 https://gitlab.com/-/profile/personal_access_tokens
 For Gitlab instances =api= is the only required scope. It gives read and write access to everything.
+**** Storing a Token
+https://magit.vc/manual/ghub/Storing-a-Token.html
+***** Create file
+=M-x= --> =find-file= --> select the file =~/.config/authinfo= --> then paste the following:
+****** GitHub
+#+begin_src conf
+machine api.github.com login ito-rafael^forge password <PERSONAL-ACCESS-TOKEN>
+#+end_src
+****** GitLab
+#+begin_src conf
+machine gitlab.com/api/v4 login ito-rafael^forge password <PERSONAL-ACCESS-TOKEN>
+#+end_src
+***** Encrypt file
+- =M-x= --> =epa-encrypt-file= --> select the file =~/.config/authinfo= --> mark your personal keys with =epa-mark-key= --> hit =Enter= while the cursor is over the =[OK].=
+- A new file =~/.config/authinfo.gpg= should have been created. Try opening it, while checking for a "Decrypting" message in the minibuffer.
+***** Delete unencrypted file
+=M-x= --> =find-file= --> select =~/.config/authinfo= --> press =M-o= --> =delete=
 #+end_src
