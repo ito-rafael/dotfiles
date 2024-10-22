@@ -322,3 +322,10 @@ https://github.com/magit/transient
 #+begin_src emacs-lisp
 (use-package transient)
 #+end_src
+** Magit
+https://github.com/magit/magit
+It's Magit! A Git Porcelain inside Emacs.
+#+begin_src emacs-lisp
+(use-package magit
+  :after transient)
+#+end_src
