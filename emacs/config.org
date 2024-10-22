@@ -315,3 +315,10 @@ Integration with Ivy/Counsel.
   :after projectile
   :config (counsel-projectile-mode))
 #+end_src
+* Magit
+** Transient
+Transient is the library used to implement the keyboard-driven “menus” in Magit.
+https://github.com/magit/transient
+#+begin_src emacs-lisp
+(use-package transient)
+#+end_src
