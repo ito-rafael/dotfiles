@@ -63,6 +63,17 @@
 #+begin_src emacs-lisp
 (add-to-list 'default-frame-alist '(alpha-background . 97))
 #+end_src
+** Zoom in/out
+*** Keyboard
+#+begin_src emacs-lisp
+(global-set-key (kbd "C-+") 'text-scale-increase)
+(global-set-key (kbd "C--") 'text-scale-decrease)
+#+end_src
+*** Mouse
+#+begin_src emacs-lisp
+(global-set-key (kbd "<C-wheel-up>") 'text-scale-increase)
+(global-set-key (kbd "<C-wheel-down>") 'text-scale-decrease)
+#+end_src
 * Miscellaneous :noexport_1:
 ** ESC
 Make ESC quit prompts.
