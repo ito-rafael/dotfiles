@@ -193,7 +193,9 @@ https://github.com/seagle0128/doom-modeline
 https://github.com/jtbm37/all-the-icons-dired
 #+begin_src emacs-lisp
 (use-package all-the-icons-dired
-  :hook (dired-mode . (lambda () (all-the-icons-dired-mode t))))
+  :hook (dired-mode . (lambda () (all-the-icons-dired-mode t)))
+  :config
+  (setq all-the-icons-dired-monochrome nil))
 #+end_src
 * Org
 #+begin_src emacs-lisp
