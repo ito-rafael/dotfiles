@@ -227,9 +227,8 @@ https://github.com/emacs-evil/evil-collection
 Original repo: https://github.com/wbolster/emacs-evil-colemak-basics
 Forked repo: https://github.com/ito-rafael/emacs-evil-colemak-basics
 #+begin_src emacs-lisp
-(elpaca (evil-colemak-basics.el
-  :host github
-  :repo "ito-rafael/emacs-evil-colemak-basics"))
+(use-package evil-colemak-basics
+  :ensure (evil-colemak-basics.el :host github :repo "ito-rafael/emacs-evil-colemak-basics"))
 #+end_src
 * General :noexport_1:
 Keybindings
