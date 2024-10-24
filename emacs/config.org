@@ -17,6 +17,8 @@
   - [[#doom-modeline][doom-modeline]]
 - [[#org][Org]]
 - [[#evil][Evil]]
+  - [[#evil-1][evil]]
+  - [[#evil-collections][evil-collections]]
 - [[#general][General]]
 - [[#ivy][Ivy]]
   - [[#ivy-1][Ivy]]
@@ -24,9 +26,11 @@
   - [[#counsel][Counsel]]
   - [[#prescient][prescient]]
 - [[#rainbow-delimiters][rainbow-delimiters]]
+- [[#helpful][helpful]]
 - [[#which-key][which-key]]
 - [[#hydra][Hydra]]
   - [[#installation][Installation]]
+  - [[#adjust-font-size][Adjust font size]]
   - [[#eos][EoS]]
 - [[#projectile][Projectile]]
   - [[#counsel-1][Counsel]]
@@ -155,6 +159,14 @@ https://github.com/seagle0128/doom-modeline
   :config
   (evil-mode 1)
 )
+** evil-collections
+https://github.com/emacs-evil/evil-collection
+#+begin_src emacs-lisp
+(use-package evil-collection
+  :after evil
+  :config
+  (evil-collection-init))
+#+end_src
 * General :noexport_1:
 Keybindings
 https://github.com/noctuid/general.el
