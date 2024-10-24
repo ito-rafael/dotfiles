@@ -59,6 +59,10 @@
 (setq display-line-numbers-type 'relative)        ;; set line number to relative
 (column-number-mode)                              ;; enable column number
 #+end_src
+** Transparency
+#+begin_src emacs-lisp
+(add-to-list 'default-frame-alist '(alpha-background . 97))
+#+end_src
 * Miscellaneous :noexport_1:
 ** ESC
 Make ESC quit prompts.
