@@ -148,12 +148,13 @@ keymap:
     application:
       only: emacs
     remap:
-      F16: M-x
       F18: [Ctrl-r, Shift-apostrophe, space]
 #+end_src
 *** Default
 #+begin_src conf :noweb-ref cpc-default
   - name: copy/paste/cut - general
+    application:
+      not: [Emacs, emacs]
     remap:
       F16: Ctrl-x
       F17: Ctrl-c

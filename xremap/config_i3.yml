@@ -29,10 +29,11 @@ keymap:
     application:
       only: emacs
     remap:
-      F16: M-x
       F18: [Ctrl-r, Shift-apostrophe, space]
 
   - name: copy/paste/cut - general
+    application:
+      not: [Emacs, emacs]
     remap:
       F16: Ctrl-x
       F17: Ctrl-c

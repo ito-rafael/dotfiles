@@ -75,6 +75,11 @@
 (global-set-key (kbd "<C-wheel-down>") 'text-scale-decrease)
 #+end_src
 * Miscellaneous :noexport_1:
+** F16
+Set F16 as M-x.
+#+begin_src emacs-lisp
+(global-set-key (kbd "<f16>") 'execute-extended-command)
+#+end_src
 ** ESC
 Make ESC quit prompts.
 #+begin_src emacs-lisp
