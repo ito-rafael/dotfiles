@@ -63,6 +63,14 @@
 ** Transparency
 #+begin_src emacs-lisp
 (add-to-list 'default-frame-alist '(alpha-background . 97))
+** Fonts
+*** Default
+#+begin_src emacs-lisp
+(set-face-attribute 'default nil
+  :font "JetBrains Mono"
+  :height 110
+  :weight 'medium)
+#+end_src
 #+end_src
 ** Zoom in/out
 *** Keyboard
