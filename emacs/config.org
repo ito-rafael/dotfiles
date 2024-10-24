@@ -188,6 +188,13 @@ https://github.com/seagle0128/doom-modeline
   :init (doom-modeline-mode 1)                    ;; enable modeline
   :custom ((doom-modeline-height 15)))            ;; adjust modeline height
 #+end_src
+* Dired
+** all-the-icons-dired
+https://github.com/jtbm37/all-the-icons-dired
+#+begin_src emacs-lisp
+(use-package all-the-icons-dired
+  :hook (dired-mode . (lambda () (all-the-icons-dired-mode t))))
+#+end_src
 * Org
 #+begin_src emacs-lisp
 (use-package org
