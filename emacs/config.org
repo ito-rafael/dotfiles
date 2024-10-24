@@ -64,6 +64,10 @@
 #+begin_src emacs-lisp
 (add-to-list 'default-frame-alist '(alpha-background . 97))
 ** Fonts
+*** Installation
+#+begin_src sh
+sudo pacman -S ttf-jetbrains-mono ttf-ubuntu-font-family
+#+end_src
 *** Default
 #+begin_src emacs-lisp
 (set-face-attribute 'default nil
