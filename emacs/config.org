@@ -71,6 +71,13 @@
   :height 110
   :weight 'medium)
 #+end_src
+*** Variable pitch
+#+begin_src emacs-lisp
+(set-face-attribute 'variable-pitch nil
+  :font "Ubuntu"
+  :height 120
+  :weight 'medium)
+#+end_src
 #+end_src
 ** Zoom in/out
 *** Keyboard
