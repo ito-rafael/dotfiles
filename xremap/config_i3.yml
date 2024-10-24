@@ -27,7 +27,7 @@ keymap:
 
   - name: paste - Emacs (insert)
     application:
-      only: emacs
+      only: [Emacs, emacs]
     remap:
       F18: [Ctrl-r, Shift-apostrophe, space]
 
@@ -42,7 +42,7 @@ keymap:
   - name: Window navigation
     exact_match: true
     application:
-      only: emacs
+      only: [Emacs, emacs]
     remap:
       Super_L-left:  [C-w, C-h]
       Super_L-down:  [C-w, C-j]
@@ -52,7 +52,7 @@ keymap:
   - name: Kill buffer and window
     exact_match: true
     application:
-      only: emacs
+      only: [Emacs, emacs]
     remap:
       Super-w: [space, b, k]
       Super-Alt-q: [C-w, q]
@@ -79,7 +79,7 @@ keymap:
   - name: forward char / dead_acute
     exact_match: true
     application:
-      not: emacs
+      not: [Emacs, emacs]
     remap:
       F13:
         remap:
