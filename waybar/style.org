@@ -9,6 +9,7 @@
 - [[#initial-config][Initial config]]
 - [[#modules][Modules]]
 - [[#workspaces][Workspaces]]
+- [[#clock][Clock]]
 
 * Initial config :noexport_1:
 ** Font
@@ -149,5 +150,11 @@ https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-
 #+begin_src css
 #workspaces button.urgent {
     background-color: #eb4d4b;
+}
+#+end_src
+* Clock
+#+begin_src css
+#clock {
+    background-color: #64727D;
 }
 #+end_src
