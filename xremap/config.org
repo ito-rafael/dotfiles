@@ -9,6 +9,7 @@
 - [[#information][Information]]
   - [[#table][Table]]
   - [[#fn-keys][Fn keys]]
+  - [[#workspace-navigation][Workspace navigation]]
 - [[#modifiers][Modifiers]]
 - [[#shared][Shared]]
   - [[#terminals][Terminals]]
@@ -107,6 +108,14 @@ TBD
 TBD
 *** F24
 TBD
+** Workspace navigation
+|---------------------------+-----------------------|
+| binding                   | description           |
+|---------------------------+-----------------------|
+| Super_L   + {1,2,...,9,0} | navigate to output #0 |
+| S-Super_L + {1,2,...,9,0} | navigate to output #1 |
+| Super_R   + {1,2,...,9,0} | navigate to output #2 |
+|---------------------------+-----------------------|
 * Modifiers
 Used for i3wm
 #+begin_src conf :noweb-ref modifiers
