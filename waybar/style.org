@@ -11,6 +11,7 @@
 - [[#workspaces][Workspaces]]
 - [[#clock][Clock]]
 - [[#battery][Battery]]
+- [[#cpu][CPU]]
 
 * Initial config :noexport_1:
 ** Font
@@ -199,5 +200,12 @@ https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-
 #+begin_src css
 label:focus {
     background-color: #000000;
+}
+#+end_src
+* CPU
+#+begin_src css
+#cpu {
+    background-color: #2ecc71;
+    color: #000000;
 }
 #+end_src
