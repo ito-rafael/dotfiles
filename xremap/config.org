@@ -11,6 +11,7 @@
   - [[#fn-keys][Fn keys]]
   - [[#workspace-navigation][Workspace navigation]]
   - [[#move-to-workspace][Move to workspace]]
+  - [[#keeb-misc-layer][Keeb "misc" layer]]
 - [[#modifiers][Modifiers]]
 - [[#shared][Shared]]
   - [[#terminals][Terminals]]
@@ -125,6 +126,26 @@ TBD
 | C-S-Super_L + {1,2,...,9,0} | move to output #1 |
 | C-Super_R   + {1,2,...,9,0} | move to output #2 |
 |-----------------------------+-------------------|
+** Keeb "misc" layer
+|-----------+-------------+-------------|
+| binding   | category    | description |
+|-----------+-------------+-------------|
+| Alt_R + a | superscript | ª           |
+| Alt_R + o | superscript | º           |
+| Alt_R + p | currency    | £           |
+| Alt_R + e | currency    | €           |
+| Alt_R + y | currency    | ￥          |
+| Alt_R + r | currency    | ₽           |
+| Alt_R + s | macro       | address_1   |
+| Alt_R + t | macro       | address_2   |
+| Alt_R + c | macro       | zip_code    |
+| Alt_R + d | macro       | phone       |
+| Alt_R + n | macro       | email_1     |
+| Alt_R + l | macro       | email_2     |
+| Alt_R + u | macro       | email_3     |
+| Alt_R + h | macro       | name        |
+| Alt_R + i | macro       | id          |
+|-----------+-------------+-------------|
 * Modifiers
 Used for i3wm
 #+begin_src conf :noweb-ref modifiers
