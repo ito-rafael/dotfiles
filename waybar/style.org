@@ -12,6 +12,7 @@
 - [[#clock][Clock]]
 - [[#battery][Battery]]
 - [[#cpu][CPU]]
+- [[#memory][Memory]]
 
 * Initial config :noexport_1:
 ** Font
@@ -207,5 +208,11 @@ label:focus {
 #cpu {
     background-color: #2ecc71;
     color: #000000;
+}
+#+end_src
+* Memory
+#+begin_src css
+#memory {
+    background-color: #9b59b6;
 }
 #+end_src
