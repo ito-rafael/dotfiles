@@ -195,3 +195,9 @@ https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-
     animation-direction: alternate;
 }
 #+end_src
+** Label
+#+begin_src css
+label:focus {
+    background-color: #000000;
+}
+#+end_src
