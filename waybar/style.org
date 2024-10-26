@@ -10,6 +10,7 @@
 - [[#modules][Modules]]
 - [[#workspaces][Workspaces]]
 - [[#clock][Clock]]
+- [[#battery][Battery]]
 
 * Initial config :noexport_1:
 ** Font
@@ -156,5 +157,13 @@ https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-
 #+begin_src css
 #clock {
     background-color: #64727D;
+}
+#+end_src
+* Battery :noexport_1:
+** Normal
+#+begin_src css
+#battery {
+    background-color: #ffffff;
+    color: #000000;
 }
 #+end_src
