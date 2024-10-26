@@ -54,9 +54,10 @@
 |----------------+------------------+---------+---------------------+---------------|
 ** Fn keys
 *** F13
-Single/double quotes (xremap)
+Apostrophe - single/double quotes (xremap).
 *** F14
 Microphone (Oryx/QKM and xremap)
+|------------------+-------------|
 | binding          | description |
 |------------------+-------------|
 | F14              | mic- coarse |
@@ -65,22 +66,28 @@ Microphone (Oryx/QKM and xremap)
 | shift+ctrl+F14   | mic+ fine   |
 | meta+F14         | mic 50%     |
 | XF86AudioMicMute | mic mute    |
+|------------------+-------------|
 *** F15
 Volume (Oryx/QKM and xremap)
+|----------+-------------|
 | binding  | description |
 |----------+-------------|
 | F15      | vol- fine   |
 | ctrl+F15 | vol+ fine   |
 | meta+F15 | vol 50%     |
+|----------+-------------|
 *** F16/F17/F18
 Cut, copy, paste.
+|---------+-------------|
 | binding | description |
 |---------+-------------|
 | F16     | cut         |
 | F17     | copy        |
 | F18     | paste       |
+|---------+-------------|
 *** F19
 Opacity (Oryx/QKM and xremap)
+|----------------+---------------------------------|
 | binding        | description                     |
 |----------------+---------------------------------|
 | F19            | stop IWT && opacity current dec |
@@ -88,6 +95,7 @@ Opacity (Oryx/QKM and xremap)
 | shift+F19      | stop IWT && opacity all dec     |
 | shift+ctrl+F19 | stop IWT && opacity all inc     |
 | meta+F19       | run IWT with --opacity 0.85     |
+|----------------+---------------------------------|
 obs: IWT = inactive-windows-transparency.py
 *** F20
 TBD (suggestion: monitor LED strip)
