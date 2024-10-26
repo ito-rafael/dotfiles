@@ -167,3 +167,10 @@ https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-
     color: #000000;
 }
 #+end_src
+** Charging
+#+begin_src css
+#battery.charging, #battery.plugged {
+    color: #ffffff;
+    background-color: #26A65B;
+}
+#+end_src
