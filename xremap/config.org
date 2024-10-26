@@ -10,6 +10,7 @@
   - [[#table][Table]]
   - [[#fn-keys][Fn keys]]
   - [[#workspace-navigation][Workspace navigation]]
+  - [[#move-to-workspace][Move to workspace]]
 - [[#modifiers][Modifiers]]
 - [[#shared][Shared]]
   - [[#terminals][Terminals]]
@@ -116,6 +117,14 @@ TBD
 | S-Super_L + {1,2,...,9,0} | navigate to output #1 |
 | Super_R   + {1,2,...,9,0} | navigate to output #2 |
 |---------------------------+-----------------------|
+** Move to workspace
+|-----------------------------+-------------------|
+| binding                     | description       |
+|-----------------------------+-------------------|
+| C-Super_L   + {1,2,...,9,0} | move to output #0 |
+| C-S-Super_L + {1,2,...,9,0} | move to output #1 |
+| C-Super_R   + {1,2,...,9,0} | move to output #2 |
+|-----------------------------+-------------------|
 * Modifiers
 Used for i3wm
 #+begin_src conf :noweb-ref modifiers
