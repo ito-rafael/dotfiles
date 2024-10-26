@@ -174,3 +174,12 @@ https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-
     background-color: #26A65B;
 }
 #+end_src
+** Blink
+#+begin_src css
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+#+end_src
