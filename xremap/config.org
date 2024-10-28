@@ -16,6 +16,7 @@
 - [[#shared][Shared]]
   - [[#terminals][Terminals]]
   - [[#scratchpads][Scratchpads]]
+  - [[#emacs-over-ssh][Emacs over SSH]]
 - [[#keymap][Keymap]]
   - [[#cpc-copypastecut][CPC: Copy/Paste/Cut]]
   - [[#emacs][Emacs]]
@@ -178,6 +179,13 @@ shared:
     - Brave-browser-beta
     - Keymapp
     - keymapp
+#+end_src
+** Emacs over SSH
+#+begin_src conf :noweb-ref shared
+  emacs-ssh: &emacs-ssh
+    - "/.*: emacsclient --create-frame --alternate-editor=.*emacs.*/"
+    - "/.*: emacsclient -c -a .*emacs.*/"
+    - "/.*: eg/"
 #+end_src
 * Keymap
 #+begin_src conf :noweb-ref keymap
