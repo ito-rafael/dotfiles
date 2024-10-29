@@ -24,6 +24,7 @@
 - [[#projectile][Projectile]]
 - [[#magit][Magit]]
 - [[#dashboard][Dashboard]]
+- [[#windmove][windmove]]
 
 * UI :noexport_1:
 ** Misc
@@ -539,5 +540,47 @@ https://github.com/emacs-dashboard/emacs-dashboard
   (add-hook 'elpaca-after-init-hook #'dashboard-insert-startupify-lists)
   (add-hook 'elpaca-after-init-hook #'dashboard-initialize)
   (dashboard-setup-startup-hook))
+#+end_src
+* windmove
+#+begin_src emacs-lisp
+(use-package windmove
+  :ensure nil  ;; do not install (windmove is already built-in)
+  :after windmove
+  :config
+  ;; Selects the window that's hopefully at the location returned by
+  ;; `windmove-find-other-window', or screams if there's no window there.
+  (defun windmove-do-window-select (dir &optional arg window)
+    "Move to the window at direction DIR as seen from WINDOW.
+  DIR, ARG, and WINDOW are handled as by `windmove-find-other-window'.
+  If no window is at direction DIR, an error is signaled.
+  If `windmove-create-window' is a function, call that function with
+  DIR, ARG and WINDOW.  If it is non-nil, try to create a new window
+  in direction DIR instead."
+    (let ((other-window (windmove-find-other-window dir arg window)))
+      (when (and windmove-create-window
+                 (or (null other-window)
+                     (and (window-minibuffer-p other-window)
+                          (not (minibuffer-window-active-p other-window)))))
+        (setq other-window (if (functionp windmove-create-window)
+                               (funcall windmove-create-window dir arg window)
+                             (split-window window nil dir))))
+      (cond ((null other-window)
+  	   ;;
+  	   ;;
+  	   ;;--------------------------------------------------------------------
+  	   ;; the next line (warning message) is replaced by the shell command
+             ;; that focus the window outside of Emacs based on the =dir= variable
+  	   ;;--------------------------------------------------------------------
+             ;;(user-error "No window %s from selected window" dir))
+             (shell-command (concat "i3-msg focus " (format "%s" dir))))
+  	   ;;--------------------------------------------------------------------
+             ;;
+             ;;
+            ((and (window-minibuffer-p other-window)
+                  (not (minibuffer-window-active-p other-window)))
+             (user-error "Minibuffer is inactive"))
+            ((eq other-window 'no-select))
+            (t
+             (select-window other-window))))))
 #+end_src
 #+end_src
