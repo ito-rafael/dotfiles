@@ -10,11 +10,11 @@
 - [[#ui][UI]]
 - [[#miscellaneous][Miscellaneous]]
 - [[#package-manager][Package Manager]]
+- [[#evil][Evil]]
 - [[#theme][Theme]]
 - [[#modeline][Modeline]]
-- [[#dired][Dired]]
 - [[#org][Org]]
-- [[#evil][Evil]]
+- [[#dired][Dired]]
 - [[#general][General]]
 - [[#ivy][Ivy]]
 - [[#rainbow-delimiters][rainbow-delimiters]]
@@ -150,66 +150,6 @@ Git repo: [[https://github.com/progfolio/elpaca][Elpaca]]
 #+begin_src emacs-lisp
 (setq use-package-always-ensure t)                ;; set ":ensure t" for every package
 #+end_src
-* Theme
-** doom-themes
-https://github.com/doomemacs/themes
-#+begin_src emacs-lisp
-(use-package doom-themes
-  :init (load-theme 'doom-one t))
-#+end_src
-* Modeline
-** all-the-icons
-https://github.com/domtronn/all-the-icons.el
-Install icon fonts.
-#+begin_src emacs-lisp
-(use-package all-the-icons)
-#+end_src
-** doom-modeline
-https://github.com/seagle0128/doom-modeline
-#+begin_src emacs-lisp
-(use-package doom-modeline
-  :init (doom-modeline-mode 1)                    ;; enable modeline
-  :custom ((doom-modeline-height 15)))            ;; adjust modeline height
-#+end_src
-* Dired
-** Dired
-#+begin_src emacs-lisp
-(use-package dired
-  :ensure nil  ;; do not install (Dired is already built-in)
-  :custom
-  (dired-listing-switches "-agho --group-directories-first")  ;; list directories first
-  (dired-kill-when-opening-new-dired-buffer t)
-  :after evil-collection
-  :config
-  (evil-collection-define-key 'normal 'dired-mode-map
-    "n" 'dired-up-directory
-    "e" 'dired-next-line
-    "i" 'dired-previous-line
-    "o" 'dired-find-file))
-#+end_src
-** all-the-icons-dired
-https://github.com/jtbm37/all-the-icons-dired
-#+begin_src emacs-lisp
-(use-package all-the-icons-dired
-  :hook (dired-mode . (lambda () (all-the-icons-dired-mode t)))
-  :config
-  (setq all-the-icons-dired-monochrome nil))
-#+end_src
-* Org
-#+begin_src emacs-lisp
-(use-package org
-  :config
-  (setq org-ellipsis " ▾")  ;; set icon when section is folded (outline-hide-body)
-)
-#+end_src
-** org-bullets
-Bullets as UTF-8 characters for headers in Org Mode.
-https://github.com/sabof/org-bullets
-#+begin_src emacs-lisp
-(add-hook 'org-mode-hook 'org-indent-mode)
-(use-package org-bullets)
-(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-#+end_src
 * Evil
 ** evil
 #+begin_src emacs-lisp
@@ -281,6 +221,78 @@ Forked repo: https://github.com/ito-rafael/evil-colemak
   :after evil-collection
   :config
   (global-evil-colemak-mode))
+#+end_src
+* Theme
+Alternatives:
+- DIY: https://github.com/mswift42/theme-creator
+** doom-themes
+https://github.com/doomemacs/themes
+#+begin_src emacs-lisp
+(use-package doom-themes
+  :init (load-theme 'doom-one t))
+#+end_src
+* Modeline
+** all-the-icons
+https://github.com/domtronn/all-the-icons.el
+Install icon fonts.
+#+begin_src emacs-lisp
+(use-package all-the-icons)
+#+end_src
+** doom-modeline
+https://github.com/seagle0128/doom-modeline
+#+begin_src emacs-lisp
+(use-package doom-modeline
+  :init (doom-modeline-mode 1)                    ;; enable modeline
+  :custom ((doom-modeline-height 15)))            ;; adjust modeline height
+#+end_src
+* Org
+#+begin_src emacs-lisp
+(use-package org
+  :config
+  (setq org-ellipsis " ▾")  ;; set icon when section is folded (outline-hide-body)
+)
+#+end_src
+** toc-org
+Table of contents
+https://github.com/snosov1/toc-org
+#+begin_src emacs-lisp
+(use-package toc-org
+    :commands toc-org-enable
+    :init (add-hook 'org-mode-hook 'toc-org-enable))
+#+end_src
+** org-bullets
+Bullets as UTF-8 characters for headers in Org Mode.
+https://github.com/sabof/org-bullets
+#+begin_src emacs-lisp
+(add-hook 'org-mode-hook 'org-indent-mode)
+(use-package org-bullets)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+#+end_src
+* Dired
+** Dired
+#+begin_src emacs-lisp
+(use-package dired
+  :ensure nil  ;; do not install (Dired is already built-in)
+  ;:commands (dired dired-jump)
+  ;:bind (("C-x C-j" . dired-jump))
+  :custom
+  (dired-listing-switches "-agho --group-directories-first")  ;; list directories first
+  (dired-kill-when-opening-new-dired-buffer t)
+  :after evil-collection
+  :config
+  (evil-collection-define-key 'normal 'dired-mode-map
+    "n" 'dired-up-directory
+    "e" 'dired-next-line
+    "i" 'dired-previous-line
+    "o" 'dired-find-file))
+#+end_src
+** all-the-icons-dired
+https://github.com/jtbm37/all-the-icons-dired
+#+begin_src emacs-lisp
+(use-package all-the-icons-dired
+  :hook (dired-mode . (lambda () (all-the-icons-dired-mode t)))
+  :config
+  (setq all-the-icons-dired-monochrome nil))
 #+end_src
 * General :noexport_1:
 Keybindings
