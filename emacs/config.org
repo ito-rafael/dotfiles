@@ -230,6 +230,48 @@ https://github.com/emacs-evil/evil-collection
 (use-package evil-collection
   :after evil
   :config
+  ;; Colemak-DH layout remap
+  ;; source: https://github.com/emacs-evil/evil-collection/pull/724
+  (defvar evil-colemak-dh-translations
+    '("n" "h"  "N" "H"
+      "e" "j"  "E" "J"
+      "i" "k"  "I" "K"
+      "o" "l"  "O" "L"
+      "h" "o"  "H" "O"
+      "s" "i"  "S" "I"
+      "l" "e"  "L" "E"
+      "k" "n"  "K" "N"
+
+      "gn" "gh"  "gN" "gH"
+      "ge" "gj"  "gE" "gJ"
+      "gi" "gk"  "gI" "gK"
+      "go" "gl"  "gO" "gL"
+      "gh" "go"  "gH" "gO"
+      "gs" "gi"  "gS" "gI"
+      "gl" "ge"  "gL" "gE"
+      "gk" "gn"  "gK" "gN")
+  "Evil keys to translate for the Colemak-DH keyboard layout.")
+
+  ;; translate the main evil-mode bindings.
+  (apply #'evil-collection-translate-key
+         nil
+         '(evil-normal-state-map
+           evil-motion-state-map
+           evil-operator-state-map
+           evil-visual-state-map
+           evil-window-map)
+         evil-colemak-dh-translations)
+
+  ;; install a hook to translate bindings from evil-collection.
+  (defun evil-colemak-dh-translate-keys (mode keymaps &optional states &rest _rest)
+    "Translate bindings for MODE in KEYMAPS for the Colemak-DH layout in STATES."
+    (apply #'evil-collection-translate-key
+           (or states '(normal motion visual))
+           keymaps
+           evil-colemak-dh-translations))
+  (add-hook 'evil-collection-setup-hook #'evil-colemak-dh-translate-keys)
+
+  ;; enable evil-collection bindings in all modes
   (evil-collection-init))
 #+end_src
 ** evil-colemak
