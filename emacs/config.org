@@ -15,6 +15,7 @@
 - [[#modeline][Modeline]]
   - [[#all-the-icons][all-the-icons]]
   - [[#doom-modeline][doom-modeline]]
+- [[#dired][Dired]]
 - [[#org][Org]]
   - [[#org-bullets][org-bullets]]
 - [[#evil][Evil]]
@@ -195,7 +196,13 @@ https://github.com/seagle0128/doom-modeline
   :ensure nil  ;; do not install (Dired is already built-in)
   :custom
   (dired-listing-switches "-agho --group-directories-first")  ;; list directories first
-  (dired-kill-when-opening-new-dired-buffer t))
+  (dired-kill-when-opening-new-dired-buffer t)
+  :config
+  (evil-collection-define-key 'normal 'dired-mode-map
+    "n" 'dired-up-directory
+    "e" 'dired-next-line
+    "i" 'dired-previous-line
+    "o" 'dired-find-file))
 #+end_src
 ** all-the-icons-dired
 https://github.com/jtbm37/all-the-icons-dired
