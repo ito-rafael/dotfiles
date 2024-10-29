@@ -1,6 +1,6 @@
 # dark mode
 set recolor true
-map <C-i> recolor
+map <M-d> recolor
 
 # copy to clipboard
 set selection-clipboard clipboard
