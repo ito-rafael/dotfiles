@@ -238,6 +238,7 @@ Forked repo: https://github.com/ito-rafael/evil-colemak
 #+begin_src emacs-lisp
 (use-package evil-colemak
   :ensure (evil-colemak.el :host github :repo "ito-rafael/evil-colemak")
+  :after evil-collection
   :config
   (global-evil-colemak-mode))
 #+end_src
