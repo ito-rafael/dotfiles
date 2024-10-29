@@ -265,9 +265,11 @@ https://github.com/sabof/org-bullets
   :ensure nil  ;; do not install (Dired is already built-in)
   :custom
   (dired-listing-switches "-agho --group-directories-first")  ;; list directories first
-  (dired-kill-when-opening-new-dired-buffer t)
+  (dired-kill-when-opening-new-dired-buffer t)                ;; keep only one Dired buffer when moving dir
+  (dired-dwim-target t)                                       ;; set another Dired buffer as destination for operations
   :after evil-collection
   :config
+  ;; make sure evil-collection is already loaded before trying to redefine the next keybindings
   (evil-collection-define-key 'normal 'dired-mode-map
     "n" 'dired-up-directory
     "e" 'dired-next-line
