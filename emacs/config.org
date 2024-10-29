@@ -326,6 +326,15 @@ https://github.com/noctuid/general.el
     "h v" '(describe-variable :wk "Describe variable")
   )
 #+end_src
+** w --> window
+#+begin_src emacs-lisp
+  (efs/leader-keys
+    "w" '(:ignore t :wk "Windows")
+    ;; motions --> arrows
+    "w <left>"  '(evil-window-left  :wk "Window left")
+    "w <down>"  '(evil-window-down  :wk "Window down")
+    "w <up>"    '(evil-window-up    :wk "Window up")
+    "w <right>" '(evil-window-right :wk "Window right")
   )
 #+end_src
 ** EoS
@@ -351,7 +360,7 @@ https://github.com/abo-abo/swiper
   (ivy-mode 1))
 #+end_src
 ** Ivy-rich
-Descriptions M-x commands.
+Add descriptions and keybindings to M-x commands.
 *** ivy-rich
 https://github.com/Yevgnen/ivy-rich
 #+begin_src emacs-lisp
