@@ -223,8 +223,6 @@ Forked repo: https://github.com/ito-rafael/evil-colemak
   (global-evil-colemak-mode))
 #+end_src
 * Theme
-Alternatives:
-- DIY: https://github.com/mswift42/theme-creator
 ** doom-themes
 https://github.com/doomemacs/themes
 #+begin_src emacs-lisp
@@ -252,14 +250,6 @@ https://github.com/seagle0128/doom-modeline
   (setq org-ellipsis " ▾")  ;; set icon when section is folded (outline-hide-body)
 )
 #+end_src
-** toc-org
-Table of contents
-https://github.com/snosov1/toc-org
-#+begin_src emacs-lisp
-(use-package toc-org
-    :commands toc-org-enable
-    :init (add-hook 'org-mode-hook 'toc-org-enable))
-#+end_src
 ** org-bullets
 Bullets as UTF-8 characters for headers in Org Mode.
 https://github.com/sabof/org-bullets
@@ -273,8 +263,6 @@ https://github.com/sabof/org-bullets
 #+begin_src emacs-lisp
 (use-package dired
   :ensure nil  ;; do not install (Dired is already built-in)
-  ;:commands (dired dired-jump)
-  ;:bind (("C-x C-j" . dired-jump))
   :custom
   (dired-listing-switches "-agho --group-directories-first")  ;; list directories first
   (dired-kill-when-opening-new-dired-buffer t)
