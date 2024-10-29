@@ -232,14 +232,14 @@ https://github.com/emacs-evil/evil-collection
   :config
   (evil-collection-init))
 #+end_src
-** emacs-evil-colemak-basics
+** evil-colemak
 Original repo: https://github.com/wbolster/emacs-evil-colemak-basics
-Forked repo: https://github.com/ito-rafael/emacs-evil-colemak-basics
+Forked repo: https://github.com/ito-rafael/evil-colemak
 #+begin_src emacs-lisp
-(use-package evil-colemak-basics
-  :ensure (evil-colemak-basics.el :host github :repo "ito-rafael/emacs-evil-colemak-basics")
+(use-package evil-colemak
+  :ensure (evil-colemak.el :host github :repo "ito-rafael/evil-colemak")
   :config
-  (global-evil-colemak-basics-mode))
+  (global-evil-colemak-mode))
 #+end_src
 * General :noexport_1:
 Keybindings
