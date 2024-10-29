@@ -189,6 +189,14 @@ https://github.com/seagle0128/doom-modeline
   :custom ((doom-modeline-height 15)))            ;; adjust modeline height
 #+end_src
 * Dired
+** Dired
+#+begin_src emacs-lisp
+(use-package dired
+  :ensure nil  ;; do not install (Dired is already built-in)
+  :custom
+  (dired-listing-switches "-agho --group-directories-first")  ;; list directories first
+  (dired-kill-when-opening-new-dired-buffer t))
+#+end_src
 ** all-the-icons-dired
 https://github.com/jtbm37/all-the-icons-dired
 #+begin_src emacs-lisp
