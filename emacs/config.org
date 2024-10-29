@@ -6,41 +6,23 @@
 #+property: header-args:emacs-lisp :tangle ./init.el
 #+auto_tangle: t
 
-* Table of Contents :toc_2:
+* Table of Contents :toc_1:
 - [[#ui][UI]]
 - [[#miscellaneous][Miscellaneous]]
 - [[#package-manager][Package Manager]]
 - [[#theme][Theme]]
-  - [[#doom-themes][doom-themes]]
 - [[#modeline][Modeline]]
-  - [[#all-the-icons][all-the-icons]]
-  - [[#doom-modeline][doom-modeline]]
 - [[#dired][Dired]]
 - [[#org][Org]]
-  - [[#org-bullets][org-bullets]]
 - [[#evil][Evil]]
-  - [[#evil-1][evil]]
-  - [[#evil-collections][evil-collections]]
-  - [[#emacs-evil-colemak-basics][emacs-evil-colemak-basics]]
 - [[#general][General]]
 - [[#ivy][Ivy]]
-  - [[#ivy-1][Ivy]]
-  - [[#ivy-rich][Ivy-rich]]
-  - [[#counsel][Counsel]]
-  - [[#prescient][prescient]]
 - [[#rainbow-delimiters][rainbow-delimiters]]
 - [[#helpful][helpful]]
 - [[#which-key][which-key]]
 - [[#hydra][Hydra]]
-  - [[#installation][Installation]]
-  - [[#adjust-font-size][Adjust font size]]
-  - [[#eos][EoS]]
 - [[#projectile][Projectile]]
-  - [[#counsel-1][Counsel]]
 - [[#magit][Magit]]
-  - [[#transient][Transient]]
-  - [[#magit-1][Magit]]
-  - [[#forge][Forge]]
 - [[#dashboard][Dashboard]]
 
 * UI :noexport_1:
