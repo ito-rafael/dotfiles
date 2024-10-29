@@ -235,7 +235,7 @@ https://github.com/emacs-evil/evil-collection
 ** evil-colemak
 Original repo: https://github.com/wbolster/emacs-evil-colemak-basics
 Forked repo: https://github.com/ito-rafael/evil-colemak
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :tangle no
 (use-package evil-colemak
   :ensure (evil-colemak.el :host github :repo "ito-rafael/evil-colemak")
   :after evil-collection
