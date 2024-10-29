@@ -197,6 +197,7 @@ https://github.com/seagle0128/doom-modeline
   :custom
   (dired-listing-switches "-agho --group-directories-first")  ;; list directories first
   (dired-kill-when-opening-new-dired-buffer t)
+  :after evil-collection
   :config
   (evil-collection-define-key 'normal 'dired-mode-map
     "n" 'dired-up-directory
