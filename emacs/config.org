@@ -544,6 +544,8 @@ https://github.com/emacs-dashboard/emacs-dashboard
 (use-package dashboard
   :init
   (setq initial-buffer-choice 'dashboard-open) ;; show Dashboard with emacsclient
+  (setq dashboard-center-content t)              ;; center horizontally
+  (setq dashboard-vertically-center-content t)   ;; center vertically
   (setq dashboard-startup-banner 'logo)  ;; use modern emacs logo as banner
   :config
   (add-hook 'elpaca-after-init-hook #'dashboard-insert-startupify-lists)
