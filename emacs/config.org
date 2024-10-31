@@ -479,7 +479,10 @@ https://github.com/magit/magit
 It's Magit! A Git Porcelain inside Emacs.
 #+begin_src emacs-lisp
 (use-package magit
-  :after transient)
+  :after transient
+  :commands magit-status)
+  :custom
+  (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))  ;; show diff in the same window
 ** Forge
 Pulls down all information from repositories: issues, pull requests, notifications, etc.
 https://magit.vc/manual/ghub/Getting-Started.html
