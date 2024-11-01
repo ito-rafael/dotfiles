@@ -1,12 +1,18 @@
 #!/usr/bin/env bash
 #
-# This script is meant to be used with i3wm (Sway has this feature by default) to centralize the mouse cursor when navigating among windows.
+# This script is meant to be used with i3wm (Sway has this feature by default) to focus an adjacent window {left,down,up,right} and centralize the mouse cursor in this new focused window.
 #
 # Prerequisites:
 #   - xdotool
 #
 # Source:
 #   https://github.com/i3/i3/issues/2971
+
+# parse direction parameter
+DIRECTION=$1
+
+# focus adjacent window
+i3-msg focus $DIRECTION
 
 # get window ID
 WINDOW=$(xdotool getwindowfocus)
