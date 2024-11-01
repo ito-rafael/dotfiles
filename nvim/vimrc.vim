@@ -236,6 +236,10 @@ vnoremap S I
 vnoremap l e
 vnoremap L E
 
+" end of word
+onoremap l e
+onoremap L E
+
 "================================================
 " General Config
 "================================================
