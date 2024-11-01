@@ -14,6 +14,10 @@ shared:
     - Brave-browser-beta
     - Keymapp
     - keymapp
+  emacs-ssh: &emacs-ssh
+    - "/.*: emacsclient --create-frame --alternate-editor=.*emacs.*/"
+    - "/.*: emacsclient -c -a .*emacs.*/"
+    - "/.*: eg/"
 
 keymap:
 
@@ -56,6 +60,18 @@ keymap:
     remap:
       Super-w: [space, b, k]
       Super-Alt-q: [C-w, q]
+
+  - name: Window navigation
+    exact_match: true
+    application:
+      only: kitty
+    window:
+      only: *emacs-ssh
+    remap:
+      Super_L-left:  [C-w, C-h]
+      Super_L-down:  [C-w, C-j]
+      Super_L-up:    [C-w, C-k]
+      Super_L-right: [C-w, C-l]
 
   - name: delete next word
     application:
@@ -132,10 +148,16 @@ keymap:
           SLASH:     [Shift-GRAVE, SPACE, SLASH]
           DOT:       [Shift-GRAVE, SPACE, SLASH, DOT]
           # tilde paths
-          c: [Shift-GRAVE, SPACE, SLASH, DOT, c,o,n,f,i,g, SLASH]
-          s: [Shift-GRAVE, SPACE, SLASH, DOT, c,o,n,f,i,g, SLASH, s,c,r,i,p,t,s, SLASH]
           g: [Shift-GRAVE, SPACE, SLASH, g,i,t, SLASH]
           d: [Shift-GRAVE, SPACE, SLASH, g,i,t, SLASH, d,o,t,f,i,l,e,s, SLASH]
+          c: [Shift-GRAVE, SPACE, SLASH, DOT, c,o,n,f,i,g, SLASH]
+          s: [Shift-GRAVE, SPACE, SLASH, DOT, c,o,n,f,i,g, SLASH, s,c,r,i,p,t,s, SLASH]
+          v: [Shift-GRAVE, SPACE, SLASH, DOT, c,o,n,f,i,g, SLASH, n,v,i,m, SLASH]
+          x: [Shift-GRAVE, SPACE, SLASH, DOT, c,o,n,f,i,g, SLASH, x,r,e,m,a,p, SLASH]
+          w: [Shift-GRAVE, SPACE, SLASH, DOT, c,o,n,f,i,g, SLASH, w,a,y,b,a,r, SLASH]
+          z: [Shift-GRAVE, SPACE, SLASH, DOT, c,o,n,f,i,g, SLASH, z,s,h, SLASH]
+          i: [Shift-GRAVE, SPACE, SLASH, DOT, c,o,n,f,i,g, SLASH, i,3, SLASH]
+
 
   - name: navigate through emoji categories
     application:

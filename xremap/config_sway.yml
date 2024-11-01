@@ -10,6 +10,10 @@ shared:
     - Brave-browser-beta
     - Keymapp
     - keymapp
+  emacs-ssh: &emacs-ssh
+    - "/.*: emacsclient --create-frame --alternate-editor=.*emacs.*/"
+    - "/.*: emacsclient -c -a .*emacs.*/"
+    - "/.*: eg/"
 
 keymap:
 
@@ -23,7 +27,7 @@ keymap:
 
   - name: paste - Emacs (insert)
     application:
-      only: emacs
+      only: [Emacs, emacs]
     remap:
       F18: [Ctrl-r, Shift-apostrophe, space]
 
@@ -38,7 +42,7 @@ keymap:
   - name: Window navigation
     exact_match: true
     application:
-      only: emacs
+      only: [Emacs, emacs]
     remap:
       Super_L-left:  [C-w, C-h]
       Super_L-down:  [C-w, C-j]
@@ -48,7 +52,7 @@ keymap:
   - name: Kill buffer and window
     exact_match: true
     application:
-      only: emacs
+      only: [Emacs, emacs]
     remap:
       Super-w: [space, b, k]
       Super-Alt-q: [C-w, q]
@@ -58,7 +62,7 @@ keymap:
     application:
       only: kitty
     window:
-      only: ['*: emacsclient --create-frame --alternate-editor=\"emacs\"', '*: eg']
+      only: *emacs-ssh
     remap:
       Super_L-left:  [C-w, C-h]
       Super_L-down:  [C-w, C-j]
@@ -87,7 +91,7 @@ keymap:
   - name: forward char / dead_acute
     exact_match: true
     application:
-      not: emacs
+      not: [Emacs, emacs]
     remap:
       F13:
         remap:
@@ -140,10 +144,16 @@ keymap:
           SLASH:     [Shift-GRAVE, SPACE, SLASH]
           DOT:       [Shift-GRAVE, SPACE, SLASH, DOT]
           # tilde paths
-          c: [Shift-GRAVE, SPACE, SLASH, DOT, c,o,n,f,i,g, SLASH]
-          s: [Shift-GRAVE, SPACE, SLASH, DOT, c,o,n,f,i,g, SLASH, s,c,r,i,p,t,s, SLASH]
           g: [Shift-GRAVE, SPACE, SLASH, g,i,t, SLASH]
           d: [Shift-GRAVE, SPACE, SLASH, g,i,t, SLASH, d,o,t,f,i,l,e,s, SLASH]
+          c: [Shift-GRAVE, SPACE, SLASH, DOT, c,o,n,f,i,g, SLASH]
+          s: [Shift-GRAVE, SPACE, SLASH, DOT, c,o,n,f,i,g, SLASH, s,c,r,i,p,t,s, SLASH]
+          v: [Shift-GRAVE, SPACE, SLASH, DOT, c,o,n,f,i,g, SLASH, n,v,i,m, SLASH]
+          x: [Shift-GRAVE, SPACE, SLASH, DOT, c,o,n,f,i,g, SLASH, x,r,e,m,a,p, SLASH]
+          w: [Shift-GRAVE, SPACE, SLASH, DOT, c,o,n,f,i,g, SLASH, w,a,y,b,a,r, SLASH]
+          z: [Shift-GRAVE, SPACE, SLASH, DOT, c,o,n,f,i,g, SLASH, z,s,h, SLASH]
+          i: [Shift-GRAVE, SPACE, SLASH, DOT, c,o,n,f,i,g, SLASH, s,w,a,y, SLASH]
+
 
   - name: navigate through emoji categories
     application:
@@ -152,8 +162,8 @@ keymap:
       Shift-N: Ctrl-Shift-Tab  # previous category
       Shift-O: Ctrl-Tab        # next category
       Shift-I: Ctrl-F          # focus search
-      # Enter; Ctrl+V
-      Enter: { launch: ["bash", "-c", "ydotool key 28:1 28:0 29:1 47:1 47:0 29:0"] }
+#      # Enter; Ctrl+V
+#      Enter: { launch: ["bash", "-c", "ydotool key 28:1 28:0 29:1 47:1 47:0 29:0"] }
 
   - name: toggle capslock status & update temp file (/tmp/capslock_status.tmp)
     remap:

@@ -20,6 +20,7 @@
 - [[#keymap][Keymap]]
   - [[#cpc-copypastecut][CPC: Copy/Paste/Cut]]
   - [[#emacs][Emacs]]
+  - [[#emacs-over-ssh-1][Emacs over SSH]]
   - [[#kitty][Kitty]]
   - [[#brave][Brave]]
   - [[#dead-acute][Dead acute]]
@@ -245,6 +246,24 @@ keymap:
     remap:
       Super-w: [space, b, k]
       Super-Alt-q: [C-w, q]
+#+end_src
+** Emacs over SSH
+:PROPERTIES:
+:header-args: :noweb-sep "\n\n"
+:END:
+*** Window navigation
+#+begin_src conf :noweb-ref emacs-ssh
+  - name: Window navigation
+    exact_match: true
+    application:
+      only: kitty
+    window:
+      only: *emacs-ssh
+    remap:
+      Super_L-left:  [C-w, C-h]
+      Super_L-down:  [C-w, C-j]
+      Super_L-up:    [C-w, C-k]
+      Super_L-right: [C-w, C-l]
 #+end_src
 ** Kitty
 #+begin_src conf :noweb-ref kitty
@@ -548,6 +567,8 @@ print('      Alt_R-o: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"º\\"  |
 
 <<emacs>>
 
+<<emacs-ssh>>
+
 <<kitty>>
 
 <<surfingkeys>>
@@ -578,6 +599,8 @@ print('      Alt_R-o: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"º\\"  |
 <<cpc-default>>
 
 <<emacs>>
+
+<<emacs-ssh>>
 
 <<kitty>>
 
