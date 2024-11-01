@@ -187,12 +187,26 @@ autocmd FileType html inoremap ;p <p></p><Enter><Enter><++><Esc>2ki
 " remap navigation keys
 "================================================
 
-nnoremap h ;
-nnoremap j h
-nnoremap k j
-nnoremap l k
-"nnoremap / l
-"nnoremap ? /
+" navigation
+nnoremap n h
+nnoremap e j
+nnoremap i k
+nnoremap o l
+
+" new line
+nnoremap h o
+nnoremap H O
+
+" next/previous matches
+nnoremap k n
+nnoremap K N
+
+" end of word
+nnoremap l e
+nnoremap L E
+
+" insert mode
+nnoremap s i
 
 "nnoremap f13 + a = á
 "nnoremap f13 + e = é
@@ -208,15 +222,19 @@ nnoremap l k
 "nnoremap f13 + U = Ú
 "nnoremap f13 + C = Ç
 
-vnoremap h ;
-vnoremap j h
-vnoremap k j
-vnoremap l k
-"vnoremap / l
-"vnoremap ? /
+" navigation
+vnoremap n h
+vnoremap e j
+vnoremap i k
+vnoremap o l
 
-"nnoremap ? /
-"vnoremap h ;
+" insert mode
+vnoremap s i
+vnoremap S I
+
+" end of word
+vnoremap l e
+vnoremap L E
 
 "================================================
 " General Config
