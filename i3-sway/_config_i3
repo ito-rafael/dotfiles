@@ -113,10 +113,10 @@ bindsym $mod+F15 exec --no-startup-id amixer -q sset Master 50%
 
 
 
-bindsym $mod+Left  focus left;  exec "$SCRIPT_PATH/mouse-warp.sh"
-bindsym $mod+Down  focus down;  exec "$SCRIPT_PATH/mouse-warp.sh"
-bindsym $mod+Up    focus up;    exec "$SCRIPT_PATH/mouse-warp.sh"
-bindsym $mod+Right focus right; exec "$SCRIPT_PATH/mouse-warp.sh"
+#bindsym $mod+Left  focus left;  exec "$SCRIPT_PATH/mouse-warp.sh"
+#bindsym $mod+Down  focus down;  exec "$SCRIPT_PATH/mouse-warp.sh"
+#bindsym $mod+Up    focus up;    exec "$SCRIPT_PATH/mouse-warp.sh"
+#bindsym $mod+Right focus right; exec "$SCRIPT_PATH/mouse-warp.sh"
 bindsym $mod+Shift+Left  move left
 bindsym $mod+Shift+Down  move down
 bindsym $mod+Shift+Up    move up

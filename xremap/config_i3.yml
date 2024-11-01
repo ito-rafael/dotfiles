@@ -46,12 +46,12 @@ keymap:
   - name: Window navigation
     exact_match: true
     application:
-      only: [Emacs, emacs]
+      not: [Emacs, emacs]
     remap:
-      Super_L-left:  [C-w, C-h]
-      Super_L-down:  [C-w, C-j]
-      Super_L-up:    [C-w, C-k]
-      Super_L-right: [C-w, C-l]
+      Super_L-left:  { launch: ["bash", "-c", "$XDG_CONFIG_HOME/scripts/mouse-warp.sh left"] }
+      Super_L-down:  { launch: ["bash", "-c", "$XDG_CONFIG_HOME/scripts/mouse-warp.sh down"] }
+      Super_L-up:    { launch: ["bash", "-c", "$XDG_CONFIG_HOME/scripts/mouse-warp.sh up"] }
+      Super_L-right: { launch: ["bash", "-c", "$XDG_CONFIG_HOME/scripts/mouse-warp.sh right"] }
 
   - name: Kill buffer and window
     exact_match: true
