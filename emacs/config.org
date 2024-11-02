@@ -156,10 +156,11 @@ Git repo: [[https://github.com/progfolio/elpaca][Elpaca]]
 #+begin_src emacs-lisp
 (use-package evil
   :init
-  (setq evil-want-integration t)   ;; enable evil-integration
-  (setq evil-want-keybinding nil)  ;; disable evil-keybindings (use )
-  (setq evil-want-C-u-scroll t)    ;; disable =universal-argument= to use C-u to scroll up
-  (setq evil-want-C-i-jump nil)    ;; disable C-i to jump forward in the list
+  (setq evil-want-integration t)    ;; enable evil-integration
+  (setq evil-want-keybinding nil)   ;; disable evil-keybindings (use )
+  (setq evil-want-C-u-scroll t)     ;; disable =universal-argument= to use C-u to scroll up
+  (setq evil-want-C-i-jump nil)     ;; disable C-i to jump forward in the list
+  (setq evil-want-Y-yank-to-eol t)  ;; set Y to y$ (yank to the end of the line)
   :config
   (evil-mode 1)
 )
