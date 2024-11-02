@@ -502,7 +502,9 @@ It's Magit! A Git Porcelain inside Emacs.
   :commands magit-status
   :custom
   (magit-section-disable-line-numbers nil)
-  (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))  ;; show diff in the same window
+  (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1)  ;; show diff in the same window
+  :config
+  (evil-set-initial-state 'git-commit-mode 'insert))  ;; start git-commit-mode in insert mode
 ** Forge
 Pulls down all information from repositories: issues, pull requests, notifications, etc.
 https://magit.vc/manual/ghub/Getting-Started.html
