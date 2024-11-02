@@ -497,6 +497,7 @@ It's Magit! A Git Porcelain inside Emacs.
   :after transient
   :commands magit-status
   :custom
+  (magit-section-disable-line-numbers nil)
   (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))  ;; show diff in the same window
 ** Forge
 Pulls down all information from repositories: issues, pull requests, notifications, etc.
