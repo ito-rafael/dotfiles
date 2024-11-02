@@ -570,11 +570,10 @@ https://github.com/emacs-dashboard/emacs-dashboard
   (setq dashboard-center-content t)              ;; center horizontally
   (setq dashboard-vertically-center-content t)   ;; center vertically
   (setq dashboard-startup-banner 'logo)  ;; use modern emacs logo as banner
-  :hook
-  (dashboard-after-initialize . dashboard-jump-to-recents)  ;; start dashboard in recents section
   :config
   (add-hook 'elpaca-after-init-hook #'dashboard-insert-startupify-lists)
   (add-hook 'elpaca-after-init-hook #'dashboard-initialize)
+  (add-hook 'dashboard-after-initialize-hook #'dashboard-jump-to-recents)  ;; start dashboard in recents section
   (dashboard-setup-startup-hook))
 #+end_src
 * windmove
