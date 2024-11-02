@@ -259,6 +259,14 @@ https://github.com/sabof/org-bullets
 (use-package org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 #+end_src
+** org-auto-tangle
+Automatically tangle org files on save.
+https://github.com/yilkalargaw/org-auto-tangle
+#+begin_src emacs-lisp
+(use-package org-auto-tangle
+  :defer t
+  :hook (org-mode . org-auto-tangle-mode))
+#+end_src
 * Dired
 ** Dired
 #+begin_src emacs-lisp
