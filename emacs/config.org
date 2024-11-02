@@ -495,7 +495,7 @@ It's Magit! A Git Porcelain inside Emacs.
 #+begin_src emacs-lisp
 (use-package magit
   :after transient
-  :commands magit-status)
+  :commands magit-status
   :custom
   (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))  ;; show diff in the same window
 ** Forge
