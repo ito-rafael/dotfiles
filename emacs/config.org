@@ -325,6 +325,13 @@ https://github.com/noctuid/general.el
   (efs/leader-keys
     "f"  '(:ignore t :wk "Files")
     "f r" '(counsel-recentf :wk "Find recent files")
+** g --> git
+#+begin_src emacs-lisp
+  (efs/leader-keys
+    "g" '(:ignore t :wk "Git")
+    "g g" '(magit-status           :wk "Magit status")
+  )
+#+end_src
 ** h --> help
 #+begin_src emacs-lisp
   (efs/leader-keys
