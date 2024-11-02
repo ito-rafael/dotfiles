@@ -578,7 +578,7 @@ print('      Alt_R-o: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"º\\"  |
 
 <<cpc-default>>
 
-<<i3wm-navigation>>
+<<i3-navigation>>
 
 <<emacs>>
 
