@@ -29,11 +29,7 @@ keymap:
       F17: Ctrl-Shift-c
       F18: Ctrl-Shift-v
 
-  - name: paste - Emacs (insert)
-    application:
-      only: [Emacs, emacs]
-    remap:
-      F18: [Ctrl-r, Shift-apostrophe, space]
+
 
   - name: copy/paste/cut - general
     application:

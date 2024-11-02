@@ -203,14 +203,6 @@ keymap:
       F17: Ctrl-Shift-c
       F18: Ctrl-Shift-v
 #+end_src
-*** Emacs
-#+begin_src conf :noweb-ref cpc-emacs
-  - name: paste - Emacs (insert)
-    application:
-      only: [Emacs, emacs]
-    remap:
-      F18: [Ctrl-r, Shift-apostrophe, space]
-#+end_src
 *** Default
 #+begin_src conf :noweb-ref cpc-default
   - name: copy/paste/cut - general
