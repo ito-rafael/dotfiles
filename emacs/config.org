@@ -340,6 +340,13 @@ https://github.com/noctuid/general.el
     "h f" '(describe-function :wk "Describe function")
     "h k" '(describe-key      :wk "Describe key")
     "h v" '(describe-variable :wk "Describe variable")
+** s --> search
+#+begin_src emacs-lisp
+  (efs/leader-keys
+    "s" '(:ignore t :wk "Search")
+    "s i" '(counsel-imenu :wk "Jump to symbol")
+  )
+#+end_src
   )
 #+end_src
 ** w --> window
