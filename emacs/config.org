@@ -588,6 +588,10 @@ https://github.com/emacs-dashboard/emacs-dashboard
   (dashboard-setup-startup-hook))
 #+end_src
 * windmove
+Override the =windmove-do-window-select= function that is called by =windmove-{left,up,right,down}= (which in turn are used by the wrapper functions =evil-window-{left,up,right,down}=) to focus other windows outside of Emacs when trying to cross the Emacs frame barrier.
+Supported window managers:
+  - Sway
+  - i3wm
 #+begin_src emacs-lisp
 (use-package windmove
   :ensure nil  ;; do not install (windmove is already built-in)
@@ -616,12 +620,17 @@ https://github.com/emacs-dashboard/emacs-dashboard
   	   ;;--------------------------------------------------------------------
   	   ;; the next line (warning message) is replaced by the shell command
              ;; that focus the window outside of Emacs based on the =dir= variable
-  	   ;;--------------------------------------------------------------------
              ;;(user-error "No window %s from selected window" dir))
-             (shell-command (concat "i3-msg focus " (format "%s" dir))))
   	   ;;--------------------------------------------------------------------
-             ;;
-             ;;
+	     ;; identify environment
+             (setq wm_cmd (pcase (getenv "XDG_SESSION_TYPE")
+	                    ("x11"      "i3-msg")
+	                    ("wayland"  "swaymsg")
+	                    ("tty"      "tty")
+			    (t          "nil")))
+	     ;; focus adjacent window
+             (shell-command (concat wm_cmd " focus " (format "%s" dir))))
+  	   ;;--------------------------------------------------------------------
             ((and (window-minibuffer-p other-window)
                   (not (minibuffer-window-active-p other-window)))
              (user-error "Minibuffer is inactive"))
