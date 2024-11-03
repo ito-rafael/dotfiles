@@ -86,6 +86,13 @@ sudo pacman -S ttf-jetbrains-mono ttf-ubuntu-font-family
 (global-set-key (kbd "<C-wheel-up>") 'text-scale-increase)
 (global-set-key (kbd "<C-wheel-down>") 'text-scale-decrease)
 #+end_src
+** Window navigation
+#+begin_src emacs-lisp
+(global-set-key (kbd "s-<left>")  'evil-window-left)
+(global-set-key (kbd "s-<down>")  'evil-window-down)
+(global-set-key (kbd "s-<up>")    'evil-window-up)
+(global-set-key (kbd "s-<right>") 'evil-window-right)
+#+end_src
 * Miscellaneous :noexport_1:
 ** F16
 Set F16 as M-x.
