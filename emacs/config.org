@@ -524,7 +524,13 @@ It's Magit! A Git Porcelain inside Emacs.
   (magit-section-disable-line-numbers nil)
   (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1)  ;; show diff in the same window
   :config
-  (evil-set-initial-state 'git-commit-mode 'insert))  ;; start git-commit-mode in insert mode
+  (evil-set-initial-state 'git-commit-mode 'insert)  ;; start git-commit-mode in insert mode
+  ;; override keybindings for =magit-section-show-level-{1,2,3,4}= and use as counts for evil commands
+  (evil-collection-define-key 'normal 'magit-status-mode-map
+    "1" 'digit-argument
+    "2" 'digit-argument
+    "3" 'digit-argument
+    "4" 'digit-argument))
 ** Forge
 Pulls down all information from repositories: issues, pull requests, notifications, etc.
 https://magit.vc/manual/ghub/Getting-Started.html
