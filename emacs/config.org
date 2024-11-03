@@ -258,6 +258,8 @@ https://github.com/seagle0128/doom-modeline
 (use-package org
   :custom
   (org-ellipsis " ▾")                   ;; set icon when section is folded (outline-hide-body)
+  (org-edit-src-content-indentation 0)  ;; set indentation of source code block to zero
+  (org-src-preserve-indentation t)      ;; preserve intentation on export
 )
 #+end_src
 ** org-bullets
