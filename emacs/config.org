@@ -256,8 +256,8 @@ https://github.com/seagle0128/doom-modeline
 * Org
 #+begin_src emacs-lisp
 (use-package org
-  :config
-  (setq org-ellipsis " ▾")  ;; set icon when section is folded (outline-hide-body)
+  :custom
+  (org-ellipsis " ▾")                   ;; set icon when section is folded (outline-hide-body)
 )
 #+end_src
 ** org-bullets
