@@ -378,9 +378,9 @@ https://github.com/noctuid/general.el
   (efs/leader-keys
     "w" '(:ignore t :wk "Windows")
     ;; splits
-    "w h" '(evil-window-split  :wk "Horizontal split window")
-    "w s" '(evil-window-split  :wk "Horizontal split window")
-    "w v" '(evil-window-vsplit :wk "Vertical split window")
+    "w h" '(lambda () (interactive) (evil-window-split) (other-window 1)  :wk "Horizontal split window")
+    "w s" '(lambda () (interactive) (evil-window-split) (other-window 1)  :wk "Horizontal split window")
+    "w v" '(lambda () (interactive) (evil-window-vsplit) (other-window 1) :wk "Vertical split window")
     ;; motions --> arrows
     "w <left>"  '(evil-window-left  :wk "Window left")
     "w <down>"  '(evil-window-down  :wk "Window down")
