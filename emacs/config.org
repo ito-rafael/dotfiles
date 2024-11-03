@@ -276,6 +276,8 @@ https://github.com/sabof/org-bullets
   :ensure nil  ;; do not install (Dired is already built-in)
   :no-require  ;; do not load package (just add the config to the eval-after-load hook)
   :after org
+  :custom
+  (org-confirm-babel-evaluate nil)  ;; evaluate code blocks without confirmation
   :config
   (org-babel-do-load-languages
     'org-babel-load-languages
