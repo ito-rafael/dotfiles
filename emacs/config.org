@@ -39,9 +39,10 @@
 (scroll-bar-mode -1)                              ;; disable scrollbar
 #+end_src
 ** Line number
+*** Settings
 #+begin_src emacs-lisp
 (global-display-line-numbers-mode t)              ;; enable line number
-(setq display-line-numbers-type 'relative)        ;; set line number to relative
+(setq display-line-numbers-type 'visual)          ;; set line number to relative (visually)
 (column-number-mode)                              ;; enable column number
 #+end_src
 ** Transparency
