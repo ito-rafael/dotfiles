@@ -384,7 +384,12 @@ https://github.com/noctuid/general.el
     ;; kill
     "w q" '(evil-window-delete :wk "Close window")
     "w k" '(evil-window-delete :wk "Close window")
-    ;; motions --> arrows
+    ;; navigation --> keys
+    "w n" '(evil-window-left   :wk "Window left")
+    "w e" '(evil-window-down   :wk "Window down")
+    "w i" '(evil-window-up     :wk "Window up")
+    "w o" '(evil-window-right  :wk "Window right")
+    ;; navigation --> arrows
     "w <left>"  '(evil-window-left  :wk "Window left")
     "w <down>"  '(evil-window-down  :wk "Window down")
     "w <up>"    '(evil-window-up    :wk "Window up")
