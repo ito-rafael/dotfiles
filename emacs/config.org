@@ -388,12 +388,13 @@ https://github.com/abo-abo/swiper
 #+begin_src emacs-lisp
 (use-package ivy
   :diminish
-  :bind (("C-s" . swiper)
-     :map ivy-minibuffer-map
-     ("C-e" . ivy-next-line)      ;; arrow down
-     ("C-i" . ivy-previous-line)  ;; arrow up
-     ("C-o" . ivy-alt-done)       ;; confirm
-     ("TAB" . ivy-alt-done))      ;; confirm
+  :bind (
+       :map ivy-minibuffer-map
+       ("C-e"   . ivy-next-line)      ;; arrow down
+       ("C-i"   . ivy-previous-line)  ;; arrow up
+       ("C-o"   . ivy-alt-done)       ;; confirm
+       ("<tab>" . ivy-alt-done)       ;; confirm
+  )
   :config
   (ivy-mode 1))
 #+end_src
