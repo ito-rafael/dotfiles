@@ -270,6 +270,17 @@ https://github.com/sabof/org-bullets
 (use-package org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 #+end_src
+** org-babel
+#+begin_src emacs-lisp
+(use-package org-babel
+  :ensure nil  ;; do not install (Dired is already built-in)
+  :no-require  ;; do not load package (just add the config to the eval-after-load hook)
+  :after org
+  :config
+  (org-babel-do-load-languages
+    'org-babel-load-languages
+      '((python . t))))
+#+end_src
 ** org-auto-tangle
 Automatically tangle org files on save.
 https://github.com/yilkalargaw/org-auto-tangle
