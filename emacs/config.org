@@ -389,6 +389,7 @@ https://github.com/noctuid/general.el
     "w e" '(evil-window-down   :wk "Window down")
     "w i" '(evil-window-up     :wk "Window up")
     "w o" '(evil-window-right  :wk "Window right")
+    "w w" '(evil-window-next   :wk "Goto next window")
     ;; navigation --> arrows
     "w <left>"  '(evil-window-left  :wk "Window left")
     "w <down>"  '(evil-window-down  :wk "Window down")
