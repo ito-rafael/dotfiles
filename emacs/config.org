@@ -381,6 +381,9 @@ https://github.com/noctuid/general.el
     "w h" '(lambda () (interactive) (evil-window-split) (other-window 1)  :wk "Horizontal split window")
     "w s" '(lambda () (interactive) (evil-window-split) (other-window 1)  :wk "Horizontal split window")
     "w v" '(lambda () (interactive) (evil-window-vsplit) (other-window 1) :wk "Vertical split window")
+    ;; kill
+    "w q" '(evil-window-delete :wk "Close window")
+    "w k" '(evil-window-delete :wk "Close window")
     ;; motions --> arrows
     "w <left>"  '(evil-window-left  :wk "Window left")
     "w <down>"  '(evil-window-down  :wk "Window down")
