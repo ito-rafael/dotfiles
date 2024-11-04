@@ -580,3 +580,6 @@ zvm_vi_yank () {
 #=======================================
 # fix colored-man-pages on X11
 export GROFF_NO_SGR=1
+
+# zoxide
+eval "$(zoxide init --cmd cd zsh)"
