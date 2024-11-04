@@ -114,6 +114,10 @@ When you visit a file, point goes to the last place where it was when you previo
 (global-set-key (kbd "s-<up>")    'evil-window-up)
 (global-set-key (kbd "s-<right>") 'evil-window-right)
 #+end_src
+** Debug
+#+begin_src emacs-lisp
+(setq debug-on-error t)
+#+end_src
 * Package Manager :noexport_1:
 Git repo: [[https://github.com/progfolio/elpaca][Elpaca]]
 #+ATTR_ORG: :width 75
