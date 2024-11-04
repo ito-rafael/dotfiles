@@ -23,6 +23,7 @@
 - [[#hydra][Hydra]]
 - [[#projectile][Projectile]]
 - [[#magit][Magit]]
+- [[#undo-tree][undo-tree]]
 - [[#dashboard][Dashboard]]
 - [[#windmove][windmove]]
 
@@ -364,6 +365,12 @@ https://github.com/noctuid/general.el
     :keymaps 'override
     :prefix "SPC"             ;; set leader
     :global-prefix "M-SPC")   ;; access leader in insert mode
+#+end_src
+** Misc
+#+begin_src emacs-lisp
+  (efs/leader-keys
+    "SPC" '(counsel-M-x   :wk "Counsel M-x")
+  )
 #+end_src
 ** b --> buffer
 #+begin_src emacs-lisp
