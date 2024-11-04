@@ -109,6 +109,11 @@ Make ESC quit prompts.
 #+begin_src emacs-lisp
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 #+end_src
+** Save Place
+When you visit a file, point goes to the last place where it was when you previously visited the same file.
+#+begin_src emacs-lisp
+(save-place-mode 1)
+#+end_src
 * Package Manager :noexport_1:
 Git repo: [[https://github.com/progfolio/elpaca][Elpaca]]
 #+ATTR_ORG: :width 75
