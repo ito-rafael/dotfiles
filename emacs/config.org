@@ -370,6 +370,7 @@ https://github.com/noctuid/general.el
 #+begin_src emacs-lisp
   (efs/leader-keys
     "SPC" '(counsel-M-x   :wk "Counsel M-x")
+    "x"   '(lambda () (interactive) (switch-to-buffer "*scratch*")  :wk "Goto scratch buffer")
   )
 #+end_src
 ** b --> buffer
