@@ -86,13 +86,6 @@ sudo pacman -S ttf-jetbrains-mono ttf-ubuntu-font-family
 (global-set-key (kbd "<C-wheel-up>") 'text-scale-increase)
 (global-set-key (kbd "<C-wheel-down>") 'text-scale-decrease)
 #+end_src
-** Window navigation
-#+begin_src emacs-lisp
-(global-set-key (kbd "s-<left>")  'evil-window-left)
-(global-set-key (kbd "s-<down>")  'evil-window-down)
-(global-set-key (kbd "s-<up>")    'evil-window-up)
-(global-set-key (kbd "s-<right>") 'evil-window-right)
-#+end_src
 * Miscellaneous :noexport_1:
 ** F16 --> M-x
 Set F16 as M-x.
@@ -113,6 +106,13 @@ Make ESC quit prompts.
 When you visit a file, point goes to the last place where it was when you previously visited the same file.
 #+begin_src emacs-lisp
 (save-place-mode 1)
+#+end_src
+** Window navigation
+#+begin_src emacs-lisp
+(global-set-key (kbd "s-<left>")  'evil-window-left)
+(global-set-key (kbd "s-<down>")  'evil-window-down)
+(global-set-key (kbd "s-<up>")    'evil-window-up)
+(global-set-key (kbd "s-<right>") 'evil-window-right)
 #+end_src
 * Package Manager :noexport_1:
 Git repo: [[https://github.com/progfolio/elpaca][Elpaca]]
@@ -191,6 +191,8 @@ Git repo: [[https://github.com/progfolio/elpaca][Elpaca]]
     (kbd "C-o")        'ivy-alt-done       ;; confirm
     (kbd "C-<return>") 'ivy-alt-done)      ;; confirm
 
+  ;; miscellaneous
+  (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)  ;; ensure normal mode on C-g (keyboard-quit)
   (evil-mode 1)
 )
 ** evil-collections
