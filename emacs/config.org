@@ -170,6 +170,8 @@ Git repo: [[https://github.com/progfolio/elpaca][Elpaca]]
   (setq evil-want-C-i-jump nil)       ;; disable C-i to jump forward in the list
   (setq evil-want-Y-yank-to-eol t)    ;; set Y to y$ (yank to the end of the line)
   (setq evil-want-minibuffer t)       ;; enable evil in minibuffer
+  :custom
+  (setq evil-undo-system 'undo-tree)  ;; set undo system to =undo-tree=
   :config
   ;; minibuffer
   (evil-define-key 'insert minibuffer-local-map
@@ -629,6 +631,16 @@ machine gitlab.com/api/v4 login ito-rafael^forge password <PERSONAL-ACCESS-TOKEN
   (setq auth-sources (list
                      (concat (getenv "XDG_CONFIG_HOME") "/authinfo.gpg")
                      "~/.authinfo.gpg")))
+#+end_src
+* undo-tree
+Alternatives:
+  - undo-redo
+  - undo-fu
+  - vundo: https://github.com/casouri/vundo
+#+begin_src emacs-lisp
+(use-package undo-tree
+  :config
+  (global-undo-tree-mode 1))
 #+end_src
 * Dashboard
 https://github.com/emacs-dashboard/emacs-dashboard
