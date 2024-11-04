@@ -171,6 +171,14 @@ Git repo: [[https://github.com/progfolio/elpaca][Elpaca]]
   (setq evil-want-Y-yank-to-eol t)    ;; set Y to y$ (yank to the end of the line)
   (setq evil-want-minibuffer t)       ;; enable evil in minibuffer
   :config
+  ;; minibuffer
+  (evil-define-key 'insert minibuffer-local-map
+    (kbd "<escape>") 'keyboard-escape-quit
+    (kbd "C-e")        'ivy-next-line      ;; down
+    (kbd "C-i")        'ivy-previous-line  ;; up
+    (kbd "C-o")        'ivy-alt-done       ;; confirm
+    (kbd "C-<return>") 'ivy-alt-done)      ;; confirm
+
   (evil-mode 1)
 )
 ** evil-collections
