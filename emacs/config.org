@@ -94,10 +94,15 @@ sudo pacman -S ttf-jetbrains-mono ttf-ubuntu-font-family
 (global-set-key (kbd "s-<right>") 'evil-window-right)
 #+end_src
 * Miscellaneous :noexport_1:
-** F16
+** F16 --> M-x
 Set F16 as M-x.
 #+begin_src emacs-lisp
 (global-set-key (kbd "<f16>") 'execute-extended-command)
+#+end_src
+** Copy and Paste
+#+begin_src emacs-lisp
+(global-set-key (kbd "<f17>") 'evil-yank)
+(global-set-key (kbd "<f18>") 'evil-paste-after)
 #+end_src
 ** ESC
 Make ESC quit prompts.
