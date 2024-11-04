@@ -237,7 +237,12 @@ Forked repo: https://github.com/ito-rafael/evil-colemak
 https://github.com/doomemacs/themes
 #+begin_src emacs-lisp
 (use-package doom-themes
-  :init (load-theme 'doom-one t))
+  :config
+  (custom-set-faces
+    '(line-number ((t (:foreground "dim gray")))))           ;; set line numbers color to gray
+    '(line-number-current-line ((t (:foreground "white"))))  ;; set current line number color to white
+  :init
+  (load-theme 'doom-one t))
 #+end_src
 * Modeline
 ** all-the-icons
