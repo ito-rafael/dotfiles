@@ -162,6 +162,10 @@ keymap:
       Shift-N: Ctrl-Shift-Tab  # previous category
       Shift-O: Ctrl-Tab        # next category
       Shift-I: Ctrl-F          # focus search
+      Ctrl-n:  left            # arrow left
+      Ctrl-e:  down            # arrow down
+      Ctrl-i:  up              # arrow up
+      Ctrl-o:  right           # arrow right
 
   - name: window navigation from scratchpads
     application:

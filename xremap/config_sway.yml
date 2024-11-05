@@ -158,6 +158,10 @@ keymap:
       Shift-N: Ctrl-Shift-Tab  # previous category
       Shift-O: Ctrl-Tab        # next category
       Shift-I: Ctrl-F          # focus search
+      Ctrl-n:  left            # arrow left
+      Ctrl-e:  down            # arrow down
+      Ctrl-i:  up              # arrow up
+      Ctrl-o:  right           # arrow right
 #      # Enter; Ctrl+V
 #      Enter: { launch: ["bash", "-c", "ydotool key 28:1 28:0 29:1 47:1 47:0 29:0"] }
 

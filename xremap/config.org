@@ -418,6 +418,10 @@ print('          i: [Shift-GRAVE, SPACE, SLASH, DOT, c,o,n,f,i,g, SLASH, ' + wm 
       Shift-N: Ctrl-Shift-Tab  # previous category
       Shift-O: Ctrl-Tab        # next category
       Shift-I: Ctrl-F          # focus search
+      Ctrl-n:  left            # arrow left
+      Ctrl-e:  down            # arrow down
+      Ctrl-i:  up              # arrow up
+      Ctrl-o:  right           # arrow right
 #+end_src
 *** Sway
 #+begin_src conf :noweb-ref emote-sway
