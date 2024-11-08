@@ -252,12 +252,14 @@ function va() {
 # Emacs
 #alias e='emacsclient -c -a emacs -nw'
 alias e='emacsclient -c -s efs -a emacs'
+alias ed='emacsclient -c -s doom -a emacs'
 alias ec='vim $XDG_CONFIG_HOME/doom/config.el'
 alias ep='vim $XDG_CONFIG_HOME/doom/packages.el'
 alias ei='vim $XDG_CONFIG_HOME/doom/init.el'
 alias dod='doom doctor'
 alias dos='doom sync'
 alias ke='pkill emacs && emacs --with-profile efs --daemon &'
+alias kd='pkill emacs && emacs --with-profile doom --daemon &'
 #-----------------------------
 # systemctl root
 alias sta='sudo systemctl start'
