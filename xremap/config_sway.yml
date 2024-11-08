@@ -12,8 +12,10 @@ shared:
     - keymapp
   emacs-ssh: &emacs-ssh
     - "/.*: emacsclient --create-frame --alternate-editor=.*emacs.*/"
+    - "/.*: emacsclient -c -s .* -a .*emacs.*/"
     - "/.*: emacsclient -c -a .*emacs.*/"
-    - "/.*: eg/"
+    - "/.*: ed/"
+    - "/.*: e/"
 
 keymap:
 

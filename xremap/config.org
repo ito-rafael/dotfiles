@@ -185,8 +185,10 @@ shared:
 #+begin_src conf :noweb-ref shared
   emacs-ssh: &emacs-ssh
     - "/.*: emacsclient --create-frame --alternate-editor=.*emacs.*/"
+    - "/.*: emacsclient -c -s .* -a .*emacs.*/"
     - "/.*: emacsclient -c -a .*emacs.*/"
-    - "/.*: eg/"
+    - "/.*: ed/"
+    - "/.*: e/"
 #+end_src
 * Keymap
 #+begin_src conf :noweb-ref keymap
