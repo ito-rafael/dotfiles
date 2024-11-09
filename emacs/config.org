@@ -55,26 +55,42 @@
 #+begin_src sh
 sudo pacman -S ttf-jetbrains-mono ttf-ubuntu-font-family
 #+end_src
-*** Default
+*** Setting faces
+Source: https://systemcrafters.net/emacs-tips/using-the-emacs-daemon/#configuring-the-ui-for-new-frames
 #+begin_src emacs-lisp
-(set-face-attribute 'default nil
-  :font "JetBrains Mono"
-  :height 110
-  :weight 'medium)
+(defun efs/set-font-faces ()
+  (message "Setting faces!")
+
+  ;; Default
+  (set-face-attribute 'default nil
+    :font "JetBrains Mono"
+    :height 120
+    :weight 'medium)
+
+  ;; Variable pitch
+  (set-face-attribute 'variable-pitch nil
+    :font "Ubuntu"
+    :height 130
+    :weight 'medium)
+
+  ;; Fixed pitch
+  (set-face-attribute 'fixed-pitch nil
+    :font "JetBrains Mono"
+    :height 120
+    :weight 'medium)
+)
 #+end_src
-*** Variable pitch
+*** Call after daemon
 #+begin_src emacs-lisp
-(set-face-attribute 'variable-pitch nil
-  :font "Ubuntu"
-  :height 120
-  :weight 'medium)
+(if (daemonp)
+  (add-hook 'after-make-frame-functions
+            (lambda (frame)
+              ;;(setq doom-modeline-icon t)
+              (with-selected-frame frame
+                (efs/set-font-faces))))
+  (efs/set-font-faces))
 #+end_src
-*** Fixed pitch
 #+begin_src emacs-lisp
-(set-face-attribute 'fixed-pitch nil
-  :font "JetBrains Mono"
-  :height 110
-  :weight 'medium)
 #+end_src
 #+end_src
 ** Zoom in/out
