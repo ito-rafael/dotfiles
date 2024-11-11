@@ -757,4 +757,10 @@ Supported window managers:
             (t
              (select-window other-window))))))
 #+end_src
+* Ansible
+** yaml-mode
+https://github.com/yoshiki/yaml-mode
+#+begin_src emacs-lisp
+(use-package yaml-mode)
+#+end_src
 #+end_src
