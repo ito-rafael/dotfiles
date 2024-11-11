@@ -27,6 +27,7 @@
 - [[#dashboard][Dashboard]]
 - [[#docker][Docker]]
 - [[#windmove][windmove]]
+- [[#ansible][Ansible]]
 
 * UI :noexport_1:
 ** Misc
@@ -762,5 +763,10 @@ Supported window managers:
 https://github.com/yoshiki/yaml-mode
 #+begin_src emacs-lisp
 (use-package yaml-mode)
+#+end_src
+** jinja2-mode
+https://github.com/paradoxxxzero/jinja2-mode
+#+begin_src emacs-lisp
+(use-package jinja2-mode)
 #+end_src
 #+end_src
