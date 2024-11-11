@@ -1475,11 +1475,10 @@ for_window [$prop="one.alynx.showmethekey"] floating enable
 ** WhatsApp Web (on Brave Beta)
 *** i3
 #+begin_src conf :noweb-ref i3-whatsapp
-for_window [$prop="^Brave-browser-beta$" instance="^web.whatsapp.com$"] \
-    floating enable;      \
-    move position center; \
-    move scratchpad;      \
-    border pixel 5
+for_window [$prop="^Brave-browser-beta$" instance="^web.whatsapp.com$"] floating enable;
+for_window [$prop="^Brave-browser-beta$" instance="^web.whatsapp.com$"] move position center;
+for_window [$prop="^Brave-browser-beta$" instance="^web.whatsapp.com$"] move scratchpad;
+for_window [$prop="^Brave-browser-beta$" instance="^web.whatsapp.com$"] border pixel 5;
 exec --no-startup-id brave-beta --app=https://web.whatsapp.com
 bindsym $mod+b exec "$SCRIPT_PATH/show-or-launch.sh web.whatsapp.com 0.6 0.9"
 #+end_src
@@ -1497,11 +1496,10 @@ bindsym $mod+b exec "$SCRIPT_PATH/show-or-launch.sh brave-web.whatsapp.com__-Def
 ** YouTube Music (on Brave Beta)
 *** i3
 #+begin_src conf :noweb-ref i3-yt-music
-for_window [$prop="^Brave-browser-beta$" instance="^music.youtube.com$"] \
-    floating enable;      \
-    move position center; \
-    move scratchpad;      \
-    border pixel 5
+for_window [$prop="^Brave-browser-beta$" instance="^music.youtube.com$"] floating enable;
+for_window [$prop="^Brave-browser-beta$" instance="^music.youtube.com$"] move position center;
+for_window [$prop="^Brave-browser-beta$" instance="^music.youtube.com$"] move scratchpad;
+for_window [$prop="^Brave-browser-beta$" instance="^music.youtube.com$"] border pixel 5;
 exec --no-startup-id brave-beta --app=https://music.youtube.com
 bindsym $mod+g exec "$SCRIPT_PATH/show-or-launch.sh music.youtube.com 0.9 0.9"
 #+end_src
