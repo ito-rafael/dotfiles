@@ -706,6 +706,12 @@ https://github.com/emacs-dashboard/emacs-dashboard
 https://github.com/Silex/docker.el
 #+begin_src emacs-lisp
 (use-package docker)
+** dockerfile-mode
+https://github.com/spotify/dockerfile-mode
+#+begin_src emacs-lisp
+(use-package dockerfile-mode
+  :mode ("Dockerfile\\'" . dockerfile-mode))
+#+end_src
 #+end_src
 * windmove
 Override the =windmove-do-window-select= function that is called by =windmove-{left,up,right,down}= (which in turn are used by the wrapper functions =evil-window-{left,up,right,down}=) to focus other windows outside of Emacs when trying to cross the Emacs frame barrier.
