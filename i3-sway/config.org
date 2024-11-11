@@ -182,7 +182,7 @@ However, setting the outputs "hardcoded" seems to be more consistent.
 set $laptop    eDP-1
 set $primary   HDMI1
 set $secondary VGA1
-set $tertiary  HDMI3
+set $tertiary  HDMI2
 #+end_src
 **** Sway
 #+begin_src conf :noweb-ref sway-output-default
@@ -799,7 +799,9 @@ bindsym shift+mod3+Up  workspace prev_on_output
 ** Navigate among monitors
 #+begin_src conf :noweb-ref ws-navigation
 bindsym shift+mod3+Left  focus output left
+bindsym Ctrl+$mod+Left   focus output left
 bindsym shift+mod3+Right focus output right
+bindsym Ctrl+$mod+Right  focus output right
 #+end_src
 ** Move container among monitors
 *** Arrows
