@@ -1545,11 +1545,10 @@ for_window [$prop="^dropdown_terminal$"] border pixel 5
 ** ZSA Keymapp
 *** i3
 #+begin_src conf :noweb-ref i3-keymapp
-for_window [$prop="^Keymapp$"] \
-    floating enable;      \
-    move position center; \
-    move scratchpad;      \
-    border pixel 5
+for_window [$prop="^Keymapp$"] floating enable
+for_window [$prop="^Keymapp$"] move position center
+for_window [$prop="^Keymapp$"] move scratchpad
+for_window [$prop="^Keymapp$"] border pixel 5
 exec --no-startup-id /usr/bin/keymapp
 bindsym $mod+k exec "$SCRIPT_PATH/show-or-launch.sh Keymapp 0.75 0.75"
 #+end_src
