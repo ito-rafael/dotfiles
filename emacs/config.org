@@ -753,7 +753,7 @@ Supported window managers:
 	                    ("x11"      "i3-msg")
 	                    ("wayland"  "swaymsg")
 	                    ("tty"      "tty")
-			    (t          "nil")))
+			    (_          "nil")))
 	     ;; focus adjacent window
              (shell-command (concat wm_cmd " focus " (format "%s" dir))))
   	   ;;--------------------------------------------------------------------
