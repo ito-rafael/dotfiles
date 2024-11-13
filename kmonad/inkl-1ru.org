@@ -31,38 +31,38 @@
   - [[#fn2][fn2]]
 
 * Initial config
-#+begin_src lisp
+#+begin_src kbd
 (defcfg
 #+end_src
 ** Input
 *** native
-#+begin_src lisp :tangle no
+#+begin_src kbd :tangle no
   input (device-file "/dev/input/by-path/platform-i8042-serio-0-event-kbd")
 #+end_src
 *** using udev/hwdb
-#+begin_src lisp
+#+begin_src kbd
   input (device-file "/dev/input/by-path/platform-i8042-serio-0-event")
 #+end_src
 ** Output
-#+begin_src lisp
+#+begin_src kbd
   output (uinput-sink "KMonad INKL output")
 #+end_src
 ** Other settings
 - fallthrough: if false, ignore unhandled events
 - allow-cmd: enable command-execution
-#+begin_src lisp
+#+begin_src kbd
   fallthrough true
   ;;fallthrough false
   allow-cmd true
 #+end_src
 ** EoS
-#+begin_src lisp
+#+begin_src kbd
 )
 #+end_src
 * Layers
 ** template
 *** original
-#+begin_src lisp :tangle no
+#+begin_src kbd :tangle no
 (deflayer template
   '    1     2     3     4     5     6     7     8     9     0     -    =        bspc        nlck kp/  kp*  kp-
   tab     q     w     e     r     t     y     u     i     o     p     '    [     ret         kp7  kp8  kp9  kp+
@@ -72,7 +72,7 @@
                                                                            down
 )
 *** after udev/hwdb
-#+begin_src lisp :tangle no
+#+begin_src kbd :tangle no
 (deflayer template
   XX   XX    q     w     e     r     t     XX    y     u     i     o    p        bspc        nlck /    *    -
   XX      a     s     d     f     g     XX    XX    h     j     k     l    F13   ret         4    5    6    +
@@ -83,7 +83,7 @@
 )
 #+end_src
 *** empty
-#+begin_src lisp :tangle no
+#+begin_src kbd :tangle no
 (deflayer empty
   XX XX  q    w    e    r    t      XX      y    u    i    o    p       bspc        nlck kp/  kp*  kp-
   XX    a    s    d    f    g     XX  XX     h    j    k    l    ç      ret         kp7  kp8  kp9  kp+
@@ -94,7 +94,7 @@
 )
 #+end_src
 *** split
-#+begin_src lisp :tangle no
+#+begin_src kbd :tangle no
 (deflayer split
   _    _    _    _    _         _    _    _    _    _         _  _  _
   _    _    _    _    _         _    _    _    _    _         _  _  _
@@ -104,7 +104,7 @@
 )
 #+end_src
 *** split left
-#+begin_src lisp :tangle no
+#+begin_src kbd :tangle no
 (deflayer left
   _    _    _    _    _         XX   XX   XX   XX   XX        _  _  _
   _    _    _    _    _         @hra @hs  @hc  @hsm @hm       _  _  _
@@ -114,7 +114,7 @@
 )
 #+end_src
 *** split right
-#+begin_src lisp :tangle no
+#+begin_src kbd :tangle no
 (deflayer right
   XX   XX   XX   XX   XX        _    _    _    _    _         _  _  _
   @hm  @ha  @hc  @hs  @hra      _    _    _    _    _         _  _  _
@@ -125,7 +125,7 @@
 #+end_src
 ** base (us)
 *** original
-#+begin_src lisp :tangle no
+#+begin_src kbd :tangle no
 (defsrc
   2    3    4    5    6         7    8    9    0    -               kp/  kp*  kp-
   q    w    e    r    t         u    i    o    p    [               kp7  kp8  kp9
@@ -135,7 +135,7 @@
 )
 #+end_src
 *** mod (qwerty)
-#+begin_src lisp :tangle no
+#+begin_src kbd :tangle no
 (defsrc
   q    w    e    r    t         y    u    i    o    p               /    kp*  -
   a    s    d    f    g         h    j    k    l    ;               4    5    6
@@ -145,7 +145,7 @@
 )
 #+end_src
 *** mod (colemak)
-#+begin_src lisp
+#+begin_src kbd
 (defsrc
   q    w    f    p    b         j    l    u    y    ;               /    kp*  -
   a    r    s    t    g         m    n    e    i    o               4    5    6
@@ -156,7 +156,7 @@
 #+end_src
 ** alias
 *** hold
-#+begin_src lisp
+#+begin_src kbd
 (defalias
   hm  (tap-hold-next-release 175 XX   lmet)   ;; hold meta_L
   ha  (tap-hold-next-release 175 XX   lalt)   ;; hold alt_L
@@ -167,14 +167,14 @@
 )
 #+end_src
 *** other
-#+begin_src lisp
+#+begin_src kbd
 (defalias
   s2m (tap-hold-next-release 175 spc  lmet) ;; space to meta_L
   c2e (tap-hold-next-release 175 esc  lctl) ;; esc to ctrl_L (caps2esc)
 )
 #+end_src
 *** layers
-#+begin_src lisp
+#+begin_src kbd
 (defalias
   ;; thumbs
   nav (tap-hold-next-release 175 esc  (layer-toggle navigation))
@@ -205,7 +205,7 @@
 )
 #+end_src
 ** qwerty
-#+begin_src lisp :tangle no
+#+begin_src kbd :tangle no
 (deflayer qwerty
   q    w    @qmd r    t         y    u    i    @qob p         /  *  -
   ;;@a2m @s2a @d2c @f2s @g2a      @h2a @j2s @k2c @l2m @;2m      7  8  9
@@ -217,7 +217,7 @@
 #+end_src
 *** alias
 **** left hand
-#+begin_src lisp
+#+begin_src kbd
 (defalias
   ;; home row
   a2m (tap-hold-next-release 175 a    lmet) ;; a to meta_L
@@ -234,7 +234,7 @@
 )
 #+end_src
 **** right hand
-#+begin_src lisp
+#+begin_src kbd
 (defalias
   ;; home row
   h2a (tap-hold-next-release 175 h    ralt)   ;; h to alt_R
@@ -251,7 +251,7 @@
 )
 #+end_src
 ** colemak-dh
-#+begin_src lisp
+#+begin_src kbd
 (deflayer colemak
   q    w    @med p    b         j    l    u    @obs f13       _  _  _
   ;;@a2m @r2a @s2c @t2s @g2a      @m2a @n2s @e2c @i2m @o2m      7  8  9
@@ -263,7 +263,7 @@
 #+end_src
 *** alias
 **** left hand
-#+begin_src lisp
+#+begin_src kbd
 (defalias
   ;;r2a (tap-hold-next-release 175 r    lalt) ;; r to alt_L
   ;;s2c (tap-hold-next-release 175 s    lctl) ;; s to ctrl_L
@@ -282,7 +282,7 @@
 )
 #+end_src
 **** right hand
-#+begin_src lisp
+#+begin_src kbd
 (defalias
   ;;m2a (tap-hold-next-release 175 m    ralt)   ;; m to alt_R
   ;;n2s (tap-hold-next-release 175 n    lsft)   ;; n to shift_L
@@ -306,7 +306,7 @@
 )
 #+end_src
 ** number
-#+begin_src lisp
+#+begin_src kbd
 (deflayer number
   [    4    5    6    ]         XX   XX   XX   XX   XX        _  _  _
   :    1    2    3    -         @mo3 @hs  @hc  @mo2 @mo1      _  _  _
@@ -316,7 +316,7 @@
 )
 #+end_src
 *** alias
-#+begin_src lisp
+#+begin_src kbd
 (defalias
   t2n (tap-hold-next-release 175 tab (layer-toggle navigation))  ;; tab to nav layer
   ;;!!! FIX ME !!!
@@ -327,7 +327,7 @@
 )
 #+end_src
 ** symbol
-#+begin_src lisp
+#+begin_src kbd
 (deflayer symbol
   {    $    %    ^    }         XX   XX   XX   XX   XX        _  _  _
   ;    !    @    #    \_        @hra @hs  @hc  @hsm @hm       _  _  _
@@ -337,7 +337,7 @@
 )
 #+end_src
 ** navigation
-#+begin_src lisp
+#+begin_src kbd
 (deflayer navigation
   XX   XX   XX   f2   XX        XX   @ps  home end  XX        _  _  _
   @hm  @ren @hc  @hs  @hra      caps left down up   rght      _  _  _
@@ -347,7 +347,7 @@
 )
 #+end_src
 *** alias
-#+begin_src lisp
+#+begin_src kbd
 (defalias
   ps  prnt    ;; PrintScreen
   sps S-prnt  ;; Shift-PrintScreen
@@ -355,7 +355,7 @@
 )
 #+end_src
 ** window manager
-#+begin_src lisp
+#+begin_src kbd
 (deflayer window-manager
   @klw @klt @fsc @lck @stk      @spp @ofl @wsn @wsp @ofr      _  _  _
   @e2m @res @flt @ter XX        @spt @wfl @wfd @wfu @wfr      _  _  _
@@ -366,7 +366,7 @@
 #+end_src
 *** alias
 **** left hand
-#+begin_src lisp
+#+begin_src kbd
 (defalias
   klw A-M-q   ;; kill window
   klt A-M-w   ;; kill tab
@@ -389,7 +389,7 @@
 )
 #+end_src
 **** right hand
-#+begin_src lisp
+#+begin_src kbd
 (defalias
   ofl S-RM-left   ;; focus output left
   wsn S-RM-down   ;; focus workspace next
@@ -415,7 +415,7 @@
 #+end_src
 ** outputs
 *** output 1
-#+begin_src lisp
+#+begin_src kbd
 (deflayer out1
   XX   @w4  @w5  @w6  XX        XX   XX   XX   XX   XX        _  _  _
   XX   @w1  @w2  @w3  XX        XX   XX   XX   XX   XX        _  _  _
@@ -425,7 +425,7 @@
 )
 #+end_src
 *** output 2
-#+begin_src lisp
+#+begin_src kbd
 (deflayer out2
   XX   @w14 @w15 @w16 XX        XX   XX   XX   XX   XX        _  _  _
   XX   @w11 @w12 @w13 XX        XX   XX   XX   XX   XX        _  _  _
@@ -435,7 +435,7 @@
 )
 #+end_src
 *** output 3
-#+begin_src lisp
+#+begin_src kbd
 (deflayer out3
   XX   @w24 @w25 @w26 XX        XX   XX   XX   XX   XX        _  _  _
   XX   @w21 @w22 @w23 XX        XX   XX   XX   XX   XX        _  _  _
@@ -445,7 +445,7 @@
 )
 #+end_src
 *** alias
-#+begin_src lisp
+#+begin_src kbd
 (defalias
   ;; output 1
   w0  M-0  ;; focus workspace 0
@@ -485,7 +485,7 @@
 )
 #+end_src
 ** media
-#+begin_src lisp
+#+begin_src kbd
 (deflayer media
   XX   XX   XX   f2   XX        @mm  XX   @mdc @muc XX        _  _  _
   @hm  @ha  @hc  @hs  @hra      @pp  @sp  @vdc @vuc @sn       _  _  _
@@ -495,7 +495,7 @@
 )
 #+end_src
 *** alias
-#+begin_src lisp
+#+begin_src kbd
 (defalias
   vdc vold     ;; volume down (coarse)
   vuc volu     ;; volume up (coarse)
@@ -515,7 +515,7 @@
 )
 #+end_src
 ** luminosity
-#+begin_src lisp
+#+begin_src kbd
 (deflayer luminosity
   XX   XX   XX   f2   XX        @loo @lsd @ugd @ugu @lsu      _  _  _
   @hm  @ha  @hc  @hs  @hra      @goo @gmd @bnd @bnu @gmu      _  _  _
@@ -525,7 +525,7 @@
 )
 #+end_src
 *** alias
-#+begin_src lisp
+#+begin_src kbd
 (defalias
   ;; brightness
   bnd brdn  ;; brightness down
@@ -553,7 +553,7 @@
 )
 #+end_src
 ** mouse
-#+begin_src lisp
+#+begin_src kbd
 (deflayer mouse
   XX   XX   XX   XX   XX        XX   XX   @mbm XX   XX        _  _  _
   @hm  @ha  @hc  @hs  @hra      XX   @mcl @mcd @mcu @mcr      _  _  _
@@ -563,7 +563,7 @@
 )
 #+end_src
 *** alias
-#+begin_src lisp
+#+begin_src kbd
 (defalias
   ;; cursor navigation
   mcl kp4  ;; mouse cursor left
@@ -584,7 +584,7 @@
 )
 #+end_src
 ** obs
-#+begin_src lisp
+#+begin_src kbd
 (deflayer obs-studio
   @op1 @sc4 @sc5 @sc6 XX        XX   XX   XX   XX   XX        _  _  _
   @op0 @sc1 @sc2 @sc3 XX        @hra @hs  @hc  @hsm @hm       _  _  _
@@ -594,7 +594,7 @@
 )
 #+end_src
 *** alias
-#+begin_src lisp
+#+begin_src kbd
 (defalias
   ;; scenes
   sc0 XX  ;; scene 0
@@ -618,7 +618,7 @@
 )
 #+end_src
 ** fn1
-#+begin_src lisp
+#+begin_src kbd
 (deflayer function-keys-1
   f11  f4   f5   f6   XX        XX   XX   XX   XX   XX        _  _  _
   f10  f1   f2   f3   XX        @hra @hs  @hc  @hsm @hm       _  _  _
@@ -628,7 +628,7 @@
 )
 #+end_src
 ** fn2
-#+begin_src lisp
+#+begin_src kbd
 (deflayer function-keys-2
   XX   XX   XX   XX   XX        XX   f17  f18  f19  f20       _  _  _
   @hm  @ha  @hc  @hs  @hra      XX   f13  f14  f15  f16       _  _  _
