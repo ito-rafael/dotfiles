@@ -263,9 +263,14 @@ https://github.com/emacs-evil/evil-collection
            (or states '(normal motion visual))
            keymaps
            evil-colemak-dh-translations))
+
+  ;; add translation to hook
   (add-hook 'evil-collection-setup-hook #'evil-colemak-dh-translate-keys)
 
-  ;; enable evil-collection bindings in all modes
+  ;; delete certain modes from evil-collection
+  (delete 'gnus evil-collection-mode-list)  ;; delete "gnus" (bugfix: conflict with colemak remaps when reloading Emacs config)
+
+  ;; enable evil-collection bindings in all modes (except the deleted ones above)
   (evil-collection-init))
 #+end_src
 ** evil-colemak
