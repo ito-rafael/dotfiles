@@ -746,13 +746,11 @@ Supported window managers:
                                (funcall windmove-create-window dir arg window)
                              (split-window window nil dir))))
       (cond ((null other-window)
-  	   ;;
-  	   ;;
-  	   ;;--------------------------------------------------------------------
-  	   ;; the next line (warning message) is replaced by the shell command
-             ;; that focus the window outside of Emacs based on the =dir= variable
+         ;;====================================================================
+         ;; the next line (warning message) is replaced by the shell command
+         ;; that focus the window outside of Emacs based on the =dir= variable
              ;;(user-error "No window %s from selected window" dir))
-  	   ;;--------------------------------------------------------------------
+         ;;--------------------------------------------------------------------
 	     ;; identify environment
              (setq wm_cmd (pcase (getenv "XDG_SESSION_TYPE")
 	                    ("x11"      "i3-msg")
@@ -761,10 +759,17 @@ Supported window managers:
 			    (_          "nil")))
 	     ;; focus adjacent window
              (shell-command (concat wm_cmd " focus " (format "%s" dir))))
-  	   ;;--------------------------------------------------------------------
+         ;;====================================================================
             ((and (window-minibuffer-p other-window)
                   (not (minibuffer-window-active-p other-window)))
-             (user-error "Minibuffer is inactive"))
+         ;;====================================================================
+         ;; the next line (warning message) is replaced by the shell command
+         ;; that focus the window outside of Emacs based on the =dir= variable
+             ;;(user-error "Minibuffer is inactive"))
+         ;;--------------------------------------------------------------------
+	     ;; focus adjacent window
+             (shell-command (concat wm_cmd " focus " (format "%s" dir)))
+         ;;====================================================================
             ((eq other-window 'no-select))
             (t
              (select-window other-window))))))
