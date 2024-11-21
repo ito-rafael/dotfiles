@@ -138,6 +138,10 @@ When you visit a file, point goes to the last place where it was when you previo
 #+begin_src emacs-lisp
 (setq debug-on-error t)
 #+end_src
+** kill window
+#+begin_src emacs-lisp
+(global-set-key (kbd "M-s-q") 'evil-window-delete)
+#+end_src
 * Package Manager :noexport_1:
 Git repo: [[https://github.com/progfolio/elpaca][Elpaca]]
 #+ATTR_ORG: :width 75
