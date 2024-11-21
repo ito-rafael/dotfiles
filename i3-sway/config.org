@@ -655,7 +655,7 @@ bindsym mod1+$mod+d floating toggle
 *** Kill window
 Kill focused window, unless it's a scratchpad. Check the [[https://github.com/ito-rafael/dotfiles/blob/master/scripts/hide-or-kill.sh][hide-or-kill.sh]] script for more details.
 #+begin_src conf :noweb-ref window-settings
-bindsym mod1+$mod+q exec $SCRIPT_PATH/hide-or-kill.sh
+#bindsym mod1+$mod+q exec $SCRIPT_PATH/hide-or-kill.sh
 bindsym shift+mod1+$mod+q exec $SCRIPT_PATH/kill-window.sh
 #+end_src
 ** Tangle :noexport:
