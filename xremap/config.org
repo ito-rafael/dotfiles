@@ -184,11 +184,10 @@ shared:
 ** Emacs over SSH
 #+begin_src conf :noweb-ref shared
   emacs-ssh: &emacs-ssh
-    - "/.*: emacsclient --create-frame --alternate-editor=.*emacs.*/"
-    - "/.*: emacsclient -c -s .* -a .*emacs.*/"
-    - "/.*: emacsclient -c -a .*emacs.*/"
-    - "/.*: ed/"
-    - "/.*: e/"
+    - "/.*: emacsclient --create-frame.* --alternate-editor=.*emacs.*/"
+    - "/.*: emacsclient -c.* -a .*emacs.*/"
+    - "/.*: ecd/"
+    - "/.*: ec/"
 #+end_src
 * Keymap
 #+begin_src conf :noweb-ref keymap
@@ -209,7 +208,7 @@ keymap:
 #+begin_src conf :noweb-ref cpc-default
   - name: copy/paste/cut - general
     application:
-      not: [Emacs, emacs]
+      not: [Emacs, "/emacs.*/"]
     remap:
       F16: Ctrl-x
       F17: Ctrl-c
@@ -221,7 +220,7 @@ keymap:
   - name: Emacs inhabitant
     exact_match: true
     application:
-      not: [Emacs, emacs]
+      not: [Emacs, "/emacs.*/"]
     remap:
       # window navigation
       Super_L-left:  { launch: ["bash", "-c", "$XDG_CONFIG_HOME/scripts/mouse-warp.sh left"] }
@@ -240,7 +239,7 @@ keymap:
   - name: Emacs inhabitant
     exact_match: true
     application:
-      not: [Emacs, emacs]
+      not: [Emacs, "/emacs.*/"]
     remap:
       # window navigation
       Super_L-left:  { launch: ["swaymsg", "focus", "left"] }
@@ -314,7 +313,7 @@ keymap:
   - name: forward char / dead_acute
     exact_match: true
     application:
-      not: [Emacs, emacs]
+      not: [Emacs, "/emacs.*/"]
     remap:
 #+end_src
 *** F13

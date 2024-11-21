@@ -15,11 +15,10 @@ shared:
     - Keymapp
     - keymapp
   emacs-ssh: &emacs-ssh
-    - "/.*: emacsclient --create-frame --alternate-editor=.*emacs.*/"
-    - "/.*: emacsclient -c -s .* -a .*emacs.*/"
-    - "/.*: emacsclient -c -a .*emacs.*/"
-    - "/.*: ed/"
-    - "/.*: e/"
+    - "/.*: emacsclient --create-frame.* --alternate-editor=.*emacs.*/"
+    - "/.*: emacsclient -c.* -a .*emacs.*/"
+    - "/.*: ecd/"
+    - "/.*: ec/"
 
 keymap:
 
@@ -35,7 +34,7 @@ keymap:
 
   - name: copy/paste/cut - general
     application:
-      not: [Emacs, emacs]
+      not: [Emacs, "/emacs.*/"]
     remap:
       F16: Ctrl-x
       F17: Ctrl-c
@@ -44,7 +43,7 @@ keymap:
   - name: Emacs inhabitant
     exact_match: true
     application:
-      not: [Emacs, emacs]
+      not: [Emacs, "/emacs.*/"]
     remap:
       # window navigation
       Super_L-left:  { launch: ["bash", "-c", "$XDG_CONFIG_HOME/scripts/mouse-warp.sh left"] }
@@ -100,7 +99,7 @@ keymap:
   - name: forward char / dead_acute
     exact_match: true
     application:
-      not: [Emacs, emacs]
+      not: [Emacs, "/emacs.*/"]
     remap:
       F13:
         remap:
