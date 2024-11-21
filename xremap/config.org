@@ -246,16 +246,6 @@ keymap:
       Super_L-down:  { launch: ["swaymsg", "focus", "down"] }
       Super_L-up:    { launch: ["swaymsg", "focus", "up"] }
       Super_L-right: { launch: ["swaymsg", "focus", "right"] }
-#+end_src
-*** Kill buffer & window
-#+begin_src conf :noweb-ref emacs
-  - name: Kill buffer and window
-    exact_match: true
-    application:
-      only: [Emacs, emacs]
-    remap:
-      Super-w: [space, b, k]
-      Super-Alt-q: [C-w, q]
       # fullscreen
       Alt_L-Super_L-f:  { launch: ["swaymsg", "fullscreen", "toggle"] }
       # terminal

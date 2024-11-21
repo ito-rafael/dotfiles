@@ -57,13 +57,6 @@ keymap:
       # kill window
       Alt_L-Super_L-q:  { launch: ["bash", "-c", "$XDG_CONFIG_HOME/scripts/hide-or-kill.sh"] }
 
-  - name: Kill buffer and window
-    exact_match: true
-    application:
-      only: [Emacs, emacs]
-    remap:
-      Super-w: [space, b, k]
-      Super-Alt-q: [C-w, q]
 
   - name: Window navigation
     exact_match: true
