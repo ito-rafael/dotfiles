@@ -169,7 +169,8 @@ bindsym mod1+h split toggle
 #bindsym mod1+h split h
 #bindsym mod1+v split v
 bindsym mod1+$mod+e layout toggle stacked tabbed
-bindsym mod1+$mod+f fullscreen toggle
+#bindsym mod1+$mod+f fullscreen toggle
+bindsym Shift+mod1+$mod+f fullscreen toggle
 bindsym mod1+$mod+d floating toggle
 bindsym mod1+$mod+q exec $SCRIPT_PATH/hide-or-kill.sh
 bindsym shift+mod1+$mod+q exec $SCRIPT_PATH/kill-window.sh

@@ -644,7 +644,8 @@ bindsym mod1+$mod+e layout toggle stacked tabbed
 *** Fullscreen
 Enter fullscreen mode for the focused container.
 #+begin_src conf :noweb-ref window-settings
-bindsym mod1+$mod+f fullscreen toggle
+#bindsym mod1+$mod+f fullscreen toggle
+bindsym Shift+mod1+$mod+f fullscreen toggle
 #+end_src
 *** Tiling/Floating
 Toggle between tiling/floating window.
