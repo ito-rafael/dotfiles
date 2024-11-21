@@ -19,7 +19,7 @@
   - [[#emacs-over-ssh][Emacs over SSH]]
 - [[#keymap][Keymap]]
   - [[#cpc-copypastecut][CPC: Copy/Paste/Cut]]
-  - [[#emacs][Emacs]]
+  - [[#emacs-inhabitant][Emacs inhabitant]]
   - [[#emacs-over-ssh-1][Emacs over SSH]]
   - [[#kitty][Kitty]]
   - [[#brave][Brave]]
@@ -215,30 +215,30 @@ keymap:
       F17: Ctrl-c
       F18: Ctrl-v
 #+end_src
-** Emacs
-:PROPERTIES:
-:header-args: :noweb-sep "\n\n"
-:END:
-*** Window navigation
-**** i3wm
+** Emacs inhabitant
+*** i3wm
 #+begin_src conf :noweb-ref i3-navigation
-  - name: Window navigation
+  - name: Emacs inhabitant
     exact_match: true
     application:
       not: [Emacs, emacs]
     remap:
+      # window navigation
       Super_L-left:  { launch: ["bash", "-c", "$XDG_CONFIG_HOME/scripts/mouse-warp.sh left"] }
       Super_L-down:  { launch: ["bash", "-c", "$XDG_CONFIG_HOME/scripts/mouse-warp.sh down"] }
       Super_L-up:    { launch: ["bash", "-c", "$XDG_CONFIG_HOME/scripts/mouse-warp.sh up"] }
       Super_L-right: { launch: ["bash", "-c", "$XDG_CONFIG_HOME/scripts/mouse-warp.sh right"] }
+      # fullscreen
+      Alt_L-Super_L-f:  { launch: "bash", "-c", "i3-msg", "fullscreen", "toggle"] }
 #+end_src
-**** Sway
+*** Sway
 #+begin_src conf :noweb-ref sway-navigation
-  - name: Window navigation
+  - name: Emacs inhabitant
     exact_match: true
     application:
       not: [Emacs, emacs]
     remap:
+      # window navigation
       Super_L-left:  { launch: ["swaymsg", "focus", "left"] }
       Super_L-down:  { launch: ["swaymsg", "focus", "down"] }
       Super_L-up:    { launch: ["swaymsg", "focus", "up"] }
@@ -253,6 +253,8 @@ keymap:
     remap:
       Super-w: [space, b, k]
       Super-Alt-q: [C-w, q]
+      # fullscreen
+      Alt_L-Super_L-f:  { launch: ["swaymsg", "fullscreen", "toggle"] }
 #+end_src
 ** Emacs over SSH
 :PROPERTIES:
