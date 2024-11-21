@@ -28,6 +28,7 @@
 - [[#docker][Docker]]
 - [[#windmove][windmove]]
 - [[#ansible][Ansible]]
+- [[#zoom-window][zoom-window]]
 
 * UI :noexport_1:
 ** Misc
@@ -786,3 +787,11 @@ https://github.com/paradoxxxzero/jinja2-mode
 (use-package jinja2-mode)
 #+end_src
 #+end_src
+* zoom-window
+#+begin_src emacs-lisp
+(use-package zoom-window
+  :custom
+  (zoom-window-mode-line-color "green")
+  :config
+  (global-set-key (kbd "M-s-f") 'zoom-window-zoom))
+  #+end_src
