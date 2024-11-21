@@ -41,15 +41,20 @@ keymap:
       F17: Ctrl-c
       F18: Ctrl-v
 
-  - name: Window navigation
+  - name: Emacs inhabitant
     exact_match: true
     application:
       not: [Emacs, emacs]
     remap:
+      # window navigation
       Super_L-left:  { launch: ["bash", "-c", "$XDG_CONFIG_HOME/scripts/mouse-warp.sh left"] }
       Super_L-down:  { launch: ["bash", "-c", "$XDG_CONFIG_HOME/scripts/mouse-warp.sh down"] }
       Super_L-up:    { launch: ["bash", "-c", "$XDG_CONFIG_HOME/scripts/mouse-warp.sh up"] }
       Super_L-right: { launch: ["bash", "-c", "$XDG_CONFIG_HOME/scripts/mouse-warp.sh right"] }
+      # fullscreen
+      Alt_L-Super_L-f:  { launch: "bash", "-c", "i3-msg", "fullscreen", "toggle"] }
+      # kill window
+      Alt_L-Super_L-q:  { launch: ["bash", "-c", "$XDG_CONFIG_HOME/scripts/hide-or-kill.sh"] }
 
   - name: Kill buffer and window
     exact_match: true

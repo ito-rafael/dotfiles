@@ -37,15 +37,20 @@ keymap:
       F17: Ctrl-c
       F18: Ctrl-v
 
-  - name: Window navigation
+  - name: Emacs inhabitant
     exact_match: true
     application:
       not: [Emacs, emacs]
     remap:
+      # window navigation
       Super_L-left:  { launch: ["swaymsg", "focus", "left"] }
       Super_L-down:  { launch: ["swaymsg", "focus", "down"] }
       Super_L-up:    { launch: ["swaymsg", "focus", "up"] }
       Super_L-right: { launch: ["swaymsg", "focus", "right"] }
+      # fullscreen
+      Alt_L-Super_L-f:  { launch: ["swaymsg", "fullscreen", "toggle"] }
+      # kill window
+      Alt_L-Super_L-q:  { launch: ["bash", "-c", "$XDG_CONFIG_HOME/scripts/hide-or-kill.sh"] }
 
   - name: Kill buffer and window
     exact_match: true
