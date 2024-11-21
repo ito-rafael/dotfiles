@@ -215,7 +215,7 @@ bindsym ctrl+mod1+3 move workspace to output $tertiary;  focus output $tertiary
 #bindsym $mod+g exec kitty ranger
 #bindsym $mod+p exec spotify --force-device-scale-factor=2 # shortcut to open Spotify
 bindsym $mod+t exec kitty
-bindsym mod1+$mod+t exec kitty
+#bindsym mod1+$mod+t exec kitty
 #bindsym $mod+t exec i3-sensible-terminal
 #bindsym mod1+$mod+t exec i3-sensible-terminal
 #bindsym ctrl+$mod+t exec i3-sensible-terminal
