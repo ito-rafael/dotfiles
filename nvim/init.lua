@@ -2,10 +2,9 @@
 local vimrc = vim.fn.stdpath("config") .. "/vimrc.vim"
 vim.cmd.source(vimrc)
 
--- packer
-require('packer').startup(function(use)
-    use 'wbthomason/packer.nvim'
-end)
+-- lazy: package manager
+require("config.lazy")
+
 -- OSC 52: yank to clipboard over SSH
 vim.g.clipboard = {
   name = 'OSC 52',
