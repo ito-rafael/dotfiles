@@ -24,6 +24,7 @@
   - [[#whatsapp][WhatsApp]]
   - [[#youtube-music][YouTube Music]]
   - [[#scrcpy][scrcpy]]
+  - [[#python][Python]]
 
 * Initial config :noexport_1:
 ** Font
@@ -343,6 +344,19 @@ label:focus {
 *** Enabled
 #+begin_src css
 #custom-scratchpad-scrcpy.enabled {
+    color: green;
+}
+#+end_src
+** Python
+*** Disabled
+#+begin_src css
+#custom-scratchpad-python {
+    color: gray;
+}
+#+end_src
+*** Enabled
+#+begin_src css
+#custom-scratchpad-python.enabled {
     color: green;
 }
 #+end_src
