@@ -27,6 +27,7 @@
   - [[#python][Python]]
   - [[#terminal][Terminal]]
   - [[#keymapp][Keymapp]]
+- [[#caps-lock][Caps Lock]]
 
 * Initial config :noexport_1:
 ** Font
@@ -386,5 +387,12 @@ label:focus {
 #+begin_src css
 #custom-scratchpad-keymapp.enabled {
     color: green;
+}
+#+end_src
+* Caps Lock
+#+begin_src css
+#custom-capslock.enabled {
+    background-color: #97e1ad;
+    color: black;
 }
 #+end_src
