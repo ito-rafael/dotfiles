@@ -28,6 +28,7 @@
   - [[#terminal][Terminal]]
   - [[#keymapp][Keymapp]]
 - [[#caps-lock][Caps Lock]]
+- [[#mouse-warping][Mouse warping]]
 
 * Initial config :noexport_1:
 ** Font
@@ -394,5 +395,18 @@ label:focus {
 #custom-capslock.enabled {
     background-color: #97e1ad;
     color: black;
+}
+#+end_src
+* Mouse warping :noexport_1:
+** Disabled
+#+begin_src css
+#custom-mouse-warping.disabled {
+    color: gray;
+}
+#+end_src
+** Enabled
+#+begin_src css
+#custom-mouse-warping.enabled {
+    color: lightgray;
 }
 #+end_src
