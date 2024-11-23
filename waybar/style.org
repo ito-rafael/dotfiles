@@ -30,6 +30,7 @@
 - [[#caps-lock][Caps Lock]]
 - [[#mouse-warping][Mouse warping]]
 - [[#dunst][Dunst]]
+- [[#pacman][Pacman]]
 
 * Initial config :noexport_1:
 ** Font
@@ -422,5 +423,24 @@ label:focus {
 #+begin_src css
 #custom-dunst.enabled {
     color: goldenrod;
+}
+#+end_src
+* Pacman :noexport_1:
+** Low
+#+begin_src css
+#custom-pacman.low {
+    color: lightgray;
+}
+#+end_src
+** Medium
+#+begin_src css
+#custom-pacman.medium {
+    color: lightgray;
+}
+#+end_src
+** High
+#+begin_src css
+#custom-pacman.high {
+    color: lightgray;
 }
 #+end_src
