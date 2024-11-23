@@ -26,6 +26,7 @@
   - [[#scrcpy][scrcpy]]
   - [[#python][Python]]
   - [[#terminal][Terminal]]
+  - [[#keymapp][Keymapp]]
 
 * Initial config :noexport_1:
 ** Font
@@ -372,5 +373,18 @@ label:focus {
 #+begin_src css
 #custom-scratchpad-terminal.enabled {
     color: blue;
+}
+#+end_src
+** Keymapp
+*** Disabled
+#+begin_src css
+#custom-scratchpad-keymapp {
+    color: gray;
+}
+#+end_src
+*** Enabled
+#+begin_src css
+#custom-scratchpad-keymapp.enabled {
+    color: green;
 }
 #+end_src
