@@ -22,6 +22,7 @@
   - [[#temporary-2][Temporary 2]]
   - [[#temporary-3][Temporary 3]]
   - [[#whatsapp][WhatsApp]]
+  - [[#youtube-music][YouTube Music]]
 
 * Initial config :noexport_1:
 ** Font
@@ -316,5 +317,18 @@ label:focus {
 #+begin_src css
 #custom-scratchpad-whatsapp.enabled {
     color: green;
+}
+#+end_src
+** YouTube Music
+*** Disabled
+#+begin_src css
+#custom-scratchpad-ytmusic {
+    color: gray;
+}
+#+end_src
+*** Enabled
+#+begin_src css
+#custom-scratchpad-ytmusic.enabled {
+    color: red;
 }
 #+end_src
