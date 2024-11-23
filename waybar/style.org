@@ -16,6 +16,7 @@
 - [[#disk][Disk]]
 - [[#backlight][Backlight]]
 - [[#network][Network]]
+- [[#pulseaudio][Pulseaudio]]
 
 * Initial config :noexport_1:
 ** Font
@@ -242,5 +243,20 @@ label:focus {
 #+begin_src css
 #network.disconnected {
     background-color: #f53c3c;
+}
+#+end_src
+* Pulseaudio :noexport_1:
+** Normal
+#+begin_src css
+#pulseaudio {
+    background-color: #f1c40f;
+    color: #000000;
+}
+#+end_src
+** Muted
+#+begin_src css
+#pulseaudio.muted {
+    background-color: #90b1b1;
+    color: #2a5c45;
 }
 #+end_src
