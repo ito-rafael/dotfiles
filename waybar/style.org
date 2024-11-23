@@ -17,6 +17,7 @@
 - [[#backlight][Backlight]]
 - [[#network][Network]]
 - [[#pulseaudio][Pulseaudio]]
+- [[#scratchpad][Scratchpad]]
 
 * Initial config :noexport_1:
 ** Font
@@ -258,5 +259,19 @@ label:focus {
 #pulseaudio.muted {
     background-color: #90b1b1;
     color: #2a5c45;
+}
+#+end_src
+* Scratchpad
+** Temporary 1
+*** Disabled
+#+begin_src css
+#custom-scratchpad-temp-1 {
+    color: gray;
+}
+#+end_src
+*** Enabled
+#+begin_src css
+#custom-scratchpad-temp-1.enabled {
+    color: red;
 }
 #+end_src
