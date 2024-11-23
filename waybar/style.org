@@ -15,6 +15,7 @@
 - [[#memory][Memory]]
 - [[#disk][Disk]]
 - [[#backlight][Backlight]]
+- [[#network][Network]]
 
 * Initial config :noexport_1:
 ** Font
@@ -228,5 +229,18 @@ label:focus {
 #+begin_src css
 #backlight {
     background-color: #90b1b1;
+}
+#+end_src
+* Network :noexport_1:
+** Normal
+#+begin_src css
+#network {
+    background-color: #2980b9;
+}
+#+end_src
+** Disconnected
+#+begin_src css
+#network.disconnected {
+    background-color: #f53c3c;
 }
 #+end_src
