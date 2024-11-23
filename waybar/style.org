@@ -23,6 +23,7 @@
   - [[#temporary-3][Temporary 3]]
   - [[#whatsapp][WhatsApp]]
   - [[#youtube-music][YouTube Music]]
+  - [[#scrcpy][scrcpy]]
 
 * Initial config :noexport_1:
 ** Font
@@ -330,5 +331,18 @@ label:focus {
 #+begin_src css
 #custom-scratchpad-ytmusic.enabled {
     color: red;
+}
+#+end_src
+** scrcpy
+*** Disabled
+#+begin_src css
+#custom-scratchpad-scrcpy {
+    color: gray;
+}
+#+end_src
+*** Enabled
+#+begin_src css
+#custom-scratchpad-scrcpy.enabled {
+    color: green;
 }
 #+end_src
