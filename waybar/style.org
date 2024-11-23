@@ -13,6 +13,7 @@
 - [[#battery][Battery]]
 - [[#cpu][CPU]]
 - [[#memory][Memory]]
+- [[#disk][Disk]]
 
 * Initial config :noexport_1:
 ** Font
@@ -214,5 +215,11 @@ label:focus {
 #+begin_src css
 #memory {
     background-color: #9b59b6;
+}
+#+end_src
+* Disk
+#+begin_src css
+#disk {
+    background-color: #964B00;
 }
 #+end_src
