@@ -21,6 +21,7 @@
   - [[#temporary-1][Temporary 1]]
   - [[#temporary-2][Temporary 2]]
   - [[#temporary-3][Temporary 3]]
+  - [[#whatsapp][WhatsApp]]
 
 * Initial config :noexport_1:
 ** Font
@@ -302,5 +303,18 @@ label:focus {
 #+begin_src css
 #custom-scratchpad-temp-3.enabled {
     color: blue;
+}
+#+end_src
+** WhatsApp
+*** Disabled
+#+begin_src css
+#custom-scratchpad-whatsapp {
+    color: gray;
+}
+#+end_src
+*** Enabled
+#+begin_src css
+#custom-scratchpad-whatsapp.enabled {
+    color: green;
 }
 #+end_src
