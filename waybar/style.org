@@ -14,6 +14,7 @@
 - [[#cpu][CPU]]
 - [[#memory][Memory]]
 - [[#disk][Disk]]
+- [[#backlight][Backlight]]
 
 * Initial config :noexport_1:
 ** Font
@@ -221,5 +222,11 @@ label:focus {
 #+begin_src css
 #disk {
     background-color: #964B00;
+}
+#+end_src
+* Backlight
+#+begin_src css
+#backlight {
+    background-color: #90b1b1;
 }
 #+end_src
