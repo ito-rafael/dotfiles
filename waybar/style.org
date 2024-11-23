@@ -17,6 +17,7 @@
 - [[#backlight][Backlight]]
 - [[#network][Network]]
 - [[#pulseaudio][Pulseaudio]]
+- [[#temperature][Temperature]]
 - [[#scratchpad][Scratchpad]]
   - [[#temporary-1][Temporary 1]]
   - [[#temporary-2][Temporary 2]]
@@ -272,6 +273,19 @@ label:focus {
 #pulseaudio.muted {
     background-color: #90b1b1;
     color: #2a5c45;
+}
+#+end_src
+* Temperature :noexport_1:
+** Normal
+#+begin_src css
+#temperature {
+    background-color: #f0932b;
+}
+#+end_src
+** Critical
+#+begin_src css
+#temperature.critical {
+    background-color: #eb4d4b;
 }
 #+end_src
 * Scratchpad
