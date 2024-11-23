@@ -29,6 +29,7 @@
   - [[#keymapp][Keymapp]]
 - [[#caps-lock][Caps Lock]]
 - [[#mouse-warping][Mouse warping]]
+- [[#dunst][Dunst]]
 
 * Initial config :noexport_1:
 ** Font
@@ -408,5 +409,18 @@ label:focus {
 #+begin_src css
 #custom-mouse-warping.enabled {
     color: lightgray;
+}
+#+end_src
+* Dunst :noexport_1:
+** Disabled
+#+begin_src css
+#custom-dunst.disabled {
+    color: gray;
+}
+#+end_src
+** Enabled
+#+begin_src css
+#custom-dunst.enabled {
+    color: goldenrod;
 }
 #+end_src
