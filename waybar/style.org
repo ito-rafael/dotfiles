@@ -20,6 +20,7 @@
 - [[#scratchpad][Scratchpad]]
   - [[#temporary-1][Temporary 1]]
   - [[#temporary-2][Temporary 2]]
+  - [[#temporary-3][Temporary 3]]
 
 * Initial config :noexport_1:
 ** Font
@@ -288,5 +289,18 @@ label:focus {
 #+begin_src css
 #custom-scratchpad-temp-2.enabled {
     color: green;
+}
+#+end_src
+** Temporary 3
+*** Disabled
+#+begin_src css
+#custom-scratchpad-temp-3 {
+    color: gray;
+}
+#+end_src
+*** Enabled
+#+begin_src css
+#custom-scratchpad-temp-3.enabled {
+    color: blue;
 }
 #+end_src
