@@ -25,6 +25,7 @@
   - [[#youtube-music][YouTube Music]]
   - [[#scrcpy][scrcpy]]
   - [[#python][Python]]
+  - [[#terminal][Terminal]]
 
 * Initial config :noexport_1:
 ** Font
@@ -358,5 +359,18 @@ label:focus {
 #+begin_src css
 #custom-scratchpad-python.enabled {
     color: green;
+}
+#+end_src
+** Terminal
+*** Disabled
+#+begin_src css
+#custom-scratchpad-terminal {
+    color: gray;
+}
+#+end_src
+*** Enabled
+#+begin_src css
+#custom-scratchpad-terminal.enabled {
+    color: blue;
 }
 #+end_src
