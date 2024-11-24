@@ -507,14 +507,14 @@
 (defalias
   vdc vold     ;; volume down (coarse)
   vuc volu     ;; volume up (coarse)
-  vdf C-S-F14  ;; volume down (fine)
-  vuf C-S-F15  ;; volume up (fine)
+  vdf f15      ;; volume down (fine)
+  vuf C-f15    ;; volume up (fine)
   vm  mute     ;; mute volume
 
-  mdc C-F14    ;; microphone down (coarse)
-  muc C-F15    ;; microphone up (coarse)
-  mdf S-F14    ;; microphone down (fine)
-  muf S-F15    ;; microphone up (fine)
+  mdc f14      ;; microphone down (coarse)
+  muc C-f14    ;; microphone up (coarse)
+  mdf S-f14    ;; microphone down (fine)
+  muf C-S-f14  ;; microphone up (fine)
   mm  M-S-f14  ;; mute microphone
 
   sp  prev     ;; song previous
