@@ -140,21 +140,21 @@
 *** mod (qwerty)
 #+begin_src kbd :tangle no
 (defsrc
-  q    w    e    r    t         y    u    i    o    p               /    kp*  -
+  q    w    e    r    t         y    u    i    o    p               kp/  kp*  kp-
   a    s    d    f    g         h    j    k    l    ;               4    5    6
   z    x    c    v    b         n    m    ,    .    /               1    2    3
             esc  spc  tab       -    ret  bspc                      7    8    9
-                                                                    0    .    =
+                                                                    0    kp.  kp+
 )
 #+end_src
 *** mod (colemak)
 #+begin_src kbd
 (defsrc
-  q    w    f    p    b         j    l    u    y    ;               /    kp*  -
+  q    w    f    p    b         j    l    u    y    ;               kp/  kp*  kp-
   a    r    s    t    g         m    n    e    i    o               4    5    6
   z    x    c    d    v         k    h    ,    .    /               1    2    3
             esc  spc  tab       -    ret  bspc                      7    8    9
-                                                                    0    .    =
+                                                                    0    kp.  kp+
 )
 #+end_src
 ** alias :noexport_1:
