@@ -1,8 +1,12 @@
-#!/bin/sh
+#!/usr/bin/env bash
 # send notifications when battery is low
 while true; do
     battery_level=$(acpi -b | tail -n1 | grep -oP '[0-9]+(?=%)')
     battery_state=$(acpi -b | tail -n1 | grep -oP '(?<=: ).*(?=, [0-9]{1,3}%)')
+    # check if the host has a battery (eg: it's a laptop)
+    if [ "$battery_state" == "" ]; then
+        exit 1
+    fi
     #echo $battery_level
     #echo $battery_state
     if [ $battery_state == "Discharging" ]; then
@@ -10,7 +14,6 @@ while true; do
         # Battery Half Charged: 50%
         #---------------------------------------
         if [ $battery_level -eq 50 ]; then
-        #if [ $battery_level -le 50 ]; then
             notify-send \
                 --expire-time=5000 \
                 --urgency=normal \
@@ -32,11 +35,12 @@ while true; do
         #---------------------------------------
         # Battery Critical: < 5%
         #---------------------------------------
-        #elif [ $battery_level -le 5 ]; then
-        elif [ $battery_level -ge 5 ]; then
-            # adjust volume if it is less than 40%
-            volume=$(pactl list sinks | grep '^[[:space:]]Volume:' | grep -Eo '[0-9]{1,2}%' | grep -Eo '[0-9]{1,2}' | head -n1)
-            if [ $volume -le 40 ]; then
+        elif [ $battery_level -le 5 ]; then
+            # adjust volume if it is less than 25%
+            default_sink=$(pactl info | grep "Default Sink"| sed 's/Default Sink: //')
+            volume=$(pactl get-sink-volume $default_sink | grep -Eo '[0-9]{1,2}%' | grep -Eo '[0-9]{1,2}' | head -n1)
+            #volume=$(pactl list sinks | grep '^[[:space:]]Volume:' | grep -Eo '[0-9]{1,2}%' | grep -Eo '[0-9]{1,2}' | head -n1)
+            if [ $volume -le 25 ]; then
                 pactl list sinks | grep 'Sink #' | grep -o '[0-9]*' | xargs -i pactl set-sink-volume {} 50% && pkill -RTMIN+1 i3blocks
             fi
             # send notification
