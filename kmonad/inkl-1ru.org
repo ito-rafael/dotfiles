@@ -311,7 +311,7 @@
 ** number :noexport_1:
 #+begin_src kbd
 (deflayer number
-  [    4    5    6    ]         XX   XX   XX   XX   XX        _  _  _
+  [    4    5    6    ]         XX   @vp1 @vp2 @vp3 @vp4      _  _  _
   :    1    2    3    -         @mo3 @hs  @hc  @mo2 @mo1      _  _  _
   ~    7    8    9    +         XX   spc  ,    .    /         _  _  _
             @t2n 0    =         _    _    _                   _  _  _
@@ -327,6 +327,11 @@
   mo2 (tap-hold-next-release 175 XX C-S-M)   ;; move container to ws 10~19
   mo3 (tap-hold-next-release 175 XX C-ralt)  ;; move container to ws 20~29
   ;;!!! FIX ME !!!
+
+  vp1 M-A-1  ;; connect to VPN #1: La Casa Nostra
+  vp2 M-A-2  ;; connect to VPN #2: Unicamp
+  vp3 M-A-3  ;; connect to VPN #3: LBiC
+  vp4 M-A-4  ;; connect to VPN #4: Samsung
 )
 #+end_src
 ** symbol :noexport_1:
