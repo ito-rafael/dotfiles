@@ -6,7 +6,7 @@
 #+auto_tangle: t
 
 
-* Table of Contents :toc:
+* Table of Contents :toc_3:
 - [[#initial-config][Initial config]]
   - [[#input][Input]]
   - [[#output][Output]]
@@ -20,9 +20,12 @@
   - [[#colemak-dh][colemak-dh]]
   - [[#number][number]]
   - [[#symbol][symbol]]
-  - [[#navigation][navigation]]
   - [[#window-manager][window manager]]
+  - [[#navigation][navigation]]
   - [[#outputs][outputs]]
+    - [[#output-1][output 1]]
+    - [[#output-2][output 2]]
+    - [[#output-3][output 3]]
   - [[#media][media]]
   - [[#luminosity][luminosity]]
   - [[#mouse][mouse]]
@@ -30,7 +33,7 @@
   - [[#fn1][fn1]]
   - [[#fn2][fn2]]
 
-* Initial config
+* Initial config :noexport_2:
 #+begin_src kbd
 (defcfg
 #+end_src
@@ -59,8 +62,8 @@
 #+begin_src kbd
 )
 #+end_src
-* Layers
-** template
+* Layers :noexport_3:
+** template :noexport_1:
 *** original
 #+begin_src kbd :tangle no
 (deflayer template
@@ -123,7 +126,7 @@
                                                               _  _  _
 )
 #+end_src
-** base (us)
+** base (us) :noexport_1:
 *** original
 #+begin_src kbd :tangle no
 (defsrc
@@ -154,7 +157,7 @@
                                                                     0    .    =
 )
 #+end_src
-** alias
+** alias :noexport_1:
 *** hold
 #+begin_src kbd
 (defalias
@@ -204,7 +207,7 @@
   ;;ly4 navigation
 )
 #+end_src
-** qwerty
+** qwerty :noexport_1:
 #+begin_src kbd :tangle no
 (deflayer qwerty
   q    w    @qmd r    t         y    u    i    @qob p         /  *  -
@@ -250,7 +253,7 @@
   ;;mq; (tap-hold-next-release 175 f13  lmet)   ;; semicolon to meta_L
 )
 #+end_src
-** colemak-dh
+** colemak-dh :noexport_1:
 #+begin_src kbd
 (deflayer colemak
   q    w    @med p    b         j    l    u    @obs f13       _  _  _
@@ -305,7 +308,7 @@
   mko (tap-hold-next-release 175 o (layer-toggle out1))
 )
 #+end_src
-** number
+** number :noexport_1:
 #+begin_src kbd
 (deflayer number
   [    4    5    6    ]         XX   XX   XX   XX   XX        _  _  _
@@ -326,7 +329,7 @@
   ;;!!! FIX ME !!!
 )
 #+end_src
-** symbol
+** symbol :noexport_1:
 #+begin_src kbd
 (deflayer symbol
   {    $    %    ^    }         XX   XX   XX   XX   XX        _  _  _
@@ -336,25 +339,7 @@
                                                               _  _  _
 )
 #+end_src
-** navigation
-#+begin_src kbd
-(deflayer navigation
-  XX   XX   XX   f2   XX        XX   @ps  home end  XX        _  _  _
-  @hm  @ren @hc  @hs  @hra      caps left down up   rght      _  _  _
-  XX   XX   XX   XX   XX        @num @sps pgdn pgup XX        _  _  _
-            _    _    _         _    _    del                 _  _  _
-                                                              _  _  _
-)
-#+end_src
-*** alias
-#+begin_src kbd
-(defalias
-  ps  prnt    ;; PrintScreen
-  sps S-prnt  ;; Shift-PrintScreen
-  ren (tap-hold-next-release 175 f2 lalt) ;; rename (F2) to alt_L
-)
-#+end_src
-** window manager
+** window manager :noexport_1:
 #+begin_src kbd
 (deflayer window-manager
   @klw @klt @fsc @lck @stk      @spp @ofl @wsn @wsp @ofr      _  _  _
@@ -413,6 +398,24 @@
   rof M-ret  ;; open rofi (application launcher)
 )
 #+end_src
+** navigation :noexport_1:
+#+begin_src kbd
+(deflayer navigation
+-  XX   XX   XX   f2   XX        XX   @ps  home end  XX        _  _  _
+-  @hm  @ren @hc  @hs  @hra      caps left down up   rght      _  _  _
+-  XX   XX   XX   XX   XX        @num @sps pgdn pgup XX        _  _  _
+-            _    _    _         _    _    del                 _  _  _
+                                                              _  _  _
+)
+#+end_src
+*** alias
+#+begin_src kbd
+(defalias
+  ps  prnt    ;; PrintScreen
+  sps S-prnt  ;; Shift-PrintScreen
+  ren (tap-hold-next-release 175 f2 lalt) ;; rename (F2) to alt_L
+)
+#+end_src
 ** outputs
 *** output 1
 #+begin_src kbd
@@ -444,7 +447,7 @@
                                                               _  _  _
 )
 #+end_src
-*** alias
+*** alias :noexport:
 #+begin_src kbd
 (defalias
   ;; output 1
@@ -484,7 +487,7 @@
   w29 RM-9  ;; focus workspace 29
 )
 #+end_src
-** media
+** media :noexport_1:
 #+begin_src kbd
 (deflayer media
   XX   XX   XX   f2   XX        @mm  XX   @mdc @muc XX        _  _  _
@@ -514,7 +517,7 @@
   pp  pp    ;; song play/pause
 )
 #+end_src
-** luminosity
+** luminosity :noexport_1:
 #+begin_src kbd
 (deflayer luminosity
   XX   XX   XX   f2   XX        @loo @lsd @ugd @ugu @lsu      _  _  _
@@ -552,7 +555,7 @@
   boo KeyKbdIllumToggle  ;; backlit on/off
 )
 #+end_src
-** mouse
+** mouse :noexport_1:
 #+begin_src kbd
 (deflayer mouse
   XX   XX   XX   XX   XX        XX   XX   @mbm XX   XX        _  _  _
@@ -617,7 +620,7 @@
   bs  XX  ;; black screen
 )
 #+end_src
-** fn1
+** fn1 :noexport_1:
 #+begin_src kbd
 (deflayer function-keys-1
   f11  f4   f5   f6   XX        XX   XX   XX   XX   XX        _  _  _
@@ -627,7 +630,7 @@
                                                               _  _  _
 )
 #+end_src
-** fn2
+** fn2 :noexport_1:
 #+begin_src kbd
 (deflayer function-keys-2
   XX   XX   XX   XX   XX        XX   f17  f18  f19  f20       _  _  _
