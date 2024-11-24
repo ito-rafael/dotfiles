@@ -261,13 +261,14 @@ function va() {
 }
 #-----------------------------
 # Emacs
-#alias e='emacsclient -c -a emacs -nw'
 # Emacs from Scratch
-alias ke='pkill -f "emacs.* --daemon --with-profile efs" && emacs --daemon --with-profile efs &'
-alias ei='vim $XDG_CONFIG_HOME/emacs-efs/init.el'
+alias ed='emacs --daemon --with-profile efs &'     # start daemon
+alias ei='vim $XDG_CONFIG_HOME/emacs-efs/init.el'  # open config file
+alias ke='pkill -f "emacs.* --daemon --with-profile efs" && emacs --daemon --with-profile efs &'  # restart daemon
 # Doom Emacs
-alias ked='pkill -f "emacs.* --daemon --with-profile doom" && emacs --daemon --with-profile doom &'
-alias edc='vim $XDG_CONFIG_HOME/emacs-doom/config.el'
+alias edd='emacs --daemon --with-profile doom &'       # start daemon
+alias edc='vim $XDG_CONFIG_HOME/emacs-doom/config.el'  # open config file
+alias ked='pkill -f "emacs.* --daemon --with-profile doom" && emacs --daemon --with-profile doom &'  # restart daemon
 alias edp='vim $XDG_CONFIG_HOME/emacs-doom/packages.el'
 alias dod='doom doctor'
 alias dos='doom sync'
