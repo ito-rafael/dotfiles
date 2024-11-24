@@ -145,6 +145,66 @@ autocmd FileType html inoremap ;p <p></p><Enter><Enter><++><Esc>2ki
 command! Sns set nospell
 
 "================================================
+" remap navigation keys
+"================================================
+
+" normal
+" navigation
+nnoremap n h
+nnoremap e j
+nnoremap i k
+nnoremap o l
+
+" new line
+nnoremap h o
+nnoremap H O
+
+" next/previous matches
+nnoremap k n
+nnoremap K N
+
+" end of word
+nnoremap l e
+nnoremap L E
+
+" insert mode
+nnoremap s i
+
+"nnoremap f13 + a = á
+"nnoremap f13 + e = é
+"nnoremap f13 + i = í
+"nnoremap f13 + o = ó
+"nnoremap f13 + u = ú
+"nnoremap f13 + c = ç
+
+"nnoremap f13 + A = Á
+"nnoremap f13 + E = É
+"nnoremap f13 + I = Í
+"nnoremap f13 + O = Ó
+"nnoremap f13 + U = Ú
+"nnoremap f13 + C = Ç
+
+" visual
+" navigation
+vnoremap n h
+vnoremap e j
+vnoremap i k
+vnoremap o l
+
+" insert mode
+vnoremap s i
+vnoremap S I
+
+" end of word
+vnoremap l e
+vnoremap L E
+
+" operator
+" end of word
+onoremap l e
+onoremap L E
+
+"================================================
 " LaTeX
 "================================================
 "change frequency that the output PDF is updated
