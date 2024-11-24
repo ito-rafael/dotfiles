@@ -168,38 +168,49 @@ source $ZSH/oh-my-zsh.sh
 # alias section
 #=======================================
 # general
-alias v=vim                             # Vim
-alias m=man                             # man
-alias j=joplin                          # joplin
-alias k=kill                            # kill
-alias h=history                         # history
-alias j='journalctl -u'                 # journalctl
-alias -g g='| grep'                     # grep
-alias df='df -h'                        # df
-alias cpr='cp -R'                       # cp
-alias hg='history | grep'               # history + grep
-alias wt='watch -n 1'                   # watch
-alias wtc='watch -n 1 "cat '            # watch "cat"
-alias wtl='watch -n 1 "ls '             # watch "ls"
-alias wtp='watch -n 1 "ps aux | grep '  # watch "ps aux"
-alias psa='ps aux'                      # ps aux
-alias psag='ps aux | grep'              # ps aux | grep
-alias {chx,cx}='chmod +x'               # chmod
-alias sd='sudo dmesg --ctime'           # dmesg
-alias sdf='sudo dmesg --follow --ctime' # dmesg follow
-alias ns='nvidia-smi'                   # NVIDIA
+alias v=vim                                     # Vim
+alias m=man                                     # man
+alias j=joplin                                  # joplin
+alias k=kill                                    # kill
+alias h=history                                 # history
+alias hg='history | grep'                       # history + grep
+alias j='journalctl -u'                         # journalctl
+alias -g g='| grep'                             # grep
+alias df='df -h'                                # df
+alias cpr='cp -R'                               # cp recursive
+alias wt='watch -n 1'                           # watch
+alias wtc='watch -n 1 "cat '                    # watch "cat"
+alias wtl='watch -n 1 "ls '                     # watch "ls"
+alias wtp='watch -n 1 "ps aux | grep '          # watch "ps aux"
+alias psa='ps aux'                              # ps aux
+alias psag='ps aux | grep'                      # ps aux | grep
+alias {chx,cx}='chmod +x'                       # chmod
+alias sd='sudo dmesg --ctime'                   # dmesg
+alias sdf='sudo dmesg --follow --ctime'         # dmesg follow
+alias ns='nvidia-smi'                           # NVIDIA
 alias dd='dd bs=4M status=progress oflag=sync'  # dd
-alias p8='ping 8.8.8.8'
-alias pg='ping google.com'
-alias qq='systemctl start --user ydotool && systemctl start --user xremap'
-alias ww='systemctl stop --user ydotool && systemctl stop --user xremap'
+alias p8='ping 8.8.8.8'                         # ping test (no DNS)
+alias pg='ping google.com'                      # ping test with DNS
+#alias qq='systemctl start --user ydotool && systemctl start --user xremap'
+#alias ww='systemctl stop --user ydotool && systemctl stop --user xremap'
 alias {tarc,tc}='tar -czvf'
 alias {tarx,tx}='tar -xvzf'
 alias wdf='watch -n1 df -h'
 alias fl='faillock --user $USER --reset'
 alias kb='pkill brave && brave &'
 alias ssh='kitten ssh --kitten=color_scheme=themes/ssh.conf'
+alias cmd='command'
 function cv() { cat $1 | vim - }
+#-----------------------------
+# colors
+# ls
+#alias ls='ls --color=auto'
+# colorize grep output
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+# iproute2
+alias ip='ip -color=auto'
 #-----------------------------
 # scripts
 alias wlprop='$SCRIPTS/wlprop.sh'
@@ -213,20 +224,20 @@ alias wcm='wally-cli "$(command ls -t zsa_moonlander_inkl-m-*.bin | head -1)"'
 alias wcp='wally-cli "$(command ls -t planck_ez_glow_inkl-p-*.bin | head -1)"'
 #-----------------------------
 # Package manager
-alias {paru,yay}='paru --aur'       # paru/yay
-alias {sps,spi}='sudo pacman -S'    # pacman install
-alias spu='sudo pacman -Syu'        # pacman update/upgrade
-alias spr='sudo pacman -Rns'        # pacman uninstall
-alias spc='paccache -r -k 1'        # pacman clean
-alias pss='pacman -Ss'              # pacman search packages
-alias pqi='pacman -Qi'              # pacman query installed
-alias pqs='pacman -Qs'              # pacman list installed
-alias pqm='pacman -Qm'              # pacman list foreign
-alias prs='paru -S'                 # paru install
-alias pru='paru -Syu'               # paru update/upgrade
-alias prm='paru -Rns'               # paru uninstall
-alias prc='paru -Scc'               # paru clean
-alias prd='paru -Sccd'              # paru clean & delete
+alias {paru,yay}='paru --aur'                # paru/yay
+alias {sps,spi}='sudo pacman -S'             # pacman install
+alias spu='sudo pacman -Syu'                 # pacman update/upgrade
+alias spr='sudo pacman -Rns'                 # pacman uninstall
+alias spc='paccache -r -k 1'                 # pacman clean
+alias pss='pacman -Ss'                       # pacman search packages
+alias pqi='pacman -Qi'                       # pacman query installed
+alias pqs='pacman -Qs'                       # pacman list installed
+alias pqm='pacman -Qm'                       # pacman list foreign
+alias prs='paru -S'                          # paru install
+alias pru='paru -Syu'                        # paru update/upgrade
+alias prm='paru -Rns'                        # paru uninstall
+alias prc='paru -Scc'                        # paru clean
+alias prd='paru -Sccd'                       # paru clean & delete
 alias pqc='sudo pacman -Rs $(pacman -Qtdq)'  # delete unused packages
 #-----------------------------
 # Python
@@ -434,9 +445,9 @@ function gdii () {
 #-----------------------------
 # eza: ls replacement
 alias ls='eza -algh --color=always --group-directories-first'   # default
-alias la='eza -a   --color=always --group-directories-first'    # all files & dirs
-alias ll='eza -l   --color=always --group-directories-first'    # long
-alias lt='eza -aT  --color=always --group-directories-first'    # tree
+alias la='eza -a    --color=always --group-directories-first'   # all files & dirs
+alias ll='eza -l    --color=always --group-directories-first'   # long
+alias lt='eza -aT   --color=always --group-directories-first'   # tree
 alias l.='eza -a | egrep "^\."'                                 # hidden
 alias lsd='eza --list-dirs */'                                  # dirs only
 alias lsl='eza'                                                 # minimal
@@ -510,8 +521,8 @@ function eth() { forx -q "${1:-1}" ETH BRL }    # Ethereum
 export PATH="$HOME/.emacs.d/bin:$PATH"
 #-----------------------------
 # HiDPI in i3 (Arch)
-export GDK_SCALE=2
-export GDK_DPI_SCALE=0.5
+#export GDK_SCALE=2
+#export GDK_DPI_SCALE=0.5
 #-----------------------------
 # force applications to use the default language for output
 export LANG=en_US.UTF-8
