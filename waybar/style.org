@@ -18,6 +18,7 @@
 - [[#network][Network]]
 - [[#pulseaudio][Pulseaudio]]
 - [[#temperature][Temperature]]
+- [[#keyboard-state][Keyboard state]]
 - [[#scratchpad][Scratchpad]]
   - [[#temporary-1][Temporary 1]]
   - [[#temporary-2][Temporary 2]]
@@ -286,6 +287,29 @@ label:focus {
 #+begin_src css
 #temperature.critical {
     background-color: #eb4d4b;
+}
+#+end_src
+* Keyboard state :noexport_1:
+** Normal
+#+begin_src css
+#keyboard-state {
+    background: #97e1ad;
+    color: #000000;
+    padding: 0 0px;
+    margin: 0 5px;
+    min-width: 16px;
+}
+#+end_src
+** Label
+#+begin_src css
+#keyboard-state > label {
+    padding: 0 5px;
+}
+#+end_src
+** Label locked
+#+begin_src css
+#keyboard-state > label.locked {
+    background: rgba(0, 0, 0, 0.2);
 }
 #+end_src
 * Scratchpad
