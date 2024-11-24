@@ -187,6 +187,7 @@ autocmd FileType html inoremap ;p <p></p><Enter><Enter><++><Esc>2ki
 " remap navigation keys
 "================================================
 
+" normal
 " navigation
 nnoremap n h
 nnoremap e j
@@ -222,6 +223,7 @@ nnoremap s i
 "nnoremap f13 + U = Ú
 "nnoremap f13 + C = Ç
 
+" visual
 " navigation
 vnoremap n h
 vnoremap e j
@@ -236,6 +238,7 @@ vnoremap S I
 vnoremap l e
 vnoremap L E
 
+" operator
 " end of word
 onoremap l e
 onoremap L E
