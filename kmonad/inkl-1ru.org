@@ -337,9 +337,9 @@
 ** symbol :noexport_1:
 #+begin_src kbd
 (deflayer symbol
-  {    $    %    ^    }         XX   XX   XX   XX   XX        _  _  _
+  {    $    %    ^    }         @emo {    vold volu }         _  _  _
   ;    !    @    #    \_        @hra @hs  @hc  @hsm @hm       _  _  _
-  grv  &    *    \(   \\        XX   XX   XX   XX   XX        _  _  _
+  grv  &    *    \(   \\        spc  left down up   rght      _  _  _
             _    \)   |         _    XX   XX                  _  _  _
                                                               _  _  _
 )
