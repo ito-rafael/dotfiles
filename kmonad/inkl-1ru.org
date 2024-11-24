@@ -323,7 +323,7 @@
 (defalias
   t2n (tap-hold-next-release 175 tab (layer-toggle navigation))  ;; tab to nav layer
   ;;!!! FIX ME !!!
-  mo1 (tap-hold-next-release 175 XX C-M)   ;; move container to ws 0~9
+  mo1 (tap-hold-next-release 175 XX C-M)     ;; move container to ws 0~9
   mo2 (tap-hold-next-release 175 XX C-S-M)   ;; move container to ws 10~19
   mo3 (tap-hold-next-release 175 XX C-ralt)  ;; move container to ws 20~29
   ;;!!! FIX ME !!!
@@ -356,9 +356,8 @@
   klw A-M-q   ;; kill window
   klt A-M-w   ;; kill tab
   ;;klt (tap-hold-next-release 175 A-M-w f19) ;; double tap
-  fsc  A-M-f  ;; fullscreen
+  fsc A-M-f   ;; fullscreen
   lck M-home  ;; i3/sway mode_system
-  stk A-M-e   ;; i3/sway stacking layout
 
   e2m (tap-hold-next-release 175 ret lmet) ;; enter to left meta
   res A-M-r  ;; i3/sway resize container
@@ -371,6 +370,7 @@
   cpy f17    ;; copy --> redirected with xremap
   pst f18    ;; paste --> redirected with xremap
   ;;TBD A-M-v ;; to be decided
+  ;;stk A-M-e   ;; i3/sway stacking layout
 )
 #+end_src
 **** right hand
@@ -510,11 +510,11 @@
   muc C-F15    ;; microphone up (coarse)
   mdf S-F14    ;; microphone down (fine)
   muf S-F15    ;; microphone up (fine)
-  mm  M-S-F14  ;; mute microphone
+  mm  M-S-f14  ;; mute microphone
 
-  sp  prev  ;; song previous
-  sn  next  ;; song next
-  pp  pp    ;; song play/pause
+  sp  prev     ;; song previous
+  sn  next     ;; song next
+  pp  pp       ;; song play/pause
 )
 #+end_src
 ** luminosity :noexport_1:
@@ -552,7 +552,7 @@
   ;; backlit
   bld KeyKbdIllumUp      ;; backlit up
   blu KeyKbdIllumDown    ;; backlit down
-  boo KeyKbdIllumToggle  ;; backlit on/off
+  ;;boo KeyKbdIllumToggle  ;; backlit on/off
 )
 #+end_src
 ** mouse :noexport_1:
