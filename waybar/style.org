@@ -29,6 +29,8 @@
   - [[#python][Python]]
   - [[#terminal][Terminal]]
   - [[#keymapp][Keymapp]]
+- [[#vpn][VPN]]
+  - [[#la-casa-nostra][La Casa Nostra]]
 - [[#caps-lock][Caps Lock]]
 - [[#mouse-warping][Mouse warping]]
 - [[#dunst][Dunst]]
@@ -428,6 +430,14 @@ label:focus {
 #+begin_src css
 #custom-scratchpad-keymapp.enabled {
     color: green;
+}
+#+end_src
+* VPN
+** La Casa Nostra
+#+begin_src css
+#custom-vpn-lcn.enabled {
+    background-color: #00b0b0;
+    color: white;
 }
 #+end_src
 * Caps Lock
