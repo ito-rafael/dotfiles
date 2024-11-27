@@ -360,7 +360,6 @@
   tab  1    2    3    -         @hra @hs  @hc  @hsm @hm       _  _  _
   z    7    8    9    +         XX   XX   XX   XX   XX        _  _  _
             @clk 0    _         _    _    _                   _  _  _
-            -    0    _         _    _    _                   _  _  _
                                                               _  _  _
 )
 #+end_src
@@ -384,6 +383,10 @@
   sc9 S-A-f9   ;; OBS switch to scene-9
 
   bs  XX        ;; @TBD: black screen
+  ;; activate layer for OBS numbers
+  onl (tap-hold-next-release 175 XX (layer-toggle obs-num))
+  ;; activate base layer (Colemak-DH)
+  clk (layer-toggle colemak)
 )
 #+end_src
 ** window manager :noexport_1:
