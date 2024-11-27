@@ -11,11 +11,11 @@
 )
 
 (defsrc
-  q    w    f    p    b         j    l    u    y    ;               /    kp*  -
+  q    w    f    p    b         j    l    u    y    ;               kp/  kp*  kp-
   a    r    s    t    g         m    n    e    i    o               4    5    6
   z    x    c    d    v         k    h    ,    .    /               1    2    3
             esc  spc  tab       -    ret  bspc                      7    8    9
-                                                                    0    .    =
+                                                                    0    kp.  kp+
 )
 
 (defalias
@@ -41,15 +41,14 @@
   mou (tap-hold-next-release 175 tab  (layer-toggle mouse))
 
   ;; colemak-dh
+  msc (tap-hold-next-release 175 w (layer-toggle misc))
   med (tap-hold-next-release 175 f (layer-toggle media))
-  obs (tap-hold-next-release 175 y (layer-toggle obs-studio))
   lum (tap-hold-next-release 175 z (layer-toggle luminosity))
   fn1 (tap-hold-next-release 175 k (layer-toggle function-keys-1))
   fn2 (tap-hold-next-release 175 v (layer-toggle function-keys-2))
 
   ;; qwerty
   qmd (tap-hold-next-release 175 e (layer-toggle media))
-  qob (tap-hold-next-release 175 o (layer-toggle obs-studio))
   qlm (tap-hold-next-release 175 z (layer-toggle luminosity))
   qf1 (tap-hold-next-release 175 n (layer-toggle function-keys-1))
   qf2 (tap-hold-next-release 175 b (layer-toggle function-keys-2))
@@ -92,7 +91,7 @@
 )
 
 (deflayer colemak
-  q    w    @med p    b         j    l    u    @obs f13       _  _  _
+  q    @msc @med p    b         j    l    u    y    f13       _  _  _
   ;;@a2m @r2a @s2c @t2s @g2a      @m2a @n2s @e2c @i2m @o2m      7  8  9
   @mka @mkr @mks @mkt @mkg      @mkm @mkn @mke @mki @mko      _  _  _
   @lum x    c    d    @fn2      @fn1 h    ,    .    /         _  _  _
@@ -140,7 +139,7 @@
 )
 
 (deflayer number
-  [    4    5    6    ]         XX   XX   XX   XX   XX        _  _  _
+  [    4    5    6    ]         XX   @vp1 @vp2 @vp3 @vp4      _  _  _
   :    1    2    3    -         @mo3 @hs  @hc  @mo2 @mo1      _  _  _
   ~    7    8    9    +         XX   spc  ,    .    /         _  _  _
             @t2n 0    =         _    _    _                   _  _  _
@@ -150,61 +149,98 @@
 (defalias
   t2n (tap-hold-next-release 175 tab (layer-toggle navigation))  ;; tab to nav layer
   ;;!!! FIX ME !!!
-  mo1 (tap-hold-next-release 175 XX C-M)   ;; move container to ws 0~9
+  mo1 (tap-hold-next-release 175 XX C-M)     ;; move container to ws 0~9
   mo2 (tap-hold-next-release 175 XX C-S-M)   ;; move container to ws 10~19
   mo3 (tap-hold-next-release 175 XX C-ralt)  ;; move container to ws 20~29
   ;;!!! FIX ME !!!
+
+  vp1 M-A-1  ;; connect to VPN #1: La Casa Nostra
+  vp2 M-A-2  ;; connect to VPN #2: Unicamp
+  vp3 M-A-3  ;; connect to VPN #3: LBiC
+  vp4 M-A-4  ;; connect to VPN #4: Samsung
 )
 
 (deflayer symbol
-  {    $    %    ^    }         XX   XX   XX   XX   XX        _  _  _
+  {    $    %    ^    }         @emo {    vold volu }         _  _  _
   ;    !    @    #    \_        @hra @hs  @hc  @hsm @hm       _  _  _
-  grv  &    *    \(   \\        XX   XX   XX   XX   XX        _  _  _
+  grv  &    *    \(   \\        spc  left down up   rght      _  _  _
             _    \)   |         _    XX   XX                  _  _  _
                                                               _  _  _
 )
 
-(deflayer navigation
-  XX   XX   XX   f2   XX        XX   @ps  home end  XX        _  _  _
-  @hm  @ren @hc  @hs  @hra      caps left down up   rght      _  _  _
-  XX   XX   XX   XX   XX        @num @sps pgdn pgup XX        _  _  _
-            _    _    _         _    _    del                 _  _  _
+(defalias
+  emo A-C-e  ;; launch Emote emoji picker
+)
+
+(deflayer obs
+  @op1 @sc4 @sc5 @sc6 @rcd      XX   XX   XX   XX   XX        _  _  _
+  @op0 @sc1 @sc2 @sc3 -         @hra @hs  @hc  @hsm @hm       _  _  _
+  @op2 @sc7 @sc8 @sc9 +         XX   XX   XX   XX   XX        _  _  _
+            up   down @onl      _    _    _                   _  _  _
+                                                              _  _  _
+)
+
+(deflayer obs-num
+  esc  4    5    6    XX        XX   XX   XX   XX   XX        _  _  _
+  tab  1    2    3    -         @hra @hs  @hc  @hsm @hm       _  _  _
+  z    7    8    9    +         XX   XX   XX   XX   XX        _  _  _
+            @clk 0    _         _    _    _                   _  _  _
                                                               _  _  _
 )
 
 (defalias
-  ps  prnt    ;; PrintScreen
-  sps S-prnt  ;; Shift-PrintScreen
-  ren (tap-hold-next-release 175 f2 lalt) ;; rename (F2) to alt_L
+  ;; outputs
+  op0 S-A-f10  ;; OBS switch to output-0
+  op1 S-A-f11  ;; OBS switch to output-1
+  op2 S-A-f12  ;; OBS switch to output-2
+
+  ;; scenes
+  sc1 S-A-f1   ;; OBS switch to scene-1
+  sc2 S-A-f2   ;; OBS switch to scene-2
+  sc3 S-A-f3   ;; OBS switch to scene-3
+  sc4 S-A-f4   ;; OBS switch to scene-4
+  sc5 S-A-f5   ;; OBS switch to scene-5
+  sc6 S-A-f6   ;; OBS switch to scene-6
+  sc7 S-A-f7   ;; OBS switch to scene-7
+  sc8 S-A-f8   ;; OBS switch to scene-8
+  sc9 S-A-f9   ;; OBS switch to scene-9
+
+  bs  XX        ;; @TBD: black screen
+  rcd S-A-f14   ;; OBS toggle recording
+
+  ;; activate layer for OBS numbers
+  onl (tap-hold-next-release 175 XX (layer-toggle obs-num))
+  ;; activate base layer (Colemak-DH)
+  clk (layer-toggle colemak)
 )
 
 (deflayer window-manager
-  @klw @klt @fsc @lck @stk      @spp @ofl @wsn @wsp @ofr      _  _  _
-  @e2m @res @flt @ter XX        @spt @wfl @wfd @wfu @wfr      _  _  _
-  @spl @emx @cpy @pst XX        @spu @wml @wmd @wmu @wmr      _  _  _
-            _    XX   _         _    @rof del                 _  _  _
+  @klw @klt @fsc @lck @spw      @spp @ofl @wsn @wsp @ofr      _  _  _
+  @e2m @res @flt @ter @spy      @spt @wfl @wfd @wfu @wfr      _  _  _
+  @spl @emx @cpy @pst @sps      @spu @spa @sp1 @sp2 @sp3      _  _  _
+            _    XX   _         _    @rof @emc                _  _  _
                                                               _  _  _
 )
 
 (defalias
   klw A-M-q   ;; kill window
   klt A-M-w   ;; kill tab
-  ;;klt (tap-hold-next-release 175 A-M-w f19) ;; double tap
-  fsc  A-M-f  ;; fullscreen
+  fsc A-M-f   ;; fullscreen
   lck M-home  ;; i3/sway mode_system
-  stk A-M-e   ;; i3/sway stacking layout
 
-  e2m (tap-hold-next-release 175 ret lmet) ;; enter to left meta
-  res A-M-r  ;; i3/sway resize container
-  flt A-M-d  ;; i3/sway floating mode
-  ter A-M-t  ;; open terminal
-  ;;TBD (tap-hold-next-release 175 A-M-g ralt) ;; to be decided
+  e2m (tap-hold-next-release 175 ret   lmet)  ;; enter to left meta
+  res (tap-hold-next-release 175 A-M-r lalt)  ;; i3/sway resize container
+  flt (tap-hold-next-release 175 A-M-d lctl)  ;; i3/sway floating mode
+  ter (tap-hold-next-release 175 A-M-t lsft)  ;; open terminal
+  spy (tap-hold-next-release 175 M-g   ralt)  ;; scratchpad YouTube Music
 
   spl A-M-z  ;; i3/sway toggle horizontal/vertical orientation split
   emx f16    ;; Emacs M-x --> redirected with xremap
   cpy f17    ;; copy --> redirected with xremap
   pst f18    ;; paste --> redirected with xremap
-  ;;TBD A-M-v ;; to be decided
+
+  spw M-b  ;; scratchpad WhatsApp
+  sps M-v  ;; scratchpad scrcpy
 )
 
 (defalias
@@ -218,16 +254,34 @@
   wfu M-up     ;; focus window up
   wfr M-right  ;; focus window right
 
-  wml S-M-left   ;; move window left
-  wmd S-M-down   ;; move window down
-  wmu S-M-up     ;; move window up
-  wmr S-M-right  ;; move window right
+  sp1 M-,  ;; scratchpad temp #1
+  sp2 M-.  ;; scratchpad temp #2
+  sp3 M-/  ;; scratchpad temp #3
 
-  spp M-y  ;; scratchpad python
-  spt M-h  ;; scratchpad terminal
-  spu M-n  ;; scratchpad undefined (TBD)
+  spa M-h  ;; scratchpad agenda
+  spp M-j  ;; scratchpad python
+  spt M-m  ;; scratchpad terminal
+  spu M-k  ;; scratchpad Keymapp
 
   rof M-ret  ;; open rofi (application launcher)
+  emc A-C-l  ;; launch emacsclient
+)
+
+(deflayer navigation
+  XX   XX   XX   f2   XX        @clw @ps  home end  XX        _  _  _
+  @hm  @ren @hc  @hs  @hra      caps left down up   rght      _  _  _
+  XX   x    XX   @obs XX        @key @pss pgdn pgup XX        _  _  _
+            _    _    _         _    _    del                 _  _  _
+                                                              _  _  _
+)
+
+(defalias
+  clw XX    ;; @TBD: Caps WORD
+  ps  prnt    ;; PrintScreen
+  pss S-prnt  ;; Shift-PrintScreen
+  key A-C-k   ;; launch screenkey
+  ren (tap-hold-next-release 175 f2 lalt) ;; rename (F2) to alt_L
+  obs (tap-hold-next-release 175 XX (layer-toggle obs))  ;; OBS recording layer
 )
 
 (deflayer out1
@@ -303,25 +357,25 @@
 (defalias
   vdc vold     ;; volume down (coarse)
   vuc volu     ;; volume up (coarse)
-  vdf C-S-F14  ;; volume down (fine)
-  vuf C-S-F15  ;; volume up (fine)
+  vdf f15      ;; volume down (fine)
+  vuf C-f15    ;; volume up (fine)
   vm  mute     ;; mute volume
 
-  mdc C-F14    ;; microphone down (coarse)
-  muc C-F15    ;; microphone up (coarse)
-  mdf S-F14    ;; microphone down (fine)
-  muf S-F15    ;; microphone up (fine)
-  mm  M-S-F14  ;; mute microphone
+  mdc f14      ;; microphone down (coarse)
+  muc C-f14    ;; microphone up (coarse)
+  mdf S-f14    ;; microphone down (fine)
+  muf C-S-f14  ;; microphone up (fine)
+  mm  M-S-f14  ;; mute microphone
 
-  sp  prev  ;; song previous
-  sn  next  ;; song next
-  pp  pp    ;; song play/pause
+  sp  prev     ;; song previous
+  sn  next     ;; song next
+  pp  pp       ;; song play/pause
 )
 
 (deflayer luminosity
   XX   XX   XX   f2   XX        @loo @lsd @ugd @ugu @lsu      _  _  _
   @hm  @ha  @hc  @hs  @hra      @goo @gmd @bnd @bnu @gmu      _  _  _
-  XX   XX   XX   XX   XX        @boo XX   @bld @blu XX        _  _  _
+  XX   XX   XX   XX   XX        @ooo @opd @bld @blu @opu        _  _  _
             _    _    _         _    XX   XX                  _  _  _
                                                               _  _  _
 )
@@ -349,7 +403,12 @@
   ;; backlit
   bld KeyKbdIllumUp      ;; backlit up
   blu KeyKbdIllumDown    ;; backlit down
-  boo KeyKbdIllumToggle  ;; backlit on/off
+  ;;boo KeyKbdIllumToggle  ;; backlit on/off
+
+  ;; opacity
+  opd f19    ;; opacity down
+  opu C-f19  ;; opacity up
+  ooo M-f19  ;; opacity on/off
 )
 
 (deflayer mouse
@@ -379,34 +438,37 @@
   mbr kp-  ;; right button click  (button3)
 )
 
-(deflayer obs-studio
-  @op1 @sc4 @sc5 @sc6 XX        XX   XX   XX   XX   XX        _  _  _
-  @op0 @sc1 @sc2 @sc3 XX        @hra @hs  @hc  @hsm @hm       _  _  _
-  @op2 @sc7 @sc8 @sc9 XX        XX   XX   XX   XX   XX        _  _  _
-            @bs  _    _         _    _    _                   _  _  _
+(deflayer misc
+  _    _    _    @cyp _         _    @me2 @me3 @cyy _         _  _  _
+  @sla @cyr @mst @mnh @mca      _    @me1 @cye @mid @slo      _  _  _
+  _    _    @mzc @mpn _         _    @mnm _    _    _         _  _  _
+            _    _    _         _    _    _                   _  _  _
                                                               _  _  _
 )
 
 (defalias
-  ;; scenes
-  sc0 XX  ;; scene 0
-  sc1 XX  ;; scene 1
-  sc2 XX  ;; scene 2
-  sc3 XX  ;; scene 3
-  sc4 XX  ;; scene 4
-  sc5 XX  ;; scene 5
-  sc6 XX  ;; scene 6
-  sc7 XX  ;; scene 7
-  sc8 XX  ;; scene 8
-  sc9 XX  ;; scene 9
+  ;; superscript letters
+  sla RA-a  ;; ª
+  slo RA-o  ;; º
 
-  ;; outputs
-  op0 XX  ;; output 0
-  op1 XX  ;; output 1
-  op2 XX  ;; output 2
+  ;; currency
+  cyp RA-p  ;; £/GBP sterling
+  cye RA-e  ;; €/EUR euro
+  cyr RA-r  ;; ₽/RUB ruble
+  cyy RA-y  ;; ￥/JPY yen
 
-  ;; others
-  bs  XX  ;; black screen
+  ;; macro
+  mst RA-s  ;; street
+  mnh RA-t  ;; neighborhood
+  mca RA-g  ;; address complement
+  mzc RA-c  ;; zip code
+  mpn RA-d  ;; phone number
+  ;;----------
+  mnm RA-h  ;; name
+  me1 RA-n  ;; email #1: personal
+  me2 RA-l  ;; email #2: Unicamp/DAC
+  me3 RA-u  ;; email #3: Unicamp/Recod
+  mid RA-i  ;; ID number
 )
 
 (deflayer function-keys-1

@@ -76,6 +76,7 @@
   lctl              lmet  lalt            spc           ralt  /     left   up    rght        kp0     kp.
                                                                            down
 )
+#+end_src
 *** after udev/hwdb
 #+begin_src kbd :tangle no
 (deflayer template
