@@ -31,6 +31,7 @@
   - [[#media][media]]
   - [[#luminosity][luminosity]]
   - [[#mouse][mouse]]
+  - [[#miscellaneous][miscellaneous]]
   - [[#fn1][fn1]]
   - [[#fn2][fn2]]
 
@@ -188,6 +189,7 @@
   mou (tap-hold-next-release 175 tab  (layer-toggle mouse))
 
   ;; colemak-dh
+  msc (tap-hold-next-release 175 w (layer-toggle misc))
   med (tap-hold-next-release 175 f (layer-toggle media))
   lum (tap-hold-next-release 175 z (layer-toggle luminosity))
   fn1 (tap-hold-next-release 175 k (layer-toggle function-keys-1))
@@ -648,13 +650,24 @@
   mbr kp-  ;; right button click  (button3)
 )
 #+end_src
+** miscellaneous :noexport_1:
 #+begin_src kbd
+(deflayer misc
+  _    _    _    _    _         _    _    _    _    _         _  _  _
+  @sla _    _    _    _         _    _    _    _    @slo      _  _  _
+  _    _    _    _    _         _    _    _    _    _         _  _  _
+            _    _    _         _    _    _                   _  _  _
+                                                              _  _  _
+)
                                                               _  _  _
 )
 #+end_src
 *** alias
 #+begin_src kbd
 (defalias
+  ;; superscript letters
+  sla RA-a  ;; ª
+  slo RA-o  ;; º
 
 
 )
