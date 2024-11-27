@@ -654,8 +654,8 @@
 #+begin_src kbd
 (deflayer misc
   _    _    _    @cyp _         _    _    _    @cyy _         _  _  _
-  @sla @cyr _    _    _         _    _    @cye _    @slo      _  _  _
-  _    _    _    _    _         _    _    _    _    _         _  _  _
+  @sla @cyr @mst @mnh @mca      _    _    @cye _    @slo      _  _  _
+  _    _    @mzc @mpn _         _    _    _    _    _         _  _  _
             _    _    _         _    _    _                   _  _  _
                                                               _  _  _
 )
@@ -675,6 +675,12 @@
   cyr RA-r  ;; ₽/RUB ruble
   cyy RA-y  ;; ￥/JPY yen
 
+  ;; macro
+  mst RA-s  ;; street
+  mnh RA-t  ;; neighborhood
+  mca RA-g  ;; address complement
+  mzc RA-c  ;; zip code
+  mpn RA-d  ;; phone number
 )
 #+end_src
 ** fn1 :noexport_1:
