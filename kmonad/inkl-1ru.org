@@ -346,10 +346,10 @@
 ** window manager :noexport_1:
 #+begin_src kbd
 (deflayer window-manager
-            _    XX   _         _    @rof del                 _  _  _
   @klw @klt @fsc @lck @spw      @spp @ofl @wsn @wsp @ofr      _  _  _
   @e2m @res @flt @ter @spy      @spt @wfl @wfd @wfu @wfr      _  _  _
   @spl @emx @cpy @pst @sps      @spu @spa @sp1 @sp2 @sp3      _  _  _
+            _    XX   _         _    @rof @emc                _  _  _
                                                               _  _  _
 )
 #+end_src
@@ -400,6 +400,7 @@
   spu M-k  ;; scratchpad Keymapp
 
   rof M-ret  ;; open rofi (application launcher)
+  emc A-C-l  ;; launch emacsclient
 )
 #+end_src
 ** navigation :noexport_1:
