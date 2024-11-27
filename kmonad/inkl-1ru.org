@@ -359,15 +359,13 @@
 (defalias
   klw A-M-q   ;; kill window
   klt A-M-w   ;; kill tab
-  ;;klt (tap-hold-next-release 175 A-M-w f19) ;; double tap
   fsc A-M-f   ;; fullscreen
   lck M-home  ;; i3/sway mode_system
 
-  e2m (tap-hold-next-release 175 ret lmet) ;; enter to left meta
-  res A-M-r  ;; i3/sway resize container
-  flt A-M-d  ;; i3/sway floating mode
-  ter A-M-t  ;; open terminal
-  ;;TBD (tap-hold-next-release 175 A-M-g ralt) ;; to be decided
+  e2m (tap-hold-next-release 175 ret   lmet)  ;; enter to left meta
+  res (tap-hold-next-release 175 A-M-r lalt)  ;; i3/sway resize container
+  flt (tap-hold-next-release 175 A-M-d lctl)  ;; i3/sway floating mode
+  ter (tap-hold-next-release 175 A-M-t lsft)  ;; open terminal
   spy (tap-hold-next-release 175 M-g   ralt)  ;; scratchpad YouTube Music
 
   spl A-M-z  ;; i3/sway toggle horizontal/vertical orientation split
