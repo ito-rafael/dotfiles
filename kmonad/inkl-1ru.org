@@ -529,7 +529,7 @@
 (deflayer luminosity
   XX   XX   XX   f2   XX        @loo @lsd @ugd @ugu @lsu      _  _  _
   @hm  @ha  @hc  @hs  @hra      @goo @gmd @bnd @bnu @gmu      _  _  _
-  XX   XX   XX   XX   XX        @boo XX   @bld @blu XX        _  _  _
+  XX   XX   XX   XX   XX        @ooo @opd @bld @blu @opu        _  _  _
             _    _    _         _    XX   XX                  _  _  _
                                                               _  _  _
 )
@@ -560,6 +560,11 @@
   bld KeyKbdIllumUp      ;; backlit up
   blu KeyKbdIllumDown    ;; backlit down
   ;;boo KeyKbdIllumToggle  ;; backlit on/off
+
+  ;; opacity
+  opd f19    ;; opacity down
+  opu C-f19  ;; opacity up
+  ooo M-f19  ;; opacity on/off
 )
 #+end_src
 ** mouse :noexport_1:
