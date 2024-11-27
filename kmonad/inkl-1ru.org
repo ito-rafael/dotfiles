@@ -406,16 +406,17 @@
 ** navigation :noexport_1:
 #+begin_src kbd
 (deflayer navigation
--  XX   XX   XX   f2   XX        XX   @ps  home end  XX        _  _  _
--  @hm  @ren @hc  @hs  @hra      caps left down up   rght      _  _  _
--            _    _    _         _    _    del                 _  _  _
   XX   x    XX   XX   XX        @key @pss pgdn pgup XX        _  _  _
+  XX   XX   XX   f2   XX        @clw @ps  home end  XX        _  _  _
+  @hm  @ren @hc  @hs  @hra      caps left down up   rght      _  _  _
+            _    _    _         _    _    del                 _  _  _
                                                               _  _  _
 )
 #+end_src
 *** alias
 #+begin_src kbd
 (defalias
+  clw XX    ;; @TBD: Caps WORD
   ps  prnt    ;; PrintScreen
   pss S-prnt  ;; Shift-PrintScreen
   key A-C-k   ;; launch screenkey
