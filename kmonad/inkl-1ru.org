@@ -19,6 +19,8 @@
   - [[#colemak-dh][colemak-dh]]
   - [[#number][number]]
   - [[#symbol][symbol]]
+  - [[#obs][OBS]]
+    - [[#obs-1][obs]]
   - [[#window-manager][window manager]]
   - [[#navigation][navigation]]
   - [[#outputs][outputs]]
@@ -28,7 +30,6 @@
   - [[#media][media]]
   - [[#luminosity][luminosity]]
   - [[#mouse][mouse]]
-  - [[#obs][obs]]
   - [[#fn1][fn1]]
   - [[#fn2][fn2]]
 
@@ -343,6 +344,30 @@
                                                               _  _  _
 )
 #+end_src
+** OBS
+*** obs
+*** alias :noexport:
+#+begin_src kbd
+(defalias
+  ;; outputs
+  op0 S-A-f10  ;; OBS switch to output-0
+  op1 S-A-f11  ;; OBS switch to output-1
+  op2 S-A-f12  ;; OBS switch to output-2
+
+  ;; scenes
+  sc1 S-A-f1   ;; OBS switch to scene-1
+  sc2 S-A-f2   ;; OBS switch to scene-2
+  sc3 S-A-f3   ;; OBS switch to scene-3
+  sc4 S-A-f4   ;; OBS switch to scene-4
+  sc5 S-A-f5   ;; OBS switch to scene-5
+  sc6 S-A-f6   ;; OBS switch to scene-6
+  sc7 S-A-f7   ;; OBS switch to scene-7
+  sc8 S-A-f8   ;; OBS switch to scene-8
+  sc9 S-A-f9   ;; OBS switch to scene-9
+
+  bs  XX        ;; @TBD: black screen
+)
+#+end_src
 ** window manager :noexport_1:
 #+begin_src kbd
 (deflayer window-manager
@@ -598,7 +623,6 @@
   mbr kp-  ;; right button click  (button3)
 )
 #+end_src
-** obs
 #+begin_src kbd
 (deflayer obs-studio
   @op1 @sc4 @sc5 @sc6 XX        XX   XX   XX   XX   XX        _  _  _
@@ -611,25 +635,8 @@
 *** alias
 #+begin_src kbd
 (defalias
-  ;; scenes
-  sc0 XX  ;; scene 0
-  sc1 XX  ;; scene 1
-  sc2 XX  ;; scene 2
-  sc3 XX  ;; scene 3
-  sc4 XX  ;; scene 4
-  sc5 XX  ;; scene 5
-  sc6 XX  ;; scene 6
-  sc7 XX  ;; scene 7
-  sc8 XX  ;; scene 8
-  sc9 XX  ;; scene 9
 
-  ;; outputs
-  op0 XX  ;; output 0
-  op1 XX  ;; output 1
-  op2 XX  ;; output 2
 
-  ;; others
-  bs  XX  ;; black screen
 )
 #+end_src
 ** fn1 :noexport_1:
