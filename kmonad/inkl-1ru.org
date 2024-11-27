@@ -345,6 +345,12 @@
                                                               _  _  _
 )
 #+end_src
+*** alias
+#+begin_src kbd
+(defalias
+  emo A-C-e  ;; launch Emote emoji picker
+)
+#+end_src
 ** OBS
 *** obs
 #+begin_src kbd
