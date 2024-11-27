@@ -653,12 +653,10 @@
 ** miscellaneous :noexport_1:
 #+begin_src kbd
 (deflayer misc
-  _    _    _    @cyp _         _    _    _    @cyy _         _  _  _
-  @sla @cyr @mst @mnh @mca      _    _    @cye _    @slo      _  _  _
-  _    _    @mzc @mpn _         _    _    _    _    _         _  _  _
+  _    _    _    @cyp _         _    @me2 @me3 @cyy _         _  _  _
+  @sla @cyr @mst @mnh @mca      _    @me1 @cye @mid @slo      _  _  _
+  _    _    @mzc @mpn _         _    @mnm _    _    _         _  _  _
             _    _    _         _    _    _                   _  _  _
-                                                              _  _  _
-)
                                                               _  _  _
 )
 #+end_src
@@ -681,6 +679,12 @@
   mca RA-g  ;; address complement
   mzc RA-c  ;; zip code
   mpn RA-d  ;; phone number
+  ;;----------
+  mnm RA-h  ;; name
+  me1 RA-n  ;; email #1: personal
+  me2 RA-l  ;; email #2: Unicamp/DAC
+  me3 RA-u  ;; email #3: Unicamp/Recod
+  mid RA-i  ;; ID number
 )
 #+end_src
 ** fn1 :noexport_1:
