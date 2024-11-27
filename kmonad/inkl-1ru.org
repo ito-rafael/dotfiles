@@ -5,7 +5,6 @@
 #+STARTUP: showeverything
 #+auto_tangle: t
 
-
 * Table of Contents :toc_3:
 - [[#initial-config][Initial config]]
   - [[#input][Input]]
@@ -349,8 +348,8 @@
 (deflayer window-manager
   @klw @klt @fsc @lck @stk      @spp @ofl @wsn @wsp @ofr      _  _  _
   @e2m @res @flt @ter XX        @spt @wfl @wfd @wfu @wfr      _  _  _
-  @spl @emx @cpy @pst XX        @spu @wml @wmd @wmu @wmr      _  _  _
             _    XX   _         _    @rof del                 _  _  _
+  @spl @emx @cpy @pst @XX       @spu @wml @sp1 @sp2 @sp3      _  _  _
                                                               _  _  _
 )
 #+end_src
@@ -392,9 +391,9 @@
   wfr M-right  ;; focus window right
 
   wml S-M-left   ;; move window left
-  wmd S-M-down   ;; move window down
-  wmu S-M-up     ;; move window up
-  wmr S-M-right  ;; move window right
+  sp1 M-,  ;; scratchpad temp #1
+  sp2 M-.  ;; scratchpad temp #2
+  sp3 M-/  ;; scratchpad temp #3
 
   spp M-y  ;; scratchpad python
   spt M-h  ;; scratchpad terminal
