@@ -346,10 +346,10 @@
 ** window manager :noexport_1:
 #+begin_src kbd
 (deflayer window-manager
-  @klw @klt @fsc @lck @stk      @spp @ofl @wsn @wsp @ofr      _  _  _
-  @e2m @res @flt @ter XX        @spt @wfl @wfd @wfu @wfr      _  _  _
             _    XX   _         _    @rof del                 _  _  _
-  @spl @emx @cpy @pst @XX       @spu @wml @sp1 @sp2 @sp3      _  _  _
+  @klw @klt @fsc @lck @spw      @spp @ofl @wsn @wsp @ofr      _  _  _
+  @e2m @res @flt @ter @spy      @spt @wfl @wfd @wfu @wfr      _  _  _
+  @spl @emx @cpy @pst @sps      @spu @spa @sp1 @sp2 @sp3      _  _  _
                                                               _  _  _
 )
 #+end_src
@@ -368,13 +368,15 @@
   flt A-M-d  ;; i3/sway floating mode
   ter A-M-t  ;; open terminal
   ;;TBD (tap-hold-next-release 175 A-M-g ralt) ;; to be decided
+  spy (tap-hold-next-release 175 M-g   ralt)  ;; scratchpad YouTube Music
 
   spl A-M-z  ;; i3/sway toggle horizontal/vertical orientation split
   emx f16    ;; Emacs M-x --> redirected with xremap
   cpy f17    ;; copy --> redirected with xremap
   pst f18    ;; paste --> redirected with xremap
-  ;;TBD A-M-v ;; to be decided
-  ;;stk A-M-e   ;; i3/sway stacking layout
+
+  spw M-b  ;; scratchpad WhatsApp
+  sps M-v  ;; scratchpad scrcpy
 )
 #+end_src
 **** right hand
@@ -390,14 +392,14 @@
   wfu M-up     ;; focus window up
   wfr M-right  ;; focus window right
 
-  wml S-M-left   ;; move window left
   sp1 M-,  ;; scratchpad temp #1
   sp2 M-.  ;; scratchpad temp #2
   sp3 M-/  ;; scratchpad temp #3
 
-  spp M-y  ;; scratchpad python
-  spt M-h  ;; scratchpad terminal
-  spu M-n  ;; scratchpad undefined (TBD)
+  spa M-h  ;; scratchpad agenda
+  spp M-j  ;; scratchpad python
+  spt M-m  ;; scratchpad terminal
+  spu M-k  ;; scratchpad Keymapp
 
   rof M-ret  ;; open rofi (application launcher)
 )
