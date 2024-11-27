@@ -408,8 +408,8 @@
 (deflayer navigation
 -  XX   XX   XX   f2   XX        XX   @ps  home end  XX        _  _  _
 -  @hm  @ren @hc  @hs  @hra      caps left down up   rght      _  _  _
--  XX   XX   XX   XX   XX        @num @sps pgdn pgup XX        _  _  _
 -            _    _    _         _    _    del                 _  _  _
+  XX   x    XX   XX   XX        @num @pss pgdn pgup XX        _  _  _
                                                               _  _  _
 )
 #+end_src
@@ -417,7 +417,7 @@
 #+begin_src kbd
 (defalias
   ps  prnt    ;; PrintScreen
-  sps S-prnt  ;; Shift-PrintScreen
+  pss S-prnt  ;; Shift-PrintScreen
   ren (tap-hold-next-release 175 f2 lalt) ;; rename (F2) to alt_L
 )
 #+end_src
