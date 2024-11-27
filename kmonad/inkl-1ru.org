@@ -653,8 +653,8 @@
 ** miscellaneous :noexport_1:
 #+begin_src kbd
 (deflayer misc
-  _    _    _    _    _         _    _    _    _    _         _  _  _
-  @sla _    _    _    _         _    _    _    _    @slo      _  _  _
+  _    _    _    @cyp _         _    _    _    @cyy _         _  _  _
+  @sla @cyr _    _    _         _    _    @cye _    @slo      _  _  _
   _    _    _    _    _         _    _    _    _    _         _  _  _
             _    _    _         _    _    _                   _  _  _
                                                               _  _  _
@@ -669,6 +669,11 @@
   sla RA-a  ;; ª
   slo RA-o  ;; º
 
+  ;; currency
+  cyp RA-p  ;; £/GBP sterling
+  cye RA-e  ;; €/EUR euro
+  cyr RA-r  ;; ₽/RUB ruble
+  cyy RA-y  ;; ￥/JPY yen
 
 )
 #+end_src
