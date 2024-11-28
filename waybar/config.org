@@ -39,6 +39,7 @@
 - [[#mouse-warping][Mouse warping]]
 - [[#dunst][Dunst]]
 - [[#pacman][Pacman]]
+- [[#kmonad][KMonad]]
 - [[#json-footer][JSON footer]]
 
 * JSON header
@@ -77,6 +78,7 @@
     "custom/mouse-warping",
     "custom/dunst",
     "custom/pacman",
+    "custom/kmonad",
     "mpris",
     "cpu",
     "memory",
@@ -407,6 +409,23 @@
         "low":    "<span color=\"#999\"></span>",
         "medium": "<span color=\"#FF7\"></span>",
         "high":   "<span color=\"#F33\"></span>",
+    },
+},
+#+end_src
+* KMonad
+#+begin_src json
+"custom/kmonad": {
+    "return-type": "json",
+    "exec": "sudo bash /home/rafael/.config/waybar/scripts/kmonad.sh monitor",
+    "on-click": "sudo bash /home/rafael/.config/waybar/scripts/kmonad.sh toggle",
+    "on-click-right": "sudo bash /home/rafael/.config/waybar/scripts/kmonad.sh stop",
+    "on-click-middle": "sudo bash /home/rafael/.config/waybar/scripts/kmonad.sh restart",
+    "format": " {} {icon} ",
+    "format-icons": {
+        "active":   "<span color=\"#393\"></span>",
+        "inactive": "<span color=\"#999\"></span>",
+        "failed":   "<span color=\"#F33\"></span>",
+        "unknown":  "<span color=\"#F33\"></span>",
     },
 },
 #+end_src
