@@ -198,6 +198,7 @@ alias {tarx,tx}='tar -xvzf'
 alias wdf='watch -n1 df -h'
 alias fl='faillock --user $USER --reset'
 alias kb='pkill brave && brave &'
+alias km='sudo bash /home/rafael/.config/waybar/scripts/kmonad.sh'
 alias ssh='kitten ssh --kitten=color_scheme=themes/ssh.conf'
 alias cmd='command'
 function cv() { cat $1 | vim - }
