@@ -368,3 +368,19 @@ label:focus {
 #custom-pacman.high {
     color: lightgray;
 }
+
+#custom-kmonad.active {
+    color: green;
+}
+
+#custom-kmonad.inactive {
+    color: gray;
+}
+
+#custom-kmonad.failed {
+    color: red;
+}
+
+#custom-kmonad.unknown {
+    color: yellow;
+}

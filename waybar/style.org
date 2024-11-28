@@ -35,6 +35,7 @@
 - [[#mouse-warping][Mouse warping]]
 - [[#dunst][Dunst]]
 - [[#pacman][Pacman]]
+- [[#kmonad][KMonad]]
 
 * Initial config :noexport_1:
 ** Font
@@ -490,5 +491,30 @@ label:focus {
 #+begin_src css
 #custom-pacman.high {
     color: lightgray;
+}
+#+end_src
+* KMonad                                                         :noexport_1:
+** Active
+#+begin_src css
+#custom-kmonad.active {
+    color: green;
+}
+#+end_src
+** Inactive
+#+begin_src css
+#custom-kmonad.inactive {
+    color: gray;
+}
+#+end_src
+** Failed
+#+begin_src css
+#custom-kmonad.failed {
+    color: red;
+}
+#+end_src
+** Unknown
+#+begin_src css
+#custom-kmonad.unknown {
+    color: yellow;
 }
 #+end_src
