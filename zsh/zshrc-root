@@ -1,3 +1,11 @@
+#=======================================
+# plugins
+#=======================================
+plugins=()
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+#=======================================
+# set history file
+#=======================================
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
