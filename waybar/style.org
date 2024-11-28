@@ -33,6 +33,7 @@
   - [[#la-casa-nostra][La Casa Nostra]]
   - [[#unicamp][Unicamp]]
   - [[#lbic][LBiC]]
+  - [[#samsung][Samsung]]
 - [[#caps-lock][Caps Lock]]
 - [[#mouse-warping][Mouse warping]]
 - [[#dunst][Dunst]]
@@ -453,6 +454,13 @@ label:focus {
 ** LBiC
 #+begin_src css
 #custom-vpn-lbic.enabled {
+    background-color: #00b0b0;
+    color: white;
+}
+#+end_src
+** Samsung
+#+begin_src css
+#custom-vpn-samsung.enabled {
     background-color: #00b0b0;
     color: white;
 }
