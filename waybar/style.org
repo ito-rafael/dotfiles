@@ -31,6 +31,7 @@
   - [[#keymapp][Keymapp]]
 - [[#vpn][VPN]]
   - [[#la-casa-nostra][La Casa Nostra]]
+  - [[#unicamp][Unicamp]]
 - [[#caps-lock][Caps Lock]]
 - [[#mouse-warping][Mouse warping]]
 - [[#dunst][Dunst]]
@@ -437,6 +438,13 @@ label:focus {
 ** La Casa Nostra
 #+begin_src css
 #custom-vpn-lcn.enabled {
+    background-color: #00b0b0;
+    color: white;
+}
+#+end_src
+** Unicamp
+#+begin_src css
+#custom-vpn-unicamp.enabled {
     background-color: #00b0b0;
     color: white;
 }
