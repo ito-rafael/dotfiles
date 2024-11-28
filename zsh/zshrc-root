@@ -3,6 +3,8 @@
 #=======================================
 plugins=()
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.zsh
+
 #=======================================
 # set history file
 #=======================================
