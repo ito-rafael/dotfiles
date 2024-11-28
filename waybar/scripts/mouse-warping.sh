@@ -16,7 +16,7 @@ case "${CMD}" in
             echo '{"text": "", "alt": "disabled", "class": "disabled"}'
         fi
 
-        # infinite loop that changes text everytime the mouse warping file changes
+        # infinite loop that updates text everytime the mouse warping file changes
         inotifywait --quiet --monitor --event close_write $FILE | while read; do
             MOUSE_WARPING=$(cat $FILE)
             if [[ "$MOUSE_WARPING" == "1" ]]; then

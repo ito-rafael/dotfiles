@@ -48,6 +48,7 @@
 #+end_src
 * Positioning :noexport_1:
 #+begin_src json
+"height": 15,
 "layer": "top",
 #+end_src
 ** Left
@@ -88,6 +89,8 @@
     "backlight",
     "battery",
     "clock",
+    //"keyboard-state",
+    "custom/capslock",
     "tray",
 ],
 #+end_src
