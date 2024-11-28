@@ -1654,6 +1654,11 @@ Create file to track status of Caps Lock (used by status bar).
 #+begin_src conf :noweb-ref sway-capslock
 exec echo 0 > /tmp/capslock_status.tmp
 #+end_src
+** KMonad status
+Create file to track KMonad service status (used by status bar).
+#+begin_src conf :noweb-ref sway-kmonad
+exec --no-startup-id "sudo bash $SCRIPT_PATH/waybar/scripts/kmonad.sh status > /tmp/kmonad-status.tmp"
+#+end_src
 ** Background images
 *** i3
 Before, wallpapers were set calling =feh= directly in i3wm.
@@ -1758,6 +1763,7 @@ exec "syncthing &"                      # Syncthing
 #+begin_src conf :noweb yes :tangle _config_sway
 <<sway-transparency>>
 <<sway-capslock>>
+<<sway-kmonad>>
 <<sway-wallpaper>>
 <<daemons>>
 <<sway-waybar>>
