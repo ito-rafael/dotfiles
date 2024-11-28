@@ -14,6 +14,15 @@ SAVEHIST=10000
 setopt appendhistory
 
 #=======================================
+# hook functions
+#=======================================
+ls_after_cd() {
+    emulate -L zsh
+    exa -alg --color=always --group-directories-first
+}
+chpwd_functions+=( ls_after_cd )
+
+#=======================================
 # fix yank to clipboard
 #=======================================
 # Wayland (needs "wl-clipboard")
