@@ -32,34 +32,33 @@ check_status () {
     update_output $STATUS
     echo $STATUS > $FILE
 }
-
 # parse requested action
 case "${CMD}" in
     "status")
         check_status
         ;;
     "start")
-        systemctl start kmonad
+        sudo systemctl start kmonad
         sleep $TIMEOUT
         check_status
         ;;
     "stop")
-        systemctl stop kmonad
+        sudo systemctl stop kmonad
         sleep $TIMEOUT
         check_status
         ;;
     "restart")
-        systemctl restart kmonad
+        sudo systemctl restart kmonad
         sleep $TIMEOUT
         check_status
         ;;
     "toggle")
         if systemctl is-active --quiet kmonad; then
             # kmonad active, stopping it...
-            systemctl stop kmonad
+            sudo systemctl stop kmonad
         else
             # kmonad inactive, starting it...
-            systemctl start kmonad
+            sudo systemctl start kmonad
         fi
         sleep $TIMEOUT
         check_status
