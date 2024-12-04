@@ -419,10 +419,10 @@
 #+begin_src json
 "custom/kmonad": {
     "return-type": "json",
-    "exec": "sudo bash /home/rafael/.config/waybar/scripts/kmonad.sh monitor",
-    "on-click": "sudo bash /home/rafael/.config/waybar/scripts/kmonad.sh toggle",
-    "on-click-right": "sudo bash /home/rafael/.config/waybar/scripts/kmonad.sh stop",
-    "on-click-middle": "sudo bash /home/rafael/.config/waybar/scripts/kmonad.sh restart",
+    "exec": "~/.config/waybar/scripts/kmonad.sh monitor",
+    "on-click": "~/.config/waybar/scripts/kmonad.sh toggle",
+    "on-click-right": "~/.config/waybar/scripts/kmonad.sh stop",
+    "on-click-middle": "~/.config/waybar/scripts/kmonad.sh restart",
     "format": " {} {icon} ",
     "format-icons": {
         "active":   "<span color=\"#393\"></span>",
