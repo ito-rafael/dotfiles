@@ -49,9 +49,9 @@ keymap:
       # fullscreen
       Alt_L-Super_L-f:  { launch: ["swaymsg", "fullscreen", "toggle"] }
       # terminal
-      Alt_L-Super_L-t:  { launch: ["kitty"] }
+      Alt_L-Super_L-t:  { launch: ["swaymsg", "exec", "kitty"] }
       # kill window
-      Alt_L-Super_L-q:  { launch: ["bash", "-c", "$XDG_CONFIG_HOME/scripts/hide-or-kill.sh"] }
+      Alt_L-Super_L-q:  { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/hide-or-kill.sh"] }
 
 
 
