@@ -64,6 +64,12 @@ update_output () {
         "failed")
             echo '{"text": "", "alt": "failed", "class": "failed"}'
             ;;
+        "activating")
+            echo '{"text": "", "alt": "activating", "class": "activating"}'
+            ;;
+        "deactivating")
+            echo '{"text": "", "alt": "deactivating", "class": "deactivating"}'
+            ;;
         *)
             echo '{"text": "", "alt": "unknown", "class": "unknown"}'
             ;;
@@ -73,6 +79,12 @@ update_output () {
 # function to query KMonad service status and dump it into a file
 check_status () {
     STATUS=$(systemctl $SCOPE is-active kmonad)
+    while [[ "$STATUS" == "activating" ]] || [[ "$STATUS" == "deactivating" ]]; do
+        sleep 1
+        update_output $STATUS
+        STATUS=$(systemctl $SCOPE is-active kmonad)
+    done
+    # update bar & file
     update_output $STATUS
     echo $STATUS > $FILE
 }

@@ -536,9 +536,21 @@ label:focus {
     color: red;
 }
 #+end_src
+** Activating
+#+begin_src css
+#custom-kmonad.activating {
+    color: yellow;
+}
+#+end_src
+** Deactivating
+#+begin_src css
+#custom-kmonad.deactivating {
+    color: yellow;
+}
+#+end_src
 ** Unknown
 #+begin_src css
 #custom-kmonad.unknown {
-    color: yellow;
+    color: orange;
 }
 #+end_src

@@ -381,6 +381,14 @@ label:focus {
     color: red;
 }
 
-#custom-kmonad.unknown {
+#custom-kmonad.activating {
     color: yellow;
+}
+
+#custom-kmonad.deactivating {
+    color: yellow;
+}
+
+#custom-kmonad.unknown {
+    color: orange;
 }
