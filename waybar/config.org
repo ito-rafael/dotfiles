@@ -419,7 +419,7 @@
 #+begin_src json
 "custom/kmonad": {
     "return-type": "json",
-    "exec": "~/.config/waybar/scripts/kmonad.sh monitor",
+    "exec": "sleep 1 && ~/.config/waybar/scripts/kmonad.sh monitor",
     "on-click": "~/.config/waybar/scripts/kmonad.sh toggle --user",
     "on-click-right": "~/.config/waybar/scripts/kmonad.sh stop --user",
     "on-click-middle": "~/.config/waybar/scripts/kmonad.sh restart --user",
