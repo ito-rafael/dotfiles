@@ -5,6 +5,14 @@
 #=======================================
 # identify environment
 #=======================================
+
+# option 1: read from env var
+SESSION_TYPE=$XDG_SESSION_TYPE
+
+# option 2: read from loginctl
+#SESSION_ID=$(loginctl list-sessions -j | jq -re '.[] | select(.class == "user").session')
+#SESSION_TYPE=$(loginctl show-session $SESSION_ID --property=Type --value)
+
 case "${XDG_SESSION_TYPE}" in
     "x11")
         WM_CMD="i3-msg"
