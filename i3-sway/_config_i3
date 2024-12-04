@@ -405,6 +405,7 @@ exec --no-startup-id /usr/bin/dunst &             # dunst: notification daemon
 #exec_always dunstctl set-paused true              # dunst: start with notifications paused
 exec --no-startup-id emote                        # emoji picker
 exec_always --no-startup-id autotiling            # autotiling
+exec --no-startup-id "dex -a -s /home/rafael/.config/autostart"    # XDG Autostart applications
 #exec_always --no-startup-id "$SCRIPT_PATH/xremap-keeb-config.sh"   # keyboard setup
 exec --no-startup-id /usr/bin/emacs --daemon --with-profile efs &  # launch EFS daemon (default)
 exec --no-startup-id /usr/bin/emacs --daemon --with-profile doom & # launch Doom Emacs daemon
