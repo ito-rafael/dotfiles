@@ -420,9 +420,9 @@
 "custom/kmonad": {
     "return-type": "json",
     "exec": "~/.config/waybar/scripts/kmonad.sh monitor",
-    "on-click": "~/.config/waybar/scripts/kmonad.sh toggle",
-    "on-click-right": "~/.config/waybar/scripts/kmonad.sh stop",
-    "on-click-middle": "~/.config/waybar/scripts/kmonad.sh restart",
+    "on-click": "~/.config/waybar/scripts/kmonad.sh toggle --user",
+    "on-click-right": "~/.config/waybar/scripts/kmonad.sh stop --user",
+    "on-click-middle": "~/.config/waybar/scripts/kmonad.sh restart --user",
     "format": " {} {icon} ",
     "format-icons": {
         "active":   "<span color=\"#393\"></span>",
