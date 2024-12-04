@@ -72,7 +72,7 @@ update_output () {
 
 # function to query KMonad service status and dump it into a file
 check_status () {
-    STATUS=$(systemctl --user is-active kmonad)
+    STATUS=$(systemctl $SCOPE is-active kmonad)
     update_output $STATUS
     echo $STATUS > $FILE
 }
@@ -98,7 +98,7 @@ case "${ACTION}" in
         check_status
         ;;
     "toggle")
-        if systemctl --user is-active --quiet kmonad; then
+        if systemctl $SCOPE is-active --quiet kmonad; then
             # kmonad active, stopping it...
             $CMD stop kmonad
         else
@@ -112,7 +112,7 @@ case "${ACTION}" in
         check_status
         # infinite loop that updates text everytime the mouse warping file changes
         inotifywait --quiet --monitor --event close_write $FILE | while read; do
-            STATUS=$(systemctl --user is-active kmonad)
+            STATUS=$(systemctl $SCOPE is-active kmonad)
             update_output $STATUS
             sleep 0.1
         done
