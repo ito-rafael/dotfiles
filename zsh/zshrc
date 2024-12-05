@@ -464,7 +464,6 @@ function gii () {
 }
 #-----------------------------
 # diff between git repo and current config files
-alias gdxx='diff ~/git/pc-general-config/X.Org/Xmodmap ~/.Xmodmap'
 alias gdvv='diff $HOME/git/dotfiles/nvim/init.lua $XDG_CONFIG_HOME/nvim/init.lua'
 alias gdzz='diff $HOME/git/dotfiles/zsh/zshrc $XDG_CONFIG_HOME/zsh/.zshrc'
 alias gdze='diff $HOME/git/dotfiles/zsh/zshenv $XDG_CONFIG_HOME/zsh/.zshenv'
@@ -472,6 +471,7 @@ alias gdkk='diff $HOME/git/dotfiles/kitty/kitty.conf $XDG_CONFIG_HOME/kitty/kitt
 alias gdbb='diff $HOME/git/dotfiles/i3/i3blocks.conf $XDG_CONFIG_HOME/i3/i3blocks.conf'
 alias gdpp='diff $HOME/git/dotfiles/polybar/config.ini $XDG_CONFIG_HOME/polybar/config.ini'
 alias gdee='diff $HOME/git/dotfiles/doom/config.el $XDG_CONFIG_HOME/doom/config.el'
+alias gdxx='diff $HOME/git/dotfiles/xremap/config.yml $XDG_CONFIG_HOME/xremap/config.yml'
 function gdii () {
     case "${XDG_SESSION_TYPE}" in
         "x11") diff $HOME/git/dotfiles/i3/_config $XDG_CONFIG_HOME/i3/_config ;;
