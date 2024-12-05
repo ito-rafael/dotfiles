@@ -142,6 +142,11 @@ When you visit a file, point goes to the last place where it was when you previo
 #+begin_src emacs-lisp
 (global-auto-revert-mode t)
 #+end_src
+Save and restore Emacs sessions.
+#+begin_src emacs-lisp
+(setq desktop-path '("~/.config/emacs-efs/"))
+(desktop-save-mode 1)
+#+end_src
 ** kill window
 #+begin_src emacs-lisp
 (global-set-key (kbd "M-s-q") 'evil-quit)
