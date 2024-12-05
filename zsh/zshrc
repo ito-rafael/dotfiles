@@ -380,6 +380,7 @@ alias bb='vim $XDG_CONFIG_HOME/i3/i3blocks.conf'
 alias pp='vim $XDG_CONFIG_HOME/polybar/config.ini'
 alias ee='vim $XDG_CONFIG_HOME/doom/config.el'
 alias xx='vim $XDG_CONFIG_HOME/xremap/config.yml'
+alias xm='vim $HOME/.Xmodmap'
 function ii () {
     case "${XDG_SESSION_TYPE}" in
         "x11") vim $XDG_CONFIG_HOME/i3/_config ;;
@@ -403,6 +404,7 @@ alias lbb='ssh $REMOTE cat $XDG_CONFIG_HOME/i3/i3blocks.conf | vim -'
 alias lpp='ssh $REMOTE cat $XDG_CONFIG_HOME/polybar/config.ini | vim -'
 alias lee='ssh $REMOTE cat $XDG_CONFIG_HOME/doom/config.el | vim -'
 alias lxx='ssh $REMOTE cat $XDG_CONFIG_HOME/zsh/.zshrc | vim -'
+alias lxm='ssh $REMOTE cat $HOME/.Xmodmap | vim -'
 function lii () {
     case "${XDG_SESSION_TYPE}" in
         "x11") ssh $REMOTE cat $XDG_CONFIG_HOME/i3/_config | vim - ;;
@@ -426,6 +428,7 @@ alias dbb='ssh $REMOTE cat $XDG_CONFIG_HOME/i3/i3blocks.conf | diff - $XDG_CONFI
 alias dpp='ssh $REMOTE cat $XDG_CONFIG_HOME/polybar/config.ini | diff - $XDG_CONFIG_HOME/polybar/config.ini'
 alias dee='ssh $REMOTE cat $XDG_CONFIG_HOME/doom/config.el | diff - $XDG_CONFIG_HOME/doom/config.el'
 alias dxx='ssh $REMOTE cat $XDG_CONFIG_HOME/xremap/config.yml | diff - $XDG_CONFIG_HOME/xremap/config.yml'
+alias dxm='ssh $REMOTE cat $HOME/.Xmodmap | diff - $HOME/.Xmodmap'
 function dii () {
     case "${XDG_SESSION_TYPE}" in
         "x11") ssh $REMOTE cat $XDG_CONFIG_HOME/i3/_config | diff - $XDG_CONFIG_HOME/i3/_config ;;
@@ -449,6 +452,7 @@ alias gbb='vim $HOME/git/dotfiles/i3/i3blocks.conf'
 alias gpp='vim $HOME/git/dotfiles/polybar/config.ini'
 alias gee='vim $HOME/git/dotfiles/doom/config.el'
 alias gxx='vim $HOME/git/dotfiles/xremap/config.yml'
+alias gxm='vim $HOME/git/dotfiles/X.Org/Xmodmap'
 function gii () {
     case "${XDG_SESSION_TYPE}" in
         "x11") vim $HOME/git/dotfiles/i3/_config ;;
@@ -472,6 +476,7 @@ alias gdbb='diff $HOME/git/dotfiles/i3/i3blocks.conf $XDG_CONFIG_HOME/i3/i3block
 alias gdpp='diff $HOME/git/dotfiles/polybar/config.ini $XDG_CONFIG_HOME/polybar/config.ini'
 alias gdee='diff $HOME/git/dotfiles/doom/config.el $XDG_CONFIG_HOME/doom/config.el'
 alias gdxx='diff $HOME/git/dotfiles/xremap/config.yml $XDG_CONFIG_HOME/xremap/config.yml'
+alias gdxm='diff $HOME/git/dotfiles/X.Org/Xmodmap $HOME/.Xmodmap'
 function gdii () {
     case "${XDG_SESSION_TYPE}" in
         "x11") diff $HOME/git/dotfiles/i3/_config $XDG_CONFIG_HOME/i3/_config ;;
