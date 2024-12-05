@@ -418,7 +418,6 @@ function lii () {
 }
 #-----------------------------
 # diff config files in remote PC
-alias dxx='ssh $REMOTE cat ~/.Xmodmap | diff - ~/.Xmodmap'
 alias dvv='ssh $REMOTE cat $XDG_CONFIG_HOME/nvim/init.lua | diff - $XDG_CONFIG_HOME/nvim/init.lua'
 alias dzz='ssh $REMOTE cat $XDG_CONFIG_HOME/zsh/.zshrc | diff - $XDG_CONFIG_HOME/zsh/.zshrc'
 alias dze='ssh $REMOTE cat $XDG_CONFIG_HOME/zsh/.zshenv | diff - $XDG_CONFIG_HOME/zsh/.zshenv'
@@ -426,6 +425,7 @@ alias dkk='ssh $REMOTE cat $XDG_CONFIG_HOME/kitty/kitty.conf | diff - $XDG_CONFI
 alias dbb='ssh $REMOTE cat $XDG_CONFIG_HOME/i3/i3blocks.conf | diff - $XDG_CONFIG_HOME/i3/i3blocks.conf'
 alias dpp='ssh $REMOTE cat $XDG_CONFIG_HOME/polybar/config.ini | diff - $XDG_CONFIG_HOME/polybar/config.ini'
 alias dee='ssh $REMOTE cat $XDG_CONFIG_HOME/doom/config.el | diff - $XDG_CONFIG_HOME/doom/config.el'
+alias dxx='ssh $REMOTE cat $XDG_CONFIG_HOME/xremap/config.yml | diff - $XDG_CONFIG_HOME/xremap/config.yml'
 function dii () {
     case "${XDG_SESSION_TYPE}" in
         "x11") ssh $REMOTE cat $XDG_CONFIG_HOME/i3/_config | diff - $XDG_CONFIG_HOME/i3/_config ;;
