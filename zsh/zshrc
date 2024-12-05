@@ -372,7 +372,6 @@ alias {rxx,rx}='xmodmap $HOME/.Xmodmap'
 alias rze='source $XDG_CONFIG_HOME/zsh/.zshenv'
 #-----------------------------
 # open config files
-alias xx='vim ~/.Xmodmap'
 alias vv='vim $XDG_CONFIG_HOME/nvim/init.lua'
 alias zz='vim $XDG_CONFIG_HOME/zsh/.zshrc'
 alias ze='vim $XDG_CONFIG_HOME/zsh/.zshenv'
@@ -380,6 +379,7 @@ alias kk='vim $XDG_CONFIG_HOME/kitty/kitty.conf'
 alias bb='vim $XDG_CONFIG_HOME/i3/i3blocks.conf'
 alias pp='vim $XDG_CONFIG_HOME/polybar/config.ini'
 alias ee='vim $XDG_CONFIG_HOME/doom/config.el'
+alias xx='vim $XDG_CONFIG_HOME/xremap/config.yml'
 function ii () {
     case "${XDG_SESSION_TYPE}" in
         "x11") vim $XDG_CONFIG_HOME/i3/_config ;;
