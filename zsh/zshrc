@@ -179,6 +179,7 @@ alias hg='history | grep'                       # history + grep
 alias j='journalctl -u'                         # journalctl
 alias r=ranger                                  # ranger
 alias -g g='| grep'                             # grep
+#alias |v='| vim -'                             # pipe to vim
 alias df='df -h'                                # df
 alias cpr='cp -R'                               # cp recursive
 alias wt='watch -n 1'                           # watch
