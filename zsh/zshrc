@@ -441,7 +441,6 @@ function dii () {
 }
 #-----------------------------
 # open config in git repo
-alias gxx='vim ~/git/pc-general-config/X.Org/Xmodmap'
 alias gvv='vim $HOME/git/dotfiles/nvim/init.lua'
 alias gzz='vim $HOME/git/dotfiles/zsh/zshrc'
 alias gze='vim $HOME/git/dotfiles/zsh/zshenv'
@@ -449,6 +448,7 @@ alias gkk='vim $HOME/git/dotfiles/kitty/kitty.conf'
 alias gbb='vim $HOME/git/dotfiles/i3/i3blocks.conf'
 alias gpp='vim $HOME/git/dotfiles/polybar/config.ini'
 alias gee='vim $HOME/git/dotfiles/doom/config.el'
+alias gxx='vim $HOME/git/dotfiles/xremap/config.yml'
 function gii () {
     case "${XDG_SESSION_TYPE}" in
         "x11") vim $HOME/git/dotfiles/i3/_config ;;
