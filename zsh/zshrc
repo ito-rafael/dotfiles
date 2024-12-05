@@ -441,7 +441,6 @@ function dii () {
 }
 #-----------------------------
 # open config in git repo
-alias gii='vim ~/git/pc-general-config/i3/_config'
 alias gxx='vim ~/git/pc-general-config/X.Org/Xmodmap'
 alias gvv='vim $HOME/git/dotfiles/nvim/init.lua'
 alias gzz='vim $HOME/git/dotfiles/zsh/zshrc'
@@ -450,6 +449,19 @@ alias gkk='vim $HOME/git/dotfiles/kitty/kitty.conf'
 alias gbb='vim $HOME/git/dotfiles/i3/i3blocks.conf'
 alias gpp='vim $HOME/git/dotfiles/polybar/config.ini'
 alias gee='vim $HOME/git/dotfiles/doom/config.el'
+function gii () {
+    case "${XDG_SESSION_TYPE}" in
+        "x11") vim $HOME/git/dotfiles/i3/_config ;;
+        "wayland") vim $HOME/git/dotfiles/i3/_config ;;
+        "tty")
+            if [ -f "/usr/share/xsessions/i3.desktop" ]; then
+                vim $HOME/git/dotfiles/i3/_config
+            elif [ -f "/usr/share/wayland-sessions/sway.desktop" ]; then
+                vim $HOME/git/dotfiles/sway/_config
+            fi ;;
+        *) exit 0 ;;
+    esac
+}
 #-----------------------------
 # diff between git repo and current config files
 alias gdxx='diff ~/git/pc-general-config/X.Org/Xmodmap ~/.Xmodmap'
