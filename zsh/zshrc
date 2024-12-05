@@ -317,7 +317,10 @@ alias cdenv='cd $HOME/venvs'
 #alias cdu='cd $HOME/RAFAEL/UNICAMP'
 # dotfiles
 alias cdp='cd $HOME/git/dotfiles'
+alias cdpe='cd $HOME/git/dotfiles/emacs'
+# XDG_CONFIG_HOME
 alias cdc='cd $XDG_CONFIG_HOME'
+alias cde='cd $XDG_CONFIG_HOME/emacs'
 alias cds='cd $XDG_CONFIG_HOME/scripts'
 alias cdx='cd $XDG_CONFIG_HOME/xremap'
 alias cdw='cd $XDG_CONFIG_HOME/waybar'
