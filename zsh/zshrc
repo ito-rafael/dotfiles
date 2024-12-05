@@ -318,9 +318,11 @@ alias cdenv='cd $HOME/venvs'
 # dotfiles
 alias cdp='cd $HOME/git/dotfiles'
 alias cdpe='cd $HOME/git/dotfiles/emacs'
+alias cdpk='cd $HOME/git/dotfiles/kitty'
 # XDG_CONFIG_HOME
 alias cdc='cd $XDG_CONFIG_HOME'
 alias cde='cd $XDG_CONFIG_HOME/emacs'
+alias cdk='cd $XDG_CONFIG_HOME/kitty'
 alias cds='cd $XDG_CONFIG_HOME/scripts'
 alias cdx='cd $XDG_CONFIG_HOME/xremap'
 alias cdw='cd $XDG_CONFIG_HOME/waybar'
