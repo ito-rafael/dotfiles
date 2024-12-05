@@ -306,12 +306,13 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias cdd='cd $HOME/Downloads'
 alias cdg='cd $HOME/git'
-alias cde='cd $HOME/venvs'
 alias cdh='cd $HOME/git/homelab'
-alias cdp='cd $HOME/git/dotfiles'
 alias cda='cd $HOME/git/ansible-provision'
 alias cdm='cd $HOME/git/machine-learning'
-alias cdu='cd $HOME/RAFAEL/UNICAMP'
+alias cdenv='cd $HOME/venvs'
+#alias cdu='cd $HOME/RAFAEL/UNICAMP'
+# dotfiles
+alias cdp='cd $HOME/git/dotfiles'
 alias cdc='cd $XDG_CONFIG_HOME'
 alias cds='cd $XDG_CONFIG_HOME/scripts'
 alias cdx='cd $XDG_CONFIG_HOME/xremap'
@@ -364,85 +365,85 @@ REMOTE="lbic"
 #REMOTE="vb"
 #-----------------------------
 # reload config files
-alias {rzz,rz}='source ~/.config/zsh/.zshrc'
-alias rze='source ~/.config/zsh/.zshenv'
-alias {rii,ri}='~/.config/i3/i3bang.rb && i3-msg restart'
-alias {rxx,rx}='xmodmap ~/.Xmodmap'
+alias {rzz,rz}='source $XDG_CONFIG_HOME/zsh/.zshrc'
+alias {rii,ri}='$XDG_CONFIG_HOME/i3/i3bang.rb && i3-msg restart'
+alias {rii,ri}='$XDG_CONFIG_HOME/sway/i3bang.rb && swaymsg reload'
+alias {rxx,rx}='xmodmap $HOME/.Xmodmap'
+alias rze='source $XDG_CONFIG_HOME/zsh/.zshenv'
 #-----------------------------
 # open config files
-alias vv='vim ~/.config/nvim/init.vim'
-alias zz='vim ~/.config/zsh/.zshrc'
-alias ze='vim ~/.config/zsh/.zshenv'
 alias xx='vim ~/.Xmodmap'
-alias kk='vim ~/.config/kitty/kitty.conf'
-alias bb='vim ~/.config/i3/i3blocks.conf'
-alias pp='vim ~/.config/polybar/config.ini'
-alias ee='vim ~/.config/doom/config.el'
+alias vv='vim $XDG_CONFIG_HOME/nvim/init.lua'
+alias zz='vim $XDG_CONFIG_HOME/zsh/.zshrc'
+alias ze='vim $XDG_CONFIG_HOME/zsh/.zshenv'
+alias kk='vim $XDG_CONFIG_HOME/kitty/kitty.conf'
+alias bb='vim $XDG_CONFIG_HOME/i3/i3blocks.conf'
+alias pp='vim $XDG_CONFIG_HOME/polybar/config.ini'
+alias ee='vim $XDG_CONFIG_HOME/doom/config.el'
 function ii () {
     case "${XDG_SESSION_TYPE}" in
-        "x11") vim ~/.config/i3/_config ;;
-        "wayland") vim ~/.config/sway/_config ;;
+        "x11") vim $XDG_CONFIG_HOME/i3/_config ;;
+        "wayland") vim $XDG_CONFIG_HOME/sway/_config ;;
         "tty")
             if [ -f "/usr/share/xsessions/i3.desktop" ]; then
-                vim ~/.config/i3/_config
+                vim $XDG_CONFIG_HOME/i3/_config
             elif [ -f "/usr/share/wayland-sessions/sway.desktop" ]; then
-                vim ~/.config/sway/_config
+                vim $XDG_CONFIG_HOME/sway/_config
             fi ;;
         *) exit 0 ;;
     esac
 }
 #-----------------------------
 # open config files in remote PC
-alias lvv='ssh $REMOTE cat ~/.config/nvim/init.vim | vim -'
-alias lzz='ssh $REMOTE cat ~/.config/zsh/.zshrc | vim -'
-alias lze='ssh $REMOTE cat ~/.config/zsh/.zshenv | vim -'
 alias lii='ssh $REMOTE cat ~/.config/i3/_config | vim -'
 alias lxx='ssh $REMOTE cat ~/.Xmodmap | vim -'
-alias lkk='ssh $REMOTE cat ~/.config/kitty/kitty.conf | vim -'
-alias lbb='ssh $REMOTE cat ~/.config/i3/i3blocks.conf | vim -'
-alias lpp='ssh $REMOTE cat ~/.config/polybar/config.ini | vim -'
-alias lee='ssh $REMOTE cat ~/.config/doom/config.el | vim -'
+alias lvv='ssh $REMOTE cat $XDG_CONFIG_HOME/nvim/init.lua | vim -'
+alias lzz='ssh $REMOTE cat $XDG_CONFIG_HOME/zsh/.zshrc | vim -'
+alias lze='ssh $REMOTE cat $XDG_CONFIG_HOME/zsh/.zshenv | vim -'
+alias lkk='ssh $REMOTE cat $XDG_CONFIG_HOME/kitty/kitty.conf | vim -'
+alias lbb='ssh $REMOTE cat $XDG_CONFIG_HOME/i3/i3blocks.conf | vim -'
+alias lpp='ssh $REMOTE cat $XDG_CONFIG_HOME/polybar/config.ini | vim -'
+alias lee='ssh $REMOTE cat $XDG_CONFIG_HOME/doom/config.el | vim -'
 #-----------------------------
 # diff config files in remote PC
-alias dvv='ssh $REMOTE cat ~/.config/nvim/init.vim | diff - ~/.vimrc'
-alias dzz='ssh $REMOTE cat ~/.config/zsh/.zshrc | diff - ~/.config/zsh/.zshrc'
-alias dze='ssh $REMOTE cat ~/.config/zsh/.zshenv | diff - ~/.config/zsh/.zshenv'
-alias dii='ssh $REMOTE cat ~/.config/i3/_config | diff - ~/.config/i3/_config'
 alias dxx='ssh $REMOTE cat ~/.Xmodmap | diff - ~/.Xmodmap'
-alias dkk='ssh $REMOTE cat ~/.config/kitty/kitty.conf | diff - ~/.config/kitty/kitty.conf'
-alias dbb='ssh $REMOTE cat ~/.config/i3/i3blocks.conf | diff - ~/.config/i3/i3blocks.conf'
-alias dpp='ssh $REMOTE cat ~/.config/polybar/config.ini | diff - ~/.config/polybar/config.ini'
-alias dee='ssh $REMOTE cat ~/.config/doom/config.el | diff - ~/.config/doom/config.el'
+alias dvv='ssh $REMOTE cat $XDG_CONFIG_HOME/nvim/init.lua | diff - $XDG_CONFIG_HOME/nvim/init.lua'
+alias dzz='ssh $REMOTE cat $XDG_CONFIG_HOME/zsh/.zshrc | diff - $XDG_CONFIG_HOME/zsh/.zshrc'
+alias dze='ssh $REMOTE cat $XDG_CONFIG_HOME/zsh/.zshenv | diff - $XDG_CONFIG_HOME/zsh/.zshenv'
+alias dkk='ssh $REMOTE cat $XDG_CONFIG_HOME/kitty/kitty.conf | diff - $XDG_CONFIG_HOME/kitty/kitty.conf'
+alias dbb='ssh $REMOTE cat $XDG_CONFIG_HOME/i3/i3blocks.conf | diff - $XDG_CONFIG_HOME/i3/i3blocks.conf'
+alias dpp='ssh $REMOTE cat $XDG_CONFIG_HOME/polybar/config.ini | diff - $XDG_CONFIG_HOME/polybar/config.ini'
+alias dee='ssh $REMOTE cat $XDG_CONFIG_HOME/doom/config.el | diff - $XDG_CONFIG_HOME/doom/config.el'
 #-----------------------------
 # open config in git repo
-alias gvv='vim ~/git/pc-general-config/nvim/init.vim'
-alias gzz='vim ~/git/pc-general-config/zsh/zshrc'
-alias gze='vim ~/git/pc-general-config/zsh/zshenv'
 alias gii='vim ~/git/pc-general-config/i3/_config'
 alias gxx='vim ~/git/pc-general-config/X.Org/Xmodmap'
-alias gkk='vim ~/git/pc-general-config/kitty/kitty.conf'
-alias gbb='vim ~/git/pc-general-config/i3/i3blocks.conf'
-alias gpp='vim ~/git/pc-general-config/polybar/config.ini'
-alias gee='vim ~/git/pc-general-config/doom/config.el'
+alias gvv='vim $HOME/git/dotfiles/nvim/init.lua'
+alias gzz='vim $HOME/git/dotfiles/zsh/zshrc'
+alias gze='vim $HOME/git/dotfiles/zsh/zshenv'
+alias gkk='vim $HOME/git/dotfiles/kitty/kitty.conf'
+alias gbb='vim $HOME/git/dotfiles/i3/i3blocks.conf'
+alias gpp='vim $HOME/git/dotfiles/polybar/config.ini'
+alias gee='vim $HOME/git/dotfiles/doom/config.el'
 #-----------------------------
 # diff between git repo and current config files
-alias gdvv='diff ~/git/pc-general-config/nvim/init.vim ~/.config/nvim/init.vim'
-alias gdzz='diff ~/git/pc-general-config/zsh/zshrc ~/.config/zsh/.zshrc'
-alias gdze='diff ~/git/pc-general-config/zsh/zshenv ~/.config/zsh/.zshenv'
 alias gdxx='diff ~/git/pc-general-config/X.Org/Xmodmap ~/.Xmodmap'
-alias gdkk='diff ~/git/pc-general-config/kitty/kitty.conf ~/.config/kitty/kitty.conf'
-alias gdbb='diff ~/git/pc-general-config/i3/i3blocks.conf ~/.config/i3/i3blocks.conf'
-alias gdpp='diff ~/git/pc-general-config/polybar/config.ini ~/.config/polybar/config.ini'
-alias gdee='diff ~/git/pc-general-config/doom/config.el ~/.config/doom/config.el'
+alias gdvv='diff $HOME/git/dotfiles/nvim/init.lua $XDG_CONFIG_HOME/nvim/init.lua'
+alias gdzz='diff $HOME/git/dotfiles/zsh/zshrc $XDG_CONFIG_HOME/zsh/.zshrc'
+alias gdze='diff $HOME/git/dotfiles/zsh/zshenv $XDG_CONFIG_HOME/zsh/.zshenv'
+alias gdkk='diff $HOME/git/dotfiles/kitty/kitty.conf $XDG_CONFIG_HOME/kitty/kitty.conf'
+alias gdbb='diff $HOME/git/dotfiles/i3/i3blocks.conf $XDG_CONFIG_HOME/i3/i3blocks.conf'
+alias gdpp='diff $HOME/git/dotfiles/polybar/config.ini $XDG_CONFIG_HOME/polybar/config.ini'
+alias gdee='diff $HOME/git/dotfiles/doom/config.el $XDG_CONFIG_HOME/doom/config.el'
 function gdii () {
     case "${XDG_SESSION_TYPE}" in
-        "x11") diff ~/git/pc-general-config/i3/_config ~/.config/i3/_config ;;
-        "wayland") diff ~/git/pc-general-config/i3/_config ~/.config/sway/_config ;;
+        "x11") diff $HOME/git/dotfiles/i3/_config $XDG_CONFIG_HOME/i3/_config ;;
+        "wayland") diff $HOME/git/dotfiles/i3/_config $XDG_CONFIG_HOME/sway/_config ;;
         "tty")
             if [ -f "/usr/share/xsessions/i3.desktop" ]; then
-                diff ~/git/pc-general-config/i3/_config ~/.config/i3/_config
+                diff $HOME/git/dotfiles/i3/_config $XDG_CONFIG_HOME/i3/_config
             elif [ -f "/usr/share/wayland-sessions/sway.desktop" ]; then
-                diff ~/git/pc-general-config/i3/_config ~/.config/sway/_config
+                diff $HOME/git/dotfiles/sway/_config $XDG_CONFIG_HOME/sway/_config
             fi ;;
         *) exit 0 ;;
     esac
