@@ -395,7 +395,6 @@ function ii () {
 }
 #-----------------------------
 # open config files in remote PC
-alias lxx='ssh $REMOTE cat ~/.Xmodmap | vim -'
 alias lvv='ssh $REMOTE cat $XDG_CONFIG_HOME/nvim/init.lua | vim -'
 alias lzz='ssh $REMOTE cat $XDG_CONFIG_HOME/zsh/.zshrc | vim -'
 alias lze='ssh $REMOTE cat $XDG_CONFIG_HOME/zsh/.zshenv | vim -'
@@ -403,6 +402,7 @@ alias lkk='ssh $REMOTE cat $XDG_CONFIG_HOME/kitty/kitty.conf | vim -'
 alias lbb='ssh $REMOTE cat $XDG_CONFIG_HOME/i3/i3blocks.conf | vim -'
 alias lpp='ssh $REMOTE cat $XDG_CONFIG_HOME/polybar/config.ini | vim -'
 alias lee='ssh $REMOTE cat $XDG_CONFIG_HOME/doom/config.el | vim -'
+alias lxx='ssh $REMOTE cat $XDG_CONFIG_HOME/zsh/.zshrc | vim -'
 function lii () {
     case "${XDG_SESSION_TYPE}" in
         "x11") ssh $REMOTE cat $XDG_CONFIG_HOME/i3/_config | vim - ;;
