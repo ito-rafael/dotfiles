@@ -262,6 +262,10 @@ Git repo: [[https://github.com/progfolio/elpaca][Elpaca]]
     ; double quotes
     (kbd "S-<f13> SPC") (lambda () (interactive) (insert "\""))
     (kbd "S-<f13> <f13>") (lambda () (interactive) (insert "\""))
+    ; tilde lowercase
+    (kbd "S-<f13> a") (lambda () (interactive) (insert "ã"))
+    (kbd "S-<f13> o") (lambda () (interactive) (insert "õ"))
+    (kbd "S-<f13> n") (lambda () (interactive) (insert "ñ"))
   )
   ;; minibuffer
   (evil-define-key 'insert minibuffer-local-map
