@@ -595,10 +595,10 @@ print('      Alt_R-o: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"º\\"  |
 <<emote>>
 
 <<scratchpad-navigation(ipc_cmd="i3-msg")>>
-<<macros-terminal(copy_cmd="xclip -sel clip")>>
-<<macros(copy_cmd="xclip -sel clip")>>
-<<currency-superscript-terminal(copy_cmd="xclip -sel clip")>>
-<<currency-superscript(copy_cmd="xclip -sel clip")>>
+<<macros-terminal(ipc_cmd="i3-msg", copy_cmd="xclip -sel clip")>>
+<<macros(ipc_cmd="i3-msg", copy_cmd="xclip -sel clip")>>
+<<currency-superscript-terminal(ipc_cmd="i3-msg", copy_cmd="xclip -sel clip")>>
+<<currency-superscript(ipc_cmd="i3-msg", copy_cmd="xclip -sel clip")>>
 
 #<<pdfpc>>
 #+end_src
@@ -633,10 +633,10 @@ print('      Alt_R-o: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"º\\"  |
 <<capslock>>
 
 <<scratchpad-navigation(ipc_cmd="swaymsg")>>
-<<macros-terminal(copy_cmd="wl-copy")>>
-<<macros(copy_cmd="wl-copy")>>
-<<currency-superscript-terminal(copy_cmd="wl-copy")>>
-<<currency-superscript(copy_cmd="wl-copy")>>
+<<macros-terminal(ipc_cmd="swaymsg", copy_cmd="wl-copy")>>
+<<macros(ipc_cmd="swaymsg", copy_cmd="wl-copy")>>
+<<currency-superscript-terminal(ipc_cmd="swaymsg", copy_cmd="wl-copy")>>
+<<currency-superscript(ipc_cmd="swaymsg", copy_cmd="wl-copy")>>
 
 #<<pdfpc>>
 #+end_src

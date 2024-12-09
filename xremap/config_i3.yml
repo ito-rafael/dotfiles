@@ -184,58 +184,58 @@ keymap:
       only: *terminals
     remap:
       # macro
-      Alt_R-s: { launch: ["bash", "-c", "sleep 0.1 && echo -n \"$(<$XDG_CONFIG_HOME/macros/address_1)\" | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
-      Alt_R-t: { launch: ["bash", "-c", "sleep 0.1 && echo -n \"$(<$XDG_CONFIG_HOME/macros/address_2)\" | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
-      Alt_R-g: { launch: ["bash", "-c", "sleep 0.1 && echo -n \"$(<$XDG_CONFIG_HOME/macros/address_3)\" | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
-      Alt_R-c: { launch: ["bash", "-c", "sleep 0.1 && echo -n \"$(<$XDG_CONFIG_HOME/macros/zip_code)\"  | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
-      Alt_R-d: { launch: ["bash", "-c", "sleep 0.1 && echo -n \"$(<$XDG_CONFIG_HOME/macros/phone)\"     | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
-      Alt_R-n: { launch: ["bash", "-c", "sleep 0.1 && echo -n \"$(<$XDG_CONFIG_HOME/macros/email_1)\"   | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
-      Alt_R-l: { launch: ["bash", "-c", "sleep 0.1 && echo -n \"$(<$XDG_CONFIG_HOME/macros/email_2)\"   | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
-      Alt_R-u: { launch: ["bash", "-c", "sleep 0.1 && echo -n \"$(<$XDG_CONFIG_HOME/macros/email_3)\"   | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
-      Alt_R-h: { launch: ["bash", "-c", "sleep 0.1 && echo -n \"$(<$XDG_CONFIG_HOME/macros/name)\"      | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
-      Alt_R-i: { launch: ["bash", "-c", "sleep 0.1 && echo -n \"$(<$XDG_CONFIG_HOME/macros/id)\"        | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
+      Alt_R-s: { launch: ["i3-msg", "exec", "sleep 0.1 && echo -n \"$(<$XDG_CONFIG_HOME/macros/address_1)\" | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
+      Alt_R-t: { launch: ["i3-msg", "exec", "sleep 0.1 && echo -n \"$(<$XDG_CONFIG_HOME/macros/address_2)\" | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
+      Alt_R-g: { launch: ["i3-msg", "exec", "sleep 0.1 && echo -n \"$(<$XDG_CONFIG_HOME/macros/address_3)\" | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
+      Alt_R-c: { launch: ["i3-msg", "exec", "sleep 0.1 && echo -n \"$(<$XDG_CONFIG_HOME/macros/zip_code)\"  | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
+      Alt_R-d: { launch: ["i3-msg", "exec", "sleep 0.1 && echo -n \"$(<$XDG_CONFIG_HOME/macros/phone)\"     | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
+      Alt_R-n: { launch: ["i3-msg", "exec", "sleep 0.1 && echo -n \"$(<$XDG_CONFIG_HOME/macros/email_1)\"   | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
+      Alt_R-l: { launch: ["i3-msg", "exec", "sleep 0.1 && echo -n \"$(<$XDG_CONFIG_HOME/macros/email_2)\"   | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
+      Alt_R-u: { launch: ["i3-msg", "exec", "sleep 0.1 && echo -n \"$(<$XDG_CONFIG_HOME/macros/email_3)\"   | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
+      Alt_R-h: { launch: ["i3-msg", "exec", "sleep 0.1 && echo -n \"$(<$XDG_CONFIG_HOME/macros/name)\"      | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
+      Alt_R-i: { launch: ["i3-msg", "exec", "sleep 0.1 && echo -n \"$(<$XDG_CONFIG_HOME/macros/id)\"        | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
 
   - name: miscellaneous text - macros
     application:
       not: *terminals
     remap:
       # macro
-      Alt_R-s: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/address_1 | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-t: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/address_2 | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-g: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/address_3 | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-c: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/zip_code  | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-d: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/phone     | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-n: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/email_1   | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-l: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/email_2   | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-u: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/email_3   | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-h: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/name      | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-i: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/id        | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-s: { launch: ["i3-msg", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/address_1 | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-t: { launch: ["i3-msg", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/address_2 | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-g: { launch: ["i3-msg", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/address_3 | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-c: { launch: ["i3-msg", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/zip_code  | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-d: { launch: ["i3-msg", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/phone     | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-n: { launch: ["i3-msg", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/email_1   | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-l: { launch: ["i3-msg", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/email_2   | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-u: { launch: ["i3-msg", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/email_3   | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-h: { launch: ["i3-msg", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/name      | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-i: { launch: ["i3-msg", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/id        | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
 
   - name: miscellaneous text - currency & superscript (terminal)
     application:
       only: *terminals
     remap:
       # currency
-      Alt_R-e: { launch: ["bash", "-c", "sleep 0.1 && echo -n \"€\"  | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
-      Alt_R-p: { launch: ["bash", "-c", "sleep 0.1 && echo -n \"£\"  | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
-      Alt_R-y: { launch: ["bash", "-c", "sleep 0.1 && echo -n \"￥\" | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
-      Alt_R-r: { launch: ["bash", "-c", "sleep 0.1 && echo -n \"₽\"  | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
+      Alt_R-e: { launch: ["i3-msg", "exec", "sleep 0.1 && echo -n \"€\"  | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
+      Alt_R-p: { launch: ["i3-msg", "exec", "sleep 0.1 && echo -n \"£\"  | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
+      Alt_R-y: { launch: ["i3-msg", "exec", "sleep 0.1 && echo -n \"￥\" | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
+      Alt_R-r: { launch: ["i3-msg", "exec", "sleep 0.1 && echo -n \"₽\"  | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
       # superscript
-      Alt_R-a: { launch: ["bash", "-c", "sleep 0.1 && echo -n \"ª\"  | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
-      Alt_R-o: { launch: ["bash", "-c", "sleep 0.1 && echo -n \"º\"  | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
+      Alt_R-a: { launch: ["i3-msg", "exec", "sleep 0.1 && echo -n \"ª\"  | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
+      Alt_R-o: { launch: ["i3-msg", "exec", "sleep 0.1 && echo -n \"º\"  | xclip -sel clip && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
 
   - name: miscellaneous text - currency & superscript
     application:
       not: *terminals
     remap:
       # currency
-      Alt_R-e: { launch: ["bash", "-c", "sleep 0.1 && echo -n \"€\"  | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-p: { launch: ["bash", "-c", "sleep 0.1 && echo -n \"£\"  | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-y: { launch: ["bash", "-c", "sleep 0.1 && echo -n \"￥\" | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-r: { launch: ["bash", "-c", "sleep 0.1 && echo -n \"₽\"  | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-e: { launch: ["i3-msg", "exec", "sleep 0.1 && echo -n \"€\"  | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-p: { launch: ["i3-msg", "exec", "sleep 0.1 && echo -n \"£\"  | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-y: { launch: ["i3-msg", "exec", "sleep 0.1 && echo -n \"￥\" | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-r: { launch: ["i3-msg", "exec", "sleep 0.1 && echo -n \"₽\"  | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
       # superscript
-      Alt_R-a: { launch: ["bash", "-c", "sleep 0.1 && echo -n \"ª\"  | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-o: { launch: ["bash", "-c", "sleep 0.1 && echo -n \"º\"  | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-a: { launch: ["i3-msg", "exec", "sleep 0.1 && echo -n \"ª\"  | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-o: { launch: ["i3-msg", "exec", "sleep 0.1 && echo -n \"º\"  | xclip -sel clip && ydotool key 29:1 47:1 47:0 29:0"] }
 
 
 #  - name: presentation with pdfpc

@@ -184,58 +184,58 @@ keymap:
       only: *terminals
     remap:
       # macro
-      Alt_R-s: { launch: ["bash", "-c", "sleep 0.1 && echo -n \"$(<$XDG_CONFIG_HOME/macros/address_1)\" | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
-      Alt_R-t: { launch: ["bash", "-c", "sleep 0.1 && echo -n \"$(<$XDG_CONFIG_HOME/macros/address_2)\" | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
-      Alt_R-g: { launch: ["bash", "-c", "sleep 0.1 && echo -n \"$(<$XDG_CONFIG_HOME/macros/address_3)\" | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
-      Alt_R-c: { launch: ["bash", "-c", "sleep 0.1 && echo -n \"$(<$XDG_CONFIG_HOME/macros/zip_code)\"  | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
-      Alt_R-d: { launch: ["bash", "-c", "sleep 0.1 && echo -n \"$(<$XDG_CONFIG_HOME/macros/phone)\"     | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
-      Alt_R-n: { launch: ["bash", "-c", "sleep 0.1 && echo -n \"$(<$XDG_CONFIG_HOME/macros/email_1)\"   | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
-      Alt_R-l: { launch: ["bash", "-c", "sleep 0.1 && echo -n \"$(<$XDG_CONFIG_HOME/macros/email_2)\"   | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
-      Alt_R-u: { launch: ["bash", "-c", "sleep 0.1 && echo -n \"$(<$XDG_CONFIG_HOME/macros/email_3)\"   | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
-      Alt_R-h: { launch: ["bash", "-c", "sleep 0.1 && echo -n \"$(<$XDG_CONFIG_HOME/macros/name)\"      | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
-      Alt_R-i: { launch: ["bash", "-c", "sleep 0.1 && echo -n \"$(<$XDG_CONFIG_HOME/macros/id)\"        | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
+      Alt_R-s: { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"$(<$XDG_CONFIG_HOME/macros/address_1)\" | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
+      Alt_R-t: { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"$(<$XDG_CONFIG_HOME/macros/address_2)\" | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
+      Alt_R-g: { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"$(<$XDG_CONFIG_HOME/macros/address_3)\" | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
+      Alt_R-c: { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"$(<$XDG_CONFIG_HOME/macros/zip_code)\"  | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
+      Alt_R-d: { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"$(<$XDG_CONFIG_HOME/macros/phone)\"     | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
+      Alt_R-n: { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"$(<$XDG_CONFIG_HOME/macros/email_1)\"   | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
+      Alt_R-l: { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"$(<$XDG_CONFIG_HOME/macros/email_2)\"   | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
+      Alt_R-u: { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"$(<$XDG_CONFIG_HOME/macros/email_3)\"   | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
+      Alt_R-h: { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"$(<$XDG_CONFIG_HOME/macros/name)\"      | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
+      Alt_R-i: { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"$(<$XDG_CONFIG_HOME/macros/id)\"        | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
 
   - name: miscellaneous text - macros
     application:
       not: *terminals
     remap:
       # macro
-      Alt_R-s: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/address_1 | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-t: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/address_2 | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-g: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/address_3 | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-c: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/zip_code  | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-d: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/phone     | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-n: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/email_1   | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-l: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/email_2   | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-u: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/email_3   | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-h: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/name      | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-i: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/id        | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-s: { launch: ["swaymsg", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/address_1 | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-t: { launch: ["swaymsg", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/address_2 | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-g: { launch: ["swaymsg", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/address_3 | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-c: { launch: ["swaymsg", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/zip_code  | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-d: { launch: ["swaymsg", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/phone     | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-n: { launch: ["swaymsg", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/email_1   | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-l: { launch: ["swaymsg", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/email_2   | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-u: { launch: ["swaymsg", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/email_3   | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-h: { launch: ["swaymsg", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/name      | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-i: { launch: ["swaymsg", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/id        | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
 
   - name: miscellaneous text - currency & superscript (terminal)
     application:
       only: *terminals
     remap:
       # currency
-      Alt_R-e: { launch: ["bash", "-c", "sleep 0.1 && echo -n \"€\"  | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
-      Alt_R-p: { launch: ["bash", "-c", "sleep 0.1 && echo -n \"£\"  | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
-      Alt_R-y: { launch: ["bash", "-c", "sleep 0.1 && echo -n \"￥\" | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
-      Alt_R-r: { launch: ["bash", "-c", "sleep 0.1 && echo -n \"₽\"  | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
+      Alt_R-e: { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"€\"  | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
+      Alt_R-p: { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"£\"  | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
+      Alt_R-y: { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"￥\" | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
+      Alt_R-r: { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"₽\"  | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
       # superscript
-      Alt_R-a: { launch: ["bash", "-c", "sleep 0.1 && echo -n \"ª\"  | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
-      Alt_R-o: { launch: ["bash", "-c", "sleep 0.1 && echo -n \"º\"  | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
+      Alt_R-a: { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"ª\"  | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
+      Alt_R-o: { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"º\"  | wl-copy && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }
 
   - name: miscellaneous text - currency & superscript
     application:
       not: *terminals
     remap:
       # currency
-      Alt_R-e: { launch: ["bash", "-c", "sleep 0.1 && echo -n \"€\"  | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-p: { launch: ["bash", "-c", "sleep 0.1 && echo -n \"£\"  | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-y: { launch: ["bash", "-c", "sleep 0.1 && echo -n \"￥\" | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-r: { launch: ["bash", "-c", "sleep 0.1 && echo -n \"₽\"  | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-e: { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"€\"  | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-p: { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"£\"  | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-y: { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"￥\" | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-r: { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"₽\"  | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
       # superscript
-      Alt_R-a: { launch: ["bash", "-c", "sleep 0.1 && echo -n \"ª\"  | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
-      Alt_R-o: { launch: ["bash", "-c", "sleep 0.1 && echo -n \"º\"  | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-a: { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"ª\"  | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
+      Alt_R-o: { launch: ["swaymsg", "exec", "sleep 0.1 && echo -n \"º\"  | wl-copy && ydotool key 29:1 47:1 47:0 29:0"] }
 
 
 #  - name: presentation with pdfpc
