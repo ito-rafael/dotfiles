@@ -243,6 +243,12 @@ Git repo: [[https://github.com/progfolio/elpaca][Elpaca]]
     (kbd "<f13> O") (lambda () (interactive) (insert "Ó"))
     (kbd "<f13> U") (lambda () (interactive) (insert "Ú"))
     (kbd "<f13> C") (lambda () (interactive) (insert "Ç"))
+    ; misc lowercase
+    (kbd "<f13> n") (lambda () (interactive) (insert "'n"))
+    (kbd "<f13> m") (lambda () (interactive) (insert "'m"))
+    (kbd "<f13> r") (lambda () (interactive) (insert "'r"))
+    (kbd "<f13> s") (lambda () (interactive) (insert "'s"))
+    (kbd "<f13> t") (lambda () (interactive) (insert "'t"))
   )
   ;; minibuffer
   (evil-define-key 'insert minibuffer-local-map
