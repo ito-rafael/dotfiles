@@ -274,7 +274,15 @@ Git repo: [[https://github.com/progfolio/elpaca][Elpaca]]
     (kbd "S-<f13> S-<f13>") (lambda () (interactive) (insert "~"))
     (kbd "S-<f13> /") (lambda () (interactive) (insert "~/"))
     (kbd "S-<f13> .") (lambda () (interactive) (insert "~/."))
-  )
+    ; tilde paths
+    (kbd "S-<f13> g") (lambda () (interactive) (insert "~/git/"))
+    (kbd "S-<f13> d") (lambda () (interactive) (insert "~/dotfiles/"))
+    (kbd "S-<f13> c") (lambda () (interactive) (insert "~/.config/"))
+    (kbd "S-<f13> s") (lambda () (interactive) (insert "~/.config/scripts/"))
+    (kbd "S-<f13> v") (lambda () (interactive) (insert "~/.config/nvim/"))
+    (kbd "S-<f13> x") (lambda () (interactive) (insert "~/.config/xremap/"))
+    (kbd "S-<f13> w") (lambda () (interactive) (insert "~/.config/waybar/"))
+    (kbd "S-<f13> z") (lambda () (interactive) (insert "~/.config/zsh/")))
   ;; minibuffer
   (evil-define-key 'insert minibuffer-local-map
     (kbd "<escape>") 'keyboard-escape-quit
