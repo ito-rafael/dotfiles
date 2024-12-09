@@ -225,6 +225,18 @@ Git repo: [[https://github.com/progfolio/elpaca][Elpaca]]
   :custom
   (setq evil-undo-system 'undo-tree)  ;; set undo system to =undo-tree=
   :config
+  ; F13
+  (evil-define-key nil evil-insert-state-map
+    ; dead_acute lowercase
+    (kbd "<f13> a") (lambda () (interactive) (insert "á"))
+    (kbd "<f13> e") (lambda () (interactive) (insert "é"))
+    (kbd "<f13> i") (lambda () (interactive) (insert "í"))
+    (kbd "<f13> o") (lambda () (interactive) (insert "ó"))
+    (kbd "<f13> u") (lambda () (interactive) (insert "ú"))
+    (kbd "<f13> c") (lambda () (interactive) (insert "ç"))
+    (kbd "<f13> SPC") (lambda () (interactive) (insert "'"))
+    (kbd "<f13> <f13>") (lambda () (interactive) (insert "´"))
+  )
   ;; minibuffer
   (evil-define-key 'insert minibuffer-local-map
     (kbd "<escape>") 'keyboard-escape-quit
