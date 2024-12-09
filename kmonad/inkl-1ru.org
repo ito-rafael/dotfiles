@@ -190,11 +190,18 @@
   mou (tap-hold-next-release 175 tab  (layer-toggle mouse))
 
   ;; colemak-dh
-  msc (tap-hold-next-release 175 w (layer-toggle misc))
-  med (tap-hold-next-release 175 f (layer-toggle media))
-  lum (tap-hold-next-release 175 z (layer-toggle luminosity))
-  fn1 (tap-hold-next-release 175 k (layer-toggle function-keys-1))
-  fn2 (tap-hold-next-release 175 v (layer-toggle function-keys-2))
+  ;;   - simple
+  ;;msc (tap-hold-next-release 175 w (layer-toggle misc))
+  ;;med (tap-hold-next-release 175 f (layer-toggle media))
+  ;;lum (tap-hold-next-release 175 z (layer-toggle luminosity))
+  ;;fn1 (tap-hold-next-release 175 k (layer-toggle function-keys-1))
+  ;;fn2 (tap-hold-next-release 175 v (layer-toggle function-keys-2))
+  ;;   - with timeout
+  msc (tap-hold-next-release 175 w (layer-toggle misc) :timeout-button w)
+  med (tap-hold-next-release 175 f (layer-toggle media) :timeout-button f)
+  lum (tap-hold-next-release 175 z (layer-toggle luminosity) :timeout-button z)
+  fn1 (tap-hold-next-release 175 k (layer-toggle function-keys-1) :timeout-button k)
+  fn2 (tap-hold-next-release 175 v (layer-toggle function-keys-2) :timeout-button v)
 
   ;; qwerty
   qmd (tap-hold-next-release 175 e (layer-toggle media))
@@ -279,11 +286,18 @@
   ;;mcs (tap-hold-next-release 175 s lctl) ;; s to ctrl_L
   ;;mct (tap-hold-next-release 175 t lsft) ;; t to shift_L
   ;;mcg (tap-hold-next-release 175 g ralt) ;; g to alt_R
-  mka (tap-hold-next-release 175 a lmet) ;; a to meta_L
-  mkr (tap-hold-next-release 175 r lalt) ;; r to alt_L
-  mks (tap-hold-next-release 175 s lctl) ;; s to ctrl_L
-  mkt (tap-hold-next-release 175 t lsft) ;; t to shift_L
-  mkg (tap-hold-next-release 175 g ralt) ;; g to alt_R
+  ;; simple
+  ;;mka (tap-hold-next-release 175 a lmet) ;; a to meta_L
+  ;;mkr (tap-hold-next-release 175 r lalt) ;; r to alt_L
+  ;;mks (tap-hold-next-release 175 s lctl) ;; s to ctrl_L
+  ;;mkt (tap-hold-next-release 175 t lsft) ;; t to shift_L
+  ;;mkg (tap-hold-next-release 175 g ralt) ;; g to alt_R
+  ;; with timeout
+  mka (tap-hold-next-release 175 a lmet :timeout-button a) ;; a to meta_L
+  mkr (tap-hold-next-release 175 r lalt :timeout-button r) ;; r to alt_L
+  mks (tap-hold-next-release 175 s lctl :timeout-button s) ;; s to ctrl_L
+  mkt (tap-hold-next-release 175 t lsft :timeout-button t) ;; t to shift_L
+  mkg (tap-hold-next-release 175 g ralt :timeout-button g) ;; g to alt_R
 )
 #+end_src
 **** right hand
@@ -301,13 +315,20 @@
   ;;mci (tap-hold-next-release 175 i S-lmet) ;; i to shift_L-meta_L
   ;;mco (tap-hold-next-release 175 o lmet)   ;; o to meta_L
   ;;mkm (tap-hold-next-release 175 m ralt)   ;; m to alt_R
-  mkm (tap-hold-next-release 175 m (layer-toggle out3))
-  mkn (tap-hold-next-release 175 n lsft)   ;; n to shift_L
-  mke (tap-hold-next-release 175 e lctl)   ;; e to ctrl_R
+  ;; simple
+  ;;mkm (tap-hold-next-release 175 m (layer-toggle out3))
+  ;;mkn (tap-hold-next-release 175 n lsft)   ;; n to shift_L
+  ;;mke (tap-hold-next-release 175 e lctl)   ;; e to ctrl_R
+  ;;mki (tap-hold-next-release 175 i (layer-toggle out2))
+  ;;mko (tap-hold-next-release 175 o (layer-toggle out1))
+  ;; with timeout
+  mkm (tap-hold-next-release 175 m (layer-toggle out3) :timeout-button m)
+  mkn (tap-hold-next-release 175 n lsft :timeout-button n)   ;; n to shift_L
+  mke (tap-hold-next-release 175 e lctl :timeout-button e)   ;; e to ctrl_R
   ;;mki (tap-hold-next-release 175 i S-lmet) ;; i to shift_L-meta_L
   ;;mko (tap-hold-next-release 175 o lmet)   ;; o to meta_L
-  mki (tap-hold-next-release 175 i (layer-toggle out2))
-  mko (tap-hold-next-release 175 o (layer-toggle out1))
+  mki (tap-hold-next-release 175 i (layer-toggle out2) :timeout-button i)
+  mko (tap-hold-next-release 175 o (layer-toggle out1) :timeout-button o)
 )
 #+end_src
 ** number :noexport_1:
