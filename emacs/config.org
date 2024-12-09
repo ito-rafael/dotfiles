@@ -256,6 +256,13 @@ Git repo: [[https://github.com/progfolio/elpaca][Elpaca]]
     (kbd "<f13> S") (lambda () (interactive) (insert "'S"))
     (kbd "<f13> T") (lambda () (interactive) (insert "'T")))
   )
+
+  ; Shift-F13
+  (evil-define-key nil evil-insert-state-map
+    ; double quotes
+    (kbd "S-<f13> SPC") (lambda () (interactive) (insert "\""))
+    (kbd "S-<f13> <f13>") (lambda () (interactive) (insert "\""))
+  )
   ;; minibuffer
   (evil-define-key 'insert minibuffer-local-map
     (kbd "<escape>") 'keyboard-escape-quit
