@@ -270,6 +270,10 @@ Git repo: [[https://github.com/progfolio/elpaca][Elpaca]]
     (kbd "S-<f13> A") (lambda () (interactive) (insert "Ã"))
     (kbd "S-<f13> O") (lambda () (interactive) (insert "Õ"))
     (kbd "S-<f13> N") (lambda () (interactive) (insert "Ñ"))
+    ; tilde miscellaneous
+    (kbd "S-<f13> S-<f13>") (lambda () (interactive) (insert "~"))
+    (kbd "S-<f13> /") (lambda () (interactive) (insert "~/"))
+    (kbd "S-<f13> .") (lambda () (interactive) (insert "~/."))
   )
   ;; minibuffer
   (evil-define-key 'insert minibuffer-local-map
