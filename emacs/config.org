@@ -16,6 +16,7 @@
 - [[#org][Org]]
 - [[#dired][Dired]]
 - [[#general][General]]
+- [[#orderless][orderless]]
 - [[#ivy][Ivy]]
 - [[#rainbow-delimiters][rainbow-delimiters]]
 - [[#helpful][helpful]]
@@ -483,6 +484,13 @@ https://github.com/noctuid/general.el
 ** EoS
 #+begin_src emacs-lisp
 )
+#+end_src
+* orderless
+#+begin_src emacs-lisp
+(use-package orderless
+  :custom
+  (completion-styles '(orderless basic))
+  (completion-category-overrides '((file (styles basic partial-completion)))))
 #+end_src
 * Ivy
 Alternatives:
