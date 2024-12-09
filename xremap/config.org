@@ -228,11 +228,14 @@ keymap:
       Super_L-up:    { launch: ["bash", "-c", "$XDG_CONFIG_HOME/scripts/mouse-warp.sh up"] }
       Super_L-right: { launch: ["bash", "-c", "$XDG_CONFIG_HOME/scripts/mouse-warp.sh right"] }
       # fullscreen
-      Alt_L-Super_L-f:  { launch: "bash", "-c", "i3-msg", "fullscreen", "toggle"] }
+      #Alt_L-Super_L-f:  { launch: ["bash", "-c", "i3-msg", "fullscreen", "toggle"] }
+      Alt_L-Super_L-f:  { launch: ["i3-msg", "fullscreen", "toggle"] }
       # terminal
-      Alt_L-Super_L-t:  { launch: ["kitty"] }
+      #Alt_L-Super_L-t:  { launch: ["bash", "-c", "i3-msg", "exec", "kitty"] }
+      Alt_L-Super_L-t:  { launch: ["i3-msg", "exec", "kitty"] }
       # kill window
-      Alt_L-Super_L-q:  { launch: ["bash", "-c", "$XDG_CONFIG_HOME/scripts/hide-or-kill.sh"] }
+      #Alt_L-Super_L-q:  { launch: ["bash", "-c", "i3-msg", "exec", "$XDG_CONFIG_HOME/scripts/hide-or-kill.sh"] }
+      Alt_L-Super_L-q:  { launch: ["i3-msg", "exec", "$XDG_CONFIG_HOME/scripts/hide-or-kill.sh"] }
 #+end_src
 *** Sway
 #+begin_src conf :noweb-ref sway-navigation
@@ -434,7 +437,7 @@ print('          i: [Shift-GRAVE, SPACE, SLASH, DOT, c,o,n,f,i,g, SLASH, ' + wm 
 #+begin_src conf :noweb-ref capslock
   - name: toggle capslock status & update temp file (/tmp/capslock_status.tmp)
     remap:
-      CAPSLOCK: { launch: ["bash", "-c", "$XDG_CONFIG_HOME/scripts/capslock_status.sh toggle"] }
+      CAPSLOCK: { launch: ["swaymsg", "exec", "$XDG_CONFIG_HOME/scripts/capslock_status.sh toggle"] }
 #+end_src
 ** Scratchpad navigation
 #+name: scratchpad-navigation
