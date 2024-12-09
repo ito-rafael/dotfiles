@@ -41,73 +41,39 @@
   mou (tap-hold-release 150 150 tab  (layer-toggle mouse))
 
   ;; colemak-dh
-  ;; - option 1: simple
   msc (tap-hold-release 150 150 w (layer-toggle misc))
   med (tap-hold-release 150 150 f (layer-toggle media))
   lum (tap-hold-release 150 150 z (layer-toggle luminosity))
   fn1 (tap-hold-release 150 150 k (layer-toggle function-keys-1))
   fn2 (tap-hold-release 150 150 v (layer-toggle function-keys-2))
-  ;; - option 2: timeout
-  ;;msc (tap-hold-release 150 150 w (layer-toggle misc) :timeout-button w)
-  ;;med (tap-hold-release 150 150 f (layer-toggle media) :timeout-button f)
-  ;;lum (tap-hold-release 150 150 z (layer-toggle luminosity) :timeout-button z)
-  ;;fn1 (tap-hold-release 150 150 k (layer-toggle function-keys-1) :timeout-button k)
-  ;;fn2 (tap-hold-release 150 150 v (layer-toggle function-keys-2) :timeout-button v)
-  ;; - option 3: multi-tap
-  ;;msc (multi-tap 125 (tap-hold 0 w (layer-toggle misc)) w)
-  ;;med (multi-tap 125 (tap-hold 0 f (layer-toggle media)) f)
-  ;;lum (multi-tap 125 (tap-hold 0 z (layer-toggle luminosiy)) z)
-  ;;fn1 (multi-tap 125 (tap-hold 0 k (layer-toggle function-keys-1)) k)
-  ;;fn2 (multi-tap 125 (tap-hold 0 v (layer-toggle function-keys-2)) v)
-  ;; - option 4: temp layer (TBD)
-  ;;https://github.com/kmonad/kmonad/issues/203#issuecomment-1046311506
 
   ;; qwerty
   qmd (tap-hold-release 150 150 e (layer-toggle media))
   qlm (tap-hold-release 150 150 z (layer-toggle luminosity))
   qf1 (tap-hold-release 150 150 n (layer-toggle function-keys-1))
   qf2 (tap-hold-release 150 150 b (layer-toggle function-keys-2))
-
-  ;; switch to layers
-  ;;ly1 colemak
-  ;;ly2 qwerty
-  ;;ly3 number
-  ;;ly4 navigation
 )
 
 (defalias
-  ;; home row
-  a2m (tap-hold-release 150 150 a    lmet) ;; a to meta_L
-  s2a (tap-hold-release 150 150 s    lalt) ;; s to alt_L
-  d2c (tap-hold-release 150 150 d    lctl) ;; d to ctrl_L
-  f2s (tap-hold-release 150 150 f    lsft) ;; f to shift_L
-  g2a (tap-hold-release 150 150 g    ralt) ;; g to alt_R
   ;; miryoku qwerty
-  ;;mqa (tap-hold-release 150 150 a lmet) ;; a to meta_L
-  ;;mqs (tap-hold-release 150 150 s lalt) ;; s to alt_L
-  ;;mqd (tap-hold-release 150 150 d lctl) ;; d to ctrl_L
-  ;;mqf (tap-hold-release 150 150 f lsft) ;; f to shift_L
-  ;;mqg (tap-hold-release 150 150 g ralt) ;; g to alt_R
+  mqa (tap-hold-release 150 150 a lmet) ;; a to meta_L
+  mqs (tap-hold-release 150 150 s lalt) ;; s to alt_L
+  mqd (tap-hold-release 150 150 d lctl) ;; d to ctrl_L
+  mqf (tap-hold-release 150 150 f lsft) ;; f to shift_L
+  mqg (tap-hold-release 150 150 g ralt) ;; g to alt_R
 )
 
 (defalias
-  ;; home row
-  h2a (tap-hold-release 150 150 h    ralt)   ;; h to alt_R
-  j2s (tap-hold-release 150 150 j    lsft)   ;; j to shift_L
-  k2c (tap-hold-release 150 150 k    lctl)   ;; k to ctrl_R
-  l2m (tap-hold-release 150 150 l    S-lmet) ;; l to shift_L-meta_L
-  ;2m (tap-hold-release 150 150 f13  lmet)   ;; semicolon to meta_L
   ;; miryoku qwerty
-  ;;mqh (tap-hold-release 150 150 h    ralt)   ;; h to alt_R
-  ;;mqj (tap-hold-release 150 150 j    lsft)   ;; j to shift_L
-  ;;mqk (tap-hold-release 150 150 k    lctl)   ;; k to ctrl_R
-  ;;mql (tap-hold-release 150 150 l    S-lmet) ;; l to shift_L-meta_L
-  ;;mq; (tap-hold-release 150 150 f13  lmet)   ;; semicolon to meta_L
+  mqh (tap-hold-release 150 150 h    ralt)   ;; h to alt_R
+  mqj (tap-hold-release 150 150 j    lsft)   ;; j to shift_L
+  mqk (tap-hold-release 150 150 k    lctl)   ;; k to ctrl_R
+  mql (tap-hold-release 150 150 l    S-lmet) ;; l to shift_L-meta_L
+  mq; (tap-hold-release 150 150 f13  lmet)   ;; semicolon to meta_L
 )
 
 (deflayer colemak
   q    @msc @med p    b         j    l    u    y    f13       _  _  _
-  ;;@a2m @r2a @s2c @t2s @g2a      @m2a @n2s @e2c @i2m @o2m      7  8  9
   @mka @mkr @mks @mkt @mkg      @mkm @mkn @mke @mki @mko      _  _  _
   @lum x    c    d    @fn2      @fn1 h    ,    .    /         _  _  _
             @nav @wm  @mou      XX   @num @sym                _  _  _
@@ -115,70 +81,21 @@
 )
 
 (defalias
-  ;;r2a (tap-hold-release 150 150 r    lalt) ;; r to alt_L
-  ;;s2c (tap-hold-release 150 150 s    lctl) ;; s to ctrl_L
-  ;;t2s (tap-hold-release 150 150 t    lsft) ;; t to shift_L
   ;; miryoku colemak-dh
-  ;;mca (tap-hold-release 150 150 a lmet) ;; a to meta_L
-  ;;mcr (tap-hold-release 150 150 r lalt) ;; r to alt_L
-  ;;mcs (tap-hold-release 150 150 s lctl) ;; s to ctrl_L
-  ;;mct (tap-hold-release 150 150 t lsft) ;; t to shift_L
-  ;;mcg (tap-hold-release 150 150 g ralt) ;; g to alt_R
-  ;; option 1: simple
   mka (tap-hold-release 150 150 a lmet) ;; a to meta_L
   mkr (tap-hold-release 150 150 r lalt) ;; r to alt_L
   mks (tap-hold-release 150 150 s lctl) ;; s to ctrl_L
   mkt (tap-hold-release 150 150 t lsft) ;; t to shift_L
   mkg (tap-hold-release 150 150 g ralt) ;; g to alt_R
-  ;; option 2: timeout
-  ;;mka (tap-hold-release 150 150 a lmet :timeout-button a) ;; a to meta_L
-  ;;mkr (tap-hold-release 150 150 r lalt :timeout-button r) ;; r to alt_L
-  ;;mks (tap-hold-release 150 150 s lctl :timeout-button s) ;; s to ctrl_L
-  ;;mkt (tap-hold-release 150 150 t lsft :timeout-button t) ;; t to shift_L
-  ;;mkg (tap-hold-release 150 150 g ralt :timeout-button g) ;; g to alt_R
-  ;; option 3: multi-tap
-  ;;mka (multi-tap 125 (tap-hold 0 a lmet) a) ;; a to meta_L
-  ;;mkr (multi-tap 125 (tap-hold 0 r lalt) r) ;; r to alt_L
-  ;;mks (multi-tap 125 (tap-hold 0 s lctl) s) ;; s to ctrl_L
-  ;;mkt (multi-tap 125 (tap-hold 0 t lsft) t) ;; t to shift_L
-  ;;mkg (multi-tap 125 (tap-hold 0 g ralt) g) ;; g to alt_R
-  ;; - option 4: temp layer (TBD)
-  ;;https://github.com/kmonad/kmonad/issues/203#issuecomment-1046311506
 )
 
 (defalias
-  ;;m2a (tap-hold-release 150 150 m    ralt)   ;; m to alt_R
-  ;;n2s (tap-hold-release 150 150 n    lsft)   ;; n to shift_L
-  ;;e2c (tap-hold-release 150 150 e    lctl)   ;; e to ctrl_R
-  ;;i2m (tap-hold-release 150 150 i    S-lmet) ;; i to shift_L-meta_L
-  ;;o2m (tap-hold-release 150 150 o    lmet)   ;; o to meta_L
   ;; miryoku colemak-dh
-  ;;mcm (tap-hold-release 150 150 m ralt)   ;; m to alt_R
-  ;;mcn (tap-hold-release 150 150 n lsft)   ;; n to shift_L
-  ;;mce (tap-hold-release 150 150 e lctl)   ;; e to ctrl_R
-  ;;mci (tap-hold-release 150 150 i S-lmet) ;; i to shift_L-meta_L
-  ;;mco (tap-hold-release 150 150 o lmet)   ;; o to meta_L
-  ;;mkm (tap-hold-release 150 150 m ralt)   ;; m to alt_R
-  ;; option 1: simple
   mkm (tap-hold-release 150 150 m (layer-toggle out3))
   mkn (tap-hold-release 150 150 n lsft)   ;; n to shift_L
   mke (tap-hold-release 150 150 e lctl)   ;; e to ctrl_R
   mki (tap-hold-release 150 150 i (layer-toggle out2))
   mko (tap-hold-release 150 150 o (layer-toggle out1))
-  ;; option 2: timeout
-  ;;mkm (tap-hold-release 150 150 m (layer-toggle out3) :timeout-button m)
-  ;;mkn (tap-hold-release 150 150 n lsft :timeout-button n)   ;; n to shift_L
-  ;;mke (tap-hold-release 150 150 e lctl :timeout-button e)   ;; e to ctrl_R
-  ;;mki (tap-hold-release 150 150 i (layer-toggle out2) :timeout-button i)
-  ;;mko (tap-hold-release 150 150 o (layer-toggle out1) :timeout-button o)
-  ;; option 3: multi-tap
-  ;;mkm (multi-tap 125 (tap-hold 0 m (layer-toggle out3)) m)
-  ;;mkn (multi-tap 125 (tap-hold 0 n lsft) n)
-  ;;mke (multi-tap 125 (tap-hold 0 e lctl) e)   ;; e to ctrl_R
-  ;;mki (multi-tap 125 (tap-hold 0 i (layer-toggle out2)) i)
-  ;;mko (multi-tap 125 (tap-hold 0 o (layer-toggle out1)) o)
-  ;; - option 4: temp layer (TBD)
-  ;;https://github.com/kmonad/kmonad/issues/203#issuecomment-1046311506
 )
 
 (deflayer number
