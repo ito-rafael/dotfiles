@@ -10,7 +10,7 @@ ExecStart=%h/.cargo/bin/xremap \
     --device "kanata" \
     --watch %h/.config/xremap/config.yml
 ExecStartPost=/usr/bin/sleep 2
-ExecStartPost=systemctl start --user kmonad.service
+ExecStartPost=systemctl start --user kanata.service
 ExecStop=/usr/bin/killall xremap
 Restart=always
 Environment=DISPLAY=:1
