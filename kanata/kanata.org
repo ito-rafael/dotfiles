@@ -52,10 +52,12 @@
 - process-unmapped-keys: if yes, process keys not defined in =defsrc=
 - danger-enable-cmd: enable command-execution
 - linux-output-device-bus-type: bus type for output device
+- log-layer-changes: enable/disable layer changes logging
 #+begin_src kbd
   process-unmapped-keys yes
   danger-enable-cmd yes
   linux-output-device-bus-type USB
+  log-layer-changes no
 #+end_src
 ** EoS
 #+begin_src kbd
