@@ -39,6 +39,7 @@
 - [[#dunst][Dunst]]
 - [[#pacman][Pacman]]
 - [[#kmonad][KMonad]]
+- [[#kanata][kanata]]
 
 * Initial config :noexport_1:
 ** Font
@@ -551,6 +552,43 @@ label:focus {
 ** Unknown
 #+begin_src css
 #custom-kmonad.unknown {
+    color: orange;
+}
+#+end_src
+* kanata :noexport_1:
+** Active
+#+begin_src css
+#custom-kanata.active {
+    color: green;
+}
+#+end_src
+** Inactive
+#+begin_src css
+#custom-kanata.inactive {
+    color: gray;
+}
+#+end_src
+** Failed
+#+begin_src css
+#custom-kanata.failed {
+    color: red;
+}
+#+end_src
+** Activating
+#+begin_src css
+#custom-kanata.activating {
+    color: yellow;
+}
+#+end_src
+** Deactivating
+#+begin_src css
+#custom-kanata.deactivating {
+    color: yellow;
+}
+#+end_src
+** Unknown
+#+begin_src css
+#custom-kanata.unknown {
     color: orange;
 }
 #+end_src

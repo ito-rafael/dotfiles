@@ -392,3 +392,27 @@ label:focus {
 #custom-kmonad.unknown {
     color: orange;
 }
+
+#custom-kanata.active {
+    color: green;
+}
+
+#custom-kanata.inactive {
+    color: gray;
+}
+
+#custom-kanata.failed {
+    color: red;
+}
+
+#custom-kanata.activating {
+    color: yellow;
+}
+
+#custom-kanata.deactivating {
+    color: yellow;
+}
+
+#custom-kanata.unknown {
+    color: orange;
+}
