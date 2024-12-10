@@ -255,7 +255,6 @@ Git repo: [[https://github.com/progfolio/elpaca][Elpaca]]
     (kbd "<f13> R") (lambda () (interactive) (insert "'R"))
     (kbd "<f13> S") (lambda () (interactive) (insert "'S"))
     (kbd "<f13> T") (lambda () (interactive) (insert "'T")))
-  )
 
   ; Shift-F13
   (evil-define-key nil evil-insert-state-map
@@ -293,7 +292,7 @@ Git repo: [[https://github.com/progfolio/elpaca][Elpaca]]
 
   ;; miscellaneous
   (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)  ;; ensure normal mode on C-g (keyboard-quit)
-  (evil-mode 1)
+  (evil-mode 1))
 ** evil-collections
 https://github.com/emacs-evil/evil-collection
 #+begin_src emacs-lisp
