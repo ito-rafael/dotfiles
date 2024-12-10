@@ -33,6 +33,8 @@
     "backlight",
     "battery",
     "clock",
+    //"keyboard-state",
+    "custom/capslock",
     "tray",
 ],
 

@@ -518,7 +518,7 @@ label:focus {
     color: lightgray;
 }
 #+end_src
-* KMonad                                                         :noexport_1:
+* KMonad :noexport_1:
 ** Active
 #+begin_src css
 #custom-kmonad.active {

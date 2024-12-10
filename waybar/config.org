@@ -6,7 +6,6 @@
 #+auto_tangle: t
 
 * Table of contents :toc_2:
-- [[#json-header][JSON header]]
 - [[#positioning][Positioning]]
 - [[#sway][Sway]]
 - [[#cpu][CPU]]
@@ -40,10 +39,9 @@
 - [[#dunst][Dunst]]
 - [[#pacman][Pacman]]
 - [[#kmonad][KMonad]]
-- [[#json-footer][JSON footer]]
 - [[#kanata][kanata]]
 
-* JSON header
+* JSON header :noexport:
 #+begin_src json
 {
 #+end_src
@@ -436,7 +434,6 @@
     },
 },
 #+end_src
-* JSON footer
 * kanata
 #+begin_src json
 "custom/kanata": {
@@ -456,6 +453,7 @@
     },
 },
 #+end_src
+* JSON footer :noexport:
 #+begin_src json
 }
 #+end_src
