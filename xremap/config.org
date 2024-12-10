@@ -452,73 +452,73 @@ print('      Super-Right: { launch: ["' + ipc_cmd + '", "focus", "output", "righ
 ** Miscellaneous
 *** Macros (terminal)
 #+name: macros-terminal
-#+begin_src python :var copy_cmd="wl-copy" :results output
+#+begin_src python :var ipc_cmd="swaymsg" copy_cmd="wl-copy" :results output
 print('  - name: miscellaneous text - macros (terminal)')
 print('    application:')
 print('      only: *terminals')
 print('    remap:')
 print('      # macro')
-print('      Alt_R-s: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"$(<$XDG_CONFIG_HOME/macros/address_1)\\" | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
-print('      Alt_R-t: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"$(<$XDG_CONFIG_HOME/macros/address_2)\\" | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
-print('      Alt_R-g: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"$(<$XDG_CONFIG_HOME/macros/address_3)\\" | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
-print('      Alt_R-c: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"$(<$XDG_CONFIG_HOME/macros/zip_code)\\"  | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
-print('      Alt_R-d: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"$(<$XDG_CONFIG_HOME/macros/phone)\\"     | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
-print('      Alt_R-n: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"$(<$XDG_CONFIG_HOME/macros/email_1)\\"   | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
-print('      Alt_R-l: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"$(<$XDG_CONFIG_HOME/macros/email_2)\\"   | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
-print('      Alt_R-u: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"$(<$XDG_CONFIG_HOME/macros/email_3)\\"   | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
-print('      Alt_R-h: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"$(<$XDG_CONFIG_HOME/macros/name)\\"      | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
-print('      Alt_R-i: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"$(<$XDG_CONFIG_HOME/macros/id)\\"        | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
+print('      Alt_R-s: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"$(<$XDG_CONFIG_HOME/macros/address_1)\\" | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
+print('      Alt_R-t: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"$(<$XDG_CONFIG_HOME/macros/address_2)\\" | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
+print('      Alt_R-g: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"$(<$XDG_CONFIG_HOME/macros/address_3)\\" | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
+print('      Alt_R-c: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"$(<$XDG_CONFIG_HOME/macros/zip_code)\\"  | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
+print('      Alt_R-d: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"$(<$XDG_CONFIG_HOME/macros/phone)\\"     | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
+print('      Alt_R-n: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"$(<$XDG_CONFIG_HOME/macros/email_1)\\"   | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
+print('      Alt_R-l: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"$(<$XDG_CONFIG_HOME/macros/email_2)\\"   | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
+print('      Alt_R-u: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"$(<$XDG_CONFIG_HOME/macros/email_3)\\"   | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
+print('      Alt_R-h: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"$(<$XDG_CONFIG_HOME/macros/name)\\"      | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
+print('      Alt_R-i: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"$(<$XDG_CONFIG_HOME/macros/id)\\"        | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
 #+end_src
 *** Macros
 #+name: macros
-#+begin_src python :var copy_cmd="wl-copy" :results output
+#+begin_src python :var ipc_cmd="swaymsg" copy_cmd="wl-copy" :results output
 print('  - name: miscellaneous text - macros')
 print('    application:')
 print('      not: *terminals')
 print('    remap:')
 print('      # macro')
-print('      Alt_R-s: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/address_1 | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
-print('      Alt_R-t: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/address_2 | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
-print('      Alt_R-g: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/address_3 | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
-print('      Alt_R-c: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/zip_code  | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
-print('      Alt_R-d: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/phone     | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
-print('      Alt_R-n: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/email_1   | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
-print('      Alt_R-l: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/email_2   | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
-print('      Alt_R-u: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/email_3   | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
-print('      Alt_R-h: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/name      | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
-print('      Alt_R-i: { launch: ["bash", "-c", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/id        | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
+print('      Alt_R-s: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/address_1 | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
+print('      Alt_R-t: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/address_2 | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
+print('      Alt_R-g: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/address_3 | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
+print('      Alt_R-c: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/zip_code  | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
+print('      Alt_R-d: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/phone     | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
+print('      Alt_R-n: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/email_1   | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
+print('      Alt_R-l: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/email_2   | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
+print('      Alt_R-u: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/email_3   | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
+print('      Alt_R-h: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/name      | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
+print('      Alt_R-i: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && cat $XDG_CONFIG_HOME/macros/id        | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
 #+end_src
 *** Currency & superscript (terminal)
 #+name: currency-superscript-terminal
-#+begin_src python :var copy_cmd="wl-copy" :results output
+#+begin_src python :var ipc_cmd="swaymsg" copy_cmd="wl-copy" :results output
 print('  - name: miscellaneous text - currency & superscript (terminal)')
 print('    application:')
 print('      only: *terminals')
 print('    remap:')
 print('      # currency')
-print('      Alt_R-e: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"€\\"  | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
-print('      Alt_R-p: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"£\\"  | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
-print('      Alt_R-y: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"￥\\" | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
-print('      Alt_R-r: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"₽\\"  | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
+print('      Alt_R-e: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"€\\"  | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
+print('      Alt_R-p: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"£\\"  | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
+print('      Alt_R-y: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"￥\\" | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
+print('      Alt_R-r: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"₽\\"  | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
 print('      # superscript')
-print('      Alt_R-a: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"ª\\"  | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
-print('      Alt_R-o: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"º\\"  | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
+print('      Alt_R-a: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"ª\\"  | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
+print('      Alt_R-o: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"º\\"  | ' + copy_cmd + ' && ydotool key 29:1 42:1 47:1 47:0 42:0 29:0"] }')
 #+end_src
 *** Currency & superscript
 #+name: currency-superscript
-#+begin_src python :var copy_cmd="wl-copy" :results output
+#+begin_src python :var ipc_cmd="swaymsg" copy_cmd="wl-copy" :results output
 print('  - name: miscellaneous text - currency & superscript')
 print('    application:')
 print('      not: *terminals')
 print('    remap:')
 print('      # currency')
-print('      Alt_R-e: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"€\\"  | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
-print('      Alt_R-p: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"£\\"  | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
-print('      Alt_R-y: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"￥\\" | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
-print('      Alt_R-r: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"₽\\"  | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
+print('      Alt_R-e: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"€\\"  | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
+print('      Alt_R-p: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"£\\"  | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
+print('      Alt_R-y: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"￥\\" | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
+print('      Alt_R-r: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"₽\\"  | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
 print('      # superscript')
-print('      Alt_R-a: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"ª\\"  | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
-print('      Alt_R-o: { launch: ["bash", "-c", "sleep 0.1 && echo -n \\"º\\"  | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
+print('      Alt_R-a: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"ª\\"  | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
+print('      Alt_R-o: { launch: ["' + ipc_cmd + '", "exec", "sleep 0.1 && echo -n \\"º\\"  | ' + copy_cmd + ' && ydotool key 29:1 47:1 47:0 29:0"] }')
 #+end_src
 ** pdfpc
 #+begin_src conf :noweb-ref pdfpc
