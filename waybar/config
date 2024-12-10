@@ -22,7 +22,8 @@
     "custom/mouse-warping",
     "custom/dunst",
     "custom/pacman",
-    "custom/kmonad",
+    //"custom/kmonad",
+    "custom/kanata",
     "mpris",
     "cpu",
     "memory",
@@ -286,6 +287,23 @@
     "on-click": "~/.config/waybar/scripts/kmonad.sh toggle --user",
     "on-click-right": "~/.config/waybar/scripts/kmonad.sh stop --user",
     "on-click-middle": "~/.config/waybar/scripts/kmonad.sh restart --user",
+    "format": " {} {icon} ",
+    "format-icons": {
+        "active":       "<span color=\"#393\"></span>",
+        "inactive":     "<span color=\"#999\"></span>",
+        "failed":       "<span color=\"#F33\"></span>",
+        "activating":   "<span color=\"#FF7\"></span>",
+        "deactivating": "<span color=\"#FF7\"></span>",
+        "unknown":      "<span color=\"#FA5\"></span>",
+    },
+},
+
+"custom/kanata": {
+    "return-type": "json",
+    "exec": "sleep 1 && ~/.config/waybar/scripts/kanata.sh monitor --user",
+    "on-click": "~/.config/waybar/scripts/kanata.sh toggle --user",
+    "on-click-right": "~/.config/waybar/scripts/kanata.sh stop --user",
+    "on-click-middle": "~/.config/waybar/scripts/kanata.sh restart --user",
     "format": " {} {icon} ",
     "format-icons": {
         "active":       "<span color=\"#393\"></span>",
