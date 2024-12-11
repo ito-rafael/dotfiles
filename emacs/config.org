@@ -570,6 +570,11 @@ https://github.com/abo-abo/swiper
        ("C-d"   . ivy-switch-buffer-kill)  ;; kill buffer
   )
   :config
+  ;; integration with orderless
+  (setq ivy-re-builders-alist '((t . orderless-ivy-re-builder)))
+  (add-to-list 'ivy-highlight-functions-alist '(orderless-ivy-re-builder . orderless-ivy-highlight))
+
+  ;; enable Ivy
   (ivy-mode 1))
 #+end_src
 ** Ivy-rich
