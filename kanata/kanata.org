@@ -436,7 +436,7 @@
 ** navigation :noexport_1:
 #+begin_src kbd
 (deflayer navigation
-  XX   XX   XX   f2   XX        @clw @ps  home end  XX        _  _  _
+  XX   XX   XX   f2   XX        @cw  @ps  home end  XX        _  _  _
   @hm  @ren @hc  @hs  @hra      caps left down up   rght      _  _  _
   XX   x    XX   @obs XX        @key @pss pgdn pgup XX        _  _  _
             _    _    _         _    _    del                 _  _  _
@@ -446,10 +446,10 @@
 *** alias
 #+begin_src kbd
 (defalias
-  clw XX    ;; @TBD: Caps WORD
-  ps  prnt    ;; PrintScreen
-  pss S-prnt  ;; Shift-PrintScreen
-  key A-C-k   ;; launch screenkey
+  cw (caps-word 2000)  ;; Caps WORD
+  ps  prnt             ;; PrintScreen
+  pss S-prnt           ;; Shift-PrintScreen
+  key A-C-k            ;; launch screenkey
   ren (tap-hold-release 150 150 f2 lalt) ;; rename (F2) to alt_L
   obs (tap-hold-release 150 150 XX (layer-toggle obs))  ;; OBS recording layer
 )
