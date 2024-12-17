@@ -330,6 +330,7 @@ alias cdi='cd $XDG_CONFIG_HOME/i3'
 alias cdi='cd $XDG_CONFIG_HOME/sway'
 alias cdv='cd $XDG_CONFIG_HOME/nvim'
 alias cdw='cd $XDG_CONFIG_HOME/waybar'
+alias cdws='cd $XDG_CONFIG_HOME/waybar/scripts'
 alias cdz='cd $XDG_CONFIG_HOME/zsh'
 #-----------------------------
 # confirm before overwriting
