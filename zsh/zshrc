@@ -325,6 +325,8 @@ alias cde='cd $XDG_CONFIG_HOME/emacs'
 alias cdk='cd $XDG_CONFIG_HOME/kitty'
 alias cds='cd $XDG_CONFIG_HOME/scripts'
 alias cdx='cd $XDG_CONFIG_HOME/xremap'
+alias cdi='cd $XDG_CONFIG_HOME/i3'
+alias cdi='cd $XDG_CONFIG_HOME/sway'
 alias cdw='cd $XDG_CONFIG_HOME/waybar'
 #-----------------------------
 # confirm before overwriting
