@@ -323,6 +323,7 @@ alias cdpi='cd $HOME/git/dotfiles/i3-sway'
 alias cdps='cd $HOME/git/dotfiles/scripts'
 alias cdpv='cd $HOME/git/dotfiles/nvim'
 alias cdpx='cd $HOME/git/dotfiles/xremap'
+alias cdpz='cd $HOME/git/dotfiles/zsh'
 # XDG_CONFIG_HOME
 alias cdc='cd $XDG_CONFIG_HOME'
 alias cde='cd $XDG_CONFIG_HOME/emacs'
