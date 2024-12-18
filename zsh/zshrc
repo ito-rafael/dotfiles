@@ -324,6 +324,7 @@ alias cdps='cd $HOME/git/dotfiles/scripts'
 alias cdpv='cd $HOME/git/dotfiles/nvim'
 alias cdpx='cd $HOME/git/dotfiles/xremap'
 alias cdpz='cd $HOME/git/dotfiles/zsh'
+alias cdpw='cd $HOME/git/dotfiles/waybar'
 # XDG_CONFIG_HOME
 alias cdc='cd $XDG_CONFIG_HOME'
 alias cde='cd $XDG_CONFIG_HOME/emacs'
