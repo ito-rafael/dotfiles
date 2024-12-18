@@ -320,6 +320,7 @@ alias cdp='cd $HOME/git/dotfiles'
 alias cdpe='cd $HOME/git/dotfiles/emacs'
 alias cdpk='cd $HOME/git/dotfiles/kitty'
 alias cdpi='cd $HOME/git/dotfiles/i3-sway'
+alias cdps='cd $HOME/git/dotfiles/scripts'
 # XDG_CONFIG_HOME
 alias cdc='cd $XDG_CONFIG_HOME'
 alias cde='cd $XDG_CONFIG_HOME/emacs'
