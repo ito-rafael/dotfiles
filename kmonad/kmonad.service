@@ -1,8 +1,11 @@
 [Unit]
 Description=KMonad service
+#Requires=xremap.service
+#After=xremap.service
 
 [Service]
 Type=simple
+#ExecStartPre=/usr/bin/sleep 1
 ExecStart=/usr/bin/kmonad /home/rafael/.config/kmonad/inkl-1ru.kbd
 ExecStartPost=/usr/bin/bash -c "su rafael -c 'echo active > /tmp/kmonad-status.tmp'"
 ExecStop=/usr/bin/killall kmonad
