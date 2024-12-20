@@ -209,6 +209,8 @@ function cv() { cat $1 | vim - }
 alias p8='ping 8.8.8.8'                            # ping test (no DNS)
 alias pg='ping google.com'                         # ping test with DNS
 alias nsn='$XDG_CONFIG_HOME/scripts/nmap.sh'       # nmap -sn (automatic interface: eth > wlp)
+alias nsnw='$XDG_CONFIG_HOME/scripts/nmap.sh wlp'  # nmap -sn on wireless interface
+alias nsne='$XDG_CONFIG_HOME/scripts/nmap.sh eth'  # nmap -sn on Ethernet interface
 #-----------------------------
 # colors
 # ls
