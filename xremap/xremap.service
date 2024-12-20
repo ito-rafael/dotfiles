@@ -2,10 +2,18 @@
 Description=xremap
 
 [Service]
-ExecStart=%h/.cargo/bin/xremap %h/.config/xremap/config.yml
+ExecStart=/home/rafael/.cargo/bin/xremap \
+    --mouse \
+    --device "ZSA Technology Labs Moonlander Mark I" \
+    --device "ZSA Technology Labs Planck EZ Glow" \
+    --device "KMonad INKL output" \
+    --device "kanata" \
+    --watch /home/rafael/.config/xremap/config.yml
+ExecStartPost=/usr/bin/sleep 2
+ExecStartPost=systemctl start --user kanata.service
 ExecStop=/usr/bin/killall xremap
 Restart=always
-Environment=DISPLAY=:0.0
+Environment=DISPLAY=:1
 
 [Install]
 WantedBy=graphical.target
