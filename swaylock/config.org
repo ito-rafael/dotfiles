@@ -32,7 +32,7 @@ datestr=%d %b
 #+end_src
 ** Effects
 #+begin_src conf
-screenshots
+image=$XDG_CONFIG_HOME/swaylock/screenshot.png
 effect-blur=12x7
 effect-pixelate=3
 effect-vignette=0.2:0.2
