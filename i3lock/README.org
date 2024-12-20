@@ -1,1 +1,23 @@
+#+TITLE: i3lock
+#+AUTHOR: Rafael Ito
+#+DESCRIPTION: Script for locking the screen on i3wm
+#+STARTUP: showeverything
+
+* Table of contents :toc_1:
+- [[#prerequisites][Prerequisites]]
+- [[#todo][TODO]]
+
+* Prerequisites
+#+begin_src sh
 sudo pacman -S imagemagick
+#+end_src
+* TODO
+** Task reminders
+*** Add task
+#+begin_src sh
+echo <MyAwesomeActivity> >> /tmp/todo-list.tmp
+#+end_src
+*** Delete task
+#+begin_src sh
+sed -i '/<MyAwesomeActivity>/d' /tmp/todo-list.tmp
+#+end_src
