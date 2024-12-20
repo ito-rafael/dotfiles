@@ -193,8 +193,6 @@ alias sd='sudo dmesg --ctime'                   # dmesg
 alias sdf='sudo dmesg --follow --ctime'         # dmesg follow
 alias ns='nvidia-smi'                           # NVIDIA
 alias dd='dd bs=4M status=progress oflag=sync'  # dd
-alias p8='ping 8.8.8.8'                         # ping test (no DNS)
-alias pg='ping google.com'                      # ping test with DNS
 #alias qq='systemctl start --user ydotool && systemctl start --user xremap'
 #alias ww='systemctl stop --user ydotool && systemctl stop --user xremap'
 alias {tarc,tc}='tar -czvf'
@@ -206,6 +204,11 @@ alias km='$XDG_CONFIG_HOME/waybar/scripts/kmonad.sh'
 alias ssh='kitten ssh --kitten=color_scheme=themes/ssh.conf'
 alias cmd='command'
 function cv() { cat $1 | vim - }
+#-----------------------------
+# network
+alias p8='ping 8.8.8.8'                            # ping test (no DNS)
+alias pg='ping google.com'                         # ping test with DNS
+alias nsn='$XDG_CONFIG_HOME/scripts/nmap.sh'       # nmap -sn (automatic interface: eth > wlp)
 #-----------------------------
 # colors
 # ls
