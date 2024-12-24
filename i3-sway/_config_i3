@@ -219,8 +219,10 @@ bindsym $mod+t exec kitty
 #bindsym $mod+t exec i3-sensible-terminal
 #bindsym mod1+$mod+t exec i3-sensible-terminal
 #bindsym ctrl+$mod+t exec i3-sensible-terminal
+bindsym XF86MonBrightnessUp   exec brightnessctl set 5%+
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
-bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
+bindsym XF86KbdBrightnessDown   exec "$SCRIPT_PATH/keeb-backlit.sh dec"
+bindsym XF86KbdBrightnessUp     exec "$SCRIPT_PATH/keeb-backlit.sh inc"
 bindsym shift+$alt+F1 exec "$SCRIPT_PATH/obs-tools.py --scene camera"
 bindsym shift+$alt+F2 exec "$SCRIPT_PATH/obs-tools.py --scene presentation"
 bindsym shift+$alt+F3 exec "$SCRIPT_PATH/obs-tools.py --scene scene-3"
