@@ -702,6 +702,9 @@ It's Magit! A Git Porcelain inside Emacs.
   :custom
   (magit-section-disable-line-numbers nil)
   (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1)  ;; show diff in the same window
+  (magit-section-initial-visibility-alist
+    '((stashes . hide)      ;; hide stashes
+      (untracked . show)))  ;; show untracked
   :config
   (evil-set-initial-state 'git-commit-mode 'insert)  ;; start git-commit-mode in insert mode
   ;; override keybindings for =magit-section-show-level-{1,2,3,4}= and use as counts for evil commands
