@@ -32,7 +32,7 @@ dunstctl set-paused true
 # pause medias
 playerctl --all-players pause
 # dim LEDs of keyboard
-$XDG_CONFIG_HOME/scripts/keyboard-leds.sh dim
+$XDG_CONFIG_HOME/scripts/keeb-leds.sh dim
 
 # lock screen
 i3lock \
@@ -77,7 +77,7 @@ i3lock \
 # next commands will run only after the system is unlocked.
 
 # turn on keyboard LEDs
-$XDG_CONFIG_HOME/scripts/keyboard-leds.sh on
+$XDG_CONFIG_HOME/scripts/keeb-leds.sh on
 
 # unpause notifications
 dunstctl set-paused false

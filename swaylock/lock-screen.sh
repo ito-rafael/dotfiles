@@ -14,7 +14,7 @@ dunstctl set-paused true
 playerctl --all-players pause
 
 # dim LEDs of keyboard
-$XDG_CONFIG_HOME/scripts/keyboard-leds.sh dim
+$XDG_CONFIG_HOME/scripts/keeb-leds.sh dim
 
 # check if there are any reminders
 REMINDERS=$(cat $TODO_FILE | wc -l)
@@ -44,7 +44,7 @@ swaylock --config $XDG_CONFIG_HOME/swaylock/config
 rm $SCREENSHOT
 
 # turn on keyboard LEDs
-$XDG_CONFIG_HOME/scripts/keyboard-leds.sh on
+$XDG_CONFIG_HOME/scripts/keeb-leds.sh on
 
 # unpause notifications
 dunstctl set-paused false
