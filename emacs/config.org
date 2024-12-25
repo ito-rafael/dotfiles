@@ -50,6 +50,12 @@
 (setq display-line-numbers-type 'visual)          ;; set line number to relative (visually)
 (column-number-mode)                              ;; enable column number
 #+end_src
+*** Exceptions
+Disable line numbers for some modes.
+#+begin_src emacs-lisp
+(dolist (mode '(dashboard-mode-hook))
+  (add-hook mode (lambda () (display-line-numbers-mode -1))))
+#+end_src
 ** Transparency
 #+begin_src emacs-lisp
 (add-to-list 'default-frame-alist '(alpha-background . 97))
