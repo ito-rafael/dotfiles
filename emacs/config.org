@@ -507,6 +507,7 @@ https://github.com/noctuid/general.el
   (efs/leader-keys
     "h" '(:ignore t :wk "Help")
     "h a" '(counsel-apropos   :wk "Apropos")
+    "h d" '((lambda () (interactive) (call-process (concat (getenv "XDG_CONFIG_HOME") "/scripts/emacs-respawn.sh") nil 0 nil) (restart-emacs)) :wk "Restart emacs daemon")
     "h f" '(describe-function :wk "Describe function")
     "h k" '(describe-key      :wk "Describe key")
     "h v" '(describe-variable :wk "Describe variable")
