@@ -872,7 +872,7 @@ Supported window managers:
 	                    ("tty"      "tty")
 			    (_          "nil")))
 	     ;; focus adjacent window
-             (shell-command (concat wm_cmd " focus " (format "%s" dir))))
+             (shell-command (concat wm_cmd " focus " (format "%s" dir) " > /dev/null 2>&1") t t))
          ;;====================================================================
             ((and (window-minibuffer-p other-window)
                   (not (minibuffer-window-active-p other-window)))
@@ -882,7 +882,7 @@ Supported window managers:
              ;;(user-error "Minibuffer is inactive"))
          ;;--------------------------------------------------------------------
 	     ;; focus adjacent window
-             (shell-command (concat wm_cmd " focus " (format "%s" dir)))
+             (shell-command (concat wm_cmd " focus " (format "%s" dir) " > /dev/null 2>&1") t t))
          ;;====================================================================
             ((eq other-window 'no-select))
             (t
