@@ -908,6 +908,14 @@ https://github.com/paradoxxxzero/jinja2-mode
   :config
   (global-set-key (kbd "M-s-f") 'zoom-window-zoom))
   #+end_src
+* persistent-scratch
+https://github.com/Fanael/persistent-scratch
+Preserve the scratch buffer across Emacs sessions.
+#+begin_src emacs-lisp
+(use-package persistent-scratch
+  :config
+  (persistent-scratch-autosave-mode t))
+#+end_src
 * systemd
 https://github.com/holomorph/systemd-mode
 #+begin_src emacs-lisp
