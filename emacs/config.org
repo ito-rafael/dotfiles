@@ -891,3 +891,8 @@ https://github.com/paradoxxxzero/jinja2-mode
   :config
   (global-set-key (kbd "M-s-f") 'zoom-window-zoom))
   #+end_src
+* systemd
+https://github.com/holomorph/systemd-mode
+#+begin_src emacs-lisp
+(use-package systemd)
+#+end_src
