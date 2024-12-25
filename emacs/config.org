@@ -517,7 +517,7 @@ https://github.com/noctuid/general.el
 #+begin_src emacs-lisp
   (efs/leader-keys
     "t" '(:ignore t :wk "Toggle")
-    "t d" '(dashboard-open            :wk "Toggle dashboard")
+    "t d" '(lambda () (interactive) (dashboard-open) (dashboard-refresh-buffer) (dashboard-jump-to-recents)  :wk "Toggle dashboard")
   )
 #+end_src
 ** w --> window
