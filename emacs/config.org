@@ -162,6 +162,16 @@ Save and restore Emacs sessions.
 #+begin_src emacs-lisp
 (global-set-key (kbd "M-s-t") '(lambda () (interactive) (split-window-autotiling) (other-window 1) (counsel-find-file)))
 #+end_src
+** ﹡scratch﹡ buffer
+Prevent scratch buffer from being killed.
+#+begin_src emacs-lisp
+(add-hook 'kill-buffer-query-functions #'kill/dont-kill-scratch)
+(defun kill/dont-kill-scratch ()
+  (if (not (equal (buffer-name) "*scratch*")) t
+    (message "Not allowed to kill %s, burying instead" (buffer-name))
+    (bury-buffer)
+    nil))
+#+end_src
 * Package Manager :noexport_1:
 Git repo: [[https://github.com/progfolio/elpaca][Elpaca]]
 #+ATTR_ORG: :width 75
