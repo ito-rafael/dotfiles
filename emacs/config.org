@@ -731,8 +731,8 @@ It's Magit! A Git Porcelain inside Emacs.
       (untracked . show)))  ;; show untracked
   :config
   (evil-set-initial-state 'git-commit-mode 'insert)  ;; start git-commit-mode in insert mode
-  ;; override keybindings for =magit-section-show-level-{1,2,3,4}= and use as counts for evil commands
-  (evil-collection-define-key 'normal 'magit-status-mode-map
+  (evil-collection-define-key '(normal visual) 'magit-status-mode-map
+    ;; override keybindings for =magit-section-show-level-{1,2,3,4}= and use as counts for evil commands
     "1" 'digit-argument
     "2" 'digit-argument
     "3" 'digit-argument
