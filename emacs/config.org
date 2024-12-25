@@ -881,6 +881,12 @@ Supported window managers:
          ;; that focus the window outside of Emacs based on the =dir= variable
              ;;(user-error "Minibuffer is inactive"))
          ;;--------------------------------------------------------------------
+	     ;; identify environment
+             (setq wm_cmd (pcase (getenv "XDG_SESSION_TYPE")
+	                    ("x11"      "i3-msg")
+	                    ("wayland"  "swaymsg")
+	                    ("tty"      "tty")
+			    (_          "nil")))
 	     ;; focus adjacent window
              (shell-command (concat wm_cmd " focus " (format "%s" dir) " > /dev/null 2>&1") t t))
          ;;====================================================================
