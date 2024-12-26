@@ -566,6 +566,11 @@ https://github.com/noctuid/general.el
     "h r" '((lambda () (interactive) (load-file "~/.config/emacs-efs/init.el") (ignore (elpaca-process-queues)))
             :wk "Reload emacs config")
     "h v" '(describe-variable :wk "Describe variable")
+#+end_src
+** p --> project
+#+begin_src emacs-lisp
+  (efs/leader-keys
+    "p" '(:ignore t :wk "Project")
   )
 #+end_src
 ** s --> search
