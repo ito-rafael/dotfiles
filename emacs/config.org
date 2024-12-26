@@ -29,7 +29,10 @@
 - [[#docker][Docker]]
 - [[#windmove][windmove]]
 - [[#ansible][Ansible]]
+- [[#keycast][Keycast]]
 - [[#zoom-window][zoom-window]]
+- [[#persistent-scratch][persistent-scratch]]
+- [[#systemd][systemd]]
 
 * UI :noexport_1:
 ** Misc
@@ -911,6 +914,26 @@ https://github.com/yoshiki/yaml-mode
 https://github.com/paradoxxxzero/jinja2-mode
 #+begin_src emacs-lisp
 (use-package jinja2-mode)
+#+end_src
+* Keycast
+https://github.com/tarsius/keycast
+#+begin_src emacs-lisp
+(use-package keycast
+  :hook (after-init . keycast-mode)
+  :after doom-modeline
+  :config
+  (define-minor-mode keycast-mode
+    "Show current command and its key binding in the mode line (fix for use with doom-mode-line)."
+    :global t
+    (if keycast-mode
+      ;; insert keycast in modeline
+      (progn
+        (add-hook 'pre-command-hook 'keycast--update t)
+        (add-to-list 'global-mode-string '("" keycast-mode-line " ")))
+      ;; remove keycast from modeline
+      (progn
+        (remove-hook 'pre-command-hook 'keycast--update)
+        (setq global-mode-string (delete '("" keycast-mode-line " ") global-mode-string))))))
 #+end_src
 #+end_src
 * zoom-window
