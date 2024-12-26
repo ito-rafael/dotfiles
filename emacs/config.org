@@ -572,6 +572,7 @@ https://github.com/noctuid/general.el
   (efs/leader-keys
     "p" '(:ignore t :wk "Project")
     "p a" '(projectile-add-known-project :wk "Add new project")
+    "p p" '(projectile-switch-project    :wk "Switch project")
   )
 #+end_src
 ** s --> search
