@@ -53,7 +53,14 @@ else
         "toggle")
             if [ $CURRENT_BRIGHTNESS -eq 0 ]; then
                 # turn on
-                brightnessctl --device=$DEVICE --restore
+                TEMP_FILE="/run/user/1000/brightnessctl/leds/"$DEVICE
+                if [ -f $TEMP_FILE ]; then
+                    # if temp file exists, restore level from it
+                    brightnessctl --device=$DEVICE --restore
+                else
+                    # if temp file does not exist, set level to minimum
+                    brightnessctl --device=$DEVICE set 1
+                fi
             else
                 # turn off
                 brightnessctl --device=$DEVICE --save set 0
