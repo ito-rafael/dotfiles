@@ -434,6 +434,11 @@ https://github.com/seagle0128/doom-modeline
     (push '("[X]" . "☑") prettify-symbols-alist)
     (push '("[-]" . "❍") prettify-symbols-alist)
     (prettify-symbols-mode)))
+  ;; unmap <RET> in 'evil-maps in order to =org-return-follows-link= to work
+  (with-eval-after-load 'evil-maps
+    (define-key evil-motion-state-map (kbd "RET") nil))
+  ;; use <RET> to follow links in Org/Evil
+  (setq org-return-follows-link  t)
 )
 #+end_src
 ** org-bullets
