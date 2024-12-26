@@ -563,6 +563,8 @@ https://github.com/noctuid/general.el
     "h d" '((lambda () (interactive) (call-process (concat (getenv "XDG_CONFIG_HOME") "/scripts/emacs-respawn.sh") nil 0 nil) (restart-emacs)) :wk "Restart emacs daemon")
     "h f" '(describe-function :wk "Describe function")
     "h k" '(describe-key      :wk "Describe key")
+    "h r" '((lambda () (interactive) (load-file "~/.config/emacs-efs/init.el") (ignore (elpaca-process-queues)))
+            :wk "Reload emacs config")
     "h v" '(describe-variable :wk "Describe variable")
   )
 #+end_src
