@@ -504,7 +504,7 @@ https://github.com/jtbm37/all-the-icons-dired
   :config
   (setq all-the-icons-dired-monochrome nil))
 #+end_src
-* General :noexport_1:
+* General
 Keybindings
 https://github.com/noctuid/general.el
 ** Leader key
@@ -544,6 +544,8 @@ https://github.com/noctuid/general.el
 #+begin_src emacs-lisp
   (efs/leader-keys
     "f"  '(:ignore t :wk "Files")
+    "f c" '((lambda () (interactive) (find-file "~/git/dotfiles/emacs/config.org")) :wk "Open emacs config.org")
+    "f e" '((lambda () (interactive) (find-file "~/git/dotfiles/emacs/config.org")) :wk "Open emacs config.org")
     "f r" '(counsel-recentf :wk "Find recent files")
 ** g --> git
 #+begin_src emacs-lisp
