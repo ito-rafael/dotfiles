@@ -853,6 +853,7 @@ https://github.com/emacs-dashboard/emacs-dashboard
 https://github.com/Silex/docker.el
 #+begin_src emacs-lisp
 (use-package docker)
+#+end_src
 ** dockerfile-mode
 https://github.com/spotify/dockerfile-mode
 #+begin_src emacs-lisp
