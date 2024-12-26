@@ -545,6 +545,7 @@ https://github.com/noctuid/general.el
   (efs/leader-keys
     "t" '(:ignore t :wk "Toggle")
     "t d" '(lambda () (interactive) (dashboard-open) (dashboard-refresh-buffer) (dashboard-jump-to-recents)  :wk "Toggle dashboard")
+    "t k" '(keycast-mode              :wk "Toggle keycast")
   )
 #+end_src
 ** w --> window
