@@ -503,11 +503,11 @@ https://github.com/noctuid/general.el
 #+begin_src emacs-lisp
   (efs/leader-keys
     "b"   '(:ignore t :wk "buffer")
-    "b b" '(switch-to-buffer :wk "Switch buffer")
-    "b k" '(kill-this-buffer :wk "Kill this buffer")
-    "b n" '(next-buffer      :wk "Next buffer")
-    "b p" '(previous-buffer  :wk "Previous buffer")
-    "b r" '(revert-buffer    :wk "Reload buffer")
+    "b b" '(counsel-switch-buffer :wk "Switch buffer")
+    "b k" '(kill-this-buffer      :wk "Kill this buffer")
+    "b n" '(next-buffer           :wk "Next buffer")
+    "b p" '(previous-buffer       :wk "Previous buffer")
+    "b r" '(revert-buffer         :wk "Reload buffer")
   )
 #+end_src
 ** f --> files
