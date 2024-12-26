@@ -762,7 +762,9 @@ It's Magit! A Git Porcelain inside Emacs.
     "1" 'digit-argument
     "2" 'digit-argument
     "3" 'digit-argument
-    "4" 'digit-argument))
+    "4" 'digit-argument
+  (add-hook 'git-commit-post-finish-hook 'magit))
+#+end_src
 ** Forge
 Pulls down all information from repositories: issues, pull requests, notifications, etc.
 https://magit.vc/manual/ghub/Getting-Started.html
