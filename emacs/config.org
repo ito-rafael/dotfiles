@@ -625,6 +625,10 @@ https://github.com/abo-abo/swiper
   (setq ivy-re-builders-alist '((t . orderless-ivy-re-builder)))
   (add-to-list 'ivy-highlight-functions-alist '(orderless-ivy-re-builder . orderless-ivy-highlight))
 
+  ;; enable counsel-imenu preview
+  (ivy-configure 'counsel-imenu
+    :update-fn 'auto)
+
   ;; enable Ivy
   (ivy-mode 1))
 #+end_src
