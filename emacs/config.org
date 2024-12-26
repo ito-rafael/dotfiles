@@ -546,6 +546,7 @@ https://github.com/noctuid/general.el
     "f"  '(:ignore t :wk "Files")
     "f c" '((lambda () (interactive) (find-file "~/git/dotfiles/emacs/config.org")) :wk "Open emacs config.org")
     "f e" '((lambda () (interactive) (find-file "~/git/dotfiles/emacs/config.org")) :wk "Open emacs config.org")
+    "f i" '((lambda () (interactive) (find-file "~/git/dotfiles/emacs/init.el"))    :wk "Open emacs init.el")
     "f r" '(counsel-recentf :wk "Find recent files")
 ** g --> git
 #+begin_src emacs-lisp
