@@ -159,6 +159,7 @@ When you visit a file, point goes to the last place where it was when you previo
 ** kill window
 #+begin_src emacs-lisp
 (global-set-key (kbd "M-s-q") 'evil-quit)
+(global-set-key (kbd "M-s-w") 'kill-this-buffer)
 #+end_src
 ** Autotiling
 https://emacs.stackexchange.com/a/21652
