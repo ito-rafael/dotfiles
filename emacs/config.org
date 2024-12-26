@@ -573,6 +573,7 @@ https://github.com/noctuid/general.el
     "p" '(:ignore t :wk "Project")
     "p a" '(projectile-add-known-project :wk "Add new project")
     "p p" '(projectile-switch-project    :wk "Switch project")
+    "p f" '(projectile-find-file         :wk "Find file in project")
   )
 #+end_src
 ** s --> search
