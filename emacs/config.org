@@ -764,6 +764,9 @@ It's Magit! A Git Porcelain inside Emacs.
     "2" 'digit-argument
     "3" 'digit-argument
     "4" 'digit-argument
+    ;; custom navigation
+    (kbd "M-i") 'magit-section-show-level-2-all  ;; fold everything
+  )
   (add-hook 'git-commit-post-finish-hook 'magit))
 #+end_src
 ** Forge
