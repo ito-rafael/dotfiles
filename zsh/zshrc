@@ -334,7 +334,6 @@ alias cdpws='cd $HOME/git/dotfiles/waybar/scripts'
 # XDG_CONFIG_HOME
 alias cdc='cd $XDG_CONFIG_HOME'
 alias cde='cd $XDG_CONFIG_HOME/emacs'
-alias cdk='cd $XDG_CONFIG_HOME/kitty'
 alias cds='cd $XDG_CONFIG_HOME/scripts'
 alias cdx='cd $XDG_CONFIG_HOME/xremap'
 alias cdi='cd $XDG_CONFIG_HOME/i3'
@@ -342,6 +341,7 @@ alias cdi='cd $XDG_CONFIG_HOME/sway'
 alias cdv='cd $XDG_CONFIG_HOME/nvim'
 alias cdw='cd $XDG_CONFIG_HOME/waybar'
 alias cdws='cd $XDG_CONFIG_HOME/waybar/scripts'
+alias cdkt='cd $XDG_CONFIG_HOME/kitty'
 alias cdz='cd $XDG_CONFIG_HOME/zsh'
 #-----------------------------
 # confirm before overwriting
