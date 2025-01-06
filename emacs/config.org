@@ -545,6 +545,7 @@ https://github.com/noctuid/general.el
   (efs/leader-keys
     "e" '(:ignore t :wk "Evaluate")
     "e b" '(eval-buffer     :wk "Evaluate elisp in buffer")
+    "e l" '(eval-last-sexp  :wk "Evaluate elisp expression before point")
   )
 #+end_src
 ** f --> files
