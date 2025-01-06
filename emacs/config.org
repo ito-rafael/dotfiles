@@ -544,6 +544,7 @@ https://github.com/noctuid/general.el
 #+begin_src emacs-lisp
   (efs/leader-keys
     "e" '(:ignore t :wk "Evaluate")
+    "e b" '(eval-buffer     :wk "Evaluate elisp in buffer")
   )
 #+end_src
 ** f --> files
