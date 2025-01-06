@@ -540,6 +540,12 @@ https://github.com/noctuid/general.el
     "b r" '(revert-buffer         :wk "Reload buffer")
   )
 #+end_src
+** e --> eval
+#+begin_src emacs-lisp
+  (efs/leader-keys
+    "e" '(:ignore t :wk "Evaluate")
+  )
+#+end_src
 ** f --> files
 #+begin_src emacs-lisp
   (efs/leader-keys
