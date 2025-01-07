@@ -316,6 +316,7 @@ alias ....="cd ../../.."
 alias cdd='cd $HOME/Downloads'
 alias cdg='cd $HOME/git'
 alias cdh='cd $HOME/git/homelab'
+alias cdk='cd $HOME/git/keebab'
 alias cda='cd $HOME/git/ansible-provision'
 alias cdm='cd $HOME/git/machine-learning'
 alias cdenv='cd $HOME/venvs'
