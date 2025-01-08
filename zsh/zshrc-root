@@ -27,13 +27,15 @@ chpwd_functions+=( ls_after_cd )
 #=======================================
 # aliases
 #=======================================
-alias zz='vim /root/.zshrc'          # edit zsh config file
 # general
 alias -g g='| grep'        # grep
 alias h=history            # history
 alias hg='history | grep'  # history + grep
 alias v=vim                # Vim
 
+#-----------------------------
+# dotfiles
+alias zz='vim $XDG_CONFIG_HOME/zsh/.zshrc'      # zsh
 #=======================================
 # fix yank to clipboard
 #=======================================
