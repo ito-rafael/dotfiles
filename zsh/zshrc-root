@@ -38,6 +38,10 @@ alias v=vim                # Vim
 alias zz='vim $XDG_CONFIG_HOME/zsh/.zshrc'      # zsh
 alias vv='vim $XDG_CONFIG_HOME/nvim/vimrc.vim'  # Neovim
 
+#-----------------------------
+# directories
+alias ..="cd .."
+
 #=======================================
 # fix yank to clipboard
 #=======================================
