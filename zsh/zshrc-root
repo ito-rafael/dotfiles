@@ -49,7 +49,9 @@ alias cdz='cd $XDG_CONFIG_HOME/zsh'
 
 #-----------------------------
 # clipboard
+# Wayland
 alias -g c='| wl-copy'      # copy stdout
+alias pwdc='pwd | wl-copy'  # copy pwd
 alias cv='cd $(wl-paste)'   # move to dir in clipboard
 
 #=======================================
