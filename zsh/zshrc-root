@@ -50,6 +50,7 @@ alias cdz='cd $XDG_CONFIG_HOME/zsh'
 #-----------------------------
 # clipboard
 alias -g c='| wl-copy'      # copy stdout
+alias cv='cd $(wl-paste)'   # move to dir in clipboard
 
 #=======================================
 # fix yank to clipboard
