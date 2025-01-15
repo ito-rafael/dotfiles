@@ -45,6 +45,7 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias cdc='cd $XDG_CONFIG_HOME'
 alias cdv='cd $XDG_CONFIG_HOME/nvim'
+alias cdz='cd $XDG_CONFIG_HOME/zsh'
 
 #=======================================
 # fix yank to clipboard
