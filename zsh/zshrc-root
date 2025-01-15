@@ -43,6 +43,7 @@ alias vv='vim $XDG_CONFIG_HOME/nvim/vimrc.vim'  # Neovim
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
+alias cdc='cd $XDG_CONFIG_HOME'
 
 #=======================================
 # fix yank to clipboard
