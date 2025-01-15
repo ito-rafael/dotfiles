@@ -1,4 +1,4 @@
-#+title: EFS config
+#+title: Emacs from Scratch (EFS) personal config
 #+author: Rafael Ito
 #+description: Emacs from Scratch (EFS) personal config
 #+startup: showeverything
