@@ -142,7 +142,6 @@ bindsym XF86AudioPrev exec playerctl previous
 #bindsym shift+F14      exec --no-startup-id amixer -q sset Capture 1%-
 #bindsym ctrl+shift+F14 exec --no-startup-id amixer -q sset Capture 1%+
 bindsym XF86AudioMicMute exec --no-startup-id amixer -q sset Capture toggle
-bindsym shift+$mod+F14 exec --no-startup-id amixer -q sset Capture toggle
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q sset Master 5%+
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q sset Master 5%-
 bindsym shift-XF86AudioRaiseVolume exec --no-startup-id amixer -q sset Master 1%-
@@ -264,6 +263,7 @@ bindsym XF86MonBrightnessUp   exec brightnessctl set 5%+
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym XF86KbdBrightnessDown   exec "$SCRIPT_PATH/keeb-backlit.sh dec"
 bindsym XF86KbdBrightnessUp     exec "$SCRIPT_PATH/keeb-backlit.sh inc"
+bindsym XF86KbdBrightnessToggle exec "$SCRIPT_PATH/keeb-backlit.sh toggle"
 bindsym shift+$alt+F1 exec "$SCRIPT_PATH/obs-tools.py --scene camera"
 bindsym shift+$alt+F2 exec "$SCRIPT_PATH/obs-tools.py --scene presentation"
 bindsym shift+$alt+F3 exec "$SCRIPT_PATH/obs-tools.py --scene scene-3"

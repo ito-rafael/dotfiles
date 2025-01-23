@@ -517,7 +517,6 @@ All keybindings were moved to =xremap=. The only exception is the XF86AudioMicMu
 **** Toggle
 #+begin_src conf :noweb-ref microphone
 bindsym XF86AudioMicMute exec --no-startup-id amixer -q sset Capture toggle
-bindsym shift+$mod+F14 exec --no-startup-id amixer -q sset Capture toggle
 #+end_src
 ** Tangle :noexport:
 *** i3
@@ -847,6 +846,7 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 #+begin_src conf :noweb-ref keybindings
 bindsym XF86KbdBrightnessDown   exec "$SCRIPT_PATH/keeb-backlit.sh dec"
 bindsym XF86KbdBrightnessUp     exec "$SCRIPT_PATH/keeb-backlit.sh inc"
+bindsym XF86KbdBrightnessToggle exec "$SCRIPT_PATH/keeb-backlit.sh toggle"
 #+end_src
 ** Rofi
 #+begin_src conf :noweb-ref rofi
