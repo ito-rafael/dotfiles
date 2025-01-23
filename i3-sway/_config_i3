@@ -101,7 +101,6 @@ bindsym F14      exec --no-startup-id amixer -q sset Capture 5%-
 bindsym ctrl+F14 exec --no-startup-id amixer -q sset Capture 5%+
 bindsym shift+F14      exec --no-startup-id amixer -q sset Capture 1%-
 bindsym ctrl+shift+F14 exec --no-startup-id amixer -q sset Capture 1%+
-bindsym $mod+F14 exec --no-startup-id amixer -q sset Capture 50%
 bindsym XF86AudioMicMute exec --no-startup-id amixer -q sset Capture toggle
 bindsym shift+$mod+F14 exec --no-startup-id amixer -q sset Capture toggle
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q sset Master 5%+
@@ -109,7 +108,6 @@ bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q sset Master 5%-
 bindsym shift-XF86AudioRaiseVolume exec --no-startup-id amixer -q sset Master 1%-
 bindsym shift-XF86AudioLowerVolume exec --no-startup-id amixer -q sset Master 1%+
 bindsym XF86AudioMute exec --no-startup-id amixer -q sset Master toggle
-bindsym $mod+F15 exec --no-startup-id amixer -q sset Master 50%
 
 
 
