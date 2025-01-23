@@ -503,15 +503,16 @@ bindsym shift-XF86AudioLowerVolume exec --no-startup-id amixer -q sset Master 1%
 bindsym XF86AudioMute exec --no-startup-id amixer -q sset Master toggle
 #+end_src
 ** Microphone control
-#+begin_src conf :noweb-ref microphone
-bindsym F14      exec --no-startup-id amixer -q sset Capture 5%-
-bindsym ctrl+F14 exec --no-startup-id amixer -q sset Capture 5%+
-#+begin_src conf :noweb-ref microphone
-bindsym shift+F14      exec --no-startup-id amixer -q sset Capture 1%-
-bindsym ctrl+shift+F14 exec --no-startup-id amixer -q sset Capture 1%+
+All keybindings were moved to =xremap=. The only exception is the XF86AudioMicMute (which has an equivalent binding in =xremap=).
 **** Coarse
+#+begin_src conf :noweb-ref microphone :tangle no
+#bindsym F14      exec --no-startup-id amixer -q sset Capture 5%-
+#bindsym ctrl+F14 exec --no-startup-id amixer -q sset Capture 5%+
 #+end_src
 **** Fine
+#+begin_src conf :noweb-ref microphone :tangle no
+#bindsym shift+F14      exec --no-startup-id amixer -q sset Capture 1%-
+#bindsym ctrl+shift+F14 exec --no-startup-id amixer -q sset Capture 1%+
 #+end_src
 **** Toggle
 #+begin_src conf :noweb-ref microphone
