@@ -148,11 +148,11 @@ bindsym shift-XF86AudioRaiseVolume exec --no-startup-id amixer -q sset Master 1%
 bindsym shift-XF86AudioLowerVolume exec --no-startup-id amixer -q sset Master 1%+
 bindsym XF86AudioMute exec --no-startup-id amixer -q sset Master toggle
 
-bindsym F19      exec --no-startup-id pkill -f inactive-windows-transparency; exec "$SCRIPT_PATH/opacity.sh current dec"
-bindsym ctrl+F19 exec --no-startup-id pkill -f inactive-windows-transparency; exec "$SCRIPT_PATH/opacity.sh current inc"
-bindsym shift+F19      exec --no-startup-id pkill -f inactive-windows-transparency; exec "$SCRIPT_PATH/opacity.sh all dec"
-bindsym shift+ctrl+F19 exec --no-startup-id pkill -f inactive-windows-transparency; exec "$SCRIPT_PATH/opacity.sh all inc"
-bindsym $mod+F19 exec --no-startup-id pkill -f inactive-windows-transparency; exec "/usr/share/sway-contrib/inactive-windows-transparency.py --opacity 0.85 &"
+#bindsym F19      exec --no-startup-id pkill -f inactive-windows-transparency; exec "$SCRIPT_PATH/opacity.sh current dec"
+#bindsym ctrl+F19 exec --no-startup-id pkill -f inactive-windows-transparency; exec "$SCRIPT_PATH/opacity.sh current inc"
+#bindsym shift+F19      exec --no-startup-id pkill -f inactive-windows-transparency; exec "$SCRIPT_PATH/opacity.sh all dec"
+#bindsym shift+ctrl+F19 exec --no-startup-id pkill -f inactive-windows-transparency; exec "$SCRIPT_PATH/opacity.sh all inc"
+#bindsym $mod+F19 exec --no-startup-id pkill -f inactive-windows-transparency; exec "/usr/share/sway-contrib/inactive-windows-transparency.py --opacity 0.85 &"
 
 #bindsym $mod+Left  focus left
 #bindsym $mod+Down  focus down

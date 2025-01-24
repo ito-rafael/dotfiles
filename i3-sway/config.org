@@ -547,19 +547,21 @@ https://github.com/yshui/picom
 ** Sway
 Windows transparency/opacity can be achieved with the inactive-windows-transparency.py script:
 https://github.com/OctopusET/sway-contrib
+
+All keybindings were moved to =xremap=.
 *** Current window
-#+begin_src conf :noweb-ref sway-opacity
-bindsym F19      exec --no-startup-id pkill -f inactive-windows-transparency; exec "$SCRIPT_PATH/opacity.sh current dec"
-bindsym ctrl+F19 exec --no-startup-id pkill -f inactive-windows-transparency; exec "$SCRIPT_PATH/opacity.sh current inc"
+#+begin_src conf :noweb-ref sway-opacity :tangle no
+#bindsym F19      exec --no-startup-id pkill -f inactive-windows-transparency; exec "$SCRIPT_PATH/opacity.sh current dec"
+#bindsym ctrl+F19 exec --no-startup-id pkill -f inactive-windows-transparency; exec "$SCRIPT_PATH/opacity.sh current inc"
 #+end_src
 *** All windows
-#+begin_src conf :noweb-ref sway-opacity
-bindsym shift+F19      exec --no-startup-id pkill -f inactive-windows-transparency; exec "$SCRIPT_PATH/opacity.sh all dec"
-bindsym shift+ctrl+F19 exec --no-startup-id pkill -f inactive-windows-transparency; exec "$SCRIPT_PATH/opacity.sh all inc"
+#+begin_src conf :noweb-ref sway-opacity :tangle no
+#bindsym shift+F19      exec --no-startup-id pkill -f inactive-windows-transparency; exec "$SCRIPT_PATH/opacity.sh all dec"
+#bindsym shift+ctrl+F19 exec --no-startup-id pkill -f inactive-windows-transparency; exec "$SCRIPT_PATH/opacity.sh all inc"
 #+end_src
 *** Enable transparency
-#+begin_src conf :noweb-ref sway-opacity
-bindsym $mod+F19 exec --no-startup-id pkill -f inactive-windows-transparency; exec "/usr/share/sway-contrib/inactive-windows-transparency.py --opacity 0.85 &"
+#+begin_src conf :noweb-ref sway-opacity :tangle no
+#bindsym $mod+F19 exec --no-startup-id pkill -f inactive-windows-transparency; exec "/usr/share/sway-contrib/inactive-windows-transparency.py --opacity 0.85 &"
 #+end_src
 ** Tangle :noexport:
 *** i3
