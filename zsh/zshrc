@@ -206,6 +206,7 @@ alias cmd='command'
 function cv() { cat $1 | vim - }
 #-----------------------------
 # network
+alias p1='ping 192.168.0.'                         # ping local IP
 alias p8='ping 8.8.8.8'                            # ping test (no DNS)
 alias pg='ping google.com'                         # ping test with DNS
 alias nsn='$XDG_CONFIG_HOME/scripts/nmap.sh'       # nmap -sn (automatic interface: eth > wlp)
