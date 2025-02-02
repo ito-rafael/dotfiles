@@ -171,6 +171,7 @@ source $ZSH/oh-my-zsh.sh
 #=======================================
 # general
 alias v=vim                                     # Vim
+alias v0=nvim -u NONE -U NONE -N -i NONE        # Vim without configuration
 alias m=man                                     # man
 alias j=joplin                                  # joplin
 alias k=kill                                    # kill
