@@ -292,14 +292,16 @@ mode "$mode_system" {
     bindsym s       exec --no-startup-id $PATH_LOCKER/del-screenshot.sh; exec --no-startup-id systemctl poweroff -i, mode "default"
     #-----------------------------
     # back to normal: Enter or Escape
-    bindsym Return    exec --no-startup-id $PATH_LOCKER/del-screenshot.sh; mode "default"
-    bindsym Escape    exec --no-startup-id $PATH_LOCKER/del-screenshot.sh; mode "default"
-    bindsym $mod+Home exec --no-startup-id $PATH_LOCKER/del-screenshot.sh; mode "default"
+    bindsym Return       exec --no-startup-id $PATH_LOCKER/del-screenshot.sh; mode "default"
+    bindsym Escape       exec --no-startup-id $PATH_LOCKER/del-screenshot.sh; mode "default"
+    bindsym $mod+Home    exec --no-startup-id $PATH_LOCKER/del-screenshot.sh; mode "default"
+    bindsym XF86PowerOff exec --no-startup-id $PATH_LOCKER/del-screenshot.sh; mode "default"
     #-----------------------------
     # inherent default keybinds (i3bang)
     !@default_keybindings
 }
-bindsym $mod+Home exec --no-startup-id $PATH_LOCKER/take-screenshot.sh; mode "$mode_system"
+bindsym $mod+Home    exec --no-startup-id $PATH_LOCKER/take-screenshot.sh; mode "$mode_system"
+bindsym XF86PowerOff exec --no-startup-id $PATH_LOCKER/take-screenshot.sh; mode "$mode_system"
 mode "resize" {
     #-----------------------------
     # colemak home row
