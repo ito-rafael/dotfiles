@@ -995,6 +995,10 @@ Note: whole section deprecated in favor of [[https://github.com/jtroo/kanata][ka
 | kp8 | up              |
 | kp6 | right           |
 #+begin_src conf :noweb-ref i3-mouse-keybindings
+#bindsym kp_4 <TBD>
+#bindsym kp_2 <TBD>
+#bindsym kp_8 <TBD>
+#bindsym kp_6 <TBD>
 #+end_src
 **** Buttons
 | key | mouse button |
@@ -1003,6 +1007,9 @@ Note: whole section deprecated in favor of [[https://github.com/jtroo/kanata][ka
 | kp* | middle click |
 | kb- | right click  |
 #+begin_src conf :noweb-ref i3-mouse-keybindings
+#bindsym kp_divide   <TBD>
+#bindsym kp_multiply <TBD>
+#bindsym kp_subtract <TBD>
 #+end_src
 **** Wheel
 | key | wheel movement |
@@ -1012,11 +1019,15 @@ Note: whole section deprecated in favor of [[https://github.com/jtroo/kanata][ka
 | kp1 | up             |
 | kp7 | right          |
 #+begin_src conf :noweb-ref i3-mouse-keybindings
+#bindsym kp_1 <TBD>
+#bindsym kp_3 <TBD>
+#bindsym kp_7 <TBD>
+#bindsym kp_9 <TBD>
 #+end_src
 ** Tangle :noexport:
 *** i3
-#+begin_src conf :noweb yes :tangle _config_i3
-<<i3-mouse-keybindings>>
+#+begin_src conf :noweb yes :tangle no
+#<<i3-mouse-keybindings>>
 #+end_src
 *** Sway
 #+begin_src conf :noweb yes :tangle no
