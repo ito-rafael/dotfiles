@@ -495,8 +495,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q sset Master 5%-
 #+end_src
 **** Fine
 #+begin_src conf :noweb-ref volume
-bindsym shift-XF86AudioRaiseVolume exec --no-startup-id amixer -q sset Master 1%-
-bindsym shift-XF86AudioLowerVolume exec --no-startup-id amixer -q sset Master 1%+
+bindsym shift+XF86AudioRaiseVolume exec --no-startup-id amixer -q sset Master 1%-
+bindsym shift+XF86AudioLowerVolume exec --no-startup-id amixer -q sset Master 1%+
 #+end_src
 **** Toggle
 #+begin_src conf :noweb-ref volume
