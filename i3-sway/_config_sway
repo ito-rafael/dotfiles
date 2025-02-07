@@ -285,9 +285,6 @@ bindsym Print exec grim
 bindsym shift+Print exec 'grim -g "$(slurp)"'
 bindsym ctrl+Print exec 'grim -g "$(slurp)" - | swappy -f -'
 bindsym $alt+ctrl+n exec "$SCRIPT_PATH/wlprop.sh focused"
-bindsym kp_divide   seat - cursor press button1
-bindsym kp_multiply seat - cursor press button2
-bindsym kp_subtract seat - cursor press button3
 bindsym kp_1 seat - cursor press button4
 bindsym kp_3 seat - cursor press button5
 bindsym kp_7 seat - cursor press button6

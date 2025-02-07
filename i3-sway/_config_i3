@@ -241,9 +241,6 @@ bindsym $alt+$mod+Return  exec "$SCRIPT_PATH/rofi.sh run"
 bindsym Print exec shutter
 bindsym $alt+ctrl+n exec i3-msg -t get_tree | jq -re '.. | select(type == "object") | select(.focused)' > /tmp/window_prop.tmp
 
-#bindsym kp_divide   seat - cursor press button1
-#bindsym kp_multiply seat - cursor press button2
-#bindsym kp_subtract seat - cursor press button3
 #bindsym kp_1 seat - cursor press button4
 #bindsym kp_3 seat - cursor press button5
 #bindsym kp_7 seat - cursor press button6

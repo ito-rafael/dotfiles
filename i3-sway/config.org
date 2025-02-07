@@ -969,9 +969,9 @@ Note: whole section deprecated in favor of [[https://github.com/jtroo/kanata][ka
 | kp* | middle click |
 | kb- | right click  |
 #+begin_src conf :noweb-ref sway-mouse-keybindings
-bindsym kp_divide   seat - cursor press button1
-bindsym kp_multiply seat - cursor press button2
-bindsym kp_subtract seat - cursor press button3
+#bindsym kp_divide   seat - cursor press button1
+#bindsym kp_multiply seat - cursor press button2
+#bindsym kp_subtract seat - cursor press button3
 #+end_src
 **** Wheel
 | key | wheel movement |
