@@ -947,6 +947,7 @@ bindsym --whole-window Shift+button4 exec --no-startup-id amixer -q sset Master 
 bindsym --whole-window Shift+button5 exec --no-startup-id amixer -q sset Master 1%-
 #+end_src
 ** Mouse keys
+Note: whole section deprecated in favor of [[https://github.com/jtroo/kanata][kanata]].
 *** Sway
 **** Cursor
 | key | cursor movement |
@@ -956,10 +957,10 @@ bindsym --whole-window Shift+button5 exec --no-startup-id amixer -q sset Master 
 | kp8 | up              |
 | kp6 | right           |
 #+begin_src conf :noweb-ref sway-mouse-keybindings
-bindsym kp_4 seat - cursor move -10  0
-bindsym kp_2 seat - cursor move  0   10
-bindsym kp_8 seat - cursor move  0  -10
-bindsym kp_6 seat - cursor move  10  0
+#bindsym kp_4 seat - cursor move -10  0
+#bindsym kp_2 seat - cursor move  0   10
+#bindsym kp_8 seat - cursor move  0  -10
+#bindsym kp_6 seat - cursor move  10  0
 #+end_src
 **** Buttons
 | key | mouse button |
