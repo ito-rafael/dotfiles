@@ -981,10 +981,10 @@ Note: whole section deprecated in favor of [[https://github.com/jtroo/kanata][ka
 | kp7 | right          |
 | kp9 | left           |
 #+begin_src conf :noweb-ref sway-mouse-keybindings
-bindsym kp_1 seat - cursor press button4
-bindsym kp_3 seat - cursor press button5
-bindsym kp_7 seat - cursor press button6
-bindsym kp_9 seat - cursor press button7
+#bindsym kp_1 seat - cursor press button4
+#bindsym kp_3 seat - cursor press button5
+#bindsym kp_7 seat - cursor press button6
+#bindsym kp_9 seat - cursor press button7
 #+end_src
 *** i3
 **** Cursor
@@ -1019,8 +1019,8 @@ bindsym kp_9 seat - cursor press button7
 <<i3-mouse-keybindings>>
 #+end_src
 *** Sway
-#+begin_src conf :noweb yes :tangle _config_sway
-<<sway-mouse-keybindings>>
+#+begin_src conf :noweb yes :tangle no
+#<<sway-mouse-keybindings>>
 #+end_src
 * Rotate screen
 ** Portrait
