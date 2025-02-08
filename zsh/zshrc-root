@@ -39,6 +39,7 @@ alias zz='vim $XDG_CONFIG_HOME/zsh/.zshrc'      # zsh
 alias vv='vim $XDG_CONFIG_HOME/nvim/vimrc.vim'  # Neovim
 # reload config files
 alias {rzz,rz}='source $XDG_CONFIG_HOME/zsh/.zshrc'
+alias rze='source $XDG_CONFIG_HOME/zsh/.zshenv'
 
 #-----------------------------
 # directories
