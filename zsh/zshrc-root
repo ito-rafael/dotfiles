@@ -70,3 +70,8 @@ zvm_vi_yank () {
     printf %s "${CUTBUFFER}" |  wl-copy -n
     zvm_exit_visual_mode
 }
+#=======================================
+# navigation
+#=======================================
+bindkey "^[[1;5D" backward-word
+bindkey "^[[1;5C" forward-word
