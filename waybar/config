@@ -286,7 +286,7 @@
 
 "custom/kmonad": {
     "return-type": "json",
-    "exec": "sleep 1 && ~/.config/waybar/scripts/kmonad.sh monitor",
+    "exec": "sleep 2 && ~/.config/waybar/scripts/kmonad.sh monitor",
     "on-click": "~/.config/waybar/scripts/kmonad.sh toggle --user",
     "on-click-right": "~/.config/waybar/scripts/kmonad.sh stop --user",
     "on-click-middle": "~/.config/waybar/scripts/kmonad.sh restart --user",
@@ -303,7 +303,7 @@
 
 "custom/kanata": {
     "return-type": "json",
-    "exec": "sleep 1 && ~/.config/waybar/scripts/kanata.sh monitor --user",
+    "exec": "sleep 2 && ~/.config/waybar/scripts/kanata.sh monitor --user",
     "on-click": "~/.config/waybar/scripts/kanata.sh toggle --user",
     "on-click-right": "~/.config/waybar/scripts/kanata.sh stop --user",
     "on-click-middle": "~/.config/waybar/scripts/kanata.sh restart --user",
