@@ -78,6 +78,12 @@ bindkey '^H' backward-kill-word                  # ctrl+backspace: delete previo
 bindkey '5~' kill-word                           # ctrl+delete: delete next word
 #bindkey '^[[3;5~' kill-word                      # ctrl+shift+delete: delete next word
 
+# fix: workaround for kill-word to work with zsh-vi-mode
+zvm_after_init_commands+=(
+    "bindkey '^H' backward-kill-word"
+    "bindkey '5~' kill-word"
+)
+
 #=======================================
 # navigation
 #=======================================
