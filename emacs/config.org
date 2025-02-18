@@ -33,6 +33,7 @@
 - [[#zoom-window][zoom-window]]
 - [[#persistent-scratch][persistent-scratch]]
 - [[#systemd][systemd]]
+- [[#consult-gh][consult-gh]]
 
 * UI :noexport_1:
 ** Misc
@@ -1032,3 +1033,15 @@ Save and restore Emacs sessions.
   :ensure nil  ;; do not install (desktop is already built-in)
   :init
   (desktop-save-mode 1))
+* consult-gh
+Alternatives:
+  - https://github.com/sigma/gh.el
+** Prerequisites
+#+begin_src sh
+sudo pacman -S github-cli
+#+end_src
+** consult-gh
+#+begin_src emacs-lisp
+(use-package consult-gh
+  :after consult)
+#+end_src
