@@ -145,6 +145,13 @@ input * {
     "
 }
 #+end_src
+*** ydotool
+Fix ydotool "half" resolution on =mousemove=.
+#+begin_src conf :noweb-ref sway-input
+input "9011:26214:ydotoold_virtual_device" {
+    accel_profile flat
+}
+#+end_src
 ** Tangle :noexport:
 *** Sway
 #+begin_src conf :noweb yes :tangle _config_sway

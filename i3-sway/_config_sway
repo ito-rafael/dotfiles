@@ -38,6 +38,9 @@ input * {
         fn-keys:fnkeys, \
     "
 }
+input "9011:26214:ydotoold_virtual_device" {
+    accel_profile flat
+}
 exec echo 1 > /tmp/mouse_warping.tmp
 mouse_warping container
 
