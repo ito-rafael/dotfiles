@@ -224,6 +224,7 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 # iproute2
 alias ip='ip -color=auto'
+alias ipa='ip -br -c a s'
 #-----------------------------
 # scripts
 alias wlprop='$SCRIPTS/wlprop.sh'
