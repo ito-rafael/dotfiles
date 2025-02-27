@@ -440,6 +440,12 @@ https://github.com/seagle0128/doom-modeline
     (define-key evil-motion-state-map (kbd "RET") nil))
   ;; use <RET> to follow links in Org/Evil
   (setq org-return-follows-link  t)
+
+  ;; remap header navigations
+  (evil-collection-define-key 'normal 'org-mode-map
+    ;; custom navigation: M-*
+    (kbd "M-n") 'outline-promote   ;; promote header
+  )
 )
 #+end_src
 ** org-bullets
