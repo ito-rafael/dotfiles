@@ -194,6 +194,7 @@ alias sd='sudo dmesg --ctime'                   # dmesg
 alias sdf='sudo dmesg --follow --ctime'         # dmesg follow
 alias ns='nvidia-smi'                           # NVIDIA
 alias dd='dd bs=4M status=progress oflag=sync'  # dd
+alias mi='mediainfo'                            # mediainfo
 #alias qq='systemctl start --user ydotool && systemctl start --user xremap'
 #alias ww='systemctl stop --user ydotool && systemctl stop --user xremap'
 alias {tarc,tc}='tar -czvf'
