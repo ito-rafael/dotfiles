@@ -194,7 +194,7 @@ set $tertiary  HDMI2
 **** Sway
 #+begin_src conf :noweb-ref sway-output-default
 set $laptop    eDP-1
-set $primary   HDMI1
+set $primary   HDMI-A-1
 set $secondary HDMI3
 set $tertiary  VGA1
 #+end_src
