@@ -843,8 +843,10 @@ bindsym $mod+t exec kitty
 *** Screen brightness
 **** xbacklight
 #+begin_src conf :tangle no
-bindsym XF86MonBrightnessUp   exec --no-startup-id xbacklight -inc 5
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
+bindsym XF86MonBrightnessUp         exec --no-startup-id xbacklight -inc 5
+bindsym XF86MonBrightnessDown       exec --no-startup-id xbacklight -dec 5
+bindsym shift+XF86MonBrightnessUp   exec --no-startup-id xbacklight -inc 1
+bindsym shift+XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 1
 #+end_src
 **** brightnessctl
 #+begin_src conf :noweb-ref keybindings
