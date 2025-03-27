@@ -268,7 +268,8 @@ bindsym shift+XF86MonBrightnessUp   exec brightnessctl set 1%+
 bindsym shift+XF86MonBrightnessDown exec brightnessctl set 1%-
 bindsym XF86KbdBrightnessDown   exec "$SCRIPT_PATH/keeb-backlit.sh dec"
 bindsym XF86KbdBrightnessUp     exec "$SCRIPT_PATH/keeb-backlit.sh inc"
-bindsym XF86KbdBrightnessToggle exec "$SCRIPT_PATH/keeb-backlit.sh toggle"
+#bindsym XF86KbdBrightnessToggle exec "$SCRIPT_PATH/keeb-backlit.sh toggle"
+bindsym XF86KbdLightOnOff exec "$SCRIPT_PATH/keeb-backlit.sh toggle"
 bindsym shift+$alt+F1 exec "$SCRIPT_PATH/obs-tools.py --scene camera"
 bindsym shift+$alt+F2 exec "$SCRIPT_PATH/obs-tools.py --scene presentation"
 bindsym shift+$alt+F3 exec "$SCRIPT_PATH/obs-tools.py --scene scene-3"
