@@ -8,6 +8,7 @@ usage="$(basename "$0") window value [-h]
 where:
     -h, --help   show this help text
     -start       start transparency program (picom for i3wm, inactive-windows-transparency.sh for Sway)
+    -reset       kill current process & reset opacity of all windows to 0.85
     -window      target window, can be one of the options:
        specific ID (eg: 0x0400000f),
        \"current\",
@@ -79,6 +80,15 @@ else
             #    else
             #        /usr/share/sway-contrib/inactive-windows-transparency.py --opacity 0.85 &
             #    fi
+            #------------------------
+            # reset
+            #------------------------
+            if [[ $1 == 'reset' ]]; then
+                # kill current inactive-windows-transparency (IWT)
+                pkill -f inactive-windows-transparency
+                # then relaunch the process with the default value of 0.85
+                /usr/share/sway-contrib/inactive-windows-transparency.py --opacity 0.85 &
+            fi
             #------------------------
             # current window
             #------------------------
