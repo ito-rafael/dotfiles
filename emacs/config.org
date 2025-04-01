@@ -160,7 +160,7 @@ When you visit a file, point goes to the last place where it was when you previo
 ** kill window
 #+begin_src emacs-lisp
 (global-set-key (kbd "M-s-q") 'evil-quit)
-(global-set-key (kbd "M-s-w") 'kill-this-buffer)
+(global-set-key (kbd "M-s-w") 'kill-current-buffer)
 #+end_src
 ** Autotiling
 https://emacs.stackexchange.com/a/21652
@@ -541,7 +541,7 @@ https://github.com/noctuid/general.el
   (efs/leader-keys
     "b"   '(:ignore t :wk "buffer")
     "b b" '(counsel-switch-buffer :wk "Switch buffer")
-    "b k" '(kill-this-buffer      :wk "Kill this buffer")
+    "b k" '(kill-current-buffer      :wk "Kill this buffer")
     "b n" '(next-buffer           :wk "Next buffer")
     "b p" '(previous-buffer       :wk "Previous buffer")
     "b r" '(revert-buffer         :wk "Reload buffer")
