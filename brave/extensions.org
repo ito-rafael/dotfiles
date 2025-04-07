@@ -43,6 +43,7 @@
     - [[#video-downloadhelper][Video DownloadHelper]]
     - [[#video-speed-controller][Video Speed Controller]]
     - [[#watch-on-odysee][Watch on Odysee]]
+    - [[#screenshot-youtube][Screenshot YouTube]]
 - [[#end][End]]
   - [[#extensionsettings-1][ExtensionSettings]]
 
@@ -242,7 +243,13 @@ Deprecated in favour of [[Surfingkeys]].
 - link: https://chromewebstore.google.com/detail/kofmhmemalhemmpkfjhjfkkhifonoann
 - description: redirection to Odysee when available.
 #+begin_src js :noweb yes
-<<install(extension_id="kofmhmemalhemmpkfjhjfkkhifonoann", comma=0)>>
+<<install(extension_id="kofmhmemalhemmpkfjhjfkkhifonoann")>>
+#+end_src
+*** Screenshot YouTube
+- link: https://chromewebstore.google.com/detail/screenshot-youtube/gjoijpfmdhbjkkgnmahganhoinjjpohk
+- description: redirection to Odysee when available.
+#+begin_src js :noweb yes
+<<install(extension_id="gjoijpfmdhbjkkgnmahganhoinjjpohk", comma=0)>>
 #+end_src
 * End
 Don't forget to remove the trailing comma on the previous block of JSON code (last extension)
