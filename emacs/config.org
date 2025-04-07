@@ -445,6 +445,7 @@ https://github.com/seagle0128/doom-modeline
   (evil-collection-define-key 'normal 'org-mode-map
     ;; custom navigation: M-*
     (kbd "M-n") 'outline-promote   ;; promote header
+    (kbd "M-o") 'outline-demote    ;; demote header
   )
 )
 #+end_src
