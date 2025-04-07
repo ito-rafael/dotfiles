@@ -446,6 +446,7 @@ https://github.com/seagle0128/doom-modeline
     ;; custom navigation: M-*
     (kbd "M-n") 'outline-promote   ;; promote header
     (kbd "M-e") 'outline-show-all  ;; show all
+    (kbd "M-i") 'outline-hide-body ;; hide body
     (kbd "M-o") 'outline-demote    ;; demote header
   )
 )
