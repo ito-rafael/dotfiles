@@ -453,6 +453,9 @@ https://github.com/seagle0128/doom-modeline
     (kbd "C-n") 'outline-up-heading        ;; go to parent header
     (kbd "C-e") 'outline-next-heading      ;; goto next header
     (kbd "C-i") 'outline-previous-heading  ;; goto previous header
+
+    ;; custom navigation: S-*
+    (kbd "S-e") 'org-move-subtree-down  ;; goto next header
   )
 )
 #+end_src
