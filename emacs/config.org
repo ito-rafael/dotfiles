@@ -460,6 +460,7 @@ https://github.com/seagle0128/doom-modeline
 
     ;; custom navigation: S-C-*
     (kbd "S-C-e") 'org-forward-heading-same-level   ;; next same level 
+    (kbd "S-C-i") 'org-backward-heading-same-level  ;; previous same level
   )
 )
 #+end_src
