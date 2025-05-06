@@ -544,9 +544,9 @@ alias catp='bat -p'
 # clipboard
 #-----------------------------
 # X11
-alias -g c='| xclip -selection clipboard'         # copy stdout
-alias pwdc='pwd | xclip -selection clipboard'     # copy pwd
-alias cv='cd $(xclip -out -selection clipboard)'  # move to dir in clipboard
+alias -g c='| xclip -selection clipboard'           # copy stdout
+alias {pwdc,pc}='pwd | xclip -selection clipboard'  # copy pwd
+alias cv='cd $(xclip -out -selection clipboard)'    # move to dir in clipboard
 # Wayland
 alias -g c='| wl-copy'      # copy stdout
 alias pwdc='pwd | wl-copy'  # copy pwd
