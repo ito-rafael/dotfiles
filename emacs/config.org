@@ -408,7 +408,11 @@ https://github.com/doomemacs/themes
 * Modeline
 ** all-the-icons
 https://github.com/domtronn/all-the-icons.el
-Install icon fonts.
+*** Install icon fonts on OS (ArchLinux).
+#+begin_src sh
+paru -S ttf-all-the-icons
+#+end_src
+*** Install icon fonts on Emacs.
 #+begin_src emacs-lisp
 (use-package all-the-icons)
 #+end_src
