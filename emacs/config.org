@@ -679,15 +679,15 @@ https://github.com/abo-abo/swiper
   :diminish
   :bind (
        :map ivy-minibuffer-map
-       ("C-e"   . ivy-next-line)           ;; down
-       ("C-i"   . ivy-previous-line)       ;; up
-       ("C-o"   . ivy-alt-done)            ;; confirm
-       ("<tab>" . ivy-alt-done)            ;; confirm
+       ("C-e"   . ivy-next-line)            ;; down
+       ("C-i"   . ivy-previous-line)        ;; up
+       ("C-o"   . ivy-alt-done)             ;; confirm
+       ("<tab>" . ivy-alt-done)             ;; confirm
        :map ivy-switch-buffer-map
-       ("C-e"   . ivy-next-line)           ;; down
-       ("C-i"   . ivy-previous-line)       ;; up
-       ("C-o"   . ivy-done)                ;; confirm
-       ("C-d"   . ivy-switch-buffer-kill)  ;; kill buffer
+       ("C-e"   . ivy-next-line)            ;; down
+       ("C-i"   . ivy-previous-line)        ;; up
+       ("C-o"   . ivy-done)                 ;; confirm
+       ("C-d"   . ivy-switch-buffer-kill)   ;; kill buffer
   )
   :config
   ;; integration with orderless
