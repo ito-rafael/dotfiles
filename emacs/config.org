@@ -679,6 +679,7 @@ https://github.com/abo-abo/swiper
   :diminish
   :bind (
        :map ivy-minibuffer-map
+       ;("C-n"   . counsel-up-directory)     ;; left
        ("C-e"   . ivy-next-line)            ;; down
        ("C-i"   . ivy-previous-line)        ;; up
        ("C-o"   . ivy-alt-done)             ;; confirm
