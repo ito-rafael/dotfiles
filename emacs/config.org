@@ -586,6 +586,7 @@ https://github.com/noctuid/general.el
     "f e" '((lambda () (interactive) (find-file "~/git/dotfiles/emacs/config.org")) :wk "Open emacs config.org")
     "f i" '((lambda () (interactive) (find-file "~/git/dotfiles/emacs/init.el"))    :wk "Open emacs init.el")
     "f r" '(counsel-recentf :wk "Find recent files")
+    "f z" '((lambda () (interactive) (find-file "~/git/dotfiles/zsh/zshrc"))          :wk "Open zshrc dotfile")
   )
 #+end_src
 ** g --> git
