@@ -22,3 +22,25 @@ class Menu(object):
         self.juice = self.menu[4]
         self.obs = menu[5:8]
         self.availability = menu[8:]
+
+    def __str__(self):
+        return f'{self.main}\n{self.side}\n{self.base}\n{self.salad}\n{self.dessert}'
+
+    def title_case(self, text: str):
+        # define replacements
+        replacements = {
+            ' E ': ' e ',
+            ' Ao ': ' ao ',
+            ' De ': ' de ',
+            ' Em ': ' em ',
+            ' Na ': ' na ',
+            ' Com ': ' com ',
+        }
+
+        # convert to title case
+        text = text.title()
+
+        # apply replacements
+        for k, v in replacements.items():
+            text = text.replace(k, v)
+        return text
