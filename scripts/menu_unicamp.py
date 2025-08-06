@@ -21,7 +21,14 @@ class Menu(object):
         self.dessert = self.menu[3]
         self.juice = self.menu[4]
         self.obs = menu[5:8]
+
         self.availability = menu[8:]
+        # sanity checks
+        if (self.obs[0] != 'Observações:'):
+            raise
+        if (self.availability[0] != 'O cardápio vegano será servido no RU, RA, RS e HC.'):
+            raise
+
 
     def __str__(self):
         return f'{self.main}\n{self.side}\n{self.base}\n{self.salad}\n{self.dessert}'
