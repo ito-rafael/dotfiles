@@ -69,6 +69,12 @@ else:
 # get month name
 month_name = datetime.date(2025, month, 1).strftime('%B')
 
+# get day of the week
+year = datetime.date.today().year
+date_str = date + '/' + str(year)
+date_obj = datetime.datetime.strptime(date_str, "%d/%m/%Y")
+week_day = date_obj.strftime('%A')
+    
 #=================================================
 # Lunch
 #=================================================
@@ -101,6 +107,7 @@ if dinner_menu:
 
 # print information
 print(f'{day}{suffix} {month_name}')
+print(week_day)
 print()
 print(lunch_menu.text)
 print(lunch)
