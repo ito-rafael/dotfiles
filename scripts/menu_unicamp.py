@@ -58,10 +58,26 @@ if lunch_menu:
     lunch_menu_main = lunch_menu_section.find('div', class_='menu-item-name').get_text()
     lunch_menu_item = lunch_menu_section.find('div', class_='menu-item-description')
     lunch = Menu(lunch_menu_main, lunch_menu_item)
-    
+
+#=================================================
+# Dinner
+#=================================================
+
+# find the h2 tag with text "Jantar Vegano"
+dinner_menu = soup.find('h2', class_='menu-section-title', string='Jantar Vegano')
+
+if dinner_menu:
+    # get its parent (div.menu-section) and extract the related content
+    dinner_menu_section = dinner_menu.find_parent('div', class_='menu-section')
+    dinner_menu_main = dinner_menu_section.find('div', class_='menu-item-name').get_text()
+    dinner_menu_item = dinner_menu_section.find('div', class_='menu-item-description')
+    dinner = Menu(dinner_menu_main, dinner_menu_item)
+   
 #=================================================
 
 # print information
 print(lunch_menu.text)
 print(lunch)
-
+print()
+print(dinner_menu.text)
+print(dinner)
