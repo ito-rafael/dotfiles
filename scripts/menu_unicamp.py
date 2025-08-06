@@ -44,3 +44,24 @@ class Menu(object):
         for k, v in replacements.items():
             text = text.replace(k, v)
         return text
+
+#=================================================
+# Lunch
+#=================================================
+
+# find the h2 tag with text "Almoço Vegano"
+lunch_menu = soup.find('h2', class_='menu-section-title', string='Almoço Vegano')
+
+if lunch_menu:
+    # get its parent (div.menu-section) and extract the related content
+    lunch_menu_section = lunch_menu.find_parent('div', class_='menu-section')
+    lunch_menu_main = lunch_menu_section.find('div', class_='menu-item-name').get_text()
+    lunch_menu_item = lunch_menu_section.find('div', class_='menu-item-description')
+    lunch = Menu(lunch_menu_main, lunch_menu_item)
+    
+#=================================================
+
+# print information
+print(lunch_menu.text)
+print(lunch)
+
