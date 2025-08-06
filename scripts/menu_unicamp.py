@@ -21,8 +21,8 @@ class Menu(object):
         self.dessert = self.menu[3]
         self.juice = self.menu[4]
         self.obs = menu[5:8]
-
         self.availability = menu[8:]
+
         # sanity checks
         if (self.obs[0] != 'Observações:'):
             raise
@@ -51,6 +51,23 @@ class Menu(object):
         for k, v in replacements.items():
             text = text.replace(k, v)
         return text
+
+#=================================================
+# Date
+#=================================================
+
+# get date in format "dd/mm"
+date = soup.find('a', class_="navbar-brand page-scroll").get_text().strip().replace('Cardápio ', '')
+day, month = map(int, date.split('/'))
+
+# get ordinal suffix for day
+if 10 <= day % 100 <= 20:
+    suffix = 'th'
+else:
+    suffix = {1: 'st', 2: 'nd', 3: 'rd'}.get(day % 10, 'th')
+
+# get month name
+month_name = datetime.date(2025, month, 1).strftime('%B')
 
 #=================================================
 # Lunch
@@ -83,6 +100,8 @@ if dinner_menu:
 #=================================================
 
 # print information
+print(f'{day}{suffix} {month_name}')
+print()
 print(lunch_menu.text)
 print(lunch)
 print()
