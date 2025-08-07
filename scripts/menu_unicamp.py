@@ -53,6 +53,21 @@ class Menu(object):
         return text
 
 #=================================================
+# Other days
+#=================================================
+
+remaining_days = [day.get_text(strip=True) for day in soup.select('ul.nav li a')]
+print(remaining_days)
+
+# get nav links ("navbar-brand page-scroll")
+links = soup.find_all('a', class_='page-scroll')
+# get day/link pairs
+day_links = [(link.get_text(strip=True), link.get('href')) for link in links]
+
+for day, href in day_links:
+    print(f"{day}: {href}")
+
+#=================================================
 # Date
 #=================================================
 
