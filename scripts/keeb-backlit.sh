@@ -2,6 +2,7 @@
 
 # get variables
 DEVICE=$(brightnessctl --list | grep kbd_backlight | cut -d "'" -f2)
+FILE="/sys/class/leds/platform::kbd_backlight/brightness"
 #CURRENT_BRIGHTNESS=$(cat /sys/class/leds/platform::kbd_backlight/brightness)
 #MAX_BRIGHTNESS=$(cat /sys/class/leds/platform::kbd_backlight/max_brightness)
 CURRENT_BRIGHTNESS=$(brightnessctl --device=$DEVICE info | grep "Current brightness" | cut -d " " -f3)
@@ -21,6 +22,7 @@ where:
        \"inc\", for increasing by 1
        \"toggle\", for turning it on/off (levels 2 or 0) 
        \"cycle\", for cycling among 0, 1 and 2
+       \"monitor\", monitoring the keyboard backlit status
 "
 #------------------------
 # print help menu
@@ -77,6 +79,26 @@ else
                 echo "Previous backlit level was $CURRENT_BRIGHTNESS. Setting it to $NEW_VALUE"
                 brightnessctl --device=$DEVICE set $NEW_VALUE
             fi
+            ;;
+        #------------------------
+        "monitor")
+            # set initial state
+            if [[ "$CURRENT_BRIGHTNESS" != "0" ]]; then
+                echo '{"text": "", "alt": "enabled", "class": "enabled"}'
+            else
+                echo '{"text": "", "alt": "disabled", "class": "disabled"}'
+            fi
+
+            # infinite loop that updates everytime the keyboard brightness file changes
+            inotifywait --quiet --monitor --event close_write $FILE | while read; do
+                CURRENT_BRIGHTNESS=$(cat $FILE)
+                if [[ "$CURRENT_BRIGHTNESS" != "0" ]]; then
+                    echo '{"text": "", "alt": "enabled", "class": "enabled"}'
+                else
+                    echo '{"text": "", "alt": "disabled", "class": "disabled"}'
+                fi
+                sleep 0.1
+            done
             ;;
         #------------------------
         *)
