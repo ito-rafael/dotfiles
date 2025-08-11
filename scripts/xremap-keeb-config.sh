@@ -5,6 +5,7 @@ killall xremap
 
 # start xremap
 xremap \
+    --mouse \
     --device "ZSA Technology Labs Moonlander Mark I" \
     --device "ZSA Technology Labs Planck EZ Glow" \
     --device "KMonad INKL output" \
