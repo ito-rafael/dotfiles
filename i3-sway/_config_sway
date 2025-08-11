@@ -25,6 +25,7 @@ include /etc/sway/config.d/*
 input type:touchpad {
     tap enabled                                   # tap-to-click
     natural_scroll enabled                        # natural scrolling
+    drag_lock disabled                            # stop dragging after lifting from touchpad
 }
 input type:keyboard xkb_numlock enabled
 input type:keyboard {
