@@ -548,9 +548,9 @@ alias -g c='| xclip -selection clipboard'           # copy stdout
 alias {pwdc,pc}='pwd | xclip -selection clipboard'  # copy pwd
 alias cv='cd $(xclip -out -selection clipboard)'    # move to dir in clipboard
 # Wayland
-alias -g c='| wl-copy'      # copy stdout
-alias pwdc='pwd | wl-copy'  # copy pwd
-alias cv='cd $(wl-paste)'   # move to dir in clipboard
+alias -g c='| wl-copy'           # copy stdout
+alias {pc,pwdc}='pwd | wl-copy'  # copy pwd
+alias cv='cd $(wl-paste)'        # move to dir in clipboard
 #-----------------------------
 # Firefox
 alias firefox=firefox-developer-edition
