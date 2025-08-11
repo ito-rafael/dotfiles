@@ -593,6 +593,7 @@ alias -g s20="-s $(s20_ip)"
 alias -g gw4="-s $(gw4_ip)"
 # scrcpy
 alias s="scrcpy s20 --prefer-text"
+alias sw="scrcpy gw4 --prefer-text"
 #-----------------------------
 # ForX - Coinbase's API
 # currency
