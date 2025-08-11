@@ -561,6 +561,8 @@ alias firefox=firefox-developer-edition
 alias vpn-lbic='$XDG_CONFIG_HOME/vpn/lbic/vpn-lbic.sh'
 # Recod (bind TCP port)
 alias recod='$XDG_CONFIG_HOME/vpn/recod/port-binding.sh'
+# LBiC (bind TCP port)
+alias lbic='$XDG_CONFIG_HOME/vpn/lbic/port-binding.sh'
 #-----------------------------
 # adb / scrcpy
 #-----------------------------
