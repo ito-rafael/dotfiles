@@ -926,6 +926,7 @@ https://github.com/emacs-dashboard/emacs-dashboard
   (evil-collection-define-key '(normal visual) 'dashboard-mode-map
     ;; custom navigation
     (kbd "o")   'dashboard-return            ;; enter file/dir
+    (kbd "C-e") 'dashboard-next-section      ;; next section
   )
 )
 #+end_src
