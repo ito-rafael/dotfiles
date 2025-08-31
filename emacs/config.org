@@ -921,6 +921,11 @@ https://github.com/emacs-dashboard/emacs-dashboard
   (setq dashboard-center-content t)              ;; center horizontally
   (setq dashboard-vertically-center-content t)   ;; center vertically
   (setq dashboard-startup-banner 'logo)  ;; use modern emacs logo as banner
+
+  ;; number of items per widget
+  (setq dashboard-items '(
+    (recents   . 10)
+  ))
   :config
   ;; keybindings
   (evil-collection-define-key '(normal visual) 'dashboard-mode-map
