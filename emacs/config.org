@@ -925,6 +925,7 @@ https://github.com/emacs-dashboard/emacs-dashboard
   ;; number of items per widget
   (setq dashboard-items '(
     (recents   . 10)
+    (agenda    . 5)
   ))
   :config
   ;; keybindings
