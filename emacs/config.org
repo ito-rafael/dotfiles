@@ -926,6 +926,7 @@ https://github.com/emacs-dashboard/emacs-dashboard
   (setq dashboard-items '(
     (recents   . 10)
     (agenda    . 5)
+    (bookmarks . 3)
   ))
   :config
   ;; keybindings
