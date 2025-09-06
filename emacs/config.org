@@ -522,6 +522,18 @@ Toggle visibility of hidden Org mode element parts upon entering and leaving an 
     "e" 'dired-next-line
     "i" 'dired-previous-line
     "o" 'dired-find-file))
+
+  ;;exit isearch and, if in dired-mode, visit the file or directory at point.
+  (defun efs/dired-isearch-tab2visit ()
+    (interactive)
+    (when (derived-mode-p 'dired-mode)
+      ;; defer the dired-find-file call slightly to run after isearch has exited
+      (run-at-time 0 nil
+        (lambda ()
+          (when (derived-mode-p 'dired-mode)
+            (dired-find-file)))))
+    (isearch-exit))
+  (define-key isearch-mode-map (kbd "TAB") #'efs/dired-isearch-tab2visit)
 #+end_src
 ** all-the-icons-dired
 https://github.com/jtbm37/all-the-icons-dired
