@@ -323,6 +323,7 @@ Git repo: [[https://github.com/progfolio/elpaca][Elpaca]]
     (kbd "C-e")        'ivy-next-line      ;; down
     (kbd "C-i")        'ivy-previous-line  ;; up
     (kbd "C-o")        'ivy-alt-done       ;; confirm
+    (kbd "C-<tab>")    'ivy-alt-done       ;; confirm
     (kbd "C-<return>") 'ivy-alt-done)      ;; confirm
 
   ;; miscellaneous
