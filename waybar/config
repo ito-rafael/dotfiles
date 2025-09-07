@@ -12,7 +12,8 @@
     "custom/vpn-samsung",
     "custom/scratchpad-whatsapp",
     "custom/scratchpad-ytmusic",
-    "custom/scratchpad-scrcpy",
+    "custom/scratchpad-scrcpy-phone",
+    "custom/scratchpad-scrcpy-watch",
     "custom/scratchpad-python",
     "custom/scratchpad-terminal",
     "custom/scratchpad-keymapp",
@@ -178,12 +179,20 @@
     //"on-click": "~/.config/scripts/show-or-launch.sh music.youtube.com 0.9 0.9",
 },
 
-"custom/scratchpad-scrcpy": {
+"custom/scratchpad-scrcpy-phone": {
     "interval": 1,
     "return-type": "json",
-    "exec": "~/.config/waybar/scripts/scratchpad-scrcpy.sh",
+    "exec": "~/.config/waybar/scripts/scratchpad-scrcpy.sh phone",
     "format": " {} ",
-    "on-click": "~/.config/scripts/adb-mdns-scrcpy.sh",
+    "on-click": "~/.config/scripts/adb-mdns-scrcpy.sh phone",
+},
+
+"custom/scratchpad-scrcpy-watch": {
+    "interval": 1,
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/scratchpad-scrcpy.sh watch",
+    "format": " {} ",
+    "on-click": "~/.config/scripts/adb-mdns-scrcpy.sh watch",
 },
 
     "custom/scratchpad-python": {
