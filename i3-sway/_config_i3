@@ -334,11 +334,11 @@ for_window [$prop="showmethekey-gtk" title="Show Me The Key"] floating enable
 #for_window [$prop="showmethekey-gtk" title="Floating Window - Show Me The Key"] floating enable
 #for_window [$prop="showmethekey-gtk" title="Floating Window - Show Me The Key"] sticky enable
 
-bindsym $mod+v exec "$SCRIPT_PATH/adb-mdns-scrcpy.sh"
-for_window [title="^dropdown_scrcpy$" $prop="^scrcpy$"] floating enable
-for_window [title="^dropdown_scrcpy$" $prop="^scrcpy$"] move position center
-for_window [title="^dropdown_scrcpy$" $prop="^scrcpy$"] move scratchpad
-for_window [title="^dropdown_scrcpy$" $prop="^scrcpy$"] border pixel 5
+bindsym $mod+v exec "$SCRIPT_PATH/adb-mdns-scrcpy.sh phone"
+for_window [title="^dropdown_scrcpy.*$" $prop="^scrcpy$"] floating enable
+for_window [title="^dropdown_scrcpy.*$" $prop="^scrcpy$"] move position center
+for_window [title="^dropdown_scrcpy.*$" $prop="^scrcpy$"] move scratchpad
+for_window [title="^dropdown_scrcpy.*$" $prop="^scrcpy$"] border pixel 5
 for_window [$prop="^dropdown_python$"] floating enable
 for_window [$prop="^dropdown_python$"] move position center
 for_window [$prop="^dropdown_python$"] move scratchpad
