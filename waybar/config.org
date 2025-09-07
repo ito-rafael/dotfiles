@@ -65,7 +65,8 @@
     "custom/vpn-samsung",
     "custom/scratchpad-whatsapp",
     "custom/scratchpad-ytmusic",
-    "custom/scratchpad-scrcpy",
+    "custom/scratchpad-scrcpy-phone",
+    "custom/scratchpad-scrcpy-watch",
     "custom/scratchpad-python",
     "custom/scratchpad-terminal",
     "custom/scratchpad-keymapp",
@@ -275,13 +276,24 @@
 },
 #+end_src
 ** scrcpy
+*** Phone
 #+begin_src json
-"custom/scratchpad-scrcpy": {
+"custom/scratchpad-scrcpy-phone": {
     "interval": 1,
     "return-type": "json",
-    "exec": "~/.config/waybar/scripts/scratchpad-scrcpy.sh",
+    "exec": "~/.config/waybar/scripts/scratchpad-scrcpy.sh phone",
     "format": " {} ",
-    "on-click": "~/.config/scripts/adb-mdns-scrcpy.sh",
+    "on-click": "~/.config/scripts/adb-mdns-scrcpy.sh phone",
+},
+#+end_src
+*** Watch
+#+begin_src json
+"custom/scratchpad-scrcpy-watch": {
+    "interval": 1,
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/scratchpad-scrcpy.sh watch",
+    "format": " {} ",
+    "on-click": "~/.config/scripts/adb-mdns-scrcpy.sh watch",
 },
 #+end_src
 ** Python
