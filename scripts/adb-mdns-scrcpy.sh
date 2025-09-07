@@ -52,10 +52,13 @@ else
         #------------------------
         "phone")
             SERVICE_NAME=$MDNS_PHONE
+            #WINDOW_TITLE="dropdown_scrcpy_phone"
+            WINDOW_TITLE="dropdown_scrcpy"
             ;;
         #------------------------
         "watch")
             SERVICE_NAME=$MDNS_WATCH
+            WINDOW_TITLE="dropdown_scrcpy_watch"
             ;;
         #------------------------
         *)
@@ -155,7 +158,7 @@ FOCUSED=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.
 #=======================================
 # check if ADB scratchpad is already running
 #=======================================
-SCRATCHPAD=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.'$PROP' == "scrcpy" and .'$CAPTION' == "dropdown_scrcpy")')
+SCRATCHPAD=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.'$PROP' == "scrcpy" and .'$CAPTION' == "'$WINDOW_TITLE'")')
 
 #=======================================
 # check if current focused window is a scratchpad
@@ -165,7 +168,7 @@ if [ $FOCUSED != "scrcpy" ]; then
     is_scratchpad=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.focused) |
         .'$PROP_PREFIX''$PROP' == "dropdown_terminal" or
         .'$PROP_PREFIX''$PROP' == "dropdown_python" or
-        .'$PROP_PREFIX''$PROP' == "scrcpy" and .'$PROP_PREFIX''$CAPTION' == "dropdown_scrcpy" or
+        .'$PROP_PREFIX''$PROP' == "scrcpy" and .'$PROP_PREFIX''$CAPTION' == "'$WINDOW_TITLE'" or
         .'$PROP_PREFIX''$PROP' == "brave-music.youtube.com__-Default" or
         .'$PROP_PREFIX''$PROP' == "brave-web.whatsapp.com__-Default" or
         .'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX''$INSTANCE' == "music.youtube.com" or
@@ -192,23 +195,23 @@ adb_connect () {
         scrcpy \
             -s $IP:$PORT_CON \
             --prefer-text \
-            --window-title="dropdown_scrcpy" \
+            --window-title=$WINDOW_TITLE \
             >& /dev/null &
 
         # wait for scrcpy window to be launched
-        SCRATCHPAD=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.'$PROP' == "scrcpy" and .'$CAPTION' == "dropdown_scrcpy")')
+        SCRATCHPAD=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.'$PROP' == "scrcpy" and .'$CAPTION' == "'$WINDOW_TITLE'")')
         if [ -z $SCRATCHPAD ]; then
             echo "Waiting scratchpad to be launched."
             while [[ $SCRATCHPAD ]]; do
                 sleep 0.2
                 echo "..."
-                SCRATCHPAD=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.'$PROP' == "scrcpy" and .'$CAPTION' == "dropdown_scrcpy")')
+                SCRATCHPAD=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.'$PROP' == "scrcpy" and .'$CAPTION' == "'$WINDOW_TITLE'")')
             done
         fi
 
         # display scratchpad
         sleep 2
-        $WM_CMD '['$PROP'="scrcpy" title="dropdown_scrcpy"] scratchpad show; ['$PROP'="scrcpy" title="dropdown_scrcpy"] resize set '$WIN_WIDTH' '$WIN_HEIGHT'; ['$PROP'="scrcpy" title="dropdown_scrcpy"] move position center'
+        $WM_CMD '['$PROP'="scrcpy" title="'$WINDOW_TITLE'"] scratchpad show; ['$PROP'="scrcpy" title="'$WINDOW_TITLE'"] resize set '$WIN_WIDTH' '$WIN_HEIGHT'; ['$PROP'="scrcpy" title="'$WINDOW_TITLE'"] move position center'
         exit 0
 
     #-------------------------------------------------
@@ -288,7 +291,7 @@ adb_pair () {
 #=======================================
 if [[ $SCRATCHPAD ]]; then
     echo "Scratchpad found! Displaying it..."
-    $WM_CMD '['$PROP'="scrcpy" title="dropdown_scrcpy"] scratchpad show; ['$PROP'="scrcpy" title="dropdown_scrcpy"] resize set '$WIN_WIDTH' '$WIN_HEIGHT'; ['$PROP'="scrcpy" title="dropdown_scrcpy"] move position center'
+    $WM_CMD '['$PROP'="scrcpy" title="'$WINDOW_TITLE'"] scratchpad show; ['$PROP'="scrcpy" title="'$WINDOW_TITLE'"] resize set '$WIN_WIDTH' '$WIN_HEIGHT'; ['$PROP'="scrcpy" title="'$WINDOW_TITLE'"] move position center'
     exit 0
 else
     # try to discover IP & port of device ADB via mDNS
