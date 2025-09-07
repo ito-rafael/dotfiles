@@ -19,9 +19,7 @@
 - [[#mpris][MPRIS]]
 - [[#scratchpads][Scratchpads]]
   - [[#indicator][Indicator]]
-  - [[#temp-1-comma][Temp #1: comma]]
-  - [[#temp-2-period][Temp #2: period]]
-  - [[#temp-3-slash][Temp #3: slash]]
+  - [[#temporary][Temporary]]
   - [[#whatsapp][WhatsApp]]
   - [[#youtube-music][YouTube Music]]
   - [[#scrcpy][scrcpy]]
@@ -222,7 +220,8 @@
     "on-click-right": "exec swaymsg 'move scratchpad'"
 },
 #+end_src
-** Temp #1: comma
+** Temporary
+*** Temp #1: comma
 #+begin_src json
 "custom/scratchpad-temp-1": {
     "interval": 1,
@@ -233,7 +232,7 @@
     //"on-click-right": "exec swaymsg 'move scratchpad'"
 },
 #+end_src
-** Temp #2: period
+*** Temp #2: period
 #+begin_src json
 "custom/scratchpad-temp-2": {
     "interval": 1,
@@ -243,7 +242,7 @@
     "on-click": "~/.config/scripts/scratchpad-temp.sh 2 display",
 },
 #+end_src
-** Temp #3: slash
+*** Temp #3: slash
 #+begin_src json
 "custom/scratchpad-temp-3": {
     "interval": 1,
