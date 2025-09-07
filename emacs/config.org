@@ -326,6 +326,16 @@ Git repo: [[https://github.com/progfolio/elpaca][Elpaca]]
     (kbd "C-<tab>")    'ivy-alt-done       ;; confirm
     (kbd "C-<return>") 'ivy-alt-done)      ;; confirm
 
+  ; preserve clipboard while pasting
+  (defun paste-clipboard-preserve ()
+    (interactive)
+    (when (use-region-p)
+      (delete-region (region-beginning) (region-end)))
+    (yank))
+  ; only work in visual mode
+  (global-set-key (kbd "C-S-v") #'paste-over-selection)
+  (define-key evil-visual-state-map (kbd "C-p") #'paste-clipboard-preserve)
+  
   ;; miscellaneous
   (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)  ;; ensure normal mode on C-g (keyboard-quit)
   (evil-mode 1))
