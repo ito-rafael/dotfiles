@@ -386,16 +386,44 @@ label:focus {
 }
 #+end_src
 ** scrcpy
-*** Disabled
+*** Phone
+**** Disabled
 #+begin_src css
-#custom-scratchpad-scrcpy {
+#custom-scratchpad-scrcpy-phone {
     color: gray;
 }
 #+end_src
-*** Enabled
+**** Enabled
 #+begin_src css
-#custom-scratchpad-scrcpy.enabled {
+#custom-scratchpad-scrcpy-phone.enabled {
     color: green;
+}
+#+end_src
+**** Hover
+#+begin_src css
+#custom-scratchpad-scrcpy-phone:hover {
+    background: rgba(0, 255, 0, 0.5);
+    transition: background 0.3s ease;
+}
+#+end_src
+*** Watch
+**** Disabled
+#+begin_src css
+#custom-scratchpad-scrcpy-watch {
+    color: gray;
+}
+#+end_src
+**** Enabled
+#+begin_src css
+#custom-scratchpad-scrcpy-watch.enabled {
+    color: green;
+}
+#+end_src
+**** Hover
+#+begin_src css
+#custom-scratchpad-scrcpy-watch:hover {
+    background: rgba(0, 255, 0, 0.5);
+    transition: background 0.3s ease;
 }
 #+end_src
 ** Python
