@@ -1543,11 +1543,11 @@ bindsym $mod+g exec "$SCRIPT_PATH/show-or-launch.sh brave-music.youtube.com__-De
 #+end_src
 ** scrcpy
 #+begin_src conf :noweb-ref scratchpads
-bindsym $mod+v exec "$SCRIPT_PATH/adb-mdns-scrcpy.sh"
-for_window [title="^dropdown_scrcpy$" $prop="^scrcpy$"] floating enable
-for_window [title="^dropdown_scrcpy$" $prop="^scrcpy$"] move position center
-for_window [title="^dropdown_scrcpy$" $prop="^scrcpy$"] move scratchpad
-for_window [title="^dropdown_scrcpy$" $prop="^scrcpy$"] border pixel 5
+bindsym $mod+v exec "$SCRIPT_PATH/adb-mdns-scrcpy.sh phone"
+for_window [title="^dropdown_scrcpy.*$" $prop="^scrcpy$"] floating enable
+for_window [title="^dropdown_scrcpy.*$" $prop="^scrcpy$"] move position center
+for_window [title="^dropdown_scrcpy.*$" $prop="^scrcpy$"] move scratchpad
+for_window [title="^dropdown_scrcpy.*$" $prop="^scrcpy$"] border pixel 5
 #+end_src
 ** Python
 #+begin_src conf :noweb-ref scratchpads
