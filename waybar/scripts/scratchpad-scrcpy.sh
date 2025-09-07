@@ -22,14 +22,31 @@ case "${XDG_SESSION_TYPE}" in
         ;;
 esac
 
+# get device to mirror
+DEVICE=$1
+case "${DEVICE}" in
+    "phone")
+        WINDOW_TITLE="dropdown_scrcpy_phone"
+        ICON=""
+        ;;
+    "watch")
+        WINDOW_TITLE="dropdown_scrcpy_watch"
+        ICON=""
+        ;;
+    *)
+        echo "Invalid device. Exiting."
+        exit 1
+        ;;
+esac
+
 # check if scratchpad exists
 SCRATCHPAD=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(
-    .'$PROP_PREFIX''$PROP' == "scrcpy" and .'$PROP_PREFIX''$CAPTION' == "dropdown_scrcpy"
+    .'$PROP_PREFIX''$PROP' == "scrcpy" and .'$PROP_PREFIX''$CAPTION' == "'$WINDOW_TITLE'"
     )')
 
 # decide if icon will be displayed in color or black/white
 if [[ $SCRATCHPAD ]]; then
-    printf '{"text": "", "class": "enabled"}';
+    printf '{"text": "'$ICON'", "class": "enabled"}';
 else
-	printf '{"text": ""}';
+    printf '{"text": "'$ICON'"}';
 fi
