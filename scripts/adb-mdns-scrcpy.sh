@@ -19,6 +19,54 @@
 #
 
 #=======================================
+# define mDNS service name constants
+#=======================================
+# Samsung Galaxy S20
+MDNS_PHONE="adb-RQ8N400FVCP-bNfaUl"
+# Samsung Galaxy Watch8 Classic
+MDNS_WATCH="adb-RXAY701GPLM-0R5Tjp"
+
+#=======================================
+# help menu and usage message
+#=======================================
+
+usage="$(basename "$0") device [-h]
+
+where:
+    -h, --help   show this help text
+    device       device to connect to, can be one of the options:
+       \"phone\", for phone mirroring
+       \"watch\", for smartwatch mirroring
+"
+#------------------------
+# print help menu
+if [[ $1 == '-h' || $1 == '--help' ]]; then
+	printf "script to pair, connect and mirror device screen.\n\n"
+	echo "$usage"
+	exit
+#------------------------
+# parse arguments
+else
+    VALUE=$1
+    case "${VALUE}" in
+        #------------------------
+        "phone")
+            SERVICE_NAME=$MDNS_PHONE
+            ;;
+        #------------------------
+        "watch")
+            SERVICE_NAME=$MDNS_WATCH
+            ;;
+        #------------------------
+        *)
+            echo "Invalid device. Exiting."
+            exit 1
+            ;;
+        #------------------------
+    esac
+fi
+
+#=======================================
 # identify session (i3wm/Sway) and set vars accordingly
 #=======================================
 case "${XDG_SESSION_TYPE}" in
@@ -172,8 +220,7 @@ adb_connect () {
     #-------------------------------------------------
     # if ADB connection timed out, send notification
     #-------------------------------------------------
-    #elif [ "$ADB_RESPONSE" == "Failed to resolve service \'adb-RQ8N400FVCP-bNfaUl\' of type \'_adb-tls-connect._tcp\' in domain \'local\': Timeout reached" ]; then
-    elif [ "$ADB_RESPONSE" == "Failed to resolve service 'adb-RQ8N400FVCP-bNfaUl' of type '_adb-tls-connect._tcp' in domain 'local': Timeout reached" ]; then
+    elif [ "$ADB_RESPONSE" == "Failed to resolve service '"$SERVICE_NAME"' of type '_adb-tls-connect._tcp' in domain 'local': Timeout reached" ]; then
         # send alert notification
         notify-send \
             --expire-time=0 \
@@ -212,7 +259,7 @@ adb_pair () {
         )"
 
     # try to discover IP & port of device ADB via mDNS
-    MDNS_OUTPUT=$(avahi-browse --all --ignore-local --resolve --terminate --parsable | grep adb-RQ8N400FVCP-bNfaUl | grep pairing | tail -1)
+    MDNS_OUTPUT=$(avahi-browse --all --ignore-local --resolve --terminate --parsable | grep $SERVICE_NAME | grep pairing | tail -1)
     PORT_PAIR=$(echo $MDNS_OUTPUT | cut -d ";" -f9)
     IP=$1
 
@@ -246,7 +293,7 @@ if [[ $SCRATCHPAD ]]; then
 else
     # try to discover IP & port of device ADB via mDNS
     echo "Scratchpad not found! Searching for ADB IP & port on device..."
-    MDNS_OUTPUT=$(avahi-browse --all --ignore-local --resolve --terminate --parsable | grep adb-RQ8N400FVCP-bNfaUl | grep connect | grep v=ADB_SECURE_SERVICE_VERSION | tail -1)
+    MDNS_OUTPUT=$(avahi-browse --all --ignore-local --resolve --terminate --parsable | grep $SERVICE_NAME | grep connect | grep v=ADB_SECURE_SERVICE_VERSION | head -1)
     IP=$(echo $MDNS_OUTPUT | cut -d ";" -f8)
     PORT_CON=$(echo $MDNS_OUTPUT | cut -d ";" -f9)
 
