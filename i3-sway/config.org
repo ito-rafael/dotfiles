@@ -1507,7 +1507,7 @@ for_window [$prop="^Brave-browser-beta$" instance="^web.whatsapp.com$"] move pos
 for_window [$prop="^Brave-browser-beta$" instance="^web.whatsapp.com$"] move scratchpad
 for_window [$prop="^Brave-browser-beta$" instance="^web.whatsapp.com$"] border pixel 5
 exec --no-startup-id brave-beta --app=https://web.whatsapp.com
-bindsym $mod+b exec "$SCRIPT_PATH/show-or-launch.sh web.whatsapp.com 0.6 0.9"
+bindsym $mod+t exec "$SCRIPT_PATH/show-or-launch.sh web.whatsapp.com 0.6 0.9"
 #+end_src
 *** Sway
 #+begin_src conf :noweb-ref sway-whatsapp
@@ -1518,7 +1518,7 @@ for_window [$prop="^brave-web.whatsapp.com__-Default$"] {
     border pixel 5
 }
 exec --no-startup-id brave-beta --app=https://web.whatsapp.com
-bindsym $mod+b exec "$SCRIPT_PATH/show-or-launch.sh brave-web.whatsapp.com__-Default 0.6 0.9"
+bindsym $mod+t exec "$SCRIPT_PATH/show-or-launch.sh brave-web.whatsapp.com__-Default 0.6 0.9"
 #+end_src
 ** YouTube Music (on Brave Beta)
 *** i3

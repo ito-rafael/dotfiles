@@ -368,7 +368,7 @@ for_window [$prop="^Brave-browser-beta$" instance="^web.whatsapp.com$"] move pos
 for_window [$prop="^Brave-browser-beta$" instance="^web.whatsapp.com$"] move scratchpad
 for_window [$prop="^Brave-browser-beta$" instance="^web.whatsapp.com$"] border pixel 5
 exec --no-startup-id brave-beta --app=https://web.whatsapp.com
-bindsym $mod+b exec "$SCRIPT_PATH/show-or-launch.sh web.whatsapp.com 0.6 0.9"
+bindsym $mod+t exec "$SCRIPT_PATH/show-or-launch.sh web.whatsapp.com 0.6 0.9"
 for_window [$prop="^Brave-browser-beta$" instance="^music.youtube.com$"] floating enable
 for_window [$prop="^Brave-browser-beta$" instance="^music.youtube.com$"] move position center
 for_window [$prop="^Brave-browser-beta$" instance="^music.youtube.com$"] move scratchpad

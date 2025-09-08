@@ -423,7 +423,7 @@ for_window [$prop="^brave-web.whatsapp.com__-Default$"] {
     border pixel 5
 }
 exec --no-startup-id brave-beta --app=https://web.whatsapp.com
-bindsym $mod+b exec "$SCRIPT_PATH/show-or-launch.sh brave-web.whatsapp.com__-Default 0.6 0.9"
+bindsym $mod+t exec "$SCRIPT_PATH/show-or-launch.sh brave-web.whatsapp.com__-Default 0.6 0.9"
 for_window [$prop="^brave-music.youtube.com__-Default$"] {
     floating enable
     move position center
