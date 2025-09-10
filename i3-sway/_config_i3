@@ -387,6 +387,12 @@ for_window [$prop="^Brave-browser-beta$" instance="^calendar.google.com$"] move 
 for_window [$prop="^Brave-browser-beta$" instance="^calendar.google.com$"] border pixel 5
 exec --no-startup-id brave-beta --app=https://calendar.google.com
 bindsym $mod+r exec "$SCRIPT_PATH/show-or-launch.sh calendar.google.com 0.6 0.9"
+for_window [$prop="^Brave-browser-beta$" instance="^chatgpt.com$"] floating enable
+for_window [$prop="^Brave-browser-beta$" instance="^chatgpt.com$"] move position center
+for_window [$prop="^Brave-browser-beta$" instance="^chatgpt.com$"] move scratchpad
+for_window [$prop="^Brave-browser-beta$" instance="^chatgpt.com$"] border pixel 5
+exec --no-startup-id brave-beta --app=https://chatgpt.com
+bindsym $alt+$mod+t exec "$SCRIPT_PATH/show-or-launch.sh chatgpt.com 0.6 0.9"
 
 bindsym $alt+$mod+1 exec "$SCRIPT_PATH/vpn-connecter.sh lcn toggle"
 exec --no-startup-id "rm /tmp/vpn_lcn.tmp"

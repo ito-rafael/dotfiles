@@ -1608,6 +1608,27 @@ for_window [$prop="^keymapp$"] {
 }
 exec --no-startup-id /usr/bin/keymapp
 bindsym $mod+k exec "$SCRIPT_PATH/show-or-launch.sh keymapp 0.75 0.75"
+** LLM (on Brave Beta)
+*** i3
+#+begin_src conf :noweb-ref i3-llm
+for_window [$prop="^Brave-browser-beta$" instance="^chatgpt.com$"] floating enable
+for_window [$prop="^Brave-browser-beta$" instance="^chatgpt.com$"] move position center
+for_window [$prop="^Brave-browser-beta$" instance="^chatgpt.com$"] move scratchpad
+for_window [$prop="^Brave-browser-beta$" instance="^chatgpt.com$"] border pixel 5
+exec --no-startup-id brave-beta --app=https://chatgpt.com
+bindsym $alt+$mod+t exec "$SCRIPT_PATH/show-or-launch.sh chatgpt.com 0.6 0.9"
+#+end_src
+*** Sway
+#+begin_src conf :noweb-ref sway-llm
+for_window [$prop="^brave-chatgpt.com__-Default$"] {
+    floating enable
+    move position center
+    move scratchpad
+    border pixel 5
+}
+exec --no-startup-id brave-beta --app=https://chatgpt.com
+bindsym $alt+$mod+t exec "$SCRIPT_PATH/show-or-launch.sh brave-chatgpt.com__-Default 0.6 0.9"
+#+end_src
 #+end_src
 ** Temporary scratchpads
 *** 1: comma
