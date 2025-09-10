@@ -440,7 +440,7 @@ for_window [$prop="^keymapp$"] {
     border pixel 5
 }
 exec --no-startup-id /usr/bin/keymapp
-bindsym $mod+k exec "$SCRIPT_PATH/show-or-launch.sh keymapp 0.75 0.75"
+bindsym $mod+slash exec "$SCRIPT_PATH/show-or-launch.sh keymapp 0.75 0.75"
 for_window [$prop="^brave-calendar.google.com__-Default$"] {
     floating enable
     move position center

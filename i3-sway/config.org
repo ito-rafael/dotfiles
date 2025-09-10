@@ -1603,7 +1603,7 @@ for_window [$prop="^Keymapp$"] move position center
 for_window [$prop="^Keymapp$"] move scratchpad
 for_window [$prop="^Keymapp$"] border pixel 5
 exec --no-startup-id /usr/bin/keymapp
-bindsym $mod+k exec "$SCRIPT_PATH/show-or-launch.sh Keymapp 0.75 0.75"
+bindsym $mod+slash exec "$SCRIPT_PATH/show-or-launch.sh Keymapp 0.75 0.75"
 #+end_src
 *** Sway
 #+begin_src conf :noweb-ref sway-keymapp
@@ -1614,7 +1614,8 @@ for_window [$prop="^keymapp$"] {
     border pixel 5
 }
 exec --no-startup-id /usr/bin/keymapp
-bindsym $mod+k exec "$SCRIPT_PATH/show-or-launch.sh keymapp 0.75 0.75"
+bindsym $mod+slash exec "$SCRIPT_PATH/show-or-launch.sh keymapp 0.75 0.75"
+#+end_src
 ** LLM (on Brave Beta)
 *** i3
 #+begin_src conf :noweb-ref i3-llm
