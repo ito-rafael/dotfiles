@@ -646,7 +646,7 @@ bindsym Shift+mod1+$mod+f fullscreen toggle
 *** Tiling/Floating
 Toggle between tiling/floating window.
 #+begin_src conf :noweb-ref window-settings
-bindsym mod1+$mod+d floating toggle
+bindsym $mod+b floating toggle
 #+end_src
 *** Kill window
 Kill focused window, unless it's a scratchpad. Check the [[https://github.com/ito-rafael/dotfiles/blob/master/scripts/hide-or-kill.sh][hide-or-kill.sh]] script for more details.
