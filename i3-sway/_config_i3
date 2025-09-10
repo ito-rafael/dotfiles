@@ -374,7 +374,7 @@ for_window [$prop="^Brave-browser-beta$" instance="^music.youtube.com$"] move po
 for_window [$prop="^Brave-browser-beta$" instance="^music.youtube.com$"] move scratchpad
 for_window [$prop="^Brave-browser-beta$" instance="^music.youtube.com$"] border pixel 5
 exec --no-startup-id brave-beta --app=https://music.youtube.com
-bindsym $mod+g exec "$SCRIPT_PATH/show-or-launch.sh music.youtube.com 0.9 0.9"
+bindsym $mod+s exec "$SCRIPT_PATH/show-or-launch.sh music.youtube.com 0.9 0.9"
 for_window [$prop="^Keymapp$"] floating enable
 for_window [$prop="^Keymapp$"] move position center
 for_window [$prop="^Keymapp$"] move scratchpad
