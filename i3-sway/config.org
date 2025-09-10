@@ -1541,7 +1541,6 @@ for_window [$prop="^brave-music.youtube.com__-Default$"] {
 exec --no-startup-id brave-beta --app=https://music.youtube.com
 bindsym $mod+s exec "$SCRIPT_PATH/show-or-launch.sh brave-music.youtube.com__-Default 0.9 0.9"
 #+end_src
-** scrcpy
 ** Calendar (on Brave Beta)
 *** i3
 #+begin_src conf :noweb-ref i3-calendar
@@ -1563,12 +1562,15 @@ for_window [$prop="^brave-calendar.google.com__-Default$"] {
 exec --no-startup-id brave-beta --app=https://calendar.google.com
 bindsym $mod+r exec "$SCRIPT_PATH/show-or-launch.sh brave-calendar.google.com__-Default 0.6 0.9"
 #+end_src
+** Terminal
 #+begin_src conf :noweb-ref scratchpads
 bindsym $mod+v exec "$SCRIPT_PATH/adb-mdns-scrcpy.sh phone"
-for_window [title="^dropdown_scrcpy.*$" $prop="^scrcpy$"] floating enable
-for_window [title="^dropdown_scrcpy.*$" $prop="^scrcpy$"] move position center
-for_window [title="^dropdown_scrcpy.*$" $prop="^scrcpy$"] move scratchpad
-for_window [title="^dropdown_scrcpy.*$" $prop="^scrcpy$"] border pixel 5
+exec --no-startup-id kitty --class="dropdown_terminal" -o font_size=14 -o include=$XDG_CONFIG_HOME/kitty/themes/terminal.conf -o background_opacity=0.85
+bindsym $mod+n exec "$SCRIPT_PATH/show-or-launch.sh dropdown_terminal 0.75 0.75"
+for_window [$prop="^dropdown_terminal$"] floating enable
+for_window [$prop="^dropdown_terminal$"] move position center
+for_window [$prop="^dropdown_terminal$"] move scratchpad
+for_window [$prop="^dropdown_terminal$"] border pixel 5
 #+end_src
 ** Python
 #+begin_src conf :noweb-ref scratchpads
@@ -1579,14 +1581,12 @@ for_window [$prop="^dropdown_python$"] border pixel 5
 exec --no-startup-id kitty --class="dropdown_python" -o font_size=20 -o include=$XDG_CONFIG_HOME/kitty/themes/python.conf python -q
 bindsym $mod+j exec "$SCRIPT_PATH/show-or-launch.sh dropdown_python 0.6 0.6"
 #+end_src
-** Terminal
+** scrcpy
 #+begin_src conf :noweb-ref scratchpads
-exec --no-startup-id kitty --class="dropdown_terminal" -o font_size=14 -o include=$XDG_CONFIG_HOME/kitty/themes/terminal.conf -o background_opacity=0.85
-bindsym $mod+m exec "$SCRIPT_PATH/show-or-launch.sh dropdown_terminal 0.75 0.75"
-for_window [$prop="^dropdown_terminal$"] floating enable
-for_window [$prop="^dropdown_terminal$"] move position center
-for_window [$prop="^dropdown_terminal$"] move scratchpad
-for_window [$prop="^dropdown_terminal$"] border pixel 5
+for_window [title="^dropdown_scrcpy.*$" $prop="^scrcpy$"] floating enable
+for_window [title="^dropdown_scrcpy.*$" $prop="^scrcpy$"] move position center
+for_window [title="^dropdown_scrcpy.*$" $prop="^scrcpy$"] move scratchpad
+for_window [title="^dropdown_scrcpy.*$" $prop="^scrcpy$"] border pixel 5
 #+end_src
 ** ZSA Keymapp
 *** i3
@@ -1679,6 +1679,9 @@ bindsym ctrl+$mod+slash  exec "$SCRIPT_PATH/scratchpad-temp.sh 3 destroy"
 <<i3-whatsapp>>
 <<i3-yt-music>>
 <<i3-keymapp>>
+<<i3-calendar>>
+<<i3-llm>>
+<<i3-translate>>
 #+end_src
 *** Sway
 #+begin_src conf :noweb yes :tangle _config_sway
@@ -1686,6 +1689,9 @@ bindsym ctrl+$mod+slash  exec "$SCRIPT_PATH/scratchpad-temp.sh 3 destroy"
 <<sway-whatsapp>>
 <<sway-yt-music>>
 <<sway-keymapp>>
+<<sway-calendar>>
+<<sway-llm>>
+<<sway-translate>>
 #+end_src
 * VPN
 ** La Casa Nostra

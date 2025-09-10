@@ -388,15 +388,6 @@ for_window [$prop="showmethekey-gtk"] {
 for_window [$prop="one.alynx.showmethekey"] floating enable
 
 bindsym $mod+v exec "$SCRIPT_PATH/adb-mdns-scrcpy.sh phone"
-for_window [title="^dropdown_scrcpy.*$" $prop="^scrcpy$"] floating enable
-for_window [title="^dropdown_scrcpy.*$" $prop="^scrcpy$"] move position center
-for_window [title="^dropdown_scrcpy.*$" $prop="^scrcpy$"] move scratchpad
-for_window [title="^dropdown_scrcpy.*$" $prop="^scrcpy$"] border pixel 5
-for_window [$prop="^dropdown_python$"] floating enable
-for_window [$prop="^dropdown_python$"] move position center
-for_window [$prop="^dropdown_python$"] move scratchpad
-for_window [$prop="^dropdown_python$"] border pixel 5
-exec --no-startup-id kitty --class="dropdown_python" -o font_size=20 -o include=$XDG_CONFIG_HOME/kitty/themes/python.conf python -q
 bindsym $mod+j exec "$SCRIPT_PATH/show-or-launch.sh dropdown_python 0.6 0.6"
 exec --no-startup-id kitty --class="dropdown_terminal" -o font_size=14 -o include=$XDG_CONFIG_HOME/kitty/themes/terminal.conf -o background_opacity=0.85
 bindsym $mod+m exec "$SCRIPT_PATH/show-or-launch.sh dropdown_terminal 0.75 0.75"
@@ -404,6 +395,15 @@ for_window [$prop="^dropdown_terminal$"] floating enable
 for_window [$prop="^dropdown_terminal$"] move position center
 for_window [$prop="^dropdown_terminal$"] move scratchpad
 for_window [$prop="^dropdown_terminal$"] border pixel 5
+for_window [$prop="^dropdown_python$"] floating enable
+for_window [$prop="^dropdown_python$"] move position center
+for_window [$prop="^dropdown_python$"] move scratchpad
+for_window [$prop="^dropdown_python$"] border pixel 5
+exec --no-startup-id kitty --class="dropdown_python" -o font_size=20 -o include=$XDG_CONFIG_HOME/kitty/themes/python.conf python -q
+for_window [title="^dropdown_scrcpy.*$" $prop="^scrcpy$"] floating enable
+for_window [title="^dropdown_scrcpy.*$" $prop="^scrcpy$"] move position center
+for_window [title="^dropdown_scrcpy.*$" $prop="^scrcpy$"] move scratchpad
+for_window [title="^dropdown_scrcpy.*$" $prop="^scrcpy$"] border pixel 5
 exec --no-startup-id "rm /tmp/scratchpad_pid_1.tmp"
 bindsym $mod+comma       exec "$SCRIPT_PATH/scratchpad-temp.sh 1 create-show"
 bindsym shift+$mod+comma exec "$SCRIPT_PATH/scratchpad-temp.sh 1 detach"
