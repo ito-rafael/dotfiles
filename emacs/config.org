@@ -173,7 +173,7 @@ https://emacs.stackexchange.com/a/21652
 #+end_src
 *** Keybinding
 #+begin_src emacs-lisp
-(global-set-key (kbd "M-s-t") '(lambda () (interactive) (split-window-autotiling) (other-window 1) (counsel-find-file)))
+(global-set-key (kbd "M-s-g") '(lambda () (interactive) (split-window-autotiling) (other-window 1) (counsel-find-file)))
 #+end_src
 ** ﹡scratch﹡ buffer
 Prevent scratch buffer from being killed.
