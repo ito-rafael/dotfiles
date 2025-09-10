@@ -1564,7 +1564,6 @@ bindsym $mod+r exec "$SCRIPT_PATH/show-or-launch.sh brave-calendar.google.com__-
 #+end_src
 ** Terminal
 #+begin_src conf :noweb-ref scratchpads
-bindsym $mod+v exec "$SCRIPT_PATH/adb-mdns-scrcpy.sh phone"
 exec --no-startup-id kitty --class="dropdown_terminal" -o font_size=14 -o include=$XDG_CONFIG_HOME/kitty/themes/terminal.conf -o background_opacity=0.85
 bindsym $mod+n exec "$SCRIPT_PATH/show-or-launch.sh dropdown_terminal 0.75 0.75"
 for_window [$prop="^dropdown_terminal$"] floating enable
@@ -1587,6 +1586,14 @@ for_window [title="^dropdown_scrcpy.*$" $prop="^scrcpy$"] floating enable
 for_window [title="^dropdown_scrcpy.*$" $prop="^scrcpy$"] move position center
 for_window [title="^dropdown_scrcpy.*$" $prop="^scrcpy$"] move scratchpad
 for_window [title="^dropdown_scrcpy.*$" $prop="^scrcpy$"] border pixel 5
+#+end_src
+*** Phone
+#+begin_src conf :noweb-ref scratchpads
+bindsym $mod+i exec "$SCRIPT_PATH/adb-mdns-scrcpy.sh phone"
+#+end_src
+*** Watch
+#+begin_src conf :noweb-ref scratchpads
+#bindsym $mod+v exec "$SCRIPT_PATH/adb-mdns-scrcpy.sh watch"
 #+end_src
 ** ZSA Keymapp
 *** i3
