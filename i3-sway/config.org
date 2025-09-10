@@ -1651,10 +1651,10 @@ exec --no-startup-id brave-beta --app=https://translate.google.com
 bindsym $alt+$mod+s exec "$SCRIPT_PATH/show-or-launch.sh brave-translate.google.com__-Default 0.6 0.9"
 #+end_src
 ** Temporary scratchpads
-*** 1: comma
+*** 1: h
 #+begin_src conf :noweb-ref scratchpads
 exec --no-startup-id "rm /tmp/scratchpad_pid_1.tmp"
-bindsym $mod+comma       exec "$SCRIPT_PATH/scratchpad-temp.sh 1 create-show"
+bindsym $mod+h           exec "$SCRIPT_PATH/scratchpad-temp.sh 1 create-show"
 bindsym shift+$mod+comma exec "$SCRIPT_PATH/scratchpad-temp.sh 1 detach"
 bindsym ctrl+$mod+comma  exec "$SCRIPT_PATH/scratchpad-temp.sh 1 destroy"
 #+end_src

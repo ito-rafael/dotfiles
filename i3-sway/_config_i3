@@ -352,7 +352,7 @@ for_window [title="^dropdown_scrcpy.*$" $prop="^scrcpy$"] move position center
 for_window [title="^dropdown_scrcpy.*$" $prop="^scrcpy$"] move scratchpad
 for_window [title="^dropdown_scrcpy.*$" $prop="^scrcpy$"] border pixel 5
 exec --no-startup-id "rm /tmp/scratchpad_pid_1.tmp"
-bindsym $mod+comma       exec "$SCRIPT_PATH/scratchpad-temp.sh 1 create-show"
+bindsym $mod+h           exec "$SCRIPT_PATH/scratchpad-temp.sh 1 create-show"
 bindsym shift+$mod+comma exec "$SCRIPT_PATH/scratchpad-temp.sh 1 detach"
 bindsym ctrl+$mod+comma  exec "$SCRIPT_PATH/scratchpad-temp.sh 1 destroy"
 exec --no-startup-id "rm /tmp/scratchpad_pid_2.tmp"
