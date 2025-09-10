@@ -310,6 +310,7 @@ Git repo: [[https://github.com/progfolio/elpaca][Elpaca]]
     (kbd "S-<f13> .") (lambda () (interactive) (insert "~/."))
     ; tilde paths
     (kbd "S-<f13> g") (lambda () (interactive) (insert "~/git/"))
+    (kbd "S-<f13> k") (lambda () (interactive) (insert "~/git/keebab"))
     (kbd "S-<f13> d") (lambda () (interactive) (insert "~/dotfiles/"))
     (kbd "S-<f13> c") (lambda () (interactive) (insert "~/.config/"))
     (kbd "S-<f13> s") (lambda () (interactive) (insert "~/.config/scripts/"))
