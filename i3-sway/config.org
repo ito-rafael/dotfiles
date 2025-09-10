@@ -1578,7 +1578,7 @@ for_window [$prop="^dropdown_python$"] move position center
 for_window [$prop="^dropdown_python$"] move scratchpad
 for_window [$prop="^dropdown_python$"] border pixel 5
 exec --no-startup-id kitty --class="dropdown_python" -o font_size=20 -o include=$XDG_CONFIG_HOME/kitty/themes/python.conf python -q
-bindsym $mod+j exec "$SCRIPT_PATH/show-or-launch.sh dropdown_python 0.6 0.6"
+bindsym $mod+e exec "$SCRIPT_PATH/show-or-launch.sh dropdown_python 0.6 0.6"
 #+end_src
 ** scrcpy
 #+begin_src conf :noweb-ref scratchpads
