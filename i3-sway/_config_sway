@@ -456,6 +456,14 @@ for_window [$prop="^brave-chatgpt.com__-Default$"] {
 }
 exec --no-startup-id brave-beta --app=https://chatgpt.com
 bindsym $alt+$mod+t exec "$SCRIPT_PATH/show-or-launch.sh brave-chatgpt.com__-Default 0.6 0.9"
+for_window [$prop="^brave-translate.google.com__-Default$"] {
+    floating enable
+    move position center
+    move scratchpad
+    border pixel 5
+}
+exec --no-startup-id brave-beta --app=https://translate.google.com
+bindsym $alt+$mod+s exec "$SCRIPT_PATH/show-or-launch.sh brave-translate.google.com__-Default 0.6 0.9"
 
 bindsym $alt+$mod+1 exec "$SCRIPT_PATH/vpn-connecter.sh lcn toggle"
 exec --no-startup-id "rm /tmp/vpn_lcn.tmp"

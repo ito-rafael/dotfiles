@@ -1629,6 +1629,26 @@ for_window [$prop="^brave-chatgpt.com__-Default$"] {
 exec --no-startup-id brave-beta --app=https://chatgpt.com
 bindsym $alt+$mod+t exec "$SCRIPT_PATH/show-or-launch.sh brave-chatgpt.com__-Default 0.6 0.9"
 #+end_src
+** Translate (on Brave Beta)
+*** i3
+#+begin_src conf :noweb-ref i3-translate
+for_window [$prop="^Brave-browser-beta$" instance="^translate.com$"] floating enable
+for_window [$prop="^Brave-browser-beta$" instance="^translate.com$"] move position center
+for_window [$prop="^Brave-browser-beta$" instance="^translate.com$"] move scratchpad
+for_window [$prop="^Brave-browser-beta$" instance="^translate.com$"] border pixel 5
+exec --no-startup-id brave-beta --app=https://translate.google.com
+bindsym $alt+$mod+s exec "$SCRIPT_PATH/show-or-launch.sh calendar.google.com 0.6 0.9"
+#+end_src
+*** Sway
+#+begin_src conf :noweb-ref sway-translate
+for_window [$prop="^brave-translate.google.com__-Default$"] {
+    floating enable
+    move position center
+    move scratchpad
+    border pixel 5
+}
+exec --no-startup-id brave-beta --app=https://translate.google.com
+bindsym $alt+$mod+s exec "$SCRIPT_PATH/show-or-launch.sh brave-translate.google.com__-Default 0.6 0.9"
 #+end_src
 ** Temporary scratchpads
 *** 1: comma
