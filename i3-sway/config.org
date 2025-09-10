@@ -834,11 +834,11 @@ bindsym ctrl+mod1+3 move workspace to output $tertiary;  focus output $tertiary
 #+end_src
 ** Terminal
 #+begin_src conf :noweb-ref keybindings
-bindsym $mod+t exec kitty
-#bindsym mod1+$mod+t exec kitty
-#bindsym $mod+t exec i3-sensible-terminal
-#bindsym mod1+$mod+t exec i3-sensible-terminal
-#bindsym ctrl+$mod+t exec i3-sensible-terminal
+bindsym $mod+g exec kitty
+#bindsym mod1+$mod+g exec kitty
+#bindsym $mod+g exec i3-sensible-terminal
+#bindsym mod1+$mod+g exec i3-sensible-terminal
+#bindsym ctrl+$mod+g exec i3-sensible-terminal
 #+end_src
 ** Brightness
 *** Screen brightness

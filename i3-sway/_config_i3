@@ -211,11 +211,11 @@ bindsym ctrl+mod1+3 move workspace to output $tertiary;  focus output $tertiary
 #bindsym $mod+e exec thunderbird
 #bindsym $mod+g exec kitty ranger
 #bindsym $mod+p exec spotify --force-device-scale-factor=2 # shortcut to open Spotify
-bindsym $mod+t exec kitty
-#bindsym mod1+$mod+t exec kitty
-#bindsym $mod+t exec i3-sensible-terminal
-#bindsym mod1+$mod+t exec i3-sensible-terminal
-#bindsym ctrl+$mod+t exec i3-sensible-terminal
+bindsym $mod+g exec kitty
+#bindsym mod1+$mod+g exec kitty
+#bindsym $mod+g exec i3-sensible-terminal
+#bindsym mod1+$mod+g exec i3-sensible-terminal
+#bindsym ctrl+$mod+g exec i3-sensible-terminal
 bindsym XF86MonBrightnessUp         exec brightnessctl set 5%+
 bindsym XF86MonBrightnessDown       exec brightnessctl set 5%-
 bindsym shift+XF86MonBrightnessUp   exec brightnessctl set 1%+
