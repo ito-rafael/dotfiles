@@ -1658,10 +1658,10 @@ bindsym $mod+h           exec "$SCRIPT_PATH/scratchpad-temp.sh 1 create-show"
 bindsym shift+$mod+comma exec "$SCRIPT_PATH/scratchpad-temp.sh 1 detach"
 bindsym ctrl+$mod+comma  exec "$SCRIPT_PATH/scratchpad-temp.sh 1 destroy"
 #+end_src
-*** 2: dot
+*** 2: comma
 #+begin_src conf :noweb-ref scratchpads
 exec --no-startup-id "rm /tmp/scratchpad_pid_2.tmp"
-bindsym $mod+period       exec "$SCRIPT_PATH/scratchpad-temp.sh 2 create-show"
+bindsym $mod+comma        exec "$SCRIPT_PATH/scratchpad-temp.sh 2 create-show"
 bindsym shift+$mod+period exec "$SCRIPT_PATH/scratchpad-temp.sh 2 detach"
 bindsym ctrl+$mod+period  exec "$SCRIPT_PATH/scratchpad-temp.sh 2 destroy"
 #+end_src
