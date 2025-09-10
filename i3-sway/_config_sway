@@ -440,6 +440,14 @@ for_window [$prop="^keymapp$"] {
 }
 exec --no-startup-id /usr/bin/keymapp
 bindsym $mod+k exec "$SCRIPT_PATH/show-or-launch.sh keymapp 0.75 0.75"
+for_window [$prop="^brave-calendar.google.com__-Default$"] {
+    floating enable
+    move position center
+    move scratchpad
+    border pixel 5
+}
+exec --no-startup-id brave-beta --app=https://calendar.google.com
+bindsym $mod+r exec "$SCRIPT_PATH/show-or-launch.sh brave-calendar.google.com__-Default 0.6 0.9"
 
 bindsym $alt+$mod+1 exec "$SCRIPT_PATH/vpn-connecter.sh lcn toggle"
 exec --no-startup-id "rm /tmp/vpn_lcn.tmp"

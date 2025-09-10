@@ -381,6 +381,12 @@ for_window [$prop="^Keymapp$"] move scratchpad
 for_window [$prop="^Keymapp$"] border pixel 5
 exec --no-startup-id /usr/bin/keymapp
 bindsym $mod+k exec "$SCRIPT_PATH/show-or-launch.sh Keymapp 0.75 0.75"
+for_window [$prop="^Brave-browser-beta$" instance="^calendar.google.com$"] floating enable
+for_window [$prop="^Brave-browser-beta$" instance="^calendar.google.com$"] move position center
+for_window [$prop="^Brave-browser-beta$" instance="^calendar.google.com$"] move scratchpad
+for_window [$prop="^Brave-browser-beta$" instance="^calendar.google.com$"] border pixel 5
+exec --no-startup-id brave-beta --app=https://calendar.google.com
+bindsym $mod+r exec "$SCRIPT_PATH/show-or-launch.sh calendar.google.com 0.6 0.9"
 
 bindsym $alt+$mod+1 exec "$SCRIPT_PATH/vpn-connecter.sh lcn toggle"
 exec --no-startup-id "rm /tmp/vpn_lcn.tmp"
