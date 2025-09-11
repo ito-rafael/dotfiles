@@ -152,12 +152,20 @@ if [[ ! $SCRATCHPAD ]]; then
             brave-beta --app=https://web.whatsapp.com &
             sleep 2
             ;;
+        "brave-calendar.google.com__-Default")
+            brave-beta --app=https://calendar.google.com &
+            sleep 2
+            ;;
         "music.youtube.com")
             brave-beta --app=https://music.youtube.com &
             sleep 2
             ;;
         "web.whatsapp.com")
             brave-beta --app=https://web.whatsapp.com &
+            sleep 2
+            ;;
+        "calendar.google.com")
+            brave-beta --app=https://calendar.google.com &
             sleep 2
             ;;
         "keymapp")
