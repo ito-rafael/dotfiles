@@ -30,6 +30,10 @@ else
         $SCREENSHOT
 fi
 
+# save current screen brightness and dim it
+brightnessctl --quiet --save
+brightnessctl --quiet set 10%
+
 #-----------------------------
 # screen locking
 #-----------------------------
