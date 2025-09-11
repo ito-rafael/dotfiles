@@ -40,11 +40,12 @@ swaylock --config $XDG_CONFIG_HOME/swaylock/config
 # after screen unlocking
 #-----------------------------
 
-# delete screenshot
-rm $SCREENSHOT
 
 # turn on keyboard LEDs
 $XDG_CONFIG_HOME/scripts/keeb-leds.sh on
 
 # unpause notifications
 dunstctl set-paused false
+
+# delete screenshot
+rm $SCREENSHOT
