@@ -44,6 +44,8 @@ swaylock --config $XDG_CONFIG_HOME/swaylock/config
 # after screen unlocking
 #-----------------------------
 
+# restore previous screen brightness
+brightnessctl --quiet --restore
 
 # turn on keyboard LEDs
 $XDG_CONFIG_HOME/scripts/keeb-leds.sh on
