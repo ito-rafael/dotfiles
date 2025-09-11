@@ -284,11 +284,11 @@ label:focus {
     color: red;
 }
 
-#custom-scratchpad-scrcpy {
+#custom-scratchpad-scrcpy-phone {
     color: gray;
 }
 
-#custom-scratchpad-scrcpy.enabled {
+#custom-scratchpad-scrcpy-phone.enabled {
     color: green;
 }
 
