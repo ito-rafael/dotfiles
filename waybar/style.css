@@ -292,6 +292,14 @@ label:focus {
     color: green;
 }
 
+#custom-scratchpad-scrcpy-watch {
+    color: gray;
+}
+
+#custom-scratchpad-scrcpy-watch.enabled {
+    color: green;
+}
+
 #custom-scratchpad-python {
     color: gray;
 }
