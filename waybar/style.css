@@ -359,6 +359,11 @@ label:focus {
     color: green;
 }
 
+#custom-scratchpad-keymapp:hover {
+    background: rgba(0, 255, 0, 0.5);
+    transition: background 0.3s ease;
+}
+
 #custom-vpn-lcn.enabled {
     background-color: #00b0b0;
     color: white;
