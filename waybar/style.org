@@ -616,6 +616,13 @@ label:focus {
     color: lightgray;
 }
 #+end_src
+** Hover
+#+begin_src css
+#custom-pacman:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+#+end_src
 * KMonad :noexport_1:
 ** Active
 #+begin_src css
