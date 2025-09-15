@@ -570,6 +570,13 @@ label:focus {
     color: lightgray;
 }
 #+end_src
+** Hover
+#+begin_src css
+#custom-mouse-warping:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+#+end_src
 * Dunst :noexport_1:
 ** Disabled
 #+begin_src css

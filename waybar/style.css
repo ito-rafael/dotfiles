@@ -397,6 +397,11 @@ label:focus {
     color: lightgray;
 }
 
+#custom-mouse-warping:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+
 #custom-dunst.disabled {
     color: gray;
 }
