@@ -317,6 +317,11 @@ label:focus {
     color: green;
 }
 
+#custom-scratchpad-scrcpy-phone:hover {
+    background: rgba(0, 255, 0, 0.5);
+    transition: background 0.3s ease;
+}
+
 #custom-scratchpad-scrcpy-watch {
     color: gray;
 }
