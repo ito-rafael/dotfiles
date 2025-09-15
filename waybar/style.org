@@ -393,6 +393,13 @@ label:focus {
     color: green;
 }
 #+end_src
+*** Hover
+#+begin_src css
+#custom-scratchpad-whatsapp:hover {
+    background: rgba(0, 255, 0, 0.5);
+    transition: background 0.3s ease;
+}
+#+end_src
 ** YouTube Music
 *** Disabled
 #+begin_src css

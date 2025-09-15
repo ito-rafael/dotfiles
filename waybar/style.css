@@ -291,6 +291,11 @@ label:focus {
     color: green;
 }
 
+#custom-scratchpad-whatsapp:hover {
+    background: rgba(0, 255, 0, 0.5);
+    transition: background 0.3s ease;
+}
+
 #custom-scratchpad-ytmusic {
     color: gray;
 }
