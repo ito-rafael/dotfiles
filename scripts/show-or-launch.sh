@@ -107,10 +107,12 @@ if [ $FOCUSED != $APPLICATION ]; then
         .'$PROP_PREFIX''$PROP' == "brave-web.whatsapp.com__-Default" or
         .'$PROP_PREFIX''$PROP' == "brave-calendar.google.com__-Default" or
         .'$PROP_PREFIX''$PROP' == "brave-chatgpt.com__-Default" or
+        .'$PROP_PREFIX''$PROP' == "brave-translate.google.com__-Default" or
         .'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX''$INSTANCE' == "music.youtube.com" or
         .'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX''$INSTANCE' == "web.whatsapp.com" or
         .'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX''$INSTANCE' == "calendar.google.com" or
         .'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX''$INSTANCE' == "chatgpt.com" or
+        .'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX''$INSTANCE' == "translate.google.com" or
         .'$PROP_PREFIX''$PROP' == "keymapp" or .'$PROP_PREFIX''$PROP' == "Keymapp" or
         .'$ID_PROP' == '$TEMP_PID_1' or 
         .'$ID_PROP' == '$TEMP_PID_2' or 
@@ -164,6 +166,10 @@ if [[ ! $SCRATCHPAD ]]; then
             brave-beta --app=https://chatgpt.com &
             sleep 2
             ;;
+        "brave-translate.google.com__-Default")
+            brave-beta --app=https://translate.google.com &
+            sleep 2
+            ;;
         "music.youtube.com")
             brave-beta --app=https://music.youtube.com &
             sleep 2
@@ -178,6 +184,10 @@ if [[ ! $SCRATCHPAD ]]; then
             ;;
         "chatgpt.com")
             brave-beta --app=https://chatgpt.com &
+            sleep 2
+            ;;
+        "translate.google.com")
+            brave-beta --app=https://translate.google.com &
             sleep 2
             ;;
         "keymapp")
