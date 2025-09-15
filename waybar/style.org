@@ -413,6 +413,13 @@ label:focus {
     color: red;
 }
 #+end_src
+*** Hover
+#+begin_src css
+#custom-scratchpad-ytmusic:hover {
+    background: rgba(255, 0, 0, 0.5);
+    transition: background 0.3s ease;
+}
+#+end_src
 ** scrcpy
 *** Phone
 **** Disabled

@@ -304,6 +304,11 @@ label:focus {
     color: red;
 }
 
+#custom-scratchpad-ytmusic:hover {
+    background: rgba(255, 0, 0, 0.5);
+    transition: background 0.3s ease;
+}
+
 #custom-scratchpad-scrcpy-phone {
     color: gray;
 }
