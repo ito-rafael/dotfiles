@@ -252,6 +252,11 @@ label:focus {
     color: red;
 }
 
+#custom-scratchpad-temp-1:hover {
+    background: rgba(255, 0, 0, 0.5);
+    transition: background 0.3s ease;
+}
+
 #custom-scratchpad-temp-2 {
     color: gray;
 }

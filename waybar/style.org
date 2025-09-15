@@ -333,6 +333,13 @@ label:focus {
     color: red;
 }
 #+end_src
+*** Hover
+#+begin_src css
+#custom-scratchpad-temp-1:hover {
+    background: rgba(255, 0, 0, 0.5);
+    transition: background 0.3s ease;
+}
+#+end_src
 ** Temporary 2
 *** Disabled
 #+begin_src css
