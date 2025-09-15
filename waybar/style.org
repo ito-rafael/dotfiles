@@ -590,6 +590,13 @@ label:focus {
     color: goldenrod;
 }
 #+end_src
+** Hover
+#+begin_src css
+#custom-dunst:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+#+end_src
 * Pacman :noexport_1:
 ** Low
 #+begin_src css

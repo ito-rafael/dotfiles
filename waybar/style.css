@@ -410,6 +410,11 @@ label:focus {
     color: goldenrod;
 }
 
+#custom-dunst:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+
 #custom-pacman.low {
     color: lightgray;
 }
