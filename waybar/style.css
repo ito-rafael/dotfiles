@@ -333,6 +333,11 @@ label:focus {
     color: green;
 }
 
+#custom-scratchpad-python:hover {
+    background: rgba(0, 255, 0, 0.5);
+    transition: background 0.3s ease;
+}
+
 #custom-scratchpad-terminal {
     color: gray;
 }
