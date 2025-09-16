@@ -1,0 +1,26 @@
+Sub ToggleCellColor(color As Long)
+    Dim oCellRange As Object
+    Dim oCell As Object
+    Dim i As Integer, j As Integer
+
+    oCellRange = ThisComponent.CurrentSelection
+
+    If oCellRange.supportsService("com.sun.star.sheet.SheetCellRange") Then
+        For i = 0 To oCellRange.Rows.getCount() - 1
+            For j = 0 To oCellRange.Columns.getCount() - 1
+                oCell = oCellRange.getCellByPosition(j, i)
+                If oCell.CellBackColor = color Then
+                    oCell.CellBackColor = -1  ' Transparent
+                Else
+                    oCell.CellBackColor = color
+                End If
+            Next j
+        Next i
+    ElseIf oCellRange.supportsService("com.sun.star.sheet.SheetCell") Then
+        If oCellRange.CellBackColor = color Then
+            oCellRange.CellBackColor = -1
+        Else
+            oCellRange.CellBackColor = color
+        End If
+    End If
+End Sub
