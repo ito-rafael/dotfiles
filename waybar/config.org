@@ -40,24 +40,24 @@
 - [[#kanata][kanata]]
 
 * JSON header :noexport:
-#+begin_src json
+#+begin_src js
 {
 #+end_src
 * Positioning :noexport_1:
-#+begin_src json
+#+begin_src js
 "height": 15,
 "layer": "top",
 #+end_src
 ** Left
-#+begin_src json
+#+begin_src js
 "modules-left": ["sway/workspaces", "sway/mode"],
 #+end_src
 ** Center
-#+begin_src json :tangle no
+#+begin_src js :tangle no
 "modules-center": ["sway/window"],
 #+end_src
 ** Right
-#+begin_src json
+#+begin_src js
 "modules-right": [
     "custom/vpn-lcn",
     "custom/vpn-unicamp",
@@ -94,7 +94,7 @@
 ],
 #+end_src
 * Sway
-#+begin_src json
+#+begin_src js
 "sway/window": {
     "max-length": 50
 },
@@ -103,20 +103,20 @@
 },
 #+end_src
 * CPU
-#+begin_src json
+#+begin_src js
 "cpu": {
     "format": "{usage}% ",
     "tooltip": false
 },
 #+end_src
 * Memory
-#+begin_src json
+#+begin_src js
 "memory": {
     "format": "{}% "
 },
 #+end_src
 * Temperature
-#+begin_src json
+#+begin_src js :tangle no
 "temperature": {
     "critical-threshold": 80,
     "format-critical": "{temperatureC}°C {icon}",
@@ -125,7 +125,7 @@
 },
 #+end_src
 * Disk
-#+begin_src json
+#+begin_src js
 "disk": {
     "interval": 30,
     "format": "{path} {percentage_free}%",
@@ -133,7 +133,7 @@
 },
 #+end_src
 * Audio
-#+begin_src json
+#+begin_src js
 "pulseaudio": {
     "format": "{volume}% {icon} {format_source}",
     "format-bluetooth": "{volume}% {icon} {format_source}",
@@ -148,21 +148,21 @@
 },
 #+end_src
 * Brightness
-#+begin_src json
+#+begin_src js
 "backlight": {
     "format": "{percent}% {icon}",
     "format-icons": ["", "", "", "", "", "", "", "", ""]
 },
 #+end_src
 * Battery
-#+begin_src json
+#+begin_src js
 "battery": {
     "format": "{capacity}% {icon}",
     "format-icons": ["", "", "", "", ""]
 },
 #+end_src
 * Clock (Calendar)
-#+begin_src json
+#+begin_src js
 "clock": {
     "format": "{:%H:%M}  ",
     "format-alt": "{:%A, %B %d, %Y (%R)}  ",
@@ -191,7 +191,7 @@
 },
 #+end_src
 * MPRIS
-#+begin_src json
+#+begin_src js
     "mpris": {
         "interval": 1,
         "format": "{player_icon} {dynamic}  ",
@@ -211,7 +211,7 @@
 #+end_src
 * Scratchpads
 ** Indicator
-#+begin_src json :tangle no
+#+begin_src js :tangle no
 "custom/scratchpad-indicator": {
     "interval": 3,
     "return-type": "json",
@@ -223,7 +223,7 @@
 #+end_src
 ** Temporary
 *** Temp #1: comma
-#+begin_src json
+#+begin_src js
 "custom/scratchpad-temp-1": {
     "interval": 1,
     "return-type": "json",
@@ -234,7 +234,7 @@
 },
 #+end_src
 *** Temp #2: period
-#+begin_src json
+#+begin_src js
 "custom/scratchpad-temp-2": {
     "interval": 1,
     "return-type": "json",
@@ -244,7 +244,7 @@
 },
 #+end_src
 *** Temp #3: slash
-#+begin_src json
+#+begin_src js
 "custom/scratchpad-temp-3": {
     "interval": 1,
     "return-type": "json",
@@ -254,7 +254,7 @@
 },
 #+end_src
 ** WhatsApp
-#+begin_src json
+#+begin_src js
 "custom/scratchpad-whatsapp": {
     "interval": 1,
     "return-type": "json",
@@ -265,7 +265,7 @@
 },
 #+end_src
 ** YouTube Music
-#+begin_src json
+#+begin_src js
 "custom/scratchpad-ytmusic": {
     "interval": 1,
     "return-type": "json",
@@ -277,7 +277,7 @@
 #+end_src
 ** scrcpy
 *** Phone
-#+begin_src json
+#+begin_src js
 "custom/scratchpad-scrcpy-phone": {
     "interval": 1,
     "return-type": "json",
@@ -287,7 +287,7 @@
 },
 #+end_src
 *** Watch
-#+begin_src json
+#+begin_src js
 "custom/scratchpad-scrcpy-watch": {
     "interval": 1,
     "return-type": "json",
@@ -297,7 +297,7 @@
 },
 #+end_src
 ** Python
-#+begin_src json
+#+begin_src js
     "custom/scratchpad-python": {
         "interval": 1,
         "return-type": "json",
@@ -307,7 +307,7 @@
     },
 #+end_src
 ** Terminal
-#+begin_src json
+#+begin_src js
 "custom/scratchpad-terminal": {
     "interval": 1,
     "return-type": "json",
@@ -317,7 +317,7 @@
 },
 #+end_src
 ** Keymapp
-#+begin_src json
+#+begin_src js
 "custom/scratchpad-keymapp": {
     "interval": 1,
     "return-type": "json",
@@ -329,7 +329,7 @@
 #+end_src
 * VPN
 ** La Casa Nostra
-#+begin_src json
+#+begin_src js
 "custom/vpn-lcn": {
     "interval": 1,
     "return-type": "json",
@@ -338,7 +338,7 @@
 },
 #+end_src
 ** Unicamp
-#+begin_src json
+#+begin_src js
 "custom/vpn-unicamp": {
     "interval": 1,
     "return-type": "json",
@@ -347,7 +347,7 @@
 },
 #+end_src
 ** LBiC
-#+begin_src json
+#+begin_src js
 "custom/vpn-lbic": {
     "interval": 1,
     "return-type": "json",
@@ -356,7 +356,7 @@
 },
 #+end_src
 ** Samsung
-#+begin_src json
+#+begin_src js
 "custom/vpn-samsung": {
     "interval": 1,
     "return-type": "json",
@@ -365,7 +365,7 @@
 },
 #+end_src
 * Caps Lock
-#+begin_src json :tangle no
+#+begin_src js :tangle no
 //"keyboard-state": {
 //    "capslock": true,
 //    "format": "{name} {icon}",
@@ -377,7 +377,7 @@
 //},
 #+end_src
 * Caps Lock
-#+begin_src json
+#+begin_src js
 "custom/capslock": {
     "return-type": "json",
     "exec": "~/.config/waybar/scripts/capslock.sh",
@@ -385,7 +385,7 @@
 },
 #+end_src
 * Mouse warping
-#+begin_src json
+#+begin_src js
 "custom/mouse-warping": {
     "return-type": "json",
     "exec": "~/.config/waybar/scripts/mouse-warping.sh monitor",
@@ -398,7 +398,7 @@
 },
 #+end_src
 * Dunst
-#+begin_src json
+#+begin_src js
 "custom/dunst": {
     "return-type": "json",
     "exec": "~/.config/waybar/scripts/dunst.sh",
@@ -412,7 +412,7 @@
 },
 #+end_src
 * Pacman
-#+begin_src json
+#+begin_src js
 "custom/pacman": {
     "interval": 3600,
     "return-type": "json",
@@ -427,7 +427,7 @@
 },
 #+end_src
 * KMonad
-#+begin_src json
+#+begin_src js
 "custom/kmonad": {
     "return-type": "json",
     "exec": "sleep 2 && ~/.config/waybar/scripts/kmonad.sh monitor",
@@ -447,7 +447,7 @@
 #+end_src
 * kanata
 ** script
-#+begin_src json
+#+begin_src js
 "custom/kanata": {
     "return-type": "json",
     "exec": "sleep 2 && ~/.config/waybar/scripts/kanata.sh monitor --user",
@@ -466,6 +466,6 @@
 },
 #+end_src
 * JSON footer :noexport:
-#+begin_src json
+#+begin_src js
 }
 #+end_src
