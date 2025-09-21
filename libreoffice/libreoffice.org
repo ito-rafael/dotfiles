@@ -44,3 +44,10 @@ Sub ToggleCellColor(color As Long)
     End If
 End Sub
 #+end_src
+*** Colors
+**** Yellow
+#+begin_src conf
+Sub PaintCellYellow
+    ToggleCellColor(RGB(255, 255, 166))
+End Sub
+#+end_src

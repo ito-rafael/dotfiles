@@ -24,3 +24,7 @@ Sub ToggleCellColor(color As Long)
         End If
     End If
 End Sub
+
+Sub PaintCellYellow
+    ToggleCellColor(RGB(255, 255, 166))
+End Sub
