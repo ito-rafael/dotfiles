@@ -28,3 +28,7 @@ End Sub
 Sub PaintCellYellow
     ToggleCellColor(RGB(255, 255, 166))
 End Sub
+
+Sub PaintCellGreen
+    ToggleCellColor(RGB(175, 208, 149))
+End Sub
