@@ -7,6 +7,7 @@
 * Table of Contents :toc:
 - [[#macro][Macro]]
   - [[#paint-cells][Paint cells]]
+- [[#keybindings][Keybindings]]
 
 * Macro
 :PROPERTIES:
@@ -82,4 +83,5 @@ End Sub
 | shortcut | category | description            | function                                                                                      |
 |----------+----------+------------------------+-----------------------------------------------------------------------------------------------|
 | Alt+M    | macro    | paint cell Transparent | vnd.sun.star.script:Standard.Module1.PaintCellTransparent?language=Basic&location=application |
+| Alt+N    | macro    | paint cell Yellow      | vnd.sun.star.script:Standard.Module1.PaintCellYellow?language=Basic&location=application      |
 |----------+----------+------------------------+-----------------------------------------------------------------------------------------------|
