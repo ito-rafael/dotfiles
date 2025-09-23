@@ -57,3 +57,9 @@ Sub PaintCellGreen
     ToggleCellColor(RGB(175, 208, 149))
 End Sub
 #+end_src
+**** Red
+#+begin_src conf
+Sub PaintCellRed
+    ToggleCellColor(RGB(255, 166, 166))
+End Sub
+#+end_src
