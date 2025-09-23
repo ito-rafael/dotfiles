@@ -40,3 +40,7 @@ End Sub
 Sub PaintCellGray
     ToggleCellColor(RGB(204, 204, 204))
 End Sub
+
+Sub PaintCellTransparent
+    ToggleCellColor(RGB(255, 255, 255))
+End Sub

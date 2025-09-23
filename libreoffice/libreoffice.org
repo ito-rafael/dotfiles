@@ -69,3 +69,9 @@ Sub PaintCellGray
     ToggleCellColor(RGB(204, 204, 204))
 End Sub
 #+end_src
+**** Transparent
+#+begin_src conf
+Sub PaintCellTransparent
+    ToggleCellColor(RGB(255, 255, 255))
+End Sub
+#+end_src
