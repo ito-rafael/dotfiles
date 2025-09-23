@@ -86,4 +86,5 @@ End Sub
 | Alt+N    | macro    | paint cell Yellow      | vnd.sun.star.script:Standard.Module1.PaintCellYellow?language=Basic&location=application      |
 | Alt+E    | macro    | paint cell Green       | vnd.sun.star.script:Standard.Module1.PaintCellGreen?language=Basic&location=application       |
 | Alt+I    | macro    | paint cell Red         | vnd.sun.star.script:Standard.Module1.PaintCellRed?language=Basic&location=application         |
+| Alt+O    | macro    | paint cell Gray        | vnd.sun.star.script:Standard.Module1.PaintCellGray?language=Basic&location=application        |
 |----------+----------+------------------------+-----------------------------------------------------------------------------------------------|
