@@ -102,6 +102,7 @@ if [ $FOCUSED != $APPLICATION ]; then
     is_scratchpad=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.focused) |
         .'$PROP_PREFIX''$PROP' == "dropdown_terminal" or
         .'$PROP_PREFIX''$PROP' == "dropdown_python" or
+        .'$PROP_PREFIX''$PROP' == "dropdown_pacman" or
         .'$PROP_PREFIX''$PROP' == "keymapp" or .'$PROP_PREFIX''$PROP' == "Keymapp" or
         .'$PROP_PREFIX''$PROP' == "brave-calendar.google.com__-Default" or
         .'$PROP_PREFIX''$PROP' == "brave-chatgpt.com__-Default" or
@@ -179,6 +180,9 @@ if [[ ! $SCRATCHPAD ]]; then
             kitty --detach --class="dropdown_python" -o font_size=20 -o include=$XDG_CONFIG_HOME/kitty/themes/python.conf python -q
             sleep 0.05
             ;;
+        "dropdown_pacman")
+            kitty --detach --class="dropdown_pacman" -o font_size=14 -o include=$XDG_CONFIG_HOME/kitty/themes/pacman.conf -o background_opacity=0.85
+            sleep 0.05
             ;;
         "keymapp")
             keymapp &
@@ -195,6 +199,7 @@ if [[ ! $SCRATCHPAD ]]; then
         "translate.google.com")
             brave-beta --app=https://translate.google.com &
             sleep 2
+            ;;
         "web.whatsapp.com")
             brave-beta --app=https://web.whatsapp.com &
             sleep 2
