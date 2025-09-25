@@ -62,6 +62,7 @@ is_scratchpad=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | se
     .'$PROP_PREFIX''$PROP' == "dropdown_terminal" or
     .'$PROP_PREFIX''$PROP' == "dropdown_pacman" or
     .'$PROP_PREFIX''$PROP' == "dropdown_python" or
+    .'$PROP_PREFIX''$PROP' == "keymapp" or .'$PROP_PREFIX''$PROP' == "Keymapp" or
     .'$PROP_PREFIX''$PROP' == "brave-calendar.google.com__-Default" or
     .'$PROP_PREFIX''$PROP' == "brave-chatgpt.com__-Default" or
     .'$PROP_PREFIX''$PROP' == "brave-music.youtube.com__-Default" or
@@ -69,7 +70,6 @@ is_scratchpad=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | se
     .'$PROP_PREFIX''$PROP' == "brave-web.whatsapp.com__-Default" or
     .'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX''$INSTANCE' == "music.youtube.com" or
     .'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX''$INSTANCE' == "web.whatsapp.com" or
-    .'$PROP_PREFIX''$PROP' == "keymapp" or .'$PROP_PREFIX''$PROP' == "Keymapp" or
     .'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX''$INSTANCE' == "calendar.google.com" or
     .'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX''$INSTANCE' == "chatgpt.com" or
     .'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX''$INSTANCE' == "translate.google.com" or
