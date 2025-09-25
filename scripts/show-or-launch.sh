@@ -102,19 +102,19 @@ if [ $FOCUSED != $APPLICATION ]; then
     is_scratchpad=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.focused) |
         .'$PROP_PREFIX''$PROP' == "dropdown_terminal" or
         .'$PROP_PREFIX''$PROP' == "dropdown_python" or
-        .'$PROP_PREFIX''$PROP' == "scrcpy" and .'$PROP_PREFIX''$CAPTION' == "dropdown_scrcpy_phone" or
-        .'$PROP_PREFIX''$PROP' == "scrcpy" and .'$PROP_PREFIX''$CAPTION' == "dropdown_scrcpy_watch" or
-        .'$PROP_PREFIX''$PROP' == "brave-music.youtube.com__-Default" or
-        .'$PROP_PREFIX''$PROP' == "brave-web.whatsapp.com__-Default" or
+        .'$PROP_PREFIX''$PROP' == "keymapp" or .'$PROP_PREFIX''$PROP' == "Keymapp" or
         .'$PROP_PREFIX''$PROP' == "brave-calendar.google.com__-Default" or
         .'$PROP_PREFIX''$PROP' == "brave-chatgpt.com__-Default" or
+        .'$PROP_PREFIX''$PROP' == "brave-music.youtube.com__-Default" or
         .'$PROP_PREFIX''$PROP' == "brave-translate.google.com__-Default" or
+        .'$PROP_PREFIX''$PROP' == "brave-web.whatsapp.com__-Default" or
         .'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX''$INSTANCE' == "music.youtube.com" or
         .'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX''$INSTANCE' == "web.whatsapp.com" or
         .'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX''$INSTANCE' == "calendar.google.com" or
         .'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX''$INSTANCE' == "chatgpt.com" or
         .'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX''$INSTANCE' == "translate.google.com" or
-        .'$PROP_PREFIX''$PROP' == "keymapp" or .'$PROP_PREFIX''$PROP' == "Keymapp" or
+        .'$PROP_PREFIX''$PROP' == "scrcpy" and .'$PROP_PREFIX''$CAPTION' == "dropdown_scrcpy_phone" or
+        .'$PROP_PREFIX''$PROP' == "scrcpy" and .'$PROP_PREFIX''$CAPTION' == "dropdown_scrcpy_watch" or
         .'$ID_PROP' == '$TEMP_PID_1' or 
         .'$ID_PROP' == '$TEMP_PID_2' or 
         .'$ID_PROP' == '$TEMP_PID_3'
@@ -143,14 +143,6 @@ SCRATCHPAD=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | selec
 #=======================================
 if [[ ! $SCRATCHPAD ]]; then
     case "${APPLICATION}" in
-        "dropdown_terminal")
-            kitty --detach --class="dropdown_terminal" -o font_size=14 -o include=$XDG_CONFIG_HOME/kitty/themes/terminal.conf -o background_opacity=0.85
-            sleep 0.05
-            ;;
-        "dropdown_python")
-            kitty --detach --class="dropdown_python" -o font_size=20 -o include=$XDG_CONFIG_HOME/kitty/themes/python.conf python -q
-            sleep 0.05
-            ;;
         "brave-music.youtube.com__-Default")
             brave-beta --app=https://music.youtube.com &
             sleep 2
@@ -171,14 +163,6 @@ if [[ ! $SCRATCHPAD ]]; then
             brave-beta --app=https://translate.google.com &
             sleep 2
             ;;
-        "music.youtube.com")
-            brave-beta --app=https://music.youtube.com &
-            sleep 2
-            ;;
-        "web.whatsapp.com")
-            brave-beta --app=https://web.whatsapp.com &
-            sleep 2
-            ;;
         "calendar.google.com")
             brave-beta --app=https://calendar.google.com &
             sleep 2
@@ -187,9 +171,14 @@ if [[ ! $SCRATCHPAD ]]; then
             brave-beta --app=https://chatgpt.com &
             sleep 2
             ;;
-        "translate.google.com")
-            brave-beta --app=https://translate.google.com &
-            sleep 2
+        "dropdown_terminal")
+            kitty --detach --class="dropdown_terminal" -o font_size=14 -o include=$XDG_CONFIG_HOME/kitty/themes/terminal.conf -o background_opacity=0.85
+            sleep 0.05
+            ;;
+        "dropdown_python")
+            kitty --detach --class="dropdown_python" -o font_size=20 -o include=$XDG_CONFIG_HOME/kitty/themes/python.conf python -q
+            sleep 0.05
+            ;;
             ;;
         "keymapp")
             keymapp &
@@ -198,6 +187,17 @@ if [[ ! $SCRATCHPAD ]]; then
         "Keymapp")
             keymapp &
             sleep 1
+            ;;
+        "music.youtube.com")
+            brave-beta --app=https://music.youtube.com &
+            sleep 2
+            ;;
+        "translate.google.com")
+            brave-beta --app=https://translate.google.com &
+            sleep 2
+        "web.whatsapp.com")
+            brave-beta --app=https://web.whatsapp.com &
+            sleep 2
             ;;
         *)
             exit 1
