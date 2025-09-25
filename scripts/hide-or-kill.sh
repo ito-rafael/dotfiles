@@ -60,6 +60,7 @@ esac
 #=======================================
 is_scratchpad=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.focused) |
     .'$PROP_PREFIX''$PROP' == "dropdown_terminal" or
+    .'$PROP_PREFIX''$PROP' == "dropdown_pacman" or
     .'$PROP_PREFIX''$PROP' == "dropdown_python" or
     .'$PROP_PREFIX''$PROP' == "brave-calendar.google.com__-Default" or
     .'$PROP_PREFIX''$PROP' == "brave-chatgpt.com__-Default" or
