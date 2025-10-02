@@ -19,13 +19,13 @@
 - [[#mpris][MPRIS]]
 - [[#scratchpads][Scratchpads]]
   - [[#indicator][Indicator]]
+  - [[#keymapp][Keymapp]]
+  - [[#python][Python]]
+  - [[#scrcpy][scrcpy]]
+  - [[#terminal][Terminal]]
   - [[#temporary][Temporary]]
   - [[#whatsapp][WhatsApp]]
   - [[#youtube-music][YouTube Music]]
-  - [[#scrcpy][scrcpy]]
-  - [[#python][Python]]
-  - [[#terminal][Terminal]]
-  - [[#keymapp][Keymapp]]
 - [[#vpn][VPN]]
   - [[#la-casa-nostra][La Casa Nostra]]
   - [[#unicamp][Unicamp]]
@@ -210,17 +210,6 @@
     },
 #+end_src
 * Scratchpads
-** Indicator
-#+begin_src js :tangle no
-"custom/scratchpad-indicator": {
-    "interval": 3,
-    "return-type": "json",
-    "exec": "swaymsg -t get_tree | jq --unbuffered --compact-output '(recurse(.nodes[]) | select(.name == \"__i3_scratch\") | .focus) as $scratch_ids | [..  | (.nodes? + .floating_nodes?) // empty | .[] | select(.id |IN($scratch_ids[]))] as $scratch_nodes | if ($scratch_nodes|length) > 0 then { text: \"\\($scratch_nodes | length)\", tooltip: $scratch_nodes | map(\"\\(.app_id // .window_properties.class) (\\(.id)): \\(.name)\") | join(\"\\n\") } else empty end'",
-    "format": "{} 🗗",
-    "on-click": "exec swaymsg 'scratchpad show'",
-    "on-click-right": "exec swaymsg 'move scratchpad'"
-},
-#+end_src
 ** Temporary
 *** Temp #1: comma
 #+begin_src js
@@ -253,27 +242,47 @@
     "on-click": "~/.config/scripts/scratchpad-temp.sh 3 display",
 },
 #+end_src
-** WhatsApp
-#+begin_src js
-"custom/scratchpad-whatsapp": {
-    "interval": 1,
+** Indicator
+#+begin_src js :tangle no
+"custom/scratchpad-indicator": {
+    "interval": 3,
     "return-type": "json",
-    "exec": "~/.config/waybar/scripts/scratchpad-whatsapp.sh",
-    "format": " {} ",
-    "on-click": "~/.config/scripts/show-or-launch.sh brave-web.whatsapp.com__-Default 0.6 0.9",
-    //"on-click": "~/.config/scripts/show-or-launch.sh web.whatsapp.com 0.6 0.9",
+    "exec": "swaymsg -t get_tree | jq --unbuffered --compact-output '(recurse(.nodes[]) | select(.name == \"__i3_scratch\") | .focus) as $scratch_ids | [..  | (.nodes? + .floating_nodes?) // empty | .[] | select(.id |IN($scratch_ids[]))] as $scratch_nodes | if ($scratch_nodes|length) > 0 then { text: \"\\($scratch_nodes | length)\", tooltip: $scratch_nodes | map(\"\\(.app_id // .window_properties.class) (\\(.id)): \\(.name)\") | join(\"\\n\") } else empty end'",
+    "format": "{} 🗗",
+    "on-click": "exec swaymsg 'scratchpad show'",
+    "on-click-right": "exec swaymsg 'move scratchpad'"
 },
 #+end_src
-** YouTube Music
+** Keymapp
 #+begin_src js
-"custom/scratchpad-ytmusic": {
+"custom/scratchpad-keymapp": {
     "interval": 1,
     "return-type": "json",
-    "exec": "~/.config/waybar/scripts/scratchpad-ytmusic.sh",
+    "exec": "~/.config/waybar/scripts/scratchpad-keymapp.sh",
     "format": " {} ",
-    "on-click": "~/.config/scripts/show-or-launch.sh brave-music.youtube.com__-Default 0.9 0.9",
-    //"on-click": "~/.config/scripts/show-or-launch.sh music.youtube.com 0.9 0.9",
+    "on-click": "~/.config/scripts/show-or-launch.sh keymapp 0.75 0.75",
+    //"on-click": "~/.config/scripts/show-or-launch.sh Keymapp 0.75 0.75",
 },
+#+end_src
+#+begin_src js
+"custom/scratchpad-keymapp": {
+    "interval": 1,
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/scratchpad-keymapp.sh",
+    "format": " {} ",
+    "on-click": "~/.config/scripts/show-or-launch.sh keymapp 0.75 0.75",
+    //"on-click": "~/.config/scripts/show-or-launch.sh Keymapp 0.75 0.75",
+},
+#+end_src
+** Python
+#+begin_src js
+    "custom/scratchpad-python": {
+        "interval": 1,
+        "return-type": "json",
+        "exec": "~/.config/waybar/scripts/scratchpad-python.sh",
+        "format": " {} ",
+        "on-click": "~/.config/scripts/show-or-launch.sh dropdown_python 0.6 0.6",
+    },
 #+end_src
 ** scrcpy
 *** Phone
@@ -296,16 +305,6 @@
     "on-click": "~/.config/scripts/adb-mdns-scrcpy.sh watch",
 },
 #+end_src
-** Python
-#+begin_src js
-    "custom/scratchpad-python": {
-        "interval": 1,
-        "return-type": "json",
-        "exec": "~/.config/waybar/scripts/scratchpad-python.sh",
-        "format": " {} ",
-        "on-click": "~/.config/scripts/show-or-launch.sh dropdown_python 0.6 0.6",
-    },
-#+end_src
 ** Terminal
 #+begin_src js
 "custom/scratchpad-terminal": {
@@ -316,15 +315,30 @@
     "on-click": "~/.config/scripts/show-or-launch.sh dropdown_terminal 0.75 0.75",
 },
 #+end_src
-** Keymapp
 #+begin_src js
-"custom/scratchpad-keymapp": {
     "interval": 1,
     "return-type": "json",
-    "exec": "~/.config/waybar/scripts/scratchpad-keymapp.sh",
     "format": " {} ",
-    "on-click": "~/.config/scripts/show-or-launch.sh keymapp 0.75 0.75",
-    //"on-click": "~/.config/scripts/show-or-launch.sh Keymapp 0.75 0.75",
+** WhatsApp
+#+begin_src js
+"custom/scratchpad-whatsapp": {
+    "interval": 1,
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/scratchpad-whatsapp.sh",
+    "format": " {} ",
+    "on-click": "~/.config/scripts/show-or-launch.sh brave-web.whatsapp.com__-Default 0.6 0.9",
+    //"on-click": "~/.config/scripts/show-or-launch.sh web.whatsapp.com 0.6 0.9",
+},
+#+end_src
+** YouTube Music
+#+begin_src js
+"custom/scratchpad-ytmusic": {
+    "interval": 1,
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/scratchpad-ytmusic.sh",
+    "format": " {} ",
+    "on-click": "~/.config/scripts/show-or-launch.sh brave-music.youtube.com__-Default 0.9 0.9",
+    //"on-click": "~/.config/scripts/show-or-launch.sh music.youtube.com 0.9 0.9",
 },
 #+end_src
 * VPN
