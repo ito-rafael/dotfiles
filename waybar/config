@@ -10,6 +10,7 @@
     "custom/vpn-unicamp",
     "custom/vpn-lbic",
     "custom/vpn-samsung",
+    "custom/scratchpad-llm",
     "custom/scratchpad-calendar",
     "custom/scratchpad-whatsapp",
     "custom/scratchpad-ytmusic",
@@ -150,11 +151,14 @@
 },
 
 "custom/scratchpad-temp-2": {
+"custom/scratchpad-llm": {
     "interval": 1,
     "return-type": "json",
     "exec": "~/.config/waybar/scripts/scratchpad-temp.sh 2",
+    "exec": "~/.config/waybar/scripts/scratchpad-llm.sh",
     "format": " {} ",
     "on-click": "~/.config/scripts/scratchpad-temp.sh 2 display",
+    "on-click": "~/.config/scripts/show-or-launch.sh brave-chatgpt.com__-Default 0.6 0.9",
 },
 
 "custom/scratchpad-temp-3": {
