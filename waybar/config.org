@@ -63,6 +63,7 @@
     "custom/vpn-unicamp",
     "custom/vpn-lbic",
     "custom/vpn-samsung",
+    "custom/scratchpad-calendar",
     "custom/scratchpad-whatsapp",
     "custom/scratchpad-ytmusic",
     "custom/scratchpad-scrcpy-phone",
@@ -212,14 +213,18 @@
 * Scratchpads
 ** Temporary
 *** Temp #1: comma
+** Calendar
 #+begin_src js
 "custom/scratchpad-temp-1": {
+"custom/scratchpad-calendar": {
     "interval": 1,
     "return-type": "json",
     "exec": "~/.config/waybar/scripts/scratchpad-temp.sh 1",
+    "exec": "~/.config/waybar/scripts/scratchpad-calendar.sh",
     "format": " {} ",
     "on-click": "~/.config/scripts/scratchpad-temp.sh 1 display",
     //"on-click-right": "exec swaymsg 'move scratchpad'"
+    "on-click": "~/.config/scripts/show-or-launch.sh brave-calendar.google.com__-Default 0.6 0.9",
 },
 #+end_src
 *** Temp #2: period
