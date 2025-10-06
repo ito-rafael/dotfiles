@@ -20,6 +20,7 @@
 - [[#scratchpads][Scratchpads]]
   - [[#calendar][Calendar]]
   - [[#llm][LLM]]
+  - [[#translate][Translate]]
   - [[#indicator][Indicator]]
   - [[#keymapp][Keymapp]]
   - [[#python][Python]]
@@ -65,6 +66,8 @@
     "custom/vpn-unicamp",
     "custom/vpn-lbic",
     "custom/vpn-samsung",
+    "custom/scratchpad-translate",
+    "custom/scratchpad-llm",
     "custom/scratchpad-calendar",
     "custom/scratchpad-whatsapp",
     "custom/scratchpad-ytmusic",
@@ -244,13 +247,17 @@
 },
 #+end_src
 *** Temp #3: slash
+** Translate
 #+begin_src js
 "custom/scratchpad-temp-3": {
+"custom/scratchpad-translate": {
     "interval": 1,
     "return-type": "json",
     "exec": "~/.config/waybar/scripts/scratchpad-temp.sh 3",
+    "exec": "~/.config/waybar/scripts/scratchpad-translate.sh",
     "format": " {} ",
     "on-click": "~/.config/scripts/scratchpad-temp.sh 3 display",
+    "on-click": "~/.config/scripts/show-or-launch.sh brave-translate.google.com__-Default 0.6 0.9",
 },
 #+end_src
 ** Indicator
