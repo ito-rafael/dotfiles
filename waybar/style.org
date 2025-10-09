@@ -30,6 +30,7 @@
   - [[#whatsapp][WhatsApp]]
   - [[#calendar][Calendar]]
   - [[#translate][Translate]]
+  - [[#llm][LLM]]
   - [[#youtube-music][YouTube Music]]
 - [[#vpn][VPN]]
   - [[#la-casa-nostra][La Casa Nostra]]
@@ -543,17 +544,26 @@ label:focus {
     transition: background 0.3s ease;
 }
 #+end_src
+** LLM
 *** Disabled
 #+begin_src css
+#custom-scratchpad-llm {
     color: gray;
 }
 #+end_src
 *** Enabled
 #+begin_src css
+#custom-scratchpad-llm.enabled {
+    color: #e09b9b
 }
 #+end_src
 *** Hover
 #+begin_src css
+#custom-scratchpad-llm:hover {
+    background: rgba(239, 203, 203, 0.5);
+    transition: background 0.3s ease;
+}
+#+end_src
 ** YouTube Music
 *** Disabled
 #+begin_src css
