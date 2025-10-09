@@ -29,6 +29,7 @@
   - [[#scrcpy][scrcpy]]
   - [[#whatsapp][WhatsApp]]
   - [[#calendar][Calendar]]
+  - [[#translate][Translate]]
   - [[#youtube-music][YouTube Music]]
 - [[#vpn][VPN]]
   - [[#la-casa-nostra][La Casa Nostra]]
@@ -522,17 +523,23 @@ label:focus {
     transition: background 0.3s ease;
 }
 #+end_src
+** Translate
 *** Disabled
 #+begin_src css
+#custom-scratchpad-translate {
     color: gray;
 }
 #+end_src
 *** Enabled
 #+begin_src css
+#custom-scratchpad-translate.enabled {
+    color: #5080ff;
 }
 #+end_src
 *** Hover
 #+begin_src css
+#custom-scratchpad-translate:hover {
+    background: rgba(128, 173, 248, 0.5);
     transition: background 0.3s ease;
 }
 #+end_src
