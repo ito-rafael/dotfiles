@@ -6,5 +6,5 @@ SCRATCHPAD_TEMP='/tmp/scratchpad_pid_'$ID'.tmp'
 if [ -f $SCRATCHPAD_TEMP ]; then
     printf '{"text": "", "class": "enabled"}';
 else
-	printf '{"text": ""}';
+    printf '{"text": ""}';
 fi

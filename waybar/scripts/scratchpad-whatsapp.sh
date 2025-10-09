@@ -32,5 +32,5 @@ SCRATCHPAD=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | selec
 if [[ $SCRATCHPAD ]]; then
     printf '{"text": "", "class": "enabled"}';
 else
-	printf '{"text": ""}';
+    printf '{"text": ""}';
 fi
