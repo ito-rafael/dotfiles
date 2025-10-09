@@ -355,9 +355,10 @@ alias cp="cp -i"
 alias mv='mv -i'
 alias rm='rm -i'
 # skip confirmation
-alias cpy='command cp'
 alias mvy='command mv'
 alias rmy='command rm'
+alias cpy='command cp'
+alias cpry='command cp -R'
 # recursive
 alias rmf='rm -rf'
 #-----------------------------
