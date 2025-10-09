@@ -43,6 +43,7 @@
 - [[#pacman][Pacman]]
 - [[#kmonad][KMonad]]
 - [[#kanata][kanata]]
+- [[#keyboard-backlit][Keyboard backlit]]
 
 * Initial config :noexport_1:
 ** Font
@@ -770,6 +771,26 @@ label:focus {
 ** Hover
 #+begin_src css
 #custom-kanata:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+#+end_src
+* Keyboard backlit
+** Disabled
+#+begin_src css
+#custom-keyboard-backlit.disabled {
+    color: gray;
+}
+#+end_src
+** Enabled
+#+begin_src css
+#custom-keyboard-backlit.enabled {
+    color: goldenrod;
+}
+#+end_src
+** Hover
+#+begin_src css
+#custom-keyboard-backlit:hover {
     background: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
 }
