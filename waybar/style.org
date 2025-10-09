@@ -775,7 +775,7 @@ label:focus {
     transition: background 0.3s ease;
 }
 #+end_src
-* Keyboard backlit
+* Keyboard backlit :noexport_1:
 ** Disabled
 #+begin_src css
 #custom-keyboard-backlit.disabled {
