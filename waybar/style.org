@@ -20,15 +20,16 @@
 - [[#temperature][Temperature]]
 - [[#keyboard-state][Keyboard state]]
 - [[#scratchpad][Scratchpad]]
+  - [[#keymapp][Keymapp]]
+  - [[#python][Python]]
+  - [[#terminal][Terminal]]
   - [[#temporary-1][Temporary 1]]
   - [[#temporary-2][Temporary 2]]
   - [[#temporary-3][Temporary 3]]
-  - [[#whatsapp][WhatsApp]]
-  - [[#youtube-music][YouTube Music]]
   - [[#scrcpy][scrcpy]]
-  - [[#python][Python]]
-  - [[#terminal][Terminal]]
-  - [[#keymapp][Keymapp]]
+  - [[#whatsapp][WhatsApp]]
+  - [[#calendar][Calendar]]
+  - [[#youtube-music][YouTube Music]]
 - [[#vpn][VPN]]
   - [[#la-casa-nostra][La Casa Nostra]]
   - [[#unicamp][Unicamp]]
@@ -498,6 +499,26 @@ label:focus {
 #+begin_src css
 #custom-scratchpad-whatsapp:hover {
     background: rgba(0, 255, 0, 0.5);
+    transition: background 0.3s ease;
+}
+#+end_src
+** Calendar
+*** Disabled
+#+begin_src css
+#custom-scratchpad-calendar {
+    color: gray;
+}
+#+end_src
+*** Enabled
+#+begin_src css
+#custom-scratchpad-calendar.enabled {
+    color: #40409c;
+}
+#+end_src
+*** Hover
+#+begin_src css
+#custom-scratchpad-calendar:hover {
+    background: rgba(128, 173, 248, 0.5);
     transition: background 0.3s ease;
 }
 #+end_src
