@@ -320,15 +320,64 @@ label:focus {
 }
 #+end_src
 * Scratchpad
+*** Disabled
+#+begin_src css
+    color: gray;
+}
+#+end_src
+*** Enabled
+#+begin_src css
+}
+#+end_src
+*** Hover
+#+begin_src css
+    transition: background 0.3s ease;
+}
+#+end_src
+*** Disabled
+#+begin_src css
+    color: gray;
+}
+#+end_src
+*** Enabled
+#+begin_src css
+    color: green;
+}
+#+end_src
+*** Hover
+#+begin_src css
+    background: rgba(0, 255, 0, 0.5);
+    transition: background 0.3s ease;
+}
+#+end_src
+*** Disabled
+#+begin_src css
+    color: gray;
+}
+#+end_src
+*** Enabled
+#+begin_src css
+    color: blue;
+}
+#+end_src
+*** Hover
+#+begin_src css
+    background: rgba(0, 0, 255, 0.5);
+    transition: background 0.3s ease;
+}
+#+end_src
+** WhatsApp
 ** Temporary 1
 *** Disabled
 #+begin_src css
+#custom-scratchpad-whatsapp {
 #custom-scratchpad-temp-1 {
     color: gray;
 }
 #+end_src
 *** Enabled
 #+begin_src css
+#custom-scratchpad-whatsapp.enabled {
 #custom-scratchpad-temp-1.enabled {
     color: red;
 }
@@ -355,55 +404,18 @@ label:focus {
 #+end_src
 *** Hover
 #+begin_src css
+#custom-scratchpad-whatsapp:hover {
 #custom-scratchpad-temp-2:hover {
     background: rgba(0, 255, 0, 0.5);
     transition: background 0.3s ease;
 }
 #+end_src
+** YouTube Music
 ** Temporary 3
 *** Disabled
 #+begin_src css
-#custom-scratchpad-temp-3 {
-    color: gray;
-}
-#+end_src
-*** Enabled
-#+begin_src css
-#custom-scratchpad-temp-3.enabled {
-    color: blue;
-}
-#+end_src
-*** Hover
-#+begin_src css
-#custom-scratchpad-temp-3:hover {
-    background: rgba(0, 0, 255, 0.5);
-    transition: background 0.3s ease;
-}
-#+end_src
-** WhatsApp
-*** Disabled
-#+begin_src css
-#custom-scratchpad-whatsapp {
-    color: gray;
-}
-#+end_src
-*** Enabled
-#+begin_src css
-#custom-scratchpad-whatsapp.enabled {
-    color: green;
-}
-#+end_src
-*** Hover
-#+begin_src css
-#custom-scratchpad-whatsapp:hover {
-    background: rgba(0, 255, 0, 0.5);
-    transition: background 0.3s ease;
-}
-#+end_src
-** YouTube Music
-*** Disabled
-#+begin_src css
 #custom-scratchpad-ytmusic {
+#custom-scratchpad-temp-3 {
     color: gray;
 }
 #+end_src
@@ -411,12 +423,16 @@ label:focus {
 #+begin_src css
 #custom-scratchpad-ytmusic.enabled {
     color: red;
+#custom-scratchpad-temp-3.enabled {
+    color: blue;
 }
 #+end_src
 *** Hover
 #+begin_src css
 #custom-scratchpad-ytmusic:hover {
     background: rgba(255, 0, 0, 0.5);
+#custom-scratchpad-temp-3:hover {
+    background: rgba(0, 0, 255, 0.5);
     transition: background 0.3s ease;
 }
 #+end_src
