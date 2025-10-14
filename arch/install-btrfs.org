@@ -101,7 +101,7 @@ Not needed if an EFI partition already exists.
 |---------+-------------------------|
 |    n    |   add a new partition   |
 |    p    |     partition type      |
-|    2    |    partition number     |
+|    1    |    partition number     |
 | <ENTER> |      first sector       |
 |  +1GiB  |       last sector       |
 |    Y    |  remove the signature   |
@@ -118,7 +118,7 @@ Update 2021/05: EFI partition type "ef"
 |---------+-------------------------|
 |    n    |   add a new partition   |
 |    p    |     partition type      |
-|    3    |    partition number     |
+|    2    |    partition number     |
 | <ENTER> |      first sector       |
 | <ENTER> |       last sector       |
 |    Y    |  remove the signature   |
@@ -143,9 +143,9 @@ Update: instead of a partition, use a swap file or zram kernel mod!
 ** Format, mount and create subvolumes
 *** Format & mount partition
 #+begin_src sh
-mkfs.fat -F32 /dev/sda2
-mkfs.btrfs /dev/nvme0n1p3
-mount /dev/nvme0n1p3 /mnt
+mkfs.fat -F32 /dev/nvme0n1p1
+mkfs.btrfs /dev/nvme0n1p2
+mount /dev/nvme0n1p2 /mnt
 #+end_src
 *** Create subvolumes
 #+begin_src sh
@@ -171,77 +171,77 @@ umount /mnt
 **** @root
 Mount the @root subvolume in =/=.
 #+begin_src sh
-mount -o noatime,commit=120,compress=zstd,space_cache=v2,subvol=@root /dev/nvme0n1p3 /mnt
+mount -o noatime,commit=120,compress=zstd,space_cache=v2,subvol=@root /dev/nvme0n1p2 /mnt
 #+end_src
 **** @snapshot-root
 Mount the @snapshot-root subvolume in =/.snapshot=.
 #+begin_src sh
 mkdir /mnt/.snapshot
-mount -o noatime,commit=120,compress=zstd,space_cache=v2,subvol=@snapshot-root /dev/nvme0n1p3 /mnt/.snapshot
+mount -o noatime,commit=120,compress=zstd,space_cache=v2,subvol=@snapshot-root /dev/nvme0n1p2 /mnt/.snapshot
 #+end_src
 *** home
 **** @home
 Create home dir and mount @home subvolume in /home
 #+begin_src sh
 mkdir /mnt/home
-mount -o noatime,commit=120,compress=zstd,space_cache=v2,subvol=@home /dev/nvme0n1p3 /mnt/home
+mount -o noatime,commit=120,compress=zstd,space_cache=v2,subvol=@home /dev/nvme0n1p2 /mnt/home
 #+end_src
 **** @snapshot-home
 Mount the @snapshot-home subvolume in =/home/.snapshot=.
 #+begin_src sh
 mkdir /mnt/home/.snapshot
-mount -o noatime,commit=120,compress=zstd,space_cache=v2,subvol=@snapshot-home /dev/nvme0n1p3 /mnt/home/.snapshot
+mount -o noatime,commit=120,compress=zstd,space_cache=v2,subvol=@snapshot-home /dev/nvme0n1p2 /mnt/home/.snapshot
 #+end_src
 **** @cache
 Exclude =~/.cache= dir from snapshots.
 #+begin_src sh
 mkdir -p /mnt/home/rafael/.cache
-mount -o noatime,commit=120,compress=zstd,space_cache=v2,subvol=@cache /dev/nvme0n1p3 /mnt/home/rafael/.cache
+mount -o noatime,commit=120,compress=zstd,space_cache=v2,subvol=@cache /dev/nvme0n1p2 /mnt/home/rafael/.cache
 #+end_src
 *** var
 **** @log
 Roll back snapshots while keeping the logs untouched for debug.
 #+begin_src sh
 mkdir -p /mnt/var/log
-mount -o noatime,commit=120,compress=zstd,space_cache=v2,subvol=@log /dev/nvme0n1p3 /mnt/var/log
+mount -o noatime,commit=120,compress=zstd,space_cache=v2,subvol=@log /dev/nvme0n1p2 /mnt/var/log
 #+end_src
 **** @pacman
 Exclude pacman cache from snapshots.
 #+begin_src sh
 mkdir -p /mnt/var/cache/pacman/pkg
-mount -o noatime,commit=120,compress=zstd,space_cache=v2,subvol=@pacman /dev/nvme0n1p3 /mnt/var/cache/pacman/pkg
+mount -o noatime,commit=120,compress=zstd,space_cache=v2,subvol=@pacman /dev/nvme0n1p2 /mnt/var/cache/pacman/pkg
 #+end_src
 **** @flatpak
 Exclude flatpaks from snapshots.
 #+begin_src sh
 mkdir -p /mnt/var/lib/flatpak
-mount -o noatime,commit=120,compress=zstd,space_cache=v2,subvol=@flatpak /dev/nvme0n1p3 /mnt/var/lib/flatpak
+mount -o noatime,commit=120,compress=zstd,space_cache=v2,subvol=@flatpak /dev/nvme0n1p2 /mnt/var/lib/flatpak
 #+end_src
 **** @podman
 Exclude containers (Podman) from snapshots.
 #+begin_src sh
 mkdir -p /mnt/var/lib/containers
-mount -o noatime,commit=120,compress=zstd,space_cache=v2,subvol=@podman /dev/nvme0n1p3 /mnt/var/lib/containers
+mount -o noatime,commit=120,compress=zstd,space_cache=v2,subvol=@podman /dev/nvme0n1p2 /mnt/var/lib/containers
 #+end_src
 **** @docker
 Exclude containers (Docker) from snapshots.
 --> Note that this directory is mounted with CoW disabled! (to avoid [[https://wiki.debian.org/Btrfs][CoW on CoW]])
 #+begin_src sh
 mkdir -p /mnt/var/lib/docker
-mount -o nodatacow,noatime,commit=120,subvol=@docker /dev/nvme0n1p3 /mnt/var/lib/docker
+mount -o noatime,commit=120,subvol=@docker /dev/nvme0n1p2 /mnt/var/lib/docker
 #+end_src
 **** @libvirt
 Exclude virtual machines (libvirt) from snapshots.
 --> Note that this directory is mounted with CoW disabled! (to avoid [[https://wiki.debian.org/Btrfs][CoW on CoW]])
 #+begin_src sh
 mkdir -p /mnt/var/lib/libvirt/images
-mount -o nodatacow,noatime,commit=120,subvol=@libvirt /dev/nvme0n1p3 /mnt/var/lib/libvirt/images
+mount -o noatime,commit=120,subvol=@libvirt /dev/nvme0n1p2 /mnt/var/lib/libvirt/images
 #+end_src
 *** swap
 Create dir and mount the swap subvolume.
 #+begin_src sh
 mkdir /mnt/swap
-mount -o noatime,commit=120,subvol=@swap /dev/nvme0n1p3 /mnt/swap
+mount -o noatime,commit=120,subvol=@swap /dev/nvme0n1p2 /mnt/swap
 #+end_src
 
 Create and activate the the swap file.
