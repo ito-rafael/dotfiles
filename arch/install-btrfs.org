@@ -234,7 +234,7 @@ chattr +C /mnt/var/lib/docker
 Exclude virtual machines (libvirt) from snapshots and disable CoW (to avoid [[https://wiki.debian.org/Btrfs][CoW on CoW]]).
 #+begin_src sh
 mkdir -p /mnt/var/lib/libvirt/images
-mount -o noatime,commit=120,subvol=@libvirt /dev/nvme0n1p2 /mnt/var/lib/libvirt/images
+mount -o noatime,commit=120,compress=zstd,space_cache=v2,subvol=@libvirt /dev/nvme0n1p2 /mnt/var/lib/libvirt/images
 chattr +C /mnt/var/lib/libvirt/images
 #+end_src
 *** swap
