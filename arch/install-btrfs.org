@@ -227,7 +227,7 @@ mount -o noatime,commit=120,compress=zstd,space_cache=v2,subvol=@podman /dev/nvm
 Exclude containers (Docker) from snapshots and disable CoW (to avoid [[https://wiki.debian.org/Btrfs][CoW on CoW]]).
 #+begin_src sh
 mkdir -p /mnt/var/lib/docker
-mount -o noatime,commit=120,subvol=@docker /dev/nvme0n1p2 /mnt/var/lib/docker
+mount -o noatime,commit=120,compress=zstd,space_cache=v2,subvol=@docker /dev/nvme0n1p2 /mnt/var/lib/docker
 chattr +C /mnt/var/lib/docker
 #+end_src
 **** @libvirt
