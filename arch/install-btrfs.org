@@ -1,7 +1,7 @@
-#+title: Arch installation guide: btrfs edition
-#+author: Rafael Ito
-#+description: Arch install guide: btrfs edition
-#+startup: showeverything
+#+TITLE: Arch installation guide: btrfs edition
+#+AUTHOR: Rafael Ito
+#+DESCRIPTION: Arch install guide: btrfs edition
+#+STARTUP: showeverything
 
 * Table of Contents :toc:
 - [[#preparation][Preparation]]
