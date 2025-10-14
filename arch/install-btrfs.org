@@ -101,7 +101,7 @@ Not needed if an EFI partition already exists.
 |    p    |     partition type      |
 |    2    |    partition number     |
 | <ENTER> |      first sector       |
-|  +300M  |       last sector       |
+|  +1GiB  |       last sector       |
 |    Y    |  remove the signature   |
 |---------+-------------------------|
 |    t    | change a partition type |
