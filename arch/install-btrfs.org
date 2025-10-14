@@ -1,7 +1,9 @@
 #+TITLE: Arch installation guide: btrfs edition
 #+AUTHOR: Rafael Ito
+#+PROPERTY: header-args :tangle install-btrfs.sh
 #+DESCRIPTION: Arch install guide: btrfs edition
 #+STARTUP: showeverything
+#+auto_tangle: t
 
 * Table of Contents :toc:
 - [[#preparation][Preparation]]
