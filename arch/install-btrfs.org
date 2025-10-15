@@ -244,7 +244,8 @@ mkdir /mnt/swap
 mount -o noatime,commit=120,subvol=@swap /dev/nvme0n1p2 /mnt/swap
 #+end_src
 
-Create and activate the the swap file.
+Create and activate the swap file.
+Note that the command =chattr +C /mnt/swap= is not needed, since =btrfs filesystem mkswapfile= already disables CoW.
 #+begin_src sh
 btrfs filesystem mkswapfile --size 16g --uuid clear /mnt/swap/swapfile
 swapon /mnt/swap/swapfile
