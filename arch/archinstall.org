@@ -6,6 +6,11 @@
 #+auto_tangle: t
 
 * Table of Contents :toc_4:
+- [[#instructions][Instructions]]
+  - [[#how-to-use][How to use]]
+    - [[#useful-links][Useful links]]
+    - [[#boot-from-the-live-usb][Boot from the live USB]]
+    - [[#using-archinstall-script][Using archinstall script]]
 - [[#variables][Variables]]
   - [[#general][General]]
   - [[#disk][Disk]]
@@ -34,6 +39,35 @@
   - [[#miscellaneous][Miscellaneous]]
 - [[#user-credentials][User credentials]]
 
+* Instructions
+** How to use
+*** Useful links
+Please, refer to these documentations whenever needed:
+  - [[https://wiki.archlinux.org/index.php/Installation_guide][Arch Linux installation guide]]
+  - [[https://archinstall.archlinux.page/index.html][archinstall]]
+  - [[https://github.com/ito-rafael/dotfiles/blob/master/arch/install-btrfs.org][My personal guide for installing Arch with BTRFS filesystem]]
+*** Boot from the live USB
+Download the Arch Linux ISO image (https://www.archlinux.org/download/).
+#+begin_src sh
+wget https://geo.mirror.pkgbuild.com/iso/2025.10.01/archlinux-x86_64.iso
+#+end_src
+
+Verify the signature (replace <VERSION> accordingly).
+#+begin_src sh
+gpg --keyserver-options auto-key-retrieve --verify archlinux-<VERSION>-x86_64.iso.sig
+#+end_src
+
+Copy image to a USB stick (replace "<SDX>" accordingly).
+#+begin_src sh
+dd bs=4M if=path/to/archlinux.iso of=/dev/<SDX> status=progress oflag=sync
+#+end_src
+
+Boot from the USB flash drive.
+*** Using archinstall script
+Don't forget to set a strong password for both the root and the regular user, before proceeding with the installation.
+#+begin_src sh
+archinstall --config-url https://github.com/ito-rafael/dotfiles/blob/master/arch/archinstall-ansible.json
+#+end_src
 * Variables
 ** General
 #+name: variables
