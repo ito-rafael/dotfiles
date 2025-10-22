@@ -11,6 +11,11 @@
     - [[#useful-links][Useful links]]
     - [[#boot-from-the-live-usb][Boot from the live USB]]
     - [[#using-archinstall-script][Using archinstall script]]
+  - [[#post-install][Post-install]]
+    - [[#check-btrfs-layout][Check BTRFS layout]]
+    - [[#check-all-mounts][Check all mounts]]
+    - [[#check-cow-status][Check CoW status]]
+    - [[#check-btrfs-snapshots][Check BTRFS snapshots]]
 - [[#variables][Variables]]
   - [[#general][General]]
   - [[#disk][Disk]]
@@ -67,6 +72,85 @@ Boot from the USB flash drive.
 Don't forget to set a strong password for both the root and the regular user, before proceeding with the installation.
 #+begin_src sh
 archinstall --config-url https://github.com/ito-rafael/dotfiles/blob/master/arch/archinstall-ansible.json
+#+end_src
+** Post-install :noexport_2:
+The next commands assume you chroot into installation.
+*** Check BTRFS layout
+**** Command
+#+begin_src sh
+findmnt -t btrfs -o TARGET,SOURCE,OPTIONS
+#+end_src
+**** Expected output
+#+begin_src txt
+TARGET                    SOURCE                          OPTIONS
+/                         /dev/nvme0n1p2[/@root]          rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvolid=264,subvol=/@root
+├─/.snapshot              /dev/nvme0n1p2[/@snapshot-root] rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvolid=266,subvol=/@snapshot-root
+├─/home                   /dev/nvme0n1p2[/@home]          rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvolid=259,subvol=/@home
+│ ├─/home/.snapshot       /dev/nvme0n1p2[/@snapshot-home] rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvolid=265,subvol=/@snapshot-home
+│ └─/home/rafael/.cache   /dev/nvme0n1p2[/@cache]         rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvolid=256,subvol=/@cache
+├─/swap                   /dev/nvme0n1p2[/@swap]          rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvolid=267,subvol=/@swap
+├─/var/cache/pacman/pkg   /dev/nvme0n1p2[/@pacman]        rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvolid=262,subvol=/@pacman
+├─/var/lib/containers     /dev/nvme0n1p2[/@podman]        rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvolid=263,subvol=/@podman
+├─/var/lib/docker         /dev/nvme0n1p2[/@docker]        rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvolid=257,subvol=/@docker
+├─/var/lib/flatpak        /dev/nvme0n1p2[/@flatpak]       rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvolid=258,subvol=/@flatpak
+├─/var/lib/libvirt/images /dev/nvme0n1p2[/@libvirt]       rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvolid=260,subvol=/@libvirt
+└─/var/log                /dev/nvme0n1p2[/@log]           rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvolid=261,subvol=/@log
+#+end_src
+*** Check all mounts
+**** Command
+#+begin_src sh
+cat /etc/fstab
+#+end_src
+**** Expected output
+#+begin_src txt
+# Static information about the filesystems.
+# See fstab(5) for details.
+
+# <file system> <dir> <type> <options> <dump> <pass>
+
+# /dev/nvme0n1p2
+UUID=7119eb65-86d1-46c6-9cb5-72bb60c72f81    /                          btrfs    rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvol=/@root           0 0
+UUID=7119eb65-86d1-46c6-9cb5-72bb60c72f81    /.snapshot                 btrfs    rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvol=/@snapshot-root  0 0
+UUID=7119eb65-86d1-46c6-9cb5-72bb60c72f81    /home                      btrfs    rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvol=/@home           0 0
+UUID=7119eb65-86d1-46c6-9cb5-72bb60c72f81    /home/.snapshot            btrfs    rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvol=/@snapshot-home  0 0
+UUID=7119eb65-86d1-46c6-9cb5-72bb60c72f81    /home/rafael/.cache        btrfs    rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvol=/@cache          0 0
+UUID=7119eb65-86d1-46c6-9cb5-72bb60c72f81    /swap                      btrfs    rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvol=/@swap           0 0
+UUID=7119eb65-86d1-46c6-9cb5-72bb60c72f81    /var/cache/pacman/pkg      btrfs    rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvol=/@pacman         0 0
+UUID=7119eb65-86d1-46c6-9cb5-72bb60c72f81    /var/lib/containers        btrfs    rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvol=/@podman         0 0
+UUID=7119eb65-86d1-46c6-9cb5-72bb60c72f81    /var/lib/docker            btrfs    rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvol=/@docker         0 0
+UUID=7119eb65-86d1-46c6-9cb5-72bb60c72f81    /var/lib/flatpak           btrfs    rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvol=/@flatpak        0 0
+UUID=7119eb65-86d1-46c6-9cb5-72bb60c72f81    /var/lib/libvirt/images    btrfs    rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvol=/@libvirt        0 0
+UUID=7119eb65-86d1-46c6-9cb5-72bb60c72f81    /var/log                   btrfs    rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvol=/@log            0 0
+
+# /dev/nvme0n1p1
+UUID=831E-5F48     /efi     vfat          rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro    0 2
+
+# /efi/EFI/arch
+/efi/EFI/arch      /boot    none          rw,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro,bind    0 0
+
+/swap/swapfile     none     swap          defaults    0 0
+#+end_src
+*** Check CoW status
+**** Command
+#+begin_src sh
+lsattr -d /var/lib/docker /var/lib/libvirt/images /swap/swapfile
+#+end_src
+**** Expected output
+#+begin_src txt
+---------------C------ /var/lib/docker
+---------------C------ /var/lib/libvirt/images
+---------------C------ /swap/swapfile
+#+end_src
+*** Check BTRFS snapshots
+**** Command
+#+begin_src sh
+btrfs subvolume list / | grep -E "@snapshot-home/|@snapshot-root/"
+#+end_src
+**** Expected output
+Note that =YYYY-MM-DD= corresponds to the date in which the installation/snapshot was taken (eg: 2025-10-16).
+#+begin_src txt
+ID 270 gen 13 top level 265 path @snapshot-home/YYYY-MM-DD_fresh-install
+ID 271 gen 14 top level 266 path @snapshot-root/YYYY-MM-DD_fresh-install
 #+end_src
 * Variables
 ** General
