@@ -1,0 +1,180 @@
+{
+
+"app_config": {
+  "audio_config": {
+    "audio": "pipewire"
+  }
+},
+
+"archinstall-language": "English",
+"auth_config": {},
+"bootloader": "Grub",
+
+"disk_config": {
+  "config_type": "manual_partitioning",
+    "device_modifications": [
+      {
+
+"device": "nil",
+"wipe": true,
+"partitions": [
+
+{
+  "dev_path": "nil",
+  "btrfs": [],
+  "flags": [
+    "esp",
+    "boot"
+  ],
+  "fs_type": "fat32",
+  "mount_options": [],
+  "mountpoint": "/efi",
+  "obj_id": "e1620336-6573-4063-8eb9-56697ea5b90e",
+  "size": {
+    "sector_size": {
+        "unit": "B",
+        "value": 512
+    },
+    "unit": "GiB",
+    "value": 2
+  },
+  "start": {
+    "sector_size": {
+        "unit": "B",
+        "value": 512
+    },
+    "unit": "MiB",
+    "value": 1
+  },
+  "status": "create",
+  "type": "primary"
+},
+
+{
+  "btrfs": [
+    {
+      "mountpoint": "/",
+      "name": "@root"
+    },
+    {
+      "mountpoint": "/home",
+      "name": "@home"
+    },
+    {
+      "mountpoint": "/swap",
+      "name": "@swap"
+    },
+    {
+      "mountpoint": "/.snapshot",
+      "name": "@snapshot-root"
+    },
+    {
+      "mountpoint": "/home/.snapshot",
+      "name": "@snapshot-home"
+    },
+    {
+      "mountpoint": "/home/nil/.cache",
+      "name": "@cache"
+    },
+    {
+      "mountpoint": "/var/log",
+      "name": "@log"
+    },
+    {
+      "mountpoint": "/var/cache/pacman/pkg",
+      "name": "@pacman"
+    },
+    {
+      "mountpoint": "/var/lib/flatpak",
+      "name": "@flatpak"
+    },
+    {
+      "mountpoint": "/var/lib/containers",
+      "name": "@podman"
+    },
+    {
+      "mountpoint": "/var/lib/docker",
+      "name": "@docker"
+    },
+    {
+      "mountpoint": "/var/lib/libvirt/images",
+      "name": "@libvirt"
+    }
+  ],
+  "dev_path": "nil",
+  "flags": [],
+  "fs_type": "btrfs",
+  "mount_options": [
+    "noatime",
+    "commit=120",
+    "space_cache=v2",
+    "compress=zstd"
+  ],
+  "mountpoint": null,
+  "obj_id": "704f25b2-319d-4dac-8f5f-bca432b717e7",
+  "size": {
+    "sector_size": {
+      "unit": "B",
+      "value": 512
+    },
+    "unit": "B",
+    "value": 284283633664
+  },
+  "start": {
+    "sector_size": {
+      "unit": "B",
+      "value": 512
+    },
+    "unit": "B",
+    "value": 215823155200
+  },
+  "status": "create",
+  "type": "primary"
+}
+
+      ]
+    }
+  ]
+},
+
+"hostname": "nil",
+
+"kernels": [
+  "linux"
+],
+
+"locale_config": {
+  "kb_layout": "us",
+  "sys_enc": "UTF-8",
+  "sys_lang": "en_US"
+},
+
+"network_config": {
+  "type": "manual",
+  "nics": [
+    {
+      "iface": "nil",
+      "ip": "nil",
+      "dhcp": nil,
+      "gateway": "nil",
+      "dns": nil
+    }
+  ]
+},
+
+"ntp": true,
+
+"packages": [
+    "reflector"
+],
+
+"parallel downloads": 5,
+"script": null,
+"services": [],
+"swap": true,
+"timezone": "nil",
+"silent": true,
+"debug": false,
+"version": "3.0.11"
+
+}
