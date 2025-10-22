@@ -1,0 +1,52 @@
+#+TITLE: archinstall config
+#+AUTHOR: Rafael Ito
+#+PROPERTY: header-args:sh :tangle archinstall.sh 
+#+DESCRIPTION: configuration file for installing Arch Linux with archinstall in an automated way
+#+STARTUP: showeverything
+#+auto_tangle: t
+
+* Table of Contents :toc_4:
+- [[#variables][Variables]]
+  - [[#general][General]]
+  - [[#disk][Disk]]
+  - [[#network][Network]]
+  - [[#ansible][Ansible]]
+
+* Variables
+** General
+#+name: variables
+#+begin_src emacs-lisp :var key=""
+(setq variables
+  '(("country"     . "Brazil")
+    ("timezone"    . "America/Sao_Paulo")
+    ("hostname"    . "DXT-ArchLinux")
+    ("username"    . "rafael")))
+(cdr (assoc key variables))
+#+end_src
+** Disk
+#+name: disk
+#+begin_src emacs-lisp :var key=""
+(setq disk
+  '(("nvme-device" . "/dev/nvme0n1")
+    ("nvme-efi"    . "/dev/nvme0n1p1")
+    ("nvme-btrfs"  . "/dev/nvme0n1p2")))
+(cdr (assoc key disk))
+#+end_src
+** Network
+#+name: network
+#+begin_src emacs-lisp :var key=""
+(setq network
+  '(("interface" . "enp4s0")
+    ("ip"        . "143.106.45.175/27")
+    ("dhcp"      . "false")
+    ("gateway"   . "143.106.45.161")
+    ("dns"       . "[\"143.106.8.29\", \"143.106.8.30\"]")))
+(cdr (assoc key network))
+#+end_src
+** Ansible
+#+name: ansible
+#+begin_src emacs-lisp :var key=""
+(setq ansible
+  '(("ansible-repo" . "https://github.com/ito-rafael/ansible-provision.git")))
+(cdr (assoc key ansible))
+#+end_src
