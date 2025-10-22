@@ -25,6 +25,13 @@
   - [[#general-1][General]]
     - [[#audio][Audio]]
     - [[#bootloader][Bootloader]]
+  - [[#post-installation][Post-installation]]
+    - [[#disable-cow-in-btrfs-subvolumes][Disable CoW in BTRFS subvolumes]]
+    - [[#swap][Swap]]
+    - [[#reorder-mirrors][Reorder mirrors]]
+    - [[#fix-boot-directory][Fix boot directory]]
+    - [[#take-snapshot-of-fresh-install][Take snapshot of fresh install]]
+    - [[#eos][EoS]]
   - [[#disk-1][Disk]]
     - [[#nvme0n1][nvme0n1]]
       - [[#nvme0n1p1][nvme0n1p1]]
@@ -211,6 +218,45 @@ ID 271 gen 14 top level 266 path @snapshot-root/YYYY-MM-DD_fresh-install
 "archinstall-language": "English",
 "auth_config": {},
 "bootloader": "Grub",
+#+end_src
+** Post-installation
+#+begin_src js
+"custom_commands": [
+#+end_src
+*** Disable CoW in BTRFS subvolumes
+Disable copy on write (to avoid [[https://wiki.debian.org/Btrfs][CoW on CoW]]).
+#+begin_src js
+"chattr +C /var/lib/docker",
+"chattr +C /var/lib/libvirt/images",
+#+end_src
+*** Swap
+Create and activate the swap file.
+#+begin_src js
+"btrfs filesystem mkswapfile --size 16g --uuid clear /swap/swapfile",
+"swapon /swap/swapfile",
+#+end_src
+*** Reorder mirrors
+#+begin_src js :noweb yes
+"reflector --country <<variables("country")>> --age 6 --sort rate --save /etc/pacman.d/mirrorlist",
+#+end_src
+*** Fix boot directory
+Instead of mounting the ESP directly to /boot, mount it to /efi and use bind mounts to have dedicated directories for installations (eg: "arch" under /efi/EFI/arch).
+#+begin_src js
+"mkdir -p /efi/EFI/arch",
+"mv /boot/* /efi/EFI/arch",
+"mv /efi/grub/ /efi/EFI/arch/",
+"mount --bind /efi/EFI/arch /boot",
+"grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB",
+"grub-mkconfig -o /efi/EFI/arch/grub/grub.cfg",
+#+end_src
+*** Take snapshot of fresh install
+#+begin_src js
+"btrfs subvolume snapshot /home /home/.snapshot/$(date +%F)_fresh-install",
+"btrfs subvolume snapshot / /.snapshot/$(date +%F)_fresh-install"
+#+end_src
+*** EoS :noxport:
+#+begin_src js
+],
 #+end_src
 ** Disk
 #+begin_src js
