@@ -8,23 +8,11 @@
 * Table of Contents :toc_4:
 - [[#instructions][Instructions]]
   - [[#how-to-use][How to use]]
-    - [[#useful-links][Useful links]]
-    - [[#boot-from-the-live-usb][Boot from the live USB]]
-    - [[#using-archinstall-script][Using archinstall script]]
   - [[#post-install][Post-install]]
-    - [[#check-btrfs-layout][Check BTRFS layout]]
-    - [[#check-all-mounts][Check all mounts]]
-    - [[#check-cow-status][Check CoW status]]
-    - [[#check-btrfs-snapshots][Check BTRFS snapshots]]
 - [[#variables][Variables]]
-  - [[#general][General]]
-  - [[#disk][Disk]]
-  - [[#network][Network]]
-  - [[#ansible][Ansible]]
 - [[#user-configuration][User configuration]]
-  - [[#general-1][General]]
-    - [[#audio][Audio]]
-    - [[#bootloader][Bootloader]]
+  - [[#audio][Audio]]
+  - [[#bootloader][Bootloader]]
   - [[#post-installation][Post-installation]]
     - [[#disable-cow-in-btrfs-subvolumes][Disable CoW in BTRFS subvolumes]]
     - [[#swap][Swap]]
@@ -32,7 +20,7 @@
     - [[#fix-boot-directory][Fix boot directory]]
     - [[#take-snapshot-of-fresh-install][Take snapshot of fresh install]]
     - [[#eos][EoS]]
-  - [[#disk-1][Disk]]
+  - [[#disk][Disk]]
     - [[#nvme0n1][nvme0n1]]
       - [[#nvme0n1p1][nvme0n1p1]]
       - [[#nvme0n1p2][nvme0n1p2]]
@@ -40,10 +28,7 @@
   - [[#kernel][Kernel]]
   - [[#locale][Locale]]
   - [[#mirror][Mirror]]
-    - [[#tdb][TDB]]
-    - [[#optional-repository][Optional repository]]
-    - [[#custom-repository][Custom repository]]
-  - [[#network-1][Network]]
+  - [[#network][Network]]
     - [[#dhcp][DHCP]]
     - [[#static-ip][Static IP]]
   - [[#ntp][NTP]]
@@ -52,7 +37,7 @@
 - [[#user-credentials][User credentials]]
 
 * Instructions
-** How to use
+** How to use :noexport_1:
 *** Useful links
 Please, refer to these documentations whenever needed:
   - [[https://wiki.archlinux.org/index.php/Installation_guide][Arch Linux installation guide]]
@@ -80,7 +65,7 @@ Don't forget to set a strong password for both the root and the regular user, be
 #+begin_src sh
 archinstall --config-url https://github.com/ito-rafael/dotfiles/blob/master/arch/archinstall-ansible.json
 #+end_src
-** Post-install :noexport_2:
+** Post-install :noexport_1:
 The next commands assume you chroot into installation.
 *** Check BTRFS layout
 **** Command
@@ -159,7 +144,7 @@ Note that =YYYY-MM-DD= corresponds to the date in which the installation/snapsho
 ID 270 gen 13 top level 265 path @snapshot-home/YYYY-MM-DD_fresh-install
 ID 271 gen 14 top level 266 path @snapshot-root/YYYY-MM-DD_fresh-install
 #+end_src
-* Variables
+* Variables :noexport_1:
 ** General
 #+name: variables
 #+begin_src emacs-lisp :var key=""
@@ -201,11 +186,10 @@ ID 271 gen 14 top level 266 path @snapshot-root/YYYY-MM-DD_fresh-install
 :PROPERTIES:
 :header-args: :tangle user_configuration.json
 :END:
-** General
 #+begin_src js
 {
 #+end_src
-*** Audio
+** Audio
 #+begin_src js
 "app_config": {
   "audio_config": {
@@ -213,7 +197,7 @@ ID 271 gen 14 top level 266 path @snapshot-root/YYYY-MM-DD_fresh-install
   }
 },
 #+end_src
-*** Bootloader
+** Bootloader
 #+begin_src js
 "archinstall-language": "English",
 "auth_config": {},
@@ -415,7 +399,7 @@ BTRFS partition.
   "sys_lang": "en_US"
 },
 #+end_src
-** Mirror
+** Mirror :noexport_1:
 :PROPERTIES:
 :header-args: :tangle no
 :END:
