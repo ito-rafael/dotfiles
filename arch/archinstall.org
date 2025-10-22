@@ -28,12 +28,12 @@
   - [[#kernel][Kernel]]
   - [[#locale][Locale]]
   - [[#mirror][Mirror]]
-  - [[#network][Network]]
-    - [[#dhcp][DHCP]]
-    - [[#static-ip][Static IP]]
   - [[#ntp][NTP]]
   - [[#packages][Packages]]
   - [[#miscellaneous][Miscellaneous]]
+  - [[#network][Network]]
+    - [[#dhcp][DHCP]]
+    - [[#static-ip][Static IP]]
 - [[#user-credentials][User credentials]]
 
 * Instructions
@@ -184,7 +184,7 @@ ID 271 gen 14 top level 266 path @snapshot-root/YYYY-MM-DD_fresh-install
 #+end_src
 * User configuration
 :PROPERTIES:
-:header-args: :tangle user_configuration.json
+:header-args: :noweb-ref archinstall
 :END:
 #+begin_src js
 {
@@ -440,28 +440,6 @@ BTRFS partition.
 #+begin_src js
 },
 #+end_src
-** Network
-*** DHCP
-#+begin_src js :tangle no
-"network_config": {
-  "type": "nm"
-},
-#+end_src
-*** Static IP
-#+begin_src js :noweb yes
-"network_config": {
-  "type": "manual",
-  "nics": [
-    {
-      "iface": "<<network("interface")>>",
-      "ip": "<<network("ip")>>",
-      "dhcp": <<network("dhcp")>>,
-      "gateway": "<<network("gateway")>>",
-      "dns": <<network("dns")>>
-    }
-  ]
-},
-#+end_src
 ** NTP
 #+begin_src js :noweb yes
 "ntp": true,
@@ -481,11 +459,44 @@ BTRFS partition.
 "timezone": "<<variables("timezone")>>",
 "silent": true,
 "debug": false,
-"version": "3.0.11"
+"version": "3.0.11",
+#+end_src
+** Network
+*** DHCP
+#+begin_src js :noweb-ref ip-dhcp
+"network_config": {
+  "type": "nm"
+},
+#+end_src
+*** Static IP
+#+begin_src js :noweb-ref ip-static
+"network_config": {
+  "type": "manual",
+  "nics": [
+    {
+      "iface": "<<network("interface")>>",
+      "ip": "<<network("ip")>>",
+      "dhcp": <<network("dhcp")>>,
+      "gateway": "<<network("gateway")>>",
+      "dns": <<network("dns")>>
+    }
+  ]
+},
 #+end_src
 ** EoS :noexport:
 #+begin_src js
 }
+#+end_src
+* Tangle :noexport:
+** Static IP
+#+begin_src conf :noweb yes :tangle archinstall.json
+<<archinstall>>
+<<ip-static>>
+#+end_src
+** DHCP
+#+begin_src conf :noweb yes :tangle archinstall-dhcp.json
+<<archinstall>>
+<<ip-dhcp>>
 #+end_src
 * User credentials
 :PROPERTIES:
