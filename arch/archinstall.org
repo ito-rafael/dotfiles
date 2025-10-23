@@ -463,7 +463,12 @@ BTRFS partition.
 ** Packages
 #+begin_src js
 "packages": [
+    "base-devel",
+    "btrfs-progs",
     "reflector",
+    "inetutils",
+    "git",
+    "ansible"
 ],
 #+end_src
 ** Miscellaneous
