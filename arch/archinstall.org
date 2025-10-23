@@ -14,12 +14,6 @@
   - [[#audio][Audio]]
   - [[#bootloader][Bootloader]]
   - [[#post-installation][Post-installation]]
-    - [[#disable-cow-in-btrfs-subvolumes][Disable CoW in BTRFS subvolumes]]
-    - [[#swap][Swap]]
-    - [[#reorder-mirrors][Reorder mirrors]]
-    - [[#fix-boot-directory][Fix boot directory]]
-    - [[#take-snapshot-of-fresh-install][Take snapshot of fresh install]]
-    - [[#eos][EoS]]
   - [[#disk][Disk]]
     - [[#nvme0n1][nvme0n1]]
       - [[#nvme0n1p1][nvme0n1p1]]
@@ -27,13 +21,13 @@
   - [[#hostname][Hostname]]
   - [[#kernel][Kernel]]
   - [[#locale][Locale]]
+  - [[#network][Network]]
+    - [[#dhcp][DHCP]]
+    - [[#static-ip][Static IP]]
   - [[#mirror][Mirror]]
   - [[#ntp][NTP]]
   - [[#packages][Packages]]
   - [[#miscellaneous][Miscellaneous]]
-  - [[#network][Network]]
-    - [[#dhcp][DHCP]]
-    - [[#static-ip][Static IP]]
 - [[#user-credentials][User credentials]]
 
 * Instructions
@@ -74,19 +68,19 @@ findmnt -t btrfs -o TARGET,SOURCE,OPTIONS
 #+end_src
 **** Expected output
 #+begin_src txt
-TARGET                    SOURCE                          OPTIONS
-/                         /dev/nvme0n1p2[/@root]          rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvolid=264,subvol=/@root
-├─/.snapshot              /dev/nvme0n1p2[/@snapshot-root] rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvolid=266,subvol=/@snapshot-root
-├─/home                   /dev/nvme0n1p2[/@home]          rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvolid=259,subvol=/@home
-│ ├─/home/.snapshot       /dev/nvme0n1p2[/@snapshot-home] rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvolid=265,subvol=/@snapshot-home
-│ └─/home/rafael/.cache   /dev/nvme0n1p2[/@cache]         rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvolid=256,subvol=/@cache
-├─/swap                   /dev/nvme0n1p2[/@swap]          rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvolid=267,subvol=/@swap
-├─/var/cache/pacman/pkg   /dev/nvme0n1p2[/@pacman]        rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvolid=262,subvol=/@pacman
-├─/var/lib/containers     /dev/nvme0n1p2[/@podman]        rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvolid=263,subvol=/@podman
-├─/var/lib/docker         /dev/nvme0n1p2[/@docker]        rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvolid=257,subvol=/@docker
-├─/var/lib/flatpak        /dev/nvme0n1p2[/@flatpak]       rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvolid=258,subvol=/@flatpak
-├─/var/lib/libvirt/images /dev/nvme0n1p2[/@libvirt]       rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvolid=260,subvol=/@libvirt
-└─/var/log                /dev/nvme0n1p2[/@log]           rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvolid=261,subvol=/@log
+TARGET                        SOURCE                          OPTIONS
+/                             /dev/nvme0n1p2[/@root]          rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvolid=264,subvol=/@root
+├─/.snapshot                  /dev/nvme0n1p2[/@snapshot-root] rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvolid=266,subvol=/@snapshot-root
+├─/home                       /dev/nvme0n1p2[/@home]          rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvolid=259,subvol=/@home
+│ ├─/home/.snapshot           /dev/nvme0n1p2[/@snapshot-home] rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvolid=265,subvol=/@snapshot-home
+│ └─/home/<<username>>/.cache /dev/nvme0n1p2[/@cache]         rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvolid=256,subvol=/@cache
+├─/swap                       /dev/nvme0n1p2[/@swap]          rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvolid=267,subvol=/@swap
+├─/var/cache/pacman/pkg       /dev/nvme0n1p2[/@pacman]        rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvolid=262,subvol=/@pacman
+├─/var/lib/containers         /dev/nvme0n1p2[/@podman]        rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvolid=263,subvol=/@podman
+├─/var/lib/docker             /dev/nvme0n1p2[/@docker]        rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvolid=257,subvol=/@docker
+├─/var/lib/flatpak            /dev/nvme0n1p2[/@flatpak]       rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvolid=258,subvol=/@flatpak
+├─/var/lib/libvirt/images     /dev/nvme0n1p2[/@libvirt]       rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvolid=260,subvol=/@libvirt
+└─/var/log                    /dev/nvme0n1p2[/@log]           rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvolid=261,subvol=/@log
 #+end_src
 *** Check all mounts
 **** Command
@@ -105,7 +99,7 @@ UUID=7119eb65-86d1-46c6-9cb5-72bb60c72f81    /                          btrfs   
 UUID=7119eb65-86d1-46c6-9cb5-72bb60c72f81    /.snapshot                 btrfs    rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvol=/@snapshot-root  0 0
 UUID=7119eb65-86d1-46c6-9cb5-72bb60c72f81    /home                      btrfs    rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvol=/@home           0 0
 UUID=7119eb65-86d1-46c6-9cb5-72bb60c72f81    /home/.snapshot            btrfs    rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvol=/@snapshot-home  0 0
-UUID=7119eb65-86d1-46c6-9cb5-72bb60c72f81    /home/rafael/.cache        btrfs    rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvol=/@cache          0 0
+UUID=7119eb65-86d1-46c6-9cb5-72bb60c72f81    /home/<<username>>/.cache  btrfs    rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvol=/@cache          0 0
 UUID=7119eb65-86d1-46c6-9cb5-72bb60c72f81    /swap                      btrfs    rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvol=/@swap           0 0
 UUID=7119eb65-86d1-46c6-9cb5-72bb60c72f81    /var/cache/pacman/pkg      btrfs    rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvol=/@pacman         0 0
 UUID=7119eb65-86d1-46c6-9cb5-72bb60c72f81    /var/lib/containers        btrfs    rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvol=/@podman         0 0
@@ -184,7 +178,7 @@ ID 271 gen 14 top level 266 path @snapshot-root/YYYY-MM-DD_fresh-install
 #+end_src
 * User configuration
 :PROPERTIES:
-:header-args: :noweb-ref archinstall
+:header-args: :tangle archinstall.json
 :END:
 #+begin_src js
 {
@@ -203,7 +197,7 @@ ID 271 gen 14 top level 266 path @snapshot-root/YYYY-MM-DD_fresh-install
 "auth_config": {},
 "bootloader": "Grub",
 #+end_src
-** Post-installation
+** Post-installation :noexport_1:
 #+begin_src js
 "custom_commands": [
 #+end_src
@@ -399,6 +393,28 @@ BTRFS partition.
   "sys_lang": "en_US"
 },
 #+end_src
+** Network
+*** DHCP
+#+begin_src js :tangle no
+"network_config": {
+  "type": "nm"
+},
+#+end_src
+*** Static IP
+#+begin_src js :noweb yes
+"network_config": {
+  "type": "manual",
+  "nics": [
+    {
+      "iface": "<<network("interface")>>",
+      "ip": "<<network("ip")>>",
+      "dhcp": <<network("dhcp")>>,
+      "gateway": "<<network("gateway")>>",
+      "dns": <<network("dns")>>
+    }
+  ]
+},
+#+end_src
 ** Mirror :noexport_1:
 :PROPERTIES:
 :header-args: :tangle no
@@ -447,7 +463,7 @@ BTRFS partition.
 ** Packages
 #+begin_src js
 "packages": [
-    "reflector"
+    "reflector",
 ],
 #+end_src
 ** Miscellaneous
@@ -459,48 +475,15 @@ BTRFS partition.
 "timezone": "<<variables("timezone")>>",
 "silent": true,
 "debug": false,
-"version": "3.0.11",
-#+end_src
-** Network
-*** DHCP
-#+begin_src js :noweb-ref ip-dhcp
-"network_config": {
-  "type": "nm"
-},
-#+end_src
-*** Static IP
-#+begin_src js :noweb-ref ip-static
-"network_config": {
-  "type": "manual",
-  "nics": [
-    {
-      "iface": "<<network("interface")>>",
-      "ip": "<<network("ip")>>",
-      "dhcp": <<network("dhcp")>>,
-      "gateway": "<<network("gateway")>>",
-      "dns": <<network("dns")>>
-    }
-  ]
-},
+"version": "3.0.11"
 #+end_src
 ** EoS :noexport:
-#+begin_src js
+#+begin_src js :noweb-ref eos
 }
-#+end_src
-* Tangle :noexport:
-** Static IP
-#+begin_src conf :noweb yes :tangle archinstall.json
-<<archinstall>>
-<<ip-static>>
-#+end_src
-** DHCP
-#+begin_src conf :noweb yes :tangle archinstall-dhcp.json
-<<archinstall>>
-<<ip-dhcp>>
 #+end_src
 * User credentials
 :PROPERTIES:
-:header-args: :tangle user_credentials.json
+:header-args: :tangle credentials.json
 :END:
 #+begin_src js :noweb yes
 {
