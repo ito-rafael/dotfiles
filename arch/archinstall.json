@@ -1,0 +1,188 @@
+{
+  "app_config": {
+    "audio_config": {
+      "audio": "pipewire"
+    }
+  },
+  "archinstall-language": "English",
+  "auth_config": {},
+  "bootloader": "Grub",
+  "custom_commands": [
+    "chattr +C /var/lib/docker",
+    "chattr +C /var/lib/libvirt/images",
+    "btrfs filesystem mkswapfile --size 16g --uuid clear /swap/swapfile",
+    "swapon /swap/swapfile",
+    "reflector --country Brazil --age 6 --sort rate --save /etc/pacman.d/mirrorlist",
+    "mkdir -p /efi/EFI/arch",
+    "mv /boot/* /efi/EFI/arch",
+    "mv /efi/grub/ /efi/EFI/arch/",
+    "mount --bind /efi/EFI/arch /boot",
+    "grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB",
+    "grub-mkconfig -o /efi/EFI/arch/grub/grub.cfg",
+    "btrfs subvolume snapshot /home /home/.snapshot/$(date +%F)_fresh-install",
+    "btrfs subvolume snapshot / /.snapshot/$(date +%F)_fresh-install"
+  ],
+  "disk_config": {
+    "config_type": "manual_partitioning",
+    "device_modifications": [
+      {
+        "device": "/dev/nvme0n1",
+        "wipe": true,
+        "partitions": [
+          {
+            "dev_path": "/dev/nvme0n1p1",
+            "btrfs": [],
+            "flags": [
+              "esp",
+              "boot"
+            ],
+            "fs_type": "fat32",
+            "mount_options": [],
+            "mountpoint": "/efi",
+            "obj_id": "e1620336-6573-4063-8eb9-56697ea5b90e",
+            "size": {
+              "sector_size": {
+                "unit": "B",
+                "value": 512
+              },
+              "unit": "GiB",
+              "value": 2
+            },
+            "start": {
+              "sector_size": {
+                "unit": "B",
+                "value": 512
+              },
+              "unit": "MiB",
+              "value": 1
+            },
+            "status": "create",
+            "type": "primary"
+          },
+          {
+            "btrfs": [
+              {
+                "mountpoint": "/",
+                "name": "@root"
+              },
+              {
+                "mountpoint": "/home",
+                "name": "@home"
+              },
+              {
+                "mountpoint": "/swap",
+                "name": "@swap"
+              },
+              {
+                "mountpoint": "/.snapshot",
+                "name": "@snapshot-root"
+              },
+              {
+                "mountpoint": "/home/.snapshot",
+                "name": "@snapshot-home"
+              },
+              {
+                "mountpoint": "/home/rafael/.cache",
+                "name": "@cache"
+              },
+              {
+                "mountpoint": "/var/log",
+                "name": "@log"
+              },
+              {
+                "mountpoint": "/var/cache/pacman/pkg",
+                "name": "@pacman"
+              },
+              {
+                "mountpoint": "/var/lib/flatpak",
+                "name": "@flatpak"
+              },
+              {
+                "mountpoint": "/var/lib/containers",
+                "name": "@podman"
+              },
+              {
+                "mountpoint": "/var/lib/docker",
+                "name": "@docker"
+              },
+              {
+                "mountpoint": "/var/lib/libvirt/images",
+                "name": "@libvirt"
+              }
+            ],
+            "dev_path": "/dev/nvme0n1p2",
+            "flags": [],
+            "fs_type": "btrfs",
+            "mount_options": [
+              "noatime",
+              "commit=120",
+              "space_cache=v2",
+              "compress=zstd"
+            ],
+            "mountpoint": null,
+            "obj_id": "704f25b2-319d-4dac-8f5f-bca432b717e7",
+            "size": {
+              "sector_size": {
+                "unit": "B",
+                "value": 512
+              },
+              "unit": "B",
+              "value": 284283633664
+            },
+            "start": {
+              "sector_size": {
+                "unit": "B",
+                "value": 512
+              },
+              "unit": "B",
+              "value": 215823155200
+            },
+            "status": "create",
+            "type": "primary"
+          }
+        ]
+      }
+    ]
+  },
+  "hostname": "DXT-ArchLinux",
+  "kernels": [
+    "linux"
+  ],
+  "locale_config": {
+    "kb_layout": "us",
+    "sys_enc": "UTF-8",
+    "sys_lang": "en_US"
+  },
+  "network_config": {
+    "type": "manual",
+    "nics": [
+      {
+        "iface": "enp4s0",
+        "ip": "143.106.45.175/27",
+        "dhcp": false,
+        "gateway": "143.106.45.161",
+        "dns": [
+          "143.106.8.29",
+          "143.106.8.30"
+        ]
+      }
+    ]
+  },
+  "ntp": true,
+  "packages": [
+    "base-devel",
+    "btrfs-progs",
+    "reflector",
+    "inetutils",
+    "git",
+    "ansible"
+  ],
+  "parallel downloads": 5,
+  "script": null,
+  "services": [],
+  "swap": true,
+  "timezone": "America/Sao_Paulo",
+  "silent": true,
+  "debug": false,
+  "version": "3.0.11"
+}
