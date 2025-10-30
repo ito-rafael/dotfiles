@@ -1,7 +1,30 @@
-#+title: Arch install guide
-#+author: Rafael Ito
-#+description: Arch install guide
-#+startup: showeverything
+#+TITLE: Arch install guide
+#+AUTHOR: Rafael Ito
+#+PROPERTY: header-args :tangle install-ext4.sh
+#+DESCRIPTION: Arch install guide for ext4 file systems
+#+STARTUP: showeverything
+#+auto_tangle: t
+
+* Table of Contents :toc:
+- [[#preparation][Preparation]]
+  - [[#documents][Documents]]
+  - [[#boot-from-the-live-usb][Boot from the live USB]]
+- [[#live-environment][Live environment]]
+  - [[#increase-font-size][Increase font size]]
+  - [[#configure-network-device][Configure network device]]
+  - [[#set-up-wi-fi-connection][Set up Wi-Fi connection]]
+  - [[#update-the-system-clock][Update the system clock]]
+  - [[#disk-partitioning][Disk partitioning]]
+  - [[#format-the-partitions][Format the partitions]]
+  - [[#mount-the-partitions][Mount the partitions]]
+  - [[#install-the-system][Install the system]]
+  - [[#chroot-into-the-system][Chroot into the system]]
+  - [[#locale][Locale]]
+  - [[#network-configuration][network configuration]]
+  - [[#password-and-update][password and update]]
+  - [[#boot-loader-grub][boot loader (GRUB)]]
+  - [[#exit-chroot-in-the-system][exit chroot in the system]]
+  - [[#-remove-usb-stick-][!!! remove USB stick !!!]]
 
 * Preparation
 ** Documents
@@ -9,21 +32,22 @@ sources:
 - https://wiki.archlinux.org/index.php/Installation_guide
 - https://itsfoss.com/install-arch-linux/
 ** Boot from the live USB
-download image from:
-https://www.archlinux.org/download/
-
-verify signature: (replace <VERSION> accordingly)
+Download the latest Arch Linux ISO image (https://www.archlinux.org/download/).
 #+begin_src sh
-gpg --keyserver-options auto-key-retrieve --verify archlinux-<VERSION>-x86_64.iso.sig
+wget https://geo.mirror.pkgbuild.com/iso/latest/archlinux-x86_64.iso
 #+end_src
 
-copy image to a USB stick: (replace "sdx" accordingly)
+Verify the signature.
+#+begin_src sh
+gpg --keyserver-options auto-key-retrieve --verify archlinux-x86_64.iso.sig
+#+end_src
+
+Copy image to a USB stick: (replace "sdx" accordingly)
 #+begin_src sh
 dd bs=4M if=path/to/archlinux.iso of=/dev/sdx status=progress oflag=sync
 #+end_src
 
-boot from the USB flash drive
-
+Boot from the USB flash drive.
 * Live environment
 ** Increase font size
 #+begin_src sh
@@ -107,7 +131,7 @@ repeat if necessary
 |    n    |   add a new partition   |
 |    4    |    partition number     |
 | <ENTER> |      first sector       |
-|  +16G   |       last sector       |
+|   +8G   |       last sector       |
 |---------+-------------------------|
 |    t    | change a partition type |
 |    4    |    partition number     |
@@ -155,7 +179,6 @@ swapon /dev/sda4
 #+begin_src sh
 mkfs.ext4 /dev/sda5
 #+end_src
-
 ** Mount the partitions
 *** Root
 #+begin_src sh
@@ -172,83 +195,81 @@ mkdir /mnt/home
 mount /dev/sda5 /mnt/home
 #+end_src
 ** Install the system
-edit mirror order
+Edit mirror order.
 #+begin_src sh
 vi /etc/pacman.d/mirrorlist
 pacstrap /mnt base base-devel
 #+end_src
 
-generate fstab
+Generate fstab.
 #+begin_src sh
 genfstab -U /mnt >> /mnt/etc/fstab
 #+end_src
-** chroot into the system
-change root into the new system
+** Chroot into the system
+Change root into the new system
 #+begin_src sh
 arch-chroot /mnt
 #+end_src
 
-set time zone
+Set time zone.
 #+begin_src sh
 ln -sf /usr/share/zoneinfo/Brazil/East /etc/localtime
 #+end_src
 
-set the hardware clock
+Set the hardware clock.
 #+begin_src sh
 hwclock --systohc
 #+end_src
-** localization
-edit locale file
+** Locale
+Edit locale file.
 #+begin_src sh
 vi /etc/locale.gen
 #+end_src
 
-uncomment the following locales
+Uncomment the following locales.
 #+begin_src comment
 en_US.UTF-8 UTF-8
 pt_br_US.UTF-8 UTF-8
 #+end_src
 
-generate uncommented locales
+Generate uncommented locales.
 #+begin_src sh
 locale-gen
 #+end_src
 
-create the locale.conf file
+Create the locale.conf file.
 #+begin_src sh
 vi /etc/locale.conf
 #+end_src
 
-set the LANG variable accordingly
+Set the LANG variable accordingly.
 #+begin_src comment
 LANG=en_US.UTF-8
 #+end_src
 ** network configuration
-edit hostname
+Edit hostname.
 #+begin_src sh
-vi /etc/hostname
-#+end_src
-#+begin_src comment
-Y2P-ArchLinux
+echo Y2P-ArchLinux >> /etc/hostname
 #+end_src
 
-add matching entries to hosts
+Add matching entries to hosts.
 #+begin_src sh
 vi /etc/hosts
 #+end_src
+
 #+begin_src comment
 127.0.0.1   localhost
-::1	    localhost
+::1	        localhost
 127.0.1.1   Y2P-ArchLinux.localdomain  Y2P-ArchLinux
 #+end_src
 
-enable DHCP and install wireless packages
+Enable DHCP and install wireless packages.
 #+begin_src sh
 systemctl enable dhcpcd
 pacman -S iw wpa_supplicant
 #+end_src
 ** password and update
-set root password and update the system
+Set root password and update the system.
 #+begin_src sh
 passwd
 pacman -Syu
@@ -260,7 +281,7 @@ grub-install --efi-directory=/efi
 grub-mkconfig -o /boot/grub/grub.cfg
 #+end_src
 ** exit chroot in the system
-exit chroot environment, unmount partitions and reboot
+Exit chroot environment, unmount partitions and reboot.
 #+begin_src sh
 exit
 umount -R /mnt
