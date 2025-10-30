@@ -178,7 +178,7 @@ ID 271 gen 14 top level 266 path @snapshot-root/YYYY-MM-DD_fresh-install
 #+end_src
 * User configuration
 :PROPERTIES:
-:header-args: :tangle archinstall.json
+:header-args: :tangle config.json
 :END:
 #+begin_src js
 {
@@ -230,7 +230,14 @@ Instead of mounting the ESP directly to /boot, mount it to /efi and use bind mou
 *** Take snapshot of fresh install
 #+begin_src js
 "btrfs subvolume snapshot /home /home/.snapshot/$(date +%F)_fresh-install",
-"btrfs subvolume snapshot / /.snapshot/$(date +%F)_fresh-install"
+"btrfs subvolume snapshot / /.snapshot/$(date +%F)_fresh-install",
+#+end_src
+*** Ansible provisioning
+Ensure live boot hostname (=archiso=) is updated, in order to run [[https://github.com/ito-rafael/ansible-provision][ansible-provision]].
+#+begin_src js :noweb yes
+"useradd ansible -m -c \"ansible-provision automations\" -s /usr/bin/nologin",
+"su - ansible --command \"ansible-galaxy collection install kewlfft.aur\"",
+"echo 'ansible ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/ansible"
 #+end_src
 *** EoS :noxport:
 #+begin_src js
