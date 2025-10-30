@@ -1,4 +1,4 @@
-#+TITLE: Arch installation guide: btrfs edition
+#+TITLE: Arch installation guide: BTRFS edition
 #+AUTHOR: Rafael Ito
 #+PROPERTY: header-args :tangle install-btrfs.sh
 #+DESCRIPTION: Arch install guide: btrfs edition
@@ -19,7 +19,7 @@
   - [[#mount-the-subvolumes][Mount the subvolumes]]
   - [[#install-the-system][Install the system]]
   - [[#chroot-into-the-system][Chroot into the system]]
-  - [[#localization][Localization]]
+  - [[#locale][Locale]]
   - [[#network-configuration][Network configuration]]
   - [[#password-and-update][Password and update]]
   - [[#boot-loader-grub][Boot loader (GRUB)]]
@@ -35,15 +35,15 @@
   - https://archive.kernel.org/oldwiki/btrfs.wiki.kernel.org/index.php/SysadminGuide.html#Subvolumes (obsolete!)
   - https://btrfs.readthedocs.io/en/latest/index.html
 ** Boot from the live USB
-download image from:
+Download the latest Arch Linux ISO image (https://www.archlinux.org/download/).
 https://www.archlinux.org/download/
 
-verify signature: (replace <VERSION> accordingly)
+Verify the signature.
 #+begin_src sh
-gpg --keyserver-options auto-key-retrieve --verify archlinux-<VERSION>-x86_64.iso.sig
+gpg --keyserver-options auto-key-retrieve --verify archlinux-x86_64.iso.sig
 #+end_src
 
-copy image to a USB stick: (replace "sdx" accordingly)
+Copy image to a USB stick: (replace "sdx" accordingly)
 #+begin_src sh
 dd bs=4M if=path/to/archlinux.iso of=/dev/sdx status=progress oflag=sync
 #+end_src
@@ -79,7 +79,6 @@ timedatectl set-ntp true
 #+end_src
 ** Disk partitioning
 If there is an EFI partition already, go ahead and use it instead of creating a new one!
-
 #+begin_src sh
 fdisk -l
 fdisk /dev/nvme0n1
@@ -307,7 +306,7 @@ Set the hardware clock.
 #+begin_src sh
 hwclock --systohc
 #+end_src
-** Localization
+** Locale
 Edit locale file.
 #+begin_src sh
 vi /etc/locale.gen
