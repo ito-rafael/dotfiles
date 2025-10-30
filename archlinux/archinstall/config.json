@@ -21,7 +21,7 @@
     "grub-mkconfig -o /efi/EFI/arch/grub/grub.cfg",
     "btrfs subvolume snapshot /home /home/.snapshot/$(date +%F)_fresh-install",
     "btrfs subvolume snapshot / /.snapshot/$(date +%F)_fresh-install",
-    "useradd ansible -m -c \"ansible-provision automations\" -s /usr/bin/nologin",
+    "useradd ansible -m -c \"ansible-provision automations\" -s /usr/bin/bash",
     "su - ansible --command \"ansible-galaxy collection install kewlfft.aur\"",
     "echo 'ansible ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/ansible"
   ],
