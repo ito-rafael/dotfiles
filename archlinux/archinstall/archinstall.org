@@ -235,7 +235,7 @@ Instead of mounting the ESP directly to /boot, mount it to /efi and use bind mou
 *** Ansible provisioning
 Ensure live boot hostname (=archiso=) is updated, in order to run [[https://github.com/ito-rafael/ansible-provision][ansible-provision]].
 #+begin_src js
-"useradd ansible -m -c \"ansible-provision automations\" -s /usr/bin/bash",
+"useradd ansible --system --create-home --comment \"ansible-provision automations\" --shell /usr/bin/bash",
 "su - ansible --command \"ansible-galaxy collection install kewlfft.aur\"",
 "echo 'ansible ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/ansible"
 #+end_src
