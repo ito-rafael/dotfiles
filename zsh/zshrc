@@ -228,7 +228,7 @@ alias ip='ip -color=auto'
 alias ipa='ip -br -c a s'
 #-----------------------------
 # scripts
-alias wlprop='$SCRIPTS/wlprop.sh'
+alias wlprop='$XDG_CONFIG_HOME/scripts/wlprop.sh'
 #-----------------------------
 # LaTeX
 alias tlmgr='$TEXMFDIST/scripts/texlive/tlmgr.pl --usermode'
