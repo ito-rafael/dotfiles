@@ -1,0 +1,3 @@
+#!/bin/sh
+# make LightDM source env vars when launching sway session
+[ -f ~/.config/zsh/.zshenv ] && . ~/.config/zsh/.zshenv
