@@ -471,6 +471,7 @@ BTRFS partition.
 #+begin_src js
 "packages": [
     "base-devel",
+    "linux-firmware",
     "btrfs-progs",
     "reflector",
     "inetutils",
