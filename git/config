@@ -1,0 +1,11 @@
+[user]
+    name = Rafael Ito
+    email = ito.rafael@gmail.com
+[core]
+    editor = vim
+[init]
+    defaultBranch = main
+[merge "ours"]
+    driver = true
+[color]
+    ui = auto
