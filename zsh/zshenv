@@ -4,7 +4,7 @@ export GTK_THEME=Adwaita:dark
 # PATH
 export PATH=$PATH:~/.cargo/bin                              # Rust
 export PATH=$PATH:~/.emacs.d/bin                            # Emacs
-export PATH=$PATH:/usr/local/texlive/2024/bin/x86_64-linux  # TeX Live
+export PATH=$PATH:/usr/local/texlive/2025/bin/x86_64-linux  # TeX Live
 #-----------------------------
 # Java
 # font rendering
@@ -20,7 +20,7 @@ export SCRIPTS=$XDG_CONFIG_HOME/scripts
 export ZDOTDIR=$HOME/.config/zsh
 
 # TeX Live
-export TEXMFDIST='/usr/local/texlive/2024/texmf-dist'
+export TEXMFDIST='/usr/local/texlive/2025/texmf-dist'
 export TEXMFHOME=$XDG_DATA_HOME/texmf
 export TEXMFVAR=$XDG_CACHE_HOME/texlive/texmf-var
 export TEXMFCONFIG=$XDG_CONFIG_HOME/texlive/texmf-config
