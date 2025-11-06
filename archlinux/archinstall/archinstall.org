@@ -143,10 +143,11 @@ ID 271 gen 14 top level 266 path @snapshot-root/YYYY-MM-DD_fresh-install
 #+name: variables
 #+begin_src emacs-lisp :var key=""
 (setq variables
-  '(("country"     . "Brazil")
-    ("timezone"    . "America/Sao_Paulo")
-    ("hostname"    . "DXT-ArchLinux")
-    ("username"    . "rafael")))
+  '(("country"  . "Brazil")
+    ("timezone" . "America/Sao_Paulo")
+    ("hostname" . "DXT-ArchLinux")
+    ("username" . "rafael")
+    ("kernel"   . "linux")))
 (cdr (assoc key variables))
 #+end_src
 ** Disk
@@ -387,9 +388,9 @@ BTRFS partition.
 "hostname": "<<variables("hostname")>>",
 #+end_src
 ** Kernel
-#+begin_src js
+#+begin_src js :noweb yes
 "kernels": [
-  "linux"
+  "<<variables("kernel")>>"
 ],
 #+end_src
 ** Locale
@@ -475,6 +476,7 @@ BTRFS partition.
     "btrfs-progs",
     "reflector",
     "inetutils",
+    "tmux",
     "git",
     "ansible"
 ],
