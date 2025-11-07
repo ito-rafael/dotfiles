@@ -476,7 +476,6 @@ BTRFS partition.
     "btrfs-progs",
     "reflector",
     "inetutils",
-    "tmux",
     "git",
     "ansible"
 ],
