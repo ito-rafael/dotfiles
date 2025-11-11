@@ -638,7 +638,7 @@ export THEME_LIGHT='Adwaita'
 # other config
 #=======================================
 # use keychain to launch ssh-agent and ssh-add
-eval $(keychain --noask --eval --quiet id_rsa)
+#eval $(keychain --noask --eval --quiet id_ed25519)
 
 #=======================================
 # ZVM: zsh-vi-mode
