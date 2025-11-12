@@ -6,6 +6,7 @@
 #+auto_tangle: t
 
 * Table of Contents :toc_4:
+- [[#tldr][TL;DR]]
 - [[#instructions][Instructions]]
   - [[#how-to-use][How to use]]
   - [[#post-install][Post-install]]
@@ -30,34 +31,43 @@
     - [[#static-ip][Static IP]]
 - [[#user-credentials][User credentials]]
 
+* TL;DR
+#+begin_src sh
+archinstall \
+    --config-url https://raw.githubusercontent.com/ito-rafael/dotfiles/refs/heads/master/archlinux/archinstall/config.json \
+    --creds-url https://raw.githubusercontent.com/ito-rafael/dotfiles/refs/heads/master/archlinux/archinstall/credentials.json
+#+end_src
 * Instructions
 ** How to use :noexport_1:
 *** Useful links
 Please, refer to these documentations whenever needed:
   - [[https://wiki.archlinux.org/index.php/Installation_guide][Arch Linux installation guide]]
   - [[https://archinstall.archlinux.page/index.html][archinstall]]
-  - [[https://github.com/ito-rafael/dotfiles/blob/master/arch/install-btrfs.org][My personal guide for installing Arch with BTRFS filesystem]]
+  - [[https://github.com/ito-rafael/dotfiles/blob/master/archlinux/installation-btrfs/installation-btrfs.org][My personal guide for installing Arch with BTRFS filesystem]]
+  - [[https://github.com/ito-rafael/dotfiles/blob/master/archlinux/installation-ext4/installation-ext4.org][My personal guide for installing Arch with ext4 filesystem]] (deprecated)
 *** Boot from the live USB
-Download the Arch Linux ISO image (https://www.archlinux.org/download/).
+Download the latest Arch Linux ISO image (https://www.archlinux.org/download/).
 #+begin_src sh
-wget https://geo.mirror.pkgbuild.com/iso/2025.10.01/archlinux-x86_64.iso
+wget https://geo.mirror.pkgbuild.com/iso/latest/archlinux-x86_64.iso
 #+end_src
 
-Verify the signature (replace <VERSION> accordingly).
+Verify the signature.
 #+begin_src sh
-gpg --keyserver-options auto-key-retrieve --verify archlinux-<VERSION>-x86_64.iso.sig
+gpg --keyserver-options auto-key-retrieve --verify archlinux-x86_64.iso.sig
 #+end_src
 
-Copy image to a USB stick (replace "<SDX>" accordingly).
+Copy image to a USB stick: (replace "sdx" accordingly)
 #+begin_src sh
 dd bs=4M if=path/to/archlinux.iso of=/dev/<SDX> status=progress oflag=sync
 #+end_src
 
 Boot from the USB flash drive.
 *** Using archinstall script
-Don't forget to set a strong password for both the root and the regular user, before proceeding with the installation.
+Don't forget to set a strong password for the root (and for the regular user, if you set one now), before proceeding with the installation.
 #+begin_src sh
-archinstall --config-url https://github.com/ito-rafael/dotfiles/blob/master/arch/archinstall-ansible.json
+archinstall \
+    --config-url https://raw.githubusercontent.com/ito-rafael/dotfiles/refs/heads/master/archlinux/archinstall/config.json \
+    --creds-url https://raw.githubusercontent.com/ito-rafael/dotfiles/refs/heads/master/archlinux/archinstall/credentials.json
 #+end_src
 ** Post-install :noexport_1:
 The next commands assume you chroot into installation.
@@ -137,6 +147,11 @@ Note that =YYYY-MM-DD= corresponds to the date in which the installation/snapsho
 #+begin_src txt
 ID 270 gen 13 top level 265 path @snapshot-home/YYYY-MM-DD_fresh-install
 ID 271 gen 14 top level 266 path @snapshot-root/YYYY-MM-DD_fresh-install
+#+end_src
+*** Full configuration
+After validating the installation, I reboot and then use [[https://docs.ansible.com/][Ansible]] to customize my full system. Please check my [[https://github.com/ito-rafael/ansible-provision][ansible-provision]] Git repository for more information.
+#+begin_src sh
+su - ansible --command "ANSIBLE_FORCE_COLOR=true ansible-pull --url https://github.com/ito-rafael/ansible-provision | tee /home/ansible/ansible-setup.log"
 #+end_src
 * Variables :noexport_1:
 ** General
