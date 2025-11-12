@@ -21,13 +21,13 @@
   - [[#hostname][Hostname]]
   - [[#kernel][Kernel]]
   - [[#locale][Locale]]
-  - [[#network][Network]]
-    - [[#dhcp][DHCP]]
-    - [[#static-ip][Static IP]]
   - [[#mirror][Mirror]]
   - [[#ntp][NTP]]
   - [[#packages][Packages]]
   - [[#miscellaneous][Miscellaneous]]
+  - [[#network][Network]]
+    - [[#dhcp][DHCP]]
+    - [[#static-ip][Static IP]]
 - [[#user-credentials][User credentials]]
 
 * Instructions
@@ -169,13 +169,6 @@ ID 271 gen 14 top level 266 path @snapshot-root/YYYY-MM-DD_fresh-install
     ("gateway"   . "143.106.45.161")
     ("dns"       . "[\"143.106.8.29\", \"143.106.8.30\"]")))
 (cdr (assoc key network))
-#+end_src
-** Ansible
-#+name: ansible
-#+begin_src emacs-lisp :var key=""
-(setq ansible
-  '(("ansible-repo" . "https://github.com/ito-rafael/ansible-provision.git")))
-(cdr (assoc key ansible))
 #+end_src
 * User configuration
 :PROPERTIES:
@@ -401,71 +394,16 @@ BTRFS partition.
   "sys_lang": "en_US"
 },
 #+end_src
-** Network
-*** DHCP
-#+begin_src js :tangle no
-"network_config": {
-  "type": "nm"
-},
-#+end_src
-*** Static IP
-#+begin_src js :noweb yes
-"network_config": {
-  "type": "manual",
-  "nics": [
-    {
-      "iface": "<<network("interface")>>",
-      "ip": "<<network("ip")>>",
-      "dhcp": <<network("dhcp")>>,
-      "gateway": "<<network("gateway")>>",
-      "dns": <<network("dns")>>
-    }
-  ]
-},
-#+end_src
 ** Mirror :noexport_1:
-:PROPERTIES:
-:header-args: :tangle no
-:END:
 #+begin_src js
 "mirror_config": {
-#+end_src
-*** TDB
-#+begin_src js
-"custom_servers": [
-  {
-    "url": "https://mymirror.com/$repo/os/$arch"
-  }
-],
-"mirror_regions": {
-  "Australia": [
-    "http://archlinux.mirror.digitalpacific.com.au/$repo/os/$arch"
+  "optional_repositories": [
+    "multilib"
   ]
-},
-#+end_src
-*** Optional repository
-#+begin_src js
-"optional_repositories": [
-  "testing"
-]
-#+end_src
-*** Custom repository
-#+begin_src js
-"custom_repositories": [
-  {
-    "name": "myrepo",
-    "url": "https://myrepo.com/$repo/os/$arch",
-    "sign_check": "Required",
-    "sign_option": "TrustAll"
-  }
-]
-#+end_src
-*** EoS :noexport:
-#+begin_src js
 },
 #+end_src
 ** NTP
-#+begin_src js :noweb yes
+#+begin_src js
 "ntp": true,
 #+end_src
 ** Packages
@@ -489,7 +427,29 @@ BTRFS partition.
 "timezone": "<<variables("timezone")>>",
 "silent": true,
 "debug": false,
-"version": "3.0.11"
+"version": "3.0.11",
+#+end_src
+** Network
+*** DHCP
+#+begin_src js :tangle no
+"network_config": {
+  "type": "nm"
+}
+#+end_src
+*** Static IP
+#+begin_src js :noweb yes
+"network_config": {
+  "type": "manual",
+  "nics": [
+    {
+      "iface": "<<network("interface")>>",
+      "ip": "<<network("ip")>>",
+      "dhcp": <<network("dhcp")>>,
+      "gateway": "<<network("gateway")>>",
+      "dns": <<network("dns")>>
+    }
+  ]
+}
 #+end_src
 ** EoS :noexport:
 #+begin_src js :noweb-ref eos

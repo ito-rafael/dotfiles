@@ -156,19 +156,9 @@
     "sys_enc": "UTF-8",
     "sys_lang": "en_US"
   },
-  "network_config": {
-    "type": "manual",
-    "nics": [
-      {
-        "iface": "enp4s0",
-        "ip": "143.106.45.175/27",
-        "dhcp": false,
-        "gateway": "143.106.45.161",
-        "dns": [
-          "143.106.8.29",
-          "143.106.8.30"
-        ]
-      }
+  "mirror_config": {
+    "optional_repositories": [
+      "multilib"
     ]
   },
   "ntp": true,
@@ -188,5 +178,20 @@
   "timezone": "America/Sao_Paulo",
   "silent": true,
   "debug": false,
-  "version": "3.0.11"
+  "version": "3.0.11",
+  "network_config": {
+    "type": "manual",
+    "nics": [
+      {
+        "iface": "enp4s0",
+        "ip": "143.106.45.175/27",
+        "dhcp": false,
+        "gateway": "143.106.45.161",
+        "dns": [
+          "143.106.8.29",
+          "143.106.8.30"
+        ]
+      }
+    ]
+  }
 }
