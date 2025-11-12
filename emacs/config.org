@@ -34,6 +34,7 @@
 - [[#persistent-scratch][persistent-scratch]]
 - [[#systemd][systemd]]
 - [[#consult-gh][consult-gh]]
+- [[#wgrep][wgrep]]
 
 * UI :noexport_1:
 ** Misc
@@ -1116,4 +1117,12 @@ sudo pacman -S github-cli
 #+begin_src emacs-lisp
 (use-package consult-gh
   :after consult)
+#+end_src
+* wgrep
+#+begin_src emacs-lisp
+(use-package wgrep
+  :config
+  (setq wgrep-auto-save-buffer t)      ;; automatically save buffer when =wgrep-finish-edit=
+  (setq wgrep-change-readonly-file t)  ;; apply changes regardless read-only flag on buffers
+  (setq wgrep-enable-key "s"))         ;; set keybinding to switch to wgrep
 #+end_src
