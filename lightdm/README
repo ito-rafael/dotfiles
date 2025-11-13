@@ -10,3 +10,6 @@ directory "users" contains files located in: /var/lib/AccountsService/users/
 
 # wallpaper
 the image "piedras-rojas.jpg" used as the greeter wallpaper should be put in: /usr/share/lightdm-webkit/themes/lightdm-webkit-theme-aether/src/img/wallpapers/
+
+Enable touchpad tapping:
+copy the =40-libinput.conf= file into =/etc/X11/xorg.conf.d/40-libinput.conf=
