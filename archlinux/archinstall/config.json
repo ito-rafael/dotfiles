@@ -147,7 +147,7 @@
       }
     ]
   },
-  "hostname": "DXT-ArchLinux",
+  "hostname": "dxt-archlinux",
   "kernels": [
     "linux"
   ],

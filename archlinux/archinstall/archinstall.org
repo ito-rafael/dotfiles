@@ -160,7 +160,7 @@ su - ansible --command "ANSIBLE_FORCE_COLOR=true ansible-pull --url https://gith
 (setq variables
   '(("country"  . "Brazil")
     ("timezone" . "America/Sao_Paulo")
-    ("hostname" . "DXT-ArchLinux")
+    ("hostname" . "dxt-archlinux")
     ("username" . "rafael")
     ("kernel"   . "linux")))
 (cdr (assoc key variables))
