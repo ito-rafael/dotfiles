@@ -1501,7 +1501,7 @@ for_window [$prop="one.alynx.showmethekey"] floating enable
 * Scratchpads
 ** WhatsApp Web (on Brave Beta)
 *** i3
-#+begin_src conf :noweb-ref i3-whatsapp
+#+begin_src conf :noweb-ref i3-whatsapp-web
 for_window [$prop="^Brave-browser-beta$" instance="^web.whatsapp.com$"] floating enable
 for_window [$prop="^Brave-browser-beta$" instance="^web.whatsapp.com$"] move position center
 for_window [$prop="^Brave-browser-beta$" instance="^web.whatsapp.com$"] move scratchpad
@@ -1510,7 +1510,7 @@ exec --no-startup-id brave-beta --app=https://web.whatsapp.com
 bindsym $mod+t exec "$SCRIPT_PATH/show-or-launch.sh web.whatsapp.com 0.6 0.9"
 #+end_src
 *** Sway
-#+begin_src conf :noweb-ref sway-whatsapp
+#+begin_src conf :noweb-ref sway-whatsapp-web
 for_window [$prop="^brave-web.whatsapp.com__-Default$"] {
     floating enable
     move position center
@@ -1519,6 +1519,27 @@ for_window [$prop="^brave-web.whatsapp.com__-Default$"] {
 }
 exec --no-startup-id brave-beta --app=https://web.whatsapp.com
 bindsym $mod+t exec "$SCRIPT_PATH/show-or-launch.sh brave-web.whatsapp.com__-Default 0.6 0.9"
+#+end_src
+** WhatsApp (WasIstLos)
+*** i3
+#+begin_src conf :noweb-ref i3-whatsapp-wasistlos
+for_window [$prop="^wasistlos$"] floating enable
+for_window [$prop="^wasistlos$"] move position center
+for_window [$prop="^wasistlos$"] move scratchpad
+for_window [$prop="^wasistlos$"] border pixel 5
+exec --no-startup-id wasistlos
+bindsym $mod+t exec "$SCRIPT_PATH/show-or-launch.sh wasistlos 0.6 0.9"
+#+end_src
+*** Sway
+#+begin_src conf :noweb-ref sway-whatsapp-wasistlos
+for_window [$prop="^wasistlos$"] {
+    floating enable
+    move position center
+    move scratchpad
+    border pixel 5
+}
+exec --no-startup-id wasistlos
+bindsym $mod+t exec "$SCRIPT_PATH/show-or-launch.sh wasistlos 0.6 0.9"
 #+end_src
 ** YouTube Music (on Brave Beta)
 *** i3
@@ -1684,7 +1705,8 @@ bindsym ctrl+$mod+slash  exec "$SCRIPT_PATH/scratchpad-temp.sh 3 destroy"
 *** i3
 #+begin_src conf :noweb yes :tangle _config_i3
 <<scratchpads>>
-<<i3-whatsapp>>
+#<<i3-whatsapp-web>>
+<<i3-whatsapp-wasistlos>>
 <<i3-yt-music>>
 <<i3-keymapp>>
 <<i3-calendar>>
@@ -1694,7 +1716,8 @@ bindsym ctrl+$mod+slash  exec "$SCRIPT_PATH/scratchpad-temp.sh 3 destroy"
 *** Sway
 #+begin_src conf :noweb yes :tangle _config_sway
 <<scratchpads>>
-<<sway-whatsapp>>
+#<<sway-whatsapp-web>>
+<<sway-whatsapp-wasistlos>>
 <<sway-yt-music>>
 <<sway-keymapp>>
 <<sway-calendar>>
