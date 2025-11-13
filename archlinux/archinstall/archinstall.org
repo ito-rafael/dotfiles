@@ -186,14 +186,11 @@ su - ansible --command "ANSIBLE_FORCE_COLOR=true ansible-pull --url https://gith
 (cdr (assoc key network))
 #+end_src
 * User configuration
-:PROPERTIES:
-:header-args: :tangle config.json
-:END:
-#+begin_src js
+#+begin_src js :noweb-ref bos
 {
 #+end_src
 ** Audio
-#+begin_src js
+#+begin_src js :noweb-ref audio
 "app_config": {
   "audio_config": {
     "audio": "pipewire"
@@ -201,12 +198,15 @@ su - ansible --command "ANSIBLE_FORCE_COLOR=true ansible-pull --url https://gith
 },
 #+end_src
 ** Bootloader
-#+begin_src js
+#+begin_src js :noweb-ref bootloader
 "archinstall-language": "English",
 "auth_config": {},
 "bootloader": "Grub",
 #+end_src
 ** Post-installation :noexport_1:
+:PROPERTIES:
+:header-args:  :noweb-ref post-installation
+:END:
 #+begin_src js
 "custom_commands": [
 #+end_src
@@ -253,6 +253,9 @@ Ensure live boot hostname (=archiso=) is updated, in order to run [[https://gith
 ],
 #+end_src
 ** Disk
+:PROPERTIES:
+:header-args: :noweb-ref disk
+:END:
 #+begin_src js
 "disk_config": {
   "config_type": "manual_partitioning",
@@ -385,24 +388,24 @@ BTRFS partition.
 }
 #+end_src
 ** EoS :noexport:
-#+begin_src js
+#+begin_src js :noweb-ref disk
       ]
     }
   ]
 },
 #+end_src
 ** Hostname
-#+begin_src js :noweb yes
+#+begin_src js :noweb yes :noweb-ref hostname
 "hostname": "<<variables("hostname")>>",
 #+end_src
 ** Kernel
-#+begin_src js :noweb yes
+#+begin_src js :noweb yes :noweb-ref kernel
 "kernels": [
   "<<variables("kernel")>>"
 ],
 #+end_src
 ** Locale
-#+begin_src js
+#+begin_src js :noweb-ref locale
 "locale_config": {
   "kb_layout": "us",
   "sys_enc": "UTF-8",
@@ -410,7 +413,7 @@ BTRFS partition.
 },
 #+end_src
 ** Mirror :noexport_1:
-#+begin_src js
+#+begin_src js :noweb-ref mirror
 "mirror_config": {
   "optional_repositories": [
     "multilib"
@@ -418,11 +421,11 @@ BTRFS partition.
 },
 #+end_src
 ** NTP
-#+begin_src js
+#+begin_src js :noweb-ref ntp
 "ntp": true,
 #+end_src
 ** Packages
-#+begin_src js
+#+begin_src js :noweb-ref packages
 "packages": [
     "base-devel",
     "linux-firmware",
@@ -434,7 +437,7 @@ BTRFS partition.
 ],
 #+end_src
 ** Miscellaneous
-#+begin_src js :noweb yes
+#+begin_src js :noweb yes :noweb-ref misc
 "parallel downloads": 5,
 "script": null,
 "services": [],
@@ -446,13 +449,13 @@ BTRFS partition.
 #+end_src
 ** Network
 *** DHCP
-#+begin_src js :tangle no
+#+begin_src js :noweb-ref network-dhcp
 "network_config": {
   "type": "nm"
 }
 #+end_src
 *** Static IP
-#+begin_src js :noweb yes
+#+begin_src js :noweb yes :noweb-ref network-static-ip
 "network_config": {
   "type": "manual",
   "nics": [
@@ -469,6 +472,41 @@ BTRFS partition.
 ** EoS :noexport:
 #+begin_src js :noweb-ref eos
 }
+#+end_src
+* Tangle :noexport:
+** DHCP
+#+begin_src js :noweb yes :tangle config.json
+<<bos>>
+<<audio>>
+<<bootloader>>
+<<post-installation>>
+<<disk>>
+<<hostname>>
+<<kernel>>
+<<locale>>
+<<mirror>>
+<<ntp>>
+<<packages>>
+<<misc>>
+<<network-dhcp>>
+<<eos>>
+#+end_src
+** Static IP
+#+begin_src js :noweb yes :tangle config_static-ip.json
+<<bos>>
+<<audio>>
+<<bootloader>>
+<<post-installation>>
+<<disk>>
+<<hostname>>
+<<kernel>>
+<<locale>>
+<<mirror>>
+<<ntp>>
+<<packages>>
+<<misc>>
+<<network-static-ip>>
+<<eos>>
 #+end_src
 * User credentials
 :PROPERTIES:

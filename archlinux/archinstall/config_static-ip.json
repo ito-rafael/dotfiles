@@ -180,6 +180,18 @@
   "debug": false,
   "version": "3.0.11",
   "network_config": {
-    "type": "nm"
+    "type": "manual",
+    "nics": [
+      {
+        "iface": "enp4s0",
+        "ip": "143.106.45.175/27",
+        "dhcp": false,
+        "gateway": "143.106.45.161",
+        "dns": [
+          "143.106.8.29",
+          "143.106.8.30"
+        ]
+      }
+    ]
   }
 }
