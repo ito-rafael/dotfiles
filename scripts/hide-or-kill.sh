@@ -67,9 +67,8 @@ is_scratchpad=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | se
     .'$PROP_PREFIX''$PROP' == "brave-chatgpt.com__-Default" or
     .'$PROP_PREFIX''$PROP' == "brave-music.youtube.com__-Default" or
     .'$PROP_PREFIX''$PROP' == "brave-translate.google.com__-Default" or
-    .'$PROP_PREFIX''$PROP' == "brave-web.whatsapp.com__-Default" or
+    .'$PROP_PREFIX''$PROP' == "wasistlos" or
     .'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX''$INSTANCE' == "music.youtube.com" or
-    .'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX''$INSTANCE' == "web.whatsapp.com" or
     .'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX''$INSTANCE' == "calendar.google.com" or
     .'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX''$INSTANCE' == "chatgpt.com" or
     .'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX''$INSTANCE' == "translate.google.com" or
@@ -79,6 +78,9 @@ is_scratchpad=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | se
     .'$ID_PROP' == '$TEMP_PID_2' or 
     .'$ID_PROP' == '$TEMP_PID_3'
     ')
+    # deprecated
+    #.'$PROP_PREFIX''$PROP' == "brave-web.whatsapp.com__-Default" or
+    #.'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX''$INSTANCE' == "web.whatsapp.com" or
 
 # decide whether to hide (if scratchpad) of kill the window
 if [ $is_scratchpad = "true" ]; then
