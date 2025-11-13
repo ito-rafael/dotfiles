@@ -108,9 +108,8 @@ if [ $FOCUSED != $APPLICATION ]; then
         .'$PROP_PREFIX''$PROP' == "brave-chatgpt.com__-Default" or
         .'$PROP_PREFIX''$PROP' == "brave-music.youtube.com__-Default" or
         .'$PROP_PREFIX''$PROP' == "brave-translate.google.com__-Default" or
-        .'$PROP_PREFIX''$PROP' == "brave-web.whatsapp.com__-Default" or
+        .'$PROP_PREFIX''$PROP' == "wasistlos" or
         .'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX''$INSTANCE' == "music.youtube.com" or
-        .'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX''$INSTANCE' == "web.whatsapp.com" or
         .'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX''$INSTANCE' == "calendar.google.com" or
         .'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX''$INSTANCE' == "chatgpt.com" or
         .'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX''$INSTANCE' == "translate.google.com" or
@@ -120,6 +119,9 @@ if [ $FOCUSED != $APPLICATION ]; then
         .'$ID_PROP' == '$TEMP_PID_2' or 
         .'$ID_PROP' == '$TEMP_PID_3'
         ')
+        # deprecated
+        #.'$PROP_PREFIX''$PROP' == "brave-web.whatsapp.com__-Default" or
+        #.'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX''$INSTANCE' == "web.whatsapp.com" or
 
     # if focused window is a scratchpad (according to the above list), hide it
     if [ "$is_scratchpad" == "true" ]; then
@@ -148,10 +150,10 @@ if [[ ! $SCRATCHPAD ]]; then
             brave-beta --app=https://music.youtube.com &
             sleep 2
             ;;
-        "brave-web.whatsapp.com__-Default")
-            brave-beta --app=https://web.whatsapp.com &
-            sleep 2
-            ;;
+        #"brave-web.whatsapp.com__-Default")
+        #    brave-beta --app=https://web.whatsapp.com &
+        #    sleep 2
+        #    ;;
         "brave-calendar.google.com__-Default")
             brave-beta --app=https://calendar.google.com &
             sleep 2
@@ -200,8 +202,12 @@ if [[ ! $SCRATCHPAD ]]; then
             brave-beta --app=https://translate.google.com &
             sleep 2
             ;;
-        "web.whatsapp.com")
-            brave-beta --app=https://web.whatsapp.com &
+        #"web.whatsapp.com")
+        #    brave-beta --app=https://web.whatsapp.com &
+        #    sleep 2
+        #    ;;
+        "wasistlos")
+            wasistlos &
             sleep 2
             ;;
         *)
