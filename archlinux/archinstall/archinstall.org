@@ -155,7 +155,7 @@ su - ansible --command "ANSIBLE_FORCE_COLOR=true ansible-pull --url https://gith
 #+end_src
 * Variables :noexport_1:
 ** General
-#+name: variables
+#+name: vars-general
 #+begin_src emacs-lisp :var key=""
 (setq variables
   '(("country"  . "Brazil")
@@ -166,7 +166,7 @@ su - ansible --command "ANSIBLE_FORCE_COLOR=true ansible-pull --url https://gith
 (cdr (assoc key variables))
 #+end_src
 ** Disk
-#+name: disk
+#+name: vars-disk
 #+begin_src emacs-lisp :var key=""
 (setq disk
   '(("nvme-device" . "/dev/nvme0n1")
@@ -175,7 +175,7 @@ su - ansible --command "ANSIBLE_FORCE_COLOR=true ansible-pull --url https://gith
 (cdr (assoc key disk))
 #+end_src
 ** Network
-#+name: network
+#+name: vars-network
 #+begin_src emacs-lisp :var key=""
 (setq network
   '(("interface" . "enp4s0")
@@ -224,7 +224,7 @@ Create and activate the swap file.
 #+end_src
 *** Reorder mirrors
 #+begin_src js :noweb yes
-"reflector --country <<variables("country")>> --age 6 --sort rate --save /etc/pacman.d/mirrorlist",
+"reflector --country <<vars-general("country")>> --age 6 --sort rate --save /etc/pacman.d/mirrorlist",
 #+end_src
 *** Fix boot directory
 Instead of mounting the ESP directly to /boot, mount it to /efi and use bind mounts to have dedicated directories for installations (eg: "arch" under /efi/EFI/arch).
@@ -264,7 +264,7 @@ Ensure live boot hostname (=archiso=) is updated, in order to run [[https://gith
 #+end_src
 *** nvme0n1
 #+begin_src js :noweb yes
-"device": "<<disk("nvme-device")>>",
+"device": "<<vars-disk("nvme-device")>>",
 "wipe": true,
 "partitions": [
 #+end_src
@@ -272,7 +272,7 @@ Ensure live boot hostname (=archiso=) is updated, in order to run [[https://gith
 EFI partition.
 #+begin_src js :noweb yes
 {
-  "dev_path": "<<disk("nvme-efi")>>",
+  "dev_path": "<<vars-disk("nvme-efi")>>",
   "btrfs": [],
   "flags": [
     "esp",
@@ -328,7 +328,7 @@ BTRFS partition.
       "name": "@snapshot-home"
     },
     {
-      "mountpoint": "/home/<<variables("username")>>/.cache",
+      "mountpoint": "/home/<<vars-general("username")>>/.cache",
       "name": "@cache"
     },
     {
@@ -356,7 +356,7 @@ BTRFS partition.
       "name": "@libvirt"
     }
   ],
-  "dev_path": "<<disk("nvme-btrfs")>>",
+  "dev_path": "<<vars-disk("nvme-btrfs")>>",
   "flags": [],
   "fs_type": "btrfs",
   "mount_options": [
@@ -396,12 +396,12 @@ BTRFS partition.
 #+end_src
 ** Hostname
 #+begin_src js :noweb yes :noweb-ref hostname
-"hostname": "<<variables("hostname")>>",
+"hostname": "<<vars-general("hostname")>>",
 #+end_src
 ** Kernel
 #+begin_src js :noweb yes :noweb-ref kernel
 "kernels": [
-  "<<variables("kernel")>>"
+  "<<vars-general("kernel")>>"
 ],
 #+end_src
 ** Locale
@@ -412,7 +412,7 @@ BTRFS partition.
   "sys_lang": "en_US"
 },
 #+end_src
-** Mirror :noexport_1:
+** Mirror
 #+begin_src js :noweb-ref mirror
 "mirror_config": {
   "optional_repositories": [
@@ -442,7 +442,7 @@ BTRFS partition.
 "script": null,
 "services": [],
 "swap": true,
-"timezone": "<<variables("timezone")>>",
+"timezone": "<<vars-general("timezone")>>",
 "silent": true,
 "debug": false,
 "version": "3.0.11",
@@ -460,11 +460,11 @@ BTRFS partition.
   "type": "manual",
   "nics": [
     {
-      "iface": "<<network("interface")>>",
-      "ip": "<<network("ip")>>",
-      "dhcp": <<network("dhcp")>>,
-      "gateway": "<<network("gateway")>>",
-      "dns": <<network("dns")>>
+      "iface": "<<vars-network("interface")>>",
+      "ip": "<<vars-network("ip")>>",
+      "dhcp": <<vars-network("dhcp")>>,
+      "gateway": "<<vars-network("gateway")>>",
+      "dns": <<vars-network("dns")>>
     }
   ]
 }
