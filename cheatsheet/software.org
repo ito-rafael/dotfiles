@@ -15,6 +15,7 @@
   - [[#evil-mode][Evil mode]]
   - [[#org-agenda][Org-agenda]]
 - [[#ffmpeg][FFmpeg]]
+- [[#git][Git]]
 - [[#vim][Vim]]
 
 * Docker :noexport_1:
@@ -624,6 +625,51 @@ ffmpeg -i input.mp4 -s 1280x720 -acodec copy -y output.mp4
 ** Cut frame from video
 #+begin_src shell
 ffmpeg -ss 00:03:30.01 -i input.avi -frames:v 1 output.jpg
+#+end_src
+* Git :noexport_1:
+** GitHub CLI
+*** Installation
+#+begin_src shell
+sudo pacman -S github-cli
+#+end_src
+*** Log in
+#+begin_src shell
+gh auth login
+gh auth login --git-protocol ssh --with-token < mytoken.text
+#+end_src
+** Create repo
+#+begin_src shell
+gh repo create <MyAwesomeRepo> --private --description "Description of my awesome repo"
+gh repo create <MyAwesomeRepo> --public --description "Description of my awesome repo"
+#+end_src
+** Clone repo
+#+begin_src shell
+gh repo clone ito-rafael/<MyAwesomeRepo>
+#+end_src
+** Start new repo
+#+begin_src shell
+cd <path-to-git-repo>
+git init
+git remote add origin git@github.com:MyUser/MyAwesomeRepo.git
+git push --set-upstream origin master
+#+end_src
+** Define default branch
+#+begin_src shell
+git config --global init.defaultBranch <name>
+#+end_src
+** gitignore
+*** Untrack files
+Stop notification for tracked file that was later included in gitignore.
+#+begin_src shell
+git update-index --assume-unchanged <FILENAME> (deprecated)
+git update-index --skip-worktree <FILENAME>
+magit-skip-worktree
+#+end_src
+*** Start tracking files again
+#+begin_src shell
+git update-index --no-assume-unchanged <FILENAME> (deprecated)
+git update-index --no-skip-worktree <FILENAME>
+magit-no-skip-worktree
 #+end_src
 * Vim :noexport_1:
 ** Vertical highlight numbers
