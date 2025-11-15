@@ -14,7 +14,7 @@ where:
 #------------------------
 # print help menu
 if [[ $1 == '-h' || $1 == '--help' ]]; then
-	printf "script to create, show, detach or destroy temporary scratchpad\n\n"
+	printf "Scan devices IP with nmap in interfaces\n\n"
 	echo "$usage"
 	exit 0
 fi
