@@ -205,7 +205,7 @@ su - ansible --command "ANSIBLE_FORCE_COLOR=true ansible-pull --url https://gith
 #+end_src
 ** Post-installation :noexport_1:
 :PROPERTIES:
-:header-args:  :noweb-ref post-installation
+:header-args: :noweb-ref post-installation
 :END:
 #+begin_src js
 "custom_commands": [
@@ -242,7 +242,6 @@ Instead of mounting the ESP directly to /boot, mount it to /efi and use bind mou
 "btrfs subvolume snapshot / /.snapshot/$(date +%F)_fresh-install",
 #+end_src
 *** Ansible provisioning
-Ensure live boot hostname (=archiso=) is updated, in order to run [[https://github.com/ito-rafael/ansible-provision][ansible-provision]].
 #+begin_src js
 "useradd ansible --system --create-home --comment \"ansible-provision automations\" --shell /usr/bin/bash",
 "su - ansible --command \"ansible-galaxy collection install kewlfft.aur\"",
