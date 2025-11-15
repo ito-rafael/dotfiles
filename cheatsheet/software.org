@@ -16,6 +16,7 @@
   - [[#org-agenda][Org-agenda]]
 - [[#ffmpeg][FFmpeg]]
 - [[#git][Git]]
+- [[#gnupg][GnuPG]]
 - [[#vim][Vim]]
 
 * Docker :noexport_1:
@@ -670,6 +671,57 @@ magit-skip-worktree
 git update-index --no-assume-unchanged <FILENAME> (deprecated)
 git update-index --no-skip-worktree <FILENAME>
 magit-no-skip-worktree
+#+end_src
+* GnuPG :noexport_1:
+** Installation
+#+begin_src shell
+sudo pacman -S gnupg
+#+end_src
+** List keys
+#+begin_src shell
+gpg --list-keys
+gpg --list-secret-keys
+#+end_src
+** Generate GnuPG keys
+#+begin_src shell
+gpg --full-generate-key
+#+end_src
+** Create file with string to be encrypted
+*** Method 1:
+Obs: note the space at the beginning
+#+begin_src shell
+ unset HISTFILE && echo "<MY-PASSWD>" > passwd_encrypt.txt
+#+end_src
+*** Method 2:
+If "incognito" alias in set in zshrc file:
+#+begin_src shell
+incognito echo "<MY-PASSWD>" > passwd_encrypt.txt
+#+end_src
+** Encrypt
+#+begin_src shell
+gpg --encrypt --output passwd_encrypt.txt.gpg --recipient example@email.com passwd_encrypt.txt
+#+end_src
+** Decrypt
+#+begin_src shell
+gpg --decrypt --output passwd_encrypt.txt passwd_encrypt.txt.gpg
+#+end_src
+** Renew expired GPG key
+#+begin_src shell
+gpg --list-keys
+gpg --edit-key <KEYID>
+gpg> expire
+1y
+gpg> trust
+5
+gpg> save
+#+end_src
+** Delete GPG key
+#+begin_src shell
+gpg --delete-key <KEY>
+#+end_src
+** Delete GPG secret key
+#+begin_src shell
+gpg --delete-secret-key <KEY>
 #+end_src
 * Vim :noexport_1:
 ** Vertical highlight numbers
