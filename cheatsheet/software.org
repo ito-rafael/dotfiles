@@ -17,6 +17,7 @@
 - [[#ffmpeg][FFmpeg]]
 - [[#git][Git]]
 - [[#gnupg][GnuPG]]
+- [[#pdfpc][pdfpc]]
 - [[#vim][Vim]]
 
 * Docker :noexport_1:
@@ -723,6 +724,69 @@ gpg --delete-key <KEY>
 #+begin_src shell
 gpg --delete-secret-key <KEY>
 #+end_src
+* pdfpc :noexport_1:
+** Navigation
+|------------------------------------------+-------------------------------------|
+| description                              | keybinding                          |
+|------------------------------------------+-------------------------------------|
+| Jump to next slide                       | Right, Down, PageDown, Enter, Space |
+| Jump to previous slide                   | Left, Up, PageUp, BackSpace         |
+| Jump 10 slides forwards                  | S-Right                             |
+| Jump 10 slides backwards                 | S-Left                              |
+| Jump to slide                            | G                                   |
+| Jump to previous slide ignoring overlays | S-PageDown                          |
+| Jump to next slide ignoring overlays     | S-PageUp                            |
+| Overview of all slides                   | TAB                                 |
+| Bookmark slide                           | M                                   |
+| Restore bookmarked slide                 | S-M                                 |
+|------------------------------------------+-------------------------------------|
+** Features
+|--------------------------+------------|
+| description              | keybinding |
+|--------------------------+------------|
+| Annotate slide           | C-N        |
+| Exit editing mode        | ESC        |
+| Freeze presentation view | F          |
+| Black screen             | B          |
+| Hide presentation view   | H          |
+| Pause timer              | P          |
+| Reset timer              | C-T        |
+|--------------------------+------------|
+** Interaction
+*** [1] Normal mode
+|------------------------+---|
+| Go back to normal mode | 1 |
+|------------------------+---|
+*** [2] Laser Pointer
+|----------------------+-------------|
+| Enable               | 2           |
+| Adjust size          | +/-         |
+| Highlight            | mouse click |
+| Zoom after highlight | Z           |
+|----------------------+-------------|
+*** [3] Drawing
+|-------------+-----|
+| Enable      |   3 |
+| Adjust size | +/- |
+|-------------+-----|
+*** [4] Eraser
+|-------------------+---|
+| Enable            | 4 |
+| Clear entire page | C |
+|-------------------+---|
+*** [5] Spotlight
+|------------------+---|
+| Enable           | 5 |
+| Adjust size: +/- |   |
+|------------------+---|
+** Others
+|-----------------------------------------------+-----|
+| Fullscreen current slide in presentation mode | S-A |
+| Placement configuration                       | S-C |
+| Help                                          | ?   |
+| Toolbox                                       | T   |
+| Set slide as the last                         | C-E |
+|-----------------------------------------------+-----|
 * Vim :noexport_1:
 ** Vertical highlight numbers
 - increment: C-a
