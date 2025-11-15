@@ -4,8 +4,26 @@
 #+STARTUP: showeverything
 
 * Table of contents :toc_2:
+- [[#docker][Docker]]
 - [[#vim][Vim]]
 
+* Docker :noexport_1:
+** Copy container from machine A to machine B
+*** Method 1
+Save docker container as tar file.
+#+begin_src shell
+docker export $(docker images | grep itorafael/ofa | awk '{print $3}') > /home/rafael.ito/ct_example.tar
+#+end_src
+
+Import in another machine.
+#+begin_src shell
+cat /home/rafael.ito/ct_example.tar | docker import - itorafael/ofa:jupyter
+#+end_src
+*** Method 2
+#+begin_src shell
+docker save -o /home/rafael.ito/ct_example.tar itorafael/ofa:jupyter
+docker load -i /home/rafael.ito/ct_example.tar
+#+end_src
 * Vim :noexport_1:
 ** Vertical highlight numbers
 - increment: C-a
