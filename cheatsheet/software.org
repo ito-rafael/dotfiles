@@ -14,6 +14,7 @@
   - [[#dired][Dired]]
   - [[#evil-mode][Evil mode]]
   - [[#org-agenda][Org-agenda]]
+- [[#ffmpeg][FFmpeg]]
 - [[#vim][Vim]]
 
 * Docker :noexport_1:
@@ -579,6 +580,51 @@ open org-schedule: SPC-m-d-s
 adjust date in place: S-RIGHT/S-LEFT
 adjust time in place: ???
 recurrent: ++1d (inside "SCHEDULED")
+* FFmpeg :noexport_1:
+** Accelerate audio
+#+begin_src shell
+ffmpeg -i input.mkv -filter:a "atempo=1.25,atempo=1.25" -vn output.mp4
+#+end_src
+** Accelerate audio & video
+*** 0.625
+Note that (1 / 0.625) = 1.6
+#+begin_src shell
+ffmpeg -i input.mp4 -filter_complex "[0:v]setpts=0.625*PTS[v];[0:a]atempo=1.6[a]" -map "[v]" -map "[a]" output.mp4
+#+end_src
+*** 0.9
+Note that (1 / 0.9) = 1.111111111
+#+begin_src shell
+ffmpeg -i input.mp4 -filter_complex "[0:v]setpts=0.9*PTS[v];[0:a]atempo=1.111111111[a]" -map "[v]" -map "[a]" output.mp4
+#+end_src
+*** 0.8
+Note that (1 / 0.8) = 1.25
+#+begin_src shell
+ffmpeg -i input.mp4 -filter_complex "[0:v]setpts=0.8*PTS[v];[0:a]atempo=1.25[a]" -map "[v]" -map "[a]" output.mp4
+#+end_src
+** Cut video
+#+begin_src shell
+ffmpeg -i input.mp4 -ss 00:00:00 -to 00:01:30 -acodec copy output.mp4
+#+end_src
+** Merge videos from txt file
+#+begin_src shell
+ffmpeg -f concat -i list.txt -c copy output.mp4
+#+end_src
+** Compact video with H.265
+#+begin_src shell
+ffmpeg -i input.mp4 -vcodec libx265 -crf 28 output.mp4
+#+end_src
+** Good quality compression
+#+begin_src shell
+ffmpeg -i input.mp4 -vcodec h264 -acodec mp2 out.mp4
+#+end_src
+** Medium quality compression
+#+begin_src shell
+ffmpeg -i input.mp4 -s 1280x720 -acodec copy -y output.mp4
+#+end_src
+** Cut frame from video
+#+begin_src shell
+ffmpeg -ss 00:03:30.01 -i input.avi -frames:v 1 output.jpg
+#+end_src
 * Vim :noexport_1:
 ** Vertical highlight numbers
 - increment: C-a
