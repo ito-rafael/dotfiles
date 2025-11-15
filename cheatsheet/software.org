@@ -5,6 +5,15 @@
 
 * Table of contents :toc_2:
 - [[#docker][Docker]]
+- [[#emacs][Emacs]]
+  - [[#general][General]]
+  - [[#projectile][Projectile]]
+  - [[#org-mode][Org Mode]]
+  - [[#latex][LaTeX]]
+  - [[#beamer][Beamer]]
+  - [[#dired][Dired]]
+  - [[#evil-mode][Evil mode]]
+  - [[#org-agenda][Org-agenda]]
 - [[#vim][Vim]]
 
 * Docker :noexport_1:
@@ -24,6 +33,552 @@ cat /home/rafael.ito/ct_example.tar | docker import - itorafael/ofa:jupyter
 docker save -o /home/rafael.ito/ct_example.tar itorafael/ofa:jupyter
 docker load -i /home/rafael.ito/ct_example.tar
 #+end_src
+* Emacs
+** BUGS :noexport:
+- image info drawer:
+  when using ":IMAGE_INFO:" and ":END:", one can not use the short caption
+  e.g.:
+  - #+CAPTION: this is a valid caption!
+  - #+CAPTION[this short caption results on a bug]: this is NOT a valid caption!
+** General
+Open Emacs' buffer: C-x b
+Documentation: M-x info
+*** Auto tagle
+#+begin_src elisp
+#+PROPERTY: header-args :tangle test.tex
+#+auto_tangle: t
+#+end_src
+*** Insert snippets
+SPC-i-s
+bang: #!/usr/bin/env bash
+license --> choose one
+*** Checkbox
+insert: "- [ ]"
+track: in heading type [/] or [%]
+toggle:
+  C-c C-c
+  RET
+  SPC-m-x
+*** Buffers
+list buffers: list-buffers (C-x C-b)
+*** Troubleshooting
+toggle-debug-on-error
+*** TODO
+|---------------+------------------|
+| description   | keybinding       |
+|---------------+------------------|
+| insert        | TODO / SPC-m-t-t |
+| remove        | S-LEFT           |
+| toggle        | SPC-m-t          |
+| toggle status | RET              |
+|---------------+------------------|
+** Projectile
+** Org Mode
+*** Add header argument in all children
+#+begin_src elisp
+:PROPERTIES:
+:header-args: :tangle config.json
+:END:
+#+end_src
+*** Tangle only source code blocks of a specific language
+#+begin_src elisp
+#+property: header-args:emacs-lisp :tangle .init.el
+#+end_src
+*** Table of Contents (ToC)
+#+begin_src elisp
+,* Table of Contents :toc:  --> default (level 2)
+,* Table of Contents :toc_3: --> level 3
+#+end_src
+**** Exclude heading from ToC
+Single heading:
+#+begin_src elisp
+,* Heading :noexport:
+#+end_src
+Children headings:
+#+begin_src elisp
+,* Heading :noexport_1:
+#+end_src
+*** Folds
+**** Keybindings
+|-------------------+------------|
+| description       | keybinding |
+|-------------------+------------|
+| fold tree         | zc / TAB   |
+| unfold tree       | zo / TAB   |
+| fold everything   | zM / S-TAB |
+| unfold everything | zR / S-TAB |
+|-------------------+------------|
+**** Show only headings
++org/close-all-folds --> outline-hide-body
+outline-hide-body
+outline-show-all
+**** Drawer
+#+begin_src elisp
+:DRAWERNAME:
+This is inside the drawer.
+:END:
+#+end_src
+**** General
+man page: M-x org-info
+org-toggle-heading: SPC-m-h
+**** Motions
+next/prev heading: gj/gk
+move parent/chield: gh/gl
+**** Headings
+insert new heading: C-RET
+promote/demote headings: M-h/M-l
+move subtree: M-j/M-k
+** LaTeX
+#+begin_export latex
+  any arbitrary LaTeX code
+#+end_export
+*** Macro for new line
+- step 1: create macro.
+#+begin_src latex
+#+MACRO: NEWLINE @@latex:\\@@ @@html:<br>@@
+#+end_src
+- step 2: use macro.
+#+begin_src latex
+{{{NEWLINE}}}
+#+end_src
+*** New page
+#+begin_src elisp
+#+LATEX: \clearpage
+#+end_src
+*** Table
+**** Create
+- step 1: change background color of table cells.
+#+begin_src elisp
+#+LATEX_HEADER: \usepackage{xcolor,colortbl}
+#+end_src
+step 2: create table.
+#+ATTR_LATEX: :align c c c c
+| @@latex:\cellcolor{gray!30}@@ PS | @@latex:\cellcolor{gray!30}@@ property | @@latex:\cellcolor{gray!30}@@ options | @@latex:\cellcolor{gray!30}@@ # choices |
+| elastic resolution               | input resolution                       | {224, ..., 128}                       |                                      25 |
+| elastic kernel                   | kernel size                            | {3, 5, 7}                             |                                       3 |
+| elastic depth                    | layers                                 | {2, 3, 4}                             |                                       3 |
+| elastic width                    | channels                               | {3, 4, 6}                             |                                       3 |
+**** General
+| create                              | ¦ ex1 ¦ ex2 ¦ |
+| insert line                         | C-RET         |
+| navigate on cells                   | TAB/S-TAB     |
+| org table headline                  | SPC m b -     |
+| duplicate a field in the cell below | S-RET         |
+**** Motion
+| move row up       | M-k |
+| move row down     | M-j |
+| move column left  | M-h |
+| move column right | M-l |
+**** Insert/Delete
+| insert column | M-S-l |
+| delete column | M-S-h |
+| insert row    | M-S-j |
+| delete row    | M-S-k |
+**** Column width
+place a "<N>" anywhere in the column that should have "N" chars visible only
+(org-table-toggle-column-width)
+
+|---+-------…+…|
+|   | <6>   …|…|
+| 1 | one   …|…|
+| 2 | two   …|…|
+| 3 | This i…|…|
+|---+-------…+…|
+**** Convert table to table.el
+org-table-create-with-table.el-: C-c ~
+Then use "+" instead of "|"
+
+# vertical bar
+#+ATTR_LATEX: :align |c|c|c|
+| test | test | test |
+| a    | b    | c    |
+**** Alignment
+| right  | <r> |
+| center | <c> |
+| left   | <l> |
+
+example:
+| <c> |   <c>   |
+|-----|---------|
+| asd |  dummy  |
+*** Color
+Text color (using org-colored-text.el)
+[[color:green][This]] is green.
+*** Text
+**** Bold/Italic/Underline/Verbatim
+*bold*
+/italic/
+_underline_
++strikethrough+
+=verbatim=
+**** Source code block
+block code: <s TAB
+#+begin_src python
+print("Hello")
+#+end_src
+**** Checkmark & Cross
+| cross     | $\times$   |
+| checkmark | \checkmark |
+*** Font size
+\tiny
+\scriptsize
+\footnotesize
+\small
+\normalsize
+\large
+\Large
+\LARGE
+\huge
+\Huge
+*** Links
+[[./figures/unicamp4.png]]
+
+edit link: org-insert-link (C-c C-l)
+*** Caption:
+#+CAPTION: my awesome image
+*** Image display
+M-x org-toggle-inline-images (C-c C-x C-v)
+*** Subfigure
+**** Edit space between subfigures
+#+begin_src elisp
+#+LATEX_HEADER: \usepackage[aboveskip=-6pt, belowskip=6pt]{subcaption}
+#+end_src
+**** Insert subfigures
+#+begin_src elisp
+#+NAME: fig:subfigures
+#+CAPTION: Figure with subfigures
+#+BEGIN_figure
+
+#+NAME: fig:subfigure_a
+#+CAPTION: First subfigure
+#+ATTR_LATEX: :options {0.48\textwidth}
+#+BEGIN_subfigure
+#+ATTR_ORG: :width 400 pt
+#+ATTR_LATEX: :width 1.0\linewidth
+[[./figures/subfigure_a.png]]
+#+END_subfigure
+
+#+NAME: fig:subfigure_b
+#+CAPTION: Second subfigure
+#+ATTR_LATEX: :options {0.48\textwidth}
+#+BEGIN_subfigure
+#+ATTR_ORG: :width 400 pt
+#+ATTR_LATEX: :width 1.0\linewidth
+[[./figures/subfigure_b.png]]
+#+END_subfigure
+
+#+END_figure
+#+end_src
+*** Export to PDF
+**** Beamer
+C-c C-e l P
+M-x org-beamer-export-to-pdf
+# to open PDF: C-c C-e l O
+**** LaTeX
+C-c C-e l p
+M-x org-latex-export-to-pdf
+# to open PDF: C-c C-e l o
+*** Lists
+**** Roman algarism
+#+LATEX_HEADER: \renewcommand{\theenumi}{\Roman{enumi}}
+1. first item
+2. second item
+**** Roman algarism surrounded by parenthesis
+#+LATEX_HEADER: \renewcommand{\theenumi}{\Roman{enumi}}
+#+LATEX_HEADER: \renewcommand{\labelenumi}{(\theenumi)}
+1. first item
+2. second item
+*** Theorem
+#+LATEX_HEADER: \newtheorem{definition}{Definition}
+*** Definition
+#+ATTR_LATEX: :environment definition
+#+BEGIN_DEFINITION
+this is a definition
+#+END_DEFINITION
+*** Figures
+**** Side-by-side, dual caption, LaTeX (minipage)
+#+BEGIN_SRC latex
+\begin{figure}
+    \centering
+    %------------------------------
+    \begin{minipage}{.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{./fig/2_moo_nsga2_dominance1.png}
+        \caption{concept of dominance}
+        \label{fig:2_nsga_d1}
+    \end{minipage}%
+    %------------------------------
+    \begin{minipage}{.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{./fig/2_moo_nsga2_dominance2.png}
+        \caption{non-dominated fronts}
+        \label{fig:2_nsga2_d2}
+    \end{minipage}
+    %------------------------------
+\end{figure}
+#+END_SRC
+**** Side-by-side, single caption, org-mode
+#+BEGIN_CENTER
+#+ATTR_ORG: :width 150 pt
+#+ATTR_LATEX: :height 0.35\textwidth :center nil
+[[./fig/5_population_initial.png]]
+#+ATTR_ORG: :width 150 pt
+#+ATTR_LATEX: :height 0.35\textwidth :center nil
+[[./fig/5_population_final.png]]
+#+END_CENTER
+#+CAPTION: Population
+#+LABEL: fig:5_population
+#+ATTR_LATEX: :height 0.0001in
+**** Side-by-side with text
+TBD
+*** Bibliography
+**** TLDR
+#+BIBLIOGRAPHY: thesis.bib
+org-cite-insert (SPC m @)
+[cite:@key]
+#+PRINT_BIBLIOGRAPHY: :section 7 :heading subbibliography
+**** bib file
+#+BIBLIOGRAPHY: thesis.bib
+**** Citation processor
+#+CITE_EXPORT: basic
+#+CITE_EXPORT: bibtex
+#+CITE_EXPORT: natbib
+#+CITE_EXPORT: csl
+**** References
+#+PRINT_BIBLIOGRAPHY: :section 7 :heading subbibliography
+**** Citation
+[cite/s/v:@key1;@key2;...]
+[cite/s/v:cpre;pre@key1locatorsuf;...;csuf
+*** Grammar & Spell checker
+langtool-check
+  - Check context current buffer and light up errors
+langtool-correct-buffer
+  - Execute interactive correction after 'langtool-check'
+  - q: quit
+  - c: clear color
+  - i: ignore the rule
+  - e: edit the buffer manually
+  - SPC: skip
+  - DEL: move backward
+#-----------------------------
+flyspell-buffer
+  - Flyspell whole buffer
+*** Short/long section
+**** LaTeX
+#+begin_src latex
+\section[short head]{A longer and more meaningful heading version for the section}
+#+end_src
+**** Org Mode
+#+begin_src elisp
+,* The Long Title of Section 1
+:PROPERTIES:
+ :ALT_TITLE: Section 1
+:END:
+Lorem ipsum.
+#+end_src
+*** Short/long caption
+**** LaTeX
+#+begin_src latex
+\caption[Image 1.]{Image 1. Source: XYZ)
+#+end_src
+**** Org Mode
+#+begin_src elisp
+#+CAPTION[Short caption with_{subscript}]: Caption without subscript
+#+end_src
+** Beamer
+*** break line inside lists (\item)
+#+begin_src elisp
+\\
+#+end_src
+*** Outline
+***** Agenda/outline/toc for sections
+#+BEAMER_HEADER: \AtBeginSection[]{\begin{frame}\frametitle{Agenda}\tableofcontents[currentsection,currentsubsection]\end{frame}}
+***** Agenda/outline/toc for subsections
+#+BEAMER_HEADER: \AtBeginSubsection[]{\begin{frame}\frametitle{Agenda}\tableofcontents[currentsection,currentsubsection]\end{frame}}
+***** Footline short title
+#+BEAMER_HEADER: \title[short title]{very long title}
+*** 2 columns
+#+begin_src elisp
+,*** MySlide :BMCOL:
+
+,**** Left block :BMCOL:
+:PROPERTIES:
+:BEAMER_col: 0.50
+:END:
+This text is on the left
+
+,**** Right block :BMCOL:
+:PROPERTIES:
+:BEAMER_col: 0.50
+:END:
+This text is on the right
+#+end_src
+*** 2 columns, then single block below
+#+begin_src elisp
+,*** MySlide :BMCOL:
+
+,**** Left block :BMCOL:
+
+:PROPERTIES:
+:BEAMER_col: 0.45
+:END:
+This text is on the left
+
+,**** Left block :BMCOL:
+:PROPERTIES:
+:BEAMER_col: 0.45
+:END:
+This text is on the right
+
+,**** :B_ignoreheading:
+:PROPERTIES:
+:BEAMER_env: ignoreheading
+:END:
+#+BEAMER: \vspace{5mm}
+This text to go below left and right
+#+end_src
+*** Align column from top
+#+begin_src elisp
+,**** Left block :BMCOL:
+:PROPERTIES:
+:BEAMER_col: 0.5
+:BEAMER_opt: t
+:END:
+\lipsum[1]
+
+,**** Right block :BMCOL:
+:PROPERTIES:
+:BEAMER_col: 0.5
+:BEAMER_opt: t
+:END:
+\lipsum[2]
+#+end_src
+*** Overlays: figures full frame
+#+Beamer: \only<1>{
+#+ATTR_ORG: :width 150 pt
+#+ATTR_LATEX: :width 1.00\linewidth
+[[./fig/2_nas_group_1.png]]
+
+#+Beamer: }\only<2>{
+#+ATTR_ORG: :width 150 pt
+#+ATTR_LATEX: :width 1.00\linewidth
+[[./fig/2_nas_group_2.png]]
+
+#+Beamer: }\only<3->{
+#+ATTR_ORG: :width 150 pt
+#+ATTR_LATEX: :width 1.00\linewidth
+[[./fig/2_nas_group_3.png]]
+#+Beamer: }
+*** Overlays: list
+#+ATTR_BEAMER: :overlay +-
+  - item 1
+  - item 2
+  - item 3
+*** Exclude header from ToC
+,*** header to be excluded from ToC
+:PROPERTIES:
+:not-in-toc:
+:unnumbered: t
+:END:
+*** Change font in one frame
+,* frame with different font
+#+LATEX: {\scriptsize
+text with different font
+#+LATEX: }
+
+,* frame with different font
+:PROPERTIES:
+:BEAMER_opt: shrink=10
+:END:
+*** List with roman algarism (whole document)
+#+BEAMER_HEADER: \setbeamertemplate{enumerate item}{(\roman{enumi})}
+1. item 1
+2. item 2
+
+And to revert it back (!!! NOT WORKING !!!):
+#+BEAMER_HEADER: \setbeamertemplate{enumerate item}{(\oldenumi})}
+*** Center citation
+#+BEGIN_CENTER
+[cite:@citation-goes-here]
+#+END_CENTER
+*** Aspect ratio
+**** 4:3
+#+begin_src elisp
+#+LATEX_CLASS: beamer
+#+LATEX_CLASS_OPTIONS: [presentation]
+#+end_src
+**** 16:9
+#+begin_src elisp
+#+LATEX_CLASS: beamer
+#+LATEX_CLASS_OPTIONS: [presentation,aspectratio=169]
+#+end_src
+*** Heading not in ToC
+#+begin_src elisp
+,* Section not in ToC
+:PROPERTIES:
+:not-in-toc:
+:unnumbered: t
+:END:
+#+end_src
+*** Skip ToC (agenda) after selected headings
+https://tex.stackexchange.com/questions/26036/skipping-outline-table-of-contents-of-some-sections-in-beamer
+*** References
+**** Style (use APA)
+#+begin_src elisp
+#+CITE_EXPORT: csl apa.csl
+#+end_src
+**** Set the bib file exported by Zotero
+#+begin_src elisp
+#+BIBLIOGRAPHY: thesis.bib
+#+end_src
+**** Break long URLs in the reference
+Add \sloppy before printing the references.
+#+begin_src elisp
+#+LATEX: \sloppy
+#+PRINT_BIBLIOGRAPHY: :section 7 :heading subbibliography
+#+end_src
+**** \citeonline with Org mode
+ - normal citation: [cite:@debMultiobjectiveOptimization2014]
+ - citeonline citation: [cite/t/b:@debMultiobjectiveOptimization2014]
+
+  --> check for more details:
+    https://blog.tecosaur.com/tmio/2021-07-31-citations.html#cite-styles
+**** Citation in caption
+#+begin_src elisp
+#+CAPTION[alternative caption]: RL algorithm overview. Adapted from Sutton & Barto (\cslcitation{47}{2018}).
+#+end_src
+  --> check the number of the citation over the .tex exported file (in the example the citation order is #47)
+** Dired
+|-----------------------------+------------|
+| description                 | keybinding |
+|-----------------------------+------------|
+| create file                 | SPC .      |
+| create dir                  | +          |
+| delete                      | d x        |
+| sort by name/date           | o          |
+| change mode                 | M          |
+| change owner                | O          |
+| select file/dir             | m          |
+| select all dirs             | * /        |
+| toggle selection            | t          |
+| unselect all                | U          |
+| rename                      | i --> w    |
+| split window                | C-w v      |
+| copy file to another window | C          |
+| move file to another window | R          |
+|-----------------------------+------------|
+** Evil mode
+select an element: vae
+delete an element: dae
+select a subtree: vaR
+delete a subtree: daR
+yank subtree: yiR
+** Org-agenda
+open: SPC-o-a
+open org-schedule: SPC-m-d-s
+adjust date in place: S-RIGHT/S-LEFT
+adjust time in place: ???
+recurrent: ++1d (inside "SCHEDULED")
 * Vim :noexport_1:
 ** Vertical highlight numbers
 - increment: C-a
