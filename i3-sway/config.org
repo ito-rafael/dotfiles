@@ -26,6 +26,7 @@
 - [[#scratchpads][Scratchpads]]
 - [[#vpn][VPN]]
 - [[#startup-commands][Startup commands]]
+
 * General config
 ** Modifiers
 | modifier | keys                           |
@@ -488,12 +489,21 @@ bindsym XF86AudioPause exec playerctl play-pause
 bindsym XF86AudioPrev exec playerctl previous
 #+end_src
 ** Volume control
+*** i3blocks
 Use pactl to adjust volume in PulseAudio.
+**** All devices
 #+begin_src conf :tangle no
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl list sinks | grep 'Sink #' | grep -o '[0-9]*' | xargs -i pactl set-sink-volume {} +5% && pkill -RTMIN+1 i3blocks
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl list sinks | grep 'Sink #' | grep -o '[0-9]*' | xargs -i pactl set-sink-volume {} -5% && pkill -RTMIN+1 i3blocks
 bindsym XF86AudioMute exec --no-startup-id pactl list sinks | grep 'Sink #' | grep -o '[0-9]*' | xargs -i pactl set-sink-mute {} toggle && pkill -RTMIN+1 i3blocks
 bindsym XF86AudioMicMute exec --no-startup-id pactl list sources | grep 'Source #' | grep -o '[0-9]*' | xargs -i pactl set-sink-mute {} toggle && pkill -RTMIN+1 i3blocks
+#+end_src
+**** Running devices
+#+begin_src conf :tangle no
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $(pacmd list-sinks | grep -B 4 RUNNING | grep index | awk ' { print $NF } ') +5% && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume $(pacmd list-sinks | grep -B 4 RUNNING | grep index | awk ' { print $NF } ') -5% && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute $(pacmd list-sinks | grep -B 4 RUNNING | grep index | awk ' { print $NF } ') toggle && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && pkill -RTMIN+10 i3blocks
 #+end_src
 *** Volume
 **** Coarse
@@ -1778,7 +1788,7 @@ Create file to track status of Caps Lock (used by status bar).
 exec echo 0 > /tmp/capslock_status.tmp
 #+end_src
 ** KMonad status
-Create file to track KMonad service status (used by status bar).
+(deprecated) +Create file to track KMonad service status (used by status bar).+
 #+begin_src conf :noweb-ref sway-kmonad
 exec --no-startup-id "sudo bash $SCRIPT_PATH/waybar/scripts/kmonad.sh status > /tmp/kmonad-status.tmp"
 #+end_src
@@ -1868,7 +1878,13 @@ exec "blueman-applet &"                 # Bluetooth
 exec "nm-applet --indicator &"          # NetworkManager
 exec "syncthing &"                      # Syncthing
 #+end_src
+** Always on WS
+Open workspace 2.
 #+begin_src conf :noweb-ref startup-commands
+#exec --no-startup-id "$SCRIPT_PATH/navigate2ws.sh 5"
+#exec --no-startup-id "$SCRIPT_PATH/navigate2ws.sh 2"
+exec brave
+exec --no-startup-id "sleep 5 && swaymsg '[app_id=brave-browser]' move to workspace number '2:2' && swaymsg workspace '2:2'"
 #+end_src
 ** Tangle :noexport:
 *** i3
@@ -1887,7 +1903,6 @@ exec "syncthing &"                      # Syncthing
 #+begin_src conf :noweb yes :tangle _config_sway
 <<sway-transparency>>
 <<sway-capslock>>
-<<sway-kmonad>>
 <<sway-wallpaper>>
 <<daemons>>
 <<sway-waybar>>

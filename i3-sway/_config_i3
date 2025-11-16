@@ -458,7 +458,7 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec "blueman-applet &"                 # Bluetooth
 exec "nm-applet --indicator &"          # NetworkManager
 exec "syncthing &"                      # Syncthing
-exec --no-startup-id "$SCRIPT_PATH/navigate2ws.sh 5"
+#exec --no-startup-id "$SCRIPT_PATH/navigate2ws.sh 5"
 #exec --no-startup-id "$SCRIPT_PATH/navigate2ws.sh 2"
 exec brave
 exec --no-startup-id "sleep 5 && swaymsg '[app_id=brave-browser]' move to workspace number '2:2' && swaymsg workspace '2:2'"

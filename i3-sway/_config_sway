@@ -485,7 +485,6 @@ exec --no-startup-id "rm /tmp/vpn_samsung.tmp"
 
 exec /usr/share/sway-contrib/inactive-windows-transparency.py --opacity 0.85
 exec echo 0 > /tmp/capslock_status.tmp
-exec --no-startup-id "sudo bash $SCRIPT_PATH/waybar/scripts/kmonad.sh status > /tmp/kmonad-status.tmp"
 output $laptop    background ~/.config/wallpaper/london.jpg fill
 output $primary   background ~/.config/wallpaper/london.jpg fill
 output $secondary background ~/.config/wallpaper/london.jpg fill
@@ -509,7 +508,7 @@ exec_always --no-startup-id ~/.config/waybar/waybar.sh
 exec "blueman-applet &"                 # Bluetooth
 exec "nm-applet --indicator &"          # NetworkManager
 exec "syncthing &"                      # Syncthing
-exec --no-startup-id "$SCRIPT_PATH/navigate2ws.sh 5"
+#exec --no-startup-id "$SCRIPT_PATH/navigate2ws.sh 5"
 #exec --no-startup-id "$SCRIPT_PATH/navigate2ws.sh 2"
 exec brave
 exec --no-startup-id "sleep 5 && swaymsg '[app_id=brave-browser]' move to workspace number '2:2' && swaymsg workspace '2:2'"
