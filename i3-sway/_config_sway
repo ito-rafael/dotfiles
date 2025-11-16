@@ -393,6 +393,12 @@ for_window [$prop="^dropdown_terminal$"] floating enable
 for_window [$prop="^dropdown_terminal$"] move position center
 for_window [$prop="^dropdown_terminal$"] move scratchpad
 for_window [$prop="^dropdown_terminal$"] border pixel 5
+for_window [$prop="^dropdown_pacman$"] floating enable
+for_window [$prop="^dropdown_pacman$"] move position center
+for_window [$prop="^dropdown_pacman$"] move scratchpad
+for_window [$prop="^dropdown_pacman$"] border pixel 5
+#exec --no-startup-id kitty --class="dropdown_pacman" -o font_size=20 -o include=$XDG_CONFIG_HOME/kitty/themes/pacman.conf sudo pacman -Syu --print
+bindsym $mod+v exec "$SCRIPT_PATH/show-or-launch.sh dropdown_pacman 0.75 0.75"
 for_window [$prop="^dropdown_python$"] floating enable
 for_window [$prop="^dropdown_python$"] move position center
 for_window [$prop="^dropdown_python$"] move scratchpad
