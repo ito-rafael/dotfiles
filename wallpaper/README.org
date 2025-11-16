@@ -1,0 +1,16 @@
+#+TITLE: Wallpapers
+#+AUTHOR: Rafael Ito
+#+DESCRIPTION: wallpapers
+#+STARTUP: showeverything
+
+* Table of Contents :toc_1:
+- [[#croatia][Croatia]]
+
+* Croatia
+** Information
+- Title: Plitvice Lakes
+- Location: Plitvice Lakes National Park, Croatia
+- Coordinates: 44°52′50″N, 15°36′58″E
+- Google Maps: https://maps.app.goo.gl/L7rau1YELWwqQYU5A
+- Date: 2015/07/26
+- Credits: myself
