@@ -52,8 +52,7 @@ else
         #------------------------
         "phone")
             SERVICE_NAME=$MDNS_PHONE
-            #WINDOW_TITLE="dropdown_scrcpy_phone"
-            WINDOW_TITLE="dropdown_scrcpy"
+            WINDOW_TITLE="dropdown_scrcpy_phone"
             ;;
         #------------------------
         "watch")
