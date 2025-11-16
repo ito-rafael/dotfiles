@@ -6,6 +6,7 @@
 * Table of Contents :toc_1:
 - [[#croatia][Croatia]]
 - [[#london][London]]
+- [[#nasa][NASA]]
 
 * Croatia
 ** Information
@@ -24,3 +25,27 @@
 - Date: 2014/09/24
 - Credits: Gabriel Negreira
 - Link: https://www.facebook.com/photo?fbid=795464657181780&set=a.795463260515253
+* NASA
+** Information
+- Title: Webb’s Pillars of Creation
+- Location: Eagle Nebula (aka: M16, Messier 16, NGC 6611)
+- Sky coordinates (J2000):
+  - Right Ascension: 18h 18m 48s (approximately)
+  - Declination: −13° 47' 00" (approximately)
+- Distance: 6.5k~7k light-years
+- Date: 2022/08/14 (released on 2022/10/19)
+- Credits: NASA, ESA, CSA, STScI
+- Filename: NASA - James Webb Telescope - Pillars of Creation (NIRCam Image) [1155 x 2000]
+- Link: https://science.nasa.gov/asset/webb/pillars-of-creation-nircam-image/
+** Extended Description
+At the bottom left of this vertical image are the thickest regions of brown and rusty red gas and dust, known as pillars. There are many layers of semi-transparent gas and dust overlaying one another. A peak rises about a third of the way from the bottom in the left corner, and becomes far darker brown with two bright red areas toward the tip where stars are forming. The light brown dust becomes more diaphanous about half way up the screen, ending in a softer, medium brown peak toward the left center. There’s a slight gap in the dust, which allows the blue background to come into view clearly. About 60% of the background in this image is set in shades of blue and littered with tiny stars that are primarily yellow, but many are also blue. The brown pillars continue, taking the shape of a shoulder at the base, with three prominent columns rising from it toward the upper right. The top left pillar is the largest and widest. The second one to its right is slightly smaller, and the third significantly smaller. The peaks of the second and third pillars are set off in darker shades of brown, but also appear to have red outlines. The second pillar has a lava-like red area at its top left, and a dark arch that looks like an upside-down L halfway down. The third pillar is largely set off in dark brown shades, but also very bright red all along its edges. The largest bright blue stars in the background, toward the top center, have eight bright, long diffraction spikes. At the bottom left, in front of layers of brown dust, is another large star with eight diffraction spikes, but it is set off in orange shades.
+** Alt Text
+At the bottom left of this vertical image are the thickest regions of brown and rusty red gas and dust. There are many layers of semi-transparent gas and dust overlaying one another. A peak rises about a third of the way from the bottom, and becomes far darker brown with two bright red areas toward the tip. The light brown dust becomes more diaphanous about halfway up the screen. There’s a slight gap in the dust, which allows the blue background to come into view clearly. About 60% of the background in this image is set in shades of blue and littered with tiny yellow and blue stars. The brown pillars continue, taking the shape of a shoulder at the base, with three prominent columns rising out toward the upper right. The top left pillar is the largest and widest. The peaks of the second and third pillars are set off in darker shades of brown and have red outlines. For more details, download the Text Description.
+* Piedras Rojas
+** Information
+- Title: Piedras Rojas
+- Location: Laguna Tuyajto / Salar de Aguas Calientes, San Pedro de Atacama, Chile
+- Coordinates: 23º56'22" S, 67º35'23" W
+- Google Maps: https://maps.app.goo.gl/RZCHTsCox5zFiFSF9
+- Date: 2017/12/16
+- Credits: myself
