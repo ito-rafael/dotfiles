@@ -157,27 +157,35 @@ move subtree: M-j/M-k
 #+end_src
 step 2: create table.
 #+ATTR_LATEX: :align c c c c
+|----------------------------------+----------------------------------------+---------------------------------------+-----------------------------------------|
 | @@latex:\cellcolor{gray!30}@@ PS | @@latex:\cellcolor{gray!30}@@ property | @@latex:\cellcolor{gray!30}@@ options | @@latex:\cellcolor{gray!30}@@ # choices |
 | elastic resolution               | input resolution                       | {224, ..., 128}                       |                                      25 |
 | elastic kernel                   | kernel size                            | {3, 5, 7}                             |                                       3 |
 | elastic depth                    | layers                                 | {2, 3, 4}                             |                                       3 |
 | elastic width                    | channels                               | {3, 4, 6}                             |                                       3 |
+|----------------------------------+----------------------------------------+---------------------------------------+-----------------------------------------|
 **** General
+|-------------------------------------+---------------|
 | create                              | ¦ ex1 ¦ ex2 ¦ |
 | insert line                         | C-RET         |
 | navigate on cells                   | TAB/S-TAB     |
 | org table headline                  | SPC m b -     |
 | duplicate a field in the cell below | S-RET         |
+|-------------------------------------+---------------|
 **** Motion
+|-------------------+-----|
 | move row up       | M-k |
 | move row down     | M-j |
 | move column left  | M-h |
 | move column right | M-l |
+|-------------------+-----|
 **** Insert/Delete
+|---------------+-------|
 | insert column | M-S-l |
 | delete column | M-S-h |
 | insert row    | M-S-j |
 | delete row    | M-S-k |
+|---------------+-------|
 **** Column width
 place a "<N>" anywhere in the column that should have "N" chars visible only
 (org-table-toggle-column-width)
@@ -194,17 +202,23 @@ Then use "+" instead of "|"
 
 # vertical bar
 #+ATTR_LATEX: :align |c|c|c|
+|------+------+------|
 | test | test | test |
 | a    | b    | c    |
+|------+------+------|
 **** Alignment
+|--------+-----|
 | right  | <r> |
 | center | <c> |
 | left   | <l> |
+|--------+-----|
 
 example:
-| <c> |   <c>   |
-|-----|---------|
-| asd |  dummy  |
+|-----+-----|
+| <c> | <c> |
+|-----+-----|
+| foo | bar |
+|-----+-----|
 *** Color
 Text color (using org-colored-text.el)
 [[color:green][This]] is green.
@@ -354,19 +368,20 @@ org-cite-insert (SPC m @)
 [cite/s/v:@key1;@key2;...]
 [cite/s/v:cpre;pre@key1locatorsuf;...;csuf
 *** Grammar & Spell checker
-langtool-check
-  - Check context current buffer and light up errors
-langtool-correct-buffer
-  - Execute interactive correction after 'langtool-check'
-  - q: quit
-  - c: clear color
-  - i: ignore the rule
-  - e: edit the buffer manually
-  - SPC: skip
-  - DEL: move backward
-#-----------------------------
-flyspell-buffer
-  - Flyspell whole buffer
+**** langtool-check
+Check context current buffer and light up errors.
+**** langtool-correct-buffer
+Execute interactive correction after =langtool-check=.
+|-----+--------------------------|
+| q   | quit                     |
+| c   | clear color              |
+| i   | ignore the rule          |
+| e   | edit the buffer manually |
+| SPC | skip                     |
+| DEL | move backward            |
+|-----+--------------------------|
+**** flyspell-buffer
+Flyspell whole buffer.
 *** Short/long section
 **** LaTeX
 #+begin_src latex
