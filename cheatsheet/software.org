@@ -896,6 +896,30 @@ Go to Scribd downloader website. For example:
 - https://docdownloader.com/
 - https://vpdfs.com/
 - https://scribd.vpdfs.com/
+* SSH :noexport_1:
+** Generating a new SSH key
+*** RSA
+#+begin_src shell
+ssh-keygen -t rsa -b 4096 -C "comment-name-or-email"
+#+end_src
+*** ED25519
+#+begin_src shell
+ssh-keygen -t ed25519 -C "comment-name-or-email"
+#+end_src
+** ssh-agent
+*** Adding your SSH key to the ssh-agent
+#+begin_src shell
+ssh-add ~/.ssh/id_rsa
+ssh-add ~/.ssh/ed25519
+#+end_src
+*** Lists the keys managed by ssh-agent
+#+begin_src shell
+ssh-add -l
+#+end_src
+*** Start ssh-agent
+#+begin_src shell
+eval "$(ssh-agent -s)"
+#+end_src
 * Vim :noexport_1:
 ** Vertical highlight numbers
 - increment: C-a
