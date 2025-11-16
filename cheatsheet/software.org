@@ -19,6 +19,7 @@
 - [[#gnupg][GnuPG]]
 - [[#pdfpc][pdfpc]]
 - [[#python][Python]]
+- [[#scribd][Scribd]]
 - [[#ssh][SSH]]
 - [[#vim][Vim]]
 - [[#virtualbox][VirtualBox]]
@@ -882,6 +883,19 @@ python -m twine upload --repository testpypi dist/*
 #+begin_src shell
 python -m pip install --index-url https://test.pypi.org/simple/ --no-deps ofa2
 #+end_src
+* Scribd :noexport_1:
+** How to view a document
+Take the URL for the document:
+https://www.scribd.com/document/123456789/my-awesome-pdf-document
+
+Replace =document= with =embeds=, and the title (=my-awesome-pdf-document=, in this case) with =content=:
+https://www.scribd.com/embeds/546052355/content
+** How to download a file
+Go to Scribd downloader website. For example:
+- https://scribd.vdownloaders.com/
+- https://docdownloader.com/
+- https://vpdfs.com/
+- https://scribd.vpdfs.com/
 * Vim :noexport_1:
 ** Vertical highlight numbers
 - increment: C-a
