@@ -7,6 +7,7 @@
 * Table of Contents :toc:
 - [[#macro][Macro]]
   - [[#paint-cells][Paint cells]]
+  - [[#outer-border][Outer border]]
 - [[#keybindings][Keybindings]]
 
 * Macro
@@ -94,6 +95,44 @@ End Sub
 #+begin_src conf
 Sub PaintCellTransparent
     ToggleCellColor(-1)
+End Sub
+#+end_src
+** Outer border
+#+begin_src conf
+Sub SetOuterBorder
+    Dim oDoc As Object
+    Dim oSel As Object
+    Dim oRange As Object
+    Dim oBorder As New com.sun.star.table.BorderLine
+    Dim oTableBorder
+
+    oDoc = ThisComponent
+    oSel = oDoc.getCurrentSelection()
+
+    ' Make sure selection is a cell range
+    If oSel.supportsService("com.sun.star.sheet.SheetCellRange") Then
+        oRange = oSel
+
+        ' Define a single black line (1pt) for outer border
+        oBorder.OuterLineWidth = 10   ' 100 = 1pt
+        oBorder.InnerLineWidth = 0
+        oBorder.LineDistance = 0
+        oBorder.Color = RGB(0, 0, 0)
+
+        ' Create an empty border object (no need to declare its type)
+        oTableBorder = oRange.TableBorder
+
+        ' Set only the outer borders
+        oTableBorder.TopLine = oBorder
+        oTableBorder.BottomLine = oBorder
+        oTableBorder.LeftLine = oBorder
+        oTableBorder.RightLine = oBorder
+
+        ' Assign the modified border back to the range
+        oRange.TableBorder = oTableBorder
+    Else
+        MsgBox "Please select a range of cells first.", 48, "Invalid Selection"
+    End If
 End Sub
 #+end_src
 * Keybindings
