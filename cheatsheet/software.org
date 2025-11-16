@@ -18,7 +18,10 @@
 - [[#git][Git]]
 - [[#gnupg][GnuPG]]
 - [[#pdfpc][pdfpc]]
+- [[#python][Python]]
+- [[#ssh][SSH]]
 - [[#vim][Vim]]
+- [[#virtualbox][VirtualBox]]
 
 * Docker :noexport_1:
 ** Copy container from machine A to machine B
@@ -883,3 +886,20 @@ python -m pip install --index-url https://test.pypi.org/simple/ --no-deps ofa2
 ** Vertical highlight numbers
 - increment: C-a
 - list of numbers: g C-a
+* VirtualBox :noexport_1:
+** Host
+*** Guest Additions ISO image
+#+begin_src shell
+pacman -S virtualbox-guest-iso
+#+end_src
+** Guest
+*** Arch Linux
+**** Guest userspace utilities (without X support)
+#+begin_src shell
+pacman -S virtual-guest-utils-nox
+#+end_src
+**** Guest userspace utilities (with X support)
+#+begin_src shell
+pacman -S virtualbox-guest-iso
+pacman -S virtual-guest-utils
+#+end_src
