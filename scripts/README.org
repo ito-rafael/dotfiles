@@ -1,0 +1,92 @@
+#+TITLE: Custom scripts
+#+AUTHOR: Rafael Ito
+#+DESCRIPTION: random scripts that I daily driver
+#+STARTUP: showeverything
+
+* Table of Contents :toc_2:
+- [[#overview][Overview]]
+- [[#scripts][Scripts]]
+  - [[#adb-mdns-pair][adb-mdns-pair]]
+  - [[#adb-mdns-scrcpy][adb-mdns-scrcpy]]
+  - [[#capslock_status][capslock_status]]
+  - [[#darth_bright][darth_bright]]
+  - [[#emacs-respawn][emacs-respawn]]
+  - [[#emote-paste][emote-paste]]
+  - [[#hide-or-kill][hide-or-kill]]
+  - [[#keeb-backlit][keeb-backlit]]
+  - [[#keeb-leds][keeb-leds]]
+  - [[#kill-window][kill-window]]
+  - [[#mouse-warp][mouse-warp]]
+  - [[#mx_script][mx_script]]
+  - [[#navigate2ws][navigate2ws]]
+  - [[#nmap][nmap]]
+  - [[#opacity][opacity]]
+  - [[#rofi][rofi]]
+  - [[#scratchpad-temp][scratchpad-temp]]
+  - [[#screencast][screencast]]
+  - [[#show-or-launch][show-or-launch]]
+  - [[#volume-control][volume-control]]
+  - [[#vpn-connecter][vpn-connecter]]
+  - [[#wait_host_up][wait_host_up]]
+  - [[#wlprop][wlprop]]
+- [[#template][Template]]
+
+* Overview
+All scripts are assumed to be shell scripts (with the =.sh= extension and the =#!/usr/bin/env bash= shebang), unless when the extension is explicit written (some few Python =.py= scripts).
+Below there is a list of all scripts and a brief description of its functionality:
+|-----------------+--------------------------------------------------------|
+| script          | description                                            |
+|-----------------+--------------------------------------------------------|
+| adb-mdns-pair   | detect ADB pair IP:port with mDNS start pairing        |
+| adb-mdns-scrcpy | detect ADB IP:port andow/start scrcpy scratchpad       |
+| capslock_status | control Caps Lock                                      |
+| darth_bright    | toggle GTK light/dark theme                            |
+| emacs-respawn   | hard restart of Emacs daemon                           |
+| emote-paste     | paste emoji according to window context                |
+| hide-or-kill    | hide scratchpads, kill other windows                   |
+| keeb-backlit    | control native laptop keyboard backlit                 |
+| keeb-leds       | control external keyboard backlit RGB LEDs             |
+| kill-window     | kill window + if scratchpad, clean PID temp file       |
+| mouse-warp      | for i3wm: focus adjacent window and centralize cursor  |
+| mx_script       | switch MX Master 3 host connection                     |
+| navigate2ws     | go to workspace, and start application if empty        |
+| nmap            | scan devices IP with nmap                              |
+| opacity         | control windows opacity/transparency                   |
+| rofi            | launch Rofi in specific mode                           |
+| scratchpad-temp | ow temporary scratchpad or move window to it, if empty |
+| screencast      | control screencast application                         |
+| ow-or-launch    | ow scratchpad, or launch it if it doesn't exist        |
+| volume-control  | adjust volume in fixed step sizes (used with mouse)    |
+| vpn-connecter   | GUI to connect/disconnect VPN                          |
+| wait_host_up    | fping host and send notification when it's up          |
+| wlprop          | get window properties in Wayland (Sway)                |
+|-----------------+--------------------------------------------------------|
+* Scripts
+** adb-mdns-pair
+** adb-mdns-scrcpy
+** capslock_status
+** darth_bright
+** emacs-respawn
+** emote-paste
+** hide-or-kill
+** keeb-backlit
+** keeb-leds
+** kill-window
+** mouse-warp
+** mx_script
+** navigate2ws
+** nmap
+** opacity
+** rofi
+** scratchpad-temp
+** screencast
+** show-or-launch
+** volume-control
+** vpn-connecter
+** wait_host_up
+** wlprop
+* Template
+- requirements:
+- input:
+- output:
+- description:
