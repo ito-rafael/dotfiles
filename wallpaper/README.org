@@ -5,6 +5,7 @@
 
 * Table of Contents :toc_1:
 - [[#croatia][Croatia]]
+- [[#london][London]]
 
 * Croatia
 ** Information
@@ -14,3 +15,12 @@
 - Google Maps: https://maps.app.goo.gl/L7rau1YELWwqQYU5A
 - Date: 2015/07/26
 - Credits: myself
+* London
+** Information
+- Title: London
+- Location: Big Ben, House of Parliament, London Eye & London Bridge
+- Coordinates: 51º30'03" N, 0º07'28" W
+- Google Maps: https://maps.app.goo.gl/J5KPxWzvseMxNyZe7
+- Date: 2014/09/24
+- Credits: Gabriel Negreira
+- Link: https://www.facebook.com/photo?fbid=795464657181780&set=a.795463260515253
