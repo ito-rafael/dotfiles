@@ -22,20 +22,40 @@ Sub ToggleCellColor(color As Long)
     Dim oCellRange As Object
     Dim oCell As Object
     Dim i As Integer, j As Integer
+    Dim totalRows As Integer, totalCols As Integer
+    Dim allCellsAreTargetColor As Boolean
 
     oCellRange = ThisComponent.CurrentSelection
 
     If oCellRange.supportsService("com.sun.star.sheet.SheetCellRange") Then
-        For i = 0 To oCellRange.Rows.getCount() - 1
-            For j = 0 To oCellRange.Columns.getCount() - 1
+        totalRows = oCellRange.Rows.getCount()
+        totalCols = oCellRange.Columns.getCount()
+        allCellsAreTargetColor = True  ' Assume all cells are in target color initially
+
+        ' First pass: check if all cells are the target color
+        For i = 0 To totalRows - 1
+            For j = 0 To totalCols - 1
                 oCell = oCellRange.getCellByPosition(j, i)
-                If oCell.CellBackColor = color Then
-                    oCell.CellBackColor = -1  ' Transparent
+                If oCell.CellBackColor <> color Then
+                    allCellsAreTargetColor = False
+                    Exit For
+                End If
+            Next j
+            If Not allCellsAreTargetColor Then Exit For
+        Next i
+
+        ' Second pass: apply color or remove it
+        For i = 0 To totalRows - 1
+            For j = 0 To totalCols - 1
+                oCell = oCellRange.getCellByPosition(j, i)
+                If allCellsAreTargetColor Then
+                    oCell.CellBackColor = -1  ' Set to transparent
                 Else
-                    oCell.CellBackColor = color
+                    oCell.CellBackColor = color  ' Set to target color
                 End If
             Next j
         Next i
+
     ElseIf oCellRange.supportsService("com.sun.star.sheet.SheetCell") Then
         If oCellRange.CellBackColor = color Then
             oCellRange.CellBackColor = -1
@@ -73,7 +93,7 @@ End Sub
 **** Transparent
 #+begin_src conf
 Sub PaintCellTransparent
-    ToggleCellColor(RGB(255, 255, 255))
+    ToggleCellColor(-1)
 End Sub
 #+end_src
 * Keybindings
