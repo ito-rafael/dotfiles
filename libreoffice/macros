@@ -65,38 +65,59 @@ Sub PaintCellTransparent
     ToggleCellColor(-1)
 End Sub
 
-Sub SetOuterBorder
+Sub SetOuterBorder()
     Dim oDoc As Object
     Dim oSel As Object
     Dim oRange As Object
-    Dim oBorder As New com.sun.star.table.BorderLine
-    Dim oTableBorder
+    Dim oBorder As Object
+    Dim oNoBorder As Object
+    Dim oTableBorder As Object
+    Dim hasBorder As Boolean
 
     oDoc = ThisComponent
     oSel = oDoc.getCurrentSelection()
 
-    ' Make sure selection is a cell range
-    If oSel.supportsService("com.sun.star.sheet.SheetCellRange") Then
-        oRange = oSel
+    If Not oSel.supportsService("com.sun.star.sheet.SheetCellRange") Then
+        MsgBox "Please select a range of cells first.", 48, "Invalid Selection"
+        Exit Sub
+    End If
 
-        ' Define a single black line (1pt) for outer border
-        oBorder.OuterLineWidth = 10   ' 100 = 1pt
-        oBorder.InnerLineWidth = 0
-        oBorder.LineDistance = 0
-        oBorder.Color = RGB(0, 0, 0)
+    oRange = oSel
+    oTableBorder = oRange.TableBorder
 
-        ' Create an empty border object (no need to declare its type)
-        oTableBorder = oRange.TableBorder
+    ' Check if the current outer border is set (non-zero width)
+    hasBorder = (oTableBorder.TopLine.OuterLineWidth > 0) Or _
+                (oTableBorder.BottomLine.OuterLineWidth > 0) Or _
+                (oTableBorder.LeftLine.OuterLineWidth > 0) Or _
+                (oTableBorder.RightLine.OuterLineWidth > 0)
 
-        ' Set only the outer borders
+    ' Create border line for ON state (black 1pt)
+    oBorder = CreateUnoStruct("com.sun.star.table.BorderLine")
+    oBorder.OuterLineWidth = 10  ' 1pt
+    oBorder.InnerLineWidth = 0
+    oBorder.LineDistance = 0
+    oBorder.Color = RGB(0, 0, 0)
+
+    ' Create border line for OFF state (no border)
+    oNoBorder = CreateUnoStruct("com.sun.star.table.BorderLine")
+    oNoBorder.OuterLineWidth = 0
+    oNoBorder.InnerLineWidth = 0
+    oNoBorder.LineDistance = 0
+    oNoBorder.Color = RGB(0, 0, 0) ' color doesn't matter if width=0
+
+    ' Toggle borders based on current state
+    If hasBorder Then
+        oTableBorder.TopLine = oNoBorder
+        oTableBorder.BottomLine = oNoBorder
+        oTableBorder.LeftLine = oNoBorder
+        oTableBorder.RightLine = oNoBorder
+    Else
         oTableBorder.TopLine = oBorder
         oTableBorder.BottomLine = oBorder
         oTableBorder.LeftLine = oBorder
         oTableBorder.RightLine = oBorder
-
-        ' Assign the modified border back to the range
-        oRange.TableBorder = oTableBorder
-    Else
-        MsgBox "Please select a range of cells first.", 48, "Invalid Selection"
     End If
+
+    ' Apply updated borders
+    oRange.TableBorder = oTableBorder
 End Sub
