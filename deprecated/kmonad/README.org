@@ -1,0 +1,54 @@
+#+TITLE: KMonad
+#+AUTHOR: Rafael Ito
+#+DESCRIPTION: config file for custom miryoku laptop layouts
+#+STARTUP: showeverything
+
+* Table of Contents :toc:
+- [[#systemd][systemd]]
+- [[#todo][TODO]]
+  - [[#caps-word][caps word]]
+  - [[#lock-layer][lock layer]]
+  - [[#auto-repeat][auto-repeat]]
+
+* systemd
+#+begin_src sh
+sudco cp /home/rafael/git/dotfiles/kmonad/kmonad.service /etc/systemd/system/kmonad.service
+#+end_src
+
+#+begin_src sh
+vim /etc/systemd/system/kmonad.service
+#+end_src
+
+#+begin_src comment
+[Unit]
+Description=KMonad service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/kmonad /home/rafael/.config/kmonad/inkl-1ru.kbd
+
+[Install]
+WantedBy=default.target
+#+end_src
+
+#+begin_src sh
+cp /home/rafael/git/dotfiles/kmonad/inkl-1ru.kbd /home/rafael/.config/kmonad/inkl-1ru.kbd
+#+end_src
+
+#+begin_src sh
+sudo systemctl enable --now kmonad.service
+#+end_src
+
+* TODO
+** caps word
+https://github.com/kmonad/kmonad/issues/752
+** lock layer
+??
+** auto-repeat
+*** option 1: timeout
+add =:timeout-button X=
+eg: =(tap-hold-next 200 x lsft :timeout-button x)=
+*** option 1: press twice and hold
+add =(stepped (first) (second))=
+eg: =ctl-lck (stepped (press-only lctl) (release-only lctl)))=
+
