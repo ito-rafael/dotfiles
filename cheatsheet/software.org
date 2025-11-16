@@ -802,6 +802,83 @@ gpg --delete-secret-key <KEY>
 | Toolbox                                       | T   |
 | Set slide as the last                         | C-E |
 |-----------------------------------------------+-----|
+* Python :noexport_1:
+** virtualenv
+#+begin_src shell
+python -m venv ~/git/venv/<ENV-NAME>
+#+end_src
+** PyPI
+*** Structure
+git_repo/
+└── src/
+    └── my_awesome_package/
+        ├── __init__.py
+        └── example.py
+*** Files
+- LICENSE
+- README.md
+- pyproject.toml
+*** Procedure
+**** Virtual environment
+***** Create
+#+begin_src shell
+python -m venv ~/git/venv/<ENV-NAME>
+#+end_src
+***** Activate
+#+begin_src shell
+source ~/git/venv/<ENV-NAME>/bin/activate
+#+end_src
+**** Install package locally
+#+begin_src shell
+python -m pip install --upgrade build
+python -m build
+#+end_src
+**** Upload the package to the PyPI test server with twine
+#+begin_src shell
+python -m pip install --upgrade twine
+python -m twine upload --repository testpypi dist/*
+#+end_src
+username: __token__
+password: pypi-<TOKEN-COPIED-FROM-PYPI>
+**** Test the package in another virtual environment
+#+begin_src shell
+python -m venv ~/git/venv/<ENV-NAME>-test
+source ~/git/venv/<ENV-NAME>-test/bin/activate
+python -m pip install --index-url https://test.pypi.org/simple/ --no-deps <PACKAGE-NAME>
+#+end_src
+**** Upload the package to the PyPI server with twine
+#+begin_src shell
+python -m twine upload dist/*
+#+end_src
+**** dotfiles
+#+begin_src conf
+[distutils]
+index-servers=
+  pypitest
+  pypi
+
+[pypitest]
+repository: https://test.pypi.org/legacy/
+username: __token__
+password: <your_test_token>
+
+[pypi]
+username: __token__
+password: <your_token>
+#+end_src
+**** Upload
+#+begin_src shell
+cd ~/git/venv/once-for-all-2
+source bin/activate
+
+python -m build && \
+python -m twine upload --repository testpypi dist/*
+<TOKEN>
+#+end_src
+**** Test
+#+begin_src shell
+python -m pip install --index-url https://test.pypi.org/simple/ --no-deps ofa2
+#+end_src
 * Vim :noexport_1:
 ** Vertical highlight numbers
 - increment: C-a
