@@ -24,9 +24,11 @@ esac
 
 # check if scratchpad exists
 SCRATCHPAD=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(
-    .'$PROP_PREFIX''$PROP' == "brave-web.whatsapp.com__-Default" or
-    .'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX''$INSTANCE' == "web.whatsapp.com"
+    .'$PROP_PREFIX''$PROP' == "wasistlos"
     )')
+    # deprecated
+    #.'$PROP_PREFIX''$PROP' == "brave-web.whatsapp.com__-Default" or
+    #.'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX''$INSTANCE' == "web.whatsapp.com"
 
 # decide if icon will be displayed in color or black/white
 if [[ $SCRATCHPAD ]]; then
