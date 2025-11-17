@@ -1512,23 +1512,23 @@ for_window [$prop="one.alynx.showmethekey"] floating enable
 ** WhatsApp Web (on Brave Beta)
 *** i3
 #+begin_src conf :noweb-ref i3-whatsapp-web
-for_window [$prop="^Brave-browser-beta$" instance="^web.whatsapp.com$"] floating enable
-for_window [$prop="^Brave-browser-beta$" instance="^web.whatsapp.com$"] move position center
-for_window [$prop="^Brave-browser-beta$" instance="^web.whatsapp.com$"] move scratchpad
-for_window [$prop="^Brave-browser-beta$" instance="^web.whatsapp.com$"] border pixel 5
-exec --no-startup-id brave-beta --app=https://web.whatsapp.com
-bindsym $mod+t exec "$SCRIPT_PATH/show-or-launch.sh web.whatsapp.com 0.6 0.9"
+#for_window [$prop="^Brave-browser-beta$" instance="^web.whatsapp.com$"] floating enable
+#for_window [$prop="^Brave-browser-beta$" instance="^web.whatsapp.com$"] move position center
+#for_window [$prop="^Brave-browser-beta$" instance="^web.whatsapp.com$"] move scratchpad
+#for_window [$prop="^Brave-browser-beta$" instance="^web.whatsapp.com$"] border pixel 5
+#exec --no-startup-id brave-beta --app=https://web.whatsapp.com
+#bindsym $mod+t exec "$SCRIPT_PATH/show-or-launch.sh web.whatsapp.com 0.6 0.9"
 #+end_src
 *** Sway
 #+begin_src conf :noweb-ref sway-whatsapp-web
-for_window [$prop="^brave-web.whatsapp.com__-Default$"] {
-    floating enable
-    move position center
-    move scratchpad
-    border pixel 5
-}
-exec --no-startup-id brave-beta --app=https://web.whatsapp.com
-bindsym $mod+t exec "$SCRIPT_PATH/show-or-launch.sh brave-web.whatsapp.com__-Default 0.6 0.9"
+#for_window [$prop="^brave-web.whatsapp.com__-Default$"] {
+#    floating enable
+#    move position center
+#    move scratchpad
+#    border pixel 5
+#}
+#exec --no-startup-id brave-beta --app=https://web.whatsapp.com
+#bindsym $mod+t exec "$SCRIPT_PATH/show-or-launch.sh brave-web.whatsapp.com__-Default 0.6 0.9"
 #+end_src
 ** WhatsApp (WasIstLos)
 *** i3

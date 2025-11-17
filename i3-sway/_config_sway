@@ -423,14 +423,14 @@ exec --no-startup-id "rm /tmp/scratchpad_pid_3.tmp"
 bindsym $mod+period      exec "$SCRIPT_PATH/scratchpad-temp.sh 3 create-show"
 bindsym shift+$mod+slash exec "$SCRIPT_PATH/scratchpad-temp.sh 3 detach"
 bindsym ctrl+$mod+slash  exec "$SCRIPT_PATH/scratchpad-temp.sh 3 destroy"
-#for_window [$prop="^brave-web.whatsapp.com__-Default$"] {
-#    floating enable
-#    move position center
-#    move scratchpad
-#    border pixel 5
-#}
-#exec --no-startup-id brave-beta --app=https://web.whatsapp.com
-#bindsym $mod+t exec "$SCRIPT_PATH/show-or-launch.sh brave-web.whatsapp.com__-Default 0.6 0.9"
+##for_window [$prop="^brave-web.whatsapp.com__-Default$"] {
+##    floating enable
+##    move position center
+##    move scratchpad
+##    border pixel 5
+##}
+##exec --no-startup-id brave-beta --app=https://web.whatsapp.com
+##bindsym $mod+t exec "$SCRIPT_PATH/show-or-launch.sh brave-web.whatsapp.com__-Default 0.6 0.9"
 for_window [$prop="^wasistlos$"] {
     floating enable
     move position center
