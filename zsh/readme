@@ -55,3 +55,7 @@ sudo pacman -S keychain
 sudo pacman -S firefox-developer-edition
 
 #=======================================
+# setting keybindings/shortcuts
+#=======================================
+cat > /dev/null
+  +-- then type the combination of keys
