@@ -1,0 +1,19 @@
+#+TITLE: Arch Linux
+#+AUTHOR: Rafael Ito
+#+DESCRIPTION: Arch Linux installation guide (ext4 and BTRFS) + archinstall script
+#+STARTUP: showeverything
+
+* Table of Contents :toc_4:
+- [[#archinstall][Archinstall]]
+- [[#installation-guide][Installation guide]]
+  - [[#btrfs][BTRFS]]
+  - [[#ext4][ext4]]
+
+* Archinstall
+For an automated way of installing and configuring Arch Linux, please take a look at my [[file:archinstall/README.org][archinstall script]].
+* Installation guide
+For a manual way of installing Arch Linux, please take a look at this, depending on the filesystem of your choice:
+** BTRFS
+[[file:installation-btrfs/README.org][installation-btrfs]]
+** ext4
+[[file:installation-ext4/README.org][installation-ext4]]
