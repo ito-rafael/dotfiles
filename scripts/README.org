@@ -1,10 +1,16 @@
 #+TITLE: Custom scripts
 #+AUTHOR: Rafael Ito
-#+DESCRIPTION: random scripts that I daily driver
+#+DESCRIPTION: random scripts that I daily drive
 #+STARTUP: showeverything
 
 * Table of Contents :toc_2:
 - [[#overview][Overview]]
+- [[#temporary-files][Temporary files]]
+  - [[#temporary-scratchpads][Temporary scratchpads]]
+  - [[#vpns][VPNs]]
+  - [[#screen-cast][screen cast]]
+  - [[#mouse-warping-status][mouse warping status]]
+  - [[#emacs-daemon-pid][Emacs daemon PID]]
 - [[#scripts][Scripts]]
   - [[#adb-mdns-pair][adb-mdns-pair]]
   - [[#adb-mdns-scrcpy][adb-mdns-scrcpy]]
@@ -61,6 +67,22 @@ Below there is a list of all scripts and a brief description of its functionalit
 | wait_host_up    | fping host and send notification when it's up          |
 | wlprop          | get window properties in Wayland (Sway)                |
 |-----------------+--------------------------------------------------------|
+* Temporary files
+** Temporary scratchpads
+- /tmp/scratchpad_pid_1.tmp
+- /tmp/scratchpad_pid_2.tmp
+- /tmp/scratchpad_pid_3.tmp
+** VPNs
+- /tmp/vpn_lcn.tmp
+- /tmp/vpn_unicamp.tmp
+- /tmp/vpn_lbic.tmp
+- /tmp/vpn_samsung.tmp
+** screen cast
+- /tmp/showmethekey_pid.tmp
+** mouse warping status
+- /tmp/mouse_warping.tmp
+** Emacs daemon PID
+- /tmp/emacs-daemon-pid.tmp
 * Scripts
 ** adb-mdns-pair
 ** adb-mdns-scrcpy
