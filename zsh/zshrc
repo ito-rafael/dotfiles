@@ -562,6 +562,8 @@ alias firefox=firefox-developer-edition
 alias vpn-lbic='$XDG_CONFIG_HOME/vpn/lbic/vpn-lbic.sh'
 # OpenVPN Unicamp
 alias vpn-unicamp='$XDG_CONFIG_HOME/vpn/unicamp/vpn-unicamp.sh'
+# OpenConnect Samsung DMZ
+alias vpn-samsung='$XDG_CONFIG_HOME/vpn/samsung/vpn-samsung.sh'
 # Recod (bind TCP port)
 alias recod='$XDG_CONFIG_HOME/vpn/recod/port-binding.sh'
 # LBiC (bind TCP port)
