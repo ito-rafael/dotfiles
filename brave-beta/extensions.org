@@ -1,0 +1,67 @@
+#+TITLE: Brave Extensions
+#+AUTHOR: Rafael Ito
+#+PROPERTY: header-args :padline no :tangle extension_install_policy.json
+#+DESCRIPTION: config file to automate the installation of Brave extensions
+#+STARTUP: showeverything
+#+auto_tangle: t
+
+* Table of contents :toc_3:
+- [[#init][Init]]
+  - [[#extensionsettings][ExtensionSettings]]
+  - [[#template][Template]]
+- [[#extensions][Extensions]]
+  - [[#essential][Essential]]
+    - [[#dark-reader][Dark Reader]]
+    - [[#surfingkeys][Surfingkeys]]
+    - [[#video-speed-controller][Video Speed Controller]]
+- [[#end][End]]
+  - [[#extensionsettings-1][ExtensionSettings]]
+
+* Init
+** ExtensionSettings
+#+begin_src js
+{
+   "ExtensionSettings": {
+#+end_src
+** Template
+#+name: install
+#+begin_src js :var pin=0 comma=1 extension_id="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" :results output :tangle no
+console.log(`"${extension_id}": {`);
+if (pin == true){
+    console.log(`"toolbar_pin": "force_pinned",`);
+}
+console.log(`"installation_mode": "normal_installed",`);
+console.log(`"update_url": "https://clients2.google.com/service/update2/crx"`);
+if (comma == true){
+    console.log(`},`);
+} else {
+    console.log(`}`);
+}
+#+end_src
+* Extensions
+** Essential
+*** Dark Reader
+- link: https://chromewebstore.google.com/detail/dark-reader/eimadpbcbfnmbkopoojfekhnkhdbieeh
+- description: dark mode everywhere.
+#+begin_src js :noweb yes
+  <<install(extension_id="eimadpbcbfnmbkopoojfekhnkhdbieeh", pin=1)>>
+#+end_src
+*** Surfingkeys
+- link: https://chromewebstore.google.com/detail/gfbliohnnapiefjpjlpjnehglfpaknnc
+- description: vim-like navigation.
+#+begin_src js :noweb yes
+<<install(extension_id="gfbliohnnapiefjpjlpjnehglfpaknnc", pin=1)>>
+#+end_src
+*** Video Speed Controller
+- link: https://chromewebstore.google.com/detail/nffaoalbilbmmfgbnbgppjihopabppdk
+- description: speed up and slow down HTML5 audio & video.
+#+begin_src js :noweb yes
+<<install(extension_id="nffaoalbilbmmfgbnbgppjihopabppdk", pin=1)>>
+#+end_src
+* End
+Don't forget to remove the trailing comma on the previous block of JSON code (last extension)
+** ExtensionSettings
+#+begin_src js
+    }
+}
+#+end_src

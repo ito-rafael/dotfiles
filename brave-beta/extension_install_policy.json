@@ -1,0 +1,19 @@
+{
+  "ExtensionSettings": {
+    "eimadpbcbfnmbkopoojfekhnkhdbieeh": {
+      "toolbar_pin": "force_pinned",
+      "installation_mode": "normal_installed",
+      "update_url": "https://clients2.google.com/service/update2/crx"
+    },
+    "gfbliohnnapiefjpjlpjnehglfpaknnc": {
+      "toolbar_pin": "force_pinned",
+      "installation_mode": "normal_installed",
+      "update_url": "https://clients2.google.com/service/update2/crx"
+    },
+    "nffaoalbilbmmfgbnbgppjihopabppdk": {
+      "toolbar_pin": "force_pinned",
+      "installation_mode": "normal_installed",
+      "update_url": "https://clients2.google.com/service/update2/crx"
+    },
+  }
+}
