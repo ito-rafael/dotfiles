@@ -13,6 +13,7 @@
 - [[#install-automake][Install automake]]
 - [[#ncurses][ncurses]]
 - [[#install-zsh][Install Zsh]]
+- [[#copy-zsh-dotfiles][Copy Zsh dotfiles]]
 
 * Set dir and PATH env var
 #+begin_src sh
@@ -76,4 +77,13 @@ sed -i 's/\(ZSH_INSTALL_DIR=$HOME\/\)services\/zsh/\1local-build\/bin\/zsh/g' in
 sed -i 's/\(--prefix=\)$ZSH.*$/\1$HOME\/local-build/g' install_zsh_without_root.sh
 sed -i 's/robbyrussell\/oh-my-zsh/ohmyzsh\/ohmyzsh/g' install_zsh_without_root.sh
 bash install_zsh_without_root.sh
+#+end_src
+* Copy Zsh dotfiles
+#+begin_src sh
+cd
+ZDOTDIR=$HOME/.config/zsh
+mkdir -p $ZDOTDIR
+wget -O $ZDOTDIR/.zshrc https://raw.githubusercontent.com/ito-rafael/dotfiles/refs/heads/master/zsh/zshrc
+wget -O $ZDOTDIR/.zshenv https://raw.githubusercontent.com/ito-rafael/dotfiles/refs/heads/master/zsh/zshenv
+wget -O $HOME/.zshenv https://raw.githubusercontent.com/ito-rafael/dotfiles/refs/heads/master/zsh/zshenv_home
 #+end_src

@@ -48,3 +48,10 @@ sed -i 's/\(ZSH_INSTALL_DIR=$HOME\/\)services\/zsh/\1local-build\/bin\/zsh/g' in
 sed -i 's/\(--prefix=\)$ZSH.*$/\1$HOME\/local-build/g' install_zsh_without_root.sh
 sed -i 's/robbyrussell\/oh-my-zsh/ohmyzsh\/ohmyzsh/g' install_zsh_without_root.sh
 bash install_zsh_without_root.sh
+
+cd
+ZDOTDIR=$HOME/.config/zsh
+mkdir -p $ZDOTDIR
+wget -O $ZDOTDIR/.zshrc https://raw.githubusercontent.com/ito-rafael/dotfiles/refs/heads/master/zsh/zshrc
+wget -O $ZDOTDIR/.zshenv https://raw.githubusercontent.com/ito-rafael/dotfiles/refs/heads/master/zsh/zshenv
+wget -O $HOME/.zshenv https://raw.githubusercontent.com/ito-rafael/dotfiles/refs/heads/master/zsh/zshenv_home
