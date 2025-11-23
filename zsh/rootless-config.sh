@@ -41,3 +41,10 @@ make install
 ln -s /home/rafael.ito/local-build/lib/libncursesw.so.6 /home/rafael.ito/local-build/lib/libtinfo.so.5
 echo "export LD_LIBRARY_PATH=$HOME/local-build/lib" >> ~/.bashrc
 echo "export LD_LIBRARY_PATH=$HOME/local-build/lib" >> ~/.config/zsh/.zshenv
+
+cd
+wget -O install_zsh_without_root.sh https://gist.githubusercontent.com/mgbckr/b8dc6d7d228e25325b6dfaa1c4018e78/raw/8b3f254b4e3a70d18d09bca804a660c560f583ae/install_zsh_on_sherlock.sh
+sed -i 's/\(ZSH_INSTALL_DIR=$HOME\/\)services\/zsh/\1local-build\/bin\/zsh/g' install_zsh_without_root.sh
+sed -i 's/\(--prefix=\)$ZSH.*$/\1$HOME\/local-build/g' install_zsh_without_root.sh
+sed -i 's/robbyrussell\/oh-my-zsh/ohmyzsh\/ohmyzsh/g' install_zsh_without_root.sh
+bash install_zsh_without_root.sh
