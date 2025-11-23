@@ -29,3 +29,15 @@ cd automake-1.17
 ./configure --prefix=$BUILD_PATH
 make
 make install
+
+cd
+wget https://ftp.gnu.org/gnu/ncurses/ncurses-6.5.tar.gz
+tar -xvzf ncurses-6.5.tar.gz
+rm ncurses-6.5.tar.gz
+cd ncurses-6.5
+./configure --prefix=$BUILD_PATH --with-termlib --with-shared --with-versioned-syms
+make
+make install
+ln -s /home/rafael.ito/local-build/lib/libncursesw.so.6 /home/rafael.ito/local-build/lib/libtinfo.so.5
+echo "export LD_LIBRARY_PATH=$HOME/local-build/lib" >> ~/.bashrc
+echo "export LD_LIBRARY_PATH=$HOME/local-build/lib" >> ~/.config/zsh/.zshenv
