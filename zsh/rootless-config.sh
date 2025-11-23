@@ -20,3 +20,12 @@ cd autoconf-*
 ./configure --prefix=$BUILD_PATH
 make
 make install
+
+cd
+wget https://ftp.gnu.org/gnu/automake/automake-1.17.tar.gz
+tar -xvzf automake-1.17.tar.gz
+rm automake-1.17.tar.gz
+cd automake-1.17
+./configure --prefix=$BUILD_PATH
+make
+make install
