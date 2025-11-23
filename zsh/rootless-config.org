@@ -1,0 +1,18 @@
+#+TITLE: Configure Zsh in a rootless host
+#+AUTHOR: Rafael Ito
+#+PROPERTY: header-args :tangle
+#+PROPERTY: header-args:sh :tangle rootless-config.sh
+#+DESCRIPTION: config for Zsh from source
+#+STARTUP: showeverything
+#+auto_tangle: t
+
+* Table of contents :toc_1:
+- [[#set-dir-and-path-env-var][Set dir and PATH env var]]
+
+* Set dir and PATH env var
+#+begin_src sh
+cd
+mkdir local-build
+export PATH=/home/rafael.ito/local-build/bin:$PATH
+BUILD_PATH=$HOME/local-build
+#+end_src
