@@ -14,6 +14,7 @@
 - [[#ncurses][ncurses]]
 - [[#install-zsh][Install Zsh]]
 - [[#copy-zsh-dotfiles][Copy Zsh dotfiles]]
+- [[#install-oh-my-zsh][Install Oh My Zsh]]
 
 * Set dir and PATH env var
 #+begin_src sh
@@ -86,4 +87,8 @@ mkdir -p $ZDOTDIR
 wget -O $ZDOTDIR/.zshrc https://raw.githubusercontent.com/ito-rafael/dotfiles/refs/heads/master/zsh/zshrc
 wget -O $ZDOTDIR/.zshenv https://raw.githubusercontent.com/ito-rafael/dotfiles/refs/heads/master/zsh/zshenv
 wget -O $HOME/.zshenv https://raw.githubusercontent.com/ito-rafael/dotfiles/refs/heads/master/zsh/zshenv_home
+#+end_src
+* Install Oh My Zsh
+#+begin_src sh
+ZSH=$HOME/.config/oh-my-zsh sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 #+end_src

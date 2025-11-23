@@ -55,3 +55,5 @@ mkdir -p $ZDOTDIR
 wget -O $ZDOTDIR/.zshrc https://raw.githubusercontent.com/ito-rafael/dotfiles/refs/heads/master/zsh/zshrc
 wget -O $ZDOTDIR/.zshenv https://raw.githubusercontent.com/ito-rafael/dotfiles/refs/heads/master/zsh/zshenv
 wget -O $HOME/.zshenv https://raw.githubusercontent.com/ito-rafael/dotfiles/refs/heads/master/zsh/zshenv_home
+
+ZSH=$HOME/.config/oh-my-zsh sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
