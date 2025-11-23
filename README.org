@@ -1,0 +1,11 @@
+#+TITLE: Dotfiles
+#+AUTHOR: Rafael Ito
+#+PROPERTY: header-args
+#+DESCRIPTION: dotfiles
+#+STARTUP: showeverything
+#+auto_tangle: t
+
+* Table of contents :toc_1:
+- [[#dotfiles][Dotfiles]]
+
+* Dotfiles
