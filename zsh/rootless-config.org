@@ -9,6 +9,7 @@
 * Table of contents :toc_1:
 - [[#set-dir-and-path-env-var][Set dir and PATH env var]]
 - [[#install-m4][Install m4]]
+- [[#install-autoconf][Install autoconf]]
 
 * Set dir and PATH env var
 #+begin_src sh
@@ -24,6 +25,17 @@ wget ftp.gnu.org/gnu/m4/m4-latest.tar.gz
 tar -xvzf m4-latest.tar.gz
 rm m4-latest.tar.gz
 cd m4-*
+./configure --prefix=$BUILD_PATH
+make
+make install
+#+end_src
+* Install autoconf
+#+begin_src sh
+cd
+wget https://ftp.gnu.org/gnu/autoconf/autoconf-latest.tar.gz
+tar -xvzf autoconf-*
+rm autoconf-latest.tar.gz
+cd autoconf-*
 ./configure --prefix=$BUILD_PATH
 make
 make install

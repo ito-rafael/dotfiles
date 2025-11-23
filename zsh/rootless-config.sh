@@ -11,3 +11,12 @@ cd m4-*
 ./configure --prefix=$BUILD_PATH
 make
 make install
+
+cd
+wget https://ftp.gnu.org/gnu/autoconf/autoconf-latest.tar.gz
+tar -xvzf autoconf-*
+rm autoconf-latest.tar.gz
+cd autoconf-*
+./configure --prefix=$BUILD_PATH
+make
+make install
