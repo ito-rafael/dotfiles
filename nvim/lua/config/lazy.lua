@@ -26,6 +26,7 @@ require("lazy").setup({
   spec = {
     -- import your plugins
     { "lambdalisue/suda.vim" },  -- :w for root files
+    { "frabjous/knap" },         -- LaTeX live update
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
