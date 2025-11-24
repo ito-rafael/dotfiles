@@ -5,6 +5,9 @@ vim.cmd.source(vimrc)
 -- lazy: package manager
 require("config.lazy")
 
+-- lualine
+--require('lualine').setup()
+
 -- OSC 52: yank to clipboard over SSH
 vim.g.clipboard = {
   name = 'OSC 52',
