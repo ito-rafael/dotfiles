@@ -51,15 +51,6 @@ docker load -i /home/rafael.ito/ct_example.tar
 ** General
 Open Emacs' buffer: C-x b
 Documentation: M-x info
-*** Auto tagle
-#+begin_src elisp
-#+PROPERTY: header-args :tangle test.tex
-#+auto_tangle: t
-#+end_src
-*** Multiple tags
-#+begin_src elisp
-,* Table of Contents :toc_2:noexport:
-#+end_src
 *** Insert snippets
 SPC-i-s
 bang: #!/usr/bin/env bash
@@ -86,6 +77,15 @@ toggle-debug-on-error
 |---------------+------------------|
 ** Projectile
 ** Org Mode
+*** Auto tagle
+#+begin_src elisp
+#+PROPERTY: header-args :tangle test.tex
+#+auto_tangle: t
+#+end_src
+*** Multiple tags
+#+begin_src elisp
+,* Table of Contents :toc_2:noexport:
+#+end_src
 *** Add header argument in all children
 #+begin_src elisp
 :PROPERTIES:
