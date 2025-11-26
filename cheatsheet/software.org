@@ -86,6 +86,14 @@ toggle-debug-on-error
 #+begin_src elisp
 ,* Table of Contents :toc_2:noexport:
 #+end_src
+*** Set variable locally
+**** Using =#+BIND= keyword
+This method is useful to set a variable during export.
+First, be sure the variable =org-export-allow-bind-keywords= is non-nil in the =init.el= config.
+Then add this at the top of the file:
+#+begin_src elisp
+#+BIND: variable-name value
+#+end_src
 *** Add header argument in all children
 #+begin_src elisp
 :PROPERTIES:
