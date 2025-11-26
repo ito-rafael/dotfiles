@@ -1,6 +1,7 @@
 api.Hints.setCharacters('neiohtsrad');
 
-api.unmapAllExcept([], /localhost/);
+api.unmap('m');
+
 api.vmap("_h",  "h");
 api.vmap("_j",  "j");
 api.vmap("_k",  "k");
@@ -20,3 +21,4 @@ api.vunmap("_h");
 api.vunmap("_j");
 api.vunmap("_k");
 api.vunmap("_l");
+api.unmapallexcept([], /localhost/);

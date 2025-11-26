@@ -11,8 +11,7 @@
   - [[#inspiration][Inspiration]]
 - [[#general][General]]
   - [[#characters-for-links][Characters for links]]
-  - [[#normal-mode][Normal mode]]
-  - [[#exceptions][Exceptions]]
+  - [[#unbind][Unbind]]
 
 * Information
 ** How to load config file
@@ -32,7 +31,12 @@ https://github.com/kalbasit/soxincfg/blob/57847175e30dd9d0cc3a79816e44c87b02e16f
 #+begin_src js
 api.Hints.setCharacters('neiohtsrad');
 #+end_src
-** Normal mode
+** Unbind
+*** vim-like marks
+**** "m": "Add current URL to vim-like marks"
+#+begin_src js
+api.unmap('m');
+#+end_src
 *** Backup
 Save the original bindings into aliases to avoids dependency/order issues.
 #+begin_src js
