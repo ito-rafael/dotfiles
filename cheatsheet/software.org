@@ -56,6 +56,10 @@ Documentation: M-x info
 #+PROPERTY: header-args :tangle test.tex
 #+auto_tangle: t
 #+end_src
+*** Multiple tags
+#+begin_src elisp
+,* Table of Contents :toc_2:noexport:
+#+end_src
 *** Insert snippets
 SPC-i-s
 bang: #!/usr/bin/env bash
