@@ -14,6 +14,7 @@
   - [[#dired][Dired]]
   - [[#evil-mode][Evil mode]]
   - [[#org-agenda][Org-agenda]]
+  - [[#magit][Magit]]
 - [[#ffmpeg][FFmpeg]]
 - [[#git][Git]]
 - [[#gnupg][GnuPG]]
@@ -614,6 +615,16 @@ open org-schedule: SPC-m-d-s
 adjust date in place: S-RIGHT/S-LEFT
 adjust time in place: ???
 recurrent: ++1d (inside "SCHEDULED")
+** Magit
+*** Setting a GitHub repository
+Create a directory. Then =M-x magit-status= and type =y= for "Initialize a new git repository?".
+Stage and commit normally.
+Create a git repo from the CLI:
+#+begin_src shell
+gh repo create <MyAwesomeRepo> --public --description "Description of my awesome repo"
+#+end_src
+Open the =Remote= popup by pressing =M=; Add a remote with =a=; Name it =origin=; Paste the URL of the git repo (eg: =git@github.com:username/MyAwesomeRepo.git=); Accept =remote.pushDefault= as =origin=.
+Push to remote normally.
 * FFmpeg :noexport_1:
 ** Accelerate audio
 #+begin_src shell
