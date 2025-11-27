@@ -517,6 +517,8 @@ https://orgmode.org/worg/org-contrib/
   :config
   (require 'ox-extra)
   (ox-extras-activate '(ignore-headlines))
+  :custom
+  (org-export-allow-bind-keywords t))
 #+end_src
 ** org-appear
 https://github.com/awth13/org-appear
