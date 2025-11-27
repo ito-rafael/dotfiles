@@ -510,6 +510,14 @@ https://github.com/yilkalargaw/org-auto-tangle
   :defer t
   :hook (org-mode . org-auto-tangle-mode))
 #+end_src
+** org-contrib
+https://orgmode.org/worg/org-contrib/
+#+begin_src emacs-lisp
+(use-package org-contrib
+  :config
+  (require 'ox-extra)
+  (ox-extras-activate '(ignore-headlines))
+#+end_src
 ** org-appear
 https://github.com/awth13/org-appear
 Toggle visibility of hidden Org mode element parts upon entering and leaving an element.
