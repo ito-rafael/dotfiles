@@ -2,6 +2,8 @@ api.Hints.setCharacters('neiohtsrad');
 
 api.unmap('m');
 
+api.unmap('af');
+
 api.vmap("_h",  "h");
 api.vmap("_j",  "j");
 api.vmap("_k",  "k");

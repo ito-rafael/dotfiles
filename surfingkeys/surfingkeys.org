@@ -37,6 +37,11 @@ api.Hints.setCharacters('neiohtsrad');
 #+begin_src js
 api.unmap('m');
 #+end_src
+*** Mouse Click
+**** "af": "Open a link in active new tab"
+#+begin_src js
+api.unmap('af');
+#+end_src
 *** Backup
 Save the original bindings into aliases to avoids dependency/order issues.
 #+begin_src js
