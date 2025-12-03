@@ -42,6 +42,11 @@ api.unmap('m');
 #+begin_src js
 api.unmap('af');
 #+end_src
+*** Omnibar
+**** "ab": "Bookmark current page to selected folder"
+#+begin_src js
+api.unmap('ab');
+#+end_src
 *** Backup
 Save the original bindings into aliases to avoids dependency/order issues.
 #+begin_src js

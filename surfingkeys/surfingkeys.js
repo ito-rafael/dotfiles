@@ -4,6 +4,8 @@ api.unmap('m');
 
 api.unmap('af');
 
+api.unmap('ab');
+
 api.vmap("_h",  "h");
 api.vmap("_j",  "j");
 api.vmap("_k",  "k");
