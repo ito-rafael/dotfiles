@@ -70,29 +70,17 @@ api.vmap("e",  "_j");
 api.vmap("i",  "_k");
 api.vmap("o",  "_l");
 #+end_src
-**** History navigation
 #+begin_src js
-api.map("N", "_S");
-api.map("O", "_D");
 api.vunmap("_h");
 api.vunmap("_j");
 api.vunmap("_k");
 api.vunmap("_l");
 #+end_src
-**** Tab navigation
-#+begin_src js
-api.map("E", "_R");
-api.map("I", "_E");
-#+end_src
-**** Open links
-#+begin_src js
-api.map("F", "_af");
-#+end_src
-*** Delete
-Remove the old bindings.
 #+begin_src js
 #+end_src
-** Exceptions
 #+begin_src js
-api.unmapAllExcept([], /localhost/);
+#+end_src
+#+begin_src js
+#+end_src
+#+begin_src js
 #+end_src
