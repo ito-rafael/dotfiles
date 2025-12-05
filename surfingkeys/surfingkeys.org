@@ -12,6 +12,8 @@
 - [[#general][General]]
   - [[#characters-for-links][Characters for links]]
   - [[#unbind][Unbind]]
+- [[#normal-mode][Normal mode]]
+  - [[#scroll][Scroll]]
 
 * Information
 ** How to load config file
@@ -46,6 +48,14 @@ api.unmap('af');
 **** "ab": "Bookmark current page to selected folder"
 #+begin_src js
 api.unmap('ab');
+#+end_src
+* Normal mode
+** Scroll
+#+begin_src js
+api.mapkey("n", "Scroll left",  () => { api.Normal.scroll("left"); });
+api.mapkey("e", "Scroll down",  () => { api.Normal.scroll("down"); });
+api.mapkey("i", "Scroll up",    () => { api.Normal.scroll("up"); });
+api.mapkey("o", "Scroll right", () => { api.Normal.scroll("right"); });
 #+end_src
 *** Backup
 Save the original bindings into aliases to avoids dependency/order issues.

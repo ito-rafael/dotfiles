@@ -6,6 +6,11 @@ api.unmap('af');
 
 api.unmap('ab');
 
+api.mapkey("n", "Scroll left",  () => { api.Normal.scroll("left"); });
+api.mapkey("e", "Scroll down",  () => { api.Normal.scroll("down"); });
+api.mapkey("i", "Scroll up",    () => { api.Normal.scroll("up"); });
+api.mapkey("o", "Scroll right", () => { api.Normal.scroll("right"); });
+
 api.vmap("_h",  "h");
 api.vmap("_j",  "j");
 api.vmap("_k",  "k");
