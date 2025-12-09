@@ -491,8 +491,8 @@ https://github.com/sabof/org-bullets
 #+end_src
 ** org-babel
 #+begin_src emacs-lisp
-(use-package org-babel
-  :ensure nil  ;; do not install (Dired is already built-in)
+(use-package ob
+  :ensure nil  ;; do not install (org-babel is already built-in)
   :no-require  ;; do not load package (just add the config to the eval-after-load hook)
   :after org
   :custom
