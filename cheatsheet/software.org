@@ -95,6 +95,12 @@ Then add this at the top of the file:
 #+begin_src elisp
 #+BIND: variable-name value
 #+end_src
+*** Revert the :ignore: tag with :keep: tag
+#+begin_src elisp
+,#+BIND: efs/org-auto-ignore-mode t
+
+,* header :keep:
+#+end_src
 *** Add header argument in all children
 #+begin_src elisp
 :PROPERTIES:
