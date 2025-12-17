@@ -1,0 +1,59 @@
+#+TITLE: Ubuntu Server autoinstall
+#+AUTHOR: Rafael Ito
+#+PROPERTY: header-args:yaml :tangle autoinstall.yml :padline no
+#+DESCRIPTION: configuration file for installing Ubuntu Server with autoinstall in an automated way
+#+STARTUP: showeverything
+#+auto_tangle: t
+
+* Table of Contents :toc_1:
+- [[#header][Header]]
+- [[#source][Source]]
+- [[#hostname][Hostname]]
+- [[#locale][Locale]]
+- [[#packages][Packages]]
+- [[#codecs--drivers][Codecs & Drivers]]
+- [[#updates][Updates]]
+
+* Header
+#+begin_src yaml
+autoinstall:
+  version: 1
+#+end_src
+* Source
+#+begin_src yaml
+  source:
+    search_drivers: true
+    id: ubuntu-server-minimal
+#+end_src
+* Hostname
+#+begin_src yaml
+  identity:
+    realname: 'LBiC generic user'
+    hostname: dxt-ubuntu-server
+    username: lbic-user
+    password: '$y$j9T$qB3SClW.PgpMNcv6kEQhA/$7XfbWfHEL4..7Xsc09vGKIoUbP3fcVPpLkg9VY4B3x3'
+#+end_src
+* Locale
+#+begin_src yaml
+  locale: pt_BR.utf8
+  keyboard:
+    layout: br
+  timezone: "America/Sao_Paulo"   
+#+end_src
+* Packages
+#+begin_src yaml
+  packages:
+    - git
+#+end_src
+* Codecs & Drivers
+#+begin_src yaml
+  codecs:
+    install: true
+  drivers:
+    install: true
+#+end_src
+* Updates
+#+begin_src yaml
+  updates: all
+  shutdown: reboot
+#+end_src

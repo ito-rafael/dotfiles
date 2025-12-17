@@ -1,0 +1,22 @@
+autoinstall:
+  version: 1
+  source:
+    search_drivers: true
+    id: ubuntu-server-minimal
+  identity:
+    realname: 'LBiC generic user'
+    hostname: dxt-ubuntu-server
+    username: lbic-user
+    password: '$y$j9T$qB3SClW.PgpMNcv6kEQhA/$7XfbWfHEL4..7Xsc09vGKIoUbP3fcVPpLkg9VY4B3x3'
+  locale: pt_BR.utf8
+  keyboard:
+    layout: br
+  timezone: "America/Sao_Paulo"
+  packages:
+    - git
+  codecs:
+    install: true
+  drivers:
+    install: true
+  updates: all
+  shutdown: reboot
