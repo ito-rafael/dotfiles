@@ -13,6 +13,7 @@
 - [[#packages][Packages]]
 - [[#codecs--drivers][Codecs & Drivers]]
 - [[#updates][Updates]]
+- [[#late-commands][Late-commands]]
 
 * Header
 #+begin_src yaml
@@ -56,4 +57,9 @@ autoinstall:
 #+begin_src yaml
   updates: all
   shutdown: reboot
+#+end_src
+* Late-commands
+#+begin_src yaml
+  late-commands:
+    - curtin in-target -- echo test > /root/test.txt
 #+end_src

@@ -20,3 +20,5 @@ autoinstall:
     install: true
   updates: all
   shutdown: reboot
+  late-commands:
+    - curtin in-target -- echo test > /root/test.txt
