@@ -508,7 +508,27 @@ https://github.com/yilkalargaw/org-auto-tangle
 #+begin_src emacs-lisp
 (use-package org-auto-tangle
   :defer t
-  :hook (org-mode . org-auto-tangle-mode))
+  :after ob
+  :hook (org-mode . org-auto-tangle-mode)
+  :custom
+  (org-auto-tangle-babel-safelist '(
+     "/home/rafael/git/keebab/xremap/config.org"
+     "/home/rafael/git/dotfiles/i3-sway/config.org"
+     "/home/rafael/git/dotfiles/brave/extensions.org"
+     "/home/rafael/git/dotfiles/archlinux/archinstall/archinstall.org"))
+  :config
+  ;; run json-pretty-print-buffer after auto-tangle
+  (add-hook 'org-babel-post-tangle-hook
+    (lambda ()
+      ;; lambda is required so the code is serialized to the async worker.
+      ;; check for .json files in the current directory that were modified in the last 2 seconds.
+      (dolist (file (directory-files "." t "\\.json$"))
+         (when (< (float-time (time-subtract (current-time) (file-attribute-modification-time (file-attributes file)))) 2.0)
+           (message "Pretty printing %s..." file)
+           (with-current-buffer (find-file-noselect file)
+             (json-pretty-print-buffer)
+             (save-buffer)
+             (kill-buffer)))))))
 #+end_src
 ** org-contrib
 https://orgmode.org/worg/org-contrib/
