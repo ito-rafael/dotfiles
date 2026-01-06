@@ -231,10 +231,13 @@ Instead of mounting the ESP directly to /boot, mount it to /efi and use bind mou
 #+begin_src js
 "mkdir -p /efi/EFI/arch",
 "mv /boot/* /efi/EFI/arch",
-"mv /efi/grub/ /efi/EFI/arch/",
 "mount --bind /efi/EFI/arch /boot",
 "grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB",
 "grub-mkconfig -o /efi/EFI/arch/grub/grub.cfg",
+#+end_src
+Deprecated:
+#+begin_src js :tangle no
+"mv /efi/grub/ /efi/EFI/arch/",
 #+end_src
 *** Take snapshot of fresh install
 #+begin_src js
