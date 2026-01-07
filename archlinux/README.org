@@ -14,6 +14,6 @@ For an automated way of installing and configuring Arch Linux, please take a loo
 * Installation guide
 For a manual way of installing Arch Linux, please take a look at this, depending on the filesystem of your choice:
 ** BTRFS
-[[file:installation-btrfs/README.org][installation-btrfs]]
+[[file:installation-btrfs][installation-btrfs]]
 ** ext4
-[[file:installation-ext4/README.org][installation-ext4]]
+[[file:installation-ext4][installation-ext4]]
