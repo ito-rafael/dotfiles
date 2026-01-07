@@ -10,7 +10,7 @@
   - [[#ext4][ext4]]
 
 * Archinstall
-For an automated way of installing and configuring Arch Linux, please take a look at my [[file:archinstall/README.org][archinstall script]].
+For an automated way of installing and configuring Arch Linux, please take a look at my [[file:archinstall][archinstall script]].
 * Installation guide
 For a manual way of installing Arch Linux, please take a look at this, depending on the filesystem of your choice:
 ** BTRFS
