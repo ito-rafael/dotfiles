@@ -1,1 +1,1 @@
-/home/rafael/git/dotfiles/archlinux/archinstall/archinstall.org
+./archinstall.org

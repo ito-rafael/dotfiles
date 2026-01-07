@@ -1,1 +1,1 @@
-/home/rafael/git/dotfiles/archlinux/installation-btrfs/install-btrfs.org
+./install-btrfs.org
