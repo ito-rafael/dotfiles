@@ -83,6 +83,15 @@ toggle-debug-on-error
 #+ATTR_ORG: :width 300
 [[file:figure.png]]
 #+end_src
+*** Add context for source code blocks
+**** Root commands
+#+begin_src sh :prompt "# "
+whoami
+#+end_src
+**** User commands
+#+begin_src sh :prompt "$ "
+whoami
+#+end_src
 *** Auto tagle
 #+begin_src elisp
 #+PROPERTY: header-args :tangle test.tex
