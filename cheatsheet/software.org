@@ -78,6 +78,11 @@ toggle-debug-on-error
 |---------------+------------------|
 ** Projectile
 ** Org Mode
+*** Image size
+#+begin_src elisp
+#+ATTR_ORG: :width 300
+[[file:figure.png]]
+#+end_src
 *** Auto tagle
 #+begin_src elisp
 #+PROPERTY: header-args :tangle test.tex
