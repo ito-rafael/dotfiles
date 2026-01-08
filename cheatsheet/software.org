@@ -20,6 +20,8 @@
 - [[#gnupg][GnuPG]]
 - [[#pdfpc][pdfpc]]
 - [[#python][Python]]
+  - [[#virtualenv][virtualenv]]
+  - [[#pypi][PyPI]]
 - [[#scribd][Scribd]]
 - [[#ssh][SSH]]
 - [[#vim][Vim]]
@@ -530,12 +532,6 @@ This text to go below left and right
   - item 1
   - item 2
   - item 3
-*** Exclude header from ToC
-,*** header to be excluded from ToC
-:PROPERTIES:
-:not-in-toc:
-:unnumbered: t
-:END:
 *** Change font in one frame
 ,* frame with different font
 #+LATEX: {\scriptsize
@@ -568,7 +564,7 @@ And to revert it back (!!! NOT WORKING !!!):
 #+LATEX_CLASS: beamer
 #+LATEX_CLASS_OPTIONS: [presentation,aspectratio=169]
 #+end_src
-*** Heading not in ToC
+*** Exclude header from ToC
 #+begin_src elisp
 ,* Section not in ToC
 :PROPERTIES:
@@ -849,7 +845,7 @@ gpg --delete-secret-key <KEY>
 | Toolbox                                       | T   |
 | Set slide as the last                         | C-E |
 |-----------------------------------------------+-----|
-* Python :noexport_1:
+* Python :noexport_2:
 ** virtualenv
 #+begin_src shell
 python -m venv ~/git/venv/<ENV-NAME>
