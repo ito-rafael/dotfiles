@@ -36,7 +36,9 @@
   - https://btrfs.readthedocs.io/en/latest/index.html
 ** Boot from the live USB
 Download the latest Arch Linux ISO image (https://www.archlinux.org/download/).
-https://www.archlinux.org/download/
+#+begin_src sh
+wget https://geo.mirror.pkgbuild.com/iso/latest/archlinux-x86_64.iso
+#+end_src
 
 Verify the signature.
 #+begin_src sh

@@ -1,3 +1,5 @@
+wget https://geo.mirror.pkgbuild.com/iso/latest/archlinux-x86_64.iso
+
 gpg --keyserver-options auto-key-retrieve --verify archlinux-x86_64.iso.sig
 
 dd bs=4M if=path/to/archlinux.iso of=/dev/sdx status=progress oflag=sync
