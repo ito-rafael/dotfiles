@@ -62,18 +62,15 @@
 #+end_src
 ** Template
 #+name: install
-#+begin_src js :var pin=0 comma=1 extension_id="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" :results output :tangle no
-console.log(`"${extension_id}": {`);
-if (pin == true){
-    console.log(`"toolbar_pin": "force_pinned",`);
-}
-console.log(`"installation_mode": "normal_installed",`);
-console.log(`"update_url": "https://clients2.google.com/service/update2/crx"`);
-if (comma == true){
-    console.log(`},`);
-} else {
-    console.log(`}`);
-}
+#+begin_src emacs-lisp :var pin=0 comma=1 extension_id="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" :results output :tangle no
+(princ (format "\"%s\": {\n" extension_id))
+(when (= pin 1)
+  (princ "\"toolbar_pin\": \"force_pinned\",\n"))
+(princ "\"installation_mode\": \"normal_installed\",\n")
+(princ "\"update_url\": \"https://clients2.google.com/service/update2/crx\"")
+(if (= comma 1)
+    (princ "},\n")
+  (princ "}\n"))
 #+end_src
 * Extensions
 ** Essential
