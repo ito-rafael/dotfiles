@@ -120,6 +120,12 @@ Deprecated in favour of [[Surfingkeys]].
 #+begin_src js :noweb yes
 <<install(extension_id="nngceckbapebfimnlniiiahkandclblb")>>
 #+end_src
+*** Floccus
+- link: https://chromewebstore.google.com/detail/floccus-bookmarks-sync/fnaicdffflnofjppbagibeoednhnbjhg
+- description: sync bookmarks across browsers and devices.
+#+begin_src js :noweb yes
+<<install(extension_id="fnaicdffflnofjppbagibeoednhnbjhg")>>
+#+end_src
 ** Scholar
 *** Google Scholar Button
 - link: https://chromewebstore.google.com/detail/ldipcbpaocekfooobnbcddclnhejkcpn
