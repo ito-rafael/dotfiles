@@ -78,7 +78,7 @@
 - link: https://chromewebstore.google.com/detail/dark-reader/eimadpbcbfnmbkopoojfekhnkhdbieeh
 - description: dark mode everywhere.
 #+begin_src js :noweb yes
-  <<install(extension_id="eimadpbcbfnmbkopoojfekhnkhdbieeh")>>
+<<install(extension_id="eimadpbcbfnmbkopoojfekhnkhdbieeh")>>
 #+end_src
 *** +Vimium+
 Deprecated in favour of [[Surfingkeys]].
