@@ -825,6 +825,7 @@ https://github.com/justbur/emacs-which-key
   :config
   (setq which-key-idle-delay 0.25
         which-key-separator " → "
+  )
 )
 #+end_src
 * Hydra
