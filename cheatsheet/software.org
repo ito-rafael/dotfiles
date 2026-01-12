@@ -790,6 +790,13 @@ Disable hardware acceleration (GPU), and use CPU instead. Add this to the kitty 
 #+begin_src conf
 render_strategy software
 #+end_src
+*** Brave
+Disable hardware acceleration (GPU), and use CPU instead. Create a config file under =/etc/brave/policies/managed/hardware_acceleration.json=.
+#+begin_src js
+{
+  "HardwareAccelerationModeEnabled": false
+}
+#+end_src
 * pdfpc :noexport_1:
 ** Navigation
 |------------------------------------------+-------------------------------------|
