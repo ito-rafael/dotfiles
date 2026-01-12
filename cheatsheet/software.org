@@ -785,6 +785,11 @@ gpg --delete-secret-key <KEY>
 * GPU :noexport_1:
 ** How to make old GPUs work with Sway WM
 In this example, I was configuring a GeForce GTX 660 Ti to work with Sway (Wayland) with a triple monitor setup in 2026.
+*** Kitty
+Disable hardware acceleration (GPU), and use CPU instead. Add this to the kitty config under =~/.config/kitty/kitty.conf=.
+#+begin_src conf
+render_strategy software
+#+end_src
 * pdfpc :noexport_1:
 ** Navigation
 |------------------------------------------+-------------------------------------|
