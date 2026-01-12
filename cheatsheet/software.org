@@ -804,6 +804,19 @@ Disable hardware acceleration (GPU), and use CPU instead. Change the settings in
 [web]
 hw-accel=0
 #+end_src
+*** Environment variables
+Set these env vars in =/etc/environment=.
+#+begin_src sh
+# use CPU for mouse cursor rendering
+WLR_NO_HARDWARE_CURSORS=1
+
+# force CPU-based rendering
+#WLR_RENDERER=pixman  # too slow
+WLR_RENDERER=gles2
+
+# prevents GPU from bypassing the compositor for full-screen windows
+WLR_SCENE_DISABLE_DIRECT_SCANOUT=1
+#+end_src
 * pdfpc :noexport_1:
 ** Navigation
 |------------------------------------------+-------------------------------------|
