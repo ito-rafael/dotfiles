@@ -777,6 +777,7 @@ Collection of Ivy-enhanced versions of common Emacs commands.
   :diminish
   :config
   (counsel-mode 1)
+    (setq ivy-initial-inputs-alist nil))  ;; removes starting ^ regex in M-x
 #+end_src
 ** prescient
 Sorting and filtering extension for Ivy.
