@@ -27,3 +27,6 @@ export TEXMFCONFIG=$XDG_CONFIG_HOME/texlive/texmf-config
 
 # scrcpy
 export SDL_VIDEODRIVER=wayland
+
+# mapping for SNES gamepad
+export SDL_GAMECONTROLLERCONFIG="0300cb231f08000001e4000010010000,SFC Controller,a:b2,b:b1,back:b8,dpdown:+a1,dpleft:-a0,dpright:+a0,dpup:-a1,leftshoulder:b4,rightshoulder:b5,start:b9,x:b3,y:b0,platform:Linux,"
