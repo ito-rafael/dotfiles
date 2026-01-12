@@ -797,6 +797,13 @@ Disable hardware acceleration (GPU), and use CPU instead. Create a config file u
   "HardwareAccelerationModeEnabled": false
 }
 #+end_src
+Check the page =brave://gpu/= for confirmation.
+*** WasIstLos
+Disable hardware acceleration (GPU), and use CPU instead. Change the settings in =~/.config/wasistlos/settings.conf=.
+#+begin_src conf
+[web]
+hw-accel=0
+#+end_src
 * pdfpc :noexport_1:
 ** Navigation
 |------------------------------------------+-------------------------------------|
