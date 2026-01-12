@@ -818,6 +818,16 @@ WLR_RENDERER=gles2
 # prevents GPU from bypassing the compositor for full-screen windows
 WLR_SCENE_DISABLE_DIRECT_SCANOUT=1
 #+end_src
+*** Disable MSI
+Disable MSI (Message Signaled Interrupts) adding this kernel parameter in =/etc/default/grub=.
+#+begin_src sh
+GRUB_CMDLINE_LINUX_DEFAULT="nouveau.config=NvMSI=0"
+#+end_src
+
+Then, regenerate the config file.
+#+begin_src sh
+grub-mkconfig -o /efi/EFI/arch/grub/grub.cfg
+#+end_src
 * pdfpc :noexport_1:
 ** Navigation
 |------------------------------------------+-------------------------------------|
