@@ -1,4 +1,11 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+# source: https://github.com/feschber/lan-mouse/issues/258#issuecomment-3117557919
+# changes:
+#   - add source link (github issue #258)
+#   - replace "#!/bin/bash" shebang with "#!/usr/bin/env bash"
+#   - replace WAYLAND_DISPLAY from "wayland-0" to "wayland-1"
+#   - rename script from "pushclipboard" to "push-clipboard.sh"
 
 declare -a timeout
 declare -a read_t
@@ -80,7 +87,7 @@ if (( buildline )); then
 		exit 1
 	fi
 	echo "# Wayland"
-	printf "command=\"/usr/bin/env WAYLAND_DISPLAY='wayland-0' wl-copy; echo copied\",no-agent-forwarding,no-pty,no-X11-forwarding %s\n" "$(< "${ssh_key%.pub}.pub" )"
+	printf "command=\"/usr/bin/env WAYLAND_DISPLAY='wayland-1' wl-copy; echo copied\",no-agent-forwarding,no-pty,no-X11-forwarding %s\n" "$(< "${ssh_key%.pub}.pub" )"
 	echo "# X11"
 	printf 'command="xclip -display :0 -in -rmlastnl -selection clipboard; echo copied",no-agent-forwarding,no-pty,no-X11-forwarding %s\n' "$(< "${ssh_key%.pub}.pub" )"
 	exit 0
@@ -125,7 +132,7 @@ done < <(
 			${ssh_key:+ -o"ControlPath none" -o"IdentitiesOnly yes" -i "${ssh_key}"}	\
 			"${target}"	\
 			--	\
-				/usr/bin/env WAYLAND_DISPLAY="wayland-0" wl-copy \;	\
+				/usr/bin/env WAYLAND_DISPLAY="wayland-1" wl-copy \;	\
 				echo copied	\
 			< <( "${clipcmd[@]}" )	\
 	|| echo "fail ?" >&2
