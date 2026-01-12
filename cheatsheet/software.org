@@ -782,6 +782,9 @@ gpg --delete-key <KEY>
 #+begin_src shell
 gpg --delete-secret-key <KEY>
 #+end_src
+* GPU :noexport_1:
+** How to make old GPUs work with Sway WM
+In this example, I was configuring a GeForce GTX 660 Ti to work with Sway (Wayland) with a triple monitor setup in 2026.
 * pdfpc :noexport_1:
 ** Navigation
 |------------------------------------------+-------------------------------------|
