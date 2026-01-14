@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # - this script is used to display LightDM greeter in one output only.
 # - its content should be put in: /etc/lightdm/lightdm-outputs.sh.
