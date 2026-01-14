@@ -18,6 +18,7 @@
 - [[#ffmpeg][FFmpeg]]
 - [[#git][Git]]
 - [[#gnupg][GnuPG]]
+- [[#gpu][GPU]]
 - [[#pdfpc][pdfpc]]
 - [[#python][Python]]
   - [[#virtualenv][virtualenv]]
@@ -824,6 +825,10 @@ Disable MSI (Message Signaled Interrupts) adding this kernel parameter in =/etc/
 GRUB_CMDLINE_LINUX_DEFAULT="nouveau.config=NvMSI=0"
 #+end_src
 
+Then, regenerate the config file.
+#+begin_src sh
+grub-mkconfig -o /efi/EFI/arch/grub/grub.cfg
+#+end_src
 Then, regenerate the config file.
 #+begin_src sh
 grub-mkconfig -o /efi/EFI/arch/grub/grub.cfg
