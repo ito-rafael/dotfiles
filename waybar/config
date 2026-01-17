@@ -137,8 +137,10 @@
             "paused": "⏸"
         },
         //"ignored-players": ["firefox"]
-        "on-scroll-up": "amixer -q sset Master 1%-",
-        "on-scroll-down": "amixer -q sset Master 1%+",
+        "on-scroll-up": "amixer -q sset Master 1%+",
+        "on-scroll-down": "amixer -q sset Master 1%-",
+        "reverse-scrolling": true,
+        "reverse-mouse-scrolling": false,
     },
 
 "custom/scratchpad-calendar": {
