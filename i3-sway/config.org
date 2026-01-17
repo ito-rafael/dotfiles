@@ -118,9 +118,10 @@ documentation:
 https://wayland.freedesktop.org/libinput/doc/latest/index.html
 #+begin_src conf :noweb-ref sway-input
 input type:touchpad {
-    tap enabled                                   # tap-to-click
-    natural_scroll enabled                        # natural scrolling
-    drag_lock disabled                            # stop dragging after lifting from touchpad
+    dwt enabled             # disable while typing
+    tap enabled             # tap-to-click
+    natural_scroll enabled  # natural scrolling
+    drag_lock disabled      # stop dragging after lifting from touchpad
 }
 #+end_src
 *** Enable NumLock
