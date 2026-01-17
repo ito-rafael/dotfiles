@@ -89,7 +89,9 @@
 
 "backlight": {
     "format": "{percent}% {icon}",
-    "format-icons": ["", "", "", "", "", "", "", "", ""]
+    "format-icons": ["", "", "", "", "", "", "", "", ""],
+    "reverse-scrolling": true,
+    "reverse-mouse-scrolling": false,
 },
 
 "battery": {
