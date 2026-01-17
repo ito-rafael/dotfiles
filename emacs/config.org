@@ -528,7 +528,18 @@ https://github.com/yilkalargaw/org-auto-tangle
            (with-current-buffer (find-file-noselect file)
              (json-pretty-print-buffer)
              (save-buffer)
-             (kill-buffer)))))))
+             (kill-buffer))))
+      ;; check for .sh files in the current directory that were modified in the last 2 seconds.
+      (dolist (file (directory-files "." t "\\.sh$"))
+        (when (< (float-time (time-subtract (current-time) (file-attribute-modification-time (file-attributes file)))) 2.0)
+          (message "Formatting %s..." file)
+          (with-current-buffer (find-file-noselect file)
+            ;; "shell-command-on-region" is required to run shfmt synchronously
+            ;; "-i 4" sets indentation to 4 spaces
+            ;; "nil t" replaces the buffer content with the output
+            (shell-command-on-region (point-min) (point-max) "shfmt -i 4" nil t)
+            (save-buffer)
+            (kill-buffer)))))))
 #+end_src
 ** org-contrib
 https://orgmode.org/worg/org-contrib/
