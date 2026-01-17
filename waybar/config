@@ -247,7 +247,8 @@
     "return-type": "json",
     "exec": "~/.config/waybar/scripts/scratchpad-whatsapp.sh",
     "format": " {} ",
-    "on-click": "~/.config/scripts/show-or-launch.sh brave-web.whatsapp.com__-Default 0.6 0.9",
+    "on-click": "~/.config/scripts/show-or-launch.sh wasistlos 0.6 0.9",
+    //"on-click": "~/.config/scripts/show-or-launch.sh brave-web.whatsapp.com__-Default 0.6 0.9",
     //"on-click": "~/.config/scripts/show-or-launch.sh web.whatsapp.com 0.6 0.9",
 },
 
