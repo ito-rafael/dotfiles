@@ -21,6 +21,7 @@ case "$COMMAND" in
     *) swaymsg focus "$DIRECTION" ;;
     esac
     ;;
+
 "kill")
     case "$FOCUSED_APP" in
     [Ee]macs*) emacsclient -s efs --eval "(evil-window-delete)" >/dev/null 2>&1 ;;
@@ -28,4 +29,11 @@ case "$COMMAND" in
     esac
     ;;
 
+"copy")
+    case "$FOCUSED_APP" in
+    [Ee]macs*) emacsclient -s efs --eval "(evil-yank)" >/dev/null 2>&1 ;;
+    kitty) ydotool 29:1 42:1 46:1 46:0 42:0 29:0 ;; # C-S-c
+    *) ydotool 29:1 46:1 46:0 29:0 ;;               # C-c
+    esac
+    ;;
 esac
