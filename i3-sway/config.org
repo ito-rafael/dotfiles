@@ -607,6 +607,10 @@ Deprecated. Moved to xremap (and Emacs) config.
 #bindsym $mod+Down  focus down
 #bindsym $mod+Up    focus up
 #bindsym $mod+Right focus right
+bindsym --release $mod+Left  exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh focus left
+bindsym --release $mod+Down  exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh focus down
+bindsym --release $mod+Up    exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh focus up
+bindsym --release $mod+Right exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh focus right
 #+end_src
 ** Move window
 #+begin_src conf :noweb-ref window-settings
