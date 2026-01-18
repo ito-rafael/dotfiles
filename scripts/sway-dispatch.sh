@@ -1,5 +1,17 @@
 #!/usr/bin/env bash
 
+shopt -s extglob # enable special variable syntax
+
+TERMINAL_LIST=(
+    "kitty"
+    "dropdown_terminal"
+    "dropdown_python"
+)
+
+IFS='|' # set separator to pipe temporarily
+TERMINALS="@(${TERMINAL_LIST[*]})"
+unset IFS # reset separator
+
 # Usage:
 # ./smart_dispatch.sh focus left
 # ./smart_dispatch.sh type symbol
@@ -31,24 +43,24 @@ case "$COMMAND" in
 
 "cut")
     case "$FOCUSED_APP" in
-    kitty) ydotool key 29:1 42:1 45:1 45:0 42:0 29:0 ;; # C-S-x
     *) ydotool key 29:1 45:1 45:0 29:0 ;;               # C-x
+    $TERMINALS) ydotool key 29:1 42:1 45:1 45:0 42:0 29:0 ;; # C-S-x
     esac
     ;;
 
 "copy")
     case "$FOCUSED_APP" in
     [Ee]macs*) emacsclient -s efs --eval "(evil-yank)" >/dev/null 2>&1 ;;
-    kitty) ydotool key 29:1 42:1 46:1 46:0 42:0 29:0 ;; # C-S-c
     *) ydotool key 29:1 46:1 46:0 29:0 ;;               # C-c
+    $TERMINALS) ydotool key 29:1 42:1 46:1 46:0 42:0 29:0 ;; # C-S-c
     esac
     ;;
 
 "paste")
     case "$FOCUSED_APP" in
     [Ee]macs*) emacsclient -s efs --eval "(evil-paste-before)" >/dev/null 2>&1 ;;
-    kitty) ydotool key 29:1 42:1 47:1 47:0 42:0 29:0 ;; # C-S-v
     *) ydotool key 29:1 47:1 47:0 29:0 ;;               # C-v
+    $TERMINALS) ydotool key 29:1 42:1 47:1 47:0 42:0 29:0 ;; # C-S-v
     esac
     ;;
 

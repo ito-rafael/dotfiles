@@ -19,6 +19,27 @@
 #+begin_src sh
 #!/usr/bin/env bash
 #+end_src
+** Shared group
+:PROPERTIES:
+:header-args: :padline no :tangle sway-dispatch.sh
+:END:
+#+begin_src sh :padline yes
+shopt -s extglob  # enable special variable syntax
+#+end_src
+*** Terminals
+#+begin_src sh :padline yes
+TERMINAL_LIST=(
+    "kitty"
+    "dropdown_terminal"
+    "dropdown_python"
+)
+#+end_src
+*** Merge list with "|"
+#+begin_src sh :padline yes
+IFS='|'  # set separator to pipe temporarily
+TERMINALS="@(${TERMINAL_LIST[*]})"
+unset IFS  # reset separator
+#+end_src
 ** Help menu
 #+begin_src sh
 # Usage:
@@ -63,7 +84,7 @@ case "$COMMAND" in
 #+begin_src sh
 "cut")
     case "$FOCUSED_APP" in
-        kitty) ydotool key 29:1 42:1 45:1 45:0 42:0 29:0 ;; # C-S-x
+        $TERMINALS) ydotool key 29:1 42:1 45:1 45:0 42:0 29:0 ;; # C-S-x
         *) ydotool key 29:1 45:1 45:0 29:0 ;; # C-x
     esac
     ;;
@@ -73,7 +94,7 @@ case "$COMMAND" in
 "copy")
     case "$FOCUSED_APP" in
         [Ee]macs*) emacsclient -s efs --eval "(evil-yank)" > /dev/null 2>&1 ;;
-        kitty) ydotool key 29:1 42:1 46:1 46:0 42:0 29:0 ;; # C-S-c
+        $TERMINALS) ydotool key 29:1 42:1 46:1 46:0 42:0 29:0 ;; # C-S-c
         *) ydotool key 29:1 46:1 46:0 29:0 ;; # C-c
     esac
     ;;
@@ -83,7 +104,7 @@ case "$COMMAND" in
 "paste")
     case "$FOCUSED_APP" in
         [Ee]macs*) emacsclient -s efs --eval "(evil-paste-before)" > /dev/null 2>&1 ;;
-        kitty) ydotool key 29:1 42:1 47:1 47:0 42:0 29:0 ;; # C-S-v
+        $TERMINALS) ydotool key 29:1 42:1 47:1 47:0 42:0 29:0 ;; # C-S-v
         *) ydotool key 29:1 47:1 47:0 29:0 ;; # C-v
     esac
     ;;
