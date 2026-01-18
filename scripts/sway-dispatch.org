@@ -1,0 +1,71 @@
+#+TITLE: Sway dispatch
+#+AUTHOR: Rafael Ito
+#+PROPERTY: header-args :tangle sway-dispatch.sh
+#+DESCRIPTION: script meant to work the same way of xremap in respect to sending different keypresses according to the focused application
+#+STARTUP: showeverything
+#+auto_tangle: t
+
+* Table of Contents :toc_3:
+- [[#header][Header]]
+- [[#change-focus][Change focus]]
+  - [[#emacs][Emacs]]
+  - [[#default][Default]]
+
+* Header :noexport_1:
+** Shebang
+#+begin_src sh
+#!/usr/bin/env bash
+#+end_src
+** Help menu
+#+begin_src sh
+# Usage:
+# ./smart_dispatch.sh focus left
+# ./smart_dispatch.sh type symbol
+# ./smart_dispatch.sh launch
+#+end_src
+** Parse parameters
+#+begin_src sh
+COMMAND="$1"
+PARAM="$2"
+
+# get the app_id of the focused window
+# some XWayland apps might have null app_id, so we fallback to window_properties.class if needed
+FOCUSED_APP=$(swaymsg -t get_tree | jq -r '.. | select(.focused? == true) | if .app_id then .app_id else .window_properties.class end')
+#+end_src
+** Dispatcher
+#+begin_src sh
+case "$COMMAND" in
+#+end_src
+* Change focus
+:PROPERTIES:
+:header-args: :tangle sway-dispatch.sh :padline no
+:END:
+#+begin_src sh :padline yes
+"focus")
+    DIRECTION="$PARAM"
+    case "$FOCUSED_APP" in
+#+end_src
+** Emacs
+#+begin_src sh
+[Ee]macs*)
+    case "$DIRECTION" in
+        "left")  ydotool key 29:1 17:1 17:0 29:0 29:1 35:1 35:0 29:0 ;; # C-w C-h
+        "down")  ydotool key 29:1 17:1 17:0 29:0 29:1 36:1 36:0 29:0 ;; # C-w C-j
+        "up")    ydotool key 29:1 17:1 17:0 29:0 29:1 37:1 37:0 29:0 ;; # C-w C-k
+        "right") ydotool key 29:1 17:1 17:0 29:0 29:1 38:1 38:0 29:0 ;; # C-w C-l
+    esac
+    ;;
+#+end_src
+** Default
+#+begin_src sh
+*) swaymsg focus "$DIRECTION" ;;
+#+end_src
+** EoS :noexport:
+#+begin_src sh
+esac
+;;
+#+end_src
+* EoS :noexport:
+#+begin_src sh
+esac
+#+end_src
