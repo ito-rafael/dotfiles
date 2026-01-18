@@ -8,11 +8,9 @@
 * Table of Contents :toc_3:
 - [[#header][Header]]
 - [[#change-focus][Change focus]]
+- [[#kill-window][Kill window]]
   - [[#emacs][Emacs]]
   - [[#default][Default]]
-- [[#kill-window][Kill window]]
-  - [[#emacs-1][Emacs]]
-  - [[#default-1][Default]]
 
 * Header :noexport_1:
 ** Shebang
@@ -40,33 +38,28 @@ FOCUSED_APP=$(swaymsg -t get_tree | jq -r '.. | select(.focused? == true) | if .
 case "$COMMAND" in
 #+end_src
 * Change focus
-:PROPERTIES:
-:header-args: :tangle sway-dispatch.sh :padline no
-:END:
-#+begin_src sh :padline yes
+#+begin_src sh
 "focus")
     DIRECTION="$PARAM"
     case "$FOCUSED_APP" in
-#+end_src
-** Emacs
-#+begin_src sh
-[Ee]macs*) emacsclient -s efs --eval "(evil-window-$DIRECTION 1)" > /dev/null 2>&1 ;;
-#+end_src
-** Default
-#+begin_src sh
-*) swaymsg focus "$DIRECTION" ;;
-#+end_src
-** EoS :noexport:
-#+begin_src sh
-esac
-;;
+        [Ee]macs*) emacsclient -s efs --eval "(evil-window-$DIRECTION 1)" > /dev/null 2>&1 ;;
+        ,*) swaymsg focus "$DIRECTION" ;;
+    esac
+    ;;
 #+end_src
 * Kill window
+#+begin_src sh
+"kill")
+    case "$FOCUSED_APP" in
+        [Ee]macs*) emacsclient -s efs --eval "(evil-window-delete)" > /dev/null 2>&1 ;;
+        ,*) "$HOME/.config/scripts/hide-or-kill.sh" ;;
+    esac
+    ;;
+#+end_src
 :PROPERTIES:
 :header-args: :tangle sway-dispatch.sh :padline no
 :END:
 #+begin_src sh
-"kill")
     case "$FOCUSED_APP" in
 #+end_src
 ** Emacs
