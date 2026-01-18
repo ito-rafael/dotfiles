@@ -10,6 +10,9 @@
 - [[#change-focus][Change focus]]
   - [[#emacs][Emacs]]
   - [[#default][Default]]
+- [[#kill-window][Kill window]]
+  - [[#emacs-1][Emacs]]
+  - [[#default-1][Default]]
 
 * Header :noexport_1:
 ** Shebang
@@ -54,6 +57,27 @@ case "$COMMAND" in
 *) swaymsg focus "$DIRECTION" ;;
 #+end_src
 ** EoS :noexport:
+#+begin_src sh
+esac
+;;
+#+end_src
+* Kill window
+:PROPERTIES:
+:header-args: :tangle sway-dispatch.sh :padline no
+:END:
+#+begin_src sh
+"kill")
+    case "$FOCUSED_APP" in
+#+end_src
+** Emacs
+#+begin_src sh
+[Ee]macs*) emacsclient -s efs --eval "(evil-window-delete)" > /dev/null 2>&1 ;;
+#+end_src
+** Default
+#+begin_src sh
+*) "$HOME/.config/scripts/hide-or-kill.sh" ;;
+#+end_src
+** Eos :noexport:
 #+begin_src sh
 esac
 ;;

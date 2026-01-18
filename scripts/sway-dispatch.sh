@@ -21,5 +21,11 @@ case "$COMMAND" in
     *) swaymsg focus "$DIRECTION" ;;
     esac
     ;;
+"kill")
+    case "$FOCUSED_APP" in
+    [Ee]macs*) emacsclient -s efs --eval "(evil-window-delete)" >/dev/null 2>&1 ;;
+    *) "$HOME/.config/scripts/hide-or-kill.sh" ;;
+    esac
+    ;;
 
 esac
