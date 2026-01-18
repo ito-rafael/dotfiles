@@ -13,6 +13,7 @@
   - [[#cut][Cut]]
   - [[#copy][Copy]]
   - [[#paste][Paste]]
+- [[#fullscreen][Fullscreen]]
 
 * Header :noexport_1:
 ** Shebang
@@ -106,6 +107,15 @@ case "$COMMAND" in
         [Ee]macs*) emacsclient -s efs --eval "(evil-paste-before)" > /dev/null 2>&1 ;;
         $TERMINALS) ydotool key 29:1 42:1 47:1 47:0 42:0 29:0 ;; # C-S-v
         *) ydotool key 29:1 47:1 47:0 29:0 ;; # C-v
+    esac
+    ;;
+#+end_src
+* Fullscreen
+#+begin_src sh
+"fullscreen")
+    case "$FOCUSED_APP" in
+        [Ee]macs*) emacsclient -s efs --eval "(zoom-window-zoom)" > /dev/null 2>&1 ;;
+        *) swaymsg fullscreen toggle ;;
     esac
     ;;
 #+end_src

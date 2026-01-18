@@ -64,4 +64,11 @@ case "$COMMAND" in
     esac
     ;;
 
+"fullscreen")
+    case "$FOCUSED_APP" in
+    [Ee]macs*) emacsclient -s efs --eval "(zoom-window-zoom)" >/dev/null 2>&1 ;;
+    *) swaymsg fullscreen toggle ;;
+    esac
+    ;;
+
 esac
