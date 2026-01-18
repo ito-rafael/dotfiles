@@ -29,11 +29,18 @@ case "$COMMAND" in
     esac
     ;;
 
+"cut")
+    case "$FOCUSED_APP" in
+    kitty) ydotool key 29:1 42:1 45:1 45:0 42:0 29:0 ;; # C-S-x
+    *) ydotool key 29:1 45:1 45:0 29:0 ;;               # C-x
+    esac
+    ;;
+
 "copy")
     case "$FOCUSED_APP" in
     [Ee]macs*) emacsclient -s efs --eval "(evil-yank)" >/dev/null 2>&1 ;;
-    kitty) ydotool 29:1 42:1 46:1 46:0 42:0 29:0 ;; # C-S-c
-    *) ydotool 29:1 46:1 46:0 29:0 ;;               # C-c
+    kitty) ydotool key 29:1 42:1 46:1 46:0 42:0 29:0 ;; # C-S-c
+    *) ydotool key 29:1 46:1 46:0 29:0 ;;               # C-c
     esac
     ;;
 esac
