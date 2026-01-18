@@ -9,8 +9,10 @@
 - [[#header][Header]]
 - [[#change-focus][Change focus]]
 - [[#kill-window][Kill window]]
-- [[#copypastecut][Copy/Paste/Cut]]
+- [[#cutcopypaste][Cut/Copy/Paste]]
+  - [[#cut][Cut]]
   - [[#copy][Copy]]
+  - [[#paste][Paste]]
 
 * Header :noexport_1:
 ** Shebang
@@ -56,20 +58,35 @@ case "$COMMAND" in
     esac
     ;;
 #+end_src
-* Copy/Paste/Cut
+* Cut/Copy/Paste
+** Cut
+#+begin_src sh
+"cut")
+    case "$FOCUSED_APP" in
+        kitty) ydotool key 29:1 42:1 45:1 45:0 42:0 29:0 ;; # C-S-x
+        *) ydotool key 29:1 45:1 45:0 29:0 ;; # C-x
+    esac
+    ;;
+#+end_src
 ** Copy
 #+begin_src sh
 "copy")
     case "$FOCUSED_APP" in
         [Ee]macs*) emacsclient -s efs --eval "(evil-yank)" > /dev/null 2>&1 ;;
-        kitty) ydotool 29:1 42:1 46:1 46:0 42:0 29:0 ;; # C-S-c
-        *) ydotool 29:1 46:1 46:0 29:0 ;; # C-c
+        kitty) ydotool key 29:1 42:1 46:1 46:0 42:0 29:0 ;; # C-S-c
+        *) ydotool key 29:1 46:1 46:0 29:0 ;; # C-c
     esac
     ;;
 #+end_src
+** Paste
 #+begin_src sh
-#+end_src
-#+begin_src sh
+"paste")
+    case "$FOCUSED_APP" in
+        [Ee]macs*) emacsclient -s efs --eval "(evil-paste-before)" > /dev/null 2>&1 ;;
+        kitty) ydotool key 29:1 42:1 47:1 47:0 42:0 29:0 ;; # C-S-v
+        *) ydotool key 29:1 47:1 47:0 29:0 ;; # C-v
+    esac
+    ;;
 #+end_src
 * EoS :noexport:
 #+begin_src sh

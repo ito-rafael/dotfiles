@@ -43,4 +43,13 @@ case "$COMMAND" in
     *) ydotool key 29:1 46:1 46:0 29:0 ;;               # C-c
     esac
     ;;
+
+"paste")
+    case "$FOCUSED_APP" in
+    [Ee]macs*) emacsclient -s efs --eval "(evil-paste-before)" >/dev/null 2>&1 ;;
+    kitty) ydotool key 29:1 42:1 47:1 47:0 42:0 29:0 ;; # C-S-v
+    *) ydotool key 29:1 47:1 47:0 29:0 ;;               # C-v
+    esac
+    ;;
+
 esac
