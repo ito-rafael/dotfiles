@@ -17,14 +17,7 @@ case "$COMMAND" in
 "focus")
     DIRECTION="$PARAM"
     case "$FOCUSED_APP" in
-    [Ee]macs*)
-        case "$DIRECTION" in
-        "left") ydotool key 29:1 17:1 17:0 29:0 29:1 35:1 35:0 29:0 ;;  # C-w C-h
-        "down") ydotool key 29:1 17:1 17:0 29:0 29:1 36:1 36:0 29:0 ;;  # C-w C-j
-        "up") ydotool key 29:1 17:1 17:0 29:0 29:1 37:1 37:0 29:0 ;;    # C-w C-k
-        "right") ydotool key 29:1 17:1 17:0 29:0 29:1 38:1 38:0 29:0 ;; # C-w C-l
-        esac
-        ;;
+    [Ee]macs*) emacsclient -s efs --eval "(evil-window-$DIRECTION 1)" >/dev/null 2>&1 ;;
     *) swaymsg focus "$DIRECTION" ;;
     esac
     ;;
