@@ -184,6 +184,7 @@ bindsym --release Shift+mod1+$mod+f fullscreen toggle
 bindsym $mod+b floating toggle
 #bindsym mod1+$mod+q exec $SCRIPT_PATH/hide-or-kill.sh
 #bindsym shift+mod1+$mod+q exec $SCRIPT_PATH/kill-window.sh
+bindsym --release mod1+$mod+q exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh kill
 bindsym --release shift+mod1+$mod+q exec $SCRIPT_PATH/kill-window.sh
 
 bindsym mod1+$mod+c exec ~/.config/sway/i3bang.rb; reload
