@@ -1512,6 +1512,18 @@ for_window [$prop="showmethekey-gtk"] {
 }
 for_window [$prop="one.alynx.showmethekey"] floating enable
 #+end_src
+*** lan-mouse
+Proxy window used to lose main window focus when switching from sender to receiving end with lan-mouse (software switch KVM).
+#+begin_src conf :noweb-ref sway-screencast
+for_window [app_id="edge_bottom" title="pixel.png"] {
+    floating enable
+    sticky enable
+    resize set 100 ppt 1 px
+    move position 0 1079
+    opacity 0.0
+    border none
+}
+#+end_src
 ** Tangle :noexport:
 *** i3
 #+begin_src conf :noweb yes :tangle _config_i3
