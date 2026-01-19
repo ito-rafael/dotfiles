@@ -67,7 +67,7 @@ case "$COMMAND" in
     DIRECTION="$PARAM"
     case "$FOCUSED_APP" in
         [Ee]macs*) emacsclient -s efs --eval "(evil-window-$DIRECTION 1)" > /dev/null 2>&1 ;;
-        ,*) swaymsg focus "$DIRECTION" ;;
+        *) swaymsg focus "$DIRECTION" ;;
     esac
     ;;
 #+end_src
@@ -76,7 +76,7 @@ case "$COMMAND" in
 "kill")
     case "$FOCUSED_APP" in
         [Ee]macs*) emacsclient -s efs --eval "(evil-window-delete)" > /dev/null 2>&1 ;;
-        ,*) "$HOME/.config/scripts/hide-or-kill.sh" ;;
+        *) "$HOME/.config/scripts/hide-or-kill.sh" ;;
     esac
     ;;
 #+end_src
@@ -86,7 +86,7 @@ case "$COMMAND" in
 "cut")
     case "$FOCUSED_APP" in
         $TERMINALS) ydotool key 29:1 42:1 45:1 45:0 42:0 29:0 ;; # C-S-x
-        *) ydotool key 29:1 45:1 45:0 29:0 ;; # C-x
+        ,*) ydotool key 29:1 45:1 45:0 29:0 ;; # C-x
     esac
     ;;
 #+end_src
