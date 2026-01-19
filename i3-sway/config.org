@@ -29,6 +29,7 @@
 
 * General config
 ** Modifiers
+|----------+--------------------------------|
 | modifier | keys                           |
 |----------+--------------------------------|
 | Shift    | Shift_L, Shift_R, Henkan       |
@@ -38,6 +39,7 @@
 | Mod2     | Num_Lock                       |
 | Mod3     | Super_R                        |
 | Mod4     | Super_L                        |
+|----------+--------------------------------|
 #+begin_src conf :noweb-ref general
 set $alt Mod1
 set $mod Mod4
@@ -198,7 +200,8 @@ set $tertiary  HDMI2
 #+begin_src conf :noweb-ref sway-output-default
 set $laptop    eDP-1
 set $primary   HDMI-A-1
-set $secondary HDMI3
+#set $secondary HDMI3
+set $secondary DP-1
 set $tertiary  VGA1
 #+end_src
 *** Set resolution
