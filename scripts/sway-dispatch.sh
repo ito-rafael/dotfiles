@@ -36,7 +36,7 @@ case "$COMMAND" in
 
 "kill")
     case "$FOCUSED_APP" in
-    [Ee]macs*) emacsclient -s efs --eval "(evil-window-delete)" >/dev/null 2>&1 ;;
+    [Ee]macs*) emacsclient -s efs --eval "(evil-quit)" >/dev/null 2>&1 ;;
     *) "$HOME/.config/scripts/hide-or-kill.sh" ;;
     esac
     ;;
