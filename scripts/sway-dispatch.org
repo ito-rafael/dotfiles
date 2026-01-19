@@ -14,6 +14,7 @@
   - [[#copy][Copy]]
   - [[#paste][Paste]]
 - [[#fullscreen][Fullscreen]]
+- [[#new-terminal][New terminal]]
 
 * Header :noexport_1:
 ** Shebang
@@ -119,6 +120,17 @@ case "$COMMAND" in
     esac
     ;;
 #+end_src
+* New terminal
+#+begin_src sh
+"new_terminal")
+    case "$FOCUSED_APP" in
+        [Ee]macs*) emacsclient -n -s efs --eval "(progn (split-window-autotiling) (other-window 1) (counsel-find-file))" > /dev/null 2>&1 ;;
+        *) kitty ;;
+    esac
+    ;;
+#+end_src
+(global-set-key (kbd "M-s-g") '(lambda () (interactive) (split-window-autotiling) (other-window 1) (counsel-find-file)))
+
 * EoS :noexport:
 #+begin_src sh
 esac

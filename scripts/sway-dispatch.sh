@@ -71,4 +71,11 @@ case "$COMMAND" in
     esac
     ;;
 
+"new_terminal")
+    case "$FOCUSED_APP" in
+    [Ee]macs*) emacsclient -n -s efs --eval "(progn (split-window-autotiling) (other-window 1) (counsel-find-file))" >/dev/null 2>&1 ;;
+    *) kitty ;;
+    esac
+    ;;
+
 esac
