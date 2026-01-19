@@ -43,6 +43,7 @@ case "$COMMAND" in
 
 "cut")
     case "$FOCUSED_APP" in
+    [Ee]macs*) emacsclient -s efs --eval "(execute-extended-command)" >/dev/null 2>&1 ;;
     $TERMINALS) ydotool key 29:1 42:1 45:1 45:0 42:0 29:0 ;; # C-S-x
     *) ydotool key 29:1 45:1 45:0 29:0 ;;                    # C-x
     esac
