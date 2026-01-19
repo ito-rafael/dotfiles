@@ -203,7 +203,7 @@ set $primary   HDMI-A-1
 #set $secondary HDMI3
 #set $tertiary  VGA1
 set $secondary DP-1
-set $secondary DVI-I-1
+set $tertiary DVI-I-1
 #+end_src
 *** Set resolution
 **** i3
