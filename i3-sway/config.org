@@ -859,6 +859,7 @@ bindsym --release F18 exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh paste
 ** Terminal
 #+begin_src conf :noweb-ref keybindings
 bindsym $mod+g exec kitty
+bindsym --release mod1+$mod+g exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh new_terminal
 #bindsym mod1+$mod+g exec kitty
 #bindsym $mod+g exec i3-sensible-terminal
 #bindsym mod1+$mod+g exec i3-sensible-terminal
