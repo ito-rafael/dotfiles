@@ -1524,7 +1524,7 @@ for_window [app_id="edge_bottom" title="pixel.png"] {
     opacity 0.0
     border none
 }
-exec swayimg ~/.config/sway/pixel.png --class="edge_bottom"
+exec swayimg ~/.config/swayimg/pixel.png --class="edge_bottom"
 #+end_src
 ** Tangle :noexport:
 *** i3
