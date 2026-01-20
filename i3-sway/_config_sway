@@ -409,6 +409,7 @@ for_window [app_id="edge_bottom" title="pixel.png"] {
     opacity 0.0
     border none
 }
+exec swayimg ~/.config/sway/pixel.png --class="edge_bottom"
 
 exec --no-startup-id kitty --class="dropdown_terminal" -o font_size=14 -o include=$XDG_CONFIG_HOME/kitty/themes/terminal.conf -o background_opacity=0.85
 bindsym $mod+n exec "$SCRIPT_PATH/show-or-launch.sh dropdown_terminal 0.75 0.75"
