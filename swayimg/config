@@ -1,0 +1,7 @@
+[info]
+# hide text
+show = no
+
+[viewer]
+# prevents the grey box
+window = #00000000
