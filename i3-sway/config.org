@@ -937,6 +937,11 @@ bindsym $alt+ctrl+n exec i3-msg -t get_tree | jq -re '.. | select(type == "objec
 #+begin_src conf :noweb-ref sway-wlprop
 bindsym $alt+ctrl+n exec "$SCRIPT_PATH/wlprop.sh focused"
 #+end_src
+** Others
+#+begin_src conf :noweb-ref keybindings
+# change host focus with switch KVM
+bindsym --release $mod+m exec $XDG_CONFIG_HOME/scripts/lanmouse-switch.sh
+#+end_src
 ** Tangle :noexport:
 *** i3
 #+begin_src conf :noweb yes :tangle _config_i3
