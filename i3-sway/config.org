@@ -611,10 +611,10 @@ Deprecated. Moved to xremap (and Emacs) config.
 #bindsym $mod+Down  focus down
 #bindsym $mod+Up    focus up
 #bindsym $mod+Right focus right
-bindsym --release $mod+Left  exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh focus left
-bindsym --release $mod+Down  exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh focus down
-bindsym --release $mod+Up    exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh focus up
-bindsym --release $mod+Right exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh focus right
+bindsym $mod+Left  exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh focus left
+bindsym $mod+Down  exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh focus down
+bindsym $mod+Up    exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh focus up
+bindsym $mod+Right exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh focus right
 #+end_src
 ** Move window
 #+begin_src conf :noweb-ref window-settings
@@ -661,8 +661,8 @@ Enter fullscreen mode for the focused container.
 #+begin_src conf :noweb-ref window-settings
 #bindsym mod1+$mod+f fullscreen toggle
 #bindsym Shift+mod1+$mod+f fullscreen toggle
-bindsym --release mod1+$mod+f exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh fullscreen
-bindsym --release Shift+mod1+$mod+f fullscreen toggle
+bindsym mod1+$mod+f exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh fullscreen
+bindsym Shift+mod1+$mod+f fullscreen toggle
 #+end_src
 *** Tiling/Floating
 Toggle between tiling/floating window.
@@ -674,8 +674,8 @@ Kill focused window, unless it's a scratchpad. Check the [[https://github.com/it
 #+begin_src conf :noweb-ref window-settings
 #bindsym mod1+$mod+q exec $SCRIPT_PATH/hide-or-kill.sh
 #bindsym shift+mod1+$mod+q exec $SCRIPT_PATH/kill-window.sh
-bindsym --release mod1+$mod+q exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh kill
-bindsym --release shift+mod1+$mod+q exec $SCRIPT_PATH/kill-window.sh
+bindsym mod1+$mod+q exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh kill
+bindsym shift+mod1+$mod+q exec $SCRIPT_PATH/kill-window.sh
 #+end_src
 ** Tangle :noexport:
 *** i3
@@ -847,9 +847,9 @@ bindsym ctrl+mod1+3 move workspace to output $tertiary;  focus output $tertiary
 * Custom keybindings
 ** Cut/Copy/Paste
 #+begin_src conf :noweb-ref keybindings
-bindsym --release F16 exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh cut
-bindsym --release F17 exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh copy
-bindsym --release F18 exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh paste
+bindsym F16 exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh cut
+bindsym F17 exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh copy
+bindsym F18 exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh paste
 #+end_src
 ** Applications
 #+begin_src conf :noweb-ref keybindings
@@ -864,7 +864,7 @@ bindsym --release F18 exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh paste
 ** Terminal
 #+begin_src conf :noweb-ref keybindings
 bindsym $mod+g exec kitty
-bindsym --release mod1+$mod+g exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh new_terminal
+bindsym mod1+$mod+g exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh new_terminal
 #bindsym mod1+$mod+g exec kitty
 #bindsym $mod+g exec i3-sensible-terminal
 #bindsym mod1+$mod+g exec i3-sensible-terminal
