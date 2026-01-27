@@ -177,7 +177,6 @@ alias j=joplin                                  # joplin
 alias k=kill                                    # kill
 alias h=history                                 # history
 alias hg='history | grep'                       # history + grep
-alias j='journalctl -u'                         # journalctl
 alias r=ranger                                  # ranger
 alias -g g='| grep'                             # grep
 #alias |v='| vim -'                             # pipe to vim
@@ -207,6 +206,9 @@ alias ssh='kitten ssh --kitten=color_scheme=themes/ssh.conf'
 alias cmd='command'
 function cv() { cat $1 | vim - }
 #-----------------------------
+# journalctl
+alias j='journalctl -u'                    # journalctl
+alias jf='journalctl --follow -u'          # journalctl follow
 # network
 alias p1='ping 192.168.0.'                         # ping local IP
 alias pl='ping 192.168.0.'                         # ping local IP
