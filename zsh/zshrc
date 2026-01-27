@@ -182,10 +182,6 @@ alias -g g='| grep'                             # grep
 #alias |v='| vim -'                             # pipe to vim
 alias df='df -h'                                # df
 alias cpr='cp -R'                               # cp recursive
-alias wt='watch -n 1'                           # watch
-alias wtc='watch -n 1 "cat '                    # watch "cat"
-alias wtl='watch -n 1 "ls '                     # watch "ls"
-alias wtp='watch -n 1 "ps aux | grep '          # watch "ps aux"
 alias psa='ps aux'                              # ps aux
 alias psag='ps aux | grep'                      # ps aux | grep
 alias {chx,cx}='chmod +x'                       # chmod
@@ -211,6 +207,13 @@ alias j='journalctl -u'                    # journalctl
 alias jf='journalctl --follow -u'          # journalctl follow
 alias ju='journalctl --user -u'            # journalctl user
 alias jfu='journalctl --user --follow -u'  # journalctl user follow
+#-----------------------------
+# watch
+alias wt='watch -n 1'                   # watch
+alias wtc='watch -n 1 "cat '            # watch "cat"
+alias wtl='watch -n 1 "ls '             # watch "ls"
+alias wtp='watch -n 1 "ps aux | grep '  # watch "ps aux"
+#-----------------------------
 # network
 alias p1='ping 192.168.0.'                         # ping local IP
 alias pl='ping 192.168.0.'                         # ping local IP
