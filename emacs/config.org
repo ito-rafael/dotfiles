@@ -780,6 +780,11 @@ https://github.com/Yevgnen/ivy-rich
   :init
   (ivy-rich-mode 1))
 #+end_src
+** Swiper
+Ivy-enhanced alternative to Isearch.
+#+begin_src emacs-lisp
+(use-package swiper)
+#+end_src
 ** Counsel
 Collection of Ivy-enhanced versions of common Emacs commands.
 #+begin_src emacs-lisp
