@@ -210,6 +210,7 @@ function cv() { cat $1 | vim - }
 alias j='journalctl -u'                    # journalctl
 alias jf='journalctl --follow -u'          # journalctl follow
 alias ju='journalctl --user -u'            # journalctl user
+alias jfu='journalctl --user --follow -u'  # journalctl user follow
 # network
 alias p1='ping 192.168.0.'                         # ping local IP
 alias pl='ping 192.168.0.'                         # ping local IP
