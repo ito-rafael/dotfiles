@@ -890,7 +890,7 @@ https://github.com/bbatsov/projectile
 Integration with Ivy/Counsel.
 #+begin_src emacs-lisp
 (use-package counsel-projectile
-  :after projectile
+  :after (counsel projectile)
   :config (counsel-projectile-mode))
 #+end_src
 * Magit
