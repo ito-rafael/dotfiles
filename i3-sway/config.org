@@ -1835,6 +1835,11 @@ Create file to track status of Caps Lock (used by status bar).
 #+begin_src conf :noweb-ref sway-capslock
 exec echo 0 > /tmp/capslock_status.tmp
 #+end_src
+** xremap mode
+Create file to track xremap's mode (used by status bar).
+#+begin_src conf :noweb-ref sway-capslock
+exec echo "default" > /tmp/xremap_mode.tmp
+#+end_src
 ** KMonad status
 (deprecated) +Create file to track KMonad service status (used by status bar).+
 #+begin_src conf :noweb-ref sway-kmonad
