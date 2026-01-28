@@ -280,17 +280,17 @@ Git repo: [[https://github.com/progfolio/elpaca][Elpaca]]
     (kbd "<f13> U") (lambda () (interactive) (insert "Ú"))
     (kbd "<f13> C") (lambda () (interactive) (insert "Ç"))
     ; misc lowercase
-    (kbd "<f13> n") (lambda () (interactive) (insert "'n"))
-    (kbd "<f13> m") (lambda () (interactive) (insert "'m"))
-    (kbd "<f13> r") (lambda () (interactive) (insert "'r"))
-    (kbd "<f13> s") (lambda () (interactive) (insert "'s"))
-    (kbd "<f13> t") (lambda () (interactive) (insert "'t"))
+    (kbd "<f13> n") (lambda () (interactive) (insert "'n "))
+    (kbd "<f13> m") (lambda () (interactive) (insert "'m "))
+    (kbd "<f13> r") (lambda () (interactive) (insert "'r "))
+    (kbd "<f13> s") (lambda () (interactive) (insert "'s "))
+    (kbd "<f13> t") (lambda () (interactive) (insert "'t "))
     ; misc upperrcase
-    (kbd "<f13> N") (lambda () (interactive) (insert "'N"))
-    (kbd "<f13> M") (lambda () (interactive) (insert "'M"))
-    (kbd "<f13> R") (lambda () (interactive) (insert "'R"))
-    (kbd "<f13> S") (lambda () (interactive) (insert "'S"))
-    (kbd "<f13> T") (lambda () (interactive) (insert "'T")))
+    (kbd "<f13> N") (lambda () (interactive) (insert "'N "))
+    (kbd "<f13> M") (lambda () (interactive) (insert "'M "))
+    (kbd "<f13> R") (lambda () (interactive) (insert "'R "))
+    (kbd "<f13> S") (lambda () (interactive) (insert "'S "))
+    (kbd "<f13> T") (lambda () (interactive) (insert "'T ")))
 
   ; Shift-F13
   (evil-define-key nil evil-insert-state-map
@@ -319,6 +319,7 @@ Git repo: [[https://github.com/progfolio/elpaca][Elpaca]]
     (kbd "S-<f13> x") (lambda () (interactive) (insert "~/.config/xremap/"))
     (kbd "S-<f13> w") (lambda () (interactive) (insert "~/.config/waybar/"))
     (kbd "S-<f13> z") (lambda () (interactive) (insert "~/.config/zsh/")))
+
   ;; minibuffer
   (evil-define-key 'insert minibuffer-local-map
     (kbd "<escape>") 'keyboard-escape-quit
