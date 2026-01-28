@@ -652,9 +652,8 @@ label:focus {
 ** lan-mouse
 #+begin_src css
 #custom-xremap-mode.lan-mouse {
-    //color: lightgray;
-    //background: rgba(255, 0, 0, 0.5);
-    color: rgba(255, 0, 0, 0.5);
+    color: lightgray;
+    background: rgba(255, 0, 0, 0.5);
 }
 #+end_src
 ** Hover
