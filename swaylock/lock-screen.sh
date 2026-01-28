@@ -37,12 +37,19 @@ brightnessctl --quiet set 10%
 #-----------------------------
 # screen locking
 #-----------------------------
+
+# lock remote screen, if any
+ssh ipf "export SWAYSOCK=\$(ls /run/user/$(id -u)/sway-ipc.*.sock | head -n 1); swaymsg exec $XDG_CONFIG_HOME/swaylock/lock-screen.sh" &
+
 # lock screen
 swaylock --config $XDG_CONFIG_HOME/swaylock/config
 
 #-----------------------------
 # after screen unlocking
 #-----------------------------
+
+# unlock remote screen, if any
+ssh ipf "export SWAYSOCK=\$(ls /run/user/$(id -u)/sway-ipc.*.sock | head -n 1); pkill -USR1 swaylock" &
 
 # restore previous screen brightness
 brightnessctl --quiet --restore
