@@ -39,6 +39,7 @@
   - [[#samsung][Samsung]]
 - [[#caps-lock][Caps Lock]]
 - [[#mouse-warping][Mouse warping]]
+- [[#xremap-mode][xremap mode]]
 - [[#dunst][Dunst]]
 - [[#pacman][Pacman]]
 - [[#kmonad][KMonad]]
@@ -632,6 +633,28 @@ label:focus {
 #+begin_src css
 #custom-mouse-warping.enabled {
     color: lightgray;
+}
+#+end_src
+** Hover
+#+begin_src css
+#custom-mouse-warping:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+#+end_src
+* xremap mode :noexport_1:
+** default
+#+begin_src css
+#custom-xremap-mode.default {
+    color: gray;
+}
+#+end_src
+** lan-mouse
+#+begin_src css
+#custom-xremap-mode.lan-mouse {
+    //color: lightgray;
+    //background: rgba(255, 0, 0, 0.5);
+    color: rgba(255, 0, 0, 0.5);
 }
 #+end_src
 ** Hover

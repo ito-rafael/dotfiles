@@ -412,6 +412,21 @@ label:focus {
     transition: background 0.3s ease;
 }
 
+#custom-xremap-mode.default {
+    color: gray;
+}
+
+#custom-xremap-mode.lan-mouse {
+    //color: lightgray;
+    //background: rgba(255, 0, 0, 0.5);
+    color: rgba(255, 0, 0, 0.5);
+}
+
+#custom-mouse-warping:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+
 #custom-dunst.disabled {
     color: gray;
 }
