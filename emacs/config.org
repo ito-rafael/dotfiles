@@ -777,7 +777,7 @@ Add descriptions and keybindings to M-x commands.
 https://github.com/Yevgnen/ivy-rich
 #+begin_src emacs-lisp
 (use-package ivy-rich
-  :after ivy
+  :after (ivy counsel)
   :init
   (ivy-rich-mode 1))
 #+end_src
