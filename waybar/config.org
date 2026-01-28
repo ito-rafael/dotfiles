@@ -37,6 +37,7 @@
 - [[#caps-lock][Caps Lock]]
 - [[#caps-lock-1][Caps Lock]]
 - [[#mouse-warping][Mouse warping]]
+- [[#xremap-mode][xremap mode]]
 - [[#dunst][Dunst]]
 - [[#pacman][Pacman]]
 - [[#kmonad][KMonad]]
@@ -66,6 +67,7 @@
     "custom/vpn-unicamp",
     "custom/vpn-lbic",
     "custom/vpn-samsung",
+    "custom/xremap-mode",
     "custom/scratchpad-translate",
     "custom/scratchpad-llm",
     "custom/scratchpad-calendar",
@@ -448,6 +450,19 @@
         "enabled": "<span color=\"#090\"></span>",
         "disabled": "<span color=\"#F00\"></span>",
     },
+},
+#+end_src
+* xremap mode
+#+begin_src js
+"custom/xremap-mode": {
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/xremap-mode.sh monitor",
+    "on-click": "~/.config/waybar/scripts/xremap-mode.sh toggle",
+    "format": " {} {icon} ",
+    //"format-icons": {
+    //    "default": "<span color=\"#090\"></span>",
+    //    "lan-mouse": "<span color=\"#F00\"></span>",
+    //},
 },
 #+end_src
 * Dunst

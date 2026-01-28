@@ -10,6 +10,7 @@
     "custom/vpn-unicamp",
     "custom/vpn-lbic",
     "custom/vpn-samsung",
+    "custom/xremap-mode",
     "custom/scratchpad-translate",
     "custom/scratchpad-llm",
     "custom/scratchpad-calendar",
@@ -306,6 +307,17 @@
         "enabled": "<span color=\"#090\"></span>",
         "disabled": "<span color=\"#F00\"></span>",
     },
+},
+
+"custom/xremap-mode": {
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/xremap-mode.sh monitor",
+    "on-click": "~/.config/waybar/scripts/xremap-mode.sh toggle",
+    "format": " {} {icon} ",
+    //"format-icons": {
+    //    "default": "<span color=\"#090\"></span>",
+    //    "lan-mouse": "<span color=\"#F00\"></span>",
+    //},
 },
 
 "custom/dunst": {
