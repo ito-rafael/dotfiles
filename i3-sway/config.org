@@ -818,10 +818,14 @@ bindsym shift+mod3+Up  workspace prev_on_output
 #+end_src
 ** Navigate among monitors
 #+begin_src conf :noweb-ref ws-navigation
-bindsym shift+mod3+Left  focus output left
-bindsym Ctrl+$mod+Left   focus output left
-bindsym shift+mod3+Right focus output right
-bindsym Ctrl+$mod+Right  focus output right
+#bindsym shift+mod3+Left  focus output left
+#bindsym Ctrl+$mod+Left   focus output left
+#bindsym shift+mod3+Right focus output right
+#bindsym Ctrl+$mod+Right  focus output right
+bindsym shift+mod3+Left  exec "$XDG_CONFIG_HOME/scripts/sway-dispatch.sh focus_output left"
+bindsym Ctrl+$mod+Left   exec "$XDG_CONFIG_HOME/scripts/sway-dispatch.sh focus_output left"
+bindsym shift+mod3+Right exec "$XDG_CONFIG_HOME/scripts/sway-dispatch.sh focus_output right"
+bindsym Ctrl+$mod+Right  exec "$XDG_CONFIG_HOME/scripts/sway-dispatch.sh focus_output right"
 #+end_src
 ** Move container among monitors
 *** Arrows
