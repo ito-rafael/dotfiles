@@ -940,7 +940,7 @@ bindsym $alt+ctrl+n exec "$SCRIPT_PATH/wlprop.sh focused"
 ** Others
 #+begin_src conf :noweb-ref keybindings
 # change host focus with switch KVM
-bindsym --release $mod+m exec $XDG_CONFIG_HOME/scripts/lanmouse-switch.sh
+bindsym --release $mod+m exec "$XDG_CONFIG_HOME/scripts/lanmouse-switch.sh toggle"
 #+end_src
 ** Tangle :noexport:
 *** i3
