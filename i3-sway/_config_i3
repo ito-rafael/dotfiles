@@ -202,10 +202,10 @@ bindsym shift+mod3+Up  workspace prev_on_output
 #bindsym Ctrl+$mod+Left   focus output left
 #bindsym shift+mod3+Right focus output right
 #bindsym Ctrl+$mod+Right  focus output right
-bindsym shift+mod3+Left  exec "$XDG_CONFIG_HOME/scripts/sway-dispatch.sh focus_output left"
-bindsym Ctrl+$mod+Left   exec "$XDG_CONFIG_HOME/scripts/sway-dispatch.sh focus_output left"
-bindsym shift+mod3+Right exec "$XDG_CONFIG_HOME/scripts/sway-dispatch.sh focus_output right"
-bindsym Ctrl+$mod+Right  exec "$XDG_CONFIG_HOME/scripts/sway-dispatch.sh focus_output right"
+bindsym --release shift+mod3+Left  exec "$XDG_CONFIG_HOME/scripts/sway-dispatch.sh focus_output left"
+bindsym --release Ctrl+$mod+Left   exec "$XDG_CONFIG_HOME/scripts/sway-dispatch.sh focus_output left"
+bindsym --release shift+mod3+Right exec "$XDG_CONFIG_HOME/scripts/sway-dispatch.sh focus_output right"
+bindsym --release Ctrl+$mod+Right  exec "$XDG_CONFIG_HOME/scripts/sway-dispatch.sh focus_output right"
 bindsym $mod+shift+mod3+Left  move container to output left;  focus output left
 bindsym $mod+shift+mod3+Right move container to output right; focus output right
 bindsym ctrl+mod1+1 move workspace to output $primary;   focus output $primary
