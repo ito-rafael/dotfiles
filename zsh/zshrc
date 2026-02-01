@@ -412,16 +412,16 @@ alias {rxx,rx}='xmodmap $HOME/.Xmodmap'
 alias rze='source $XDG_CONFIG_HOME/zsh/.zshenv'
 #-----------------------------
 # open config files
+alias bb='vim $XDG_CONFIG_HOME/i3/i3blocks.conf'
+alias ee='vim $XDG_CONFIG_HOME/emacs-efs/config.el'
+alias kk='vim $XDG_CONFIG_HOME/kitty/kitty.conf'
+alias eed='vim $XDG_CONFIG_HOME/emacs-doom/config.el'
+alias pp='vim $XDG_CONFIG_HOME/polybar/config.ini'
 alias vv='vim $XDG_CONFIG_HOME/nvim/init.lua'
+alias xm='vim $HOME/.Xmodmap'
+alias xx='vim $XDG_CONFIG_HOME/xremap/config.yml'
 alias zz='vim $XDG_CONFIG_HOME/zsh/.zshrc'
 alias ze='vim $XDG_CONFIG_HOME/zsh/.zshenv'
-alias kk='vim $XDG_CONFIG_HOME/kitty/kitty.conf'
-alias bb='vim $XDG_CONFIG_HOME/i3/i3blocks.conf'
-alias pp='vim $XDG_CONFIG_HOME/polybar/config.ini'
-alias ee='vim $XDG_CONFIG_HOME/emacs-efs/config.el'
-alias eed='vim $XDG_CONFIG_HOME/emacs-doom/config.el'
-alias xx='vim $XDG_CONFIG_HOME/xremap/config.yml'
-alias xm='vim $HOME/.Xmodmap'
 function ii () {
     case "${XDG_SESSION_TYPE}" in
         "x11") vim $XDG_CONFIG_HOME/i3/_config ;;
@@ -437,15 +437,15 @@ function ii () {
 }
 #-----------------------------
 # open config files in remote PC
-alias lvv='ssh $REMOTE cat $XDG_CONFIG_HOME/nvim/init.lua | vim -'
-alias lzz='ssh $REMOTE cat $XDG_CONFIG_HOME/zsh/.zshrc | vim -'
-alias lze='ssh $REMOTE cat $XDG_CONFIG_HOME/zsh/.zshenv | vim -'
-alias lkk='ssh $REMOTE cat $XDG_CONFIG_HOME/kitty/kitty.conf | vim -'
 alias lbb='ssh $REMOTE cat $XDG_CONFIG_HOME/i3/i3blocks.conf | vim -'
-alias lpp='ssh $REMOTE cat $XDG_CONFIG_HOME/polybar/config.ini | vim -'
 alias lee='ssh $REMOTE cat $XDG_CONFIG_HOME/doom/config.el | vim -'
-alias lxx='ssh $REMOTE cat $XDG_CONFIG_HOME/zsh/.zshrc | vim -'
+alias lkk='ssh $REMOTE cat $XDG_CONFIG_HOME/kitty/kitty.conf | vim -'
+alias lpp='ssh $REMOTE cat $XDG_CONFIG_HOME/polybar/config.ini | vim -'
+alias lvv='ssh $REMOTE cat $XDG_CONFIG_HOME/nvim/init.lua | vim -'
 alias lxm='ssh $REMOTE cat $HOME/.Xmodmap | vim -'
+alias lxx='ssh $REMOTE cat $XDG_CONFIG_HOME/zsh/.zshrc | vim -'
+alias lze='ssh $REMOTE cat $XDG_CONFIG_HOME/zsh/.zshenv | vim -'
+alias lzz='ssh $REMOTE cat $XDG_CONFIG_HOME/zsh/.zshrc | vim -'
 function lii () {
     case "${XDG_SESSION_TYPE}" in
         "x11") ssh $REMOTE cat $XDG_CONFIG_HOME/i3/_config | vim - ;;
@@ -461,15 +461,15 @@ function lii () {
 }
 #-----------------------------
 # diff config files in remote PC
-alias dvv='ssh $REMOTE cat $XDG_CONFIG_HOME/nvim/init.lua | diff - $XDG_CONFIG_HOME/nvim/init.lua'
-alias dzz='ssh $REMOTE cat $XDG_CONFIG_HOME/zsh/.zshrc | diff - $XDG_CONFIG_HOME/zsh/.zshrc'
-alias dze='ssh $REMOTE cat $XDG_CONFIG_HOME/zsh/.zshenv | diff - $XDG_CONFIG_HOME/zsh/.zshenv'
-alias dkk='ssh $REMOTE cat $XDG_CONFIG_HOME/kitty/kitty.conf | diff - $XDG_CONFIG_HOME/kitty/kitty.conf'
 alias dbb='ssh $REMOTE cat $XDG_CONFIG_HOME/i3/i3blocks.conf | diff - $XDG_CONFIG_HOME/i3/i3blocks.conf'
-alias dpp='ssh $REMOTE cat $XDG_CONFIG_HOME/polybar/config.ini | diff - $XDG_CONFIG_HOME/polybar/config.ini'
 alias dee='ssh $REMOTE cat $XDG_CONFIG_HOME/doom/config.el | diff - $XDG_CONFIG_HOME/doom/config.el'
-alias dxx='ssh $REMOTE cat $XDG_CONFIG_HOME/xremap/config.yml | diff - $XDG_CONFIG_HOME/xremap/config.yml'
+alias dkk='ssh $REMOTE cat $XDG_CONFIG_HOME/kitty/kitty.conf | diff - $XDG_CONFIG_HOME/kitty/kitty.conf'
+alias dpp='ssh $REMOTE cat $XDG_CONFIG_HOME/polybar/config.ini | diff - $XDG_CONFIG_HOME/polybar/config.ini'
+alias dvv='ssh $REMOTE cat $XDG_CONFIG_HOME/nvim/init.lua | diff - $XDG_CONFIG_HOME/nvim/init.lua'
 alias dxm='ssh $REMOTE cat $HOME/.Xmodmap | diff - $HOME/.Xmodmap'
+alias dxx='ssh $REMOTE cat $XDG_CONFIG_HOME/xremap/config.yml | diff - $XDG_CONFIG_HOME/xremap/config.yml'
+alias dze='ssh $REMOTE cat $XDG_CONFIG_HOME/zsh/.zshenv | diff - $XDG_CONFIG_HOME/zsh/.zshenv'
+alias dzz='ssh $REMOTE cat $XDG_CONFIG_HOME/zsh/.zshrc | diff - $XDG_CONFIG_HOME/zsh/.zshrc'
 function dii () {
     case "${XDG_SESSION_TYPE}" in
         "x11") ssh $REMOTE cat $XDG_CONFIG_HOME/i3/_config | diff - $XDG_CONFIG_HOME/i3/_config ;;
@@ -485,15 +485,15 @@ function dii () {
 }
 #-----------------------------
 # open config in git repo
-alias gvv='vim $HOME/git/dotfiles/nvim/init.lua'
-alias gzz='vim $HOME/git/dotfiles/zsh/zshrc'
-alias gze='vim $HOME/git/dotfiles/zsh/zshenv'
-alias gkk='vim $HOME/git/dotfiles/kitty/kitty.conf'
 alias gbb='vim $HOME/git/dotfiles/i3/i3blocks.conf'
-alias gpp='vim $HOME/git/dotfiles/polybar/config.ini'
 alias gee='vim $HOME/git/dotfiles/doom/config.el'
-alias gxx='vim $HOME/git/dotfiles/xremap/config.yml'
+alias gkk='vim $HOME/git/dotfiles/kitty/kitty.conf'
+alias gpp='vim $HOME/git/dotfiles/polybar/config.ini'
+alias gvv='vim $HOME/git/dotfiles/nvim/init.lua'
 alias gxm='vim $HOME/git/dotfiles/X.Org/Xmodmap'
+alias gxx='vim $HOME/git/dotfiles/xremap/config.yml'
+alias gze='vim $HOME/git/dotfiles/zsh/zshenv'
+alias gzz='vim $HOME/git/dotfiles/zsh/zshrc'
 function gii () {
     case "${XDG_SESSION_TYPE}" in
         "x11") vim $HOME/git/dotfiles/i3/_config ;;
@@ -509,15 +509,15 @@ function gii () {
 }
 #-----------------------------
 # diff between git repo and current config files
-alias gdvv='diff $HOME/git/dotfiles/nvim/init.lua $XDG_CONFIG_HOME/nvim/init.lua'
-alias gdzz='diff $HOME/git/dotfiles/zsh/zshrc $XDG_CONFIG_HOME/zsh/.zshrc'
-alias gdze='diff $HOME/git/dotfiles/zsh/zshenv $XDG_CONFIG_HOME/zsh/.zshenv'
-alias gdkk='diff $HOME/git/dotfiles/kitty/kitty.conf $XDG_CONFIG_HOME/kitty/kitty.conf'
 alias gdbb='diff $HOME/git/dotfiles/i3/i3blocks.conf $XDG_CONFIG_HOME/i3/i3blocks.conf'
-alias gdpp='diff $HOME/git/dotfiles/polybar/config.ini $XDG_CONFIG_HOME/polybar/config.ini'
 alias gdee='diff $HOME/git/dotfiles/doom/config.el $XDG_CONFIG_HOME/doom/config.el'
-alias gdxx='diff $HOME/git/dotfiles/xremap/config.yml $XDG_CONFIG_HOME/xremap/config.yml'
+alias gdkk='diff $HOME/git/dotfiles/kitty/kitty.conf $XDG_CONFIG_HOME/kitty/kitty.conf'
+alias gdpp='diff $HOME/git/dotfiles/polybar/config.ini $XDG_CONFIG_HOME/polybar/config.ini'
+alias gdvv='diff $HOME/git/dotfiles/nvim/init.lua $XDG_CONFIG_HOME/nvim/init.lua'
 alias gdxm='diff $HOME/git/dotfiles/X.Org/Xmodmap $HOME/.Xmodmap'
+alias gdxx='diff $HOME/git/dotfiles/xremap/config.yml $XDG_CONFIG_HOME/xremap/config.yml'
+alias gdze='diff $HOME/git/dotfiles/zsh/zshenv $XDG_CONFIG_HOME/zsh/.zshenv'
+alias gdzz='diff $HOME/git/dotfiles/zsh/zshrc $XDG_CONFIG_HOME/zsh/.zshrc'
 function gdii () {
     case "${XDG_SESSION_TYPE}" in
         "x11") diff $HOME/git/dotfiles/i3/_config $XDG_CONFIG_HOME/i3/_config ;;
