@@ -519,6 +519,8 @@ https://github.com/yilkalargaw/org-auto-tangle
   ;;   "/home/rafael/git/dotfiles/i3-sway/config.org"
   ;;   "/home/rafael/git/dotfiles/scripts/sway-dispatch.org"
   ;;   "/home/rafael/git/keebab/xremap/config.org"))
+)
+#+end_src
 ** Custom tangle hooks
 *** Autoformat
 **** Header
@@ -554,6 +556,50 @@ https://github.com/yilkalargaw/org-auto-tangle
 #+begin_src emacs-lisp
 )))
 #+end_src
+*** Auto-placement
+This is a custom config to copy some tangled files into predefined paths.
+**** Header
+#+begin_src emacs-lisp
+(add-hook 'org-babel-post-tangle-hook
+  (lambda ()
+#+end_src
+**** List of pairs
+#+begin_src emacs-lisp
+(let ((transfer-list `(
+  ;; dotfiles
+  (,(expand-file-name "~/git/dotfiles/waybar/config.org")  . (("config"        . "~/.config/waybar/config")))
+  (,(expand-file-name "~/git/dotfiles/waybar/style.org")   . (("style.css"     . "~/.config/waybar/style.css")))
+  (,(expand-file-name "~/git/dotfiles/i3-sway/config.org") . (("_config_sway"  . "~/.config/sway/_config")
+                                                              ("_config_i3"    . "~/.config/i3/_config")))
+  ;; keebab
+  (,(expand-file-name "~/git/keebab/xremap/config.org") . (("config_sway.yml" . "~/.config/xremap/config")))
+)))
+#+end_src
+**** Place tangled file on target
+#+begin_src emacs-lisp
+;; the hook runs in the tangled file's buffer.
+;; iterate through the previous list to see if the current buffer matches any defined output.
+(dolist (entry transfer-list)
+  (let ((org-file-path (car entry))
+        (mappings (cdr entry)))
+
+    (dolist (map-pair mappings)
+      (let* ((tangled-file-name (car map-pair))
+             (target-dest (expand-file-name (cdr map-pair)))
+             ;; calculate the full path where the tangle file should be
+             (expected-tangled-path (expand-file-name tangled-file-name (file-name-directory org-file-path))))
+
+        ;; check if the current buffer is the file we just calculated
+        (when (and (buffer-file-name)
+                   (string= (expand-file-name (buffer-file-name)) expected-tangled-path))
+
+          (make-directory (file-name-directory target-dest) t)
+          (copy-file (buffer-file-name) target-dest t)
+          (message "✔ Deployed: %s" target-dest))))))
+#+end_src
+**** EoS
+#+begin_src emacs-lisp
+)))
 #+end_src
 ** org-contrib
 https://orgmode.org/worg/org-contrib/
