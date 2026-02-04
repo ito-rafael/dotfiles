@@ -21,17 +21,9 @@ print_scale() {
 # print init state
 print_scale
 
-# parse parameter
-CMD=$1
-case "${CMD}" in
-    "monitor")
-        # subscribe to output events
-        swaymsg -m -t subscribe '["output"]' | \
-        while read -r event; do
-            # when any output event happens, refresh the data
-            print_scale
-        done
-        ;;
-    *)
-        ;;
-esac
+# subscribe to output events
+swaymsg -m -t subscribe '["output"]' | \
+while read -r event; do
+    # when any output event happens, refresh the data
+    print_scale
+done
