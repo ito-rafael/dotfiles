@@ -1,0 +1,133 @@
+#+TITLE: Sway dispatch
+#+AUTHOR: Rafael Ito
+#+PROPERTY: header-args :tangle sway-scale.sh
+#+DESCRIPTION: script meant to work the same way of xremap in respect to sending different keypresses according to the focused application
+#+STARTUP: showeverything
+#+auto_tangle: t
+
+* Table of Contents :toc_3:
+- [[#header][Header]]
+- [[#functions][Functions]]
+  - [[#validate-range][Validate range]]
+  - [[#adjust-scale][Adjust scale]]
+- [[#dispatcher][Dispatcher]]
+  - [[#help][Help]]
+  - [[#toggle][Toggle]]
+  - [[#adjust][Adjust]]
+
+* Header :noexport_1:
+** Shebang
+#+begin_src sh
+#!/usr/bin/env bash
+#+end_src
+** Dependencies check
+Prerequisites:
+- jq
+- bc
+#+begin_src sh
+for cmd in jq bc swaymsg; do
+    if ! command -v $cmd &> /dev/null; then
+        echo "Error: '$cmd' is not installed."
+        exit 1
+    fi
+done
+#+end_src
+** Help menu
+#+begin_src sh
+show_help() {
+    echo "Usage:"
+    echo "  $(basename "$0") toggle      # Toggle between $SCALE_DEFAULT and $SCALE_ZOOM"
+    echo "  $(basename "$0") <number>    # Set scale to specific number (e.g.: 1.2)"
+    echo "  $(basename "$0") help        # Show this message"
+}
+#+end_src
+** Definitions
+*** Toggle scales
+Define default/zoomed scale to toggle
+#+begin_src sh
+SCALE_DEFAULT="1.0"
+SCALE_ZOOM="1.15"
+#+end_src
+*** Valid range
+#+begin_src sh
+SCALE_MIN="0.5"
+SCALE_MAX="4.0"
+#+end_src
+** Parse parameter
+#+begin_src sh
+COMMAND="$1"
+#+end_src
+* Functions
+** Validate range
+#+begin_src sh
+validate_range() {
+    local target_scale=$1
+    # validate only positive number (integer or float)
+    if ! [[ "$target_scale" =~ ^[0-9]+(\.[0-9]+)?$ ]]; then
+        echo "Error: '$target_scale' is not a valid positive number."
+        exit 1
+    fi
+
+    # validate range
+    local is_valid=$(echo "$target_scale >= $SCALE_MIN && $target_scale <= $SCALE_MAX" | bc -l)
+    
+    if [ "$is_valid" -eq 0 ]; then
+        echo "Error: Scale '$target_scale' is out of bounds."
+        echo "Please provide a scale between $SCALE_MIN and $SCALE_MAX."
+        exit 1
+    fi
+}
+#+end_src
+** Adjust scale
+Adjust scale in all outputs.
+#+begin_src sh
+set_scale() {
+    # get output names
+    OUTPUT_NAMES=$(swaymsg -t get_outputs | jq -r '.[].name')
+
+    local target_scale=$1
+    # loop through all outputs and apply the scale
+    for output in $OUTPUT_NAMES; do
+        echo "Setting $output to scale $target_scale..."
+        swaymsg output "$output" scale "$target_scale"
+    done
+}
+#+end_src
+* Dispatcher
+#+begin_src sh
+case "$COMMAND" in
+#+end_src
+** Help
+#+begin_src sh
+"help"|"-h"|"--help"|"")
+    show_help
+    exit 0
+    ;;
+#+end_src
+** Toggle
+#+begin_src sh
+"toggle")
+    # get current scale and decide the target one
+    CURRENT_SCALE=$(swaymsg -t get_outputs | jq -r '.[0].scale')
+    # toggle between default/zoomed predefined scales
+    IS_DEFAULT=$(echo "$CURRENT_SCALE == $SCALE_DEFAULT" | bc -l)
+    if [ "$IS_DEFAULT" -eq 1 ]; then
+        set_scale "$SCALE_ZOOM"
+    else
+        set_scale "$SCALE_DEFAULT"
+    fi
+    exit 0
+    ;;
+#+end_src
+** Adjust
+#+begin_src sh
+,*)
+    validate_range "$COMMAND"
+    set_scale "$COMMAND"
+    exit 0
+    ;;
+#+end_src
+* EoS :noexport:
+#+begin_src sh
+esac
+#+end_src
