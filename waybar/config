@@ -27,6 +27,7 @@
     //"custom/scratchpad-indicator",
     "custom/mouse-warping",
     "custom/dunst",
+    "custom/scale",
     "custom/pacman",
     //"custom/kmonad",
     "custom/kanata",
@@ -329,6 +330,19 @@
     "format-icons": {
         "enabled": "<span color=\"#090\"></span>",
         "disabled": "<span color=\"#F00\"></span>",
+    },
+},
+
+"custom/scale": {
+    "return-type": "json",
+    "interval": 1,
+    //"exec": "~/.config/scripts/sway-scale.sh get",
+    "exec": "~/.config/waybar/scripts/sway-scale.sh",
+    "on-click": "~/.config/scripts/sway-scale.sh toggle",
+    "format": " {icon} {0} ",
+    "format-icons": {
+        "default": "<span color=\"#999\"></span>",
+        "zoom":    "<span color=\"#FF7\"></span>",
     },
 },
 
