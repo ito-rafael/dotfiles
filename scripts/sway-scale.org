@@ -15,6 +15,7 @@
   - [[#get-current-scale][Get current scale]]
   - [[#toggle][Toggle]]
   - [[#increase-zoom-in][Increase (zoom in)]]
+  - [[#decrease-zoom-out][Decrease (zoom out)]]
   - [[#adjust][Adjust]]
 
 * Header :noexport_1:
@@ -144,6 +145,21 @@ case "$COMMAND" in
     TARGET_SCALE=$(echo "scale=0; ( ( $CURRENT_SCALE / $STEP ) + 1 ) * $STEP" | bc)
     if (( $(echo "$TARGET_SCALE > $SCALE_MAX" | bc -l) )); then
         TARGET_SCALE=$SCALE_MAX
+    fi
+    set_scale "$TARGET_SCALE"
+    echo $TARGET_SCALE
+    exit 0
+    ;;
+#+end_src
+** Decrease (zoom out)
+#+begin_src sh
+"dec"|"decrease")
+    # get current scale and calculate the next target step
+    CURRENT_SCALE=$(swaymsg -t get_outputs | jq -r '.[0].scale')
+    # subtract a tiny epsilon and calculate step
+    TARGET_SCALE=$(echo "scale=0; ( ( $CURRENT_SCALE - 0.001 ) / $STEP ) * $STEP" | bc)
+    if (( $(echo "$TARGET_SCALE < $SCALE_MIN" | bc -l) )); then
+        TARGET_SCALE=$SCALE_MIN
     fi
     set_scale "$TARGET_SCALE"
     echo $TARGET_SCALE

@@ -95,6 +95,19 @@ case "$COMMAND" in
     exit 0
     ;;
 
+"dec" | "decrease")
+    # get current scale and calculate the next target step
+    CURRENT_SCALE=$(swaymsg -t get_outputs | jq -r '.[0].scale')
+    # subtract a tiny epsilon and calculate step
+    TARGET_SCALE=$(echo "scale=0; ( ( $CURRENT_SCALE - 0.001 ) / $STEP ) * $STEP" | bc)
+    if (($(echo "$TARGET_SCALE < $SCALE_MIN" | bc -l))); then
+        TARGET_SCALE=$SCALE_MIN
+    fi
+    set_scale "$TARGET_SCALE"
+    echo $TARGET_SCALE
+    exit 0
+    ;;
+
 *)
     validate_range "$COMMAND"
     set_scale "$COMMAND"
