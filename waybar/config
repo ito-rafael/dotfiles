@@ -335,15 +335,17 @@
 
 "custom/scale": {
     "return-type": "json",
-    "interval": 1,
-    //"exec": "~/.config/scripts/sway-scale.sh get",
     "exec": "~/.config/waybar/scripts/sway-scale.sh",
     "on-click": "~/.config/scripts/sway-scale.sh toggle",
-    "format": " {icon} {0} ",
+    "on-scroll-up": "~/.config/scripts/sway-scale.sh inc",
+    "on-scroll-down": "~/.config/scripts/sway-scale.sh dec",
+    "format": " {icon} {text} ",
     "format-icons": {
         "default": "<span color=\"#999\"></span>",
         "zoom":    "<span color=\"#FF7\"></span>",
     },
+    "reverse-scrolling": true,
+    "reverse-mouse-scrolling": false,
 },
 
 "custom/pacman": {

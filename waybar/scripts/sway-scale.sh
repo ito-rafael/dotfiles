@@ -11,10 +11,8 @@ print_scale() {
     IS_DEFAULT=$(echo "$CURRENT_SCALE == $SCALE_DEFAULT" | bc -l)
     if [ "$IS_DEFAULT" -eq 1 ]; then
         echo '{"text": "'$CURRENT_SCALE'", "alt": "default", "class": "default"}'
-        #set_scale "$SCALE_ZOOM"
     else
         echo '{"text": "'$CURRENT_SCALE'", "alt": "zoom", "class": "zoom"}'
-        #set_scale "$SCALE_DEFAULT"
     fi
 }
 
