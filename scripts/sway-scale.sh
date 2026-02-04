@@ -9,13 +9,14 @@ done
 
 show_help() {
     echo "Usage:"
+    echo "  $(basename "$0") get         # Get current scale"
     echo "  $(basename "$0") toggle      # Toggle between $SCALE_DEFAULT and $SCALE_ZOOM"
     echo "  $(basename "$0") <number>    # Set scale to specific number (e.g.: 1.2)"
     echo "  $(basename "$0") help        # Show this message"
 }
 
 SCALE_DEFAULT="1.0"
-SCALE_ZOOM="1.15"
+SCALE_ZOOM="1.125"
 
 SCALE_MIN="0.5"
 SCALE_MAX="4.0"
@@ -56,6 +57,13 @@ case "$COMMAND" in
 
 "help" | "-h" | "--help" | "")
     show_help
+    exit 0
+    ;;
+
+"get")
+    # get current scale and decide the target one
+    CURRENT_SCALE=$(swaymsg -t get_outputs | jq -r '.[0].scale')
+    echo "$CURRENT_SCALE"
     exit 0
     ;;
 
