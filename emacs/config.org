@@ -512,35 +512,48 @@ https://github.com/yilkalargaw/org-auto-tangle
   :after ob
   :hook (org-mode . org-auto-tangle-mode)
   :custom
-  (org-auto-tangle-babel-safelist '(
-     "/home/rafael/git/keebab/xremap/config.org"
-     "/home/rafael/git/dotfiles/i3-sway/config.org"
-     "/home/rafael/git/dotfiles/brave/extensions.org"
-     "/home/rafael/git/dotfiles/archlinux/archinstall/archinstall.org"))
-  :config
-  ;; run json-pretty-print-buffer after auto-tangle
+  (org-auto-tangle-babel-safelist '(all))
+  ;;(org-auto-tangle-babel-safelist '(
+  ;;   "/home/rafael/git/dotfiles/archlinux/archinstall/archinstall.org"
+  ;;   "/home/rafael/git/dotfiles/brave/extensions.org"
+  ;;   "/home/rafael/git/dotfiles/i3-sway/config.org"
+  ;;   "/home/rafael/git/dotfiles/scripts/sway-dispatch.org"
+  ;;   "/home/rafael/git/keebab/xremap/config.org"))
+** Custom tangle hooks
+*** Autoformat
+**** Header
+#+begin_src emacs-lisp
+(with-eval-after-load 'ob-tangle
   (add-hook 'org-babel-post-tangle-hook
     (lambda ()
-      ;; lambda is required so the code is serialized to the async worker.
-      ;; check for .json files in the current directory that were modified in the last 2 seconds.
-      (dolist (file (directory-files "." t "\\.json$"))
-         (when (< (float-time (time-subtract (current-time) (file-attribute-modification-time (file-attributes file)))) 2.0)
-           (message "Pretty printing %s..." file)
-           (with-current-buffer (find-file-noselect file)
-             (json-pretty-print-buffer)
-             (save-buffer)
-             (kill-buffer))))
-      ;; check for .sh files in the current directory that were modified in the last 2 seconds.
-      (dolist (file (directory-files "." t "\\.sh$"))
-        (when (< (float-time (time-subtract (current-time) (file-attribute-modification-time (file-attributes file)))) 2.0)
-          (message "Formatting %s..." file)
-          (with-current-buffer (find-file-noselect file)
-            ;; "shell-command-on-region" is required to run shfmt synchronously
-            ;; "-i 4" sets indentation to 4 spaces
-            ;; "nil t" replaces the buffer content with the output
-            (shell-command-on-region (point-min) (point-max) "shfmt -i 4" nil t)
-            (save-buffer)
-            (kill-buffer)))))))
+#+end_src
+**** JSON
+#+begin_src emacs-lisp
+(dolist (file (directory-files "." t "\\.json$"))
+   (when (< (float-time (time-subtract (current-time) (file-attribute-modification-time (file-attributes file)))) 2.0)
+     (message "Pretty printing %s..." file)
+     (with-current-buffer (find-file-noselect file)
+       (json-pretty-print-buffer)
+       (save-buffer)
+       (kill-buffer))))
+#+end_src
+**** shell script
+#+begin_src emacs-lisp
+(dolist (file (directory-files "." t "\\.sh$"))
+  (when (< (float-time (time-subtract (current-time) (file-attribute-modification-time (file-attributes file)))) 2.0)
+    (message "Formatting %s..." file)
+    (with-current-buffer (find-file-noselect file)
+      ;; "shell-command-on-region" is required to run shfmt synchronously
+      ;; "-i 4" sets indentation to 4 spaces
+      ;; "nil t" replaces the buffer content with the output
+      (shell-command-on-region (point-min) (point-max) "shfmt -i 4" nil t)
+      (save-buffer)
+      (kill-buffer))))
+#+end_src
+**** EoS
+#+begin_src emacs-lisp
+)))
+#+end_src
 #+end_src
 ** org-contrib
 https://orgmode.org/worg/org-contrib/
