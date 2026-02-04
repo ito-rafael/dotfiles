@@ -41,6 +41,7 @@
 - [[#mouse-warping][Mouse warping]]
 - [[#xremap-mode][xremap mode]]
 - [[#dunst][Dunst]]
+- [[#scale][Scale]]
 - [[#pacman][Pacman]]
 - [[#kmonad][KMonad]]
 - [[#kanata][kanata]]
@@ -679,6 +680,26 @@ label:focus {
 ** Hover
 #+begin_src css
 #custom-dunst:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+#+end_src
+* Scale :noexport_1:
+** Default
+#+begin_src css
+#custom-scale.default {
+    color: lightgray;
+}
+#+end_src
+** Zoom
+#+begin_src css
+#custom-scale.zoom {
+    color: lightgray;
+}
+#+end_src
+** Hover
+#+begin_src css
+#custom-scale:hover {
     background: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
 }

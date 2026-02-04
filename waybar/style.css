@@ -439,6 +439,19 @@ label:focus {
     transition: background 0.3s ease;
 }
 
+#custom-scale.default {
+    color: lightgray;
+}
+
+#custom-scale.zoom {
+    color: lightgray;
+}
+
+#custom-scale:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+
 #custom-pacman.low {
     color: lightgray;
 }
