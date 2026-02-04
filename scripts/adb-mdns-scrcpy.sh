@@ -190,7 +190,7 @@ fi
 adb_connect () {
     ADB_RESPONSE=$(adb connect $IP:$PORT_CON)
     # if ADB connection succeed, launch scrcpy as scratchpad
-    if [ "$ADB_RESPONSE" == "connected to $IP:$PORT_CON" ]; then
+    if [[ "$ADB_RESPONSE" == *"connected to $IP:$PORT_CON" ]]; then
         scrcpy \
             -s $IP:$PORT_CON \
             --prefer-text \
@@ -295,9 +295,7 @@ if [[ $SCRATCHPAD ]]; then
 else
     # try to discover IP & port of device ADB via mDNS
     echo "Scratchpad not found! Searching for ADB IP & port on device..."
-    MDNS_OUTPUT=$(avahi-browse --all --ignore-local --resolve --terminate --parsable | grep $SERVICE_NAME | grep connect | grep v=ADB_SECURE_SERVICE_VERSION | head -1)
-    IP=$(echo $MDNS_OUTPUT | cut -d ";" -f8)
-    PORT_CON=$(echo $MDNS_OUTPUT | cut -d ";" -f9)
+    MDNS_OUTPUT=$(avahi-browse --all --ignore-local --resolve --terminate --parsable | grep "adb-RQ8N400FVCP-bNfaUl" | awk -F';' '$9 != "" {print $8":"$9}' | sort -u)
 
     # check if ADB is running
     if [ -z "${MDNS_OUTPUT}" ]; then
@@ -313,17 +311,23 @@ else
         paplay /usr/share/sounds/freedesktop/stereo/bell.oga
         exit 1
     else
-        echo "Device found. Trying to connect to $IP:$PORT_CON."
-        adb_connect
-        # check if connect was unsuccessful, and if yes, try to pair with device
-        if [ $? -eq 1 ]; then
-            echo "Device not paired. Trying to connect to pair with $IP."
-            adb_pair $IP
-            # check if pairing was successful, and if yes, try to connect again
-            if [ $? -eq 0 ]; then
-                echo "Device found. Trying to connect again to $IP:$PORT_CON."
-                adb_connect
+        echo $MDNS_OUTPUT
+        for target in $MDNS_OUTPUT; do
+            echo "-----------------------------------"
+            IP="${target%:*}"         # delete matching suffix pattern ":*" (keep IP)
+            PORT_CON="${target##*:}"  # delete matching prefix pattern "*:" (keep port)
+            echo "Found Target: $IP:$PORT_CON. Attempting to connect..."
+            adb_connect
+            # check if connect was unsuccessful, and if yes, try to pair with device
+            if [ $? -eq 1 ]; then
+                echo "Device not paired. Trying to connect to pair with $IP."
+                adb_pair $IP
+                # check if pairing was successful, and if yes, try to connect again
+                if [ $? -eq 0 ]; then
+                    echo "Device found. Trying to connect again to $IP:$PORT_CON."
+                    adb_connect
+                fi
             fi
-        fi
+        done
     fi
 fi
