@@ -21,6 +21,8 @@ SCALE_ZOOM="1.125"
 SCALE_MIN="0.5"
 SCALE_MAX="4.0"
 
+STEP="0.125"
+
 COMMAND="$1"
 
 validate_range() {
@@ -77,6 +79,19 @@ case "$COMMAND" in
     else
         set_scale "$SCALE_DEFAULT"
     fi
+    exit 0
+    ;;
+
+"inc" | "increase")
+    # get current scale and calculate the next target step
+    CURRENT_SCALE=$(swaymsg -t get_outputs | jq -r '.[0].scale')
+    # the "scale=0" inside the parenthesis simulates the integer division
+    TARGET_SCALE=$(echo "scale=0; ( ( $CURRENT_SCALE / $STEP ) + 1 ) * $STEP" | bc)
+    if (($(echo "$TARGET_SCALE > $SCALE_MAX" | bc -l))); then
+        TARGET_SCALE=$SCALE_MAX
+    fi
+    set_scale "$TARGET_SCALE"
+    echo $TARGET_SCALE
     exit 0
     ;;
 
