@@ -556,7 +556,7 @@ https://github.com/yilkalargaw/org-auto-tangle
 #+begin_src emacs-lisp
 )))
 #+end_src
-*** Auto-placement
+*** Auto-placement & Auto-reload
 This is a custom config to copy some tangled files into predefined paths.
 **** Header
 #+begin_src emacs-lisp
@@ -575,7 +575,8 @@ This is a custom config to copy some tangled files into predefined paths.
   (,(expand-file-name "~/git/keebab/xremap/config.org") . (("config_sway.yml" . "~/.config/xremap/config")))
 )))
 #+end_src
-**** Place tangled file on target
+**** Match tangled file
+Compare tangled file with the list predefined above.
 #+begin_src emacs-lisp
 ;; the hook runs in the tangled file's buffer.
 ;; iterate through the previous list to see if the current buffer matches any defined output.
@@ -592,10 +593,14 @@ This is a custom config to copy some tangled files into predefined paths.
         ;; check if the current buffer is the file we just calculated
         (when (and (buffer-file-name)
                    (string= (expand-file-name (buffer-file-name)) expected-tangled-path))
-
-          (make-directory (file-name-directory target-dest) t)
-          (copy-file (buffer-file-name) target-dest t)
-          (message "✔ Deployed: %s" target-dest))))))
+#+end_src
+**** Auto-placement
+Copy tangled file to target.
+#+begin_src emacs-lisp
+(make-directory (file-name-directory target-dest) t)
+(copy-file (buffer-file-name) target-dest t)
+(message "✔ Deployed: %s" target-dest)
+#+end_src
 #+end_src
 **** EoS
 #+begin_src emacs-lisp
