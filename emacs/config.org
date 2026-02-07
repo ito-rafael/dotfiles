@@ -633,18 +633,16 @@ Restart applications with new config file.
 #+end_src
 ***** Sway
 #+begin_src emacs-lisp
-;; Sway (Run Ruby Gen -> Reload)
+;; generate "config" from "_config" using i3bang.rb, and then reload Sway
 ((string-match-p "sway" target-dest)
  (let* ((sway-dir (file-name-directory target-dest))
         (script-path (expand-file-name "i3bang.rb" sway-dir))
         (config-source (expand-file-name "_config" sway-dir))
-        ;; 1. Find the active SWAYSOCK dynamically (fixes "socket not found" errors)
-        ;; 2. Run Ruby using absolute paths (safer than cd)
-        ;; 3. Reload Sway
+        ;; find the active SWAYSOCK dynamically; run Ruby i3bang.rb script; reload Sway
         (cmd (format "export SWAYSOCK=$(ls /run/user/$(id -u)/sway-ipc.*.sock | head -n 1); ruby '%s' '%s' && swaymsg reload"
                      script-path
                      config-source)))
-   ;; Run synchronously to ensure it finishes before the hook exits
+   ;; run synchronously to ensure it finishes before the hook exits
    (call-process-shell-command cmd nil nil)
    (message "↻ Generated & Reloaded Sway.")))
 #+end_src
