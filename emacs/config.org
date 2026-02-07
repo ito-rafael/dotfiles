@@ -127,7 +127,7 @@ Set F16 as M-x.
 ** Copy and Paste
 #+begin_src emacs-lisp
 (global-set-key (kbd "<f17>") 'evil-yank)
-(global-set-key (kbd "<f18>") 'evil-paste-before)
+(global-set-key (kbd "<f18>") 'evil-paste-after)
 #+end_src
 ** ESC
 Make ESC quit prompts.
