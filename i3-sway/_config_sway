@@ -462,6 +462,8 @@ mode "$mode_tilde" {
     # inherent default keybinds (i3bang)
     #!@default_keybindings
 }
+bindsym F13 mode "$mode_acute"
+bindsym Shift+F13 mode "$mode_tilde"
 
 set $prop app_id
 assign [$prop="thunderbird"] → $ws4

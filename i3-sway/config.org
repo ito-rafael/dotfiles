@@ -1523,6 +1523,11 @@ mode "$mode_tilde" {
     #!@default_keybindings
 }
 #+end_src
+**** Keybinding
+#+begin_src conf :noweb-ref mode-f13
+bindsym F13 mode "$mode_acute"
+bindsym Shift+F13 mode "$mode_tilde"
+#+end_src
 ** Tangle :noexport:
 *** i3
 #+begin_src conf :noweb yes :tangle _config_i3
