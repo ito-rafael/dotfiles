@@ -595,7 +595,8 @@ This is a custom config to copy some tangled files into predefined paths.
   (,(expand-file-name "~/git/dotfiles/i3-sway/config.org") . (("_config_sway"  . "~/.config/sway/_config")
                                                               ("_config_i3"    . "~/.config/i3/_config")))
   ;; keebab
-  (,(expand-file-name "~/git/keebab/xremap/config.org") . (("config_sway.yml" . "~/.config/xremap/config")))
+  (,(expand-file-name "~/git/keebab/xremap/config.org")         . (("config_sway.yml"  . "~/.config/xremap/config")))
+  (,(expand-file-name "~/git/keebab/scripts/sway-dispatch.org") . (("sway-dispatch.sh" . "~/.config/scripts/sway-dispatch.sh")))
 )))
 #+end_src
 **** Match tangled file
@@ -624,10 +625,36 @@ Copy tangled file to target.
 (copy-file (buffer-file-name) target-dest t)
 (message "✔ Deployed: %s" target-dest)
 #+end_src
+**** Auto-reload
+Restart applications with new config file.
+***** Header
+#+begin_src emacs-lisp
+(cond
+#+end_src
+***** Sway
+#+begin_src emacs-lisp
+;; Sway (Run Ruby Gen -> Reload)
+((string-match-p "sway" target-dest)
+ (let* ((sway-dir (file-name-directory target-dest))
+        (script-path (expand-file-name "i3bang.rb" sway-dir))
+        (config-source (expand-file-name "_config" sway-dir))
+        ;; 1. Find the active SWAYSOCK dynamically (fixes "socket not found" errors)
+        ;; 2. Run Ruby using absolute paths (safer than cd)
+        ;; 3. Reload Sway
+        (cmd (format "export SWAYSOCK=$(ls /run/user/$(id -u)/sway-ipc.*.sock | head -n 1); ruby '%s' '%s' && swaymsg reload"
+                     script-path
+                     config-source)))
+   ;; Run synchronously to ensure it finishes before the hook exits
+   (call-process-shell-command cmd nil nil)
+   (message "↻ Generated & Reloaded Sway.")))
+#+end_src
+***** EoS
+#+begin_src emacs-lisp
+)
 #+end_src
 **** EoS
 #+begin_src emacs-lisp
-)))
+))))))))
 #+end_src
 ** org-contrib
 https://orgmode.org/worg/org-contrib/
