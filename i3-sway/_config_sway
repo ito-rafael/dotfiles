@@ -386,6 +386,46 @@ mode "resize" {
 }
 bindsym mod1+$mod+r mode "resize"
 
+set $mode_acute acute
+mode "$mode_acute" {
+    # apostrophe
+    bindsym F13 exec wtype "'", mode "default"
+    bindsym space exec wtype "'", mode "default"
+    # cedilla
+    bindsym c       exec wtype "ç", mode "default"
+    bindsym Shift+c exec wtype "Ç", mode "default"
+    # vowel lowercase
+    bindsym a exec wtype "á", mode "default"
+    bindsym e exec wtype "é", mode "default"
+    bindsym i exec wtype "í", mode "default"
+    bindsym o exec wtype "ó", mode "default"
+    bindsym u exec wtype "ú", mode "default"
+    # vowel uppercase
+    bindsym Shift+a exec wtype "Á", mode "default"
+    bindsym Shift+e exec wtype "É", mode "default"
+    bindsym Shift+i exec wtype "Í", mode "default"
+    bindsym Shift+o exec wtype "Ó", mode "default"
+    bindsym Shift+u exec wtype "Ú", mode "default"
+    # misc lowercase
+    bindsym n       exec wtype "'n ", mode "default"
+    bindsym m       exec wtype "'m ", mode "default"
+    bindsym r       exec wtype "'r ", mode "default"
+    bindsym s       exec wtype "'s ", mode "default"
+    bindsym t       exec wtype "'t ", mode "default"
+    # misc uppercase
+    bindsym Shift+n exec wtype "'N ", mode "default"
+    bindsym Shift+m exec wtype "'M ", mode "default"
+    bindsym Shift+r exec wtype "'R ", mode "default"
+    bindsym Shift+s exec wtype "'S ", mode "default"
+    bindsym Shift+t exec wtype "'T ", mode "default"
+    # escape
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+    #-----------------------------
+    # inherent default keybinds (i3bang)
+    #!@default_keybindings
+}
+
 set $prop app_id
 assign [$prop="thunderbird"] → $ws4
 assign [$prop="libreoffice"] → $ws5
