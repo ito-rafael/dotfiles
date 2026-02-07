@@ -3,53 +3,24 @@
 class I3bangError < RuntimeError; end
 
 def i3bang config, header = ''
-
-    # kill comments; bangs in them interfere
-    # also annoying trailing whitespace
     nobracket = config.include? '#!nobracket'
-    #config.gsub! /\s*#*#[! ](?!i3 config).*\n/, "\n"
-    if File.exist?(File.expand_path('~/.config/i3'))
-      config.gsub! /\s*#*#[! ](?!i3 config).*\n/, "\n"
-    elsif File.exist?(File.expand_path('~/.config/sway'))
+
+    if File.exist?(File.expand_path('~/.config/sway'))
       config.gsub! /\s*#*#[! ](?!sway config).*\n/, "\n"
+    elsif File.exist?(File.expand_path('~/.config/i3'))
+      config.gsub! /\s*#*#[! ](?!i3 config).*\n/, "\n"
     end
     config.gsub! /\s+$/, ''
-
-    # line continuations
     config.gsub! /\\\n\s*/, ''
-    config += "\n"  # add back trailing newline
-
-    # add notice
-    # (feel free to remove/edit this; I don't mind)
+    config += "\n"
     config = header + config
 
-    # change shorthand format to expanded, regular format if specified
-    # UGLY HACK WARNING: !!<...!...> can interfere, so we're going to take
-    # all existing ![@!]?<...>'s out and put them back in later.
-    # BUT, expansions might contain !... and !!...s as well, so we have to rerun
-    # this upon every expansion. Therefore, this is stuck inside a method.
     def expand_nobracket config
         placeholder = '__PLCHLD__'
         ph_arr = []
         n = -1
-        config.gsub!(/
-                     # nested brackets:
-                     (?:!\?<|!@<+)  # conditionals or sections in raw mode
-                       [\s\S]*?     # anything, including newlines
-                     \n>(?=\n)      # bracket on its own line
-                     |
-                     # non-nested sections:
-                     !@<
-                       [^>+][^>]*   # no + because that signifies raw mode
-                     >
-                     |
-                     # "regular" brackets (!<...> and !!<...>):
-                     !!?<
-                       [^>]*
-                     >
-                     /x) {|m|
+        config.gsub!(/(?:!\?<|!@<+)[\s\S]*?\n>(?=\n)|!@<[^>+][^>]*>|!!?<[^>]*>/x) {|m|
             n += 1
-            # but we still want to expand !'s in !@<foo\n...>
             if m[1] == '@'
                 m = m[3..-2]
                 expand = false
@@ -63,50 +34,22 @@ def i3bang config, header = ''
             ph_arr.push m
             placeholder + "<#{n}>"
         }
-        # now the actual substitutions
-        # bangs at the beginning of the line - we always expand these, even
-        #   when whitespace follows them
-        config.gsub!(/
-                     ^\s*  # beginning of line, with possible whitspace
-                     (![@!?]?)  # the type of thing it is
-                     (
-                       [^!\n]*    # exclude !'s because there could be two
-                                  #   separate !<...>'s on one line
-                     )$         # end of line, we want to capture everything
-                     /x, '\1<\2>')
-        # inline bangs, we stop at whitespace for these
-        config.gsub!(/
-                     (![@!?]?)  # the type of thing it is
-                     (
-                       [^<@!?\s]  # we have to exclude:
-                                  #   - < to avoid adding brackets where they already exist
-                                  #   - @!? to avoid premature bracket-adding
-                                  #     (ex. !!foo -> !<!foo>)
-                       \S*        # grab everything until whitespace is found
-                     )
-                     /x, '\1<\2>')
-        # replace the placeholders
+        config.gsub!(/^\s*(![@!?]?)([^!\n]*)$/x, '\1<\2>')
+        config.gsub!(/(![@!?]?)([^<@!?\s]\S*)/x, '\1<\2>')
         config.gsub!(/#{placeholder}<(\d+)>/) { ph_arr[$1.to_i] }
     end
+
     expand_nobracket config if nobracket
 
-    # first check for !?<...> environment variable conditionals
     config.gsub!(/!\?<([\s\S]*?\n)>(?=\n)/) {
         condition, data = $1.split "\n", 2
         raise I3bangError, 'insufficient argumets for conditional' if condition.nil? || data.nil?
         raise I3bangError, "malformed condition #{condition}" unless condition.index '='
         var, val = condition.split '=', 2
-        if ENV[var] == val
-            data
-        else
-            ''
-        end
+        ENV[var] == val ? data : ''
     }
 
-    # next handle !@<...> sections
-    i3bang_sections = Hash.new {|_, x|
-        raise I3bangError, "unknown section #{x}"
-    }
+    i3bang_sections = Hash.new {|_, x| raise I3bangError, "unknown section #{x}" }
     config.gsub!(/!@<+([\s\S]*?\n)>(?=\n)|!@<([^>+][^>]*)>/) {
         sec = $1 || $2
         if sec.include? "\n"
@@ -123,7 +66,6 @@ def i3bang config, header = ''
         end
     }
 
-    # then expand !!<...> into separate lines
     exrgx = /!!<([^>]*)>/
     while config =~ exrgx
         config.sub!(/^.*#{exrgx}.*$/) {|line|
@@ -138,7 +80,6 @@ def i3bang config, header = ''
                 }.split(?,, -1)]
             }
             group = expansions[0][0]
-            # equalize length of values for same groups
             maxlen = expansions.select{|g, _| g == group}.map(&:last).map(&:size).max
             expansions.map! {|g, values|
                 g == group ?
@@ -156,82 +97,48 @@ def i3bang config, header = ''
         expand_nobracket config if nobracket
     end
 
-    # line continuations again (maybe the expansion created more)
     config.gsub! /\\\n\s*/, ''
 
-    # now replace all variables/math (!<...>) with their eval'd format
-    i3bang_vars = Hash.new {|_, k|
-        if k.is_a? Symbol
-            raise I3bangError, "unknown variable #{k}"
-        else
-            k
-        end
-    }
+    i3bang_vars = Hash.new {|_, k| (k.is_a? Symbol) ? raise(I3bangError, "unknown variable #{k}") : k }
+
     config.gsub!(/(?<!!)!<([^>]*)>/) {
         s = $1
-        # Now we i3bang_eval s
-        # http://en.wikipedia.org/wiki/Shunting-yard_algorithm
-        # we assume everything is left-associative for simplicity
-
-        # precedence and stacks setup
-        prec = Hash.new {|_, x|
-            if x.nil? || '()'.include?(x)
-                -1
-            else
-                raise I3bangError, "unknown operator #{x}"
-            end
-        }.merge({
-            '=' => 0,
-            '+' => 1, '-' => 1,
-            '*' => 2, '/' => 2, '%' => 2,
-            '**' => 3
-        })
+        prec = Hash.new {|_, x| (x.nil? || '()'.include?(x)) ? -1 : raise(I3bangError, "unknown operator #{x}") }
+        prec.merge!({'=' => 0, '+' => 1, '-' => 1, '*' => 2, '/' => 2, '%' => 2, '**' => 3})
         rpn = []
         opstack = []
+        tokens = s.gsub(/\s/, '').scan(/\w[\w\d]*|\d+(?:\.\d+)?|\*\*|./)
 
-        # tokenize input
-        tokens = s.gsub(/\s/, '').scan(/
-                        \w[\w\d]*     | # variable
-                        \d+(?:\.\d+)? | # number literal
-                        \*\*          | # multi-character operator
-                        .               # other operator
-                        /x)
-
-        # Shunting-yard
         op = nil
         tokens.each do |t|
             case t[0]
-            when 'a'..'z', 'A'..'Z', '_'  # variable
-                rpn.push t.to_sym
-            when '0'..'9'  # number literal
-                rpn.push t.to_i
-            when '('  # open paren
-                opstack.push t
-            when ')'  # close paren
+            when 'a'..'z', 'A'..'Z', '_' then rpn.push t.to_sym
+            when '0'..'9' then rpn.push t.to_i
+            when '(' then opstack.push t
+            when ')'
                 while (op = opstack.pop) != '('
                     raise I3bangError, 'mismatched parens' if op.nil?
                     rpn.push op
                 end
-            else  # operator
+            else
                 rpn.push opstack.pop while prec[t] <= prec[opstack[-1]]
                 opstack.push t
             end
         end
         rpn.push op while (op = opstack.pop)
 
-        # evaluate rpn
         stack = []
         rpn.each do |t|
             case t
-            when Fixnum, Symbol
+            when Integer, Symbol # FIXED: Fixnum -> Integer
                 stack.push t
             when '='
                 b, a = stack.pop, stack.pop
-                raise I3bangError, "not enough operands for #{t}" if a.nil? || b.nil?
+                raise I3bangError, "not enough operands" if a.nil? || b.nil?
                 i3bang_vars[a] = i3bang_vars[b]
             else
                 b, a = stack.pop, stack.pop
-                raise I3bangError, "not enough operands for #{t}" if a.nil? || b.nil?
+                raise I3bangError, "not enough operands" if a.nil? || b.nil?
                 stack.push (case t
                             when '+' then ->a, b { a + b }
                             when '-' then ->a, b { a - b }
@@ -243,43 +150,31 @@ def i3bang config, header = ''
                            end)[i3bang_vars[a], i3bang_vars[b]]
             end
         end
-
         i3bang_vars[stack[0]]
     }
 
-    # cleanup: remove empty lines
     config.gsub! /\n+/, "\n"
     config.sub! /\A\n/, ''
-
     config
-
 end
 
 if __FILE__ == $0
-    #INFILE = File.expand_path(ARGV[0] || '~/.config/i3/_config')
-    #INFILE = File.expand_path('~/.config/i3/_config')
-    #OUTFILE = File.expand_path(ARGV[1] || '~/.config/i3/config')
-    #OUTFILE = File.expand_path('~/.config/i3/config')
-
-    if File.exist?(File.expand_path('~/.config/i3'))
-        INFILE = File.expand_path('~/.config/i3/_config')
-        OUTFILE = File.expand_path('~/.config/i3/config')
-    elsif File.exist?(File.expand_path('~/.config/sway'))
+    if File.exist?(File.expand_path('~/.config/sway'))
         INFILE = File.expand_path('~/.config/sway/_config')
         OUTFILE = File.expand_path('~/.config/sway/config')
+    elsif File.exist?(File.expand_path('~/.config/i3'))
+        INFILE = File.expand_path('~/.config/i3/_config')
+        OUTFILE = File.expand_path('~/.config/i3/config')
     end
 
-    config = File.read INFILE
     begin
-        File.write(OUTFILE, i3bang(config, "
-##########
-# Generated via i3bang (https://github.com/KeyboardFire/i3bang).
-# Original file: #{ARGV[0] || '~/.config/i3/_config'}
-##########\n"))
-    rescue I3bangError => e
-        File.write('/tmp/i3bangerr.txt', "#{e.inspect}\n#{e.backtrace * "\n"}")
-        `i3-nagbar -m \
-            'There was an error parsing your config file with i3bang!' \
-            -b 'show errors' 'i3-sensible-pager /tmp/i3bangerr.txt'`
+        config = File.read INFILE
+        output = i3bang(config, "##########\n# Generated via i3bang\n##########\n")
+        File.write(OUTFILE, output)
+    rescue StandardError => e
+        # Log to STDERR so Emacs can see it, then exit with error code
+        STDERR.puts "[ERROR] #{e.message}"
+        STDERR.puts e.backtrace
+        exit 1
     end
 end
