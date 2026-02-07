@@ -463,6 +463,18 @@ https://github.com/doomemacs/themes
   (custom-set-faces
     '(line-number ((t (:foreground "dim gray")))))           ;; set line numbers color to gray
     '(line-number-current-line ((t (:foreground "white"))))  ;; set current line number color to white
+  ;;---------------------------
+  ;; function to update gaps color
+  (defun efs/sync-window-borders ()
+    "Update window divider (internal/external) gaps colors to match the theme."
+    (let ((bg-color (face-attribute 'default :background)))
+      (set-face-attribute 'window-divider nil :foreground bg-color)
+      (set-face-attribute 'internal-border nil :background bg-color)))
+  ;; run this function immediately
+  (efs/sync-window-borders)
+  ;; run it automatically whenever a Doom theme is loaded
+  (add-hook 'doom-load-theme-hook #'efs/sync-window-borders)
+  ;;---------------------------
   :init
   (load-theme 'doom-one t))
 #+end_src
