@@ -131,6 +131,17 @@ Source: https://systemcrafters.net/emacs-tips/using-the-emacs-daemon/#configurin
       ;; send to wl-copy and explicitly label it as UTF-8
       (start-process "wl-copy" nil "wl-copy" "--type" "text/plain;charset=utf-8" text))))
 #+end_src
+*** Paste
+#+begin_src emacs-lisp
+;; read from wl-paste, but verify it's new content
+(setq interprogram-paste-function
+      (lambda ()
+        (let ((clipboard-text (shell-command-to-string "wl-paste -n | tr -d '\r'")))
+          ;; check if the clipboard text is different from what Emacs already has
+          ;; if they are the same, return nil so Emacs uses its internal "smart" yank (keeping lines/blocks).
+          (unless (string= clipboard-text (or (car kill-ring) ""))
+            clipboard-text))))
+#+end_src
 ** F16 --> M-x
 Set F16 as M-x.
 #+begin_src emacs-lisp
