@@ -119,6 +119,18 @@ Source: https://systemcrafters.net/emacs-tips/using-the-emacs-daemon/#configurin
 (global-set-key (kbd "<C-wheel-down>") 'text-scale-decrease)
 #+end_src
 * Miscellaneous :noexport_1:
+** Copy/Paste for Wayland
+*** Copy
+#+begin_src emacs-lisp
+;; send text to wl-copy with strict UTF-8 encoding
+(setq interprogram-cut-function
+  (lambda (text &optional push)
+    (let ((process-connection-type nil)
+          ;; force Emacs to output UTF-8 bytes (instead of Latin-1)
+          (coding-system-for-write 'utf-8))
+      ;; send to wl-copy and explicitly label it as UTF-8
+      (start-process "wl-copy" nil "wl-copy" "--type" "text/plain;charset=utf-8" text))))
+#+end_src
 ** F16 --> M-x
 Set F16 as M-x.
 #+begin_src emacs-lisp
