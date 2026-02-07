@@ -92,7 +92,7 @@ case "${XDG_SESSION_TYPE}" in
         CAPTION="name"
         ID_PROP="pid"
         # get height & width of current output
-        RESOLUTION=$(swaymsg -t get_outputs | jq '.[] | select(.focused==true).current_mode')
+        RESOLUTION=$(swaymsg -t get_outputs | jq '.[] | select(.focused==true).rect')
         RES_HEIGHT=$(echo $RESOLUTION | jq '.height')
         #RES_WIDTH=$(echo $RESOLUTION | jq '.width')
         OUTPUT_SCALE=$(swaymsg -t get_outputs | jq '.[] | select(.focused==true).scale')
