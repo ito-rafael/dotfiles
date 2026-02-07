@@ -64,6 +64,30 @@ Disable line numbers for some modes.
 ** Transparency
 #+begin_src emacs-lisp
 (add-to-list 'default-frame-alist '(alpha-background . 97))
+** Gaps
+#+begin_src emacs-lisp
+(use-package frame
+  :ensure nil  ;; do not install (Dired is already built-in)
+  :after doom-themes
+  :custom
+  (window-divider-default-places t)         ;; set dividers in both bottom and right
+  (window-divider-default-bottom-width 15)  ;; bottom gaps width (in pixels)
+  (window-divider-default-right-width 15)   ;; right gaps width (in pixels)
+  ;;:custom-face
+  ;;(window-divider ((t (:foreground "#282c34"))))  ;; internal gaps (between windows)
+  ;;(internal-border ((t (:background "#282c34")))) ;; external gaps (padding around the frame)
+  :config
+  ;; set gaps around the frame
+  (add-to-list 'default-frame-alist '(internal-border-width . 15))
+  ;; get the background color of the currently loaded theme
+  (let ((bg-color (face-attribute 'default :background)))
+    ;; set the internal/external divider
+    (set-face-attribute 'window-divider nil :foreground bg-color)   ;; foreground creates the line
+    (set-face-attribute 'internal-border nil :background bg-color)) ;; background creates the padding
+  :init
+  (window-divider-mode 1)
+)
+#+end_src
 ** Fonts
 *** Installation
 #+begin_src sh
