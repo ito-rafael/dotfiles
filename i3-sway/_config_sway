@@ -425,6 +425,43 @@ mode "$mode_acute" {
     # inherent default keybinds (i3bang)
     #!@default_keybindings
 }
+set $mode_tilde tilde
+mode "$mode_tilde" {
+    # double quotes
+    bindsym F13   exec wtype '"', mode "default"
+    bindsym space exec wtype '"', mode "default"
+    # tilde lowercase
+    bindsym a exec wtype "ã", mode "default"
+    bindsym o exec wtype "õ", mode "default"
+    bindsym n exec wtype "ñ", mode "default"
+    # tilde uppercase
+    bindsym Shift+a exec wtype "Ã", mode "default"
+    bindsym Shift+o exec wtype "Õ", mode "default"
+    bindsym Shift+n exec wtype "Ñ", mode "default"
+    # tilde misc
+    bindsym Shift+F13 exec wtype "~",   mode "default"
+    bindsym slash     exec wtype "~/",  mode "default"
+    bindsym period    exec wtype "~/.", mode "default"
+    # tilde paths
+    bindsym h exec wtype "~/",                   mode "default"
+    bindsym g exec wtype "~/git/",               mode "default"
+    bindsym k exec wtype "~/git/keebab/",        mode "default"
+    bindsym d exec wtype "~/git/dotfiles/",      mode "default"
+    bindsym c exec wtype "~/.config/",           mode "default"
+    bindsym e exec wtype "~/.config/emacs-efs/", mode "default"
+    bindsym s exec wtype "~/.config/scripts/",   mode "default"
+    bindsym v exec wtype "~/.config/nvim/",      mode "default"
+    bindsym x exec wtype "~/.config/xremap/",    mode "default"
+    bindsym w exec wtype "~/.config/waybar/",    mode "default"
+    bindsym z exec wtype "~/.config/zsh/",       mode "default"
+    bindsym i exec wtype "~/.config/sway/",      mode "default"
+    # escape
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+    #-----------------------------
+    # inherent default keybinds (i3bang)
+    #!@default_keybindings
+}
 
 set $prop app_id
 assign [$prop="thunderbird"] → $ws4
