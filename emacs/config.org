@@ -1369,16 +1369,17 @@ https://github.com/gonewest818/dimmer.el
   (defvar-local efs/dim-cookie nil)
 
   (defun efs/dim-window-setup (&rest _)
-    (walk-windows (lambda (w) (with-selected-window w
-      (if (eq w (selected-window))
-        ;; focused window --> remove dimming
-        (when efs/dim-cookie
-          (face-remap-remove-relative efs/dim-cookie)
-          (setq efs/dim-cookie nil))
-        ;; unfocused window --> dimming it
-        (unless efs/dim-cookie
-          (setq efs/dim-cookie (face-remap-add-relative 'default 'shadow))))))
-     nil 'visible))
+    (when dimmer-mode
+      (walk-windows (lambda (w) (with-selected-window w
+        (if (eq w (selected-window))
+          ;; focused window --> remove dimming
+          (when efs/dim-cookie
+            (face-remap-remove-relative efs/dim-cookie)
+            (setq efs/dim-cookie nil))
+          ;; unfocused window --> dimming it
+          (unless efs/dim-cookie
+            (setq efs/dim-cookie (face-remap-add-relative 'default 'shadow))))))
+      nil 'visible)))
 
   (add-hook 'window-selection-change-functions #'efs/dim-window-setup)
   ;;---------------------------
