@@ -116,6 +116,15 @@ Disable line numbers for some modes.
   ;; this creates a solid bar made of "text", which remains opaque
   (setq-default header-line-format '((:eval (make-string (ceiling (* (window-total-width) 2)) ?\u2588))))
 #+end_src
+*** Hide top header-line
+#+begin_src emacs-lisp
+;; hide header line if window is at the top
+  (setq-default header-line-format
+    '((:eval
+       (if (window-at-side-p nil 'top)
+         nil  ;; if at top --> no header line (frame border handles the gap)
+         (make-string (ceiling (* (window-total-width) 2)) ?\u2588))))) ;; if not, show gap
+#+end_src
 *** EoS :noexport:
 #+begin_src emacs-lisp
   :init
