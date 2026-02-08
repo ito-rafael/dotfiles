@@ -210,6 +210,10 @@ When you visit a file, point goes to the last place where it was when you previo
 #+begin_src emacs-lisp
 (setq use-short-answers t)
 #+end_src
+** Highlight current line
+#+begin_src emacs-lisp
+(global-hl-line-mode 1)
+#+end_src
 ** kill window
 #+begin_src emacs-lisp
 (global-set-key (kbd "M-s-q") 'evil-quit)
