@@ -34,6 +34,7 @@
 - [[#persistent-scratch][persistent-scratch]]
 - [[#systemd][systemd]]
 - [[#consult-gh][consult-gh]]
+- [[#dimmer][dimmer]]
 - [[#wgrep][wgrep]]
 
 * UI :noexport_1:
@@ -1322,6 +1323,78 @@ sudo pacman -S github-cli
 #+begin_src emacs-lisp
 (use-package consult-gh
   :after consult)
+#+end_src
+* dimmer
+https://github.com/gonewest818/dimmer.el
+#+begin_src emacs-lisp
+(use-package dimmer
+  :demand t
+  :custom
+  (dimmer-fraction 0.5)
+  (dimmer-use-colorspace :rgb)
+  (dimmer-adjustment-mode :foreground)
+  ;;---------------------------
+  ;;exclude these these buffers/modes from dimming
+  (dimmer-exclusion-regexp-list
+   '("^ \\*Minibuf-.*\\*"
+     "^ \\*Echo.*\\*"
+     "^ \\*which-key\\*"
+     "^ \\*Help\\*"
+     "*NeoTree*"
+     "*Treemacs*"
+     "*dired*"))
+  ;;---------------------------
+  :config
+  ;; apply presets for standard popups
+  ;;(dimmer-configure-company-box)
+  ;;(dimmer-configure-gnus)
+  ;;(dimmer-configure-helm)
+  ;;(dimmer-configure-hydra)
+  ;;(dimmer-configure-magit)
+  ;;(dimmer-configure-org)
+  ;;(dimmer-configure-posframe)
+  ;(dimmer-configure-which-key)
+  ;;---------------------------
+  ;; bugfix: force face color for forge (prevent 'reset being returned to dimmer)
+  (with-eval-after-load 'forge
+    (set-face-attribute 'forge-topic-header-line nil
+                        :foreground (face-attribute 'default :foreground)))
+  ;;---------------------------
+  ;; var to track the remapping (buffer-local)
+  (defvar-local efs/dim-cookie nil)
+
+  (defun efs/dim-window-setup (&rest _)
+    (walk-windows (lambda (w) (with-selected-window w
+      (if (eq w (selected-window))
+        ;; focused window --> remove dimming
+        (when efs/dim-cookie
+          (face-remap-remove-relative efs/dim-cookie)
+          (setq efs/dim-cookie nil))
+        ;; unfocused window --> dimming it
+        (unless efs/dim-cookie
+          (setq efs/dim-cookie (face-remap-add-relative 'default 'shadow))))))
+     nil 'visible))
+
+  (add-hook 'window-selection-change-functions #'efs/dim-window-setup)
+  ;;---------------------------
+  ;; switch focus that forces refresh
+  (defun efs/external-window-move (direction)
+    "Move window focus and force a full font refresh."
+    ;; switch focus
+    (cond
+     ((eq direction 'left)  (evil-window-left 1))
+     ((eq direction 'right) (evil-window-right 1))
+     ((eq direction 'up)    (evil-window-up 1))
+     ((eq direction 'down)  (evil-window-down 1)))
+    ;; run the dimmer logic manually
+    (efs/dim-window-setup)
+    ;; force the display engine to re-read the flushed fonts
+    (force-mode-line-update t)
+    (redisplay t))
+  ;;---------------------------
+  :init
+  (dimmer-mode 1)
+)
 #+end_src
 * wgrep
 #+begin_src emacs-lisp
