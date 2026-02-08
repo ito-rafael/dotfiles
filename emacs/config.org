@@ -516,15 +516,24 @@ https://github.com/doomemacs/themes
     '(line-number-current-line ((t (:foreground "white"))))  ;; set current line number color to white
   ;;---------------------------
   ;; function to update gaps color
-  (defun efs/sync-window-borders ()
-    "Update window divider (internal/external) gaps colors to match the theme."
-    (let ((bg-color (face-attribute 'default :background)))
-      (set-face-attribute 'window-divider nil :foreground bg-color)
-      (set-face-attribute 'internal-border nil :background bg-color)))
-  ;; run this function immediately
+  (defun efs/sync-window-borders (&optional frame)
+    "Update window divider colors to match the theme."
+    ;; if called interactively or without args, ensure we target the current frame
+    (let* ((frame (or frame (selected-frame)))
+           ;; look up the color specifically for this frame
+           (bg-color (face-attribute 'default :background frame t)))
+      (set-face-attribute 'header-line nil
+                          :background bg-color
+                          :foreground bg-color)
+      (set-face-attribute 'window-divider frame :foreground bg-color)
+      (set-face-attribute 'internal-border frame :background bg-color)))
+
+  ;; reload gaps colors
   (efs/sync-window-borders)
-  ;; run it automatically whenever a Doom theme is loaded
+  ;; reload gaps colors automatically whenever theme is loaded
   (add-hook 'doom-load-theme-hook #'efs/sync-window-borders)
+  ;; reload gaps colors after a new frame is created
+  (add-hook 'after-make-frame-functions (lambda (frame) (run-at-time "0.1 sec" nil #'efs/sync-window-borders frame)))
   ;;---------------------------
   :init
   (load-theme 'doom-one t))
