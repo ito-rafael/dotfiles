@@ -847,7 +847,8 @@ https://github.com/noctuid/general.el
 #+begin_src emacs-lisp
   (efs/leader-keys
     "t" '(:ignore t :wk "Toggle")
-    "t d" '(lambda () (interactive) (dashboard-open) (dashboard-refresh-buffer) (dashboard-jump-to-recents)  :wk "Toggle dashboard")
+    "t b" '(lambda () (interactive) (dashboard-open) (dashboard-refresh-buffer) (dashboard-jump-to-recents)  :wk "Toggle dashboard")
+    "t d" '(efs/dimmer-toggle         :wk "Toggle Dimmer")
     "t k" '(keycast-mode              :wk "Toggle keycast")
   )
 #+end_src
@@ -1391,6 +1392,28 @@ https://github.com/gonewest818/dimmer.el
     ;; force the display engine to re-read the flushed fonts
     (force-mode-line-update t)
     (redisplay t))
+  ;;---------------------------
+  (defun efs/dimmer-toggle ()
+    "Toggle dimmer-mode and cleanup any existing dimming effects."
+    (interactive)
+    (if dimmer-mode
+      ;; if dimmer is enabled --> disable it
+      (progn
+        (dimmer-mode -1)
+        ;; manually clear out cookies from all visible windows
+        (walk-windows
+         (lambda (w)
+          (with-selected-window w
+            (when (bound-and-true-p efs/dim-cookie)
+              (face-remap-remove-relative efs/dim-cookie)
+              (setq efs/dim-cookie nil))))
+          nil 'visible)
+        (message "Dimmer disabled"))
+      ;; if dimmer is disabled --> enable it
+      (progn
+        (dimmer-mode 1)
+        (efs/dim-window-setup)
+        (message "Dimmer enabled"))))
   ;;---------------------------
   :init
   (dimmer-mode 1)
