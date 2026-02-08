@@ -212,9 +212,9 @@ bindsym ctrl+mod1+1 move workspace to output $primary;   focus output $primary
 bindsym ctrl+mod1+2 move workspace to output $secondary; focus output $secondary
 bindsym ctrl+mod1+3 move workspace to output $tertiary;  focus output $tertiary
 
-bindsym F16 exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh cut
-bindsym F17 exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh copy
-bindsym F18 exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh paste
+bindsym --release F16 exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh cut
+bindsym --release F17 exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh copy
+bindsym --release F18 exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh paste
 #bindsym $mod+b exec firefox
 #bindsym $mod+c exec chromium
 #bindsym $mod+n exec thunar
