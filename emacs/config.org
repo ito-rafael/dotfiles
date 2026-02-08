@@ -1133,7 +1133,30 @@ It's Magit! A Git Porcelain inside Emacs.
     ;; custom navigation
     (kbd "M-i") 'magit-section-show-level-2-all  ;; fold everything
   )
-  (add-hook 'git-commit-post-finish-hook 'magit))
+  ;;---------------------------
+  ;; return to magit-status after a commit
+  (add-hook 'git-commit-post-finish-hook 'magit)
+  ;;---------------------------
+  ;; return to magit-status after C-c C-k (with-editor-cancel)
+  (defun my/magit-restore-status-smooth (orig-fun &rest args)
+    "Cancel commit without flashing dashboard, then restore layout.
+     Uses inhibit-redisplay to prevent the intermediate 'dashboard' state."
+    (let* ((repo (magit-toplevel))
+      ;; find the existing status buffer for this repo (if any)
+      (status-buf (and repo (cl-find-if (lambda (b) (with-current-buffer b (and (derived-mode-p 'magit-status-mode) (equal (magit-toplevel) repo)))) (buffer-list)))))
+      ;; freeze the display
+      (let ((inhibit-redisplay t))
+        ;; run the original cancel command (kills the commit buffer)
+        (apply orig-fun args)
+        ;; instantly swap to status buffer "in the dark"
+        (when (and status-buf (buffer-live-p status-buf)) (switch-to-buffer status-buf)
+          ;; force single window (closes diff/staged changes window)
+          (delete-other-windows)))
+      ;; run full refresh to fix transient prefixes after a small delay
+      (when repo (run-at-time 0.05 nil (lambda (dir) (magit-status dir)) repo))))
+  (advice-add 'with-editor-cancel :around #'my/magit-restore-status-smooth)
+  ;;---------------------------
+)
 #+end_src
 ** Forge
 Pulls down all information from repositories: issues, pull requests, notifications, etc.
