@@ -835,11 +835,12 @@ https://github.com/noctuid/general.el
 #+begin_src emacs-lisp
   (efs/leader-keys
     "b"   '(:ignore t :wk "buffer")
-    "b b" '(counsel-switch-buffer :wk "Switch buffer")
     "b k" '(kill-current-buffer      :wk "Kill this buffer")
-    "b n" '(next-buffer           :wk "Next buffer")
-    "b p" '(previous-buffer       :wk "Previous buffer")
-    "b r" '(revert-buffer         :wk "Reload buffer")
+    "b b" '(counsel-switch-buffer  :wk "Switch buffer")
+    "b m" '((lambda () (interactive) (view-echo-area-messages) (other-window 1))  :wk "Open *Messages* buffer")
+    "b n" '(next-buffer            :wk "Next buffer")
+    "b p" '(previous-buffer        :wk "Previous buffer")
+    "b r" '(revert-buffer          :wk "Reload buffer")
   )
 #+end_src
 ** e --> eval
