@@ -73,7 +73,7 @@ Disable line numbers for some modes.
   :custom
   ;;(window-divider-default-places t)          ;; set dividers in both bottom and right
   (window-divider-default-places 'right-only)  ;; set dividers for vertical splits only
-  (window-divider-default-bottom-width 0)     ;; bottom gaps width (in pixels)
+  (window-divider-default-bottom-width 0)      ;; bottom gaps width (in pixels)
   (window-divider-default-right-width 15)      ;; right gaps width (in pixels)
 #+end_src
 *** Vertical
@@ -89,6 +89,35 @@ Disable line numbers for some modes.
     (set-face-attribute 'window-divider nil :foreground bg-color)   ;; foreground creates the line
     (set-face-attribute 'internal-border nil :background bg-color)) ;; background creates the padding
 #+end_src
+*** Horizontal
+#+begin_src emacs-lisp
+  ;; function to apply the "opaque text" trick
+  (defun efs/apply-opaque-header-line (&rest _args)
+    "Make the header-line look like a solid, opaque divider."
+    (let ((divider-color (face-attribute 'window-divider :foreground nil t)))
+      ;; fallback if color is not found
+      (when (or (not divider-color) (eq divider-color 'unspecified))
+        (setq divider-color (face-attribute 'default :background)))
+      ;; apply the color to the foreground (text), instead of background
+      (set-face-attribute 'header-line nil
+                          :foreground divider-color  ;; color of the block chars
+                          :background nil            ;; transparent background (ignored)
+                          :height 0.75               ;; adjust the "width" of the gap
+                          :box nil
+                          :inherit nil)
+      ;; ensure vertical divider matches
+      (set-face-attribute 'window-divider nil :foreground divider-color)))
+  ;;---------------------------
+  ;; reload immediately and after loading themes
+  (efs/apply-opaque-header-line)
+  (advice-add 'load-theme :after #'efs/apply-opaque-header-line)
+  ;;---------------------------
+  ;; "opaque text" trick: use a "full block" character repeated across the width
+  ;; this creates a solid bar made of "text", which remains opaque
+  (setq-default header-line-format '((:eval (make-string (ceiling (* (window-total-width) 2)) ?\u2588))))
+#+end_src
+*** EoS :noexport:
+#+begin_src emacs-lisp
   :init
   (window-divider-mode 1)
 )
