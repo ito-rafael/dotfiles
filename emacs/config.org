@@ -193,6 +193,10 @@ When you visit a file, point goes to the last place where it was when you previo
 (global-set-key (kbd "s-<down>")  'evil-window-down)
 (global-set-key (kbd "s-<up>")    'evil-window-up)
 (global-set-key (kbd "s-<right>") 'evil-window-right)
+(global-set-key (kbd "C-c n") 'evil-window-left)
+(global-set-key (kbd "C-c e") 'evil-window-down)
+(global-set-key (kbd "C-c i") 'evil-window-up)
+(global-set-key (kbd "C-c o") 'evil-window-right)
 #+end_src
 ** Debug
 #+begin_src emacs-lisp
