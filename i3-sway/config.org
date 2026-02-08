@@ -945,6 +945,8 @@ bindsym $alt+ctrl+n exec "$SCRIPT_PATH/wlprop.sh focused"
 #+begin_src conf :noweb-ref keybindings
 # change host focus with switch KVM
 bindsym --release $mod+m exec "$XDG_CONFIG_HOME/scripts/lanmouse-switch.sh toggle"
+# debug/test purposes: replace kitty with a custom command or script
+bindsym --release $alt+ctrl+t exec "$XDG_CONFIG_HOME/scripts/sway-test.sh"
 #+end_src
 ** Tangle :noexport:
 *** i3
