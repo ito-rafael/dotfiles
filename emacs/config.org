@@ -738,6 +738,12 @@ Restart applications with new config file.
 #+begin_src emacs-lisp
 (cond
 #+end_src
+***** Waybar
+#+begin_src emacs-lisp
+((string-match-p "waybar" target-dest)
+ (call-process-shell-command "pkill waybar; ~/.config/waybar/waybar.sh &" nil 0)
+ (message "↻ Restarting Waybar..."))
+#+end_src
 ***** Sway
 #+begin_src emacs-lisp
 ;; generate "config" from "_config" using i3bang.rb, and then reload Sway
