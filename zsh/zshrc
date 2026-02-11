@@ -185,8 +185,8 @@ alias cpr='cp -R'                               # cp recursive
 alias psa='ps aux'                              # ps aux
 alias psag='ps aux | grep'                      # ps aux | grep
 alias {chx,cx}='chmod +x'                       # chmod
-alias sd='sudo dmesg --ctime'                   # dmesg
 alias cux='chmod u+x'                           # chmod (owner-only)
+alias sdm='sudo dmesg --ctime'                  # dmesg
 alias sdf='sudo dmesg --follow --ctime'         # dmesg follow
 alias ns='nvidia-smi'                           # NVIDIA
 alias dd='dd bs=4M status=progress oflag=sync'  # dd
