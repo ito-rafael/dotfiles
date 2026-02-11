@@ -409,12 +409,14 @@ mode "$mode_acute" {
     bindsym Shift+o exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type "Ó", mode "default"
     bindsym Shift+u exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type "Ú", mode "default"
     # misc lowercase
+    bindsym l       exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type "'l", mode "default"
     bindsym n       exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type "'n", mode "default"
     bindsym m       exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type "'m", mode "default"
     bindsym r       exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type "'r", mode "default"
     bindsym s       exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type "'s", mode "default"
     bindsym t       exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type "'t", mode "default"
     # misc uppercase
+    bindsym Shift+l exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type "'L", mode "default"
     bindsym Shift+n exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type "'N", mode "default"
     bindsym Shift+m exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type "'M", mode "default"
     bindsym Shift+r exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type "'R", mode "default"
@@ -432,8 +434,6 @@ mode "$mode_tilde" {
     # double quotes
     bindsym F13   exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type '"', mode "default"
     bindsym space exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type '"', mode "default"
-    #bindsym F13   exec wtype '"', mode "default"
-    #bindsym space exec wtype '"', mode "default"
     # tilde lowercase
     bindsym a exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type 'ã', mode "default"
     bindsym o exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type 'õ', mode "default"
@@ -443,7 +443,6 @@ mode "$mode_tilde" {
     bindsym Shift+o exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type 'Õ', mode "default"
     bindsym Shift+n exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type 'Ñ', mode "default"
     # tilde misc
-
     bindsym Shift+F13 exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type '~',   mode "default"
     bindsym slash     exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type '~/',  mode "default"
     bindsym period    exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type '~/.', mode "default"
