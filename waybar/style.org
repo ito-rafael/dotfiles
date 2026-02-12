@@ -191,15 +191,16 @@ https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-
 * Clock
 #+begin_src css
 #clock {
-    background-color: #64727D;
+    /*background-color: #64727D;*/
+    color: lightgray;
 }
 #+end_src
 * Battery :noexport_1:
 ** Normal
 #+begin_src css
 #battery {
-    background-color: #ffffff;
-    color: #000000;
+    /*background-color: #ffffff;*/
+    color: lightgray;
 }
 #+end_src
 ** Charging
@@ -239,26 +240,29 @@ label:focus {
 * CPU
 #+begin_src css
 #cpu {
-    background-color: #2ecc71;
-    color: #000000;
+    /*background-color: #2ecc71;*/
+    color: lightgray;
 }
 #+end_src
 * Memory
 #+begin_src css
 #memory {
-    background-color: #9b59b6;
+    /*background-color: #9b59b6;*/
+    color: lightgray;
 }
 #+end_src
 * Disk
 #+begin_src css
 #disk {
-    background-color: #964B00;
+    /*background-color: #964B00;*/
+    color: lightgray;
 }
 #+end_src
 * Backlight
 #+begin_src css
 #backlight {
-    background-color: #90b1b1;
+    /*background-color: #90b1b1;*/
+    color: lightgray;
 }
 #+end_src
 * Network :noexport_1:
@@ -278,8 +282,8 @@ label:focus {
 ** Normal
 #+begin_src css
 #pulseaudio {
-    background-color: #f1c40f;
-    color: #000000;
+    /*background-color: #f1c40f;*/
+    color: lightgray;
 }
 #+end_src
 ** Muted
@@ -293,7 +297,8 @@ label:focus {
 ** Normal
 #+begin_src css
 #temperature {
-    background-color: #f0932b;
+    /*background-color: #f0932b;*/
+    color: lightgray;
 }
 #+end_src
 ** Critical
