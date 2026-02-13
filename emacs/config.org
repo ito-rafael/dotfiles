@@ -1296,6 +1296,11 @@ https://github.com/emacs-dashboard/emacs-dashboard
     (kbd "C-e") 'dashboard-next-section      ;; next section
     (kbd "C-i") 'dashboard-previous-section  ;; previous section
   )
+
+  ;; always disable line numbers
+  (when (get-buffer dashboard-buffer-name)
+    (with-current-buffer dashboard-buffer-name
+      (efs/disable-line-numbers)))
 )
 #+end_src
   :config
