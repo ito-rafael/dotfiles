@@ -59,8 +59,13 @@
 *** Exceptions
 Disable line numbers for some modes.
 #+begin_src emacs-lisp
+;; function to disable line numbers
+(defun efs/disable-line-numbers ()
+  (display-line-numbers-mode -1))
+
+;; hook function to dashboard-mode
 (dolist (mode '(dashboard-mode-hook))
-  (add-hook mode (lambda () (display-line-numbers-mode -1))))
+  (add-hook mode #'efs/disable-line-numbers))
 #+end_src
 ** Transparency
 #+begin_src emacs-lisp
