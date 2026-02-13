@@ -468,16 +468,6 @@ https://github.com/emacs-evil/evil-collection
       "gk" "gn"  "gK" "gN")
   "Evil keys to translate for the Colemak-DH keyboard layout.")
 
-  ;; translate the main evil-mode bindings.
-  (apply #'evil-collection-translate-key
-         nil
-         '(evil-normal-state-map
-           evil-motion-state-map
-           evil-operator-state-map
-           evil-visual-state-map
-           evil-window-map)
-         evil-colemak-dh-translations)
-
   ;; install a hook to translate bindings from evil-collection.
   (defun evil-colemak-dh-translate-keys (mode keymaps &optional states &rest _rest)
     "Translate bindings for MODE in KEYMAPS for the Colemak-DH layout in STATES."
@@ -486,14 +476,30 @@ https://github.com/emacs-evil/evil-collection
            keymaps
            evil-colemak-dh-translations))
 
-  ;; add translation to hook
-  (add-hook 'evil-collection-setup-hook #'evil-colemak-dh-translate-keys)
+  ;; guard logic: use a variable to ensure the colemak translations runs once.
+  (defvar efs/evil-collection-initialized nil)
 
-  ;; delete certain modes from evil-collection
-  (delete 'gnus evil-collection-mode-list)  ;; delete "gnus" (bugfix: conflict with colemak remaps when reloading Emacs config)
-
-  ;; enable evil-collection bindings in all modes (except the deleted ones above)
-  (evil-collection-init))
+  ;; translate the main evil-mode bindings, if not done yet.
+  (unless efs/evil-collection-initialized
+    (apply #'evil-collection-translate-key
+      nil
+      '(evil-normal-state-map
+        evil-motion-state-map
+        evil-operator-state-map
+        evil-visual-state-map
+        evil-window-map)
+      evil-colemak-dh-translations)
+    ;; add translation to hook
+    (add-hook 'evil-collection-setup-hook #'evil-colemak-dh-translate-keys)
+    ;; delete certain modes from evil-collection
+    ;; delete "gnus" (bugfix: conflict with colemak remaps when reloading Emacs config)
+    ;;(delete 'gnus evil-collection-mode-list)
+    ;; enable evil-collection bindings in all modes (except the deleted ones above)
+    (evil-collection-init)
+    ;; mark as done so reloads don't scramble the keys
+    (setq efs/evil-collection-initialized t)
+  )
+)
 #+end_src
 ** evil-colemak
 Original repo: https://github.com/wbolster/emacs-evil-colemak-basics
