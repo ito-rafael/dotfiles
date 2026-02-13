@@ -1269,6 +1269,12 @@ https://github.com/emacs-dashboard/emacs-dashboard
     ;(registers . 3)
   ))
   :config
+  ;(add-hook 'dashboard-after-initialize-hook #'dashboard-jump-to-recents)  ;; start dashboard in recents section
+  ;; start dashboard in recents section
+  (defun efs/dashboard-refresh-on-frame ()
+    (dashboard-refresh-buffer)    ;; fix icons & spacing
+    (dashboard-jump-to-recents))  ;; start in recents section
+  (add-hook 'server-after-make-frame-hook #'efs/dashboard-refresh-on-frame)
   ;; keybindings
   (evil-collection-define-key '(normal visual) 'dashboard-mode-map
     ;; custom navigation
