@@ -642,13 +642,12 @@ https://github.com/yilkalargaw/org-auto-tangle
   :after ob
   :hook (org-mode . org-auto-tangle-mode)
   :custom
-  (org-auto-tangle-babel-safelist '(all))
-  ;;(org-auto-tangle-babel-safelist '(
-  ;;   "/home/rafael/git/dotfiles/archlinux/archinstall/archinstall.org"
-  ;;   "/home/rafael/git/dotfiles/brave/extensions.org"
-  ;;   "/home/rafael/git/dotfiles/i3-sway/config.org"
-  ;;   "/home/rafael/git/dotfiles/scripts/sway-dispatch.org"
-  ;;   "/home/rafael/git/keebab/xremap/config.org"))
+  (org-auto-tangle-babel-safelist '(
+     "/home/rafael/git/dotfiles/archlinux/archinstall/archinstall.org"
+     "/home/rafael/git/dotfiles/brave/extensions.org"
+     "/home/rafael/git/dotfiles/i3-sway/config.org"
+     "/home/rafael/git/dotfiles/scripts/sway-dispatch.org"
+     "/home/rafael/git/keebab/xremap/config.org"))
 )
 #+end_src
 ** Custom tangle hooks
