@@ -63,9 +63,18 @@ Disable line numbers for some modes.
 (defun efs/disable-line-numbers ()
   (display-line-numbers-mode -1))
 
-;; hook function to dashboard-mode
-(dolist (mode '(dashboard-mode-hook))
-  (add-hook mode #'efs/disable-line-numbers))
+;; disable line numbers in these modes
+(dolist
+  (mode '(
+    dashboard-mode-hook
+    ;;org-mode-hook
+    ;;term-mode-hook
+    ;;shell-mode-hook
+    ;;treemacs-mode-hook
+    ;;eshell-mode-hook
+  ))
+  (add-hook mode #'efs/disable-line-numbers)
+)
 #+end_src
 ** Transparency
 #+begin_src emacs-lisp
