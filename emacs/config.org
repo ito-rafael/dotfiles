@@ -944,7 +944,7 @@ https://github.com/noctuid/general.el
 #+begin_src emacs-lisp
   (efs/leader-keys
     "t" '(:ignore t :wk "Toggle")
-    "t b" '(lambda () (interactive) (dashboard-open) (dashboard-refresh-buffer) (dashboard-jump-to-recents)  :wk "Toggle dashboard")
+    "t b" '(dashboard-open            :wk "Toggle dashboard")
     "t d" '(efs/dimmer-toggle         :wk "Toggle Dimmer")
     "t k" '(keycast-mode              :wk "Toggle keycast")
   )
