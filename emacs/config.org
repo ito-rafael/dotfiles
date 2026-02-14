@@ -776,6 +776,12 @@ Restart applications with new config file.
    (call-process-shell-command cmd nil nil)
    (message "↻ Generated & Reloaded Sway.")))
 #+end_src
+***** xremap
+#+begin_src emacs-lisp
+((string-match-p "xremap" target-dest)
+ (start-process-shell-command "reload-xremap" nil "systemctl --user restart xremap")
+ (message "↻ Restarting Xremap..."))
+#+end_src
 ***** EoS
 #+begin_src emacs-lisp
 )
