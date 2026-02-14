@@ -6,6 +6,7 @@
 #+auto_tangle: t
 
 * Table of contents :toc_1:
+- [[#documentation][Documentation]]
 - [[#general-config][General config]]
 - [[#sway][Sway]]
 - [[#outputs][Outputs]]
@@ -27,6 +28,85 @@
 - [[#vpn][VPN]]
 - [[#startup-commands][Startup commands]]
 
+* Documentation
+** i3bang
+https://github.com/tckmn/i3bang
+A preprocessor for i3 config files aimed to drastically reduce their length.
+
+Install ruby (prerequisite).
+#+begin_src sh :tangle no
+sudo pacman -S ruby
+#+end_src
+
+Get i3bang.rb script.
+#+begin_src sh :tangle no
+wget -P ~/.config/i3/ https://raw.githubusercontent.com/ito-rafael/pc-general-config/master/i3/i3bang.rb
+#+end_src
+
+Give it execution permission.
+#+begin_src sh :tangle no
+chmod +x ~/.config/i3/i3bang.rb
+#+end_src
+
+Rename config file to _config.
+#+begin_src sh :tangle no
+mv ~/.config/i3/config ~/.config/i3/_config
+#+end_src
+** i3blocks
+https://github.com/vivien/i3blocks
+A feed generator for text based status bars.
+
+#+begin_src sh :tangle no
+yay -S i3blocks-contrib-git
+#+end_src
+** i3 layouts
+Installation.
+#+begin_src sh :tangle no
+sudo pacman -S perl-anyevent-i3
+sudo pacman -S perl-json-xs
+#+end_src
+
+Saving the layout.
+#+begin_src sh :tangle no
+i3-save-tree --workspace M > ~/.config/i3/wsN.json
+#+end_src
+
+Editing the json file.
+#+begin_src sh :tangle no
+vim ~/.config/i3/wsN.json
+#+end_src
+
+- remove the first line:
+#+begin_src txt :tangle no
+// vim:ts=4:sw=4:et
+#+end_src
+
+- remove the "//" under 'swallows' section:
+#+begin_src txt :tangle no
+   // "class": "^Thunar$",
+   // "instance": "^thunar$",
+   // "title": "^rafael\\ \\-\\ File\\ Manager$",
+#+end_src
+
+- delete 'window_role' item:
+#+begin_src txt :tangle no
+   // "window_role": "^Thunar\\-1587310553\\-3422989574$"
+#+end_src
+
+- delete last trailing comma from 'swallow' section:
+#+begin_src txt :tangle no
+   // "title": "^rafael\\ \\-\\ File\\ Manager$",
+#+end_src
+
+Script (not workig).
+#+begin_src sh :tangle no
+tail -n +2 ~/.config/i3/wsN.json | fgrep -v '// split' | sed 's|//||g' > ~/.config/i3/wsN.json
+#+end_src
+
+Restoring the layout.
+#+begin_src sh :tangle no
+i3-msg "workspace WS_NAME; append_layout /home/rafael/.config/i3/wsN.json"
+#+end_src
 * General config
 ** Modifiers
 |----------+--------------------------------|
