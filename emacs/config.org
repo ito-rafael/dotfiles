@@ -720,7 +720,7 @@ This is a custom config to copy some tangled files into predefined paths.
 
   ;; keebab
   (,(expand-file-name "~/git/keebab/scripts/sway-dispatch.org") . (("sway-dispatch.sh" . "~/.config/scripts/sway-dispatch.sh")))
-  (,(expand-file-name "~/git/keebab/xremap/config.org")         . (("config_sway.yml"  . "~/.config/xremap/config")))
+  (,(expand-file-name "~/git/keebab/xremap/config.org")         . (("config_sway.yml"  . "~/.config/xremap/config.yml")))
 )))
 #+end_src
 **** Match tangled file
