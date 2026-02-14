@@ -203,14 +203,17 @@ Source: https://systemcrafters.net/emacs-tips/using-the-emacs-daemon/#configurin
 ** Copy/Paste for Wayland
 *** Copy
 #+begin_src emacs-lisp
-;; send text to wl-copy with strict UTF-8 encoding
+;; send text to wl-copy via stdin with strict UTF-8 encoding
 (setq interprogram-cut-function
   (lambda (text &optional push)
-    (let ((process-connection-type nil)
-          ;; force Emacs to output UTF-8 bytes (instead of Latin-1)
-          (coding-system-for-write 'utf-8))
-      ;; send to wl-copy and explicitly label it as UTF-8
-      (start-process "wl-copy" nil "wl-copy" "--type" "text/plain;charset=utf-8" text))))
+    (let ((process-connection-type nil))
+      (let ((proc (start-process "wl-copy" nil "wl-copy" "--type" "text/plain;charset=utf-8")))
+      ;; set UTF-8 for pipe (instead of Latin-1)
+      (set-process-coding-system proc 'utf-8 'utf-8)
+      ;; send the text to the process's standard input
+      (process-send-string proc text)
+      ;; signal EOF to wl-copy
+      (process-send-eof proc)))))
 #+end_src
 *** Paste
 #+begin_src emacs-lisp
