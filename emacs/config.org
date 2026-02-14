@@ -621,16 +621,13 @@ https://github.com/seagle0128/doom-modeline
   )
 )
 #+end_src
-** language-modes
-Make sure language modes are available for Org as soon as possible.
+** Syntax highlighting
+Make sure source code blocks get the right colors even if the header is off-screen.
 #+begin_src emacs-lisp
-(with-eval-after-load 'org
-  (require 'conf-mode)
-  (require 'js)
-  (require 'lisp-mode)
-  (require 'python)
-  (require 'sh-script)
-)
+;; syntax highlighting even if the header is off-screen
+(setq jit-lock-contextually t)
+;; increase the size of the chunk Emacs refontifies
+(setq jit-lock-chunk-size 40000)
 #+end_src
 ** org-bullets
 Bullets as UTF-8 characters for headers in Org Mode.
