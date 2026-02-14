@@ -757,11 +757,7 @@ Restart applications with new config file.
 #+begin_src emacs-lisp
 (cond
 #+end_src
-***** Waybar
 #+begin_src emacs-lisp
-((string-match-p "waybar" target-dest)
- (call-process-shell-command "pkill waybar; ~/.config/waybar/waybar.sh &" nil 0)
- (message "↻ Restarting Waybar..."))
 #+end_src
 ***** Sway
 #+begin_src emacs-lisp
@@ -775,14 +771,20 @@ Restart applications with new config file.
                      script-path
                      config-source)))
    ;; run synchronously to ensure it finishes before the hook exits
-   (call-process-shell-command cmd nil nil)
+   (call-process-shell-command cmd nil "*Messages*")
    (message "↻ Generated & Reloaded Sway.")))
 #+end_src
 ***** xremap
 #+begin_src emacs-lisp
 ((string-match-p "xremap" target-dest)
- (start-process-shell-command "reload-xremap" nil "systemctl --user restart xremap")
- (message "↻ Restarting Xremap..."))
+ (start-process-shell-command "reload-xremap" "*Messages*" "systemctl --user restart xremap")
+ (message "↻ Restarting xremap..."))
+#+end_src
+***** Waybar
+#+begin_src emacs-lisp
+((string-match-p "waybar" target-dest)
+ (call-process-shell-command "pkill waybar; ~/.config/waybar/waybar.sh &" nil "*Messages*")
+ (message "↻ Restarting Waybar..."))
 #+end_src
 ***** EoS
 #+begin_src emacs-lisp
