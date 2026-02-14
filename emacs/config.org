@@ -721,6 +721,7 @@ This is a custom config to copy some tangled files into predefined paths.
   (,(expand-file-name "~/git/dotfiles/waybar/style.org")   . (("style.css"     . "~/.config/waybar/style.css")))
 
   ;; keebab
+  (,(expand-file-name "~/git/keebab/kanata/kanata.org")         . (("kanata.kbd"       . "~/.config/kanata/kanata.kbd")))
   (,(expand-file-name "~/git/keebab/scripts/sway-dispatch.org") . (("sway-dispatch.sh" . "~/.config/scripts/sway-dispatch.sh")))
   (,(expand-file-name "~/git/keebab/xremap/config.org")         . (("config_sway.yml"  . "~/.config/xremap/config.yml")))
 )))
@@ -757,7 +758,11 @@ Restart applications with new config file.
 #+begin_src emacs-lisp
 (cond
 #+end_src
+***** kanata
 #+begin_src emacs-lisp
+((string-match-p "kanata" target-dest)
+ (call-process-shell-command "systemctl --user restart kanata" nil "*Messages*")
+ (message "↻ Restarting kanata..."))
 #+end_src
 ***** Sway
 #+begin_src emacs-lisp
