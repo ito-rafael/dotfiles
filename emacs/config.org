@@ -665,9 +665,8 @@ https://github.com/yilkalargaw/org-auto-tangle
      "/home/rafael/git/dotfiles/i3-sway/config.org"
      "/home/rafael/git/dotfiles/scripts/sway-dispatch.org"
      "/home/rafael/git/keebab/xremap/config.org"))
-)
+  :config
 #+end_src
-** Custom tangle hooks
 *** Autoformat
 **** Header
 #+begin_src emacs-lisp
@@ -788,7 +787,7 @@ Restart applications with new config file.
 #+end_src
 **** EoS
 #+begin_src emacs-lisp
-))))))))
+)))))))))
 #+end_src
 ** org-contrib
 https://orgmode.org/worg/org-contrib/
