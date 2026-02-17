@@ -795,6 +795,12 @@ Restart applications with new config file.
 #+begin_src emacs-lisp
 (cond
 #+end_src
+***** Emacs
+#+begin_src emacs-lisp
+((string-match-p "emacs" target-dest)
+ (call-process-shell-command "emacsclient -s efs -e '(efs/reload-emacs-config)'" nil 0)
+ (message "↻ Reloadig Emacs config..."))
+#+end_src
 ***** kanata
 #+begin_src emacs-lisp
 ((string-match-p "kanata" target-dest)
