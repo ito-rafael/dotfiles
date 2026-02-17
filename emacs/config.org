@@ -226,15 +226,11 @@ Source: https://systemcrafters.net/emacs-tips/using-the-emacs-daemon/#configurin
           (unless (string= clipboard-text (or (car kill-ring) ""))
             clipboard-text))))
 #+end_src
-** F16 --> M-x
-Set F16 as M-x.
+** Cut/Copy/Paste
 #+begin_src emacs-lisp
-(global-set-key (kbd "<f16>") 'execute-extended-command)
-#+end_src
-** Copy and Paste
-#+begin_src emacs-lisp
-(global-set-key (kbd "<f17>") 'evil-yank)
-(global-set-key (kbd "<f18>") 'evil-paste-after)
+(global-set-key (kbd "<M-f17>") 'execute-extended-command)  ;; M-x
+(global-set-key (kbd "<S-f17>") 'evil-yank)                 ;; copy
+(global-set-key (kbd "<C-f17>") 'evil-paste-after)          ;; paste
 #+end_src
 ** ESC
 Make ESC quit prompts.
