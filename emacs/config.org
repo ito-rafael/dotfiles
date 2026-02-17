@@ -307,6 +307,12 @@ Disable read-only for some modes.
 (dolist (mode '(dashboard-mode-hook))
   (add-hook mode (lambda () (read-only-mode -1))))
 #+end_src
+** Focus follows mouse
+#+begin_src emacs-lisp
+(setq focus-follows-mouse t)
+(setq mouse-autoselect-window t)
+(setq mouse-wheel-follow-mouse nil)  ;; mouse scroll acts on focused window
+#+end_src
 * Package Manager :noexport_1:
 Git repo: [[https://github.com/progfolio/elpaca][Elpaca]]
 #+ATTR_ORG: :width 75
