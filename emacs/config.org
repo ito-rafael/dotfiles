@@ -985,6 +985,7 @@ https://github.com/noctuid/general.el
   (efs/leader-keys
     "r" '(:ignore t :wk "Remote")
     "r c" '(tramp-cleanup-all-connections  :wk "Cleanup")
+    "r i" '(lambda () (interactive) (find-file "/ssh:ipf:~"))
     "r l" '(lambda () (interactive) (find-file "/ssh:lbic:~"))
   )
 #+end_src
