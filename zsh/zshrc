@@ -333,6 +333,9 @@ alias cdk='cd $HOME/git/keebab'
 alias cdks='cd $HOME/git/keebab/scripts'
 alias cda='cd $HOME/git/ansible-provision'
 alias cdm='cd $HOME/git/machine-learning'
+alias cdy='cd $HOME/0_Y2P_SSH_BAK/home/rafael'
+alias cdu='cd $HOME/0_Y2P_SSH_BAK/home/rafael/RAFAEL/UNICAMP'
+alias cdt='cd $HOME/git/masters/Thesis'
 alias cdenv='cd $HOME/venvs'
 #alias cdu='cd $HOME/RAFAEL/UNICAMP'
 # dotfiles
@@ -348,7 +351,7 @@ alias cdpw='cd $HOME/git/dotfiles/waybar'
 alias cdpws='cd $HOME/git/dotfiles/waybar/scripts'
 # XDG_CONFIG_HOME
 alias cdc='cd $XDG_CONFIG_HOME'
-alias cde='cd $XDG_CONFIG_HOME/emacs'
+alias cde='cd $XDG_CONFIG_HOME/emacs-efs'
 alias cds='cd $XDG_CONFIG_HOME/scripts'
 alias cdx='cd $XDG_CONFIG_HOME/xremap'
 alias cdi='cd $XDG_CONFIG_HOME/i3'
@@ -397,6 +400,9 @@ alias dcrs='docker-compose -p $(pwd | rev | cut -d '/' -f 2 | rev) down && docke
 # Docker files edit
 alias vdf='vim Dockerfile'
 alias vdc='vim docker-compose.yml'
+#-----------------------------
+# git
+function gs() { git show $1 | vim - }
 
 #-----------------------------
 # config files
@@ -410,6 +416,7 @@ REMOTE="lbic"
 alias {rzz,rz}='source $XDG_CONFIG_HOME/zsh/.zshrc'
 alias {rii,ri}='$XDG_CONFIG_HOME/i3/i3bang.rb && i3-msg restart'
 alias {rii,ri}='$XDG_CONFIG_HOME/sway/i3bang.rb && swaymsg reload'
+alias {rww,rw}='rm -rf $XDG_CACHE_HOME/wasistlos'
 alias {rxx,rx}='xmodmap $HOME/.Xmodmap'
 alias rze='source $XDG_CONFIG_HOME/zsh/.zshenv'
 #-----------------------------
@@ -652,6 +659,13 @@ export THEME_LIGHT='Adwaita'
 #=======================================
 # use keychain to launch ssh-agent and ssh-add
 #eval $(keychain --noask --eval --quiet id_ed25519)
+#-----------------------------
+
+# Contiki-NG
+alias contiker="docker run --privileged --sysctl net.ipv6.conf.all.disable_ipv6=0 --mount type=bind,source=$CNG_PATH,destination=/home/user/contiki-ng -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -v /dev/bus/usb:/dev/bus/usb -ti contiker/contiki-ng"
+
+# Masters Sync
+alias ms='rsync -avzhP rafael@143.106.45.169:/home/rafael/git/masters/ /home/rafael/git/masters'
 
 #=======================================
 # ZVM: zsh-vi-mode
@@ -707,3 +721,19 @@ export GROFF_NO_SGR=1
 
 # zoxide
 eval "$(zoxide init --cmd cd zsh)"
+
+#=======================================
+# Colemak-DH
+#=======================================
+# navigation
+#bindkey -a 'n' vi-backward-char
+#bindkey -a 'e' down-line-or-history
+#bindkey -a 'i' up-line-or-history
+#bindkey -a 'o' vi-forward-char
+#
+#bindkey -a 'k' vi-repeat-search
+#bindkey -a 'K' vi-rev-repeat-search
+#bindkey -a 's' vi-insert
+#bindkey -a 'S' vi-insert-bol
+#bindkey -a 'l' vi-forward-word-end
+#bindkey -a 'L' vi-forward-blank-word-end

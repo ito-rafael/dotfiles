@@ -320,7 +320,7 @@ Disable read-only for some modes.
            (bottom (nth 3 edges))
            (x      (+ left (/ (- right left) 2)))
            (y      (+ top (/ (- bottom top) 2))))
-      (message "Moving mouse cursor to x=%s y=%s" x y)
+      ;;(message "Moving mouse cursor to x=%s y=%s" x y)
       ;; move mouse cursor with ydotool
       (start-process-shell-command
         (format "Moving-mouse-to-x=%d-y=%d" x y)
