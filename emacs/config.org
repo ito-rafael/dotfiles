@@ -335,6 +335,15 @@ Disable read-only for some modes.
     )
   )
 )
+
+;; set advice for evil-window commands
+(dolist (cmd '(evil-window-left
+               evil-window-right
+               evil-window-up
+               evil-window-down
+               evil-window-next
+               evil-window-prev))
+  (advice-add cmd :after #'efs/warp-mouse-to-center))
 #+end_src
 * Package Manager :noexport_1:
 Git repo: [[https://github.com/progfolio/elpaca][Elpaca]]
