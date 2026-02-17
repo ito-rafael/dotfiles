@@ -36,6 +36,7 @@
 - [[#consult-gh][consult-gh]]
 - [[#dimmer][dimmer]]
 - [[#wgrep][wgrep]]
+- [[#ace-window][ace-window]]
 
 * UI :noexport_1:
 ** Misc
@@ -1614,4 +1615,10 @@ https://github.com/gonewest818/dimmer.el
   (setq wgrep-auto-save-buffer t)      ;; automatically save buffer when =wgrep-finish-edit=
   (setq wgrep-change-readonly-file t)  ;; apply changes regardless read-only flag on buffers
   (setq wgrep-enable-key "s"))         ;; set keybinding to switch to wgrep
+#+end_src
+(use-package ace-window
+  :custom
+  ;; display text in minibuffer when ace-window is active
+  (aw-minibuffer-flag t)
+)
 #+end_src
