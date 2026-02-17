@@ -312,6 +312,29 @@ Disable read-only for some modes.
 (setq focus-follows-mouse t)
 (setq mouse-autoselect-window t)
 (setq mouse-wheel-follow-mouse nil)  ;; mouse scroll acts on focused window
+
+;; function to warp mouse cursor to the center of the window
+(defun efs/warp-mouse-to-center (&rest _)
+  "Move mouse to the center of the current window."
+  (when (display-graphic-p)
+    (let* ((edges (window-pixel-edges))
+           (left   (nth 0 edges))
+           (top    (nth 1 edges))
+           (right  (nth 2 edges))
+           (bottom (nth 3 edges))
+           (x      (+ left (/ (- right left) 2)))
+           (y      (+ top (/ (- bottom top) 2))))
+      (message "Moving mouse cursor to x=%s y=%s" x y)
+      ;; move mouse cursor with ydotool
+      (start-process-shell-command
+        (format "Moving-mouse-to-x=%d-y=%d" x y)
+        "*Messages*"
+        (format "ydotool mousemove -x -9999 -y -9999 && ydotool mousemove -x %s -y %s" (/ x 2) (/ y 2)))
+      ;; the next command only works on X11
+      ;;(set-mouse-pixel-position (selected-frame) x y))))
+    )
+  )
+)
 #+end_src
 * Package Manager :noexport_1:
 Git repo: [[https://github.com/progfolio/elpaca][Elpaca]]
