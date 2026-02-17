@@ -980,6 +980,13 @@ https://github.com/noctuid/general.el
     "p f" '(projectile-find-file         :wk "Find file in project")
   )
 #+end_src
+** r --> remote
+#+begin_src emacs-lisp
+  (efs/leader-keys
+    "r" '(:ignore t :wk "Remote")
+    "r c" '(tramp-cleanup-all-connections  :wk "Cleanup")
+  )
+#+end_src
 ** s --> search
 #+begin_src emacs-lisp
   (efs/leader-keys
