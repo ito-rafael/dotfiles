@@ -751,6 +751,7 @@ This is a custom config to copy some tangled files into predefined paths.
 #+begin_src emacs-lisp
 (let ((transfer-list `(
   ;; dotfiles
+  (,(expand-file-name "~/git/dotfiles/emacs/config.org")   . (("init.el"       . "~/.config/emacs-efs/init.el")))
   (,(expand-file-name "~/git/dotfiles/i3-sway/config.org") . (("_config_sway"  . "~/.config/sway/_config")
                                                               ("_config_i3"    . "~/.config/i3/_config")))
   (,(expand-file-name "~/git/dotfiles/waybar/config.org")  . (("config"        . "~/.config/waybar/config")))
