@@ -218,14 +218,16 @@ Source: https://systemcrafters.net/emacs-tips/using-the-emacs-daemon/#configurin
 #+end_src
 *** Paste
 #+begin_src emacs-lisp
-;; read from wl-paste, but verify it's new content
+;; read from wl-paste, comparing against the yanked text
 (setq interprogram-paste-function
-      (lambda ()
-        (let ((clipboard-text (shell-command-to-string "wl-paste -n | tr -d '\r'")))
-          ;; check if the clipboard text is different from what Emacs already has
-          ;; if they are the same, return nil so Emacs uses its internal "smart" yank (keeping lines/blocks).
-          (unless (string= clipboard-text (or (car kill-ring) ""))
-            clipboard-text))))
+  (lambda ()
+    ;; set default-directory to local home dir (fix paste while in TRAMP)
+    (let ((default-directory (expand-file-name "~/")))
+      (let ((clipboard-text (shell-command-to-string "wl-paste -n | tr -d '\r'")))
+        ;; check if the clipboard text is different from what Emacs already has
+        ;; if they are the same, return nil so Emacs uses its internal "smart" yank (keeping lines/blocks).
+        (unless (string= clipboard-text (or (car kill-ring) ""))
+          clipboard-text)))))
 #+end_src
 ** Cut/Copy/Paste
 #+begin_src emacs-lisp
