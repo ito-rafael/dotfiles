@@ -332,7 +332,7 @@ Disable read-only for some modes.
            (offset-x (if (nth 0 offset-list) (string-to-number (nth 0 offset-list)) 0))
            (offset-y (if (nth 1 offset-list) (string-to-number (nth 1 offset-list)) 0))
            ;; calculate the absolute coordinates (relative + offset + 1920)
-           (abs-x (+ offset-x 1920 rel-x))
+           (abs-x (+ offset-x rel-x))
            (abs-y (+ offset-y rel-y))
            ;; warp the cursor
            (cmd (format "swaymsg seat seat0 cursor set %d %d" abs-x abs-y)))
