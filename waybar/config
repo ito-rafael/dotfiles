@@ -10,6 +10,7 @@
     "custom/vpn-unicamp",
     "custom/vpn-lbic",
     "custom/vpn-samsung",
+    "custom/pomodoro-timer",
     "custom/xremap-mode",
     "custom/scratchpad-translate",
     "custom/scratchpad-llm",
@@ -346,6 +347,15 @@
     },
     "reverse-scrolling": true,
     "reverse-mouse-scrolling": false,
+},
+
+"custom/pomodoro-timer": {
+  "exec": "tomat status",
+  "interval": 1,
+  "return-type": "json",
+  "format": "{}",
+  "on-click": "tomat toggle",
+  "on-click-right": "tomat skip"
 },
 
 "custom/pacman": {

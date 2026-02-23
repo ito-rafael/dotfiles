@@ -40,6 +40,7 @@
 - [[#xremap-mode][xremap mode]]
 - [[#dunst][Dunst]]
 - [[#scale][Scale]]
+- [[#pomodoro-timer][Pomodoro timer]]
 - [[#pacman][Pacman]]
 - [[#kmonad][KMonad]]
 - [[#kanata][kanata]]
@@ -496,6 +497,17 @@
     },
     "reverse-scrolling": true,
     "reverse-mouse-scrolling": false,
+},
+#+end_src
+* Pomodoro timer
+#+begin_src js
+"custom/pomodoro-timer": {
+  "exec": "tomat status",
+  "interval": 1,
+  "return-type": "json",
+  "format": "{}",
+  "on-click": "tomat toggle",
+  "on-click-right": "tomat skip"
 },
 #+end_src
 * Pacman
