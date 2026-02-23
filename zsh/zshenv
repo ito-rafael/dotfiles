@@ -1,3 +1,4 @@
+# -*- mode: sh; sh-shell: zsh; -*-
 # environment variables
 export GTK_THEME=Adwaita:dark
 
