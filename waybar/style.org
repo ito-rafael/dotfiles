@@ -42,6 +42,7 @@
 - [[#xremap-mode][xremap mode]]
 - [[#dunst][Dunst]]
 - [[#scale][Scale]]
+- [[#pomodoro-timer][Pomodoro timer]]
 - [[#pacman][Pacman]]
 - [[#kmonad][KMonad]]
 - [[#kanata][kanata]]
@@ -707,6 +708,14 @@ label:focus {
 #custom-scale:hover {
     background: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
+}
+#+end_src
+* Pomodoro timer :noexport_1:
+** Work
+*** Playing
+#+begin_src css
+#custom-tomat.work {
+  background-color: #ff6b6b;
 }
 #+end_src
 * Pacman :noexport_1:
