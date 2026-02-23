@@ -718,6 +718,12 @@ label:focus {
   background-color: #ff6b6b;
 }
 #+end_src
+*** Paused
+#+begin_src css
+#custom-tomat.work-paused {
+  background-color: #ff9999;
+}
+#+end_src
 * Pacman :noexport_1:
 ** Low
 #+begin_src css

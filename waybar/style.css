@@ -457,6 +457,14 @@ label:focus {
     transition: background 0.3s ease;
 }
 
+#custom-tomat.work {
+  background-color: #ff6b6b;
+}
+
+#custom-tomat.work-paused {
+  background-color: #ff9999;
+}
+
 #custom-pacman.low {
     color: lightgray;
 }
