@@ -25,6 +25,9 @@ export TEXMFHOME=$XDG_DATA_HOME/texmf
 export TEXMFVAR=$XDG_CACHE_HOME/texlive/texmf-var
 export TEXMFCONFIG=$XDG_CONFIG_HOME/texlive/texmf-config
 
+# OBS
+export QT_QPA_PLATFORM=wayland
+
 # scrcpy
 export SDL_VIDEODRIVER=wayland
 
