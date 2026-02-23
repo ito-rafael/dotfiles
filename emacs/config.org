@@ -321,20 +321,29 @@ Disable read-only for some modes.
            (top    (nth 1 edges))
            (right  (nth 2 edges))
            (bottom (nth 3 edges))
-           (x      (+ left (/ (- right left) 2)))
-           (y      (+ top (/ (- bottom top) 2))))
-      ;;(message "Moving mouse cursor to x=%s y=%s" x y)
-      ;; move mouse cursor with ydotool
+           ;; calculate relative coordinates
+           (rel-x  (+ left (/ (- right left) 2)))
+           (rel-y  (+ top (/ (- bottom top) 2)))
+           ;; get x/y offsets of the current monitor
+           (jq-cmd "swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .rect | [ .x, .y ] | join(\" \")'")
+           (offset-str (shell-command-to-string jq-cmd))
+           (offset-list (split-string offset-str))
+           ;; convert to lisp numbers
+           (offset-x (if (nth 0 offset-list) (string-to-number (nth 0 offset-list)) 0))
+           (offset-y (if (nth 1 offset-list) (string-to-number (nth 1 offset-list)) 0))
+           ;; calculate the absolute coordinates (relative + offset + 1920)
+           (abs-x (+ offset-x 1920 rel-x))
+           (abs-y (+ offset-y rel-y))
+           ;; warp the cursor
+           (cmd (format "swaymsg seat seat0 cursor set %d %d" abs-x abs-y)))
+      ;; the output for "swaymsg -t get_outputs | jq -r '.[] | select(.focused).rect.x'" is:
+      ;;   - left monitor: x=-1920
+      ;;   - central monitor: x=0
+      ;;   - right monitor: x=1920
       (start-process-shell-command
-        (format "Moving-mouse-to-x=%d-y=%d" x y)
-        "*Messages*"
-        ;;(format "ydotool mousemove -x -9999 -y -9999 && ydotool mousemove -x %s -y %s" (/ x 2) (/ y 2)))
-        (format "swaymsg seat seat0 cursor set %s %s" x y))
-      ;; the next command only works on X11
-      ;;(set-mouse-pixel-position (selected-frame) x y))))
-    )
-  )
-)
+       (format "Moving-mouse-to-x=%d-y=%d" abs-x abs-y)
+       "*Messages*"
+       cmd))))
 
 ;; set advice for evil-window commands
 (dolist (cmd '(evil-window-left
