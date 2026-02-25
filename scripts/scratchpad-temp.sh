@@ -113,7 +113,7 @@ case "${XDG_SESSION_TYPE}" in
         WM_CMD="swaymsg"
         PROP="app_id"
         CAPTION="name"
-        RESOLUTION=$(swaymsg -t get_outputs | jq '.[] | select(.focused==true).current_mode')
+        RESOLUTION=$(swaymsg -t get_outputs | jq '.[] | select(.focused==true).rect')
         RES_WIDTH=$(echo $RESOLUTION | jq '.width')
         RES_HEIGHT=$(echo $RESOLUTION | jq '.height')
         OUTPUT_SCALE=$(swaymsg -t get_outputs | jq '.[] | select(.focused==true).scale')
