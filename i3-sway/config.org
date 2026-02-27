@@ -289,15 +289,15 @@ set $tertiary DVI-I-1
 **** i3
 Outputs in i3wm is now being configured through a script (=xrandr-config.sh=), called in the [[*Startup commands]].
 #+begin_src conf :noweb-ref i3-output-xrandr
-exec xrandr --output $primary   --mode 1920x1080 --rate 60.00 --brightness 1 --pos 0x0 --primary
-exec xrandr --output $secondary --mode 1920x1080 --rate 60.00 --brightness 1 --pos -1920x0
-exec xrandr --output $tertiary  --mode 1920x1080 --rate 60.00 --brightness 1 --pos 1920x0 --rotate right
+exec xrandr --output $primary   --mode 1920x1080 --rate 60.00 --brightness 1 --pos 1920x0 --primary
+exec xrandr --output $secondary --mode 1920x1080 --rate 60.00 --brightness 1 --pos    0x0
+exec xrandr --output $tertiary  --mode 1920x1080 --rate 60.00 --brightness 1 --pos 3840x0 --rotate right
 #+end_src
 **** Sway
 #+begin_src conf :noweb-ref sway-output-default
-output $primary   mode 1920x1080@60hz position     0,0 scale 1
-output $secondary mode 1920x1080@60hz position -1920,0 scale 1
-output $tertiary  mode 1920x1080@60hz position  1920,0 scale 1 transform 90
+output $primary   mode 1920x1080@60hz position 1920,0 scale 1
+output $secondary mode 1920x1080@60hz position    0,0 scale 1
+output $tertiary  mode 1920x1080@60hz position 3840,0 scale 1 transform 90
 #+end_src
 ** MSc presentation
 *** Set order

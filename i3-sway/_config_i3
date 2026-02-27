@@ -25,9 +25,9 @@ set $laptop    eDP-1
 set $primary   HDMI1
 set $secondary VGA1
 set $tertiary  HDMI2
-#exec xrandr --output $primary   --mode 1920x1080 --rate 60.00 --brightness 1 --pos 0x0 --primary
-#exec xrandr --output $secondary --mode 1920x1080 --rate 60.00 --brightness 1 --pos -1920x0
-#exec xrandr --output $tertiary  --mode 1920x1080 --rate 60.00 --brightness 1 --pos 1920x0 --rotate right
+#exec xrandr --output $primary   --mode 1920x1080 --rate 60.00 --brightness 1 --pos 1920x0 --primary
+#exec xrandr --output $secondary --mode 1920x1080 --rate 60.00 --brightness 1 --pos    0x0
+#exec xrandr --output $tertiary  --mode 1920x1080 --rate 60.00 --brightness 1 --pos 3840x0 --rotate right
 
 workspace "1:1" output $primary
 workspace "2:2" output $primary
