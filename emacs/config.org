@@ -1438,7 +1438,7 @@ Supported window managers:
 	                    ("tty"      "tty")
 			    (_          "nil")))
 	     ;; focus adjacent window
-             (shell-command (concat wm_cmd " focus " (format "%s" dir) " > /dev/null 2>&1") t t))
+             (shell-command (concat wm_cmd " focus " (format "%s" dir) " > /dev/null 2>&1") nil nil))
          ;;====================================================================
             ((and (window-minibuffer-p other-window)
                   (not (minibuffer-window-active-p other-window)))
@@ -1454,11 +1454,39 @@ Supported window managers:
 	                    ("tty"      "tty")
 			    (_          "nil")))
 	     ;; focus adjacent window
-             (shell-command (concat wm_cmd " focus " (format "%s" dir) " > /dev/null 2>&1") t t))
+             (shell-command (concat wm_cmd " focus " (format "%s" dir) " > /dev/null 2>&1") nil nil))
          ;;====================================================================
             ((eq other-window 'no-select))
             (t
              (select-window other-window))))))
+#+end_src
+* Buffer Menu
+C-x C-b
+!!! NOT WORKING !!!
+#+begin_src emacs-lisp
+(use-package buff-menu
+  :ensure nil  ;; do not install (built-in)
+  ;:no-require  ;; do not load package (just add the config to the eval-after-load hook)
+  :after evil
+  :bind (
+       :map buffer-menu-mode-map
+       ("C-e" . evil-next-line)        ;; down
+       ("C-i" . evil-previous-line)))  ;; up
+#+end_src
+* Simple
+Use SPACE for indentation instead of TAB.
+#+begin_src emacs-lisp
+(use-package simple
+  :ensure nil  ;; do not install (already built-in)
+  :no-require  ;; do not load package (just add the config to the eval-after-load hook)
+  :custom
+  (indent-tabs-mode nil))
+#+end_src
+* Clipetty
+https://github.com/spudlyo/clipetty
+#+begin_src emacs-lisp
+(use-package clipetty
+  :hook (after-init . global-clipetty-mode))
 #+end_src
 * Ansible
 ** yaml-mode
