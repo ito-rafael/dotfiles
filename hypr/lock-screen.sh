@@ -4,9 +4,11 @@ TODO_FILE='/tmp/todo-list.tmp'
 
 # set main output for displaying the time
 PRIMARY_OUTPUT="HDMI-A-1"
+SECONDARY_OUTPUT="DP-1"
 
-# We will generate the config file here on the fly
+# config generated on the fly
 HYPRLOCK_CONF="/tmp/hyprlock-dynamic.conf"
+XKCD_IMG="/tmp/hyprlock-xkcd.png"
 
 #-----------------------------
 # before screen locking
@@ -21,6 +23,26 @@ $XDG_CONFIG_HOME/scripts/keeb-leds.sh dim
 
 REMINDERS=$(cat "$TODO_FILE" | wc -l)
 SCREENSHOTS=""
+
+# fetch random xkcd
+# check if xkcd.com is reachable
+if curl --output /dev/null --silent --head --fail "https://xkcd.com"; then
+    # get the latest comic number
+    LATEST=$(curl -s "https://xkcd.com/info.0.json" | jq -r '.num')
+    # pick a random number between 1 and LATEST using shuf
+    RAND_NUM=$(shuf -i 1-"$LATEST" -n 1)
+    # skip the 404 comic
+    while [ "$RAND_NUM" -eq 404 ]; do
+        RAND_NUM=$(shuf -i 1-"$LATEST" -n 1)
+    done
+    # get the direct image URL for the random comic
+    IMG_URL=$(curl -s "https://xkcd.com/$RAND_NUM/info.0.json" | jq -r '.img')
+    # download the image to our temporary file
+    curl -s "$IMG_URL" -o "$XKCD_IMG"
+else
+    # if offline, remove the temp file so hyprlock doesn't try to load garbage
+    rm -f "$XKCD_IMG"
+fi
 
 # start building the Hyprlock configuration
 > "$HYPRLOCK_CONF" # clear the file
@@ -57,7 +79,7 @@ else
     done
 fi
 
-# add the clock and password input on the primary monitor
+# primary output: clock and password input ring
 echo "
 label {
     monitor = $PRIMARY_OUTPUT
@@ -85,6 +107,23 @@ input-field {
     valign = center
 }
 " >> "$HYPRLOCK_CONF"
+
+# secondary output: xkcd image
+if [[ -f "$XKCD_IMG" ]]; then
+    echo "
+    image {
+        monitor = $SECONDARY_OUTPUT
+        path = $XKCD_IMG
+        size = 250
+        rounding = 0
+        border_size = 4
+        border_color = rgb(15, 15, 15)
+        position = 0, 0
+        halign = center
+        valign = center
+    }
+    " >> "$HYPRLOCK_CONF"
+fi
 
 # save current screen brightness and dim it
 brightnessctl --quiet --save
