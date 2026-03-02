@@ -72,14 +72,14 @@ label {
 
 input-field {
     monitor = $PRIMARY_OUTPUT
-    size = 250, 50
-    outline_thickness = 3
-    dots_size = 0.33
+    size = 100, 100
+    outline_thickness = 4
     outer_color = rgb(151515)
     inner_color = rgb(200, 200, 200)
     font_color = rgb(10, 10, 10)
-    fade_on_empty = false
-    placeholder_text = <i>Password...</i>
+    fade_on_empty = true
+    placeholder_text =
+    hide_input = true
     position = 0, -50
     halign = center
     valign = center
