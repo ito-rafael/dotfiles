@@ -5,6 +5,7 @@ TODO_FILE='/tmp/todo-list.tmp'
 # set main output for displaying the time
 PRIMARY_OUTPUT="HDMI-A-1"
 SECONDARY_OUTPUT="DP-1"
+TERTIARY_OUTPUT="DVI-I-1"
 
 # config generated on the fly
 HYPRLOCK_CONF="/tmp/hyprlock-dynamic.conf"
@@ -118,6 +119,23 @@ if [[ -f "$XKCD_IMG" ]]; then
         rounding = 0
         border_size = 4
         border_color = rgb(15, 15, 15)
+        position = 0, 0
+        halign = center
+        valign = center
+    }
+    " >> "$HYPRLOCK_CONF"
+fi
+
+# tertiary: reminder/to-do list
+if [[ "$REMINDERS" != "0" ]]; then
+    echo "
+    image {
+        monitor = $TERTIARY_OUTPUT
+        path = /home/rafael/.config/hypr/todo-list.png
+        size = 250
+        rounding = 0
+        border_size = 3
+        border_color = rgb(200, 200, 200)
         position = 0, 0
         halign = center
         valign = center
