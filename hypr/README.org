@@ -1,0 +1,18 @@
+#+title: Hyprland config
+#+author: Rafael Ito
+#+description: Hyprland configuration
+#+startup: showeverything
+
+* Table of contents :toc_2:
+- [[#hyprlock][Hyprlock]]
+
+* Hyprlock :noexport_1:
+** Prerequisite
+#+begin_src sh
+pacman -S hyprlock
+#+end_src
+** Lock the screen
+#+begin_src sh
+~/.config/hypr/lock-screen.sh
+#+end_src
+
