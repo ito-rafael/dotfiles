@@ -3,9 +3,16 @@
 TODO_FILE='/tmp/todo-list.tmp'
 
 # set main output for displaying the time
-PRIMARY_OUTPUT="HDMI-A-1"
-SECONDARY_OUTPUT="DP-1"
-TERTIARY_OUTPUT="DVI-I-1"
+NUM_OUTPUTITORS=$(swaymsg -t get_outputs | jq '[.[] | select(.active)] | length')
+if [[ $NUM_OUTPUTITORS == "1" ]]; then
+    PRIMARY_OUTPUT="eDP-1"
+    SECONDARY_OUTPUT=""
+    TERTIARY_OUTPUT=""
+else
+    PRIMARY_OUTPUT="HDMI-A-1"
+    SECONDARY_OUTPUT="DP-1"
+    TERTIARY_OUTPUT="DVI-I-1"
+fi
 
 # config generated on the fly
 HYPRLOCK_CONF="/tmp/hyprlock-dynamic.conf"
@@ -110,7 +117,7 @@ input-field {
 " >> "$HYPRLOCK_CONF"
 
 # secondary output: xkcd image
-if [[ -f "$XKCD_IMG" ]]; then
+if [[ -n "$SECONDARY_OUTPUT" ]] && [[ -f "$XKCD_IMG" ]]; then
     echo "
     image {
         monitor = $SECONDARY_OUTPUT
@@ -127,7 +134,7 @@ if [[ -f "$XKCD_IMG" ]]; then
 fi
 
 # tertiary: reminder/to-do list
-if [[ "$REMINDERS" != "0" ]]; then
+if [[ -n "$TERTIARY_OUTPUT" ]] && [[ "$REMINDERS" != "0" ]]; then
     echo "
     image {
         monitor = $TERTIARY_OUTPUT
