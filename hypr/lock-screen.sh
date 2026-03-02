@@ -64,6 +64,8 @@ if [[ "$REMINDERS" == "0" ]]; then
         path = screenshot
         blur_passes = 3
         blur_size = 8
+        brightness = 0.25
+        contrast = 0.9
     }" >> "$HYPRLOCK_CONF"
 
 else
