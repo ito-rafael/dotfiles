@@ -1036,6 +1036,10 @@ Debug/test purposes: replace kitty with a custom command or script.
 #+begin_src conf :noweb-ref keybindings
 bindsym --release $alt+ctrl+t exec "$XDG_CONFIG_HOME/scripts/sway-test.sh"
 #+end_src
+*** Start/pause pomodoro timer
+#+begin_src conf :noweb-ref keybindings
+bindsym $mod+j exec tomat toggle
+#+end_src
 ** Tangle :noexport:
 *** i3
 #+begin_src conf :noweb yes :tangle _config_i3

@@ -255,6 +255,7 @@ bindsym shift+$alt+F14 exec "$SCRIPT_PATH/obs-tools.py --record"
 bindsym $mod+m nop
 bindsym --release $mod+m exec "$XDG_CONFIG_HOME/scripts/lanmouse-switch.sh toggle"
 bindsym --release $alt+ctrl+t exec "$XDG_CONFIG_HOME/scripts/sway-test.sh"
+bindsym $mod+j exec tomat toggle
 bindsym $mod+Return       exec "$SCRIPT_PATH/rofi.sh drun"
 bindsym Shift+$mod+Return exec "$SCRIPT_PATH/rofi.sh ssh"
 bindsym Ctrl+$mod+Return  exec "$SCRIPT_PATH/rofi.sh window"
