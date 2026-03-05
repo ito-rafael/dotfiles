@@ -255,6 +255,9 @@ When you visit a file, point goes to the last place where it was when you previo
 (global-set-key (kbd "C-c e") 'evil-window-down)
 (global-set-key (kbd "C-c i") 'evil-window-up)
 (global-set-key (kbd "C-c o") 'evil-window-right)
+
+;; bypass sway-dispatch focus_output command
+(global-set-key (kbd "<0x100811d2>") 'ignore)
 #+end_src
 ** Debug
 #+begin_src emacs-lisp
