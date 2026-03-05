@@ -1283,7 +1283,7 @@ bindsym XF86PowerOff exec --no-startup-id $PATH_LOCKER/take-screenshot.sh; mode 
 *** Sway
 **** Locker & messanger
 #+begin_src conf :noweb-ref sway-mode-system
-set $locker $XDG_CONFIG_HOME/swaylock/lock-screen.sh
+set $locker $XDG_CONFIG_HOME/hypr/lock-screen.sh
 set $messenger swaymsg exit
 #+end_src
 **** Mode
