@@ -1,0 +1,26 @@
+# Systemd user service for tomat
+#
+# This file is installed to /usr/lib/systemd/user/ by package managers
+# and to ~/.config/systemd/user/ by `cargo install`
+#
+# For package-managed installations:
+# - Run: systemctl --user enable tomat.service
+# - Run: systemctl --user start tomat.service
+#
+# For cargo install:
+# - Use `tomat daemon install` for automatic installation
+
+[Unit]
+Description=Tomat Pomodoro Timer Daemon
+After=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/tomat daemon run
+Restart=on-failure
+RestartSec=5
+# Inherit user's PATH for hooks to find system commands (e.g., notify-send)
+Environment="PATH=/run/current-system/sw/bin:/etc/profiles/per-user/%u/bin:%h/.nix-profile/bin:%h/.cargo/bin:/usr/local/bin:/usr/bin:/bin"
+
+[Install]
+WantedBy=default.target
