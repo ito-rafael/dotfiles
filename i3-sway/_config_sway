@@ -306,9 +306,8 @@ bindsym shift+$alt+F10 exec "$SCRIPT_PATH/obs-tools.py --scene output-0"
 bindsym shift+$alt+F11 exec "$SCRIPT_PATH/obs-tools.py --scene output-1"
 bindsym shift+$alt+F12 exec "$SCRIPT_PATH/obs-tools.py --scene output-2"
 bindsym shift+$alt+F14 exec "$SCRIPT_PATH/obs-tools.py --record"
-# change host focus with switch KVM
+bindsym $mod+m nop
 bindsym --release $mod+m exec "$XDG_CONFIG_HOME/scripts/lanmouse-switch.sh toggle"
-# debug/test purposes: replace kitty with a custom command or script
 bindsym --release $alt+ctrl+t exec "$XDG_CONFIG_HOME/scripts/sway-test.sh"
 bindsym $mod+Return       exec "$SCRIPT_PATH/rofi.sh drun"
 bindsym Shift+$mod+Return exec "$SCRIPT_PATH/rofi.sh ssh"

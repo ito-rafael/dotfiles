@@ -69,6 +69,7 @@
     "custom/vpn-unicamp",
     "custom/vpn-lbic",
     "custom/vpn-samsung",
+    "custom/pomodoro-timer",
     "custom/xremap-mode",
     "custom/scratchpad-translate",
     "custom/scratchpad-llm",
