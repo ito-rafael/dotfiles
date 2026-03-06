@@ -287,6 +287,8 @@ function va() {
 alias ma='mamba activate'
 alias md='mamba deactivate'
 alias ml='mamba env list'
+alias mr='mamba env remove -n'
+#-----------------------------
 # Emacs
 # Emacs from Scratch
 alias ed='emacs --daemon --with-profile efs &'     # start daemon
