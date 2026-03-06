@@ -283,6 +283,8 @@ function va() {
     source bin/activate
 }
 #-----------------------------
+# Mamba/Conda Python envs
+alias ma='mamba activate'
 # Emacs
 # Emacs from Scratch
 alias ed='emacs --daemon --with-profile efs &'     # start daemon
