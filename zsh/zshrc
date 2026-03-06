@@ -286,6 +286,7 @@ function va() {
 # Mamba/Conda Python envs
 alias ma='mamba activate'
 alias md='mamba deactivate'
+alias ml='mamba env list'
 # Emacs
 # Emacs from Scratch
 alias ed='emacs --daemon --with-profile efs &'     # start daemon
