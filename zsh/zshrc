@@ -138,6 +138,19 @@ source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.zsh
 #source /usr/share/zsh/plugins/zsh-system-clipboard/zsh-system-clipboard.zsh
 #=======================================
 
+
+# detect TRAMP or other "dumb" terminals
+# this block of text must be placed before Oh-My-Zsh is sourced
+if [[ "$TERM" == "dumb" ]]; then
+  unsetopt zle              # disable the Zsh Line Editor (interactive features)
+  unsetopt prompt_cr        # disable carriage return printing
+  unsetopt prompt_subst     # disable prompt substitution
+  unfunction precmd         # disable precmd functions (often used by themes)
+  unfunction preexec        # disable preexec functions
+  PS1='$ '                  # set a simple, standard prompt
+  return                    # stop processing the rest of the file
+fi
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
