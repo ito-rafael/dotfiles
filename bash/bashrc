@@ -62,6 +62,7 @@ export TERMINAL=zsh
 
 alias ma='mamba activate'
 alias md='mamba deactivate'
+alias ml='mamba env list'
 
 #===================
 
