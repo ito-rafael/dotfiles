@@ -56,6 +56,14 @@ export LC_ALL=C
 # terminal
 export TERMINAL=zsh
 
+#===================
+# Mamba (Python env)
+#===================
+
+alias ma='mamba activate'
+
+#===================
+
 # expand aliases
 bind '"\e[99~": alias-expand-line'
 bind '" ": "\e[99~\C-v "'
