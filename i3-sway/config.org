@@ -2002,7 +2002,8 @@ exec --no-startup-id "rm /tmp/vpn_samsung.tmp"
 <<vpn>>
 #+end_src
 * Startup commands
-** Set env vars for Sway
+** Set env vars
+*** Sway
 Used by XDG Desktop Portals.
 #+begin_src conf :noweb-ref sway-dbus
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
@@ -2023,11 +2024,17 @@ Enable touchpad horizontal scroll
 #+begin_src conf :noweb-ref i3-touchpad
 exec xinput --set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Two-Finger Scrolling" 1 1
 #+end_src
-** Caps Lock
+** Caps Lock status
 *** Sway
 Create file to track status of Caps Lock (used by status bar).
 #+begin_src conf :noweb-ref sway-capslock
 exec echo 0 > /tmp/capslock_status.tmp
+#+end_src
+** lan-mouse status
+*** Sway
+Create file to track lan-mouse connection (used by status bar).
+#+begin_src conf :noweb-ref sway-lanmouse
+exec echo "disconnected" > /tmp/lanmouse-status.tmp
 #+end_src
 ** xremap mode
 Create file to track xremap's mode (used by status bar).

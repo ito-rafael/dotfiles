@@ -609,6 +609,7 @@ exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DE
 exec /usr/share/sway-contrib/inactive-windows-transparency.py --opacity 0.85
 exec echo 0 > /tmp/capslock_status.tmp
 exec echo "default" > /tmp/xremap_mode.tmp
+exec echo "disconnected" > /tmp/lanmouse-status.tmp
 output $laptop    background ~/.config/wallpaper/london.jpg fill
 output $primary   background ~/.config/wallpaper/london.jpg fill
 output $secondary background ~/.config/wallpaper/london.jpg fill
