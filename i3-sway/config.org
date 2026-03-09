@@ -2002,6 +2002,11 @@ exec --no-startup-id "rm /tmp/vpn_samsung.tmp"
 <<vpn>>
 #+end_src
 * Startup commands
+** Set env vars for Sway
+Used by XDG Desktop Portals.
+#+begin_src conf :noweb-ref sway-dbus
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+#+end_src
 ** Transparency
 Set inactive window transparency.
 *** i3
@@ -2143,6 +2148,7 @@ exec --no-startup-id "sleep 5 && swaymsg '[app_id=brave-browser]' move to worksp
 #+end_src
 *** Sway
 #+begin_src conf :noweb yes :tangle _config_sway
+<<sway-dbus>>
 <<sway-transparency>>
 <<sway-capslock>>
 <<sway-wallpaper>>
