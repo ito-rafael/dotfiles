@@ -39,6 +39,7 @@
   - [[#samsung][Samsung]]
 - [[#caps-lock][Caps Lock]]
 - [[#mouse-warping][Mouse warping]]
+- [[#mouse-battery][Mouse battery]]
 - [[#xremap-mode][xremap mode]]
 - [[#dunst][Dunst]]
 - [[#scale][Scale]]
@@ -647,6 +648,13 @@ label:focus {
 #custom-mouse-warping:hover {
     background: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
+}
+#+end_src
+* Mouse battery :noexport_1:
+** Full
+#+begin_src css
+#custom-battery-mouse.full {
+    color: lightgray;
 }
 #+end_src
 * xremap mode :noexport_1:
