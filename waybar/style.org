@@ -657,6 +657,12 @@ label:focus {
     color: lightgray;
 }
 #+end_src
+** Good
+#+begin_src css
+#custom-battery-mouse.good {
+    color: lightgray;
+}
+#+end_src
 * xremap mode :noexport_1:
 ** default
 #+begin_src css
