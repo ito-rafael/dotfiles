@@ -663,6 +663,13 @@ label:focus {
     color: lightgray;
 }
 #+end_src
+** Low
+#+begin_src css
+#custom-battery-mouse.low {
+    color: lightgray;
+    background: rgba(255, 255, 0, 0.5);
+}
+#+end_src
 * xremap mode :noexport_1:
 ** default
 #+begin_src css
