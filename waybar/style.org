@@ -670,6 +670,13 @@ label:focus {
     background: rgba(255, 255, 0, 0.5);
 }
 #+end_src
+** Critical
+#+begin_src css
+#custom-battery-mouse.critical {
+    color: lightgray;
+    background: rgba(255, 0, 0, 0.5);
+}
+#+end_src
 * xremap mode :noexport_1:
 ** default
 #+begin_src css
