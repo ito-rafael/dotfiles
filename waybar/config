@@ -39,6 +39,7 @@
     "disk",
     "pulseaudio",
     "backlight",
+    "custom/battery-mouse",
     "battery",
     "clock",
     //"keyboard-state",
@@ -356,6 +357,20 @@
   "format": "{}",
   "on-click": "tomat toggle",
   "on-click-right": "tomat skip"
+},
+
+"custom/battery-mouse": {
+    "return-type": "json",
+    "interval": 60,
+    "exec": "~/.config/waybar/scripts/battery-mouse.sh",
+    "on-click": "solaar",
+    "format": "{}  {icon}",
+    "format-icons": {
+        "full":     "",
+        "good":     "",
+        "low":      "",
+        "critical": "",
+    },
 },
 
 "custom/pacman": {

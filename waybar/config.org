@@ -41,6 +41,7 @@
 - [[#dunst][Dunst]]
 - [[#scale][Scale]]
 - [[#pomodoro-timer][Pomodoro timer]]
+- [[#mouse-battery][Mouse battery]]
 - [[#pacman][Pacman]]
 - [[#kmonad][KMonad]]
 - [[#kanata][kanata]]
@@ -509,6 +510,22 @@
   "format": "{}",
   "on-click": "tomat toggle",
   "on-click-right": "tomat skip"
+},
+#+end_src
+* Mouse battery
+#+begin_src js
+"custom/battery-mouse": {
+    "return-type": "json",
+    "interval": 60,
+    "exec": "~/.config/waybar/scripts/battery-mouse.sh",
+    "on-click": "solaar",
+    "format": "{}  {icon}",
+    "format-icons": {
+        "full":     "",
+        "good":     "",
+        "low":      "",
+        "critical": "",
+    },
 },
 #+end_src
 * Pacman
