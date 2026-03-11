@@ -830,7 +830,8 @@ Restart applications with new config file.
         (script-path (expand-file-name "i3bang.rb" sway-dir))
         (config-source (expand-file-name "_config" sway-dir))
         ;; find the active SWAYSOCK dynamically; run Ruby i3bang.rb script; reload Sway
-        (cmd (format "export SWAYSOCK=$(ls /run/user/$(id -u)/sway-ipc.*.sock | head -n 1); ruby '%s' '%s' && swaymsg reload"
+        ;;(cmd (format "export SWAYSOCK=$(ls /run/user/$(id -u)/sway-ipc.*.sock | head -n 1); ruby '%s' '%s' && swaymsg reload"
+        (cmd (format "export SWAY_SCALE=$(~/.config/scripts/sway-scale.sh get); export SWAYSOCK=$(ls /run/user/$(id -u)/sway-ipc.*.sock | head -n 1); ruby '%s' '%s' && swaymsg reload && sleep 1 && ~/.config/scripts/sway-scale.sh $SWAY_SCALE"
                      script-path
                      config-source)))
    ;; run synchronously to ensure it finishes before the hook exits
