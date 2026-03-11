@@ -161,7 +161,7 @@ brightnessctl --quiet set 10%
 #-----------------------------
 
 # lock remote screen, if any
-ssh ipf "export SWAYSOCK=\$(ls /run/user/$(id -u)/sway-ipc.*.sock | head -n 1); swaymsg exec $XDG_CONFIG_HOME/swaylock/lock-screen.sh" &
+ssh ipf "export SWAYSOCK=\$(ls /run/user/$(id -u)/sway-ipc.*.sock | head -n 1); swaymsg exec $XDG_CONFIG_HOME/hypr/lock-screen.sh" &
 
 # lock the screen with hyprlock using the dynamically generated config
 hyprlock --config "$HYPRLOCK_CONF"
@@ -171,7 +171,7 @@ hyprlock --config "$HYPRLOCK_CONF"
 #-----------------------------
 
 # unlock remote screen, if any
-ssh ipf "export SWAYSOCK=\$(ls /run/user/$(id -u)/sway-ipc.*.sock | head -n 1); pkill -USR1 swaylock" &
+ssh ipf "export SWAYSOCK=\$(ls /run/user/$(id -u)/sway-ipc.*.sock | head -n 1); pkill -USR1 hyprlock" &
 
 # restore previous screen brightness
 brightnessctl --quiet --restore
