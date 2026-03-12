@@ -417,6 +417,10 @@ label:focus {
     transition: background 0.3s ease;
 }
 
+#custom-lanmouse-status.connected {
+    color: lightgray;
+}
+
 #custom-systemd-lanmouse {
     padding: 0 10px;
     font-size: 16px;

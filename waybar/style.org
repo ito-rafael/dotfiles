@@ -40,6 +40,7 @@
 - [[#caps-lock][Caps Lock]]
 - [[#mouse-warping][Mouse warping]]
 - [[#mouse-battery][Mouse battery]]
+- [[#lan-mouse][lan-mouse]]
 - [[#systemd-services][systemd services]]
   - [[#lanmouse][lanmouse]]
 - [[#xremap-mode][xremap mode]]
@@ -684,6 +685,13 @@ label:focus {
 #custom-mouse-warping:hover {
     background: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
+}
+#+end_src
+* lan-mouse :noexport_1:
+** Connected
+#+begin_src css
+#custom-lanmouse-status.connected {
+    color: lightgray;
 }
 #+end_src
 * systemd services
