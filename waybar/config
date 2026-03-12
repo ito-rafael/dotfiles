@@ -33,6 +33,7 @@
     //"custom/kmonad",
     "custom/kanata",
     "custom/systemd-lanmouse",
+    "custom/lanmouse-status",
     "mpris",
     "cpu",
     "memory",
@@ -372,6 +373,12 @@
         "low":      "",
         "critical": "",
     },
+},
+
+"custom/lanmouse-status": {
+    "exec": "~/.config/waybar/scripts/lanmouse-status.sh",
+    "return-type": "json",
+    "format": " {} ",
 },
 
 "custom/systemd-lanmouse": {

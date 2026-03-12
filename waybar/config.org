@@ -42,8 +42,9 @@
 - [[#scale][Scale]]
 - [[#pomodoro-timer][Pomodoro timer]]
 - [[#mouse-battery][Mouse battery]]
+- [[#lan-mouse][lan-mouse]]
 - [[#systemd-services][Systemd services]]
-  - [[#lan-mouse][lan-mouse]]
+  - [[#lan-mouse-1][lan-mouse]]
 - [[#pacman][Pacman]]
 - [[#kmonad][KMonad]]
 - [[#kanata][kanata]]
@@ -528,6 +529,14 @@
         "low":      "",
         "critical": "",
     },
+},
+#+end_src
+* lan-mouse
+#+begin_src js
+"custom/lanmouse-status": {
+    "exec": "~/.config/waybar/scripts/lanmouse-status.sh",
+    "return-type": "json",
+    "format": " {} ",
 },
 #+end_src
 * Systemd services
