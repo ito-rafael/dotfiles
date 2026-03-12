@@ -694,6 +694,12 @@ label:focus {
     color: lightgray;
 }
 #+end_src
+** Disconnected
+#+begin_src css
+#custom-lanmouse-status.disconnected {
+    color: dimgray;
+}
+#+end_src
 * systemd services
 ** lanmouse
 *** Common

@@ -421,6 +421,10 @@ label:focus {
     color: lightgray;
 }
 
+#custom-lanmouse-status.disconnected {
+    color: dimgray;
+}
+
 #custom-systemd-lanmouse {
     padding: 0 10px;
     font-size: 16px;
