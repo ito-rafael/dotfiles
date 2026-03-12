@@ -425,6 +425,10 @@ label:focus {
     color: dimgray;
 }
 
+#custom-lanmouse-status.unknown {
+    color: red;
+}
+
 #custom-systemd-lanmouse {
     padding: 0 10px;
     font-size: 16px;

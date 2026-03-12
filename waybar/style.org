@@ -700,6 +700,12 @@ label:focus {
     color: dimgray;
 }
 #+end_src
+** Unknown
+#+begin_src css
+#custom-lanmouse-status.unknown {
+    color: red;
+}
+#+end_src
 * systemd services
 ** lanmouse
 *** Common
