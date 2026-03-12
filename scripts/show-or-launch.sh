@@ -10,6 +10,49 @@
 #
 
 #=======================================
+# get parameters
+#=======================================
+TARGET_OUTPUT=""
+APPLICATION=""
+SCALE_W="0.66"
+SCALE_H="0.66"
+
+# define monitors order
+PRIMARY_MONITOR="HDMI-A-1"
+SECONDARY_MONITOR="DP-1"
+TERTIARY_MONITOR="DVI-I-1"
+
+# parse arguments
+while [[ "$#" -gt 0 ]]; do
+    case $1 in
+        --primary) TARGET_OUTPUT="$PRIMARY_MONITOR"; shift ;;
+        --secondary) TARGET_OUTPUT="$SECONDARY_MONITOR"; shift ;;
+        --tertiary) TARGET_OUTPUT="$TERTIARY_MONITOR"; shift ;;
+        --output) TARGET_OUTPUT="$2"; shift 2 ;;
+        -*) echo "Unknown parameter: $1"; exit 1 ;;
+        *)
+            # assign positional arguments if they don't match flags
+            if [ -z "$APPLICATION" ]; then
+                APPLICATION="$1"
+            elif [ "$SCALE_W" == "0.66" ] && [ -z "${SCALE_W_SET}" ]; then
+                SCALE_W="$1"
+                SCALE_W_SET=1
+            elif [ "$SCALE_H" == "0.66" ] && [ -z "${SCALE_H_SET}" ]; then
+                SCALE_H="$1"
+                SCALE_H_SET=1
+            fi
+            shift
+            ;;
+    esac
+done
+
+# make $APPLICATION ($1) parameter mandatory
+if [ -z "$APPLICATION" ]; then
+    echo "Error: APPLICATION parameter is required."
+    exit 1
+fi
+
+#=======================================
 # temporary scratchpads
 #=======================================
 # scratchpad tmp files
@@ -41,6 +84,13 @@ fi
 #=======================================
 case "${XDG_SESSION_TYPE}" in
     "x11")
+        if [ -n "$TARGET_OUTPUT" ]; then
+            # if $TARGET_OUTPUT was defined in the parameters, use this output
+            FOCUSED_OUTPUT="$TARGET_OUTPUT"
+        else
+            # if not defined, use the current focused output
+            FOCUSED_OUTPUT=$(i3-msg -t get_workspaces | jq -r '.[] | select(.focused).output')
+        fi
         FOCUSED_OUTPUT=$(i3-msg -t get_workspaces | jq '.[] | select(.focused).output')
         WM_CMD="i3-msg"
         PROP_PREFIX="window_properties."
@@ -59,11 +109,18 @@ case "${XDG_SESSION_TYPE}" in
         PROP="app_id"
         CAPTION="name"
         ID_PROP="pid"
-        # get height & width of current output
-        RESOLUTION=$(swaymsg -t get_outputs | jq '.[] | select(.focused==true).rect')
+        # get height & width of target or current output
+        if [ -n "$TARGET_OUTPUT" ]; then
+            # if $TARGET_OUTPUT was defined in the parameters, use this output
+            RESOLUTION=$(swaymsg -t get_outputs | jq '.[] | select(.name=="'$TARGET_OUTPUT'").rect')
+            OUTPUT_SCALE=$(swaymsg -t get_outputs | jq '.[] | select(.name=="'$TARGET_OUTPUT'").scale')
+        else
+            # if not defined, use the current focused output
+            RESOLUTION=$(swaymsg -t get_outputs | jq '.[] | select(.focused==true).rect')
+            OUTPUT_SCALE=$(swaymsg -t get_outputs | jq '.[] | select(.focused==true).scale')
+        fi
         RES_WIDTH=$(echo $RESOLUTION | jq '.width')
         RES_HEIGHT=$(echo $RESOLUTION | jq '.height')
-        OUTPUT_SCALE=$(swaymsg -t get_outputs | jq '.[] | select(.focused==true).scale')
         ;;
     "tty")
         exit 1
@@ -72,11 +129,6 @@ case "${XDG_SESSION_TYPE}" in
         exit 1
         ;;
 esac
-
-# get parameters
-APPLICATION=$1
-SCALE_W=${2:-"0.66"}
-SCALE_H=${3:-"0.66"}
 
 # calc height & width (as int) according to the scale parameter
 WIN_WIDTH=$(echo "$SCALE_W * $RES_WIDTH / $OUTPUT_SCALE / 1" | bc)
@@ -219,7 +271,15 @@ fi
 #=======================================
 # proceed to resize, center & display requested scratchpad
 #=======================================
-$WM_CMD '['$PROP'='$APPLICATION'] scratchpad show; ['$PROP'='$APPLICATION'] resize set '$WIN_WIDTH' '$WIN_HEIGHT'; ['$PROP'='$APPLICATION'] move position center'
+# prepare the move command if a target output was specified
+if [ -n "$TARGET_OUTPUT" ]; then
+    MOVE_CMD="[${PROP}=${APPLICATION}] move window to output ${TARGET_OUTPUT};"
+else
+    MOVE_CMD=""
+fi
+
+# Execute the chain
+$WM_CMD "[${PROP}=${APPLICATION}] scratchpad show; ${MOVE_CMD} [${PROP}=${APPLICATION}] resize set ${WIN_WIDTH} ${WIN_HEIGHT}; [${PROP}=${APPLICATION}] move position center"
 
 #=======================================
 # set transparency for "YouTube Music" scratchpad on i3wm/Sway
