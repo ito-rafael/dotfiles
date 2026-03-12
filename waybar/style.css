@@ -429,6 +429,11 @@ label:focus {
     color: red;
 }
 
+#custom-lanmouse-status:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+
 #custom-systemd-lanmouse {
     padding: 0 10px;
     font-size: 16px;

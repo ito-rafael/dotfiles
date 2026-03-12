@@ -706,6 +706,13 @@ label:focus {
     color: red;
 }
 #+end_src
+** Hover
+#+begin_src css
+#custom-lanmouse-status:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+#+end_src
 * systemd services
 ** lanmouse
 *** Common
