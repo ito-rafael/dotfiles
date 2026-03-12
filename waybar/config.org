@@ -42,6 +42,8 @@
 - [[#scale][Scale]]
 - [[#pomodoro-timer][Pomodoro timer]]
 - [[#mouse-battery][Mouse battery]]
+- [[#systemd-services][Systemd services]]
+  - [[#lan-mouse][lan-mouse]]
 - [[#pacman][Pacman]]
 - [[#kmonad][KMonad]]
 - [[#kanata][kanata]]
@@ -526,6 +528,17 @@
         "low":      "",
         "critical": "",
     },
+},
+#+end_src
+* Systemd services
+** lan-mouse
+#+begin_src js
+"custom/systemd-lanmouse": {
+    "exec": "~/.config/waybar/scripts/systemd-monitor.sh --user lanmouse.service --icon=",
+    "return-type": "json",
+    "format": "{}",
+    "on-click": "kitty --app-id systemd-lanmouse-logs journalctl --user -f -u lanmouse.service",
+    "on-click-right": "systemctl --user is-active --quiet lanmouse.service && systemctl --user stop lanmouse.service || systemctl --user start lanmouse.service"
 },
 #+end_src
 * Pacman

@@ -32,6 +32,7 @@
     "custom/pacman",
     //"custom/kmonad",
     "custom/kanata",
+    "custom/systemd-lanmouse",
     "mpris",
     "cpu",
     "memory",
@@ -371,6 +372,14 @@
         "low":      "",
         "critical": "",
     },
+},
+
+"custom/systemd-lanmouse": {
+    "exec": "~/.config/waybar/scripts/systemd-monitor.sh --user lanmouse.service --icon=",
+    "return-type": "json",
+    "format": "{}",
+    "on-click": "kitty --app-id systemd-lanmouse-logs journalctl --user -f -u lanmouse.service",
+    "on-click-right": "systemctl --user is-active --quiet lanmouse.service && systemctl --user stop lanmouse.service || systemctl --user start lanmouse.service"
 },
 
 "custom/pacman": {
