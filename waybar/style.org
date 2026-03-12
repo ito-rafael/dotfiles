@@ -695,6 +695,12 @@ label:focus {
     font-size: 16px;
 }
 #+end_src
+*** Running
+#+begin_src css
+#custom-systemd-lanmouse.running {
+    color: lightgray;
+}
+#+end_src
 * xremap mode :noexport_1:
 ** default
 #+begin_src css

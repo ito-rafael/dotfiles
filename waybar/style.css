@@ -422,6 +422,10 @@ label:focus {
     font-size: 16px;
 }
 
+#custom-systemd-lanmouse.running {
+    color: lightgray;
+}
+
 #custom-xremap-mode.default {
     color: gray;
 }
