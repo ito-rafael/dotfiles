@@ -131,8 +131,19 @@ case "${XDG_SESSION_TYPE}" in
 esac
 
 # calc height & width (as int) according to the scale parameter
-WIN_WIDTH=$(echo "$SCALE_W * $RES_WIDTH / $OUTPUT_SCALE / 1" | bc)
-WIN_HEIGHT=$(echo "$SCALE_H * $RES_HEIGHT / $OUTPUT_SCALE / 1" | bc)
+WIN_WIDTH=$(echo "scale=1; $SCALE_W * $RES_WIDTH / $OUTPUT_SCALE" | bc | cut -d'.' -f1)
+WIN_HEIGHT=$(echo "scale=1; $SCALE_H * $RES_HEIGHT / $OUTPUT_SCALE" | bc | cut -d'.' -f1)
+# fallback: if calculation fails for any reason, set a hard default
+WIN_WIDTH=${WIN_WIDTH:-1728}
+WIN_HEIGHT=${WIN_HEIGHT:-972}
+
+# check if target output is valid/connected
+if [ -n "$TARGET_OUTPUT" ]; then
+    if ! $WM_CMD -t get_outputs | jq -e '.[] | select(.name=="'$TARGET_OUTPUT'")' > /dev/null; then
+        echo "Warning: Output '$TARGET_OUTPUT' not found or inactive. Falling back to focused output."
+        TARGET_OUTPUT=""
+    fi
+fi
 
 #=======================================
 # get focused window
@@ -278,7 +289,7 @@ else
     MOVE_CMD=""
 fi
 
-# Execute the chain
+# move window to specified output + show scratchpad
 $WM_CMD "[${PROP}=${APPLICATION}] scratchpad show; ${MOVE_CMD} [${PROP}=${APPLICATION}] resize set ${WIN_WIDTH} ${WIN_HEIGHT}; [${PROP}=${APPLICATION}] move position center"
 
 #=======================================
