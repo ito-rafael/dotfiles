@@ -701,6 +701,12 @@ label:focus {
     color: lightgray;
 }
 #+end_src
+*** Stopped
+#+begin_src css
+#custom-systemd-lanmouse.stopped {
+    color: dimgrey;
+}
+#+end_src
 * xremap mode :noexport_1:
 ** default
 #+begin_src css

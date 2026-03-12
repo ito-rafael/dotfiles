@@ -426,6 +426,10 @@ label:focus {
     color: lightgray;
 }
 
+#custom-systemd-lanmouse.stopped {
+    color: dimgrey;
+}
+
 #custom-xremap-mode.default {
     color: gray;
 }
