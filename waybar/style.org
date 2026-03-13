@@ -688,16 +688,22 @@ label:focus {
 }
 #+end_src
 * lan-mouse :noexport_1:
+** Disconnected
+#+begin_src css
+#custom-lanmouse-status.disconnected {
+    color: dimgray;
+}
+#+end_src
 ** Connected
 #+begin_src css
 #custom-lanmouse-status.connected {
     color: lightgray;
 }
 #+end_src
-** Disconnected
+** Active
 #+begin_src css
-#custom-lanmouse-status.disconnected {
-    color: dimgray;
+#custom-lanmouse-status.active {
+    color: lightgreen;
 }
 #+end_src
 ** Unknown

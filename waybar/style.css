@@ -417,12 +417,34 @@ label:focus {
     transition: background 0.3s ease;
 }
 
-#custom-lanmouse-status.connected {
+#custom-battery-mouse.full {
     color: lightgray;
+}
+
+#custom-battery-mouse.good {
+    color: lightgray;
+}
+
+#custom-battery-mouse.low {
+    color: lightgray;
+    background: rgba(255, 255, 0, 0.5);
+}
+
+#custom-battery-mouse.critical {
+    color: lightgray;
+    background: rgba(255, 0, 0, 0.5);
 }
 
 #custom-lanmouse-status.disconnected {
     color: dimgray;
+}
+
+#custom-lanmouse-status.connected {
+    color: lightgray;
+}
+
+#custom-lanmouse-status.active {
+    color: lightgreen;
 }
 
 #custom-lanmouse-status.unknown {
