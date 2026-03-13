@@ -169,10 +169,14 @@ bindsym $mod+Left  exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh focus left
 bindsym $mod+Down  exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh focus down
 bindsym $mod+Up    exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh focus up
 bindsym $mod+Right exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh focus right
-bindsym $mod+Shift+Left  move left
-bindsym $mod+Shift+Down  move down
-bindsym $mod+Shift+Up    move up
-bindsym $mod+Shift+Right move right
+#bindsym $mod+Shift+Left  move left
+#bindsym $mod+Shift+Down  move down
+#bindsym $mod+Shift+Up    move up
+#bindsym $mod+Shift+Right move right
+bindsym $mod+Shift+Left  exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh move left
+bindsym $mod+Shift+Down  exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh move down
+bindsym $mod+Shift+Up    exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh move up
+bindsym $mod+Shift+Right exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh move right
 bindsym mod1+h split toggle
 #bindsym mod1+h split h
 #bindsym mod1+v split v
