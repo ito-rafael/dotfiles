@@ -1698,5 +1698,16 @@ Related:
   :config
   ;; force system config evaluation
   (emacs-everywhere--configure-system)
+
+  ;; get current config
+  (let ((wayland-config (alist-get 'wayland emacs-everywhere-system-configs)))
+    ;; edit the copy command (%f is the temp file created by emacs-everywhere creates)
+    (setq wayland-config
+          (plist-put wayland-config :copy-command '("sh" "-c" "wl-copy < %f")))
+    ;; edit the paste command to "Ctrl-F16"
+    (setq wayland-config
+          (plist-put wayland-config :paste-command '("wtype" "-M" "Shift" "-P" "Insert" "-m" "Shift" "-p" "Insert")))
+    ;; apply the updated config
+    (setf (alist-get 'wayland emacs-everywhere-system-configs) wayland-config))
 )
 #+end_src
