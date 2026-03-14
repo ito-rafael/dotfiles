@@ -1133,6 +1133,11 @@ Collection of Ivy-enhanced versions of common Emacs commands.
 (use-package counsel
   :after ivy
   :diminish
+  :bind (:map
+    counsel-ag-map
+    ("TAB"   . ivy-occur)  ;; open ivy-occur after counsel-rg (ripgrep)
+    ("<tab>" . ivy-occur)  ;; open ivy-occur after counsel-rg (ripgrep)
+  )
   :config
   (counsel-mode 1)
     (setq ivy-initial-inputs-alist nil))  ;; removes starting ^ regex in M-x
