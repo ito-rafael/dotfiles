@@ -2014,9 +2014,9 @@ exec --no-startup-id "rm /tmp/vpn_samsung.tmp"
 * Startup commands
 ** Set env vars
 *** Sway
-Used by XDG Desktop Portals.
 #+begin_src conf :noweb-ref sway-dbus
-exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+# XDG Desktop Portals & systemd user services
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway SWAYSOCK
 #+end_src
 ** Transparency
 Set inactive window transparency.

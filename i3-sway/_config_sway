@@ -611,7 +611,8 @@ exec --no-startup-id "rm /tmp/vpn_lbic.tmp"
 bindsym $alt+$mod+4 exec "$SCRIPT_PATH/vpn-connecter.sh samsung toggle"
 exec --no-startup-id "rm /tmp/vpn_samsung.tmp"
 
-exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+# XDG Desktop Portals & systemd user services
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway SWAYSOCK
 exec /usr/share/sway-contrib/inactive-windows-transparency.py --opacity 0.85
 exec echo 0 > /tmp/capslock_status.tmp
 exec echo "default" > /tmp/xremap_mode.tmp
