@@ -37,6 +37,7 @@
 - [[#dimmer][dimmer]]
 - [[#wgrep][wgrep]]
 - [[#ace-window][ace-window]]
+- [[#highlight-indent-guides][highlight-indent-guides]]
 - [[#emacs-everywhere][emacs-everywhere]]
 
 * UI :noexport_1:
@@ -1684,6 +1685,16 @@ https://github.com/gonewest818/dimmer.el
   :custom
   ;; display text in minibuffer when ace-window is active
   (aw-minibuffer-flag t)
+)
+#+end_src
+* highlight-indent-guides
+https://github.com/DarthFennec/highlight-indent-guides
+#+begin_src emacs-lisp
+(use-package highlight-indent-guides
+  :hook (prog-mode . highlight-indent-guides-mode)
+  :custom
+  (highlight-indent-guides-method 'column)   ;; use a thick background line
+  (highlight-indent-guides-responsive 'top)  ;; highlight active block
 )
 #+end_src
 * emacs-everywhere
