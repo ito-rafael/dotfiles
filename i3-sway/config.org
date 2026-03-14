@@ -989,7 +989,8 @@ bindsym XF86KbdLightOnOff exec "$SCRIPT_PATH/keeb-backlit.sh toggle"
 bindsym $mod+Return       exec "$SCRIPT_PATH/rofi.sh drun"
 bindsym Shift+$mod+Return exec "$SCRIPT_PATH/rofi.sh ssh"
 bindsym Ctrl+$mod+Return  exec "$SCRIPT_PATH/rofi.sh window"
-bindsym $alt+$mod+Return  exec "$SCRIPT_PATH/rofi.sh run"
+#bindsym $alt+$mod+Return  exec "$SCRIPT_PATH/rofi.sh run"
+bindsym $alt+$mod+Return  exec networkmanager_dmenu
 #+end_src
 ** Screenshot
 *** i3

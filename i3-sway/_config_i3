@@ -263,7 +263,8 @@ bindsym $mod+j exec tomat toggle
 bindsym $mod+Return       exec "$SCRIPT_PATH/rofi.sh drun"
 bindsym Shift+$mod+Return exec "$SCRIPT_PATH/rofi.sh ssh"
 bindsym Ctrl+$mod+Return  exec "$SCRIPT_PATH/rofi.sh window"
-bindsym $alt+$mod+Return  exec "$SCRIPT_PATH/rofi.sh run"
+#bindsym $alt+$mod+Return  exec "$SCRIPT_PATH/rofi.sh run"
+bindsym $alt+$mod+Return  exec networkmanager_dmenu
 bindsym Print exec shutter
 bindsym $alt+ctrl+n exec i3-msg -t get_tree | jq -re '.. | select(type == "object") | select(.focused)' > /tmp/window_prop.tmp
 
