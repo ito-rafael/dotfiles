@@ -1703,10 +1703,12 @@ Related:
   (let ((wayland-config (alist-get 'wayland emacs-everywhere-system-configs)))
     ;; edit the copy command (%f is the temp file created by emacs-everywhere creates)
     (setq wayland-config
-          (plist-put wayland-config :copy-command '("sh" "-c" "wl-copy < %f")))
+          ;(plist-put wayland-config :copy-command '("sh" "-c" "wl-copy < %f")))
+          (plist-put wayland-config :copy-command '("ydotool" "key" "42:1" "186:1" "186:0" "42:0")))
     ;; edit the paste command to "Ctrl-F16"
     (setq wayland-config
-          (plist-put wayland-config :paste-command '("wtype" "-M" "Shift" "-P" "Insert" "-m" "Shift" "-p" "Insert")))
+          ;(plist-put wayland-config :paste-command '("wtype" "-M" "Shift" "-P" "Insert" "-m" "Shift" "-p" "Insert")))
+          (plist-put wayland-config :paste-command '("ydotool" "key" "29:1" "186:1" "186:0" "29:0")))
     ;; apply the updated config
     (setf (alist-get 'wayland emacs-everywhere-system-configs) wayland-config))
 )
