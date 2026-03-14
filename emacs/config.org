@@ -37,6 +37,7 @@
 - [[#dimmer][dimmer]]
 - [[#wgrep][wgrep]]
 - [[#ace-window][ace-window]]
+- [[#emacs-everywhere][emacs-everywhere]]
 
 * UI :noexport_1:
 ** Misc
@@ -1683,5 +1684,19 @@ https://github.com/gonewest818/dimmer.el
   :custom
   ;; display text in minibuffer when ace-window is active
   (aw-minibuffer-flag t)
+)
+#+end_src
+* emacs-everywhere
+https://github.com/tecosaur/emacs-everywhere
+Related:
+  - GhostText (web-only): https://github.com/fregante/GhostText
+#+begin_src emacs-lisp
+(use-package emacs-everywhere
+  :custom
+  ;; set window title
+  (emacs-everywhere-frame-name-format "Emacs Everywhere ∷ %s — %s")
+  :config
+  ;; force system config evaluation
+  (emacs-everywhere--configure-system)
 )
 #+end_src
