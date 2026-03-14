@@ -506,6 +506,8 @@ for_window [$prop="one.alynx.showmethekey"] floating enable
 #    border none
 #}
 #exec swayimg ~/.config/swayimg/pixel.png --class="edge_bottom"
+for_window [app_id="emacs" title="^(emacs-everywhere|Emacs Everywhere|Emacs Everywhere ∷)"] floating enable, resize set 700 400, move position center
+for_window [class="Emacs" title="^(emacs-everywhere|Emacs Everywhere|Emacs Everywhere ∷)"] floating enable, resize set 700 400, move position center
 
 exec --no-startup-id kitty --class="dropdown_terminal" -o font_size=14 -o include=$XDG_CONFIG_HOME/kitty/themes/terminal.conf -o background_opacity=0.85
 bindsym $mod+n exec "$SCRIPT_PATH/show-or-launch.sh dropdown_terminal 0.75 0.75"
@@ -626,12 +628,13 @@ exec --no-startup-id "dex -a -s /home/rafael/.config/autostart"    # XDG Autosta
 #exec_always --no-startup-id "$SCRIPT_PATH/xremap-keeb-config.sh"   # keyboard setup
 exec --no-startup-id /usr/bin/emacs --daemon --with-profile efs &  # launch EFS daemon (default)
 exec --no-startup-id /usr/bin/emacs --daemon --with-profile doom & # launch Doom Emacs daemon
-exec --no-startup-id "rm /tmp/showmethekey_pid.tmp"               # ensure there is no temp file from previous boot
-bindsym $alt+ctrl+e exec emote                                    # emoji picker
-bindsym $alt+ctrl+k exec "$SCRIPT_PATH/screencast.sh toggle"      # showmethekey
-bindsym $alt+ctrl+d exec dunstctl set-paused toggle               # pause/unpause dunst notifications
-bindsym $alt+ctrl+l exec "emacsclient -c -s efs -a emacs"         # emacsclient for EFS
-bindsym $alt+ctrl+shift+l exec "emacsclient -c -s doom -a emacs"  # emacsclient for Doom
+exec --no-startup-id "rm /tmp/showmethekey_pid.tmp"                                 # ensure there is no temp file from previous boot
+bindsym $alt+ctrl+e exec emote                                                      # emoji picker
+bindsym $alt+ctrl+k exec "$SCRIPT_PATH/screencast.sh toggle"                        # showmethekey
+bindsym $alt+ctrl+d exec dunstctl set-paused toggle                                 # pause/unpause dunst notifications
+bindsym $alt+ctrl+l exec "emacsclient -c -s efs"                                    # emacsclient for EFS
+#bindsym $alt+ctrl+shift+l exec "emacsclient -c -s doom -a emacs"                    # emacsclient for Doom
+bindsym $alt+ctrl+shift+l exec 'emacsclient -s efs --eval "(emacs-everywhere)"'     # emacs-everywhere
 bindsym $alt+ctrl+w exec "$XDG_CONFIG_HOME/waybar/scripts/mouse-warping.sh toggle"  # enable/disable mouse warping
 exec_always --no-startup-id ~/.config/waybar/waybar.sh
 exec "blueman-applet &"                 # Bluetooth

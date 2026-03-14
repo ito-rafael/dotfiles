@@ -1725,6 +1725,11 @@ for_window [$prop="one.alynx.showmethekey"] floating enable
 #}
 #exec swayimg ~/.config/swayimg/pixel.png --class="edge_bottom"
 #+end_src
+*** emacs-everywhere
+#+begin_src conf :noweb-ref sway-emacs
+for_window [app_id="emacs" title="^(emacs-everywhere|Emacs Everywhere|Emacs Everywhere ∷)"] floating enable, resize set 700 400, move position center
+for_window [class="Emacs" title="^(emacs-everywhere|Emacs Everywhere|Emacs Everywhere ∷)"] floating enable, resize set 700 400, move position center
+#+end_src
 ** Tangle :noexport:
 *** i3
 #+begin_src conf :noweb yes :tangle _config_i3
@@ -1739,6 +1744,7 @@ for_window [$prop="one.alynx.showmethekey"] floating enable
 <<window-property>>
 <<sway-dialog>>
 <<sway-screencast>>
+<<sway-emacs>>
 #+end_src
 * Scratchpads
 ** WhatsApp Web (on Brave Beta)
