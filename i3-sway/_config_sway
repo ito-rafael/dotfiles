@@ -497,15 +497,6 @@ for_window [$prop="showmethekey-gtk"] {
     move position 0 880
 }
 for_window [$prop="one.alynx.showmethekey"] floating enable
-#for_window [app_id="edge_bottom" title="pixel.png"] {
-#    floating enable
-#    sticky enable
-#    resize set 100 ppt 1 px
-#    move position 0 1079
-#    opacity 0.0
-#    border none
-#}
-#exec swayimg ~/.config/swayimg/pixel.png --class="edge_bottom"
 for_window [app_id="emacs" title="^(emacs-everywhere|Emacs Everywhere|Emacs Everywhere ∷)"] floating enable, resize set 700 400, move position center
 for_window [class="Emacs" title="^(emacs-everywhere|Emacs Everywhere|Emacs Everywhere ∷)"] floating enable, resize set 700 400, move position center
 
@@ -616,6 +607,15 @@ exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DE
 exec /usr/share/sway-contrib/inactive-windows-transparency.py --opacity 0.85
 exec echo 0 > /tmp/capslock_status.tmp
 exec echo "default" > /tmp/xremap_mode.tmp
+#for_window [app_id="edge_bottom" title="pixel.png"] {
+#    floating enable
+#    sticky enable
+#    resize set 100 ppt 1 px
+#    move position 0 1079
+#    opacity 0.0
+#    border none
+#}
+#exec swayimg ~/.config/swayimg/pixel.png --class="edge_bottom"
 exec echo "disconnected" > /tmp/lanmouse-status.tmp
 output $laptop    background ~/.config/wallpaper/london.jpg fill
 output $primary   background ~/.config/wallpaper/london.jpg fill

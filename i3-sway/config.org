@@ -1652,6 +1652,7 @@ set $prop class
 set $prop app_id
 #+end_src
 ** Applications
+|-----------+-------------+----------------------|
 | workspace | application | description          |
 |-----------+-------------+----------------------|
 |         4 | Thunderbird | Email client         |
@@ -1663,6 +1664,7 @@ set $prop app_id
 |         9 | Spotify     | Music player (web)   |
 |        10 | Blueman     | Bluetooth manager    |
 |        10 | pavucontrol | Volume control       |
+|-----------+-------------+----------------------|
 Obs.: both i3/Sway uses "class" for Spotify client.
 #+begin_src conf :noweb-ref window-property
 assign [$prop="thunderbird"] → $ws4
@@ -1714,7 +1716,7 @@ for_window [$prop="one.alynx.showmethekey"] floating enable
 *** lan-mouse
 (deprecated) Proxy window used to lose main window focus when switching from sender to receiving end with lan-mouse (software switch KVM).
   +--> using xremap modes instead
-#+begin_src conf :noweb-ref sway-screencast
+#+begin_src conf :noweb-ref sway-lanmouse
 #for_window [app_id="edge_bottom" title="pixel.png"] {
 #    floating enable
 #    sticky enable
@@ -2169,6 +2171,7 @@ exec --no-startup-id "sleep 5 && swaymsg '[app_id=brave-browser]' move to worksp
 <<sway-dbus>>
 <<sway-transparency>>
 <<sway-capslock>>
+<<sway-lanmouse>>
 <<sway-wallpaper>>
 <<daemons>>
 <<sway-waybar>>
