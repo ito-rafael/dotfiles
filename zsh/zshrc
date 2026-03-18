@@ -214,6 +214,7 @@ alias kb='pkill brave && brave &'
 alias km='$XDG_CONFIG_HOME/waybar/scripts/kmonad.sh'
 alias ssh='kitten ssh --kitten=color_scheme=themes/ssh.conf'
 alias cmd='command'
+alias rmw='rm -rf ~/.cache/wasistlos/'          # clean WasIstLos (WhatsApp) cache
 function cv() { cat $1 | vim - }
 #-----------------------------
 # journalctl
