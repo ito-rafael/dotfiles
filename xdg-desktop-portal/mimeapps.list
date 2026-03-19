@@ -10,6 +10,8 @@ x-scheme-handler/http=brave-browser.desktop
 x-scheme-handler/https=brave-browser.desktop
 x-scheme-handler/about=brave-browser.desktop
 x-scheme-handler/unknown=brave-browser.desktop
+video/mp4=mpv.desktop;
+video/x-matroska=mpv.desktop;
 
 [Added Associations]
 application/epub+zip=koreader.desktop;
@@ -20,5 +22,5 @@ image/jpeg=org.xfce.ristretto.desktop;gimp.desktop;
 image/png=org.xfce.ristretto.desktop;gimp.desktop;brave-browser.desktop;
 image/svg+xml=org.xfce.ristretto.desktop;gimp.desktop;
 image/webp=org.xfce.ristretto.desktop;gimp.desktop;
-video/mp4=vlc.desktop;mpv.desktop;
-video/x-matroska=mpv.desktop;
+video/mp4=mpv.desktop;vlc.desktop;
+video/x-matroska=mpv.desktop;vlc.desktop;
