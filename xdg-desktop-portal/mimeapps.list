@@ -5,3 +5,13 @@ x-scheme-handler/http=brave-browser.desktop
 x-scheme-handler/https=brave-browser.desktop
 x-scheme-handler/about=brave-browser.desktop
 x-scheme-handler/unknown=brave-browser.desktop
+
+[Added Associations]
+application/pdf=org.pwmt.zathura.desktop;brave-browser.desktop;firefoxdeveloperedition.desktop;org.gnome.Evince.desktop;
+image/png=gimp.desktop;org.xfce.ristretto.desktop;brave-browser.desktop;
+image/webp=gimp.desktop;
+video/mp4=vlc.desktop;mpv.desktop;
+video/x-matroska=mpv.desktop;
+application/x-bittorrent=deluge.desktop;
+application/epub+zip=koreader.desktop;
+image/svg+xml=gimp.desktop;
