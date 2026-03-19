@@ -7,11 +7,11 @@ x-scheme-handler/about=brave-browser.desktop
 x-scheme-handler/unknown=brave-browser.desktop
 
 [Added Associations]
-image/png=gimp.desktop;org.xfce.ristretto.desktop;brave-browser.desktop;
-image/webp=gimp.desktop;
 application/epub+zip=koreader.desktop;
-image/svg+xml=gimp.desktop;
 application/x-bittorrent=deluge.desktop;
 application/pdf=org.pwmt.zathura.desktop;org.gnome.Evince.desktop;brave-browser.desktop;firefoxdeveloperedition.desktop;
+image/png=org.xfce.ristretto.desktop;gimp.desktop;brave-browser.desktop;
+image/svg+xml=org.xfce.ristretto.desktop;gimp.desktop;
+image/webp=org.xfce.ristretto.desktop;gimp.desktop;
 video/mp4=vlc.desktop;mpv.desktop;
 video/x-matroska=mpv.desktop;
