@@ -182,6 +182,10 @@ label:focus {
     color: lightgray;
 }
 
+#temperature.warning {
+    background-color: yellow;
+}
+
 #temperature.critical {
     background-color: #eb4d4b;
 }

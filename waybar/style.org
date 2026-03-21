@@ -306,6 +306,12 @@ label:focus {
     color: lightgray;
 }
 #+end_src
+** Warning
+#+begin_src css
+#temperature.warning {
+    background-color: yellow;
+}
+#+end_src
 ** Critical
 #+begin_src css
 #temperature.critical {
