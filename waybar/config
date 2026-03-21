@@ -74,8 +74,9 @@
 
 "disk": {
     "interval": 30,
-    "format": "{path} {percentage_free}%",
-    "path": "/"
+    "format": " {specific_free:0.1f} GB",
+    "path": "/",
+    "unit": "GB",
 },
 
 "pulseaudio": {
