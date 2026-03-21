@@ -348,7 +348,7 @@
 "custom/scale": {
     "return-type": "json",
     "exec": "~/.config/waybar/scripts/sway-scale.sh",
-    "on-click": "~/.config/scripts/sway-scale.sh toggle",
+    "on-click": "sh -c 'sleep 0.2 && ~/.config/scripts/sway-scale.sh toggle' &",
     "on-scroll-up": "~/.config/scripts/sway-scale.sh inc",
     "on-scroll-down": "~/.config/scripts/sway-scale.sh dec",
     "format": " {icon} {text} ",

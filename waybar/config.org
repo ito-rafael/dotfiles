@@ -496,11 +496,12 @@
 },
 #+end_src
 * Scale
+The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with a small delay (=sleep 0.2=) so there is enough time to Waybar to register the "mouse up" event of the click, before triggering the scale change.
 #+begin_src js
 "custom/scale": {
     "return-type": "json",
     "exec": "~/.config/waybar/scripts/sway-scale.sh",
-    "on-click": "~/.config/scripts/sway-scale.sh toggle",
+    "on-click": "sh -c 'sleep 0.2 && ~/.config/scripts/sway-scale.sh toggle' &",
     "on-scroll-up": "~/.config/scripts/sway-scale.sh inc",
     "on-scroll-down": "~/.config/scripts/sway-scale.sh dec",
     "format": " {icon} {text} ",
