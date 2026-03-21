@@ -178,7 +178,14 @@
 * Battery
 #+begin_src js
 "battery": {
+    "states": {
+        "warning": 30,
+        "critical": 10
+    },
     "format": "{capacity}% {icon}",
+    "format-charging": "{capacity}% ",
+    "format-plugged": "{capacity}% ",
+    "format-alt": "{time} {icon}",
     "format-icons": ["", "", "", "", ""]
 },
 #+end_src
