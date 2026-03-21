@@ -185,8 +185,8 @@
 * Clock (Calendar)
 #+begin_src js
 "clock": {
-    "format": "{:%H:%M}  ",
-    "format-alt": "{:%A, %B %d, %Y (%R)}  ",
+    "format": "{:%a %d, %H:%M} ",
+    "format-alt": "{:%A, %B %d, %Y (%R)} ",
     "tooltip-format": "<tt><big>{calendar}</big></tt>",
     "calendar": {
         "mode"          : "year",
