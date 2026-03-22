@@ -399,13 +399,10 @@
 
 "custom/pacman": {
     "return-type": "json",
-    //"interval": 3600,
-    "interval": 10,
+    "interval": 600,
     "exec": "~/.config/waybar/scripts/pacman.sh",
     "on-click": "~/.config/scripts/show-or-launch.sh dropdown_pacman 0.75 0.75",
     "exec-if": "exit 0",
-    //"on-click": "kitty 'sudo pacman -Syu'; pkill -SIGRTMIN+8 waybar",
-    //"signal": 8,
     "format": " {icon} {0} ",
     "format-icons": {
         "low":    "<span color=\"#999\"></span>",

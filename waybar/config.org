@@ -562,9 +562,10 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
 * Pacman
 #+begin_src js
 "custom/pacman": {
-    "interval": 3600,
     "return-type": "json",
+    "interval": 600,
     "exec": "~/.config/waybar/scripts/pacman.sh",
+    "on-click": "~/.config/scripts/show-or-launch.sh dropdown_pacman 0.75 0.75",
     "exec-if": "exit 0",
     "format": " {icon} {0} ",
     "format-icons": {
