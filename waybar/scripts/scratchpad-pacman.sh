@@ -67,4 +67,4 @@ env SUDO_PASS="$PASSWORD" kitty \
     --hold \
     -o font_size=12 \
     -o include="$XDG_CONFIG_HOME/kitty/themes/pacman.conf" \
-    bash -c 'printf "%s\n" "$SUDO_PASS" | sudo -S pacman -Syu --print' &
+    bash -c 'printf "%s\n" "$SUDO_PASS" | sudo -S -v && exec sudo pacman -Syu' &
