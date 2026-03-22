@@ -246,7 +246,7 @@ if [[ ! $SCRATCHPAD ]]; then
             sleep 0.05
             ;;
         "dropdown_pacman")
-            kitty --detach --class="dropdown_pacman" -o font_size=14 -o include=$XDG_CONFIG_HOME/kitty/themes/pacman.conf -o background_opacity=0.85
+            $XDG_CONFIG_HOME/waybar/scripts/scratchpad-pacman.sh
             sleep 0.05
             ;;
         "keymapp")
