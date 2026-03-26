@@ -113,11 +113,13 @@ case "${XDG_SESSION_TYPE}" in
         if [ -n "$TARGET_OUTPUT" ]; then
             # if $TARGET_OUTPUT was defined in the parameters, use this output
             RESOLUTION=$(swaymsg -t get_outputs | jq '.[] | select(.name=="'$TARGET_OUTPUT'").rect')
-            OUTPUT_SCALE=$(swaymsg -t get_outputs | jq '.[] | select(.name=="'$TARGET_OUTPUT'").scale')
+            #OUTPUT_SCALE=$(swaymsg -t get_outputs | jq '.[] | select(.name=="'$TARGET_OUTPUT'").scale')
+            OUTPUT_SCALE=1
         else
             # if not defined, use the current focused output
             RESOLUTION=$(swaymsg -t get_outputs | jq '.[] | select(.focused==true).rect')
-            OUTPUT_SCALE=$(swaymsg -t get_outputs | jq '.[] | select(.focused==true).scale')
+            #OUTPUT_SCALE=$(swaymsg -t get_outputs | jq '.[] | select(.focused==true).scale')
+            OUTPUT_SCALE=1
         fi
         RES_WIDTH=$(echo $RESOLUTION | jq '.width')
         RES_HEIGHT=$(echo $RESOLUTION | jq '.height')
