@@ -139,15 +139,15 @@ else
                 fi
                 case $WORKSPACE in
                     # primary screen
-                    1 ) kitty ;;
-                    2 ) firefox & ;;
-                    3 ) brave & ;;
-                    4 ) thunderbird & ;;
-                    5 ) libreoffice --calc "/home/rafael/Desktop/Coisas da casa.ods" & ;;
-                    6 ) lutris & ;;
-                    7 ) deluge & nicotine & ;;
-                    8 ) lollypop & ;;
-                    9 ) spotify & ;;
+                    1) kitty ;;
+                    2) firefox & ;;
+                    3) brave & ;;
+                    4) thunderbird & ;;
+                    5) libreoffice --calc "/home/rafael/Sync/shared-files/Coisas da casa.ods" & ;;
+                    6) lutris & ;;
+                    7) deluge & nicotine & ;;
+                    8) lollypop & ;;
+                    9) spotify & ;;
                     0) gtk-launch emacsclient.desktop & ;;
                     #-------------------------------------
                     # secondary screen
