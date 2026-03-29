@@ -4,4 +4,4 @@
 /etc/lightdm/lightdm-outputs.sh &
 
 # launch lan-mouse (software KVM) as lightdm user
-/etc/lightdm/lightdm-lan-mouse.sh &
+/etc/lightdm/lightdm-lanmouse.sh &
