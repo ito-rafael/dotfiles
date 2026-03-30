@@ -8,6 +8,7 @@
 * Table of Contents :toc_3:
 - [[#ansible][Ansible]]
   - [[#terraform][Terraform]]
+  - [[#keys][Keys]]
   - [[#provider][Provider]]
   - [[#project][Project]]
   - [[#repositories][Repositories]]
@@ -25,10 +26,18 @@
 terraform {
   required_providers {
     semaphoreui = {
-      source  = "ansible-semaphore/semaphoreui"
-      version = "~> 0.1.4"
+      source  = "registry.terraform.io/semaphoreui/semaphore"
+      version = "~> 0.2.2"
     }
   }
+}
+#+end_src
+** Keys
+#+begin_src conf
+resource "semaphoreui_project_key" "none" {
+  project_id = semaphoreui_project.workstation.id
+  name       = "None"
+  none       = {}
 }
 #+end_src
 ** Provider
@@ -56,7 +65,7 @@ resource "semaphoreui_project_repository" "github_repo" {
   name       = "ansible-provision"
   git_url    = "https://github.com/ito-rafael/ansible-provision"
   git_branch = "main"
-  # access_key is omitted since it is "None"
+  ssh_key_id = semaphoreui_project_key.none.id
 }
 #+end_src
 *** Local (test)
@@ -67,6 +76,7 @@ resource "semaphoreui_project_repository" "local_repo" {
   name       = "local (test)"
   git_url    = "file:///home/rafael/git/ansible-provision"
   git_branch = "main"
+  ssh_key_id = semaphoreui_project_key.none.id
 }
 #+end_src
 ** Variable Group (Environment)
@@ -84,9 +94,11 @@ resource "semaphoreui_project_environment" "linear_strategy" {
 resource "semaphoreui_project_inventory" "file_inventory" {
   project_id    = semaphoreui_project.workstation.id
   name          = "ansible-provision"
-  type          = "file"
-  repository_id = semaphoreui_project_repository.github_repo.id
-  inventory     = "inventory/hosts.yml"
+  ssh_key_id    = semaphoreui_project_key.none.id
+  file = {
+    repository_id = semaphoreui_project_repository.github_repo.id
+    path          = "inventory/hosts.yml"
+  }
 }
 #+end_src
 ** Task Templates
