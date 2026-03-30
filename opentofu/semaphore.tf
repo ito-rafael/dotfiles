@@ -26,25 +26,25 @@ resource "semaphoreui_project" "workstation" {
 resource "semaphoreui_project_repository" "github_repo" {
   project_id = semaphoreui_project.workstation.id
   name       = "ansible-provision"
-  git_url    = "https://github.com/ito-rafael/ansible-provision"
-  git_branch = "main"
+  url        = "https://github.com/ito-rafael/ansible-provision"
+  branch     = "main"
   ssh_key_id = semaphoreui_project_key.none.id
 }
 
 resource "semaphoreui_project_repository" "local_repo" {
   project_id = semaphoreui_project.workstation.id
   name       = "local (test)"
-  git_url    = "file:///home/rafael/git/ansible-provision"
-  git_branch = "main"
+  url        = "file:///home/rafael/git/ansible-provision"
+  branch     = "main"
   ssh_key_id = semaphoreui_project_key.none.id
 }
 
 resource "semaphoreui_project_environment" "linear_strategy" {
-  project_id = semaphoreui_project.workstation.id
-  name       = "Linear Strategy"
-  env        = jsonencode({
+  project_id  = semaphoreui_project.workstation.id
+  name        = "Linear Strategy"
+  environment = {
     "ANSIBLE_STRATEGY" = "linear"
-  })
+  }
 }
 
 resource "semaphoreui_project_inventory" "file_inventory" {
