@@ -818,8 +818,9 @@ label:focus {
 ** Work
 *** Playing
 #+begin_src css
-#custom-tomat.work {
-  background-color: #ff6b6b;
+#custom-pomodoro-timer.work {
+    color: lightgray;
+    /*background-color: #ff6b6b;*/
 }
 #+end_src
 *** Paused
