@@ -825,8 +825,9 @@ label:focus {
 #+end_src
 *** Paused
 #+begin_src css
-#custom-tomat.work-paused {
-  background-color: #ff9999;
+#custom-pomodoro-timer.work-paused {
+    color: lightgray;
+    /*background-color: #ff9999;*/
 }
 #+end_src
 * Pacman :noexport_1:
