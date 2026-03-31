@@ -47,6 +47,12 @@ resource "semaphoreui_project_environment" "linear_strategy" {
   }
 }
 
+resource "semaphoreui_project_environment" "empty_environment" {
+  project_id  = semaphoreui_project.workstation.id
+  name        = "Empty"
+  environment = {}
+}
+
 resource "semaphoreui_project_inventory" "file_inventory" {
   project_id    = semaphoreui_project.workstation.id
   name          = "ansible-provision"
@@ -64,6 +70,7 @@ resource "semaphoreui_project_template" "github_template" {
   repository_id  = semaphoreui_project_repository.github_repo.id
   inventory_id   = semaphoreui_project_inventory.file_inventory.id
   #environment_id = semaphoreui_project_environment.linear_strategy.id
+  environment_id = semaphoreui_project_environment.empty_environment.id
 
   # Ansible Options & Prompts
   # The provider allows you to set the default CLI arguments or limit strings directly.
@@ -78,6 +85,7 @@ resource "semaphoreui_project_template" "local_template" {
   repository_id  = semaphoreui_project_repository.local_repo.id
   inventory_id   = semaphoreui_project_inventory.file_inventory.id
   #environment_id = semaphoreui_project_environment.linear_strategy.id
+  environment_id = semaphoreui_project_environment.empty_environment.id
 
   allow_override_args_in_task = true
 }
