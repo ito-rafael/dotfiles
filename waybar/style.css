@@ -544,6 +544,12 @@ label:focus {
     /*background-color: #45b7d1;*/
 }
 
+#custom-pomodoro-timer.long-break-paused {
+    color: lightgray;
+    /*background-color: #74c0db;*/
+    background-color: rgba(116, 192, 219, 0.5);
+}
+
 #custom-pacman.low {
     color: lightgray;
 }
