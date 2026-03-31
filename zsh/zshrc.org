@@ -1,12 +1,111 @@
-# -*- mode: shell-script -*-
+#+TITLE: Config file for Zsh shell (.zshrc)
+#+AUTHOR: Rafael Ito
+#+PROPERTY: header-args :tangle zshrc
+#+DESCRIPTION: Config file for Zsh shell (.zshrc)
+#+STARTUP: showeverything
+#+auto_tangle: t
 
+* Table of contents :toc_1:
+- [[#header][Header]]
+- [[#plugins][Plugins]]
+- [[#user-config][User config]]
+- [[#alias][Alias]]
+- [[#forx][ForX]]
+- [[#environment-variables][Environment variables]]
+- [[#zvm-zsh-vi-mode][ZVM: zsh-vi-mode]]
+- [[#colemak-dh][Colemak-DH]]
+- [[#misc][Misc]]
+
+* Header
+** Org mode
+#+begin_src sh
+# -*- mode: shell-script -*-
+#+end_src
+** Run Sway from TTY
+#+begin_src sh
 ## run sway from tty
 #if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
 #  exec sway --unsupported-gpu
 #fi
-
+#+end_src
+** Oh My Zsh env var
+#+begin_src sh
 export ZSH=$HOME/.config/oh-my-zsh
+#+end_src
+** Commented
+#+begin_src
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+#ZSH_THEME="robbyrussell"
+
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in $ZSH/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to automatically update without prompting.
+# DISABLE_UPDATE_PROMPT="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS="true"
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# Caution: this setting can cause issues with multiline prompts (zsh 5.7.1 and newer seem to work)
+# See https://github.com/ohmyzsh/ohmyzsh/issues/5765
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+#+end_src
+* Plugins 
+** General
+Which plugins would you like to load?
+Standard plugins can be found in $ZSH/plugins/
+Custom plugins may be added to $ZSH_CUSTOM/plugins/
+Example format: plugins=(rails git textmate ruby lighthouse)
+Add wisely, as too many plugins slow down shell startup.
+#+begin_src sh
 plugins=()
 plugins+=(git)
 plugins+=(sudo)
@@ -17,7 +116,9 @@ plugins+=(colored-man-pages)
 plugins+=(globalias)
 #plugins+=(vi-mode)
 #plugins+=(zsh-vi-mode)
-
+#+end_src
+** Alias expansion (globalias)
+#+begin_src sh
 GLOBALIAS_FILTER_VALUES=()
 GLOBALIAS_FILTER_VALUES+=(ls)
 GLOBALIAS_FILTER_VALUES+=(cp)
@@ -36,25 +137,41 @@ GLOBALIAS_FILTER_VALUES+=(sudo)
 GLOBALIAS_FILTER_VALUES+=(tlmgr)
 GLOBALIAS_FILTER_VALUES+=(catp)
 GLOBALIAS_FILTER_VALUES+=(ssh)
-
+#+end_src
+** Plugins setup
+*** Powerline
+#+begin_src sh
 powerline-daemon -q
 source /usr/share/powerline/bindings/zsh/powerline.zsh
-
+#+end_src
+*** zsh-autosuggestions
+#+begin_src sh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-
+#+end_src
+*** zsh-syntax-highlighting
+#+begin_src sh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
+#+end_src
+*** zsh-vi-mode
+#+begin_src sh
 source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.zsh
-
+#+end_src
+*** zsh-system-clipboard
+#+begin_src sh
 #source /usr/share/zsh/plugins/zsh-system-clipboard/zsh-system-clipboard.zsh
-
+#+end_src
+** Hook function
+*** ls after changing dir
+#+begin_src sh
 #ls_after_cd() ls
 ls_after_cd() {
     emulate -L zsh
     exa -alg --color=always --group-directories-first
 }
 chpwd_functions+=( ls_after_cd )
-
+#+end_src
+** Emacs TRAMP
+#+begin_src sh
 # detect TRAMP or other "dumb" terminals
 # this block of text must be placed before Oh-My-Zsh is sourced
 if [[ "$TERM" == "dumb" ]]; then
@@ -66,8 +183,13 @@ if [[ "$TERM" == "dumb" ]]; then
   PS1='$ '                  # set a simple, standard prompt
   return                    # stop processing the rest of the file
 fi
-
+#+end_src
+** Source Oh My Zsh
+#+begin_src sh
 source $ZSH/oh-my-zsh.sh
+#+end_src
+* User config
+#+begin_src sh
 
 # User configuration
 
@@ -94,7 +216,10 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
+#+end_src
+* Alias
+** General
+#+begin_src sh
 # general
 alias v=vim                                     # Vim
 alias v0=nvim -u NONE -U NONE -N -i NONE        # Vim without configuration
@@ -129,17 +254,23 @@ alias ssh='kitten ssh --kitten=color_scheme=themes/ssh.conf'
 alias cmd='command'
 alias rmw='rm -rf ~/.cache/wasistlos/'          # clean WasIstLos (WhatsApp) cache
 function cv() { cat $1 | vim - }
-
+#+end_src
+** journalctl
+#+begin_src sh
 alias j='journalctl -u'                    # journalctl
 alias jf='journalctl --follow -u'          # journalctl follow
 alias ju='journalctl --user -u'            # journalctl user
 alias jfu='journalctl --user --follow -u'  # journalctl user follow
-
+#+end_src
+** watch
+#+begin_src sh
 alias wt='watch -n 1'                   # watch
 alias wtc='watch -n 1 "cat '            # watch "cat"
 alias wtl='watch -n 1 "ls '             # watch "ls"
 alias wtp='watch -n 1 "ps aux | grep '  # watch "ps aux"
-
+#+end_src
+** Network
+#+begin_src sh
 alias p1='ping 192.168.0.'                         # ping local IP
 alias pl='ping 192.168.0.'                         # ping local IP
 alias p8='ping 8.8.8.8'                            # ping test (no DNS)
@@ -147,32 +278,58 @@ alias pg='ping google.com'                         # ping test with DNS
 alias nsn='$XDG_CONFIG_HOME/scripts/nmap.sh'       # nmap -sn (automatic interface: eth > wlp)
 alias nsnw='$XDG_CONFIG_HOME/scripts/nmap.sh wlp'  # nmap -sn on wireless interface
 alias nsne='$XDG_CONFIG_HOME/scripts/nmap.sh eth'  # nmap -sn on Ethernet interface
-
+#+end_src
+** Colorize
+*** ls
+#+begin_src sh
 #alias ls='ls --color=auto'
-
+#+end_src
+*** grep
+Colorize grep output.
+#+begin_src sh
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
-
+#+end_src
+*** iproute2
+#+begin_src sh
 alias ip='ip -color=auto'
 alias ipa='ip -br -c a s'
-
+#+end_src
+** Misc
+*** Incognito
+Incognito mode (no records in "history")
+#+begin_src sh
 alias incognito=' unset HISTFILE &&'
-
+#+end_src
+*** Scripts
+#+begin_src sh
 alias wlprop='$XDG_CONFIG_HOME/scripts/wlprop.sh'
-
+#+end_src
+*** LaTeX
+#+begin_src sh
 alias tlmgr='$TEXMFDIST/scripts/texlive/tlmgr.pl --usermode'
-
+#+end_src
+*** Firefox
+#+begin_src sh
 alias firefox=firefox-developer-edition
-
+#+end_src
+*** Contiki-NG
+#+begin_src sh
 alias contiker="docker run --privileged --sysctl net.ipv6.conf.all.disable_ipv6=0 --mount type=bind,source=$CNG_PATH,destination=/home/user/contiki-ng -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -v /dev/bus/usb:/dev/bus/usb -ti contiker/contiki-ng"
-
+#+end_src
+*** Masters Sync
+#+begin_src sh
 alias ms='rsync -avzhP rafael@143.106.45.169:/home/rafael/git/masters/ /home/rafael/git/masters'
-
+#+end_src
+** ZSA Moonlander/Planck EZ
+#+begin_src sh
 alias rmm='find $HOME/Downloads -type f -name "planck_ez_glow_inkl-p-*.bin" -or -name "zsa_moonlander_inkl-m-*.bin" | xargs rm -f --'
 alias wcm='wally-cli "$(command ls -t zsa_moonlander_inkl-m-*.bin | head -1)"'
 alias wcp='wally-cli "$(command ls -t planck_ez_glow_inkl-p-*.bin | head -1)"'
-
+#+end_src
+** Package manager
+#+begin_src sh
 alias {paru,yay}='paru --aur'                # paru/yay
 alias {sps,spi}='sudo pacman -S'             # pacman install
 alias spu='sudo pacman -Syu'                 # pacman update/upgrade
@@ -188,13 +345,19 @@ alias prm='paru -Rns'                        # paru uninstall
 alias prc='paru -Scc'                        # paru clean
 alias prd='paru -Sccd'                       # paru clean & delete
 alias pqc='sudo pacman -Rs $(pacman -Qtdq)'  # delete unused packages
-
+#+end_src
+** Python
+*** Alias
+#+begin_src sh
 alias {p,py}=python                             # interpreter
 alias piu='pip install -U'                      # pip install
 alias pir='pip install -U -r requirements.txt'  # requirements
 alias penv='python -m venv'                     # venv
 alias da='deactivate'                           # deactivate venv
-
+#+end_src
+*** Function
+**** Create & set venv
+#+begin_src sh
 function ve() {
     cd $HOME/venvs
     python -m venv $1
@@ -202,24 +365,33 @@ function ve() {
     source bin/activate
     pip install -U powerline-status
 }
-
+#+end_src
+**** Activate env
+#+begin_src sh
 function va() {
     cd $HOME/venvs/$1
     source bin/activate
 }
-
+#+end_src
+*** Mamba/Conda envs
+#+begin_src sh
 alias ma='mamba activate'
 alias md='mamba deactivate'
 alias ml='mamba env list'
 alias mr='mamba env remove -n'
-
+#+end_src
+** Emacs
+*** Emacs from Scratch
+#+begin_src sh
 alias ed='emacs --daemon --with-profile efs &'               # start daemon
 alias ec='emacsclient -c -s efs -a emacs'                    # launch emacsclient
 alias em='emacs --init-dir ~/.config/emacs-efs'              # launch emacs
 alias ei='vim $XDG_CONFIG_HOME/emacs-efs/init.el'            # open config file
 alias ke='pkill -f "emacs.* --daemon --with-profile efs" && emacs --daemon --with-profile efs &'  # restart daemon
 alias rme='rm -f ~/.config/emacs-efs/desktop/emacs.desktop'  # delete emacs.desktop file
-
+#+end_src
+*** Doom Emacs
+#+begin_src sh
 alias edd='emacs --daemon --with-profile doom &'             # start daemon
 alias ecd='emacsclient -c -s doom -a emacs'                  # launch emacsclient
 alias emd='emacs --init-dir ~/.config/emacs-doom'            # launch emacs
@@ -229,7 +401,10 @@ alias edp='vim $XDG_CONFIG_HOME/emacs-doom/packages.el'
 alias dod='doom doctor'
 alias dos='doom sync'
 alias rme='rm -f ~/.config/emacs-efs/desktop/emacs.desktop'
-
+#+end_src
+** systemctl
+*** root
+#+begin_src sh
 alias sta='sudo systemctl start'
 alias sto='sudo systemctl stop'
 alias sen='sudo systemctl enable --now'
@@ -238,7 +413,9 @@ alias sse='sudo systemctl enable'
 alias ssd='sudo systemctl disable'
 alias sss='systemctl status'
 alias sdr='sudo systemctl daemon-reload'
-
+#+end_src
+*** user
+#+begin_src sh
 alias stau='systemctl start --user'
 alias stou='systemctl stop --user'
 alias ssru='systemctl restart --user'
@@ -247,7 +424,10 @@ alias sseu='systemctl enable --user'
 alias ssdu='systemctl disable --user'
 alias sssu='systemctl status --user'
 alias sdru='systemctl daemon-reload --user'
-
+#+end_src
+** Directories
+*** General
+#+begin_src sh
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
@@ -263,7 +443,9 @@ alias cdu='cd $HOME/0_Y2P_SSH_BAK/home/rafael/RAFAEL/UNICAMP'
 alias cdt='cd $HOME/git/masters/Thesis'
 alias cdenv='cd $HOME/venvs'
 #alias cdu='cd $HOME/RAFAEL/UNICAMP'
-
+#+end_src
+*** dotfiles
+#+begin_src sh
 alias cdp='cd $HOME/git/dotfiles'
 alias cdpe='cd $HOME/git/dotfiles/emacs'
 alias cdpk='cd $HOME/git/dotfiles/kitty'
@@ -274,7 +456,9 @@ alias cdpx='cd $HOME/git/dotfiles/xremap'
 alias cdpz='cd $HOME/git/dotfiles/zsh'
 alias cdpw='cd $HOME/git/dotfiles/waybar'
 alias cdpws='cd $HOME/git/dotfiles/waybar/scripts'
-
+#+end_src
+*** XDG_CONFIG_HOME
+#+begin_src sh
 alias cdc='cd $XDG_CONFIG_HOME'
 alias cde='cd $XDG_CONFIG_HOME/emacs-efs'
 alias cds='cd $XDG_CONFIG_HOME/scripts'
@@ -286,23 +470,35 @@ alias cdw='cd $XDG_CONFIG_HOME/waybar'
 alias cdws='cd $XDG_CONFIG_HOME/waybar/scripts'
 alias cdkt='cd $XDG_CONFIG_HOME/kitty'
 alias cdz='cd $XDG_CONFIG_HOME/zsh'
-
+#+end_src
+** Confirmation
+*** Confirm before overwriting
+#+begin_src sh
 alias cp="cp -i"
 alias mv='mv -i'
 alias rm='rm -i'
-
+#+end_src
+*** Skip confirmation
+#+begin_src sh
 alias mvy='command mv'
 alias rmy='command rm'
 alias cpy='command cp'
 alias cpry='command cp -R'
-
+#+end_src
+*** Recursive
+#+begin_src sh
 alias rmf='rm -rf'
-
+#+end_src
+** Docker
+*** Function
+#+begin_src sh
 function de() { docker exec -it $(docker ps | grep $1 | awk '{print $1}') ${2:-bash} }
 function dl() { docker logs $(docker ps | grep $1 | awk '{print $1}') }
 function dc() { docker-compose $1 }
 function dri() { docker run -it --rm $1 ${2:-/bin/bash} }
-
+#+end_src
+*** Alias
+#+begin_src sh
 alias dr='docker run'
 alias di='docker images'
 alias db='docker build -t'
@@ -312,7 +508,9 @@ alias dso='docker stop'
 alias dps='docker ps'
 alias dsp='docker system prune'
 alias dspa='docker system prune -a'
-
+#+end_src
+*** Docker Compose
+#+begin_src sh
 alias dcu='docker-compose -p $(pwd | rev | cut -d '/' -f 2 | rev) up -d'
 alias dcd='docker-compose -p $(pwd | rev | cut -d '/' -f 2 | rev) down'
 alias dcr='docker-compose -p $(pwd | rev | cut -d '/' -f 2 | rev) restart'
@@ -320,23 +518,34 @@ alias dcl='docker-compose -p $(pwd | rev | cut -d '/' -f 2 | rev) logs -f'
 alias dcs='docker-compose -p $(pwd | rev | cut -d '/' -f 2 | rev) up -d && docker-compose -p $(pwd | rev | cut -d '/' -f 2 | rev) logs -f'
 alias dcdu='docker-compose -p $(pwd | rev | cut -d '/' -f 2 | rev) down && docker-compose -p $(pwd | rev | cut -d '/' -f 2 | rev) up -d'
 alias dcrs='docker-compose -p $(pwd | rev | cut -d '/' -f 2 | rev) down && docker-compose -p $(pwd | rev | cut -d '/' -f 2 | rev) up -d && docker-compose logs -p $(pwd | rev | cut -d '/' -f 2 | rev) -f'
-
+#+end_src
+*** File edition
+#+begin_src sh
 alias vdf='vim Dockerfile'
 alias vdc='vim docker-compose.yml'
-
+#+end_src
+** Git
+#+begin_src sh
 function gs() { git show $1 | vim - }
-
+#+end_src
+** Config files
+*** Host
+#+begin_src sh
 REMOTE="lbic"
 #REMOTE="y2p"
 #REMOTE="vb"
-
+#+end_src
+*** Reload config files
+#+begin_src sh
 alias {rzz,rz}='source $XDG_CONFIG_HOME/zsh/.zshrc'
 alias {rii,ri}='$XDG_CONFIG_HOME/i3/i3bang.rb && i3-msg restart'
 alias {rii,ri}='$XDG_CONFIG_HOME/sway/i3bang.rb && swaymsg reload'
 alias {rww,rw}='rm -rf $XDG_CACHE_HOME/wasistlos'
 alias {rxx,rx}='xmodmap $HOME/.Xmodmap'
 alias rze='source $XDG_CONFIG_HOME/zsh/.zshenv'
-
+#+end_src
+*** Open config files
+#+begin_src sh
 alias bb='vim $XDG_CONFIG_HOME/i3/i3blocks.conf'
 alias ee='vim $XDG_CONFIG_HOME/emacs-efs/config.el'
 alias kk='vim $XDG_CONFIG_HOME/kitty/kitty.conf'
@@ -360,7 +569,9 @@ function ii () {
         *) exit 0 ;;
     esac
 }
-
+#+end_src
+*** Open config files in remote PC
+#+begin_src sh
 alias lbb='ssh $REMOTE cat $XDG_CONFIG_HOME/i3/i3blocks.conf | vim -'
 alias lee='ssh $REMOTE cat $XDG_CONFIG_HOME/doom/config.el | vim -'
 alias lkk='ssh $REMOTE cat $XDG_CONFIG_HOME/kitty/kitty.conf | vim -'
@@ -383,7 +594,9 @@ function lii () {
         *) exit 0 ;;
     esac
 }
-
+#+end_src
+*** Diff config files in remote PC
+#+begin_src sh
 alias dbb='ssh $REMOTE cat $XDG_CONFIG_HOME/i3/i3blocks.conf | diff - $XDG_CONFIG_HOME/i3/i3blocks.conf'
 alias dee='ssh $REMOTE cat $XDG_CONFIG_HOME/doom/config.el | diff - $XDG_CONFIG_HOME/doom/config.el'
 alias dkk='ssh $REMOTE cat $XDG_CONFIG_HOME/kitty/kitty.conf | diff - $XDG_CONFIG_HOME/kitty/kitty.conf'
@@ -406,7 +619,9 @@ function dii () {
         *) exit 0 ;;
     esac
 }
-
+#+end_src
+*** Open config in git repo
+#+begin_src sh
 alias gbb='vim $HOME/git/dotfiles/i3/i3blocks.conf'
 alias gee='vim $HOME/git/dotfiles/doom/config.el'
 alias gkk='vim $HOME/git/dotfiles/kitty/kitty.conf'
@@ -429,7 +644,9 @@ function gii () {
         *) exit 0 ;;
     esac
 }
-
+#+end_src
+*** Diff between git repo and current config files
+#+begin_src sh
 alias gdbb='diff $HOME/git/dotfiles/i3/i3blocks.conf $XDG_CONFIG_HOME/i3/i3blocks.conf'
 alias gdee='diff $HOME/git/dotfiles/doom/config.el $XDG_CONFIG_HOME/doom/config.el'
 alias gdkk='diff $HOME/git/dotfiles/kitty/kitty.conf $XDG_CONFIG_HOME/kitty/kitty.conf'
@@ -452,7 +669,12 @@ function gdii () {
         *) exit 0 ;;
     esac
 }
-
+#+end_src
+** Modern Unix
+https://github.com/ibraheemdev/modern-unix
+*** eza
+=ls= replacement.
+#+begin_src sh
 alias ls='eza -algh --color=always --group-directories-first'   # default
 alias la='eza -a    --color=always --group-directories-first'   # all files & dirs
 alias ll='eza -l    --color=always --group-directories-first'   # long
@@ -461,28 +683,50 @@ alias l.='eza -a | egrep "^\."'                                 # hidden
 alias lsd='eza --list-dirs */'                                  # dirs only
 alias lsl='eza'                                                 # minimal
 alias lso='eza --oneline'                                       # oneline
-
+#+end_src
+*** bat
+=cat= replacement.
+#+begin_src sh
 alias cat=bat
 alias {catp,pcat}='bat -p'
-
+#+end_src
+** Clipboard
+*** X11
+#+begin_src sh
 alias -g c='| xclip -selection clipboard'           # copy stdout
 alias {pwdc,pc}='pwd | xclip -selection clipboard'  # copy pwd
 alias cv='cd $(xclip -out -selection clipboard)'    # move to dir in clipboard
-
+#+end_src
+*** Wayland
+#+begin_src sh
 alias -g c='| wl-copy'           # copy stdout
 alias {pc,pwdc}='pwd | wl-copy'  # copy pwd
 alias cv='cd $(wl-paste)'        # move to dir in clipboard
-
+#+end_src
+** VPN
+*** OpenVPN LBiC
+#+begin_src sh
 alias vpn-lbic='$XDG_CONFIG_HOME/vpn/lbic/vpn-lbic.sh'
-
+#+end_src
+*** OpenVPN Unicamp
+#+begin_src sh
 alias vpn-unicamp='$XDG_CONFIG_HOME/vpn/unicamp/vpn-unicamp.sh'
-
+#+end_src
+*** OpenConnect Samsung DMZ
+#+begin_src sh
 alias vpn-samsung='$XDG_CONFIG_HOME/vpn/samsung/vpn-samsung.sh'
-
+#+end_src
+*** Recod (bind TCP port)
+#+begin_src sh
 alias recod='$XDG_CONFIG_HOME/vpn/recod/port-binding.sh'
-
+#+end_src
+*** LBiC (bind TCP port)
+#+begin_src sh
 alias lbic='$XDG_CONFIG_HOME/vpn/lbic/port-binding.sh'
-
+#+end_src
+** ADB / scrcpy
+*** Alias
+#+begin_src sh
 alias asp='$XDG_CONFIG_HOME/scripts/adb-mdns-pair.sh'    # ADB script for pairing
 alias asc='$XDG_CONFIG_HOME/scripts/adb-mdns-scrcpy.sh'  # ADB script for connecting (scrcpy)
 alias ap='adb pair'        # ADB pair
@@ -490,58 +734,94 @@ alias ac='adb connect'     # ADB connect
 alias ad='adb disconnect'  # ADB disconnect
 alias al='adb devices -l'  # ADB list devices
 alias as='adb shell'       # ADB shell
-
+#+end_src
+*** Function
+**** Phone
+#+begin_src sh
 function s() {
     adb connect 192.168.0.101:5555
     s20_ip=$(adb devices -l | grep SM_G980F | awk "{print \$1}")
     scrcpy -s $s20_ip --prefer-text
 }
-
+#+end_src
+**** Smartwatch
+#+begin_src sh
 function sw() {
     adb connect 192.168.0.104:5555
     gw4_ip=$(adb devices -l | grep SM_R880 | awk "{print \$1}")
     scrcpy -s $gw4_ip --prefer-text
 }
-
+#+end_src
+*** IP / port
+#+begin_src sh
 alias -g s20_ip='adb devices -l | grep SM_G980F | awk "{print \$1}"'
 alias -g gw4_ip='adb devices -l | grep SM_R880  | awk "{print \$1}"'
-
+#+end_src
+*** Devices
+#+begin_src sh
 alias -g s20="-s $(s20_ip)"
 alias -g gw4="-s $(gw4_ip)"
-
+#+end_src
+*** scrcpy
+#+begin_src sh
 alias s="scrcpy s20 --prefer-text"
 alias sw="scrcpy gw4 --prefer-text"
-
+#+end_src
+* ForX
+Coinbase's API.
+** Currency
+#+begin_src sh
 function usd() { forx -q "${1:-1}" USD BRL }    # US Dollar
 function eur() { forx -q "${1:-1}" EUR BRL }    # Euro
 function gbp() { forx -q "${1:-1}" GBP BRL }    # Pound
 function jpy() { forx -q "${1:-1}" JPY BRL }    # Yen
 function cad() { forx -q "${1:-1}" CAD BRL }    # Canadian Dollar
 function aud() { forx -q "${1:-1}" AUD BRL }    # Australian Dollar
-
+#+end_src
+** Crypto
+#+begin_src sh
 function btc() { forx -q "${1:-1}" BTC BRL }    # Bitcoin
 function eth() { forx -q "${1:-1}" ETH BRL }    # Ethereum
 #function bnb() { forx -q "${1:-1}" BNB BRL }    # Binance
 #function xch() { forx -q "${1:-1}" XCH BRL }    # Chia
-
+#+end_src
+* Environment variables
+** PATH
+#+begin_src sh
 export PATH="$HOME/.emacs.d/bin:$PATH"
-
+#+end_src
+** HiDPI in i3 (Arch)
+#+begin_src sh
 #export GDK_SCALE=2
 #export GDK_DPI_SCALE=0.5
-
+#+end_src
+** Language
+Force applications to use the default language for output.
+#+begin_src sh
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
-
+#+end_src
+** Shell
+#+begin_src sh
 export SHELL=/usr/bin/zsh
-
+#+end_src
+** Terminal
+#+begin_src sh
 export TERMINAL=kitty
-
+#+end_src
+** Theme
+#+begin_src sh
 #export THEME_CURRENT=$(cat $XDG_CONFIG_HOME/gtk-4.0/settings.ini | grep -oP '(?<=gtk-theme-name=).*')
 export THEME_DARK='Adwaita-dark'
 export THEME_LIGHT='Adwaita'
-
+#+end_src
+** Fix colored-man-pages on X11
+#+begin_src sh
 export GROFF_NO_SGR=1
-
+#+end_src
+* ZVM: zsh-vi-mode
+** history-substring-search
+#+begin_src sh
 bindkey "^[[A" history-substring-search-up
 bindkey "^[[B" history-substring-search-down
 bindkey "^E" history-substring-search-down
@@ -552,7 +832,9 @@ zvm_after_init_commands+=(
     "bindkey '^[[A' up-line-or-search" 
     "bindkey '^[[B' down-line-or-search"
 )
-
+#+end_src
+** kill previous/next word
+#+begin_src sh
 bindkey '^H' backward-kill-word                  # ctrl+backspace: delete previous word
 bindkey '5~' kill-word                           # ctrl+delete: delete next word
 #bindkey '^[[3;5~' kill-word                      # ctrl+shift+delete: delete next word
@@ -562,31 +844,50 @@ zvm_after_init_commands+=(
     "bindkey '^H' backward-kill-word"
     "bindkey '5~' kill-word"
 )
-
+#+end_src
+** fix yank to clipboard
+*** Wayland
+Needs =wl-clipboard=.
+#+begin_src sh
 zvm_vi_yank () {
     zvm_yank
     printf %s "${CUTBUFFER}" |  wl-copy -n
     zvm_exit_visual_mode
 }
-
+#+end_src
+*** X11
+Needs =xclip=.
+#+begin_src sh
 #zvm_vi_yank () {
 #    zvm_yank
 #    printf %s "${CUTBUFFER}" | xclip -selection clipboard
 #    zvm_exit_visual_mode
 #}
-
+#+end_src
+* Colemak-DH
+** Navigation
+#+begin_src sh
 #bindkey -a 'n' vi-backward-char
 #bindkey -a 'e' down-line-or-history
 #bindkey -a 'i' up-line-or-history
 #bindkey -a 'o' vi-forward-char
-
+#+end_src
+** Misc
+#+begin_src sh
 #bindkey -a 'k' vi-repeat-search
 #bindkey -a 'K' vi-rev-repeat-search
 #bindkey -a 's' vi-insert
 #bindkey -a 'S' vi-insert-bol
 #bindkey -a 'l' vi-forward-word-end
 #bindkey -a 'L' vi-forward-blank-word-end
-
+#+end_src
+* Misc
+** SSH agent
+Use keychain to launch ssh-agent and ssh-add.
+#+begin_src sh
 #eval $(keychain --noask --eval --quiet id_ed25519)
-
+#+end_src
+** Zoxide
+#+begin_src sh
 eval "$(zoxide init --cmd cd zsh)"
+#+end_src
