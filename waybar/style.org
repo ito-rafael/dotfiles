@@ -846,6 +846,14 @@ label:focus {
     background-color: rgba(125, 211, 219, 0.5);
 }
 #+end_src
+** Long break
+*** Playing
+#+begin_src css
+#custom-pomodoro-timer.long-break {
+    color: lightgray;
+    /*background-color: #45b7d1;*/
+}
+#+end_src
 * Pacman :noexport_1:
 ** Low
 #+begin_src css
