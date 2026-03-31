@@ -528,6 +528,11 @@ label:focus {
     /*background-color: #ff9999;*/
 }
 
+#custom-pomodoro-timer.break {
+    color: lightgray;
+    /*background-color: #4ecdc4;*/
+}
+
 #custom-pacman.low {
     color: lightgray;
 }
