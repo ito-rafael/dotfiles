@@ -1,1 +1,3 @@
-kitty @ set-colors --reset
+if [[ "$TERM" == "xterm-kitty" ]]; then
+    kitty @ set-colors --reset
+fi
