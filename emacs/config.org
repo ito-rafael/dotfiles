@@ -774,6 +774,7 @@ This is a custom config to copy some tangled files into predefined paths.
                                                               ("_config_i3"    . "~/.config/i3/_config")))
   (,(expand-file-name "~/git/dotfiles/waybar/config.org")  . (("config"        . "~/.config/waybar/config")))
   (,(expand-file-name "~/git/dotfiles/waybar/style.org")   . (("style.css"     . "~/.config/waybar/style.css")))
+  (,(expand-file-name "~/git/dotfiles/zsh/zshrc.org")      . (("zshrc"         . "~/.config/zsh/.zshrc")))
 
   ;; keebab
   (,(expand-file-name "~/git/keebab/kanata/kanata.org")         . (("kanata.kbd"       . "~/.config/kanata/kanata.kbd")))
