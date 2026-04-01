@@ -7,12 +7,6 @@ terraform {
   }
 }
 
-resource "semaphoreui_project_key" "none" {
-  project_id = semaphoreui_project.workstation.id
-  name       = "None"
-  none       = {}
-}
-
 provider "semaphoreui" {
   #url   = "http://localhost:3000"
   #token = "your_personal_access_token_here"
@@ -21,6 +15,12 @@ provider "semaphoreui" {
 # Assuming you want everything inside a single project space
 resource "semaphoreui_project" "workstation" {
   name = "Arch Linux Workstation"
+}
+
+resource "semaphoreui_project_key" "none" {
+  project_id = semaphoreui_project.ansible-provision.id
+  name       = "None"
+  none       = {}
 }
 
 resource "semaphoreui_project_repository" "github_repo" {

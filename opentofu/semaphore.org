@@ -8,9 +8,9 @@
 * Table of Contents :toc_3:
 - [[#ansible][Ansible]]
   - [[#terraform][Terraform]]
-  - [[#keys][Keys]]
   - [[#provider][Provider]]
   - [[#project][Project]]
+  - [[#keys][Keys]]
   - [[#repositories][Repositories]]
     - [[#github][GitHub]]
     - [[#local-test][Local (test)]]
@@ -34,17 +34,9 @@ terraform {
   }
 }
 #+end_src
-** Keys
-#+begin_src conf
-resource "semaphoreui_project_key" "none" {
-  project_id = semaphoreui_project.workstation.id
-  name       = "None"
-  none       = {}
-}
-#+end_src
 ** Provider
 Provider setup: how OpenTofu authenticates to Semaphore.
-{url,token} are being passed via env vars SEMAPHORE_{URL,TOKEN}.
+{url,token} are being passed via env vars SEMAPHOREUI_API_{BASE_URL,TOKEN}.
 #+begin_src conf
 provider "semaphoreui" {
   #url   = "http://localhost:3000"
@@ -56,6 +48,14 @@ provider "semaphoreui" {
 # Assuming you want everything inside a single project space
 resource "semaphoreui_project" "workstation" {
   name = "Arch Linux Workstation"
+}
+#+end_src
+** Keys
+#+begin_src conf
+resource "semaphoreui_project_key" "none" {
+  project_id = semaphoreui_project.ansible-provision.id
+  name       = "None"
+  none       = {}
 }
 #+end_src
 ** Repositories
