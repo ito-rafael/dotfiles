@@ -12,9 +12,8 @@ provider "semaphoreui" {
   #token = "your_personal_access_token_here"
 }
 
-# Assuming you want everything inside a single project space
-resource "semaphoreui_project" "workstation" {
-  name = "Arch Linux Workstation"
+resource "semaphoreui_project" "ansible-provision" {
+  name = "ansible-provision"
 }
 
 resource "semaphoreui_project_key" "none" {
@@ -24,7 +23,7 @@ resource "semaphoreui_project_key" "none" {
 }
 
 resource "semaphoreui_project_repository" "github_repo" {
-  project_id = semaphoreui_project.workstation.id
+  project_id = semaphoreui_project.ansible-provision.id
   name       = "ansible-provision"
   url        = "https://github.com/ito-rafael/ansible-provision"
   branch     = "main"
@@ -32,7 +31,7 @@ resource "semaphoreui_project_repository" "github_repo" {
 }
 
 resource "semaphoreui_project_repository" "local_repo" {
-  project_id = semaphoreui_project.workstation.id
+  project_id = semaphoreui_project.ansible-provision.id
   name       = "local (test)"
   url        = "file:///home/rafael/git/ansible-provision"
   branch     = "main"
@@ -40,7 +39,7 @@ resource "semaphoreui_project_repository" "local_repo" {
 }
 
 resource "semaphoreui_project_environment" "linear_strategy" {
-  project_id  = semaphoreui_project.workstation.id
+  project_id  = semaphoreui_project.ansible-provision.id
   name        = "Linear Strategy"
   environment = {
     "ANSIBLE_STRATEGY" = "linear"
@@ -48,13 +47,13 @@ resource "semaphoreui_project_environment" "linear_strategy" {
 }
 
 resource "semaphoreui_project_environment" "empty_environment" {
-  project_id  = semaphoreui_project.workstation.id
+  project_id  = semaphoreui_project.ansible-provision.id
   name        = "Empty"
   environment = {}
 }
 
 resource "semaphoreui_project_inventory" "file_inventory" {
-  project_id    = semaphoreui_project.workstation.id
+  project_id    = semaphoreui_project.ansible-provision.id
   name          = "ansible-provision"
   ssh_key_id    = semaphoreui_project_key.none.id
   file = {
@@ -64,7 +63,7 @@ resource "semaphoreui_project_inventory" "file_inventory" {
 }
 
 resource "semaphoreui_project_template" "github_template" {
-  project_id     = semaphoreui_project.workstation.id
+  project_id     = semaphoreui_project.ansible-provision.id
   name           = "ansible-provision"
   playbook       = "local.yml"
   repository_id  = semaphoreui_project_repository.github_repo.id
@@ -79,7 +78,7 @@ resource "semaphoreui_project_template" "github_template" {
 }
 
 resource "semaphoreui_project_template" "local_template" {
-  project_id     = semaphoreui_project.workstation.id
+  project_id     = semaphoreui_project.ansible-provision.id
   name           = "local (test)"
   playbook       = "local.yml"
   repository_id  = semaphoreui_project_repository.local_repo.id
