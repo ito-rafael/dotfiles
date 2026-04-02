@@ -6,23 +6,18 @@
 #+auto_tangle: t
 
 * Table of Contents :toc_3:
-- [[#ansible][Ansible]]
+- [[#ansible-provision][ansible-provision]]
   - [[#terraform][Terraform]]
   - [[#provider][Provider]]
   - [[#project][Project]]
-  - [[#keys][Keys]]
+  - [[#key-store][Key Store]]
   - [[#repositories][Repositories]]
-    - [[#github][GitHub]]
-    - [[#local-test][Local (test)]]
-  - [[#variable-group-environment][Variable Group (Environment)]]
-    - [[#linear-strategy][Linear strategy]]
-    - [[#empty][Empty]]
+  - [[#variable-groups-environment][Variable Groups (Environment)]]
   - [[#inventory][Inventory]]
   - [[#task-templates][Task Templates]]
-    - [[#github-1][GitHub]]
-    - [[#local-test-1][Local (test)]]
+    - [[#task][Task]]
 
-* Ansible
+* ansible-provision
 ** Terraform
 #+begin_src conf
 terraform {
@@ -49,7 +44,7 @@ resource "semaphoreui_project" "ansible-provision" {
   name = "ansible-provision"
 }
 #+end_src
-** Keys
+** Key Store
 #+begin_src conf
 resource "semaphoreui_project_key" "none" {
   project_id = semaphoreui_project.ansible-provision.id
@@ -57,7 +52,7 @@ resource "semaphoreui_project_key" "none" {
   none       = {}
 }
 #+end_src
-** Repositories
+** Repositories :noexport_1:
 *** GitHub
 Used for deploys.
 #+begin_src conf
@@ -80,7 +75,7 @@ resource "semaphoreui_project_repository" "local_repo" {
   ssh_key_id = semaphoreui_project_key.none.id
 }
 #+end_src
-** Variable Group (Environment)
+** Variable Groups (Environment) :noexport_1:
 *** Linear strategy
 #+begin_src conf
 resource "semaphoreui_project_environment" "linear_strategy" {
@@ -113,7 +108,8 @@ resource "semaphoreui_project_inventory" "file_inventory" {
 }
 #+end_src
 ** Task Templates
-*** GitHub
+*** Task
+**** GitHub
 #+begin_src conf
 resource "semaphoreui_project_template" "github_template" {
   project_id     = semaphoreui_project.ansible-provision.id
@@ -130,7 +126,7 @@ resource "semaphoreui_project_template" "github_template" {
   allow_override_args_in_task = true
 }
 #+end_src
-*** Local (test)
+**** Local (test)
 #+begin_src conf
 resource "semaphoreui_project_template" "local_template" {
   project_id     = semaphoreui_project.ansible-provision.id
