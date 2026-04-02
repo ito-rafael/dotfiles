@@ -2,7 +2,13 @@
 
 # load credentials and target
 API_URL="http://localhost:3000/api"
-TOKEN=$(pass show semaphore/opentofu_token)
+
+#TOKEN=$(pass show semaphore/opentofu_token)
+TOKEN=$SEMAPHOREUI_API_TOKEN
+if [ -z "$TOKEN" ]; then
+  echo "Error: No token provided in environment."
+  exit 1
+fi
 
 # dynamically find the Project ID
 PROJECT_ID=$(curl -s -H "Authorization: Bearer $TOKEN" "$API_URL/projects" | jq -r '.[] | select(.name == "ansible-provision") | .id')
