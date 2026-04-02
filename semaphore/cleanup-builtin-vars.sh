@@ -1,4 +1,4 @@
-#!/usr/env/bin bash
+#!/usr/bin/env bash
 
 # load credentials and target
 API_URL="http://localhost:3000/api"
