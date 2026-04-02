@@ -12,6 +12,11 @@ provider "semaphoreui" {
   #token = "your_personal_access_token_here"
 }
 
+variable "target_hostname" {
+  type        = string
+  description = "The target hostname passed from Ansible to use in the --limit flag"
+}
+
 resource "semaphoreui_project" "ansible-provision" {
   name = "ansible-provision"
 }
@@ -70,10 +75,9 @@ resource "semaphoreui_project_template" "github_template" {
   inventory_id   = semaphoreui_project_inventory.file_inventory.id
   #environment_id = semaphoreui_project_environment.linear_strategy.id
   environment_id = semaphoreui_project_environment.empty_environment.id
-
-  # Ansible Options & Prompts
-  # The provider allows you to set the default CLI arguments or limit strings directly.
-  # The specific UI prompt toggles (Tags: enabled, etc.) are currently handled by allowing overrides.
+  arguments = [
+    "--limit", var.target_hostname,
+  ]
   allow_override_args_in_task = true
 }
 
@@ -85,6 +89,8 @@ resource "semaphoreui_project_template" "local_template" {
   inventory_id   = semaphoreui_project_inventory.file_inventory.id
   #environment_id = semaphoreui_project_environment.linear_strategy.id
   environment_id = semaphoreui_project_environment.empty_environment.id
-
+  arguments = [
+    "--limit", var.target_hostname,
+  ]
   allow_override_args_in_task = true
 }

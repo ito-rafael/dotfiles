@@ -9,6 +9,7 @@
 - [[#ansible-provision][ansible-provision]]
   - [[#terraform][Terraform]]
   - [[#provider][Provider]]
+  - [[#variables][Variables]]
   - [[#project][Project]]
   - [[#key-store][Key Store]]
   - [[#repositories][Repositories]]
@@ -36,6 +37,13 @@ Provider setup: how OpenTofu authenticates to Semaphore.
 provider "semaphoreui" {
   #url   = "http://localhost:3000"
   #token = "your_personal_access_token_here"
+}
+#+end_src
+** Variables
+#+begin_src conf
+variable "target_hostname" {
+  type        = string
+  description = "The target hostname passed from Ansible to use in the --limit flag"
 }
 #+end_src
 ** Project 
@@ -119,10 +127,9 @@ resource "semaphoreui_project_template" "github_template" {
   inventory_id   = semaphoreui_project_inventory.file_inventory.id
   #environment_id = semaphoreui_project_environment.linear_strategy.id
   environment_id = semaphoreui_project_environment.empty_environment.id
-
-  # Ansible Options & Prompts
-  # The provider allows you to set the default CLI arguments or limit strings directly.
-  # The specific UI prompt toggles (Tags: enabled, etc.) are currently handled by allowing overrides.
+  arguments = [
+    "--limit", var.target_hostname,
+  ]
   allow_override_args_in_task = true
 }
 #+end_src
@@ -136,7 +143,9 @@ resource "semaphoreui_project_template" "local_template" {
   inventory_id   = semaphoreui_project_inventory.file_inventory.id
   #environment_id = semaphoreui_project_environment.linear_strategy.id
   environment_id = semaphoreui_project_environment.empty_environment.id
-
+  arguments = [
+    "--limit", var.target_hostname,
+  ]
   allow_override_args_in_task = true
 }
 #+end_src
