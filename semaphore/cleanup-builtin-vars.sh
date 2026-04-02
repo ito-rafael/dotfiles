@@ -18,14 +18,16 @@ if [ -z "$PROJECT_ID" ] || [ "$PROJECT_ID" == "null" ]; then
   exit 0
 fi
 
-# find and delete the built-in "Empty" Variable Group (safely selecting the oldest ID)
-ENV_ID=$(curl -s -H "Authorization: Bearer $TOKEN" "$API_URL/project/$PROJECT_ID/environment" | jq -r '[.[] | select(.name == "Empty")] | if length > 0 then min_by(.id) | .id else empty end')
+# find and delete the built-in "Empty" Variable Group
+ENV_ID=$(curl -s -H "Authorization: Bearer $TOKEN" "$API_URL/project/$PROJECT_ID/environment" | jq -r '[.[] | select(.name == "Empty")] | if length > 1 then min_by(.id) | .id else empty end')
 if [ -n "$ENV_ID" ] && [ "$ENV_ID" != "null" ]; then
+  echo "Deleting duplicate Environment ID: $ENV_ID"
   curl -s -X DELETE -H "Authorization: Bearer $TOKEN" "$API_URL/project/$PROJECT_ID/environment/$ENV_ID"
 fi
 
-# find and delete the built-in "None" Key (safely selecting the oldest ID)
-KEY_ID=$(curl -s -H "Authorization: Bearer $TOKEN" "$API_URL/project/$PROJECT_ID/keys" | jq -r '[.[] | select(.name == "None")] | if length > 0 then min_by(.id) | .id else empty end')
+# find and delete the built-in "None" Key
+KEY_ID=$(curl -s -H "Authorization: Bearer $TOKEN" "$API_URL/project/$PROJECT_ID/keys" | jq -r '[.[] | select(.name == "None")] | if length > 1 then min_by(.id) | .id else empty end')
 if [ -n "$KEY_ID" ] && [ "$KEY_ID" != "null" ]; then
+  echo "Deleting duplicate Key ID: $KEY_ID"
   curl -s -X DELETE -H "Authorization: Bearer $TOKEN" "$API_URL/project/$PROJECT_ID/keys/$KEY_ID"
 fi
