@@ -30,6 +30,7 @@
 - [[#windmove][windmove]]
 - [[#ansible][Ansible]]
 - [[#keycast][Keycast]]
+- [[#ligature][ligature]]
 - [[#zoom-window][zoom-window]]
 - [[#persistent-scratch][persistent-scratch]]
 - [[#systemd][systemd]]
@@ -1539,6 +1540,25 @@ https://github.com/tarsius/keycast
         (remove-hook 'pre-command-hook 'keycast--update)
         (setq global-mode-string (delete '("" keycast-mode-line " ") global-mode-string))))))
 #+end_src
+* ligature
+https://github.com/mickeynp/ligature.el
+#+begin_src emacs-lisp
+(use-package ligature
+  :config
+  (ligature-set-ligatures '(prog-mode org-mode) '("--" "---" "==" "===" "!=" "!==" "=!="
+    "=:=" "=/=" "<=" ">=" "&&" "&&&" "&=" "++" "+++" "***" ";;" "!!"
+    "??" "???" "?:" "?." "?=" "<:" ":<" ":>" ">:" "<:<" "<>" "<<<" ">>>"
+    "<<" ">>" "||" "-|" "_|_" "|-" "||-" "|=" "||=" "##" "###" "####"
+    "#{" "#[" "]#" "#(" "#?" "#_" "#_(" "#:" "#!" "#=" "^=" "<$>" "<$"
+    "$>" "<+>" "<+" "+>" "<*>" "<*" "*>" "</" "</>" "/>" "<!--" "<#--"
+    "-->" "->" "->>" "<<-" "<-" "<=<" "=<<" "<<=" "<==" "<=>" "<==>"
+    "==>" "=>" "=>>" ">=>" ">>=" ">>-" ">-" "-<" "-<<" ">->" "<-<" "<-|"
+    "<=|" "|=>" "|->" "<->" "<~~" "<~" "<~>" "~~" "~~>" "~>" "~-" "-~"
+    "~@" "[||]" "|]" "[|" "|}" "{|" "[<" ">]" "|>" "<|" "||>" "<||"
+    "|||>" "<|||" "<|>" "..." ".." ".=" "..<" ".?" "::" ":::" ":=" "::="
+    ":?" ":?>" "//" "///" "/*" "*/" "/=" "//=" "/==" "@_" "__" "???"
+    "<:<" ";;;"))
+  (global-ligature-mode t))
 #+end_src
 * zoom-window
 #+begin_src emacs-lisp
@@ -1548,6 +1568,7 @@ https://github.com/tarsius/keycast
   :config
   (global-set-key (kbd "M-s-f") 'zoom-window-zoom))
   #+end_src
+#+end_src
 * persistent-scratch
 https://github.com/Fanael/persistent-scratch
 Preserve the scratch buffer across Emacs sessions.
