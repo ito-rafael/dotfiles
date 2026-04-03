@@ -27,12 +27,20 @@
 API_URL="http://localhost:3000/api"
 PROJECT_NAME="ansible-provision"
 COMMIT_MESSAGE="Triggered manually via CLI"
+VERBOSE=false
+
+# custom echo function that only prints if verbose flag is set
+vecho() {
+  if [ "$VERBOSE" = true ]; then
+    echo -e "$@"
+  fi
+}
 #+end_src
 ** Authentication
 #+begin_src bash
 TOKEN=$(pass show semaphore/opentofu_token)
 if [ -z "$TOKEN" ]; then
-  echo "Error: No token provided in environment."
+  echo "Error: No token provided in environment." >&2
   exit 1
 fi
 #+end_src
@@ -44,12 +52,13 @@ shift  # remove the command from the argument list so we can loop over the rest
 if [ -z "$COMMAND" ]; then
   echo "Usage: $0 <trigger|status|logs|run> [options] [Task ID]"
   echo "Options:"
+  echo "  -v, --verbose     Show detailed execution messages"
   echo "  --test            Use the 'local (test)' template"
   echo "  --tags TAGS       Specify tags to run (e.g., 'nginx,postgres')"
   echo "  --skip-tags TAGS  Specify tags to skip"
   echo ""
   echo "Examples:"
-  echo "  $0 run --test --tags \"acl,users\""
+  echo "  $0 run --test --tags \"acl,users\" -v"
   echo "  $0 run --skip-tags \"emacs\""
   echo "  $0 status 42"
   exit 1
@@ -60,10 +69,16 @@ TEMPLATE_NAME="ansible-provision"
 TASK_ID=""
 TAGS=""
 SKIP_TAGS=""
+VERBOSE_FLAG=""
 
 # loop through remaining arguments
 while [[ "$#" -gt 0 ]]; do
   case $1 in
+    -v|--verbose)
+      VERBOSE=true
+      VERBOSE_FLAG="-v"
+      shift
+      ;;
     --test)
       TEMPLATE_NAME="local (test)"
       shift
@@ -88,8 +103,8 @@ done
 
 # safety check: prevent running status/logs without an ID
 if [[ "$COMMAND" == "status" || "$COMMAND" == "logs" ]] && [ -z "$TASK_ID" ]; then
-  echo "Error: You must provide a Task ID for the '$COMMAND' command."
-  echo "Example: $0 $COMMAND 42"
+  echo "Error: You must provide a Task ID for the '$COMMAND' command." >&2
+  echo "Example: $0 $COMMAND 42" >&2
   exit 1
 fi
 #+end_src
@@ -98,7 +113,7 @@ fi
 #+begin_src bash
 PROJECT_ID=$(curl -s -H "Authorization: Bearer $TOKEN" "$API_URL/projects" | jq -r ".[] | select(.name == \"$PROJECT_NAME\") | .id")
 if [ -z "$PROJECT_ID" ] || [ "$PROJECT_ID" == "null" ]; then
-  echo "Error: Project '$PROJECT_NAME' not found."
+  echo "Error: Project '$PROJECT_NAME' not found." >&2
   exit 1
 fi
 #+end_src
@@ -108,7 +123,7 @@ if [ "$COMMAND" == "trigger" ] || [ "$COMMAND" == "run" ]; then
   TEMPLATE_ID=$(curl -s -H "Authorization: Bearer $TOKEN" "$API_URL/project/$PROJECT_ID/templates" | jq -r ".[] | select(.name == \"$TEMPLATE_NAME\") | .id")
   
   if [ -z "$TEMPLATE_ID" ] || [ "$TEMPLATE_ID" == "null" ]; then
-    echo "Error: Template '$TEMPLATE_NAME' not found."
+    echo "Error: Template '$TEMPLATE_NAME' not found." >&2
     exit 1
   fi
 fi
@@ -120,7 +135,7 @@ case "$COMMAND" in
 ** Trigger task
 #+begin_src bash
 "trigger")
-    echo "Launching Semaphore Task: $TEMPLATE_NAME..."
+    vecho "Launching Semaphore Task: $TEMPLATE_NAME..."
 
     # build the base JSON payload safely
     JSON_PAYLOAD=$(jq -n \
@@ -145,10 +160,10 @@ case "$COMMAND" in
     TASK_ID=$(echo "$RESPONSE" | jq -r '.id')
     
     if [ -n "$TASK_ID" ] && [ "$TASK_ID" != "null" ]; then
-      echo "Success! Task queued with ID: $TASK_ID"
+      vecho "Success! Task queued with ID: $TASK_ID"
     else
-      echo "Failed to launch task. API Response:"
-      echo "$RESPONSE"
+      echo "Failed to launch task. API Response:" >&2
+      echo "$RESPONSE" >&2
     fi
     ;;
 #+end_src
@@ -157,7 +172,7 @@ case "$COMMAND" in
 "status")
     STATUS=$(curl -s -H "Authorization: Bearer $TOKEN" "$API_URL/project/$PROJECT_ID/tasks/$TASK_ID" | jq -r '.status')
     if [ -z "$STATUS" ] || [ "$STATUS" == "null" ]; then
-      echo "Error: Task ID $TASK_ID not found."
+      echo "Error: Task ID $TASK_ID not found." >&2
       exit 1
     fi
     echo "$STATUS"
@@ -169,23 +184,23 @@ case "$COMMAND" in
     # verify the task exists before trying to loop
     STATUS=$(curl -s -H "Authorization: Bearer $TOKEN" "$API_URL/project/$PROJECT_ID/tasks/$TASK_ID" | jq -r '.status')
     if [ -z "$STATUS" ] || [ "$STATUS" == "null" ]; then
-      echo "Error: Task ID $TASK_ID not found."
+      echo "Error: Task ID $TASK_ID not found." >&2
       exit 1
     fi
 
-    echo "Tailing logs for Task ID: $TASK_ID..."
-    echo "Press Ctrl+C at any time to cancel this task."
-    echo "----------------------------------------"
+    vecho "Tailing logs for Task ID: $TASK_ID..."
+    vecho "Press Ctrl+C at any time to cancel this task."
+    vecho "----------------------------------------"
 
     # trap Ctrl+C (SIGINT) to send the stop API call before exiting
     trap '
-        echo -e "\n\n[!] Ctrl+C detected. Sending stop signal to Semaphore for Task $TASK_ID..."
+        vecho "\n\n[!] Ctrl+C detected. Sending stop signal to Semaphore for Task $TASK_ID..."
 
         # Send an empty JSON object to satisfy strict routers, and capture the HTTP status code
         STOP_RESPONSE=$(curl -s -w "\nHTTP_STATUS: %{http_code}" -X POST -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" -d "{}" "$API_URL/project/$PROJECT_ID/tasks/$TASK_ID/stop")
 
-        echo -e "API Response:\n$STOP_RESPONSE"
-        echo "Task cancellation requested. Exiting terminal."
+        vecho "API Response:\n$STOP_RESPONSE"
+        vecho "Task cancellation requested. Exiting terminal."
         exit 130
     ' SIGINT
 
@@ -214,14 +229,14 @@ case "$COMMAND" in
     # remove the trap cleanly if the task finishes on its own
     trap - SIGINT
 
-    echo "----------------------------------------"
-    echo "Task finished with status: $STATUS"
+    vecho "----------------------------------------"
+    vecho "Task finished with status: $STATUS"
     ;;
 #+end_src
 ** Run (Trigger and Watch)
 #+begin_src bash
 "run")
-    echo "Launching Semaphore Task: $TEMPLATE_NAME..."
+    vecho "Launching Semaphore Task: $TEMPLATE_NAME..."
 
     # build the base JSON payload safely
     JSON_PAYLOAD=$(jq -n \
@@ -246,24 +261,24 @@ case "$COMMAND" in
     TASK_ID=$(echo "$RESPONSE" | jq -r '.id')
 
     if [ -n "$TASK_ID" ] && [ "$TASK_ID" != "null" ]; then
-      echo "Success! Task queued with ID: $TASK_ID"
-      echo "Switching to live logs..."
-      echo "----------------------------------------"
+      vecho "Success! Task queued with ID: $TASK_ID"
+      vecho "Switching to live logs..."
+      vecho "----------------------------------------"
 
-      # recursively call this exact same script using the 'logs' command
-      "$0" logs "$TASK_ID"
+      # recursively call this exact same script using the 'logs' command, forwarding the verbose flag if set
+      "$0" logs "$TASK_ID" $VERBOSE_FLAG
 
     else
-      echo "Failed to launch task. API Response:"
-      echo "$RESPONSE"
+      echo "Failed to launch task. API Response:" >&2
+      echo "$RESPONSE" >&2
     fi
     ;;
 #+end_src
 ** EoS
 #+begin_src bash
 *)
-    echo "Invalid command: $COMMAND"
-    echo "Available commands: trigger, status, logs, run"
+    echo "Invalid command: $COMMAND" >&2
+    echo "Available commands: trigger, status, logs, run" >&2
     exit 1
     ;;
 esac
