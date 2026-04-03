@@ -1,0 +1,109 @@
+#!/usr/bin/env bash
+
+API_URL="http://localhost:3000/api"
+PROJECT_NAME="ansible-provision"
+COMMIT_MESSAGE="Triggered manually via CLI"
+
+TOKEN=$(pass show semaphore/opentofu_token)
+if [ -z "$TOKEN" ]; then
+    echo "Error: No token provided in environment."
+    exit 1
+fi
+
+COMMAND="$1"
+PARAM="$2"
+
+if [ -z "$COMMAND" ] || [ -z "$PARAM" ]; then
+    echo "Usage: $0 <trigger|status|logs> <Template Name | Task ID>"
+    echo "Example: $0 trigger \"ansible-provision\""
+    echo "Example: $0 status 42"
+    exit 1
+fi
+
+PROJECT_ID=$(curl -s -H "Authorization: Bearer $TOKEN" "$API_URL/projects" | jq -r ".[] | select(.name == \"$PROJECT_NAME\") | .id")
+if [ -z "$PROJECT_ID" ] || [ "$PROJECT_ID" == "null" ]; then
+    echo "Error: Project '$PROJECT_NAME' not found."
+    exit 1
+fi
+
+if [ "$COMMAND" == "trigger" ]; then
+    TEMPLATE_NAME="$PARAM"
+    TEMPLATE_ID=$(curl -s -H "Authorization: Bearer $TOKEN" "$API_URL/project/$PROJECT_ID/templates" | jq -r ".[] | select(.name == \"$TEMPLATE_NAME\") | .id")
+
+    if [ -z "$TEMPLATE_ID" ] || [ "$TEMPLATE_ID" == "null" ]; then
+        echo "Error: Template '$TEMPLATE_NAME' not found."
+        exit 1
+    fi
+fi
+
+case "$COMMAND" in
+
+"trigger")
+    echo "Launching Semaphore Task: $TEMPLATE_NAME..."
+    # trigger the Task
+    RESPONSE=$(curl -s -X POST -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \
+        -d "{
+            \"template_id\": $TEMPLATE_ID,
+            \"message\": \"$COMMIT_MESSAGE\"
+        }" \
+        "$API_URL/project/$PROJECT_ID/tasks")
+
+    # extract the newly created Task ID to confirm success
+    TASK_ID=$(echo $RESPONSE | jq -r '.id')
+
+    if [ -n "$TASK_ID" ] && [ "$TASK_ID" != "null" ]; then
+        echo "Success! Task queued with ID: $TASK_ID"
+    else
+        echo "Failed to launch task. API Response:"
+        echo $RESPONSE
+    fi
+    ;;
+
+"status")
+    TASK_ID="$PARAM"
+    STATUS=$(curl -s -H "Authorization: Bearer $TOKEN" "$API_URL/project/$PROJECT_ID/tasks/$TASK_ID" | jq -r '.status')
+    if [ -z "$STATUS" ] || [ "$STATUS" == "null" ]; then
+        echo "Error: Task ID $TASK_ID not found."
+        exit 1
+    fi
+    echo "$STATUS"
+    ;;
+
+"logs")
+    TASK_ID="$PARAM"
+    # verify the task exists before trying to loop
+    STATUS=$(curl -s -H "Authorization: Bearer $TOKEN" "$API_URL/project/$PROJECT_ID/tasks/$TASK_ID" | jq -r '.status')
+    if [ -z "$STATUS" ] || [ "$STATUS" == "null" ]; then
+        echo "Error: Task ID $TASK_ID not found."
+        exit 1
+    fi
+
+    LAST_INDEX=0
+    # enter the live tail loop
+    while [ "$STATUS" == "waiting" ] || [ "$STATUS" == "running" ]; do
+        # fetch the full log array
+        RAW_OUTPUT=$(curl -s -H "Authorization: Bearer $TOKEN" "$API_URL/project/$PROJECT_ID/tasks/$TASK_ID/output")
+        if [ "$RAW_OUTPUT" != "null" ] && [ -n "$RAW_OUTPUT" ]; then
+            # print only new log entries starting from LAST_INDEX
+            echo "$RAW_OUTPUT" | jq -r ".[$LAST_INDEX:] | .[]?.output"
+            # update LAST_INDEX to the new total length of the array
+            LAST_INDEX=$(echo "$RAW_OUTPUT" | jq length)
+        fi
+
+        # update the status to see if we should keep looping
+        STATUS=$(curl -s -H "Authorization: Bearer $TOKEN" "$API_URL/project/$PROJECT_ID/tasks/$TASK_ID" | jq -r '.status')
+        if [ "$STATUS" != "waiting" ] && [ "$STATUS" != "running" ]; then
+            break
+        fi
+
+        # sleep for 2 seconds to avoid hammering the Semaphore API
+        sleep 2
+    done
+    ;;
+
+*)
+    echo "Invalid command: $COMMAND"
+    echo "Available commands: trigger, status, logs"
+    exit 1
+    ;;
+esac
