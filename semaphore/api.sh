@@ -11,26 +11,52 @@ if [ -z "$TOKEN" ]; then
 fi
 
 COMMAND="$1"
-PARAM="$2"
+shift # remove the command from the argument list so we can loop over the rest
 
 if [ -z "$COMMAND" ]; then
-    echo "Usage: $0 <trigger|status|logs|run> [--test | Task ID]"
-    echo "Example: $0 run          # Triggers 'ansible-provision'"
-    echo "Example: $0 run --test   # Triggers 'local (test)'"
-    echo "Example: $0 status 42"
+    echo "Usage: $0 <trigger|status|logs|run> [options] [Task ID]"
+    echo "Options:"
+    echo "  --test            Use the 'local (test)' template"
+    echo "  --tags TAGS       Specify tags to run (e.g., 'nginx,postgres')"
+    echo "  --skip-tags TAGS  Specify tags to skip"
+    echo ""
+    echo "Examples:"
+    echo "  $0 run --test --tags \"acl,users\""
+    echo "  $0 run --skip-tags \"emacs\""
+    echo "  $0 status 42"
     exit 1
 fi
 
-# set default Template
+# set defaults
 TEMPLATE_NAME="ansible-provision"
 TASK_ID=""
+TAGS=""
+SKIP_TAGS=""
 
-# handle the optional flag or Task ID
-if [ "$PARAM" == "--test" ]; then
-    TEMPLATE_NAME="local (test)"
-elif [ -n "$PARAM" ]; then
-    TASK_ID="$PARAM"
-fi
+# loop through remaining arguments
+while [[ "$#" -gt 0 ]]; do
+    case $1 in
+    --test)
+        TEMPLATE_NAME="local (test)"
+        shift
+        ;;
+    --tags)
+        TAGS="$2"
+        shift 2
+        ;;
+    --skip-tags)
+        SKIP_TAGS="$2"
+        shift 2
+        ;;
+    *)
+        # if it is not a recognized flag, we assume it is the Task ID
+        if [[ "$1" != -* ]]; then
+            TASK_ID="$1"
+        fi
+        shift
+        ;;
+    esac
+done
 
 # safety check: prevent running status/logs without an ID
 if [[ "$COMMAND" == "status" || "$COMMAND" == "logs" ]] && [ -z "$TASK_ID" ]; then
@@ -58,22 +84,38 @@ case "$COMMAND" in
 
 "trigger")
     echo "Launching Semaphore Task: $TEMPLATE_NAME..."
-    # trigger the Task
+
+    # safely build the base JSON payload using jq
+    JSON_PAYLOAD=$(jq -n \
+        --arg t_id "$TEMPLATE_ID" \
+        --arg msg "$COMMIT_MESSAGE" \
+        '{template_id: ($t_id | tonumber), message: $msg}')
+
+    # inject "tags" into the params object as an array
+    if [ -n "$TAGS" ]; then
+        JSON_PAYLOAD=$(echo "$JSON_PAYLOAD" | jq \
+            --arg tags "$TAGS" \
+            '.params.tags = ($tags | split(","))')
+    fi
+
+    # inject "skip-tags" into the params object as an array
+    if [ -n "$SKIP_TAGS" ]; then
+        JSON_PAYLOAD=$(echo "$JSON_PAYLOAD" | jq \
+            --arg skips "$SKIP_TAGS" \
+            '.params.skip_tags = ($skips | split(","))')
+    fi
+
     RESPONSE=$(curl -s -X POST -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \
-        -d "{
-            \"template_id\": $TEMPLATE_ID,
-            \"message\": \"$COMMIT_MESSAGE\"
-        }" \
+        -d "$JSON_PAYLOAD" \
         "$API_URL/project/$PROJECT_ID/tasks")
 
-    # extract the newly created Task ID to confirm success
-    TASK_ID=$(echo $RESPONSE | jq -r '.id')
+    TASK_ID=$(echo "$RESPONSE" | jq -r '.id')
 
     if [ -n "$TASK_ID" ] && [ "$TASK_ID" != "null" ]; then
         echo "Success! Task queued with ID: $TASK_ID"
     else
         echo "Failed to launch task. API Response:"
-        echo $RESPONSE
+        echo "$RESPONSE"
     fi
     ;;
 
@@ -93,6 +135,22 @@ case "$COMMAND" in
         echo "Error: Task ID $TASK_ID not found."
         exit 1
     fi
+
+    echo "Tailing logs for Task ID: $TASK_ID..."
+    echo "Press Ctrl+C at any time to cancel this task."
+    echo "----------------------------------------"
+
+    # trap Ctrl+C (SIGINT) to send the stop API call before exiting
+    trap '
+        echo -e "\n\n[!] Ctrl+C detected. Sending stop signal to Semaphore for Task $TASK_ID..."
+
+        # Send an empty JSON object to satisfy strict routers, and capture the HTTP status code
+        STOP_RESPONSE=$(curl -s -w "\nHTTP_STATUS: %{http_code}" -X POST -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" -d "{}" "$API_URL/project/$PROJECT_ID/tasks/$TASK_ID/stop")
+
+        echo -e "API Response:\n$STOP_RESPONSE"
+        echo "Task cancellation requested. Exiting terminal."
+        exit 130
+    ' SIGINT
 
     LAST_INDEX=0
     # enter the live tail loop
@@ -115,25 +173,49 @@ case "$COMMAND" in
         # sleep for 2 seconds to avoid hammering the Semaphore API
         sleep 2
     done
+
+    # remove the trap cleanly if the task finishes on its own
+    trap - SIGINT
+
+    echo "----------------------------------------"
+    echo "Task finished with status: $STATUS"
     ;;
 
 "run")
     echo "Launching Semaphore Task: $TEMPLATE_NAME..."
+
+    # safely build the base JSON payload using jq
+    JSON_PAYLOAD=$(jq -n \
+        --arg t_id "$TEMPLATE_ID" \
+        --arg msg "$COMMIT_MESSAGE" \
+        '{template_id: ($t_id | tonumber), message: $msg}')
+
+    # inject "tags" into the params object as an array
+    if [ -n "$TAGS" ]; then
+        JSON_PAYLOAD=$(echo "$JSON_PAYLOAD" | jq \
+            --arg tags "$TAGS" \
+            '.params.tags = ($tags | split(","))')
+    fi
+
+    # inject "skip-tags" into the params object as an array
+    if [ -n "$SKIP_TAGS" ]; then
+        JSON_PAYLOAD=$(echo "$JSON_PAYLOAD" | jq \
+            --arg skips "$SKIP_TAGS" \
+            '.params.skip_tags = ($skips | split(","))')
+    fi
+
     RESPONSE=$(curl -s -X POST -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \
-        -d "{
-            \"template_id\": $TEMPLATE_ID,
-            \"message\": \"$COMMIT_MESSAGE\"
-        }" \
+        -d "$JSON_PAYLOAD" \
         "$API_URL/project/$PROJECT_ID/tasks")
 
-    TASK_ID=$(echo $RESPONSE | jq -r '.id')
+    TASK_ID=$(echo "$RESPONSE" | jq -r '.id')
 
     if [ -n "$TASK_ID" ] && [ "$TASK_ID" != "null" ]; then
         echo "Success! Task queued with ID: $TASK_ID"
         echo "Switching to live logs..."
         echo "----------------------------------------"
 
-        # Recursively call this exact same script using the 'logs' command
+        # recursively call this exact same script using the 'logs' command
         "$0" logs "$TASK_ID"
 
     else
