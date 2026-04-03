@@ -14,8 +14,8 @@ COMMAND="$1"
 PARAM="$2"
 
 if [ -z "$COMMAND" ] || [ -z "$PARAM" ]; then
-    echo "Usage: $0 <trigger|status|logs> <Template Name | Task ID>"
-    echo "Example: $0 trigger \"ansible-provision\""
+    echo "Usage: $0 <trigger|status|logs|run> <Template Name | Task ID>"
+    echo "Example: $0 run \"ansible-provision\""
     echo "Example: $0 status 42"
     exit 1
 fi
@@ -26,7 +26,7 @@ if [ -z "$PROJECT_ID" ] || [ "$PROJECT_ID" == "null" ]; then
     exit 1
 fi
 
-if [ "$COMMAND" == "trigger" ]; then
+if [ "$COMMAND" == "trigger" ] || [ "$COMMAND" == "run" ]; then
     TEMPLATE_NAME="$PARAM"
     TEMPLATE_ID=$(curl -s -H "Authorization: Bearer $TOKEN" "$API_URL/project/$PROJECT_ID/templates" | jq -r ".[] | select(.name == \"$TEMPLATE_NAME\") | .id")
 
@@ -101,9 +101,34 @@ case "$COMMAND" in
     done
     ;;
 
+"run")
+    echo "Launching Semaphore Task: $TEMPLATE_NAME..."
+    RESPONSE=$(curl -s -X POST -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \
+        -d "{
+            \"template_id\": $TEMPLATE_ID,
+            \"message\": \"$COMMIT_MESSAGE\"
+        }" \
+        "$API_URL/project/$PROJECT_ID/tasks")
+
+    TASK_ID=$(echo $RESPONSE | jq -r '.id')
+
+    if [ -n "$TASK_ID" ] && [ "$TASK_ID" != "null" ]; then
+        echo "Success! Task queued with ID: $TASK_ID"
+        echo "Switching to live logs..."
+        echo "----------------------------------------"
+
+        # Recursively call this exact same script using the 'logs' command
+        "$0" logs "$TASK_ID"
+
+    else
+        echo "Failed to launch task. API Response:"
+        echo "$RESPONSE"
+    fi
+    ;;
+
 *)
     echo "Invalid command: $COMMAND"
-    echo "Available commands: trigger, status, logs"
+    echo "Available commands: trigger, status, logs, run"
     exit 1
     ;;
 esac
