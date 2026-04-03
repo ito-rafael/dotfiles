@@ -122,24 +122,20 @@ case "$COMMAND" in
 "trigger")
     echo "Launching Semaphore Task: $TEMPLATE_NAME..."
 
-    # safely build the base JSON payload using jq
+    # build the base JSON payload safely
     JSON_PAYLOAD=$(jq -n \
       --arg t_id "$TEMPLATE_ID" \
       --arg msg "$COMMIT_MESSAGE" \
       '{template_id: ($t_id | tonumber), message: $msg}')
 
-    # inject "tags" into the params object as an array
+    # inject "tags" inside the params object as a JSON array
     if [ -n "$TAGS" ]; then
-      JSON_PAYLOAD=$(echo "$JSON_PAYLOAD" | jq \
-        --arg tags "$TAGS" \
-        '.params.tags = ($tags | split(","))')
+      JSON_PAYLOAD=$(echo "$JSON_PAYLOAD" | jq --arg tags "$TAGS" '.params.tags = ($tags | split(","))')
     fi
 
-    # inject "skip-tags" into the params object as an array
+    # inject "skip-tags" inside the params object as a JSON array
     if [ -n "$SKIP_TAGS" ]; then
-      JSON_PAYLOAD=$(echo "$JSON_PAYLOAD" | jq \
-        --arg skips "$SKIP_TAGS" \
-        '.params.skip_tags = ($skips | split(","))')
+      JSON_PAYLOAD=$(echo "$JSON_PAYLOAD" | jq --arg skips "$SKIP_TAGS" '.params.skip_tags = ($skips | split(","))')
     fi
 
     RESPONSE=$(curl -s -X POST -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \
@@ -227,24 +223,20 @@ case "$COMMAND" in
 "run")
     echo "Launching Semaphore Task: $TEMPLATE_NAME..."
 
-    # safely build the base JSON payload using jq
+    # build the base JSON payload safely
     JSON_PAYLOAD=$(jq -n \
       --arg t_id "$TEMPLATE_ID" \
       --arg msg "$COMMIT_MESSAGE" \
       '{template_id: ($t_id | tonumber), message: $msg}')
 
-    # inject "tags" into the params object as an array
+    # inject "tags" inside the params object as a JSON array
     if [ -n "$TAGS" ]; then
-      JSON_PAYLOAD=$(echo "$JSON_PAYLOAD" | jq \
-        --arg tags "$TAGS" \
-        '.params.tags = ($tags | split(","))')
+      JSON_PAYLOAD=$(echo "$JSON_PAYLOAD" | jq --arg tags "$TAGS" '.params.tags = ($tags | split(","))')
     fi
 
-    # inject "skip-tags" into the params object as an array
+    # inject "skip-tags" inside the params object as a JSON array
     if [ -n "$SKIP_TAGS" ]; then
-      JSON_PAYLOAD=$(echo "$JSON_PAYLOAD" | jq \
-        --arg skips "$SKIP_TAGS" \
-        '.params.skip_tags = ($skips | split(","))')
+      JSON_PAYLOAD=$(echo "$JSON_PAYLOAD" | jq --arg skips "$SKIP_TAGS" '.params.skip_tags = ($skips | split(","))')
     fi
 
     RESPONSE=$(curl -s -X POST -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \
