@@ -13,10 +13,29 @@ fi
 COMMAND="$1"
 PARAM="$2"
 
-if [ -z "$COMMAND" ] || [ -z "$PARAM" ]; then
-    echo "Usage: $0 <trigger|status|logs|run> <Template Name | Task ID>"
-    echo "Example: $0 run \"ansible-provision\""
+if [ -z "$COMMAND" ]; then
+    echo "Usage: $0 <trigger|status|logs|run> [--test | Task ID]"
+    echo "Example: $0 run          # Triggers 'ansible-provision'"
+    echo "Example: $0 run --test   # Triggers 'local (test)'"
     echo "Example: $0 status 42"
+    exit 1
+fi
+
+# set default Template
+TEMPLATE_NAME="ansible-provision"
+TASK_ID=""
+
+# handle the optional flag or Task ID
+if [ "$PARAM" == "--test" ]; then
+    TEMPLATE_NAME="local (test)"
+elif [ -n "$PARAM" ]; then
+    TASK_ID="$PARAM"
+fi
+
+# safety check: prevent running status/logs without an ID
+if [[ "$COMMAND" == "status" || "$COMMAND" == "logs" ]] && [ -z "$TASK_ID" ]; then
+    echo "Error: You must provide a Task ID for the '$COMMAND' command."
+    echo "Example: $0 $COMMAND 42"
     exit 1
 fi
 
@@ -27,7 +46,6 @@ if [ -z "$PROJECT_ID" ] || [ "$PROJECT_ID" == "null" ]; then
 fi
 
 if [ "$COMMAND" == "trigger" ] || [ "$COMMAND" == "run" ]; then
-    TEMPLATE_NAME="$PARAM"
     TEMPLATE_ID=$(curl -s -H "Authorization: Bearer $TOKEN" "$API_URL/project/$PROJECT_ID/templates" | jq -r ".[] | select(.name == \"$TEMPLATE_NAME\") | .id")
 
     if [ -z "$TEMPLATE_ID" ] || [ "$TEMPLATE_ID" == "null" ]; then
@@ -60,7 +78,6 @@ case "$COMMAND" in
     ;;
 
 "status")
-    TASK_ID="$PARAM"
     STATUS=$(curl -s -H "Authorization: Bearer $TOKEN" "$API_URL/project/$PROJECT_ID/tasks/$TASK_ID" | jq -r '.status')
     if [ -z "$STATUS" ] || [ "$STATUS" == "null" ]; then
         echo "Error: Task ID $TASK_ID not found."
@@ -70,7 +87,6 @@ case "$COMMAND" in
     ;;
 
 "logs")
-    TASK_ID="$PARAM"
     # verify the task exists before trying to loop
     STATUS=$(curl -s -H "Authorization: Bearer $TOKEN" "$API_URL/project/$PROJECT_ID/tasks/$TASK_ID" | jq -r '.status')
     if [ -z "$STATUS" ] || [ "$STATUS" == "null" ]; then
