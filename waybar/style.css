@@ -570,6 +570,7 @@ label:focus {
 #custom-pomodoro-timer.work-paused {
     color: lightgray;
     /*background-color: #ff9999;*/
+    background-color: rgba(256, 153, 153, 0.5);
 }
 
 #custom-pomodoro-timer.break {
