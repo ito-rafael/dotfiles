@@ -253,6 +253,45 @@ label:focus {
     background: rgba(0, 0, 0, 0.2);
 }
 
+#custom-scratchpad-keymapp {
+    color: gray;
+}
+
+#custom-scratchpad-keymapp.enabled {
+    color: green;
+}
+
+#custom-scratchpad-keymapp:hover {
+    background: rgba(0, 255, 0, 0.5);
+    transition: background 0.3s ease;
+}
+
+#custom-scratchpad-python {
+    color: gray;
+}
+
+#custom-scratchpad-python.enabled {
+    color: green;
+}
+
+#custom-scratchpad-python:hover {
+    background: rgba(0, 255, 0, 0.5);
+    transition: background 0.3s ease;
+}
+
+#custom-scratchpad-terminal {
+    color: gray;
+}
+
+#custom-scratchpad-terminal.enabled {
+    color: blue;
+}
+
+#custom-scratchpad-terminal:hover {
+    background: rgba(0, 0, 255, 0.5);
+    transition: background 0.3s ease;
+}
+
 #custom-scratchpad-temp-1 {
     color: gray;
 }
@@ -292,32 +331,6 @@ label:focus {
     transition: background 0.3s ease;
 }
 
-#custom-scratchpad-whatsapp {
-    color: gray;
-}
-
-#custom-scratchpad-whatsapp.enabled {
-    color: green;
-}
-
-#custom-scratchpad-whatsapp:hover {
-    background: rgba(0, 255, 0, 0.5);
-    transition: background 0.3s ease;
-}
-
-#custom-scratchpad-ytmusic {
-    color: gray;
-}
-
-#custom-scratchpad-ytmusic.enabled {
-    color: red;
-}
-
-#custom-scratchpad-ytmusic:hover {
-    background: rgba(255, 0, 0, 0.5);
-    transition: background 0.3s ease;
-}
-
 #custom-scratchpad-scrcpy-phone {
     color: gray;
 }
@@ -344,42 +357,68 @@ label:focus {
     transition: background 0.3s ease;
 }
 
-#custom-scratchpad-python {
+#custom-scratchpad-whatsapp {
     color: gray;
 }
 
-#custom-scratchpad-python.enabled {
+#custom-scratchpad-whatsapp.enabled {
     color: green;
 }
 
-#custom-scratchpad-python:hover {
+#custom-scratchpad-whatsapp:hover {
     background: rgba(0, 255, 0, 0.5);
     transition: background 0.3s ease;
 }
 
-#custom-scratchpad-terminal {
+#custom-scratchpad-calendar {
     color: gray;
 }
 
-#custom-scratchpad-terminal.enabled {
-    color: blue;
+#custom-scratchpad-calendar.enabled {
+    color: #40409c;
 }
 
-#custom-scratchpad-terminal:hover {
-    background: rgba(0, 0, 255, 0.5);
+#custom-scratchpad-calendar:hover {
+    background: rgba(128, 173, 248, 0.5);
     transition: background 0.3s ease;
 }
 
-#custom-scratchpad-keymapp {
+#custom-scratchpad-translate {
     color: gray;
 }
 
-#custom-scratchpad-keymapp.enabled {
-    color: green;
+#custom-scratchpad-translate.enabled {
+    color: #5080ff;
 }
 
-#custom-scratchpad-keymapp:hover {
-    background: rgba(0, 255, 0, 0.5);
+#custom-scratchpad-translate:hover {
+    background: rgba(128, 173, 248, 0.5);
+    transition: background 0.3s ease;
+}
+
+#custom-scratchpad-llm {
+    color: gray;
+}
+
+#custom-scratchpad-llm.enabled {
+    color: #e09b9b
+}
+
+#custom-scratchpad-llm:hover {
+    background: rgba(239, 203, 203, 0.5);
+    transition: background 0.3s ease;
+}
+
+#custom-scratchpad-ytmusic {
+    color: gray;
+}
+
+#custom-scratchpad-ytmusic.enabled {
+    color: red;
+}
+
+#custom-scratchpad-ytmusic:hover {
+    background: rgba(255, 0, 0, 0.5);
     transition: background 0.3s ease;
 }
 
