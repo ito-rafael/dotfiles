@@ -436,13 +436,13 @@ for_window [$prop="^Brave-browser-beta$" instance="^translate.com$"] border pixe
 exec --no-startup-id brave-beta --app=https://translate.google.com
 bindsym $alt+$mod+s exec "$SCRIPT_PATH/show-or-launch.sh calendar.google.com 0.6 0.9"
 
-bindsym $alt+$mod+1 exec "$SCRIPT_PATH/vpn-connecter.sh lcn toggle"
+bindsym $alt+$mod+1 exec "$SCRIPT_PATH/vpn-connect.sh lcn toggle"
 exec --no-startup-id "rm /tmp/vpn_lcn.tmp"
-bindsym $alt+$mod+2 exec "$SCRIPT_PATH/vpn-connecter.sh unicamp toggle"
+bindsym $alt+$mod+2 exec "$SCRIPT_PATH/vpn-connect.sh unicamp toggle"
 exec --no-startup-id "rm /tmp/vpn_unicamp.tmp"
-bindsym $alt+$mod+3 exec "$SCRIPT_PATH/vpn-connecter.sh lbic toggle"
+bindsym $alt+$mod+3 exec "$SCRIPT_PATH/vpn-connect.sh lbic toggle"
 exec --no-startup-id "rm /tmp/vpn_lbic.tmp"
-bindsym $alt+$mod+4 exec "$SCRIPT_PATH/vpn-connecter.sh samsung toggle"
+bindsym $alt+$mod+4 exec "$SCRIPT_PATH/vpn-connect.sh samsung toggle"
 exec --no-startup-id "rm /tmp/vpn_samsung.tmp"
 
 exec_always --no-startup-id picom -b --config ~/.config/picom/picom.conf
