@@ -1,0 +1,41 @@
+#+TITLE: VPN reference
+#+AUTHOR: Rafael Ito
+#+PROPERTY: header-args :results silent
+#+DESCRIPTION: Reference guide for VPNs
+#+STARTUP: showeverything
+
+* Table of contents :toc_1:
+- [[#openconnect][OpenConnect]]
+
+* OpenConnect
+** Installation
+**** stoken
+RSA SecurID token generator.
+***** Arch Linux
+#+begin_src sh
+sudo pacman -S stoken
+#+end_src
+***** Debian/Ubuntu
+#+begin_src sh
+sudo apt install stoken
+#+end_src
+**** OpenConnect
+Client for Cisco's AnyConnect SSL VPN.
+***** Arch Linux
+#+begin_src sh
+sudo pacman -S openconnect
+#+end_src
+***** Debian/Ubuntu
+#+begin_src sh
+sudo apt install openconnect
+sudo apt install vpnc
+#+end_src
+** How to use
+*** Import RSA token
+#+begin_src sh
+stoken import --token 'http://127.0.0.1/securid/ctf?ctfData=012345678901234567890123456789012345678901234567890123456789012345678901234567890' --force
+#+end_src
+*** Delete device
+#+begin_src sh
+sudo ip link del vpn0
+#+end_src
