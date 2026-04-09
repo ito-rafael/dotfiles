@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Google Keep
+Comment=Note-Taking App
+GenericName=Note-Taking
+Exec=/usr/bin/google-keep-nativefier
+Icon=/usr/share/google-keep-nativefier/icon.png
+Type=Application
+Terminal=false
+Categories=Office;
+StartupWMClass=google-keep
