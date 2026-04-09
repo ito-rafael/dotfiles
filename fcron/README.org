@@ -1,0 +1,63 @@
+#+TITLE: fcron Reference
+#+AUTHOR: Rafael Ito
+#+PROPERTY: header-args :results silent
+#+DESCRIPTION: Quick reference guide and examples for fcron
+#+STARTUP: showeverything
+#+auto_tangle: t
+
+* Table of contents :toc_1:
+- [[#documentation][Documentation]]
+- [[#entries-based-on-elapsed-system-up-time][Entries based on elapsed system up time]]
+- [[#entries-based-on-time-and-date][Entries based on time and date]]
+- [[#aliases-and-periodic-entries][Aliases and periodic entries]]
+- [[#schedule-reference][Schedule Reference]]
+
+* Documentation
+- [[http://fcron.free.fr/doc/en/index.html][fcron Official Documentation]]
+- [[http://fcron.free.fr/doc/en/fcrontab.5.html][fcrontab(5) Manual Page]]
+* Entries based on elapsed system up time
+Runs a command based on the time since the system (or fcron daemon) was started.
+** Syntax
+#+begin_src sh
+@ [options] frequency command
+#+end_src
+** Example
+Send a critical notification every 30 seconds of system uptime.
+#+begin_src sh
+@ 30s notify-send --expire-time=0 --urgency=critical --icon='/usr/share/icons/Adwaita/32x32/status/dialog-warning-symbolic.symbolic.png' 'Notification' '30 seconds elapsed'
+#+end_src
+* Entries based on time and date
+Standard cron-like scheduling based on the actual clock time and date. 
+** Syntax
+#+begin_src sh
+& [options] min hrs day-of-month month day-of-week command
+#+end_src
+
+Note: The "&" and options are specific to =fcron=, but standard =cron= syntax without them also works perfectly.
+** Example
+Send a notification every day at 08:30 AM.
+#+begin_src sh
+30 08 * * * notify-send --expire-time=0 --urgency=critical --icon='/usr/share/icons/Adwaita/32x32/status/dialog-warning-symbolic.symbolic.png' 'Daily Alarm' 'Time for the morning meeting!'
+#+end_src
+* Aliases and periodic entries
+=fcron= supports shorthand aliases for common periodic tasks.
+** Syntax
+#+begin_src sh
+@alias command
+#+end_src
+** Example
+Run a notification once a day (equivalent to "=@ 1d=").
+#+begin_src sh
+@daily notify-send --expire-time=0 --urgency=critical --icon='/usr/share/icons/Adwaita/32x32/status/dialog-warning-symbolic.symbolic.png' 'Daily Update' 'System check complete.'
+#+end_src
+* Schedule Reference
+When using standard time and date fields, the values are organized as follows:
+|-------+--------------+------------------------|
+| Field | Description  |         Allowed Values |
+|-------+--------------+------------------------|
+| 1st   | Minute       |                   0-59 |
+| 2nd   | Hour         |                   0-23 |
+| 3rd   | Day of Month |                   1-31 |
+| 4th   | Month        |        1-12 (or names) |
+| 5th   | Day of Week  | 0-7 (0 and 7 = Sunday) |
+|-------+--------------+------------------------|
