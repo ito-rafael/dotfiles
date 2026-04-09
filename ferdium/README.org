@@ -1,0 +1,63 @@
+#+TITLE: Ferdium
+#+AUTHOR: Rafael Ito
+#+DESCRIPTION: Ferdium
+#+STARTUP: showeverything
+
+* Table of contents :toc_1:
+- [[#ferdium][Ferdium]]
+- [[#workspaces][Workspaces]]
+
+* Ferdium
+** Description
+Messaging browser that helps to organize favourite apps combining them into one application.
+
+Links:
+  - https://github.com/ferdium/ferdium-app
+  - https://ferdium.org/
+** Installation
+#+begin_src
+paru -S ferdium-bin
+#+end_src
+
+Other packages.
+#+begin_src
+paru -S ferdium
+paru -S ferdium-git
+paru -S ferdium-nightly
+paru -S ferdium-nightly-bin
+paru -S ferdium-electron
+#+end_src
+* Workspaces
+** All services
+- TBD
+** Personal
+- Gmail
+- Calendar
+- WhatsApp
+- Keep
+- Home Assistant
+- Discord
+** HomeLab
+- Home Assistant
+** Viva-Bem
+- Slack
+- Google-Drive
+** Unicamp
+- Gmail
+- Cardápio
+** Univesp
+- TBD
+** AI
+- Google Research Blog
+- Twitter
+- LinkedIn
+- Recod.ai
+- Towards Data Science
+- Medium
+- The Batch
+- DeepMind Blog
+- OpenAI Blog
+- Meta AI Blog
+- Machine Learning Mastery
+** Daily
+- 
