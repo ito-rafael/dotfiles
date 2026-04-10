@@ -15,6 +15,7 @@
   - [[#repositories][Repositories]]
 - [[#hooks][Hooks]]
   - [[#pretransaction][PreTransaction]]
+  - [[#posttransaction][PostTransaction]]
 
 * Config
 ** Header
@@ -153,5 +154,24 @@ Target = *
 Description = Masking systemd targets to prevent interruption...
 When = PreTransaction
 Exec = /usr/bin/systemctl --runtime mask halt.target poweroff.target reboot.target kexec.target suspend.target hibernate.target hybrid-sleep.target suspend-then-hibernate.target sleep.target
+Depends = systemd
+#+end_src
+** PostTransaction
+The *PostTransaction* hook unmasks the critical systemd targets to restore normal behavior.
+
+Copy the hook file to:
+=/etc/pacman.d/hooks/99-prevent-interruption-post.hook=
+#+begin_src conf :tangle 99-prevent-interruption-post.hook
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Operation = Remove
+Type = Package
+Target = *
+
+[Action]
+Description = Unmasking systemd targets to reenable power management...
+When = PostTransaction
+Exec = /usr/bin/systemctl --runtime unmask halt.target poweroff.target reboot.target kexec.target suspend.target hibernate.target hybrid-sleep.target suspend-then-hibernate.target sleep.target
 Depends = systemd
 #+end_src
