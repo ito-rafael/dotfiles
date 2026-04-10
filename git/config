@@ -9,3 +9,5 @@
     driver = true
 [color]
     ui = auto
+#[status]
+#    showUntrackedFiles = all
