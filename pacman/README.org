@@ -13,6 +13,8 @@
   - [[#misc-options][Misc options]]
   - [[#signed-keys][Signed keys]]
   - [[#repositories][Repositories]]
+- [[#hooks][Hooks]]
+  - [[#pretransaction][PreTransaction]]
 
 * Config
 ** Header
@@ -128,4 +130,28 @@ An example of a custom package repository.  See the pacman manpage for tips on c
 #[custom]
 #SigLevel = Optional TrustAll
 #Server = file:///home/custompkgs
+#+end_src
+* Hooks
+** PreTransaction
+The *PreTransaction* hook masks the critical systemd targets at runtime to prevent interruptions.
+How it works:
+  - =systemctl mask --runtime target= creates a symlink in =/run/systemd/system/= pointing to =/dev/null=, disabling the unit until reboot or until unmasked.
+  - masking these targets prevents any user or system service from triggering shutdown, reboot, etc., during package operations.
+  - =--runtime= ensures this masking is temporary, so it won't persist across reboots.
+
+Copy the hook file to:
+=/etc/pacman.d/hooks/00-prevent-interruption-pre.hook=
+#+begin_src conf :tangle 00-prevent-interruption-pre.hook
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Operation = Remove
+Type = Package
+Target = *
+
+[Action]
+Description = Masking systemd targets to prevent interruption...
+When = PreTransaction
+Exec = /usr/bin/systemctl --runtime mask halt.target poweroff.target reboot.target kexec.target suspend.target hibernate.target hybrid-sleep.target suspend-then-hibernate.target sleep.target
+Depends = systemd
 #+end_src
