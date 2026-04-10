@@ -1,0 +1,131 @@
+#+TITLE: Config file for pacman
+#+AUTHOR: Rafael Ito
+#+property: header-args :tangle pacman.conf
+#+DESCRIPTION: config file for pacman
+#+STARTUP: showeverything
+#+auto_tangle: t
+
+* Table of contents :toc_2:
+- [[#config][Config]]
+  - [[#header][Header]]
+  - [[#options][Options]]
+  - [[#prevent-upgrade][Prevent upgrade]]
+  - [[#misc-options][Misc options]]
+  - [[#signed-keys][Signed keys]]
+  - [[#repositories][Repositories]]
+
+* Config
+** Header
+#+begin_src conf
+# /etc/pacman.conf
+# See the pacman.conf(5) manpage for option and repository directives
+#+end_src
+** Options
+The following paths are commented out with their default values listed.
+If you wish to use different paths, uncomment and update the paths.
+
+#+begin_src conf
+[options]
+#RootDir     = /
+#DBPath      = /var/lib/pacman/
+#CacheDir    = /var/cache/pacman/pkg/
+#LogFile     = /var/log/pacman.log
+#GPGDir      = /etc/pacman.d/gnupg/
+#HookDir     = /etc/pacman.d/hooks/
+HoldPkg     = pacman glibc
+#XferCommand = /usr/bin/curl -L -C - -f -o %o %u
+#XferCommand = /usr/bin/wget --passive-ftp -c -O %o %u
+#CleanMethod = KeepInstalled
+Architecture = auto
+#+end_src
+** Prevent upgrade
+Pacman won't upgrade packages listed in =IgnorePkg= and members of =IgnoreGroup=.
+
+#+begin_src conf
+#IgnorePkg   =
+#IgnoreGroup =
+
+#NoUpgrade   =
+#NoExtract   =
+#+end_src
+** Misc options
+#+begin_src conf
+#UseSyslog
+#Color
+#NoProgressBar
+CheckSpace
+#VerbosePkgLists
+ParallelDownloads = 5
+#+end_src
+** Signed keys
+By default, pacman accepts packages signed by keys that its local keyring trusts (see pacman-key and its man page), as well as unsigned packages.
+
+#+begin_src conf
+SigLevel    = Required DatabaseOptional
+LocalFileSigLevel = Optional
+#RemoteFileSigLevel = Required
+#+end_src
+
+NOTE: You must run `pacman-key --init` before first using pacman; the local keyring can then be populated with the keys of all official Arch Linux packagers with `pacman-key --populate archlinux`.
+** Repositories
+  - can be defined here or included from another file
+  - pacman will search repositories in the order defined here
+  - local/custom mirrors can be added here or in separate files
+  - repositories listed first will take precedence when packages
+    have identical names, regardless of version number
+  - URLs will have $repo replaced by the name of the current repo
+  - URLs will have $arch replaced by the name of the architecture
+
+Repository entries are of the format:
+      [repo-name]
+      Server = ServerName
+      Include = IncludePath
+
+The header [repo-name] is crucial - it must be present and uncommented to enable the repo.
+
+The testing repositories are disabled by default. To enable, uncomment the repo name header and Include lines. You can add preferred servers immediately after the header, and they will be used before the default mirrors.
+*** core-testing
+#+begin_src conf
+#[core-testing]
+#Include = /etc/pacman.d/mirrorlist
+#+end_src
+*** core
+#+begin_src conf
+[core]
+Include = /etc/pacman.d/mirrorlist
+#+end_src
+*** extra-testing
+#+begin_src conf
+#[extra-testing]
+#Include = /etc/pacman.d/mirrorlist
+#+end_src
+*** extra
+#+begin_src conf
+[extra]
+Include = /etc/pacman.d/mirrorlist
+#+end_src
+*** multilib
+If you want to run 32 bit applications on your x86_64 system, enable the multilib repositories as required here.
+#+begin_src conf
+[multilib]
+Include = /etc/pacman.d/mirrorlist
+#+end_src
+*** multilib-testing
+#+begin_src conf
+#[multilib-testing]
+#Include = /etc/pacman.d/mirrorlist
+#+end_src
+*** chaotic-aur
+#+begin_src conf
+# BEGIN ANSIBLE MANAGED BLOCK
+[chaotic-aur]
+Include = /etc/pacman.d/chaotic-mirrorlist
+# END ANSIBLE MANAGED BLOCK
+#+end_src
+*** custom
+An example of a custom package repository.  See the pacman manpage for tips on creating your own repositories.
+#+begin_src conf
+#[custom]
+#SigLevel = Optional TrustAll
+#Server = file:///home/custompkgs
+#+end_src
