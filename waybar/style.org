@@ -23,6 +23,7 @@
   - [[#vlc][VLC]]
 - [[#temperature][Temperature]]
 - [[#tray][Tray]]
+- [[#language][Language]]
 - [[#keyboard-state][Keyboard state]]
 - [[#scratchpad][Scratchpad]]
   - [[#keymapp][Keymapp]]
@@ -375,6 +376,16 @@ label:focus {
 #idle_inhibitor.activated {
     background-color: #ecf0f1;
     color: #2d3436;
+}
+#+end_src
+* Language
+#+begin_src css
+#language {
+    background: #00b093;
+    color: #740864;
+    padding: 0 5px;
+    margin: 0 5px;
+    min-width: 16px;
 }
 #+end_src
 * Keyboard state :noexport_1:
