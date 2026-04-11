@@ -19,6 +19,7 @@
 - [[#pulseaudio][Pulseaudio]]
 - [[#media][Media]]
   - [[#custom][Custom]]
+  - [[#spotify][Spotify]]
 - [[#temperature][Temperature]]
 - [[#keyboard-state][Keyboard state]]
 - [[#scratchpad][Scratchpad]]
@@ -307,6 +308,12 @@ label:focus {
     background-color: #66cc99;
     color: #2a5c45;
     min-width: 100px;
+}
+#+end_src
+** Spotify
+#+begin_src css
+#custom-media.custom-spotify {
+    background-color: #66cc99;
 }
 #+end_src
 * Temperature :noexport_1:
