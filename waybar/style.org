@@ -22,6 +22,7 @@
   - [[#spotify][Spotify]]
   - [[#vlc][VLC]]
 - [[#temperature][Temperature]]
+- [[#tray][Tray]]
 - [[#keyboard-state][Keyboard state]]
 - [[#scratchpad][Scratchpad]]
   - [[#keymapp][Keymapp]]
@@ -341,6 +342,13 @@ label:focus {
 #+begin_src css
 #temperature.critical {
     background-color: #eb4d4b;
+}
+#+end_src
+* Tray :noexport_1:
+** Normal
+#+begin_src css
+#tray {
+    background-color: #2980b9;
 }
 #+end_src
 * Keyboard state :noexport_1:
