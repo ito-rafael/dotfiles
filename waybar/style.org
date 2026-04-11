@@ -357,6 +357,13 @@ label:focus {
     -gtk-icon-effect: dim;
 }
 #+end_src
+** Needs attention
+#+begin_src css
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #eb4d4b;
+}
+#+end_src
 * Keyboard state :noexport_1:
 ** Normal
 #+begin_src css
