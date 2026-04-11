@@ -1,3 +1,58 @@
+#+title: Polybar config
+#+author: Rafael Ito
+#+property: header-args :tangle ./config.ini
+#+description: Polybar configuration
+#+startup: showeverything
+#+auto_tangle: t
+
+* Table of contents :toc:
+- [[#colors][Colors]]
+- [[#bar][Bar]]
+- [[#settings][Settings]]
+- [[#backlight][Backlight]]
+- [[#battery][Battery]]
+- [[#calendar][Calendar]]
+- [[#caps-lock][Caps Lock]]
+- [[#cpu][CPU]]
+- [[#date][Date]]
+- [[#disk][Disk]]
+  - [[#root][Root]]
+  - [[#home][Home]]
+- [[#dunst][Dunst]]
+- [[#i3-mode][i3 mode]]
+- [[#memory][Memory]]
+- [[#mpris][MPRIS]]
+- [[#network][Network]]
+  - [[#base][Base]]
+  - [[#ethernet][Ethernet]]
+  - [[#wi-fi][Wi-Fi]]
+  - [[#ip-local][IP local]]
+  - [[#ip-public][IP public]]
+- [[#pomodoro][Pomodoro]]
+- [[#redshift][Redshift]]
+- [[#temperature][Temperature]]
+- [[#timer][Timer]]
+- [[#scratchpad][Scratchpad]]
+  - [[#temp-1-comma][Temp #1: comma]]
+  - [[#temp-2-period][Temp #2: period]]
+  - [[#temp-3-slash][Temp #3: slash]]
+  - [[#whatsapp][WhatsApp]]
+  - [[#youtube-music][YouTube Music]]
+  - [[#scrcpy][scrcpy]]
+  - [[#python][Python]]
+  - [[#terminal][Terminal]]
+  - [[#keymapp][Keymapp]]
+- [[#volume][Volume]]
+- [[#vpn][VPN]]
+  - [[#la-casa-nostra][La Casa Nostra]]
+  - [[#unicamp][Unicamp]]
+  - [[#lbic][LBiC]]
+  - [[#samsung][Samsung]]
+- [[#workspaces][Workspaces]]
+- [[#window][Window]]
+
+* Colors
+#+begin_src conf
 [colors]
 background = #282A2E
 background-alt = #373B41
@@ -26,7 +81,10 @@ c15 = #ff009f
 c16 = #009fff
 
 yellow = #ffdd22
-
+#+end_src
+* Bar
+** Common :noexport:
+#+begin_src conf
 [bar/common]
 radius = 6
 ;dpi = 96
@@ -59,19 +117,25 @@ wm-restack = i3
 ;tray-offset-y = 20
 
 width = 100%
-
+#+end_src
+** Horizontal :noexport:
+#+begin_src conf
 [bar/horizontal]
 inherit = bar/common
 modules-left = xworkspaces i3-mode
 #modules-right = public-ip polypomo timer redshift wlan-essid wlan-ip public-ip battery backlight eth
 modules-right = vpn-lcn vpn-unicamp vpn-lbic vpn-samsung scratchpad-whatsapp scratchpad-ytmusic scratchpad-scrcpy scratchpad-python scratchpad-terminal scratchpad-keymapp scratchpad-temp-1 scratchpad-temp-2 scratchpad-temp-3 player-mpris-tail filesystem filesystem2 memory cpu temperature pulseaudio calendar date xkeyboard
-
+#+end_src
+** Vertical :noexport:
+#+begin_src conf
 [bar/vertical]
 inherit = bar/common
 modules-left = xworkspaces i3-mode
 #modules-right = public-ip polypomo timer redshift wlan-essid wlan-ip public-ip battery backlight eth
 modules-right = vpn-lcn vpn-unicamp vpn-lbic vpn-samsung scratchpad-whatsapp scratchpad-ytmusic scratchpad-scrcpy scratchpad-python scratchpad-terminal scratchpad-keymapp scratchpad-temp-1 scratchpad-temp-2 scratchpad-temp-3 player-mpris-tail filesystem filesystem2 memory cpu temperature pulseaudio calendar date xkeyboard
-
+#+end_src
+** Laptop :noexport:
+#+begin_src conf
 [bar/laptop]
 inherit = bar/horizontal
 monitor = ${env:MONITOR:eDP1}
@@ -81,7 +145,9 @@ font-0 = monospace:size=16;2
 font-1 = monospace:size=14;2
 font-2 = Font Awesome 6 Free Solid:size=16;2
 font-3 = Font Awesome 6 Brands:size=16;2
-
+#+end_src
+** Desktop :noexport:
+#+begin_src conf
 [bar/desktop]
 height = 13pt
 line-size = 2pt
@@ -90,24 +156,34 @@ font-1 = monospace:size=7;2
 font-2 = Font Awesome 6 Free Solid:size=8;2
 font-3 = Font Awesome 6 Brands:size=8;2
 ;font-3 = Noto Color Emoji:size=16;2
-
+#+end_src
+** Output 0 :noexport:
+#+begin_src conf
 [bar/output-0]
 inherit = bar/horizontal bar/desktop
 monitor = ${env:MONITOR:HDMI1}
-
+#+end_src
+** Output 1 :noexport:
+#+begin_src conf
 [bar/output-1]
 inherit = bar/horizontal bar/desktop
 monitor = ${env:MONITOR:VGA1}
-
+#+end_src
+** Output 2 :noexport:
+#+begin_src conf
 [bar/output-2]
 inherit = bar/horizontal bar/desktop
 monitor = ${env:MONITOR:HDMI3}
-
+#+end_src
+* Settings
+#+begin_src conf
 [settings]
 screenchange-reload = true
 pseudo-transparency = true
 ;vim:ft=dosini
-
+#+end_src
+* Backlight
+#+begin_src conf
 [module/backlight]
 type = internal/backlight
 card = intel_backlight
@@ -130,7 +206,9 @@ bar-empty = ─
 
 label-foreground = ${colors.c9}
 format-underline = ${colors.c9}
-
+#+end_src
+* Battery
+#+begin_src conf
 [module/battery]
 type = internal/battery
 full-at = 100
@@ -175,7 +253,10 @@ format-low-underline = ${colors.c8}
 format-full-underline = ${colors.c8}
 format-charging-underline = ${colors.c8}
 format-discharging-underline = ${colors.c8}
-
+#+end_src
+* Calendar
+https://github.com/polybar/polybar-scripts/tree/master/polybar-scripts/popup-calendar
+#+begin_src conf
 [module/calendar]
 type = custom/script
 exec = ~/.config/polybar/modules/popup-calendar.sh
@@ -183,7 +264,9 @@ interval = 5
 click-left = ~/.config/polybar/modules/popup-calendar.sh --popup &
 label-foreground = ${colors.c15}
 format-underline = ${colors.c15}
-
+#+end_src
+* Caps Lock
+#+begin_src conf
 [module/xkeyboard]
 type = internal/xkeyboard
 blacklist-0 = num lock
@@ -195,7 +278,9 @@ label-indicator-margin = 1
 label-indicator-foreground = ${colors.background}
 label-indicator-background = ${colors.secondary}
 format-underline = ${colors.c5}
-
+#+end_src
+* CPU
+#+begin_src conf
 [module/cpu]
 type = internal/cpu
 interval = 2
@@ -206,7 +291,9 @@ label = %percentage:2%%
 format-prefix-foreground = ${colors.c3}
 label-foreground = ${colors.c3}
 format-underline = ${colors.c3}
-
+#+end_src
+* Date
+#+begin_src conf
 [module/date]
 type = internal/date
 interval = 1
@@ -218,7 +305,10 @@ label = %date%
 #label-foreground = ${colors.primary}
 label-foreground = ${colors.c7}
 format-underline = ${colors.c7}
-
+#+end_src
+* Disk
+** Root
+#+begin_src conf
 [module/filesystem]
 type = internal/fs
 interval = 60
@@ -230,7 +320,9 @@ label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.disabled}
 label-mounted-foreground = ${colors.c1}
 format-mounted-underline = ${colors.c1}
-
+#+end_src
+** Home
+#+begin_src conf
 [module/filesystem2]
 type = internal/fs
 interval = 60
@@ -242,9 +334,12 @@ label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.disabled}
 label-mounted-foreground = ${colors.c1}
 format-mounted-underline = ${colors.c1}
-
-
-
+#+end_src
+* Dunst
+#+begin_src conf
+#+end_src
+* i3 mode
+#+begin_src conf
 [module/i3-mode]
 type = internal/i3
 pin-workspaces = true
@@ -277,7 +372,9 @@ label-unfocused-padding = 1
 #format = <label-mode>
 #format-background = #900000
 #format-label-mode-background = ${color.red}
-
+#+end_src
+* Memory
+#+begin_src conf
 [module/memory]
 type = internal/memory
 interval = 2
@@ -288,7 +385,9 @@ label = %percentage_used:2%%
 format-prefix-foreground = ${colors.c2}
 label-foreground = ${colors.c2}
 format-underline = ${colors.c2}
-
+#+end_src
+* MPRIS
+#+begin_src conf
 [module/player-mpris-tail]
 type = custom/script
 exec = ~/.config/polybar/modules/player-mpris-tail.py --icon-playing "▶" --format '{icon} {artist} - {title}'
@@ -298,7 +397,10 @@ click-middle = ~/.config/polybar/modules/player-mpris-tail.py previous &
 click-right  = ~/.config/polybar/modules/player-mpris-tail.py next &
 scroll-up    = amixer -q sset Master 5%+
 scroll-down  = amixer -q sset Master 5%-
-
+#+end_src
+* Network
+** Base
+#+begin_src conf
 [network-base]
 type = internal/network
 interval = 5
@@ -306,14 +408,19 @@ format-connected = <label-connected>
 format-disconnected = <label-disconnected>
 label-disconnected = %{F#F0C674}%ifname%%{F#707880} disconnected
 format-underline = #FF0000
-
+#+end_src
+** Ethernet
+#+begin_src conf
 [module/eth]
 inherit = network-base
 interface-type = wired
 interface = eth0
 label-connected = %{F#F0C674}%ifname%%{F-} %local_ip%
 format-underline = #FF0000
-
+#+end_src
+** Wi-Fi
+ESSID name + signal in dBm
+#+begin_src conf
 [module/wlan-essid]
 inherit = network-base
 interface-type = wireless
@@ -324,7 +431,9 @@ label-connected =  %essid% (%signal%)
 label-connected-foreground = ${colors.c4}
 format-underline = ${colors.c4}
 format-connected-underline = ${colors.c4}
-
+#+end_src
+** IP local
+#+begin_src conf
 [module/wlan-ip]
 inherit = network-base
 interface-type = wireless
@@ -335,14 +444,19 @@ label-connected =   %local_ip%
 label-connected-foreground = ${colors.c4}
 format-underline = ${colors.c4}
 format-connected-underline = ${colors.c4}
-
+#+end_src
+** IP public
+#+begin_src conf
 [module/public-ip]
 type = custom/script
 exec = echo  $(wget http://ipinfo.io/ip -qO -)
 interval = 60
 format-foreground = ${colors.c4}
 format-underline = ${colors.c4}
-
+#+end_src
+* Pomodoro
+https://github.com/unode/polypomo
+#+begin_src conf
 [module/polypomo]
 type = custom/script
 
@@ -361,7 +475,10 @@ font-1 = Noto Emoji:scale=15:antialias=false;0
 
 label-foreground = ${colors.c11}
 format-underline = ${colors.c11}
-
+#+end_src
+* Redshift
+https://github.com/VineshReddy/polybar-redshift
+#+begin_src conf
 [module/redshift]
 type = custom/script
 
@@ -375,7 +492,9 @@ interval=0.5
 format-prefix-foreground = ${colors.c14}
 label-foreground = ${colors.c14}
 format-underline = ${colors.c14}
-
+#+end_src
+* Temperature
+#+begin_src conf
 [module/temperature]
 type = internal/temperature
 interval = 1
@@ -401,7 +520,12 @@ label-warn-background = ${colors.yellow}
 
 format-base-underline = ${colors.c10}
 format-warn-underline = ${colors.c10}
-
+#+end_src
+* Timer
+https://github.com/jbirnick/polybar-timer
+⏰ = TIMEUP!
+⌛ = Hourglass
+#+begin_src conf
 [module/timer]
 type = custom/script
 
@@ -416,70 +540,91 @@ scroll-down  = ~/.config/polybar/modules/polybar-timer.sh increase -60 ; /path/t
 
 label-foreground = ${colors.c12}
 format-underline = ${colors.c12}
-
+#+end_src
+* Scratchpad
+** Temp #1: comma
+#+begin_src conf
 [module/scratchpad-temp-1]
 type = custom/script
 exec = ~/.config/polybar/modules/scratchpad-temp.sh 1 900
 interval = 1
 format = <label>
 click-left = ~/.config/scripts/scratchpad-temp.sh 1 show
-
+#+end_src
+** Temp #2: period
+#+begin_src conf
 [module/scratchpad-temp-2]
 type = custom/script
 exec = ~/.config/polybar/modules/scratchpad-temp.sh 2 090
 interval = 1
 format = <label>
 click-left = ~/.config/scripts/scratchpad-temp.sh 2 show
-
+#+end_src
+** Temp #3: slash
+#+begin_src conf
 [module/scratchpad-temp-3]
 type = custom/script
 exec = ~/.config/polybar/modules/scratchpad-temp.sh 3 009
 interval = 1
 format = <label>
 click-left = ~/.config/scripts/scratchpad-temp.sh 3 show
-
+#+end_src
+** WhatsApp
+#+begin_src conf
 [module/scratchpad-whatsapp]
 type = custom/script
 exec = ~/.config/polybar/modules/scratchpad-whatsapp.sh 090
 interval = 1
 format = <label>
 click-left = ~/.config/scripts/show-or-launch.sh web.whatsapp.com 0.6 0.9
-
+#+end_src
+** YouTube Music
+#+begin_src conf
 [module/scratchpad-ytmusic]
 type = custom/script
 exec = ~/.config/polybar/modules/scratchpad-ytmusic.sh 900
 interval = 1
 format = <label>
 click-left = ~/.config/scripts/show-or-launch.sh music.youtube.com 0.9 0.9
-
+#+end_src
+** scrcpy
+#+begin_src conf
 [module/scratchpad-scrcpy]
 type = custom/script
 exec = ~/.config/polybar/modules/scratchpad-scrcpy.sh 090
 interval = 1
 format = <label>
 click-left = ~/.config/scripts/adb-mdns-scrcpy.sh
-
+#+end_src
+** Python
+#+begin_src conf
 [module/scratchpad-python]
 type = custom/script
 exec = ~/.config/polybar/modules/scratchpad-python.sh 090
 interval = 1
 format = <label>
 click-left = ~/.config/scripts/show-or-launch.sh dropdown_python 0.6 0.6
-
+#+end_src
+** Terminal
+#+begin_src conf
 [module/scratchpad-terminal]
 type = custom/script
 exec = ~/.config/polybar/modules/scratchpad-terminal.sh 55F
 interval = 1
 format = <label>
 click-left = ~/.config/scripts/show-or-launch.sh dropdown_terminal 0.75 0.75
-
+#+end_src
+** Keymapp
+#+begin_src conf
 [module/scratchpad-keymapp]
 type = custom/script
 exec = ~/.config/polybar/modules/scratchpad-keymapp.sh 090
 interval = 1
 format = <label>
 click-left = ~/.config/scripts/show-or-launch.sh Keymapp 0.75 0.75
-
+#+end_src
+* Volume
+#+begin_src conf
 [module/pulseaudio]
 type = internal/pulseaudio
 
@@ -493,31 +638,42 @@ label-muted = muted
 label-muted-foreground = ${colors.disabled}
 format-volume-underline = ${colors.c6}
 format-muted-underline = ${colors.c6}
-
+#+end_src
+* VPN
+** La Casa Nostra
+#+begin_src conf
 [module/vpn-lcn]
 type = custom/script
 exec = ~/.config/polybar/modules/vpn.sh lcn 00b0b0
 interval = 1
 format = <label>
-
+#+end_src
+** Unicamp
+#+begin_src conf
 [module/vpn-unicamp]
 type = custom/script
 exec = ~/.config/polybar/modules/vpn.sh unicamp 00b0b0
 interval = 1
 format = <label>
-
+#+end_src
+** LBiC
+#+begin_src conf
 [module/vpn-lbic]
 type = custom/script
 exec = ~/.config/polybar/modules/vpn.sh lbic 00b0b0
 interval = 1
 format = <label>
-
+#+end_src
+** Samsung
+#+begin_src conf
 [module/vpn-samsung]
 type = custom/script
 exec = ~/.config/polybar/modules/vpn.sh samsung 00b0b0
 interval = 1
 format = <label>
-
+#+end_src
+* Workspaces
+#+begin_src conf
 [module/xworkspaces]
 type = internal/xworkspaces
 pin-workspaces = true
@@ -543,7 +699,10 @@ icon-1 = "2:2 ;B"
 icon-2 = "3:3 ;C"
 icon-3 = "4:4 ;D"
 icon-4 = "5:5 ;E"
-
+#+end_src
+* Window
+#+begin_src conf
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:60:...%
+#+end_src
