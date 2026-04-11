@@ -17,6 +17,8 @@
 - [[#backlight][Backlight]]
 - [[#network][Network]]
 - [[#pulseaudio][Pulseaudio]]
+- [[#media][Media]]
+  - [[#custom][Custom]]
 - [[#temperature][Temperature]]
 - [[#keyboard-state][Keyboard state]]
 - [[#scratchpad][Scratchpad]]
@@ -296,6 +298,15 @@ label:focus {
 #pulseaudio.muted {
     background-color: #90b1b1;
     color: #2a5c45;
+}
+#+end_src
+* Media
+** Custom
+#+begin_src css
+#custom-media {
+    background-color: #66cc99;
+    color: #2a5c45;
+    min-width: 100px;
 }
 #+end_src
 * Temperature :noexport_1:
