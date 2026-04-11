@@ -364,6 +364,12 @@ label:focus {
     background-color: #eb4d4b;
 }
 #+end_src
+** Idle
+#+begin_src css
+#idle_inhibitor {
+    background-color: #2d3436;
+}
+#+end_src
 * Keyboard state :noexport_1:
 ** Normal
 #+begin_src css
