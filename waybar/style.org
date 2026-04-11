@@ -351,6 +351,12 @@ label:focus {
     background-color: #2980b9;
 }
 #+end_src
+** Passive
+#+begin_src css
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+#+end_src
 * Keyboard state :noexport_1:
 ** Normal
 #+begin_src css
