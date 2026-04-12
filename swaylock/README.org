@@ -4,13 +4,18 @@
 #+STARTUP: showeverything
 
 * Table of contents :toc_1:
+- [[#documentation][Documentation]]
 - [[#prerequisites][Prerequisites]]
 - [[#todo][TODO]]
 
+* Documentation
+https://github.com/swaywm/swaylock
+https://github.com/mortie/swaylock-effects
 * Prerequisites
 #+begin_src sh
 paru -S swaylock-effects
 sudo pacman -S imagemagick
+sudo pacman -S papirus-icon-theme
 #+end_src
 * TODO
 ** Task reminders
