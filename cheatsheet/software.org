@@ -16,6 +16,7 @@
   - [[#org-agenda][Org-agenda]]
   - [[#magit][Magit]]
   - [[#gitignore][gitignore]]
+  - [[#elpaca][Elpaca]]
 - [[#ffmpeg][FFmpeg]]
 - [[#git][Git]]
 - [[#gnupg][GnuPG]]
@@ -668,6 +669,16 @@ magit-no-skip-worktree
 :hook (prog-mode . flycheck-mode)
 ;; the same as:
 ;; (add-hook 'prog-mode-hook 'flycheck-mode)
+#+end_src
+**** Multiple
+#+begin_src emacs-lisp
+(use-package some-package
+  :hook (prog-mode text-mode)
+;; the same as:
+;; :init
+;; (add-hook 'prog-mode-hook #'some-package-mode)
+;; (add-hook 'text-mode-hook #'some-package-mode)
+;; some-package-mode is the package in which the ":hook" is being used
 #+end_src
 * FFmpeg :noexport_1:
 ** Accelerate audio
