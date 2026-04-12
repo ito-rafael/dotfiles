@@ -852,6 +852,12 @@ ssb   rsa4096/42B980275F11A4D5 2026-03-24 [E]
 
 - Long Key ID: =3AA5C34371567BD2=.
 - Full fingerprint (40-characters long): =9D5A02241F88481A3A34282B3AA5C34371567BD2=
+** Initialization
+*** Single key
+#+begin_src shell
+pass init <workstation-key-id> <laptop-key-id>
+pass init 9D5A02241F88481A3A34282B3AA5C34371567BD2
+#+end_src
 * GPU :noexport_1:
 ** How to make old GPUs work with Sway WM
 In this example, I was configuring a GeForce GTX 660 Ti to work with Sway (Wayland) with a triple monitor setup in 2026.
