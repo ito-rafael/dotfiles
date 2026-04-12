@@ -393,6 +393,12 @@ label:focus {
     background-color: #f53c3c;
 }
 #+end_src
+** Stopped
+#+begin_src css
+#mpd.stopped {
+    background-color: #90b1b1;
+}
+#+end_src
 * Language
 #+begin_src css
 #language {
