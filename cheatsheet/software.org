@@ -862,6 +862,15 @@ pass init 9D5A02241F88481A3A34282B3AA5C34371567BD2
 #+begin_src shell
 pass init <workstation-key-id> <laptop-key-id>
 #+end_src
+** List
+#+begin_src shell
+pass list
+#+end_src
+** Insert
+*** Interactive
+#+begin_src shell
+pass insert ip/device
+#+end_src
 * GPU :noexport_1:
 ** How to make old GPUs work with Sway WM
 In this example, I was configuring a GeForce GTX 660 Ti to work with Sway (Wayland) with a triple monitor setup in 2026.
