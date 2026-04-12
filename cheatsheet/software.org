@@ -651,6 +651,12 @@ git update-index --assume-unchanged <FILENAME> (deprecated)
 git update-index --skip-worktree <FILENAME>
 magit-skip-worktree
 #+end_src
+*** Start tracking files again
+#+begin_src shell
+git update-index --no-assume-unchanged <FILENAME> (deprecated)
+git update-index --no-skip-worktree <FILENAME>
+magit-no-skip-worktree
+#+end_src
 * FFmpeg :noexport_1:
 ** Accelerate audio
 #+begin_src shell
