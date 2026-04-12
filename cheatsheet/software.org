@@ -119,6 +119,10 @@ Then add this at the top of the file:
 
 ,* header :keep:
 #+end_src
+*** Remove new line between blocks on tangled files
+#+begin_src elisp
+:padline no
+#+end_src
 *** Add header argument in all children
 #+begin_src elisp
 :PROPERTIES:
