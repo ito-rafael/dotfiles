@@ -661,6 +661,14 @@ git update-index --no-assume-unchanged <FILENAME> (deprecated)
 git update-index --no-skip-worktree <FILENAME>
 magit-no-skip-worktree
 #+end_src
+** Elpaca
+*** Hook
+**** Single
+#+begin_src emacs-lisp
+:hook (prog-mode . flycheck-mode)
+;; the same as:
+;; (add-hook 'prog-mode-hook 'flycheck-mode)
+#+end_src
 * FFmpeg :noexport_1:
 ** Accelerate audio
 #+begin_src shell
