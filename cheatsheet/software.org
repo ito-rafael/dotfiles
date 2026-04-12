@@ -15,6 +15,7 @@
   - [[#evil-mode][Evil mode]]
   - [[#org-agenda][Org-agenda]]
   - [[#magit][Magit]]
+  - [[#gitignore][gitignore]]
 - [[#ffmpeg][FFmpeg]]
 - [[#git][Git]]
 - [[#gnupg][GnuPG]]
@@ -642,6 +643,14 @@ gh repo create <MyAwesomeRepo> --public --description "Description of my awesome
 #+end_src
 Open the =Remote= popup by pressing =M=; Add a remote with =a=; Name it =origin=; Paste the URL of the git repo (eg: =git@github.com:username/MyAwesomeRepo.git=); Accept =remote.pushDefault= as =origin=.
 Push to remote normally.
+** gitignore
+*** Untrack files
+Stop notification for tracked file that was later included in gitignore.
+#+begin_src shell
+git update-index --assume-unchanged <FILENAME> (deprecated)
+git update-index --skip-worktree <FILENAME>
+magit-skip-worktree
+#+end_src
 * FFmpeg :noexport_1:
 ** Accelerate audio
 #+begin_src shell
