@@ -387,6 +387,12 @@ label:focus {
     color: #2a5c45;
 }
 #+end_src
+** Disconnected
+#+begin_src css
+#mpd.disconnected {
+    background-color: #f53c3c;
+}
+#+end_src
 * Language
 #+begin_src css
 #language {
