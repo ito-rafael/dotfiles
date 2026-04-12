@@ -680,6 +680,14 @@ magit-no-skip-worktree
 ;; (add-hook 'text-mode-hook #'some-package-mode)
 ;; some-package-mode is the package in which the ":hook" is being used
 #+end_src
+**** Bind
+#+begin_src emacs-lisp
+(use-package org-appear
+  :after org
+  :hook org-mode)
+;; the same as:
+;; (add-hook 'org-mode-hook 'org-appear-mode)
+#+end_src
 * FFmpeg :noexport_1:
 ** Accelerate audio
 #+begin_src shell
