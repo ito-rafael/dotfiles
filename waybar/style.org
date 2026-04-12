@@ -23,6 +23,7 @@
   - [[#vlc][VLC]]
 - [[#temperature][Temperature]]
 - [[#tray][Tray]]
+- [[#mpd][MPD]]
 - [[#language][Language]]
 - [[#keyboard-state][Keyboard state]]
 - [[#scratchpad][Scratchpad]]
@@ -376,6 +377,14 @@ label:focus {
 #idle_inhibitor.activated {
     background-color: #ecf0f1;
     color: #2d3436;
+}
+#+end_src
+* MPD :noexport_1:
+** Normal
+#+begin_src css
+#mpd {
+    background-color: #66cc99;
+    color: #2a5c45;
 }
 #+end_src
 * Language
