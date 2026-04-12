@@ -27,6 +27,7 @@
   - [[#pypi][PyPI]]
 - [[#scribd][Scribd]]
 - [[#ssh][SSH]]
+- [[#ventoy][Ventoy]]
 - [[#vim][Vim]]
 - [[#virtualbox][VirtualBox]]
 
@@ -1056,6 +1057,25 @@ ssh-add -l
 #+begin_src shell
 eval "$(ssh-agent -s)"
 #+end_src
+* Ventoy :noexport_1:
+** Installation
+#+begin_src shell
+paru -S ventoy-bin
+#+end_src
+** Create Ventoy partition
+Replace <SDX> accordingly (e.g.: /dev/sda)
+*** Interactively
+#+begin_src shell
+sudo ventoy -i /dev/<SDX>
+#+end_src
+Then press "y" to confirm, and "y" again to double confirm.
+*** Autoconfirm
+!!! Please, be cautious with this command, and be sure the /dev/<SDX> device is correct. !!!
+#+begin_src shell
+sudo expect -c 'set timeout -1; spawn ventoy -i /dev/<SDX>; expect "Continue*"; send "y\r"; expect "Continue*"; send "y\r"; expect eof'
+#+end_src
+** Copy ISO
+Simply mount the drive, and copy the ISO images into the root directory.
 * Vim :noexport_1:
 ** Vertical highlight numbers
 - increment: C-a
