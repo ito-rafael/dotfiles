@@ -20,6 +20,7 @@
 - [[#ffmpeg][FFmpeg]]
 - [[#git][Git]]
 - [[#gnupg][GnuPG]]
+- [[#pass][pass]]
 - [[#gpu][GPU]]
 - [[#pdfpc][pdfpc]]
 - [[#python][Python]]
@@ -829,6 +830,12 @@ gpg --delete-key <KEY>
 ** Delete GPG secret key
 #+begin_src shell
 gpg --delete-secret-key <KEY>
+#+end_src
+* pass :noexport_1:
+Password manager.
+** Installation
+#+begin_src shell
+sudo pacman -S pass
 #+end_src
 * GPU :noexport_1:
 ** How to make old GPUs work with Sway WM
