@@ -1219,6 +1219,17 @@ Define transient keybindings for changing the font size.
   ("e" text-scale-decrease "in")
 )
 #+end_src
+** Resize window
+Define transient keybindings for resizing windows.
+#+begin_src emacs-lisp
+(defhydra hydra-window-resize (:color red :hint nil :timeout 5)
+  "Window Resize Mode"
+  ("n" shrink-window-horizontally  "hor-")
+  ("e" shrink-window               "ver-")
+  ("i" enlarge-window              "ver+")
+  ("o" enlarge-window-horizontally "hor+")
+)
+#+end_src
 ** EoS
 #+begin_src emacs-lisp
 )
