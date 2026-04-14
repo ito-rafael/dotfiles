@@ -925,6 +925,11 @@ Then, regenerate the config file.
 #+begin_src sh
 grub-mkconfig -o /efi/EFI/arch/grub/grub.cfg
 #+end_src
+*** Update GPU BIOS/firmware
+https://www.techpowerup.com/download/nvidia-nvflash/
+#+begin_src sh
+paru -S nvflash
+#+end_src
 Then, regenerate the config file.
 #+begin_src sh
 grub-mkconfig -o /efi/EFI/arch/grub/grub.cfg
