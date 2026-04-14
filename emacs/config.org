@@ -1228,6 +1228,10 @@ Define transient keybindings for resizing windows.
   ("e" shrink-window               "ver-")
   ("i" enlarge-window              "ver+")
   ("o" enlarge-window-horizontally "hor+")
+  ("C-n" (lambda () (interactive) (shrink-window-horizontally 10)) "hor--")
+  ("C-e" (lambda () (interactive) (shrink-window 10)) "ver--")
+  ("C-i" (lambda () (interactive) (enlarge-window 10)) "ver++")
+  ("C-o" (lambda () (interactive) (enlarge-window-horizontally 10)) "hor++")
 )
 #+end_src
 ** EoS
