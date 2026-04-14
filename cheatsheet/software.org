@@ -948,6 +948,11 @@ Backup the current BIOS version.
 #+begin_src sh
 sudo nvflash --save backup_legacy.rom
 #+end_src
+
+Disable the GPU usage and flash the new BIOS into the graphics card.
+#+begin_src sh
+sudo nvflash -6 175017.rom
+#+end_src
 Then, regenerate the config file.
 #+begin_src sh
 grub-mkconfig -o /efi/EFI/arch/grub/grub.cfg
