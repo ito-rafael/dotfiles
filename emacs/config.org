@@ -1232,6 +1232,8 @@ Define transient keybindings for resizing windows.
   ("C-e" (lambda () (interactive) (shrink-window 10)) "ver--")
   ("C-i" (lambda () (interactive) (enlarge-window 10)) "ver++")
   ("C-o" (lambda () (interactive) (enlarge-window-horizontally 10)) "hor++")
+  ("s-a"      nil "exit" :color blue)
+  ("<escape>" nil "exit" :color blue)
 )
 #+end_src
 ** EoS
