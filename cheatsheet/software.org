@@ -930,6 +930,14 @@ https://www.techpowerup.com/download/nvidia-nvflash/
 #+begin_src sh
 paru -S nvflash
 #+end_src
+
+Search the BIOS for your card in this link: https://www.techpowerup.com/vgabios/
+For my case it was this link: https://www.techpowerup.com/vgabios/175017/175017
+
+Download the firmware. This version enabled UEFI boot in the EVGA GeForce GTX 660 Ti (2 GB).
+#+begin_src sh
+wget https://www.techpowerup.com/vgabios/175017/175017.rom
+#+end_src
 Then, regenerate the config file.
 #+begin_src sh
 grub-mkconfig -o /efi/EFI/arch/grub/grub.cfg
