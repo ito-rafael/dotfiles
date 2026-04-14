@@ -938,6 +938,11 @@ Download the firmware. This version enabled UEFI boot in the EVGA GeForce GTX 66
 #+begin_src sh
 wget https://www.techpowerup.com/vgabios/175017/175017.rom
 #+end_src
+
+Check the current BIOS version.
+#+begin_src sh
+sudo nvflash --version
+#+end_src
 Then, regenerate the config file.
 #+begin_src sh
 grub-mkconfig -o /efi/EFI/arch/grub/grub.cfg
