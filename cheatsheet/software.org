@@ -943,6 +943,11 @@ Check the current BIOS version.
 #+begin_src sh
 sudo nvflash --version
 #+end_src
+
+Backup the current BIOS version.
+#+begin_src sh
+sudo nvflash --save backup_legacy.rom
+#+end_src
 Then, regenerate the config file.
 #+begin_src sh
 grub-mkconfig -o /efi/EFI/arch/grub/grub.cfg
