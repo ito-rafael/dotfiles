@@ -1002,6 +1002,7 @@ https://github.com/noctuid/general.el
 #+begin_src emacs-lisp
   (efs/leader-keys
     "m" '(:ignore t :wk "Miscellaneous")
+    "m r" '(hydra-window-resize/body :wk "resize window")
     "m t" '(hydra-text-scale/body    :wk "scale text")
   )
 #+end_src
