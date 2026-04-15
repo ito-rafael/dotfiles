@@ -41,12 +41,42 @@ window#waybar.chromium {
 #backlight,
 #network,
 #pulseaudio,
+#battery,
+#clock,
+#custom-battery-mouse,
+#custom-capslock,
+#custom-dunst,
+#custom-lanmouse-status,
+#custom-kanata,
+#custom-keyboard-backlit,
+#custom-kmonad,
 #custom-media,
 #tray,
 #mode,
+#custom-mouse-warping,
+#custom-pacman,
+#custom-pomodoro-timer,
+#custom-scale,
+#custom-systemd-lanmouse,
+#custom-vpn-lcn,
+#custom-vpn-unicamp,
+#custom-vpn-lbic,
+#custom-vpn-samsung,
+#custom-xremap-mode,
 #idle_inhibitor,
-#mpd {
-    padding: 0 10px;
+#keyboard-state,
+#language,
+#pulseaudio,
+#mpd,
+#mode,
+#network,
+#tray,
+#workspaces {
+    padding: 0px 10px;
+    margin:  0px 0px;
+    color: #ffffff;
+    border-radius: 10px;
+}
     color: #ffffff;
 }
 
