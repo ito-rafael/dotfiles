@@ -1,0 +1,103 @@
+#+TITLE: Config file for gammastep
+#+AUTHOR: Rafael Ito
+#+PROPERTY: header-args :tangle config.ini
+#+DESCRIPTION: Adjust the color temperature of your screen
+#+STARTUP: showeverything
+#+auto_tangle: t
+
+* Table of contents :toc_1:
+- [[#global-settings][Global settings]]
+- [[#location-provider][Location provider]]
+- [[#adjustment-method][Adjustment method]]
+
+* Global settings
+#+begin_src conf
+[general]
+#+end_src
+** Day/Night temperatures
+Set the day and night screen temperatures.
+#+begin_src conf
+temp-day=5700
+temp-night=3500
+#+end_src
+** Fade effect
+Disable the smooth fade between temperatures when Redshift starts and stops.
+- 0 will cause an immediate change between screen temperatures.
+- 1 will gradually apply the new screen temperature over a couple of seconds.
+#+begin_src conf
+fade=1
+#+end_src
+** Solar elevation thresholds
+By default, Redshift will use the current elevation of the sun to determine whether it is daytime, night or in transition (dawn/dusk). When the sun is above the degrees specified with elevation-high it is considered daytime and below elevation-low it is considered night.
+#+begin_src conf
+;elevation-high=3
+;elevation-low=-6
+#+end_src
+** Dawn/Dusk intervals
+#+begin_src conf
+;dawn-time=6:00-7:45
+;dusk-time=18:35-20:15
+#+end_src
+Instead of using the solar elevation, the time intervals of dawn and dusk can be specified manually. The times must be specified as HH:MM in 24-hour format.
+** Screen brightness
+Default is 1.0. It is also possible to use different settings for day and night since version 1.8.
+#+begin_src conf
+;brightness=0.9
+#+end_src
+*** Day
+#+begin_src conf :padline no
+;brightness-day=0.7
+#+end_src
+*** Night
+#+begin_src conf :padline no
+;brightness-night=0.4
+#+end_src
+** Gamma
+Set the screen gamma (for all colors, or each color channel individually).
+This can also be set individually for day and night since version 1.10.
+#+begin_src conf
+gamma=0.8
+;gamma=0.8:0.7:0.8
+#+end_src
+*** Day
+#+begin_src conf :padline no
+;gamma-day=0.8:0.7:0.8
+#+end_src
+*** Night
+#+begin_src conf :padline no
+;gamma-night=0.6
+#+end_src
+** Location provider
+Set the location-provider: 'geoclue2', 'manual'. The location provider settings are in a different section.
+#+begin_src conf
+location-provider=manual
+#+end_src
+** Adjustment method
+Set the adjustment-method: 'randr', 'vidmode', 'drm', 'wayland'. 'randr' is the preferred X11 method, 'vidmode' is an older API that works in some cases when 'randr' does not. The adjustment method settings are in a different section.
+#+begin_src conf
+adjustment-method=randr
+#+end_src
+* Location provider
+Configuration of the location-provider: type 'gammastep -l PROVIDER:help' to see the settings.
+Ex: 'gammastep -l manual:help'.
+Keep in mind that longitudes west of Greenwich (e.g. the Americas) are negative numbers.
+#+begin_src conf
+[manual]
+lat=48.1
+lon=11.6
+#+end_src
+* Adjustment method
+Configuration of the adjustment-method: type 'gammastep -m METHOD:help' to see the settings.
+Ex: 'gammastep -m randr:help'.
+
+In this example, randr is configured to adjust only screen 0. Note that the numbering starts from 0, so this is actually the first screen. If this option is not specified, Redshift will try to adjust _all_ screens.
+#+begin_src conf
+[randr]
+screen=0
+#+end_src
+
+In this example, wayland is configured to match outputs based on their name.
+#+begin_src conf
+[wayland]
+output=eDP-*
+#+end_src
