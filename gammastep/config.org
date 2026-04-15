@@ -78,13 +78,11 @@ Set the adjustment-method: 'randr', 'vidmode', 'drm', 'wayland'. 'randr' is the 
 adjustment-method=wayland
 #+end_src
 * Location provider
-Configuration of the location-provider: type 'gammastep -l PROVIDER:help' to see the settings.
-Ex: 'gammastep -l manual:help'.
-Keep in mind that longitudes west of Greenwich (e.g. the Americas) are negative numbers.
+Configuration of the location-provider. Type 'gammastep -l PROVIDER:help' to see the settings (eg: 'gammastep -l manual:help').
 #+begin_src conf
 [manual]
-lat=48.1
-lon=11.6
+lat=-23.5
+lon=-46.6
 #+end_src
 * Adjustment method
 Configuration of the adjustment-method. Type 'gammastep -m METHOD:help' to see the settings (eg: 'gammastep -m wayland:help').
