@@ -11,9 +11,8 @@
 - [[#workspaces][Workspaces]]
 - [[#clock][Clock]]
 - [[#battery][Battery]]
-- [[#cpu][CPU]]
-- [[#memory][Memory]]
-- [[#disk][Disk]]
+- [[#groups][Groups]]
+  - [[#monitoring][Monitoring]]
 - [[#backlight][Backlight]]
 - [[#network][Network]]
 - [[#pulseaudio][Pulseaudio]]
@@ -21,7 +20,6 @@
   - [[#custom][Custom]]
   - [[#spotify][Spotify]]
   - [[#vlc][VLC]]
-- [[#temperature][Temperature]]
 - [[#tray][Tray]]
 - [[#mpd][MPD]]
 - [[#language][Language]]
@@ -121,15 +119,7 @@ window#waybar.chromium {
     border-bottom: 3px solid #ffffff;
 }
 
-#clock,
-#battery,
-#cpu,
-#memory,
-#disk,
-#temperature,
 #backlight,
-#network,
-#pulseaudio,
 #battery,
 #clock,
 #custom-battery-mouse,
@@ -140,8 +130,6 @@ window#waybar.chromium {
 #custom-keyboard-backlit,
 #custom-kmonad,
 #custom-media,
-#tray,
-#mode,
 #custom-mouse-warping,
 #custom-pacman,
 #custom-pomodoro-timer,
@@ -153,8 +141,6 @@ window#waybar.chromium {
 #custom-vpn-samsung,
 #custom-xremap-mode,
 #idle_inhibitor,
-#mpd {
-    padding: 0 10px;
 #keyboard-state,
 #language,
 #pulseaudio,
@@ -298,24 +284,56 @@ label:focus {
     background-color: #000000;
 }
 #+end_src
-* CPU
+* Groups
+** Monitoring
+*** CPU
 #+begin_src css
 #cpu {
-    /*background-color: #2ecc71;*/
+    border-radius: 10px 0 0 10px;
+    padding: 0px 5px;
+    margin:  0;
+    background-color: rgba(0, 0, 0, 0.2);
     color: lightgray;
 }
 #+end_src
-* Memory
+*** Memory
 #+begin_src css
 #memory {
-    /*background-color: #9b59b6;*/
+    padding: 0px 5px;
+    margin:  0;
+    background-color: rgba(0, 0, 0, 0.2);
     color: lightgray;
 }
 #+end_src
-* Disk
+*** Temperature :noexport_1:
+**** Normal
+#+begin_src css
+#temperature {
+    padding: 0px 5px;
+    margin:  0;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: lightgray;
+}
+#+end_src
+**** Warning
+#+begin_src css
+#temperature.warning {
+    background-color: yellow;
+}
+#+end_src
+**** Critical
+#+begin_src css
+#temperature.critical {
+    background-color: #eb4d4b;
+}
+#+end_src
+*** Disk
 #+begin_src css
 #disk {
-    /*background-color: #964B00;*/
+    border-radius: 0 10px 10px 0;
+    padding: 0px 5px;
+    margin:  0;
+    background-color: rgba(0, 0, 0, 0.2);
     color: lightgray;
 }
 #+end_src
@@ -373,26 +391,6 @@ label:focus {
 #+begin_src css
 #custom-media.custom-vlc {
     background-color: #ffa000;
-}
-#+end_src
-* Temperature :noexport_1:
-** Normal
-#+begin_src css
-#temperature {
-    /*background-color: #f0932b;*/
-    color: lightgray;
-}
-#+end_src
-** Warning
-#+begin_src css
-#temperature.warning {
-    background-color: yellow;
-}
-#+end_src
-** Critical
-#+begin_src css
-#temperature.critical {
-    background-color: #eb4d4b;
 }
 #+end_src
 * Tray :noexport_1:

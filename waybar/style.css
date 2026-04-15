@@ -32,15 +32,7 @@ window#waybar.chromium {
     border-bottom: 3px solid #ffffff;
 }
 
-#clock,
-#battery,
-#cpu,
-#memory,
-#disk,
-#temperature,
 #backlight,
-#network,
-#pulseaudio,
 #battery,
 #clock,
 #custom-battery-mouse,
@@ -51,8 +43,6 @@ window#waybar.chromium {
 #custom-keyboard-backlit,
 #custom-kmonad,
 #custom-media,
-#tray,
-#mode,
 #custom-mouse-warping,
 #custom-pacman,
 #custom-pomodoro-timer,
@@ -173,17 +163,40 @@ label:focus {
 }
 
 #cpu {
-    /*background-color: #2ecc71;*/
+    border-radius: 10px 0 0 10px;
+    padding: 0px 5px;
+    margin:  0;
+    background-color: rgba(0, 0, 0, 0.2);
     color: lightgray;
 }
 
 #memory {
-    /*background-color: #9b59b6;*/
+    padding: 0px 5px;
+    margin:  0;
+    background-color: rgba(0, 0, 0, 0.2);
     color: lightgray;
 }
 
+#temperature {
+    padding: 0px 5px;
+    margin:  0;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: lightgray;
+}
+
+#temperature.warning {
+    background-color: yellow;
+}
+
+#temperature.critical {
+    background-color: #eb4d4b;
+}
+
 #disk {
-    /*background-color: #964B00;*/
+    border-radius: 0 10px 10px 0;
+    padding: 0px 5px;
+    margin:  0;
+    background-color: rgba(0, 0, 0, 0.2);
     color: lightgray;
 }
 
@@ -222,19 +235,6 @@ label:focus {
 
 #custom-media.custom-vlc {
     background-color: #ffa000;
-}
-
-#temperature {
-    /*background-color: #f0932b;*/
-    color: lightgray;
-}
-
-#temperature.warning {
-    background-color: yellow;
-}
-
-#temperature.critical {
-    background-color: #eb4d4b;
 }
 
 #tray {
