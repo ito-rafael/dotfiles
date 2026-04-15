@@ -168,6 +168,24 @@ window#waybar.chromium {
     color: #ffffff;
     border-radius: 10px;
 }
+
+#custom-scratchpad-python,
+#custom-scratchpad-keymapp,
+#custom-scratchpad-terminal,
+#custom-scratchpad-temp-1,
+#custom-scratchpad-temp-2,
+#custom-scratchpad-temp-3,
+#custom-scratchpad-scrcpy-phone,
+#custom-scratchpad-scrcpy-watch,
+#custom-scratchpad-whatsapp,
+#custom-scratchpad-calendar,
+#custom-scratchpad-translate,
+#custom-scratchpad-llm,
+#custom-scratchpad-ytmusic {
+    padding: 0px 5px;
+    margin:  0px 0px;
+    color: #ffffff;
+    border-radius: 10px;
 }
 #+end_src
 ** Window
