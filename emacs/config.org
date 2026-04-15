@@ -1004,6 +1004,7 @@ https://github.com/noctuid/general.el
     "m" '(:ignore t :wk "Miscellaneous")
     "m g" '(counsel-rg               :wk "ripgrep search")
     "m r" '(hydra-window-resize/body :wk "resize window")
+    "m s" '(dired-do-symlink         :wk "create symlink")
     "m t" '(hydra-text-scale/body    :wk "scale text")
   )
 #+end_src
