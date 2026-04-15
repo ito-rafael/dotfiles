@@ -6,6 +6,7 @@
 #+auto_tangle: t
 
 * Table of contents :toc_2:
+- [[#layout][Layout]]
 - [[#positioning][Positioning]]
 - [[#sway][Sway]]
 - [[#cpu][CPU]]
@@ -53,6 +54,14 @@
 * JSON header :noexport:
 #+begin_src js
 {
+#+end_src
+* Layout
+#+begin_src js
+"margin-top": 4,
+"margin-left": 10,
+"margin-right": 10,
+"margin-bottom": -4,
+"spacing": 5,
 #+end_src
 * Positioning :noexport_1:
 #+begin_src js
