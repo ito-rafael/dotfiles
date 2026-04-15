@@ -47,6 +47,8 @@
 - [[#pacman][Pacman]]
 - [[#kmonad][KMonad]]
 - [[#kanata][kanata]]
+- [[#groups][Groups]]
+  - [[#scratchpad][Scratchpad]]
 
 * JSON header :noexport:
 #+begin_src js
@@ -74,20 +76,7 @@
     "custom/vpn-samsung",
     "custom/pomodoro-timer",
     "custom/xremap-mode",
-    "custom/scratchpad-translate",
-    "custom/scratchpad-llm",
-    "custom/scratchpad-calendar",
-    "custom/scratchpad-whatsapp",
-    "custom/scratchpad-ytmusic",
-    "custom/scratchpad-scrcpy-phone",
-    "custom/scratchpad-scrcpy-watch",
-    "custom/scratchpad-python",
-    "custom/scratchpad-terminal",
-    "custom/scratchpad-keymapp",
-    "custom/scratchpad-temp-1",
-    "custom/scratchpad-temp-2",
-    "custom/scratchpad-temp-3",
-    //"custom/scratchpad-indicator",
+    "group/scratchpads",
     "custom/mouse-warping",
     "custom/dunst",
     "custom/scale",
@@ -600,6 +589,42 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
         "deactivating": "<span color=\"#FF7\"></span>",
         "unknown":      "<span color=\"#FA5\"></span>",
     },
+},
+#+end_src
+* Groups
+** Scratchpad
+*** Drawer icon
+#+begin_src js
+"image#scratchpad-icon": {
+     "exec":"/home/rafael/git/dotfiles/waybar/scripts/scratchpad-icon.sh",
+     "size": 16,
+     "interval": 60,
+},
+#+end_src
+*** Drawer
+#+begin_src js
+"group/scratchpads": {
+  "orientation": "inherit",
+  "drawer": {
+      "transition-duration": 500,
+      "transition-left-to-right": false,
+  },
+  "modules": [
+    "image#scratchpad-icon",
+    "custom/scratchpad-translate",
+    "custom/scratchpad-llm",
+    "custom/scratchpad-calendar",
+    "custom/scratchpad-whatsapp",
+    "custom/scratchpad-ytmusic",
+    "custom/scratchpad-scrcpy-phone",
+    "custom/scratchpad-scrcpy-watch",
+    "custom/scratchpad-python",
+    "custom/scratchpad-terminal",
+    "custom/scratchpad-keymapp",
+    "custom/scratchpad-temp-1",
+    "custom/scratchpad-temp-2",
+    "custom/scratchpad-temp-3",
+  ]
 },
 #+end_src
 * JSON footer :noexport:
