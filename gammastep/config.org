@@ -17,7 +17,7 @@
 ** Day/Night temperatures
 Set the day and night screen temperatures.
 #+begin_src conf
-temp-day=5700
+temp-day=6500
 temp-night=3500
 #+end_src
 ** Fade effect
