@@ -617,6 +617,7 @@ exec echo "default" > /tmp/xremap_mode.tmp
 #}
 #exec swayimg ~/.config/swayimg/pixel.png --class="edge_bottom"
 exec echo "disconnected" > /tmp/lanmouse-status.tmp
+exec echo "6500" > /tmp/gamma_temp.tmp
 output $laptop    background ~/.config/wallpaper/london.jpg fill
 output $primary   background ~/.config/wallpaper/london.jpg fill
 output $secondary background ~/.config/wallpaper/london.jpg fill

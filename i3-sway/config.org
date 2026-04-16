@@ -2058,6 +2058,12 @@ exec echo "default" > /tmp/xremap_mode.tmp
 #+begin_src conf :noweb-ref sway-kmonad
 exec --no-startup-id "sudo bash $SCRIPT_PATH/waybar/scripts/kmonad.sh status > /tmp/kmonad-status.tmp"
 #+end_src
+** Gamma status
+*** Sway
+Create file to track screen color temperature (used by status bar).
+#+begin_src conf :noweb-ref sway-gamma
+exec echo "6500" > /tmp/gamma_temp.tmp
+#+end_src
 ** Background images
 *** i3
 Before, wallpapers were set calling =feh= directly in i3wm.
@@ -2172,6 +2178,7 @@ exec --no-startup-id "sleep 5 && swaymsg '[app_id=brave-browser]' move to worksp
 <<sway-transparency>>
 <<sway-capslock>>
 <<sway-lanmouse>>
+<<sway-gamma>>
 <<sway-wallpaper>>
 <<daemons>>
 <<sway-waybar>>
