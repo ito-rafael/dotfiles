@@ -53,6 +53,7 @@
 - [[#scale][Scale]]
 - [[#pomodoro-timer][Pomodoro timer]]
 - [[#pacman][Pacman]]
+- [[#gamma][Gamma]]
 - [[#kmonad][KMonad]]
 - [[#kanata][kanata]]
 - [[#keyboard-backlit][Keyboard backlit]]
@@ -1031,6 +1032,12 @@ label:focus {
 #custom-pacman:hover {
     background: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
+}
+#+end_src
+* Gamma :noexport_1:
+#+begin_src css
+#custom-gamma {
+    color: lightgray;
 }
 #+end_src
 * KMonad :noexport_1:
