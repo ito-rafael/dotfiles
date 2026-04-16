@@ -606,7 +606,6 @@ exec --no-startup-id "rm /tmp/vpn_samsung.tmp"
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway SWAYSOCK
 exec /usr/share/sway-contrib/inactive-windows-transparency.py --opacity 0.85
 exec echo 0 > /tmp/capslock_status.tmp
-exec echo "default" > /tmp/xremap_mode.tmp
 #for_window [app_id="edge_bottom" title="pixel.png"] {
 #    floating enable
 #    sticky enable
@@ -617,6 +616,7 @@ exec echo "default" > /tmp/xremap_mode.tmp
 #}
 #exec swayimg ~/.config/swayimg/pixel.png --class="edge_bottom"
 exec echo "disconnected" > /tmp/lanmouse-status.tmp
+exec echo "default" > /tmp/xremap_mode.tmp
 exec echo "6500" > /tmp/gamma_temp.tmp
 output $laptop    background ~/.config/wallpaper/london.jpg fill
 output $primary   background ~/.config/wallpaper/london.jpg fill

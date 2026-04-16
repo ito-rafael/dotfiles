@@ -2050,7 +2050,7 @@ exec echo "disconnected" > /tmp/lanmouse-status.tmp
 #+end_src
 ** xremap mode
 Create file to track xremap's mode (used by status bar).
-#+begin_src conf :noweb-ref sway-capslock
+#+begin_src conf :noweb-ref sway-xremap
 exec echo "default" > /tmp/xremap_mode.tmp
 #+end_src
 ** KMonad status
