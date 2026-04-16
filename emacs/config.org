@@ -203,6 +203,12 @@ Source: https://systemcrafters.net/emacs-tips/using-the-emacs-daemon/#configurin
 (global-set-key (kbd "<C-wheel-up>") 'text-scale-increase)
 (global-set-key (kbd "<C-wheel-down>") 'text-scale-decrease)
 #+end_src
+** Splits control
+Give preference for vertical splits (side-by-side).
+#+begin_src emacs-lisp
+(setq split-width-threshold 100)
+(setq split-height-threshold 100)
+#+end_src
 * Miscellaneous :noexport_1:
 ** Copy/Paste for Wayland
 *** Copy
