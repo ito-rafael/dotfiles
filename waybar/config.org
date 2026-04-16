@@ -99,6 +99,7 @@
     "disk",
     "pulseaudio",
     "backlight",
+    "custom/gamma",
     "battery",
     "clock",
     //"keyboard-state",
@@ -559,6 +560,15 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
         "medium": "<span color=\"#FF7\"></span>",
         "high":   "<span color=\"#F33\"></span>",
     },
+},
+#+end_src
+* Gamma
+#+begin_src js
+"custom/gamma": {
+    "exec": "~/.config/waybar/scripts/gamma.sh",
+    "format": "🌡️ {}K",
+    "interval": 60,
+    "signal": 8,
 },
 #+end_src
 * KMonad

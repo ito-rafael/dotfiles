@@ -34,6 +34,7 @@
     "disk",
     "pulseaudio",
     "backlight",
+    "custom/gamma",
     "custom/battery-mouse",
     "battery",
     "clock",
@@ -402,6 +403,13 @@
         "medium": "<span color=\"#FF7\"></span>",
         "high":   "<span color=\"#F33\"></span>",
     },
+},
+
+"custom/gamma": {
+    "exec": "~/.config/waybar/scripts/gamma.sh",
+    "format": "🌡️ {}K",
+    "interval": 60,
+    "signal": 8,
 },
 
 "custom/kmonad": {
