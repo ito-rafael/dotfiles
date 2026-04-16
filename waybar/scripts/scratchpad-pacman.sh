@@ -2,8 +2,8 @@
 
 # prepare message for dialog
 TEXT="  Arch Linux pacman\n  Enter password:"
-ORIGINAL_IMAGE_1="${XDG_CONFIG_HOME:-$HOME/.config}/waybar/icons/archlinux.png"
-ORIGINAL_IMAGE_2="${XDG_CONFIG_HOME:-$HOME/.config}/waybar/icons/pacman.png"
+ORIGINAL_IMAGE_1="${XDG_CONFIG_HOME:-$HOME/.config}/waybar/icon/archlinux.png"
+ORIGINAL_IMAGE_2="${XDG_CONFIG_HOME:-$HOME/.config}/waybar/icon/pacman.png"
 
 # check if images exist before trying to stitch them
 if [[ ! -f "$ORIGINAL_IMAGE_1" ]] || [[ ! -f "$ORIGINAL_IMAGE_2" ]]; then
