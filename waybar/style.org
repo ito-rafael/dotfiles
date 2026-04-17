@@ -11,7 +11,6 @@
 - [[#workspaces][Workspaces]]
 - [[#clock][Clock]]
 - [[#battery][Battery]]
-- [[#backlight][Backlight]]
 - [[#group-monitoring][Group Monitoring]]
   - [[#cpu][CPU]]
   - [[#memory][Memory]]
@@ -21,6 +20,11 @@
   - [[#pulseaudio][Pulseaudio]]
   - [[#brightness][Brightness]]
   - [[#gamma][Gamma]]
+- [[#group-toggle][Group Toggle]]
+  - [[#mouse-warping][Mouse warping]]
+  - [[#dunst][Dunst]]
+  - [[#scale][Scale]]
+  - [[#keyboard-backlit][Keyboard backlit]]
 - [[#network][Network]]
 - [[#media][Media]]
   - [[#custom][Custom]]
@@ -49,19 +53,15 @@
   - [[#lbic][LBiC]]
   - [[#samsung][Samsung]]
 - [[#caps-lock][Caps Lock]]
-- [[#mouse-warping][Mouse warping]]
 - [[#mouse-battery][Mouse battery]]
 - [[#lan-mouse][lan-mouse]]
 - [[#systemd-services][systemd services]]
   - [[#lanmouse][lanmouse]]
 - [[#xremap-mode][xremap mode]]
-- [[#dunst][Dunst]]
-- [[#scale][Scale]]
 - [[#pomodoro-timer][Pomodoro timer]]
 - [[#pacman][Pacman]]
 - [[#kmonad][KMonad]]
 - [[#kanata][kanata]]
-- [[#keyboard-backlit][Keyboard backlit]]
 
 * Initial config :noexport_1:
 ** Font
@@ -130,16 +130,12 @@ window#waybar.chromium {
 #clock,
 #custom-battery-mouse,
 #custom-capslock,
-#custom-dunst,
 #custom-lanmouse-status,
 #custom-kanata,
-#custom-keyboard-backlit,
 #custom-kmonad,
 #custom-media,
-#custom-mouse-warping,
 #custom-pacman,
 #custom-pomodoro-timer,
-#custom-scale,
 #custom-systemd-lanmouse,
 #custom-vpn-lcn,
 #custom-vpn-unicamp,
@@ -344,7 +340,6 @@ label:focus {
     color: lightgray;
 }
 #+end_src
-* Backlight
 * Group Control
 ** Pulseaudio :noexport_1:
 *** Normal
@@ -384,14 +379,122 @@ label:focus {
     color: lightgray;
 }
 #+end_src
+* Group Toggle
 #+begin_src css
-}
-#+end_src
-#+begin_src css
+#custom-mouse-warping,
+#custom-dunst,
+#custom-scale,
+#custom-keyboard-backlit {
+    padding: 0px 5px;
+    margin:  0;
+    background-color: rgba(0, 0, 0, 0.2);
     color: lightgray;
 }
 #+end_src
+** Mouse warping :noexport_1:
 #+begin_src css
+#custom-mouse-warping {
+    border-radius: 10px 0 0 10px;
+}
+#+end_src
+*** Disabled
+#+begin_src css
+#custom-mouse-warping.disabled {
+    color: gray;
+}
+#+end_src
+*** Enabled
+#+begin_src css
+#custom-mouse-warping.enabled {
+    color: lightgray;
+}
+#+end_src
+*** Hover
+#+begin_src css
+#custom-mouse-warping:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+#+end_src
+** Dunst :noexport_1:
+*** Disabled
+#+begin_src css
+#custom-dunst.disabled {
+    color: gray;
+}
+#+end_src
+*** Enabled
+#+begin_src css
+#custom-dunst.enabled {
+    color: goldenrod;
+}
+#+end_src
+*** Hover
+#+begin_src css
+#custom-dunst:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+#+end_src
+** Scale :noexport_1:
+*** Default
+#+begin_src css
+#custom-scale.default {
+    color: lightgray;
+}
+#+end_src
+*** Zoom
+#+begin_src css
+#custom-scale.zoom {
+    color: lightgray;
+}
+#+end_src
+*** Hover
+#+begin_src css
+#custom-scale:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+#+end_src
+** Keyboard backlit :noexport_1:
+#+begin_src css
+#custom-keyboard-backlit {
+    border-radius: 0 10px 10px 0;
+}
+#+end_src
+*** General
+#+begin_src css
+#custom-keyboard-backlit {
+    font-family: "Material Symbols Outlined";
+    font-size: 20px;
+}
+#+end_src
+*** Off
+#+begin_src css
+#custom-keyboard-backlit.off {
+    color: gray;
+}
+#+end_src
+*** Low
+#+begin_src css
+#custom-keyboard-backlit.low {
+    color: goldenrod;
+}
+#+end_src
+*** High
+#+begin_src css
+#custom-keyboard-backlit.high {
+    color: red;
+}
+#+end_src
+*** Hover
+#+begin_src css
+#custom-keyboard-backlit:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+#+end_src
+
 * Network :noexport_1:
 ** Normal
 #+begin_src css
@@ -816,26 +919,6 @@ label:focus {
     color: black;
 }
 #+end_src
-* Mouse warping :noexport_1:
-** Disabled
-#+begin_src css
-#custom-mouse-warping.disabled {
-    color: gray;
-}
-#+end_src
-** Enabled
-#+begin_src css
-#custom-mouse-warping.enabled {
-    color: lightgray;
-}
-#+end_src
-** Hover
-#+begin_src css
-#custom-mouse-warping:hover {
-    background: rgba(128, 128, 128, 0.5);
-    transition: background 0.3s ease;
-}
-#+end_src
 * Mouse battery :noexport_1:
 ** Full
 #+begin_src css
@@ -951,46 +1034,6 @@ label:focus {
     transition: background 0.3s ease;
 }
 #+end_src
-* Dunst :noexport_1:
-** Disabled
-#+begin_src css
-#custom-dunst.disabled {
-    color: gray;
-}
-#+end_src
-** Enabled
-#+begin_src css
-#custom-dunst.enabled {
-    color: goldenrod;
-}
-#+end_src
-** Hover
-#+begin_src css
-#custom-dunst:hover {
-    background: rgba(128, 128, 128, 0.5);
-    transition: background 0.3s ease;
-}
-#+end_src
-* Scale :noexport_1:
-** Default
-#+begin_src css
-#custom-scale.default {
-    color: lightgray;
-}
-#+end_src
-** Zoom
-#+begin_src css
-#custom-scale.zoom {
-    color: lightgray;
-}
-#+end_src
-** Hover
-#+begin_src css
-#custom-scale:hover {
-    background: rgba(128, 128, 128, 0.5);
-    transition: background 0.3s ease;
-}
-#+end_src
 * Pomodoro timer :noexport_1:
 ** Work
 *** Playing
@@ -1066,10 +1109,7 @@ label:focus {
     transition: background 0.3s ease;
 }
 #+end_src
-* Gamma :noexport_1:
 #+begin_src css
-#custom-gamma {
-    color: lightgray;
 }
 #+end_src
 * KMonad :noexport_1:
@@ -1156,26 +1196,6 @@ label:focus {
 ** Hover
 #+begin_src css
 #custom-kanata:hover {
-    background: rgba(128, 128, 128, 0.5);
-    transition: background 0.3s ease;
-}
-#+end_src
-* Keyboard backlit :noexport_1:
-** Disabled
-#+begin_src css
-#custom-keyboard-backlit.disabled {
-    color: gray;
-}
-#+end_src
-** Enabled
-#+begin_src css
-#custom-keyboard-backlit.enabled {
-    color: goldenrod;
-}
-#+end_src
-** Hover
-#+begin_src css
-#custom-keyboard-backlit:hover {
     background: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
 }

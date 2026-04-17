@@ -37,16 +37,12 @@ window#waybar.chromium {
 #clock,
 #custom-battery-mouse,
 #custom-capslock,
-#custom-dunst,
 #custom-lanmouse-status,
 #custom-kanata,
-#custom-keyboard-backlit,
 #custom-kmonad,
 #custom-media,
-#custom-mouse-warping,
 #custom-pacman,
 #custom-pomodoro-timer,
-#custom-scale,
 #custom-systemd-lanmouse,
 #custom-vpn-lcn,
 #custom-vpn-unicamp,
@@ -216,6 +212,10 @@ label:focus {
 }
 
 #backlight {
+    border-radius: 0;
+    padding: 0px 5px;
+    margin:  0;
+    background-color: rgba(0, 0, 0, 0.2);
     color: lightgray;
 }
 
@@ -227,9 +227,83 @@ label:focus {
     color: lightgray;
 }
 
+#custom-mouse-warping,
+#custom-dunst,
+#custom-scale,
+#custom-keyboard-backlit {
+    padding: 0px 5px;
+    margin:  0;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: lightgray;
 }
 
+#custom-mouse-warping {
+    border-radius: 10px 0 0 10px;
+}
+
+#custom-mouse-warping.disabled {
+    color: gray;
+}
+
+#custom-mouse-warping.enabled {
     color: lightgray;
+}
+
+#custom-mouse-warping:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+
+#custom-dunst.disabled {
+    color: gray;
+}
+
+#custom-dunst.enabled {
+    color: goldenrod;
+}
+
+#custom-dunst:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+
+#custom-scale.default {
+    color: lightgray;
+}
+
+#custom-scale.zoom {
+    color: lightgray;
+}
+
+#custom-scale:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+
+#custom-keyboard-backlit {
+    border-radius: 0 10px 10px 0;
+}
+
+#custom-keyboard-backlit {
+    font-family: "Material Symbols Outlined";
+    font-size: 20px;
+}
+
+#custom-keyboard-backlit.off {
+    color: gray;
+}
+
+#custom-keyboard-backlit.low {
+    color: goldenrod;
+}
+
+#custom-keyboard-backlit.high {
+    color: red;
+}
+
+#custom-keyboard-backlit:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
 }
 
 #network {
@@ -511,19 +585,6 @@ label:focus {
     color: black;
 }
 
-#custom-mouse-warping.disabled {
-    color: gray;
-}
-
-#custom-mouse-warping.enabled {
-    color: lightgray;
-}
-
-#custom-mouse-warping:hover {
-    background: rgba(128, 128, 128, 0.5);
-    transition: background 0.3s ease;
-}
-
 #custom-battery-mouse.full {
     color: lightgray;
 }
@@ -596,32 +657,6 @@ label:focus {
 }
 
 #custom-mouse-warping:hover {
-    background: rgba(128, 128, 128, 0.5);
-    transition: background 0.3s ease;
-}
-
-#custom-dunst.disabled {
-    color: gray;
-}
-
-#custom-dunst.enabled {
-    color: goldenrod;
-}
-
-#custom-dunst:hover {
-    background: rgba(128, 128, 128, 0.5);
-    transition: background 0.3s ease;
-}
-
-#custom-scale.default {
-    color: lightgray;
-}
-
-#custom-scale.zoom {
-    color: lightgray;
-}
-
-#custom-scale:hover {
     background: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
 }
@@ -730,19 +765,6 @@ label:focus {
 }
 
 #custom-kanata:hover {
-    background: rgba(128, 128, 128, 0.5);
-    transition: background 0.3s ease;
-}
-
-#custom-keyboard-backlit.disabled {
-    color: gray;
-}
-
-#custom-keyboard-backlit.enabled {
-    color: goldenrod;
-}
-
-#custom-keyboard-backlit:hover {
     background: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
 }
