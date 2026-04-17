@@ -18,6 +18,10 @@
   - [[#audio][Audio]]
   - [[#brightness][Brightness]]
   - [[#gamma][Gamma]]
+- [[#group-sysadmin][Group sysadmin]]
+  - [[#pacman][Pacman]]
+  - [[#ansible-provision][Ansible-provision]]
+  - [[#informant][Informant]]
 - [[#group-toggle][Group toggle]]
   - [[#mouse-warping][Mouse warping]]
   - [[#dunst][Dunst]]
@@ -50,7 +54,6 @@
 - [[#lan-mouse][lan-mouse]]
 - [[#systemd-services][Systemd services]]
   - [[#lan-mouse-1][lan-mouse]]
-- [[#pacman][Pacman]]
 - [[#kmonad][KMonad]]
 - [[#kanata][kanata]]
 - [[#groups][Groups]]
@@ -91,6 +94,7 @@
     "custom/pomodoro-timer",
     "custom/xremap-mode",
     "group/scratchpads",
+    "group/sysadmin",
     //"custom/kmonad",
     "custom/kanata",
     "mpris",
@@ -204,6 +208,69 @@
     "format": "🌡️ {}K",
     "interval": 60,
     "signal": 8,
+},
+#+end_src
+* Group sysadmin
+#+begin_src js
+"group/sysadmin": {
+  "orientation": "inherit",
+  "modules": [
+    "custom/pacman",
+    "custom/ansible-provision",
+    "image#arch-news",
+    "custom/informant",
+  ]
+},
+#+end_src
+** Pacman
+#+begin_src js
+"custom/pacman": {
+    "return-type": "json",
+    "interval": 600,
+    "exec": "~/.config/waybar/scripts/pacman.sh",
+    "on-click": "~/.config/scripts/show-or-launch.sh dropdown_pacman 0.75 0.75",
+    "exec-if": "exit 0",
+    "format": " {icon} {0} ",
+    "format-icons": {
+        "low":    "<span color=\"#999\"></span>",
+        "medium": "<span color=\"#FF7\"></span>",
+        "high":   "<span color=\"#F33\"></span>",
+    },
+},
+#+end_src
+** Ansible-provision
+#+begin_src js
+"custom/ansible-provision": {
+    "exec": "~/.config/waybar/scripts/ansible-provision.sh",
+    "return-type": "json",
+    "interval": 3600,
+    //"on-click": "alacritty -e sudo -u ansible bash -c 'ansible-playbook /home/ansible/git/ansible-provision/local.yml --limit $(hostname)'",
+    "format": "{icon} {}",
+    "format-icons": {
+        "warning": "󱧘",
+        "synced": "󰄬",
+    },
+},
+#+end_src
+** Informant
+*** Image
+#+begin_src js
+"image#arch-news": {
+    // display image only if there is news
+    "exec": "informant check | awk '$3 != \"no\" {print \"/home/rafael/.config/waybar/icon/archlinux.png\"}'",
+    "interval": 3600,
+    "size": 16,
+    "on-click": "kitty -e informant read"
+},
+#+end_src
+*** Parser
+#+begin_src js
+"custom/informant": {
+    "exec": "informant check | awk '$3 != \"no\" { printf \"{\\\"text\\\": \\\"%s\\\", \\\"tooltip\\\": \\\"%s unread Arch News items!\\\"}\\n\", $3, $3 }'",
+    "interval": 3600,
+    "return-type": "json",
+    "format": "{}",
+    "on-click": "kitty -e informant read"
 },
 #+end_src
 * Group toggle
@@ -605,22 +672,6 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
     "format": "{}",
     "on-click": "kitty --app-id systemd-lanmouse-logs journalctl --user -f -u lanmouse.service",
     "on-click-right": "systemctl --user is-active --quiet lanmouse.service && systemctl --user stop lanmouse.service || systemctl --user start lanmouse.service"
-},
-#+end_src
-* Pacman
-#+begin_src js
-"custom/pacman": {
-    "return-type": "json",
-    "interval": 600,
-    "exec": "~/.config/waybar/scripts/pacman.sh",
-    "on-click": "~/.config/scripts/show-or-launch.sh dropdown_pacman 0.75 0.75",
-    "exec-if": "exit 0",
-    "format": " {icon} {0} ",
-    "format-icons": {
-        "low":    "<span color=\"#999\"></span>",
-        "medium": "<span color=\"#FF7\"></span>",
-        "high":   "<span color=\"#F33\"></span>",
-    },
 },
 #+end_src
 * KMonad

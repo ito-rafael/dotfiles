@@ -19,10 +19,7 @@
     "custom/pomodoro-timer",
     "custom/xremap-mode",
     "group/scratchpads",
-    "custom/mouse-warping",
-    "custom/dunst",
-    "custom/scale",
-    "custom/pacman",
+    "group/sysadmin",
     //"custom/kmonad",
     "custom/kanata",
     "custom/keyboard-backlit",
@@ -81,10 +78,6 @@
 
 "group/control": {
   "orientation": "inherit",
-  //"drawer": {
-  //    "transition-duration": 500,
-  //    "transition-left-to-right": false,
-  //},
   "modules": [
     "pulseaudio",
     "backlight",
@@ -119,6 +112,120 @@
     "format": "🌡️ {}K",
     "interval": 60,
     "signal": 8,
+},
+
+"group/sysadmin": {
+  "orientation": "inherit",
+  "modules": [
+    "custom/pacman",
+    "custom/ansible-provision",
+    "image#arch-news",
+    "custom/informant",
+  ]
+},
+
+"custom/pacman": {
+    "return-type": "json",
+    "interval": 600,
+    "exec": "~/.config/waybar/scripts/pacman.sh",
+    "on-click": "~/.config/scripts/show-or-launch.sh dropdown_pacman 0.75 0.75",
+    "exec-if": "exit 0",
+    "format": " {icon} {0} ",
+    "format-icons": {
+        "low":    "<span color=\"#999\"></span>",
+        "medium": "<span color=\"#FF7\"></span>",
+        "high":   "<span color=\"#F33\"></span>",
+    },
+},
+
+"custom/ansible-provision": {
+    "exec": "~/.config/waybar/scripts/ansible-provision.sh",
+    "return-type": "json",
+    "interval": 3600,
+    //"on-click": "alacritty -e sudo -u ansible bash -c 'ansible-playbook /home/ansible/git/ansible-provision/local.yml --limit $(hostname)'",
+    "format": "{icon} {}",
+    "format-icons": {
+        "warning": "󱧘",
+        "synced": "󰄬",
+    },
+},
+
+"image#arch-news": {
+    // display image only if there is news
+    "exec": "informant check | awk '$3 != \"no\" {print \"/home/rafael/.config/waybar/icon/archlinux.png\"}'",
+    "interval": 3600,
+    "size": 16,
+    "on-click": "kitty -e informant read"
+},
+
+"custom/informant": {
+    "exec": "informant check | awk '$3 != \"no\" { printf \"{\\\"text\\\": \\\"%s\\\", \\\"tooltip\\\": \\\"%s unread Arch News items!\\\"}\\n\", $3, $3 }'",
+    "interval": 3600,
+    "return-type": "json",
+    "format": "{}",
+    "on-click": "kitty -e informant read"
+},
+
+"group/toggle": {
+  "orientation": "inherit",
+  "modules": [
+    "custom/mouse-warping",
+    "custom/dunst",
+    "custom/scale",
+    "custom/keyboard-backlit",
+  ]
+},
+
+"custom/mouse-warping": {
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/mouse-warping.sh monitor",
+    "on-click": "~/.config/waybar/scripts/mouse-warping.sh toggle",
+    "format": " {} {icon} ",
+    "format-icons": {
+        "enabled": "<span color=\"#090\"></span>",
+        "disabled": "<span color=\"#F00\"></span>",
+    },
+},
+
+"custom/dunst": {
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/dunst.sh",
+    "on-click": "dunstctl set-paused toggle",
+    "restart-interval": 1,
+    "format": " {} {icon} ",
+    "format-icons": {
+        "enabled": "<span color=\"#090\"></span>",
+        "disabled": "<span color=\"#F00\"></span>",
+    },
+},
+
+"custom/scale": {
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/sway-scale.sh",
+    "on-click": "sh -c 'sleep 0.2 && ~/.config/scripts/sway-scale.sh toggle' &",
+    "on-scroll-up": "~/.config/scripts/sway-scale.sh inc",
+    "on-scroll-down": "~/.config/scripts/sway-scale.sh dec",
+    "format": " {icon} {text} ",
+    "format-icons": {
+        "default": "<span color=\"#999\"></span>",
+        "zoom":    "<span color=\"#FF7\"></span>",
+    },
+    "reverse-scrolling": true,
+    "reverse-mouse-scrolling": false,
+},
+
+"custom/keyboard-backlit": {
+    "exec": "~/.config/waybar/scripts/keyboard-backlit.sh",
+    "return-type": "json",
+    "format": "{icon}",
+    "format-icons": {
+        "off":  "\uf4ef",
+        "low":  "\uf7ec",
+        "high": "\uf7ed",
+    },
+    "on-click": "~/.config/scripts/keeb-backlit.sh cycle",
+    "on-scroll-up": "~/.config/scripts/keeb-backlit.sh inc",
+    "on-scroll-down": "~/.config/scripts/keeb-backlit.sh dec",
 },
 
 "battery": {
@@ -331,17 +438,6 @@
     "format": " {} ",
 },
 
-"custom/mouse-warping": {
-    "return-type": "json",
-    "exec": "~/.config/waybar/scripts/mouse-warping.sh monitor",
-    "on-click": "~/.config/waybar/scripts/mouse-warping.sh toggle",
-    "format": " {} {icon} ",
-    "format-icons": {
-        "enabled": "<span color=\"#090\"></span>",
-        "disabled": "<span color=\"#F00\"></span>",
-    },
-},
-
 "custom/xremap-mode": {
     "return-type": "json",
     "exec": "~/.config/waybar/scripts/xremap-mode.sh monitor",
@@ -351,33 +447,6 @@
     //    "default": "<span color=\"#090\"></span>",
     //    "lan-mouse": "<span color=\"#F00\"></span>",
     //},
-},
-
-"custom/dunst": {
-    "return-type": "json",
-    "exec": "~/.config/waybar/scripts/dunst.sh",
-    "on-click": "dunstctl set-paused toggle",
-    "restart-interval": 1,
-    "format": " {} {icon} ",
-    "format-icons": {
-        "enabled": "<span color=\"#090\"></span>",
-        "disabled": "<span color=\"#F00\"></span>",
-    },
-},
-
-"custom/scale": {
-    "return-type": "json",
-    "exec": "~/.config/waybar/scripts/sway-scale.sh",
-    "on-click": "sh -c 'sleep 0.2 && ~/.config/scripts/sway-scale.sh toggle' &",
-    "on-scroll-up": "~/.config/scripts/sway-scale.sh inc",
-    "on-scroll-down": "~/.config/scripts/sway-scale.sh dec",
-    "format": " {icon} {text} ",
-    "format-icons": {
-        "default": "<span color=\"#999\"></span>",
-        "zoom":    "<span color=\"#FF7\"></span>",
-    },
-    "reverse-scrolling": true,
-    "reverse-mouse-scrolling": false,
 },
 
 "custom/pomodoro-timer": {
@@ -417,20 +486,6 @@
     "on-click-right": "systemctl --user is-active --quiet lanmouse.service && systemctl --user stop lanmouse.service || systemctl --user start lanmouse.service"
 },
 
-"custom/pacman": {
-    "return-type": "json",
-    "interval": 600,
-    "exec": "~/.config/waybar/scripts/pacman.sh",
-    "on-click": "~/.config/scripts/show-or-launch.sh dropdown_pacman 0.75 0.75",
-    "exec-if": "exit 0",
-    "format": " {icon} {0} ",
-    "format-icons": {
-        "low":    "<span color=\"#999\"></span>",
-        "medium": "<span color=\"#FF7\"></span>",
-        "high":   "<span color=\"#F33\"></span>",
-    },
-},
-
 "custom/kmonad": {
     "return-type": "json",
     "exec": "sleep 2 && ~/.config/waybar/scripts/kmonad.sh monitor",
@@ -465,18 +520,7 @@
     },
 },
 
-"custom/keyboard-backlit": {
-    "exec": "~/.config/waybar/scripts/keyboard-backlit.sh",
     "return-type": "json",
-    "format": "{icon}",
-    "format-icons": {
-        "off":  "\uf4ef",
-        "low":  "\uf7ec",
-        "high": "\uf7ed",
-    },
-    "on-click": "~/.config/scripts/keeb-backlit.sh cycle",
-    "on-scroll-up": "~/.config/scripts/keeb-backlit.sh inc",
-    "on-scroll-down": "~/.config/scripts/keeb-backlit.sh dec",
 },
 "group/scratchpads": {
   "orientation": "inherit",
