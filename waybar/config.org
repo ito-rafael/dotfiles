@@ -18,6 +18,11 @@
   - [[#audio][Audio]]
   - [[#brightness][Brightness]]
   - [[#gamma][Gamma]]
+- [[#group-toggle][Group toggle]]
+  - [[#mouse-warping][Mouse warping]]
+  - [[#dunst][Dunst]]
+  - [[#scale][Scale]]
+  - [[#keyboard-backlit][Keyboard backlit]]
 - [[#battery][Battery]]
 - [[#clock-calendar][Clock (Calendar)]]
 - [[#mpris][MPRIS]]
@@ -39,10 +44,7 @@
   - [[#samsung][Samsung]]
 - [[#caps-lock][Caps Lock]]
 - [[#caps-lock-1][Caps Lock]]
-- [[#mouse-warping][Mouse warping]]
 - [[#xremap-mode][xremap mode]]
-- [[#dunst][Dunst]]
-- [[#scale][Scale]]
 - [[#pomodoro-timer][Pomodoro timer]]
 - [[#mouse-battery][Mouse battery]]
 - [[#lan-mouse][lan-mouse]]
@@ -51,7 +53,6 @@
 - [[#pacman][Pacman]]
 - [[#kmonad][KMonad]]
 - [[#kanata][kanata]]
-- [[#keyboard-backlit][Keyboard backlit]]
 - [[#groups][Groups]]
   - [[#scratchpad][Scratchpad]]
 
@@ -90,10 +91,6 @@
     "custom/pomodoro-timer",
     "custom/xremap-mode",
     "group/scratchpads",
-    "custom/mouse-warping",
-    "custom/dunst",
-    "custom/scale",
-    "custom/pacman",
     //"custom/kmonad",
     "custom/kanata",
     "mpris",
@@ -207,6 +204,79 @@
     "format": "🌡️ {}K",
     "interval": 60,
     "signal": 8,
+},
+#+end_src
+* Group toggle
+#+begin_src js
+"group/toggle": {
+  "orientation": "inherit",
+  "modules": [
+    "custom/mouse-warping",
+    "custom/dunst",
+    "custom/scale",
+    "custom/keyboard-backlit",
+  ]
+},
+#+end_src
+** Mouse warping
+#+begin_src js
+"custom/mouse-warping": {
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/mouse-warping.sh monitor",
+    "on-click": "~/.config/waybar/scripts/mouse-warping.sh toggle",
+    "format": " {} {icon} ",
+    "format-icons": {
+        "enabled": "<span color=\"#090\"></span>",
+        "disabled": "<span color=\"#F00\"></span>",
+    },
+},
+#+end_src
+** Dunst
+#+begin_src js
+"custom/dunst": {
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/dunst.sh",
+    "on-click": "dunstctl set-paused toggle",
+    "restart-interval": 1,
+    "format": " {} {icon} ",
+    "format-icons": {
+        "enabled": "<span color=\"#090\"></span>",
+        "disabled": "<span color=\"#F00\"></span>",
+    },
+},
+#+end_src
+** Scale
+The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with a small delay (=sleep 0.2=) so there is enough time to Waybar to register the "mouse up" event of the click, before triggering the scale change.
+#+begin_src js
+"custom/scale": {
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/sway-scale.sh",
+    "on-click": "sh -c 'sleep 0.2 && ~/.config/scripts/sway-scale.sh toggle' &",
+    "on-scroll-up": "~/.config/scripts/sway-scale.sh inc",
+    "on-scroll-down": "~/.config/scripts/sway-scale.sh dec",
+    "format": " {icon} {text} ",
+    "format-icons": {
+        "default": "<span color=\"#999\"></span>",
+        "zoom":    "<span color=\"#FF7\"></span>",
+    },
+    "reverse-scrolling": true,
+    "reverse-mouse-scrolling": false,
+},
+#+end_src
+** Keyboard backlit
+#+begin_src js
+"custom/keyboard-backlit": {
+    "exec": "~/.config/waybar/scripts/keyboard-backlit.sh",
+    "return-type": "json",
+    "format": "{icon}",
+    "format-icons": {
+        "off":  "\uf4ef",
+        "low":  "\uf7ec",
+        "high": "\uf7ed",
+    },
+    "on-click": "~/.config/scripts/keeb-backlit.sh cycle",
+    "on-scroll-up": "~/.config/scripts/keeb-backlit.sh inc",
+    "on-scroll-down": "~/.config/scripts/keeb-backlit.sh dec",
 },
 #+end_src
 * Battery
@@ -478,19 +548,6 @@
     "format": " {} ",
 },
 #+end_src
-* Mouse warping
-#+begin_src js
-"custom/mouse-warping": {
-    "return-type": "json",
-    "exec": "~/.config/waybar/scripts/mouse-warping.sh monitor",
-    "on-click": "~/.config/waybar/scripts/mouse-warping.sh toggle",
-    "format": " {} {icon} ",
-    "format-icons": {
-        "enabled": "<span color=\"#090\"></span>",
-        "disabled": "<span color=\"#F00\"></span>",
-    },
-},
-#+end_src
 * xremap mode
 #+begin_src js
 "custom/xremap-mode": {
@@ -502,38 +559,6 @@
     //    "default": "<span color=\"#090\"></span>",
     //    "lan-mouse": "<span color=\"#F00\"></span>",
     //},
-},
-#+end_src
-* Dunst
-#+begin_src js
-"custom/dunst": {
-    "return-type": "json",
-    "exec": "~/.config/waybar/scripts/dunst.sh",
-    "on-click": "dunstctl set-paused toggle",
-    "restart-interval": 1,
-    "format": " {} {icon} ",
-    "format-icons": {
-        "enabled": "<span color=\"#090\"></span>",
-        "disabled": "<span color=\"#F00\"></span>",
-    },
-},
-#+end_src
-* Scale
-The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with a small delay (=sleep 0.2=) so there is enough time to Waybar to register the "mouse up" event of the click, before triggering the scale change.
-#+begin_src js
-"custom/scale": {
-    "return-type": "json",
-    "exec": "~/.config/waybar/scripts/sway-scale.sh",
-    "on-click": "sh -c 'sleep 0.2 && ~/.config/scripts/sway-scale.sh toggle' &",
-    "on-scroll-up": "~/.config/scripts/sway-scale.sh inc",
-    "on-scroll-down": "~/.config/scripts/sway-scale.sh dec",
-    "format": " {icon} {text} ",
-    "format-icons": {
-        "default": "<span color=\"#999\"></span>",
-        "zoom":    "<span color=\"#FF7\"></span>",
-    },
-    "reverse-scrolling": true,
-    "reverse-mouse-scrolling": false,
 },
 #+end_src
 * Pomodoro timer
@@ -637,20 +662,8 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
     },
 },
 #+end_src
-* Keyboard backlit
 #+begin_src js
-"custom/keyboard-backlit": {
-    "exec": "~/.config/waybar/scripts/keyboard-backlit.sh",
     "return-type": "json",
-    "format": "{icon}",
-    "format-icons": {
-        "off":  "\uf4ef",
-        "low":  "\uf7ec",
-        "high": "\uf7ed",
-    },
-    "on-click": "~/.config/scripts/keeb-backlit.sh cycle",
-    "on-scroll-up": "~/.config/scripts/keeb-backlit.sh inc",
-    "on-scroll-down": "~/.config/scripts/keeb-backlit.sh dec",
 },
 #+end_src
 * Groups
