@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 
-export ANSIBLE_STDOUT_CALLBACK=json
+# silently update the git repos
+git -C /home/ansible/git/dotfiles pull -q > /dev/null 2>&1
+git -C /home/ansible/git/ansible-provision pull -q > /dev/null 2>&1
+git -C /home/ansible/git/keebab pull -q > /dev/null 2>&1
 
+export ANSIBLE_STDOUT_CALLBACK=json
+# run the dry-run check
 ansible-playbook /home/ansible/git/ansible-provision/local.yml \
   --inventory /home/ansible/git/ansible-provision/inventory/hosts.yml \
   --limit $(hostname) \
