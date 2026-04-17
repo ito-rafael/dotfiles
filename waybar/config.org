@@ -51,6 +51,7 @@
 - [[#pacman][Pacman]]
 - [[#kmonad][KMonad]]
 - [[#kanata][kanata]]
+- [[#keyboard-backlit][Keyboard backlit]]
 - [[#groups][Groups]]
   - [[#scratchpad][Scratchpad]]
 
@@ -634,6 +635,22 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
         "deactivating": "<span color=\"#FF7\"></span>",
         "unknown":      "<span color=\"#FA5\"></span>",
     },
+},
+#+end_src
+* Keyboard backlit
+#+begin_src js
+"custom/keyboard-backlit": {
+    "exec": "~/.config/waybar/scripts/keyboard-backlit.sh",
+    "return-type": "json",
+    "format": "{icon}",
+    "format-icons": {
+        "off":  "\uf4ef",
+        "low":  "\uf7ec",
+        "high": "\uf7ed",
+    },
+    "on-click": "~/.config/scripts/keeb-backlit.sh cycle",
+    "on-scroll-up": "~/.config/scripts/keeb-backlit.sh inc",
+    "on-scroll-down": "~/.config/scripts/keeb-backlit.sh dec",
 },
 #+end_src
 * Groups

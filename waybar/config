@@ -25,6 +25,7 @@
     "custom/pacman",
     //"custom/kmonad",
     "custom/kanata",
+    "custom/keyboard-backlit",
     "custom/systemd-lanmouse",
     "custom/lanmouse-status",
     "mpris",
@@ -464,6 +465,19 @@
     },
 },
 
+"custom/keyboard-backlit": {
+    "exec": "~/.config/waybar/scripts/keyboard-backlit.sh",
+    "return-type": "json",
+    "format": "{icon}",
+    "format-icons": {
+        "off":  "\uf4ef",
+        "low":  "\uf7ec",
+        "high": "\uf7ed",
+    },
+    "on-click": "~/.config/scripts/keeb-backlit.sh cycle",
+    "on-scroll-up": "~/.config/scripts/keeb-backlit.sh inc",
+    "on-scroll-down": "~/.config/scripts/keeb-backlit.sh dec",
+},
 "group/scratchpads": {
   "orientation": "inherit",
   "drawer": {
