@@ -9,13 +9,15 @@
 - [[#layout][Layout]]
 - [[#positioning][Positioning]]
 - [[#sway][Sway]]
-- [[#audio][Audio]]
-- [[#brightness][Brightness]]
 - [[#group-monitoring][Group Monitoring]]
   - [[#cpu][CPU]]
   - [[#memory][Memory]]
   - [[#temperature][Temperature]]
   - [[#disk][Disk]]
+- [[#group-control][Group Control]]
+  - [[#audio][Audio]]
+  - [[#brightness][Brightness]]
+  - [[#gamma][Gamma]]
 - [[#battery][Battery]]
 - [[#clock-calendar][Clock (Calendar)]]
 - [[#mpris][MPRIS]]
@@ -94,10 +96,8 @@
     //"custom/kmonad",
     "custom/kanata",
     "mpris",
-    "pulseaudio",
-    "backlight",
-    "custom/gamma",
     "group/monitoring",
+    "group/control",
     "battery",
     "clock",
     //"keyboard-state",
@@ -158,7 +158,22 @@
     "unit": "GB",
 },
 #+end_src
-* Audio
+* Group Control
+#+begin_src js
+"group/control": {
+  "orientation": "inherit",
+  //"drawer": {
+  //    "transition-duration": 500,
+  //    "transition-left-to-right": false,
+  //},
+  "modules": [
+    "pulseaudio",
+    "backlight",
+    "custom/gamma",
+  ]
+},
+#+end_src
+** Audio
 #+begin_src js
 "pulseaudio": {
     "format": "{volume}% {icon} {format_source}",
@@ -175,13 +190,22 @@
     "reverse-mouse-scrolling": false,
 },
 #+end_src
-* Brightness
+** Brightness
 #+begin_src js
 "backlight": {
     "format": "{percent}% {icon}",
     "format-icons": ["", "", "", "", "", "", "", "", ""],
     "reverse-scrolling": true,
     "reverse-mouse-scrolling": false,
+},
+#+end_src
+** Gamma
+#+begin_src js
+"custom/gamma": {
+    "exec": "~/.config/waybar/scripts/gamma.sh",
+    "format": "🌡️ {}K",
+    "interval": 60,
+    "signal": 8,
 },
 #+end_src
 * Battery
@@ -571,15 +595,6 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
         "medium": "<span color=\"#FF7\"></span>",
         "high":   "<span color=\"#F33\"></span>",
     },
-},
-#+end_src
-* Gamma
-#+begin_src js
-"custom/gamma": {
-    "exec": "~/.config/waybar/scripts/gamma.sh",
-    "format": "🌡️ {}K",
-    "interval": 60,
-    "signal": 8,
 },
 #+end_src
 * KMonad

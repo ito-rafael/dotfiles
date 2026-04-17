@@ -28,10 +28,8 @@
     "custom/systemd-lanmouse",
     "custom/lanmouse-status",
     "mpris",
-    "pulseaudio",
-    "backlight",
-    "custom/gamma",
     "group/monitoring",
+    "group/control",
     "custom/battery-mouse",
     "battery",
     "clock",
@@ -80,6 +78,19 @@
     "unit": "GB",
 },
 
+"group/control": {
+  "orientation": "inherit",
+  //"drawer": {
+  //    "transition-duration": 500,
+  //    "transition-left-to-right": false,
+  //},
+  "modules": [
+    "pulseaudio",
+    "backlight",
+    "custom/gamma",
+  ]
+},
+
 "pulseaudio": {
     "format": "{volume}% {icon} {format_source}",
     "format-bluetooth": "{volume}% {icon} {format_source}",
@@ -100,6 +111,13 @@
     "format-icons": ["", "", "", "", "", "", "", "", ""],
     "reverse-scrolling": true,
     "reverse-mouse-scrolling": false,
+},
+
+"custom/gamma": {
+    "exec": "~/.config/waybar/scripts/gamma.sh",
+    "format": "🌡️ {}K",
+    "interval": 60,
+    "signal": 8,
 },
 
 "battery": {
@@ -410,13 +428,6 @@
         "medium": "<span color=\"#FF7\"></span>",
         "high":   "<span color=\"#F33\"></span>",
     },
-},
-
-"custom/gamma": {
-    "exec": "~/.config/waybar/scripts/gamma.sh",
-    "format": "🌡️ {}K",
-    "interval": 60,
-    "signal": 8,
 },
 
 "custom/kmonad": {
