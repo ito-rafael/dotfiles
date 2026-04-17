@@ -25,6 +25,10 @@
   - [[#dunst][Dunst]]
   - [[#scale][Scale]]
   - [[#keyboard-backlit][Keyboard backlit]]
+- [[#group-sysadmin][Group sysadmin]]
+  - [[#pacman][Pacman]]
+  - [[#ansible-provision][Ansible-provision]]
+  - [[#informant][Informant]]
 - [[#network][Network]]
 - [[#media][Media]]
   - [[#custom][Custom]]
@@ -59,8 +63,6 @@
   - [[#lanmouse][lanmouse]]
 - [[#xremap-mode][xremap mode]]
 - [[#pomodoro-timer][Pomodoro timer]]
-- [[#pacman][Pacman]]
-- [[#ansible-provision][Ansible-provision]]
 - [[#kmonad][KMonad]]
 - [[#kanata][kanata]]
 
@@ -496,7 +498,87 @@ label:focus {
     transition: background 0.3s ease;
 }
 #+end_src
-
+* Group sysadmin
+#+begin_src css
+#custom-pacman,
+#custom-ansible-provision,
+#informant {
+    padding: 0px 5px;
+    margin:  0;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: lightgray;
+}
+#+end_src
+** Pacman :noexport_1:
+#+begin_src css
+#custom-pacman {
+    border-radius: 10px 0 0 10px;
+}
+#+end_src
+*** Low
+#+begin_src css
+#custom-pacman.low {
+    color: lightgray;
+}
+#+end_src
+*** Medium
+#+begin_src css
+#custom-pacman.medium {
+    color: lightgray;
+}
+#+end_src
+*** High
+#+begin_src css
+#custom-pacman.high {
+    color: lightgray;
+}
+#+end_src
+*** Hover
+#+begin_src css
+#custom-pacman:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+#+end_src
+** Ansible-provision :noexport_1:
+*** Warning
+#+begin_src css
+#custom-ansible.warning {
+    color: #fab387;
+    font-weight: bold;
+}
+#+end_src
+*** Synced
+#+begin_src css
+#custom-ansible.synced {
+    color: #a6e3a1;
+}
+#+end_src
+*** Error
+#+begin_src css
+#custom-ansible.error {
+    color: #f38ba8;
+}
+#+end_src
+** Informant
+#+begin_src css
+#informant {
+    border-radius: 0 10px 10px 0;
+}
+#+end_src
+*** Hover
+#+begin_src css
+#informant:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+#+end_src
+*** Icon
+#+begin_src css
+#image.arch-news {
+    padding-right: 5px;
+}
+#+end_src
 * Network :noexport_1:
 ** Normal
 #+begin_src css
@@ -1085,52 +1167,6 @@ label:focus {
     background-color: rgba(116, 192, 219, 0.5);
 }
 #+end_src
-* Pacman :noexport_1:
-** Low
-#+begin_src css
-#custom-pacman.low {
-    color: lightgray;
-}
-#+end_src
-** Medium
-#+begin_src css
-#custom-pacman.medium {
-    color: lightgray;
-}
-#+end_src
-** High
-#+begin_src css
-#custom-pacman.high {
-    color: lightgray;
-}
-#+end_src
-** Hover
-#+begin_src css
-#custom-pacman:hover {
-    background: rgba(128, 128, 128, 0.5);
-    transition: background 0.3s ease;
-}
-#+end_src
-* Ansible-provision :noexport_1:
-#+end_src
-** Warning
-#+begin_src css
-#custom-ansible.warning {
-    color: #fab387;
-    font-weight: bold;
-}
-#+end_src
-** Synced
-#+begin_src css
-#custom-ansible.synced {
-    color: #a6e3a1;
-}
-#+end_src
-** Error
-#+begin_src css
-#custom-ansible.error {
-    color: #f38ba8;
-}
 * KMonad :noexport_1:
 ** Active
 #+begin_src css

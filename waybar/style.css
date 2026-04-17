@@ -307,6 +307,62 @@ label:focus {
     transition: background 0.3s ease;
 }
 
+#custom-pacman,
+#custom-ansible-provision,
+#informant {
+    padding: 0px 5px;
+    margin:  0;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: lightgray;
+}
+
+#custom-pacman {
+    border-radius: 10px 0 0 10px;
+}
+
+#custom-pacman.low {
+    color: lightgray;
+}
+
+#custom-pacman.medium {
+    color: lightgray;
+}
+
+#custom-pacman.high {
+    color: lightgray;
+}
+
+#custom-pacman:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+
+#custom-ansible.warning {
+    color: #fab387;
+    font-weight: bold;
+}
+
+#custom-ansible.synced {
+    color: #a6e3a1;
+}
+
+#custom-ansible.error {
+    color: #f38ba8;
+}
+
+#informant {
+    border-radius: 0 10px 10px 0;
+}
+
+#informant:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+
+#image.arch-news {
+    padding-right: 5px;
+}
+
 #network {
     background-color: #2980b9;
 }
@@ -695,30 +751,8 @@ label:focus {
     background-color: rgba(116, 192, 219, 0.5);
 }
 
-#custom-pacman.low {
-    color: lightgray;
-}
-
-#custom-pacman.medium {
-    color: lightgray;
-}
-
-#custom-pacman.high {
-    color: lightgray;
-}
-
-#custom-pacman:hover {
-    background: rgba(128, 128, 128, 0.5);
-    transition: background 0.3s ease;
-}
-
-#custom-ansible.warning {
-    color: #fab387;
-    font-weight: bold;
-}
-
-#custom-ansible.synced {
-    color: #a6e3a1;
+#custom-kmonad.active {
+    color: green;
 }
 
 #custom-kmonad.inactive {
