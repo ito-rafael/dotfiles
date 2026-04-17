@@ -1,6 +1,7 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    /*font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif, "Material Symbols Outlined";*/
     font-size: 12px;
 }
 
@@ -711,8 +712,13 @@ label:focus {
     transition: background 0.3s ease;
 }
 
-#custom-kmonad.active {
-    color: green;
+#custom-ansible.warning {
+    color: #fab387;
+    font-weight: bold;
+}
+
+#custom-ansible.synced {
+    color: #a6e3a1;
 }
 
 #custom-kmonad.inactive {
