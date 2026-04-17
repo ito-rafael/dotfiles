@@ -164,10 +164,6 @@
 #+begin_src js
 "group/control": {
   "orientation": "inherit",
-  //"drawer": {
-  //    "transition-duration": 500,
-  //    "transition-left-to-right": false,
-  //},
   "modules": [
     "pulseaudio",
     "backlight",
@@ -722,9 +718,9 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
 *** Drawer icon
 #+begin_src js
 "image#scratchpad-icon": {
-     "exec":"/home/rafael/git/dotfiles/waybar/scripts/scratchpad-icon.sh",
+     "exec": "/home/rafael/git/dotfiles/waybar/scripts/scratchpad-icon.sh",
      "size": 16,
-     "interval": 60,
+     "interval": 3600,
 },
 #+end_src
 *** Drawer
