@@ -17,8 +17,11 @@
   - [[#memory][Memory]]
   - [[#temperature][Temperature]]
   - [[#disk][Disk]]
+- [[#group-control][Group Control]]
+  - [[#pulseaudio][Pulseaudio]]
+  - [[#brightness][Brightness]]
+  - [[#gamma][Gamma]]
 - [[#network][Network]]
-- [[#pulseaudio][Pulseaudio]]
 - [[#media][Media]]
   - [[#custom][Custom]]
   - [[#spotify][Spotify]]
@@ -56,7 +59,6 @@
 - [[#scale][Scale]]
 - [[#pomodoro-timer][Pomodoro timer]]
 - [[#pacman][Pacman]]
-- [[#gamma][Gamma]]
 - [[#kmonad][KMonad]]
 - [[#kanata][kanata]]
 - [[#keyboard-backlit][Keyboard backlit]]
@@ -343,12 +345,53 @@ label:focus {
 }
 #+end_src
 * Backlight
+* Group Control
+** Pulseaudio :noexport_1:
+*** Normal
 #+begin_src css
-#backlight {
-    /*background-color: #90b1b1;*/
+#pulseaudio {
+    border-radius: 10px 0 0 10px;
+    padding: 0px 5px;
+    margin:  0;
+    background-color: rgba(0, 0, 0, 0.2);
     color: lightgray;
 }
 #+end_src
+*** Muted
+#+begin_src css
+#pulseaudio.muted {
+    background-color: #90b1b1;
+    color: #2a5c45;
+}
+#+end_src
+** Brightness
+#+begin_src css
+#backlight {
+    border-radius: 0;
+    padding: 0px 5px;
+    margin:  0;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: lightgray;
+}
+#+end_src
+** Gamma :noexport_1:
+#+begin_src css
+#custom-gamma {
+    border-radius: 0 10px 10px 0;
+    padding: 0px 5px;
+    margin:  0;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: lightgray;
+}
+#+end_src
+#+begin_src css
+}
+#+end_src
+#+begin_src css
+    color: lightgray;
+}
+#+end_src
+#+begin_src css
 * Network :noexport_1:
 ** Normal
 #+begin_src css
@@ -360,21 +403,6 @@ label:focus {
 #+begin_src css
 #network.disconnected {
     background-color: #f53c3c;
-}
-#+end_src
-* Pulseaudio :noexport_1:
-** Normal
-#+begin_src css
-#pulseaudio {
-    /*background-color: #f1c40f;*/
-    color: lightgray;
-}
-#+end_src
-** Muted
-#+begin_src css
-#pulseaudio.muted {
-    background-color: #90b1b1;
-    color: #2a5c45;
 }
 #+end_src
 * Media
