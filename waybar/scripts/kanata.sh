@@ -122,7 +122,7 @@ case "${ACTION}" in
         ;;
     "monitor")
         check_status
-        # infinite loop that updates text everytime the mouse warping file changes
+        # infinite loop that updates text everytime the kanata file changes
         inotifywait --quiet --monitor --event close_write $FILE | while read; do
             STATUS=$(systemctl $SCOPE is-active kanata)
             update_output $STATUS
