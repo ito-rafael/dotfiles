@@ -11,9 +11,12 @@
 - [[#workspaces][Workspaces]]
 - [[#clock][Clock]]
 - [[#battery][Battery]]
-- [[#groups][Groups]]
-  - [[#monitoring][Monitoring]]
 - [[#backlight][Backlight]]
+- [[#group-monitoring][Group Monitoring]]
+  - [[#cpu][CPU]]
+  - [[#memory][Memory]]
+  - [[#temperature][Temperature]]
+  - [[#disk][Disk]]
 - [[#network][Network]]
 - [[#pulseaudio][Pulseaudio]]
 - [[#media][Media]]
@@ -285,9 +288,8 @@ label:focus {
     background-color: #000000;
 }
 #+end_src
-* Groups
-** Monitoring
-*** CPU
+* Group Monitoring
+** CPU
 #+begin_src css
 #cpu {
     border-radius: 10px 0 0 10px;
@@ -297,38 +299,40 @@ label:focus {
     color: lightgray;
 }
 #+end_src
-*** Memory
+** Memory
 #+begin_src css
 #memory {
+    border-radius: 0;
     padding: 0px 5px;
     margin:  0;
     background-color: rgba(0, 0, 0, 0.2);
     color: lightgray;
 }
 #+end_src
-*** Temperature :noexport_1:
-**** Normal
+** Temperature :noexport_1:
+*** Normal
 #+begin_src css
 #temperature {
+    border-radius: 0;
     padding: 0px 5px;
     margin:  0;
     background-color: rgba(0, 0, 0, 0.2);
     color: lightgray;
 }
 #+end_src
-**** Warning
+*** Warning
 #+begin_src css
 #temperature.warning {
     background-color: yellow;
 }
 #+end_src
-**** Critical
+*** Critical
 #+begin_src css
 #temperature.critical {
     background-color: #eb4d4b;
 }
 #+end_src
-*** Disk
+** Disk
 #+begin_src css
 #disk {
     border-radius: 0 10px 10px 0;
