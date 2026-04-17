@@ -28,13 +28,10 @@
     "custom/systemd-lanmouse",
     "custom/lanmouse-status",
     "mpris",
-    "cpu",
-    "memory",
-    "temperature",
-    "disk",
     "pulseaudio",
     "backlight",
     "custom/gamma",
+    "group/monitoring",
     "custom/battery-mouse",
     "battery",
     "clock",
@@ -50,8 +47,18 @@
     "format": "{name}",
 },
 
+"group/monitoring": {
+  "orientation": "inherit",
+  "modules": [
+    "cpu",
+    "memory",
+    "temperature",
+    "disk",
+  ]
+},
+
 "cpu": {
-    "format": "{usage}% ",
+    "format": "   {usage}%",
     "tooltip": false
 },
 

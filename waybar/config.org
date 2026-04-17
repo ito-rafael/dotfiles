@@ -9,12 +9,13 @@
 - [[#layout][Layout]]
 - [[#positioning][Positioning]]
 - [[#sway][Sway]]
-- [[#cpu][CPU]]
-- [[#memory][Memory]]
-- [[#temperature][Temperature]]
-- [[#disk][Disk]]
 - [[#audio][Audio]]
 - [[#brightness][Brightness]]
+- [[#group-monitoring][Group Monitoring]]
+  - [[#cpu][CPU]]
+  - [[#memory][Memory]]
+  - [[#temperature][Temperature]]
+  - [[#disk][Disk]]
 - [[#battery][Battery]]
 - [[#clock-calendar][Clock (Calendar)]]
 - [[#mpris][MPRIS]]
@@ -93,13 +94,10 @@
     //"custom/kmonad",
     "custom/kanata",
     "mpris",
-    "cpu",
-    "memory",
-    "temperature",
-    "disk",
     "pulseaudio",
     "backlight",
     "custom/gamma",
+    "group/monitoring",
     "battery",
     "clock",
     //"keyboard-state",
@@ -116,20 +114,33 @@
     "format": "{name}",
 },
 #+end_src
-* CPU
+* Group Monitoring
+#+begin_src js
+"group/monitoring": {
+  "orientation": "inherit",
+  "modules": [
+    "cpu",
+    "memory",
+    "temperature",
+    "disk",
+  ]
+},
+#+end_src
+** CPU
 #+begin_src js
 "cpu": {
-    "format": "{usage}% ",
+    "format": "   {usage}%",
     "tooltip": false
 },
 #+end_src
-* Memory
+** Memory
 #+begin_src js
 "memory": {
     "format": "{}% "
 },
 #+end_src
-* Temperature
+** Temperature
+*** Template
 #+begin_src js :tangle no
 "temperature": {
     "critical-threshold": 80,
@@ -138,7 +149,7 @@
     "format-icons": ["", "", ""]
 },
 #+end_src
-* Disk
+** Disk
 #+begin_src js
 "disk": {
     "interval": 30,
