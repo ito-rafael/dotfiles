@@ -587,6 +587,12 @@ label:focus {
     padding-right: 3px;
 }
 #+end_src
+**** Zero
+#+begin_src css
+#informant #custom-informant.zero {
+    color: gray;
+}
+#+end_src
 * Network :noexport_1:
 ** Normal
 #+begin_src css

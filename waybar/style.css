@@ -368,6 +368,10 @@ label:focus {
     padding-right: 3px;
 }
 
+#informant #custom-informant.zero {
+    color: gray;
+}
+
 #network {
     background-color: #2980b9;
 }
