@@ -17,6 +17,8 @@
   - [[#history-navigation][History navigation]]
   - [[#tab-navigation][Tab navigation]]
   - [[#open-link][Open link]]
+- [[#visual-mode][Visual mode]]
+  - [[#navigation][Navigation]]
 
 * Information
 ** How to load config file
@@ -75,6 +77,8 @@ api.mapkey("I", "Previous tab", () => { api.RUNTIME("previousTab"); });
 api.mapkey("f", "Open link", () => { api.Hints.create("", api.Hints.dispatchMouseClick, {tabbed: false, active: true}); })
 api.mapkey("F", "Open link in new tab", () => { api.Hints.create("", api.Hints.dispatchMouseClick, {tabbed: true, active: true}); })
 #+end_src
+* Visual mode
+** Navigation
 *** Backup
 Save the original bindings into aliases to avoids dependency/order issues.
 #+begin_src js
@@ -97,7 +101,13 @@ api.vmap("n",  "_h");
 api.vmap("e",  "_j");
 api.vmap("i",  "_k");
 api.vmap("o",  "_l");
+//api.vmap("<ArrowLeft>",  "_h");
+//api.vmap("<ArrowDown>",  "_j");
+//api.vmap("<ArrowUp>",    "_k");
+//api.vmap("<ArrowRight>", "_l");
 #+end_src
+*** Delete
+Remove the old bindings.
 #+begin_src js
 api.vunmap("_h");
 api.vunmap("_j");
