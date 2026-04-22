@@ -41,4 +41,6 @@ api.vunmap("_k");
 api.vunmap("_l");
 
 api.addSearchAlias('m', 'google-maps', 'https://www.google.com/maps/search/', 's');
+
+api.addSearchAlias('o', 'stackoverflow', 'https://stackoverflow.com/search?q=', 's');
 api.unmapallexcept([], /localhost/);
