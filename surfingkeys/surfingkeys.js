@@ -34,6 +34,10 @@ api.vmap("n",  "_h");
 api.vmap("e",  "_j");
 api.vmap("i",  "_k");
 api.vmap("o",  "_l");
+//api.vmap("<ArrowLeft>",  "_h");
+//api.vmap("<ArrowDown>",  "_j");
+//api.vmap("<ArrowUp>",    "_k");
+//api.vmap("<ArrowRight>", "_l");
 
 api.vunmap("_h");
 api.vunmap("_j");
