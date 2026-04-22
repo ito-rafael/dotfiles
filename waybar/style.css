@@ -359,8 +359,9 @@ label:focus {
     transition: background 0.3s ease;
 }
 
-#image.arch-news {
+#informant #image.arch-news {
     padding-right: 5px;
+    margin-bottom: 3px;
 }
 
 #network {

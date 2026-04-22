@@ -161,7 +161,7 @@
     // display image only if there is news
     "exec": "echo /home/rafael/.config/waybar/icon/archlinux.png",
     "interval": 3600,
-    "size": 16,
+    "size": 14,
     "on-click": "kitty -e informant read"
 },
 

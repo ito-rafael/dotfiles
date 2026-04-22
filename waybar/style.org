@@ -575,8 +575,9 @@ label:focus {
 #+end_src
 *** Icon
 #+begin_src css
-#image.arch-news {
+#informant #image.arch-news {
     padding-right: 5px;
+    margin-bottom: 3px;
 }
 #+end_src
 * Network :noexport_1:
