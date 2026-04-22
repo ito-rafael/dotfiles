@@ -14,6 +14,9 @@ api.mapkey("o", "Scroll right", () => { api.Normal.scroll("right"); });
 api.mapkey("N", "Go back in history",    () => { history.go(-1); });
 api.mapkey("O", "Go forward in history", () => { history.go(1); });
 
+api.mapkey("E", "Next tab",     () => { api.RUNTIME("nextTab"); });
+api.mapkey("I", "Previous tab", () => { api.RUNTIME("previousTab"); });
+
 api.vmap("_h",  "h");
 api.vmap("_j",  "j");
 api.vmap("_k",  "k");

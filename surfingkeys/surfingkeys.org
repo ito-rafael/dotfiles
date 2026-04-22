@@ -15,6 +15,7 @@
 - [[#normal-mode][Normal mode]]
   - [[#scroll][Scroll]]
   - [[#history-navigation][History navigation]]
+  - [[#tab-navigation][Tab navigation]]
 
 * Information
 ** How to load config file
@@ -62,6 +63,11 @@ api.mapkey("o", "Scroll right", () => { api.Normal.scroll("right"); });
 #+begin_src js
 api.mapkey("N", "Go back in history",    () => { history.go(-1); });
 api.mapkey("O", "Go forward in history", () => { history.go(1); });
+#+end_src
+** Tab navigation
+#+begin_src js
+api.mapkey("E", "Next tab",     () => { api.RUNTIME("nextTab"); });
+api.mapkey("I", "Previous tab", () => { api.RUNTIME("previousTab"); });
 #+end_src
 *** Backup
 Save the original bindings into aliases to avoids dependency/order issues.
