@@ -16,6 +16,7 @@
   - [[#scroll][Scroll]]
   - [[#history-navigation][History navigation]]
   - [[#tab-navigation][Tab navigation]]
+  - [[#open-link][Open link]]
 
 * Information
 ** How to load config file
@@ -68,6 +69,11 @@ api.mapkey("O", "Go forward in history", () => { history.go(1); });
 #+begin_src js
 api.mapkey("E", "Next tab",     () => { api.RUNTIME("nextTab"); });
 api.mapkey("I", "Previous tab", () => { api.RUNTIME("previousTab"); });
+#+end_src
+** Open link
+#+begin_src js
+api.mapkey("f", "Open link", () => { api.Hints.create("", api.Hints.dispatchMouseClick, {tabbed: false, active: true}); })
+api.mapkey("F", "Open link in new tab", () => { api.Hints.create("", api.Hints.dispatchMouseClick, {tabbed: true, active: true}); })
 #+end_src
 *** Backup
 Save the original bindings into aliases to avoids dependency/order issues.

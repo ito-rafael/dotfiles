@@ -17,6 +17,9 @@ api.mapkey("O", "Go forward in history", () => { history.go(1); });
 api.mapkey("E", "Next tab",     () => { api.RUNTIME("nextTab"); });
 api.mapkey("I", "Previous tab", () => { api.RUNTIME("previousTab"); });
 
+api.mapkey("f", "Open link", () => { api.Hints.create("", api.Hints.dispatchMouseClick, {tabbed: false, active: true}); })
+api.mapkey("F", "Open link in new tab", () => { api.Hints.create("", api.Hints.dispatchMouseClick, {tabbed: true, active: true}); })
+
 api.vmap("_h",  "h");
 api.vmap("_j",  "j");
 api.vmap("_k",  "k");
