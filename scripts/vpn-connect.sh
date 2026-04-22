@@ -89,7 +89,7 @@ else
         --button=yad-ok \
         --buttons-layout=center \
         --text="Password incorrect." \
-        --image=/usr/share/icons/Papirus-Dark/32x32/status/dialog-error.svg \
+        --image=/usr/share/icons/Papirus-Dark/32x32/status/dialog-error.svg
     exit 1
 fi
 
@@ -98,25 +98,25 @@ fi
 case "${ACTION}" in
     "connect")
         # check if it's already running
-        if [ -f $PID_FILE ]; then
+        if [ -f "$PID_FILE" ]; then
             # ignore
             echo "PID file already exists. Exiting..."
             exit 0
         else
             # start application and save its PID to file (this is done inside $LAUNCHER)
             echo "Starting application..."
-            echo $PASSWORD | sudo -S $LAUNCHER &
+            printf "%s\n" "$PASSWORD" | sudo -S "$LAUNCHER" &
             exit 0
         fi
         ;;
     "disconnect")
         # check if it's already running
-        if [ -f $PID_FILE ]; then
+        if [ -f "$PID_FILE" ]; then
             # stop and remove PID file
             echo "Stopping application..."
             PID=$(cat "$PID_FILE")
-            echo $PASSWORD | sudo -S rm $PID_FILE
-            echo $PASSWORD | sudo -S kill $PID
+            printf "%s\n" "$PASSWORD" | sudo -S rm "$PID_FILE"
+            printf "%s\n" "$PASSWORD" | sudo -S kill "$PID"
             exit 0
         else
             # ignore
@@ -126,17 +126,17 @@ case "${ACTION}" in
         ;;
     "toggle")
         # check if it's already running
-        if [ -f $PID_FILE ]; then
+        if [ -f "$PID_FILE" ]; then
             # stop and remove PID file
             echo "Stopping application..."
             PID=$(cat "$PID_FILE")
-            echo $PASSWORD | sudo -S sudo rm $PID_FILE
-            echo $PASSWORD | sudo -S sudo kill $PID
+            printf "%s\n" "$PASSWORD" | sudo -S rm "$PID_FILE"
+            printf "%s\n" "$PASSWORD" | sudo -S kill "$PID"
             exit 0
         else
             # start application and save its PID to file (this is done inside $LAUNCHER)
             echo "Starting application..."
-            echo $PASSWORD | sudo -S $LAUNCHER &
+            printf "%s\n" "$PASSWORD" | sudo -S "$LAUNCHER" &
             exit 0
         fi
         ;;
