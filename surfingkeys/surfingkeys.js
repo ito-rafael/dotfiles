@@ -43,4 +43,12 @@ api.vunmap("_l");
 api.addSearchAlias('m', 'google-maps', 'https://www.google.com/maps/search/', 's');
 
 api.addSearchAlias('o', 'stackoverflow', 'https://stackoverflow.com/search?q=', 's');
+
+api.mapkey('ss', 'Search current Startpage query on Google', function() {
+    // get query string
+    let googleUrl = 'https://www.google.com/search?q=' + document.querySelector("#q").value;
+    // redirect to Google search page
+    window.location.href = googleUrl;
+});
+
 api.unmapallexcept([], /localhost/);

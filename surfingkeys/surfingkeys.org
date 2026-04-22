@@ -22,6 +22,7 @@
 - [[#search][Search]]
   - [[#google-maps][Google Maps]]
   - [[#stackoverflow][StackOverflow]]
+  - [[#redirect-from-startpage-to-google][Redirect from Startpage to Google]]
 
 * Information
 ** How to load config file
@@ -126,7 +127,14 @@ api.addSearchAlias('m', 'google-maps', 'https://www.google.com/maps/search/', 's
 #+begin_src js
 api.addSearchAlias('o', 'stackoverflow', 'https://stackoverflow.com/search?q=', 's');
 #+end_src
+** Redirect from Startpage to Google
 #+begin_src js
+api.mapkey('ss', 'Search current Startpage query on Google', function() {
+    // get query string
+    let googleUrl = 'https://www.google.com/search?q=' + document.querySelector("#q").value;
+    // redirect to Google search page
+    window.location.href = googleUrl;
+});
 #+end_src
 #+begin_src js
 #+end_src
