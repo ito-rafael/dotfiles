@@ -39,4 +39,6 @@ api.vunmap("_h");
 api.vunmap("_j");
 api.vunmap("_k");
 api.vunmap("_l");
+
+api.addSearchAlias('m', 'google-maps', 'https://www.google.com/maps/search/', 's');
 api.unmapallexcept([], /localhost/);

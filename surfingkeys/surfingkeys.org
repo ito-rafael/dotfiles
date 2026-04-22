@@ -19,6 +19,8 @@
   - [[#open-link][Open link]]
 - [[#visual-mode][Visual mode]]
   - [[#navigation][Navigation]]
+- [[#search][Search]]
+  - [[#google-maps][Google Maps]]
 
 * Information
 ** How to load config file
@@ -114,7 +116,10 @@ api.vunmap("_j");
 api.vunmap("_k");
 api.vunmap("_l");
 #+end_src
+* Search
+** Google Maps
 #+begin_src js
+api.addSearchAlias('m', 'google-maps', 'https://www.google.com/maps/search/', 's');
 #+end_src
 #+begin_src js
 #+end_src
