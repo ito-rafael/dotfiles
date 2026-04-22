@@ -372,6 +372,10 @@ label:focus {
     color: gray;
 }
 
+#informant #custom-informant.news {
+    color: lightgray;
+}
+
 #network {
     background-color: #2980b9;
 }

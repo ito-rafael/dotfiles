@@ -593,6 +593,12 @@ label:focus {
     color: gray;
 }
 #+end_src
+**** News
+#+begin_src css
+#informant #custom-informant.news {
+    color: lightgray;
+}
+#+end_src
 * Network :noexport_1:
 ** Normal
 #+begin_src css
