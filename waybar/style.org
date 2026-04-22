@@ -566,7 +566,8 @@ label:focus {
     border-radius: 0 10px 10px 0;
 }
 #+end_src
-*** Hover
+*** Group
+**** Hover
 #+begin_src css
 #informant:hover {
     background: rgba(128, 128, 128, 0.5);
@@ -578,6 +579,12 @@ label:focus {
 #informant #image.arch-news {
     padding-right: 5px;
     margin-bottom: 3px;
+}
+#+end_src
+*** Parser
+#+begin_src css
+#informant #custom-informant {
+    padding-right: 3px;
 }
 #+end_src
 * Network :noexport_1:

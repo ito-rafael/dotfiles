@@ -364,6 +364,10 @@ label:focus {
     margin-bottom: 3px;
 }
 
+#informant #custom-informant {
+    padding-right: 3px;
+}
+
 #network {
     background-color: #2980b9;
 }
