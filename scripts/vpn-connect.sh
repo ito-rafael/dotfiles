@@ -78,8 +78,16 @@ PASSWORD="$(yad \
     --image=$IMAGE \
     )"
 
+# get the exit code of the yad command
+YAD_STATUS=$?
+# check if user canceled the prompt (exit code != 0)
+if [[ $YAD_STATUS -ne 0 ]]; then
+    echo "Authentication canceled by user."
+    exit 0
+fi
+
 # check password
-if echo $PASSWORD | su - $USER -c true; then
+if printf "%s\n" "$PASSWORD" | su - "$USER" -c true; then
     # password is correct, ignoring...
     true
 else
