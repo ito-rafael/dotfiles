@@ -11,6 +11,9 @@ api.mapkey("e", "Scroll down",  () => { api.Normal.scroll("down"); });
 api.mapkey("i", "Scroll up",    () => { api.Normal.scroll("up"); });
 api.mapkey("o", "Scroll right", () => { api.Normal.scroll("right"); });
 
+api.mapkey("N", "Go back in history",    () => { history.go(-1); });
+api.mapkey("O", "Go forward in history", () => { history.go(1); });
+
 api.vmap("_h",  "h");
 api.vmap("_j",  "j");
 api.vmap("_k",  "k");

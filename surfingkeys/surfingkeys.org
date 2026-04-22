@@ -14,6 +14,7 @@
   - [[#unbind][Unbind]]
 - [[#normal-mode][Normal mode]]
   - [[#scroll][Scroll]]
+  - [[#history-navigation][History navigation]]
 
 * Information
 ** How to load config file
@@ -56,6 +57,11 @@ api.mapkey("n", "Scroll left",  () => { api.Normal.scroll("left"); });
 api.mapkey("e", "Scroll down",  () => { api.Normal.scroll("down"); });
 api.mapkey("i", "Scroll up",    () => { api.Normal.scroll("up"); });
 api.mapkey("o", "Scroll right", () => { api.Normal.scroll("right"); });
+#+end_src
+** History navigation
+#+begin_src js
+api.mapkey("N", "Go back in history",    () => { history.go(-1); });
+api.mapkey("O", "Go forward in history", () => { history.go(1); });
 #+end_src
 *** Backup
 Save the original bindings into aliases to avoids dependency/order issues.
