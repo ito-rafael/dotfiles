@@ -45,8 +45,8 @@ autoinstall:
 #+begin_src yaml
   packages:
     - git
-    - r8125-dkms              # network driver (Realtek RTL8125)
-    - nvidia-driver-580-open  # GPU driver (GeForce RTX 5070 Ti)
+    #- r8125-dkms              # network driver (Realtek RTL8125)
+    #- nvidia-driver-580-open  # GPU driver (GeForce RTX 5070 Ti)
 #+end_src
 * Codecs & Drivers
 #+begin_src yaml
