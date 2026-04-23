@@ -724,8 +724,14 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
     },
 },
 #+end_src
+* kanata-layer
 #+begin_src js
+"custom/kanata-layer": {
+    "exec": "~/.config/waybar/scripts/kanata-layer.sh",
     "return-type": "json",
+    "format": "⌨️ {}",
+    "restart-interval": 2,
+    "tooltip": true
 },
 #+end_src
 * Groups

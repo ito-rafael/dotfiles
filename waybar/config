@@ -533,8 +533,14 @@
     },
 },
 
+"custom/kanata-layer": {
+    "exec": "~/.config/waybar/scripts/kanata-layer.sh",
     "return-type": "json",
+    "format": "⌨️ {}",
+    "restart-interval": 2,
+    "tooltip": true
 },
+
 "group/scratchpads": {
   "orientation": "inherit",
   "drawer": {
