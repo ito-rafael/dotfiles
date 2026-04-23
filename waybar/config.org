@@ -55,7 +55,10 @@
 - [[#systemd-services][Systemd services]]
   - [[#lan-mouse-1][lan-mouse]]
 - [[#kmonad][KMonad]]
-- [[#kanata][kanata]]
+- [[#group-kanata][Group kanata]]
+  - [[#icon][icon]]
+  - [[#systemd][systemd]]
+  - [[#kanata-layer][kanata-layer]]
 - [[#groups][Groups]]
   - [[#scratchpad][Scratchpad]]
 
@@ -82,7 +85,7 @@
     "sway/workspaces",
     "sway/mode",
     "custom/xremap-mode",
-    "custom/kanata-layer",
+    "group/kanata",
     "group/sysadmin",
     "custom/pomodoro-timer",
 ],
@@ -102,7 +105,6 @@
     "custom/vpn-lbic",
     "custom/vpn-samsung",
     "group/scratchpads",
-    //"custom/kmonad",
     "custom/systemd-lanmouse",
     "custom/lanmouse-status",
     "group/monitoring",
@@ -704,32 +706,58 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
     },
 },
 #+end_src
-* kanata
-** script
+* Group kanata
 #+begin_src js
-"custom/kanata": {
-    "return-type": "json",
-    "exec": "sleep 2 && ~/.config/waybar/scripts/kanata.sh monitor --user",
-    "on-click": "~/.config/waybar/scripts/kanata.sh toggle --user",
-    "on-click-right": "~/.config/waybar/scripts/kanata.sh stop --user",
-    "on-click-middle": "~/.config/waybar/scripts/kanata.sh restart --user",
-    "format": " {} {icon} ",
-    "format-icons": {
-        "active":       "<span color=\"#393\"></span>",
-        "inactive":     "<span color=\"#999\"></span>",
-        "failed":       "<span color=\"#F33\"></span>",
-        "activating":   "<span color=\"#FF7\"></span>",
-        "deactivating": "<span color=\"#FF7\"></span>",
-        "unknown":      "<span color=\"#FA5\"></span>",
-    },
+"group/kanata": {
+  "orientation": "inherit",
+  "modules": [
+    "image#kanata",
+    "custom/kanata-layer",
+  ]
 },
 #+end_src
-* kanata-layer
+** icon
+#+begin_src js
+//"image#kanata-icon": {
+//	//"path": "/home/rafael/Downloads/kanata.svg",
+//	"path": "/home/rafael/git/dotfiles/waybar/icon/kanata.svg",
+//	"size": 16,
+//	"interval": 3600,
+//	//"on-click": "mpc toggle",
+//},
+"image#kanata": {
+    "exec": "echo /home/rafael/.config/waybar/icon/kanata.svg",
+    "interval": 3600,
+    "size": 14,
+    //"on-click": "kitty -e informant read"
+},
+
+#+end_src
+** systemd
+#+begin_src js
+//"custom/kanata": {
+//    "return-type": "json",
+//    "exec": "sleep 2 && ~/.config/waybar/scripts/kanata.sh monitor --user",
+//    "on-click": "~/.config/waybar/scripts/kanata.sh toggle --user",
+//    "on-click-right": "~/.config/waybar/scripts/kanata.sh stop --user",
+//    "on-click-middle": "~/.config/waybar/scripts/kanata.sh restart --user",
+//    "format": " {} {icon} ",
+//    "format-icons": {
+//        "active":       "<span color=\"#393\"></span>",
+//        "inactive":     "<span color=\"#999\"></span>",
+//        "failed":       "<span color=\"#F33\"></span>",
+//        "activating":   "<span color=\"#FF7\"></span>",
+//        "deactivating": "<span color=\"#FF7\"></span>",
+//        "unknown":      "<span color=\"#FA5\"></span>",
+//    },
+//},
+#+end_src
+** kanata-layer
 #+begin_src js
 "custom/kanata-layer": {
     "exec": "~/.config/waybar/scripts/kanata-layer.sh",
     "return-type": "json",
-    "format": "⌨️ {}",
+    "format": "{}",
     "restart-interval": 2,
     "tooltip": true
 },
