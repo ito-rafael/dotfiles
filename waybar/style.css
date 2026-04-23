@@ -745,11 +745,6 @@ label:focus {
     background: rgba(255, 0, 0, 0.5);
 }
 
-#custom-mouse-warping:hover {
-    background: rgba(128, 128, 128, 0.5);
-    transition: background 0.3s ease;
-}
-
 #custom-pomodoro-timer.work {
     color: lightgray;
     /*background-color: #ff6b6b;*/
@@ -829,31 +824,6 @@ label:focus {
     padding-right: 5px;
 }
 
-#custom-kanata.active {
-    color: green;
-}
-
-#custom-kanata.inactive {
-    color: gray;
-}
-
-#custom-kanata.failed {
-    color: red;
-}
-
-#custom-kanata.activating {
-    color: yellow;
-}
-
-#custom-kanata.deactivating {
-    color: yellow;
-}
-
-#custom-kanata.unknown {
-    color: orange;
-}
-
-#custom-kanata:hover {
-    background: rgba(128, 128, 128, 0.5);
-    transition: background 0.3s ease;
+#kanata #custom-kanata-layer {
+    color: lightgray;
 }

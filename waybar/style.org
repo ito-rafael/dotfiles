@@ -1270,13 +1270,16 @@ label:focus {
     transition: background 0.3s ease;
 }
 #+end_src
-** icon
+** Icon
 #+begin_src css
 #kanata #image.kanata {
     padding-right: 5px;
 }
 #+end_src
 ** systemd
+:PROPERTIES:
+:header-args: :tangle no
+:END:
 *** Active
 #+begin_src css
 #custom-kanata.active {
@@ -1318,5 +1321,11 @@ label:focus {
 #custom-kanata:hover {
     background: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
+}
+#+end_src
+** Layer
+#+begin_src css
+#kanata #custom-kanata-layer {
+    color: lightgray;
 }
 #+end_src
