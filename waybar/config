@@ -567,6 +567,12 @@
     "tooltip": true
 },
 
+"image#scratchpad-icon": {
+     "exec": "/home/rafael/git/dotfiles/waybar/scripts/scratchpad-icon.sh",
+     "size": 16,
+     "interval": 3600,
+},
+
 "group/scratchpads": {
   "orientation": "inherit",
   "drawer": {
