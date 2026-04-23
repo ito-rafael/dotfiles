@@ -61,7 +61,7 @@
 - [[#lan-mouse][lan-mouse]]
 - [[#systemd-services][systemd services]]
   - [[#lanmouse][lanmouse]]
-- [[#xremap-mode][xremap mode]]
+- [[#xremap][xremap]]
 - [[#pomodoro-timer][Pomodoro timer]]
 - [[#kmonad][KMonad]]
 - [[#kanata][kanata]]
@@ -1117,25 +1117,45 @@ label:focus {
     transition: background 0.3s ease;
 }
 #+end_src
-* xremap mode :noexport_1:
-** default
+* xremap :noexport_1:
+** Group
+*** General
+#+begin_src css
+#xremap {
+    border-radius: 10px;
+    padding: 0 0 0 10px;
+    margin:  0;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: lightgray;
+}
+#+end_src
+*** Hover
+#+begin_src css
+#xremap:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+#+end_src
+** Icon
+#+begin_src css
+#xremap #image.xremap {
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+#+end_src
+** Mode
+*** default
 #+begin_src css
 #custom-xremap-mode.default {
     color: gray;
 }
 #+end_src
-** lan-mouse
+*** lan-mouse
 #+begin_src css
 #custom-xremap-mode.lan-mouse {
     color: lightgray;
     background: rgba(255, 0, 0, 0.5);
-}
-#+end_src
-** Hover
-#+begin_src css
-#custom-mouse-warping:hover {
-    background: rgba(128, 128, 128, 0.5);
-    transition: background 0.3s ease;
 }
 #+end_src
 * Pomodoro timer :noexport_1:

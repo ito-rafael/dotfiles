@@ -717,6 +717,25 @@ label:focus {
     transition: background 0.3s ease;
 }
 
+#xremap {
+    border-radius: 10px;
+    padding: 0 0 0 10px;
+    margin:  0;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: lightgray;
+}
+
+#xremap:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+
+#xremap #image.xremap {
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
 #custom-xremap-mode.default {
     color: gray;
 }
