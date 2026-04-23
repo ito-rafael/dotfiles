@@ -722,7 +722,7 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
     },
 },
 #+end_src
-* Group kanata
+* kanata
 #+begin_src js
 "group/kanata": {
   "orientation": "inherit",
@@ -734,20 +734,11 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
 #+end_src
 ** icon
 #+begin_src js
-//"image#kanata-icon": {
-//	//"path": "/home/rafael/Downloads/kanata.svg",
-//	"path": "/home/rafael/git/dotfiles/waybar/icon/kanata.svg",
-//	"size": 16,
-//	"interval": 3600,
-//	//"on-click": "mpc toggle",
-//},
 "image#kanata": {
     "exec": "echo /home/rafael/.config/waybar/icon/kanata.svg",
     "interval": 3600,
     "size": 14,
-    //"on-click": "kitty -e informant read"
 },
-
 #+end_src
 ** systemd
 #+begin_src js
@@ -768,7 +759,7 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
 //    },
 //},
 #+end_src
-** kanata-layer
+** Layer
 #+begin_src js
 "custom/kanata-layer": {
     "exec": "~/.config/waybar/scripts/kanata-layer.sh",

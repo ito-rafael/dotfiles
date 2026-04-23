@@ -533,18 +533,10 @@
   ]
 },
 
-//"image#kanata-icon": {
-//	//"path": "/home/rafael/Downloads/kanata.svg",
-//	"path": "/home/rafael/git/dotfiles/waybar/icon/kanata.svg",
-//	"size": 16,
-//	"interval": 3600,
-//	//"on-click": "mpc toggle",
-//},
 "image#kanata": {
     "exec": "echo /home/rafael/.config/waybar/icon/kanata.svg",
     "interval": 3600,
     "size": 14,
-    //"on-click": "kitty -e informant read"
 },
 
 //"custom/kanata": {
