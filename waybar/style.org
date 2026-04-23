@@ -27,8 +27,8 @@
   - [[#keyboard-backlit][Keyboard backlit]]
 - [[#group-sysadmin][Group sysadmin]]
   - [[#pacman][Pacman]]
-  - [[#ansible-provision][Ansible-provision]]
   - [[#informant][Informant]]
+  - [[#ansible-provision][Ansible-provision]]
 - [[#network][Network]]
 - [[#media][Media]]
   - [[#custom][Custom]]
@@ -501,7 +501,7 @@ label:focus {
 * Group sysadmin
 #+begin_src css
 #custom-pacman,
-#custom-ansible-provision,
+#ansible,
 #informant {
     padding: 0px 5px;
     margin:  0;
@@ -540,32 +540,7 @@ label:focus {
     transition: background 0.3s ease;
 }
 #+end_src
-** Ansible-provision :noexport_1:
-*** Warning
-#+begin_src css
-#custom-ansible.warning {
-    color: #fab387;
-    font-weight: bold;
-}
-#+end_src
-*** Synced
-#+begin_src css
-#custom-ansible.synced {
-    color: #a6e3a1;
-}
-#+end_src
-*** Error
-#+begin_src css
-#custom-ansible.error {
-    color: #f38ba8;
-}
-#+end_src
 ** Informant
-#+begin_src css
-#informant {
-    border-radius: 0 10px 10px 0;
-}
-#+end_src
 *** Group
 **** Hover
 #+begin_src css
@@ -597,6 +572,42 @@ label:focus {
 #+begin_src css
 #informant #custom-informant.news {
     color: lightgray;
+}
+#+end_src
+** Ansible-provision :noexport_1:
+*** Group
+#+begin_src css
+#ansible {
+    border-radius: 0 10px 10px 0;
+    padding-right: 10px;
+}
+#+end_src
+**** Hover
+#+begin_src css
+#ansible:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+#+end_src
+*** Icon
+#+begin_src css
+#ansible #image.ansible {
+    padding-right: 5px;
+    margin-bottom: 2px;
+}
+#+end_src
+*** Ansible-provision
+**** Changes
+#+begin_src css
+#custom-ansible-provision.out-of-sync {
+    font-weight: bold;
+    color: lightgray;
+}
+#+end_src
+**** Synced
+#+begin_src css
+#custom-ansible-provision.synced {
+    color: gray;
 }
 #+end_src
 * Network :noexport_1:

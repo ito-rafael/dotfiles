@@ -308,7 +308,7 @@ label:focus {
 }
 
 #custom-pacman,
-#custom-ansible-provision,
+#ansible,
 #informant {
     padding: 0px 5px;
     margin:  0;
@@ -337,23 +337,6 @@ label:focus {
     transition: background 0.3s ease;
 }
 
-#custom-ansible.warning {
-    color: #fab387;
-    font-weight: bold;
-}
-
-#custom-ansible.synced {
-    color: #a6e3a1;
-}
-
-#custom-ansible.error {
-    color: #f38ba8;
-}
-
-#informant {
-    border-radius: 0 10px 10px 0;
-}
-
 #informant:hover {
     background: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
@@ -374,6 +357,30 @@ label:focus {
 
 #informant #custom-informant.news {
     color: lightgray;
+}
+
+#ansible {
+    border-radius: 0 10px 10px 0;
+    padding-right: 10px;
+}
+
+#ansible:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+
+#ansible #image.ansible {
+    padding-right: 5px;
+    margin-bottom: 2px;
+}
+
+#custom-ansible-provision.out-of-sync {
+    font-weight: bold;
+    color: lightgray;
+}
+
+#custom-ansible-provision.synced {
+    color: gray;
 }
 
 #network {
