@@ -2,7 +2,7 @@
 
 # run Ansible in check mode (--check) and force JSON output
 # obs: we redirect stderr to /dev/null so warnings don't corrupt the JSON string
-OUTPUT=$(sudo -u ansible /home/ansible/git/dotfiles/waybar/script/ansible-check.sh 2>/dev/null)
+OUTPUT=$(sudo -u ansible /home/ansible/git/dotfiles/waybar/scripts/ansible-check.sh 2>/dev/null)
 
 # extract the sum of all 'changed' stats across all hosts
 CHANGED=$(echo "$OUTPUT" | jq -r '[.stats[].changed] | add')
@@ -16,9 +16,9 @@ fi
 
 # format the output for Waybar based on the state
 if [ "$CHANGED" -gt 0 ]; then
-    # out of sync! Show the number of changed tasks.
-    echo "{\"text\": \" $CHANGED\", \"tooltip\": \"$CHANGED tasks pending sync\", \"class\": \"warning\"}"
+    # out of sync! send "warning" as the alt state
+    echo '{"text": "'"$CHANGED"'", "alt": "warning", "tooltip": "'"$CHANGED"' tasks pending sync", "class": "warning"}'
 else
-    # perfect sync!
-    echo "{\"text\": \"\", \"tooltip\": \"System is fully synced\", \"class\": \"synced\"}"
+    # perfect sync! send "synced" as the alt state
+    echo '{"text": "OK", "alt": "synced", "tooltip": "System is fully synced", "class": "synced"}'
 fi
