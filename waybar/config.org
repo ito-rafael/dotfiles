@@ -20,7 +20,7 @@
   - [[#gamma][Gamma]]
 - [[#group-sysadmin][Group sysadmin]]
   - [[#pacman][Pacman]]
-  - [[#ansible-provision][Ansible-provision]]
+  - [[#groupansible][Group/ansible]]
   - [[#groupinformant][Group/informant]]
 - [[#group-toggle][Group toggle]]
   - [[#mouse-warping][Mouse warping]]
@@ -235,8 +235,8 @@
   "orientation": "inherit",
   "modules": [
     "custom/pacman",
-    "custom/ansible-provision",
     "group/informant",
+    "group/ansible",
   ]
 },
 #+end_src
@@ -256,18 +256,37 @@
     },
 },
 #+end_src
-** Ansible-provision
+** Group/ansible
+#+begin_src js
+"group/ansible": {
+    "orientation": "horizontal",
+    "modules": [
+        "image#ansible",
+        "custom/ansible-provision"
+    ]
+},
+#+end_src
+*** Image
+#+begin_src js
+"image#ansible": {
+    "exec": "echo /home/rafael/.config/waybar/icon/ansible.svg",
+    "interval": 3600,
+    "size": 14,
+},
+#+end_src
+*** Ansible-provision
 #+begin_src js
 "custom/ansible-provision": {
-    "exec": "~/.config/waybar/scripts/ansible-provision.sh",
+    "exec": "/home/rafael/.config/waybar/scripts/ansible-provision.sh",
     "return-type": "json",
     "interval": 3600,
-    //"on-click": "alacritty -e sudo -u ansible bash -c 'ansible-playbook /home/ansible/git/ansible-provision/local.yml --limit $(hostname)'",
-    "format": "{icon} {}",
-    "format-icons": {
-        "warning": "󱧘",
-        "synced": "󰄬",
-    },
+    "on-click": "kitty /home/rafael/git/dotfiles/semaphore/api.sh run -v",
+    "format": "{}",
+    //"format": "{icon} {0}",
+    //"format-icons": {
+    //    "out-of-sync": "oos",
+    //    "synced": "S",
+    //},
 },
 #+end_src
 ** Group/informant
