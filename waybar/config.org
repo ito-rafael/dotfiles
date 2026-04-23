@@ -48,17 +48,19 @@
   - [[#samsung][Samsung]]
 - [[#caps-lock][Caps Lock]]
 - [[#caps-lock-1][Caps Lock]]
-- [[#xremap-mode][xremap mode]]
+- [[#xremap][xremap]]
+  - [[#icon][icon]]
+  - [[#mode][Mode]]
 - [[#pomodoro-timer][Pomodoro timer]]
 - [[#mouse-battery][Mouse battery]]
 - [[#lan-mouse][lan-mouse]]
 - [[#systemd-services][Systemd services]]
   - [[#lan-mouse-1][lan-mouse]]
 - [[#kmonad][KMonad]]
-- [[#group-kanata][Group kanata]]
-  - [[#icon][icon]]
+- [[#kanata][kanata]]
+  - [[#icon-1][icon]]
   - [[#systemd][systemd]]
-  - [[#kanata-layer][kanata-layer]]
+  - [[#layer][Layer]]
 - [[#groups][Groups]]
   - [[#scratchpad][Scratchpad]]
 
@@ -84,7 +86,7 @@
 "modules-left": [
     "sway/workspaces",
     "sway/mode",
-    "custom/xremap-mode",
+    "group/xremap",
     "group/kanata",
     "group/sysadmin",
     "custom/pomodoro-timer",
@@ -628,17 +630,31 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
     "format": " {} ",
 },
 #+end_src
-* xremap mode
+* xremap
+#+begin_src js
+"group/xremap": {
+  "orientation": "inherit",
+  "modules": [
+    "image#xremap",
+    "custom/xremap-mode",
+  ],
+},
+#+end_src
+** icon
+#+begin_src js
+"image#xremap": {
+    "exec": "echo /home/rafael/.config/waybar/icon/xremap.png",
+    "interval": 3600,
+    "size": 16,
+},
+#+end_src
+** Mode
 #+begin_src js
 "custom/xremap-mode": {
     "return-type": "json",
     "exec": "~/.config/waybar/scripts/xremap-mode.sh monitor",
     "on-click": "~/.config/waybar/scripts/xremap-mode.sh toggle",
-    "format": " {} {icon} ",
-    //"format-icons": {
-    //    "default": "<span color=\"#090\"></span>",
-    //    "lan-mouse": "<span color=\"#F00\"></span>",
-    //},
+    "format": "{}",
 },
 #+end_src
 * Pomodoro timer

@@ -12,7 +12,7 @@
 "modules-left": [
     "sway/workspaces",
     "sway/mode",
-    "custom/xremap-mode",
+    "group/xremap",
     "group/kanata",
     "group/sysadmin",
     "custom/pomodoro-timer",
@@ -450,15 +450,25 @@
     "format": " {} ",
 },
 
+"group/xremap": {
+  "orientation": "inherit",
+  "modules": [
+    "image#xremap",
+    "custom/xremap-mode",
+  ],
+},
+
+"image#xremap": {
+    "exec": "echo /home/rafael/.config/waybar/icon/xremap.png",
+    "interval": 3600,
+    "size": 16,
+},
+
 "custom/xremap-mode": {
     "return-type": "json",
     "exec": "~/.config/waybar/scripts/xremap-mode.sh monitor",
     "on-click": "~/.config/waybar/scripts/xremap-mode.sh toggle",
-    "format": " {} {icon} ",
-    //"format-icons": {
-    //    "default": "<span color=\"#090\"></span>",
-    //    "lan-mouse": "<span color=\"#F00\"></span>",
-    //},
+    "format": "{}",
 },
 
 "custom/pomodoro-timer": {
