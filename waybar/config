@@ -9,23 +9,29 @@
 "height": 15,
 "layer": "top",
 
-"modules-left": ["sway/workspaces", "sway/mode"],
+"modules-left": [
+    "sway/workspaces",
+    "sway/mode",
+    "custom/xremap-mode",
+    "custom/kanata-layer",
+    "group/sysadmin",
+    "custom/pomodoro-timer",
+],
+
+"modules-center": [
+    //"sway/window",
+    "mpris",
+],
 
 "modules-right": [
     "custom/vpn-lcn",
     "custom/vpn-unicamp",
     "custom/vpn-lbic",
     "custom/vpn-samsung",
-    "custom/pomodoro-timer",
-    "custom/xremap-mode",
     "group/scratchpads",
-    "group/sysadmin",
     //"custom/kmonad",
-    "custom/kanata",
-    "custom/keyboard-backlit",
     "custom/systemd-lanmouse",
     "custom/lanmouse-status",
-    "mpris",
     "group/monitoring",
     "group/control",
     "custom/battery-mouse",

@@ -78,11 +78,21 @@
 #+end_src
 ** Left
 #+begin_src js
-"modules-left": ["sway/workspaces", "sway/mode"],
+"modules-left": [
+    "sway/workspaces",
+    "sway/mode",
+    "custom/xremap-mode",
+    "custom/kanata-layer",
+    "group/sysadmin",
+    "custom/pomodoro-timer",
+],
 #+end_src
 ** Center
-#+begin_src js :tangle no
-"modules-center": ["sway/window"],
+#+begin_src js
+"modules-center": [
+    //"sway/window",
+    "mpris",
+],
 #+end_src
 ** Right
 #+begin_src js
@@ -91,13 +101,10 @@
     "custom/vpn-unicamp",
     "custom/vpn-lbic",
     "custom/vpn-samsung",
-    "custom/pomodoro-timer",
-    "custom/xremap-mode",
     "group/scratchpads",
-    "group/sysadmin",
     //"custom/kmonad",
-    "custom/kanata",
-    "mpris",
+    "custom/systemd-lanmouse",
+    "custom/lanmouse-status",
     "group/monitoring",
     "group/control",
     "battery",
