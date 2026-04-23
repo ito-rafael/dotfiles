@@ -1232,43 +1232,68 @@ label:focus {
 }
 #+end_src
 * kanata :noexport_1:
-** Active
+** Group
+*** General
+#+begin_src css
+#kanata {
+    border-radius: 10px;
+    padding: 0 10px;
+    margin:  0;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: lightgray;
+}
+#+end_src
+*** Hover
+#+begin_src css
+#kanata:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+#+end_src
+** icon
+#+begin_src css
+#kanata #image.kanata {
+    padding-right: 5px;
+}
+#+end_src
+** systemd
+*** Active
 #+begin_src css
 #custom-kanata.active {
     color: green;
 }
 #+end_src
-** Inactive
+*** Inactive
 #+begin_src css
 #custom-kanata.inactive {
     color: gray;
 }
 #+end_src
-** Failed
+*** Failed
 #+begin_src css
 #custom-kanata.failed {
     color: red;
 }
 #+end_src
-** Activating
+*** Activating
 #+begin_src css
 #custom-kanata.activating {
     color: yellow;
 }
 #+end_src
-** Deactivating
+*** Deactivating
 #+begin_src css
 #custom-kanata.deactivating {
     color: yellow;
 }
 #+end_src
-** Unknown
+*** Unknown
 #+begin_src css
 #custom-kanata.unknown {
     color: orange;
 }
 #+end_src
-** Hover
+*** Hover
 #+begin_src css
 #custom-kanata:hover {
     background: rgba(128, 128, 128, 0.5);

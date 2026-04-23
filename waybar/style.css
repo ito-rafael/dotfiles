@@ -793,6 +793,23 @@ label:focus {
     transition: background 0.3s ease;
 }
 
+#kanata {
+    border-radius: 10px;
+    padding: 0 10px;
+    margin:  0;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: lightgray;
+}
+
+#kanata:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+
+#kanata #image.kanata {
+    padding-right: 5px;
+}
+
 #custom-kanata.active {
     color: green;
 }
