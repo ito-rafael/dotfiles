@@ -38,6 +38,7 @@
 - [[#mpris][MPRIS]]
   - [[#playing][Playing]]
   - [[#paused][Paused]]
+  - [[#stopped][Stopped]]
 - [[#mpd][MPD]]
 - [[#language][Language]]
 - [[#keyboard-state][Keyboard state]]
@@ -699,6 +700,13 @@ label:focus {
 ** Paused
 #+begin_src css
 #mpris.paused {
+    background-color: transparent;
+    color: gray;
+}
+#+end_src
+** Stopped
+#+begin_src css
+#mpris.stopped {
     background-color: transparent;
     color: gray;
 }
