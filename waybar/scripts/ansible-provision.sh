@@ -17,8 +17,8 @@ fi
 # format the output for Waybar based on the state
 if [ "$CHANGED" -gt 0 ]; then
     # out of sync! send "warning" as the alt state
-    echo '{"text": "'"$CHANGED"'", "alt": "warning", "tooltip": "'"$CHANGED"' tasks pending sync", "class": "warning"}'
+    echo '{"text": "'"$CHANGED"'", "alt": "out-of-sync", "tooltip": "'"$CHANGED"' tasks pending sync", "class": "out-of-sync"}'
 else
     # perfect sync! send "synced" as the alt state
-    echo '{"text": "OK", "alt": "synced", "tooltip": "System is fully synced", "class": "synced"}'
+    echo '{"text": "0", "alt": "synced", "tooltip": "System is fully synced", "class": "synced"}'
 fi
