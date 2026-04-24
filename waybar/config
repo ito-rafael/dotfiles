@@ -29,8 +29,9 @@
     "custom/vpn-lbic",
     "custom/vpn-samsung",
     "group/scratchpads",
-    "custom/systemd-lanmouse",
-    "custom/lanmouse-status",
+    "group/toggle",
+    //"custom/systemd-lanmouse",
+    //"custom/lanmouse-status",
     "group/monitoring",
     "group/control",
     "custom/battery-mouse",
@@ -189,7 +190,7 @@
 },
 
 "custom/informant": {
-    "exec": "informant check | awk '{ num = ($3 == \"no\" ? 0 : $3); printf \"{\\\"text\\\": \\\"%s\\\", \\\"tooltip\\\": \\\"%s unread Arch News items!\\\"}\\n\", num, num }'",
+    "exec": "informant check | awk '{ num = ($3 == \"no\" ? 0 : $3); class = (num == 0 ? \"zero\" : \"news\"); printf \"{\\\"text\\\": \\\"%s\\\", \\\"tooltip\\\": \\\"%s unread Arch News items!\\\", \\\"class\\\": \\\"%s\\\"}\\n\", num, num, class }'",
     "interval": 3600,
     "return-type": "json",
     "format": "{}",
