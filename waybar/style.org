@@ -35,6 +35,7 @@
   - [[#spotify][Spotify]]
   - [[#vlc][VLC]]
 - [[#tray][Tray]]
+- [[#mpris][MPRIS]]
 - [[#mpd][MPD]]
 - [[#language][Language]]
 - [[#keyboard-state][Keyboard state]]
@@ -675,6 +676,16 @@ label:focus {
 #idle_inhibitor.activated {
     background-color: #ecf0f1;
     color: #2d3436;
+}
+#+end_src
+* MPRIS
+#+begin_src css
+#mpris {
+    border-radius: 10px;
+    padding: 0px 5px;
+    margin:  0;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: lightgray;
 }
 #+end_src
 * MPD :noexport_1:
