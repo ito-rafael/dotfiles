@@ -50,7 +50,7 @@
 - [[#caps-lock][Caps Lock]]
 - [[#caps-lock-1][Caps Lock]]
 - [[#xremap][xremap]]
-  - [[#icon][icon]]
+  - [[#icon][Icon]]
   - [[#mode][Mode]]
 - [[#pomodoro-timer][Pomodoro timer]]
 - [[#mouse-battery][Mouse battery]]
@@ -58,10 +58,13 @@
 - [[#systemd-services][Systemd services]]
   - [[#lan-mouse-1][lan-mouse]]
 - [[#kmonad][KMonad]]
-- [[#kanata][kanata]]
-  - [[#icon-1][icon]]
-  - [[#systemd][systemd]]
+- [[#zsa-keyboard][ZSA keyboard]]
+  - [[#icon-1][Icon]]
   - [[#layer][Layer]]
+- [[#kanata][kanata]]
+  - [[#icon-2][Icon]]
+  - [[#systemd][systemd]]
+  - [[#layer-1][Layer]]
 - [[#groups][Groups]]
   - [[#scratchpad][Scratchpad]]
 
@@ -89,6 +92,7 @@
     "sway/mode",
     "group/xremap",
     "group/kanata",
+    "group/zsa",
     "group/sysadmin",
     "custom/pomodoro-timer",
 ],
@@ -677,7 +681,7 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
   ],
 },
 #+end_src
-** icon
+** Icon
 #+begin_src js
 "image#xremap": {
     "exec": "echo /home/rafael/.config/waybar/icon/xremap.png",
@@ -759,6 +763,36 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
     },
 },
 #+end_src
+* ZSA keyboard
+#+begin_src js
+"group/zsa": {
+  "orientation": "inherit",
+  "modules": [
+    "image#zsa",
+    "custom/zsa-layer",
+  ],
+},
+#+end_src
+** Icon
+#+begin_src js
+"image#zsa": {
+    "exec": "echo /home/rafael/.config/waybar/icon/zsa.png",
+    "interval": 3600,
+    "size": 14,
+},
+#+end_src
+** Layer
+#+begin_src js
+"custom/zsa-layer": {
+    "exec": "~/.config/waybar/scripts/zsa-layer.sh",
+    "return-type": "json",
+    "format": "{}",
+    "restart-interval": 2,
+    "tooltip": true,
+    "min-length": 5,
+    "max-length": 5,
+},
+#+end_src
 * kanata
 #+begin_src js
 "group/kanata": {
@@ -766,10 +800,10 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
   "modules": [
     "image#kanata",
     "custom/kanata-layer",
-  ]
+  ],
 },
 #+end_src
-** icon
+** Icon
 #+begin_src js
 "image#kanata": {
     "exec": "echo /home/rafael/.config/waybar/icon/kanata.svg",

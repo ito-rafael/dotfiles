@@ -14,6 +14,7 @@
     "sway/mode",
     "group/xremap",
     "group/kanata",
+    "group/zsa",
     "group/sysadmin",
     "custom/pomodoro-timer",
 ],
@@ -546,12 +547,36 @@
     },
 },
 
+"group/zsa": {
+  "orientation": "inherit",
+  "modules": [
+    "image#zsa",
+    "custom/zsa-layer",
+  ],
+},
+
+"image#zsa": {
+    "exec": "echo /home/rafael/.config/waybar/icon/zsa.png",
+    "interval": 3600,
+    "size": 14,
+},
+
+"custom/zsa-layer": {
+    "exec": "~/.config/waybar/scripts/zsa-layer.sh",
+    "return-type": "json",
+    "format": "{}",
+    "restart-interval": 2,
+    "tooltip": true,
+    "min-length": 5,
+    "max-length": 5,
+},
+
 "group/kanata": {
   "orientation": "inherit",
   "modules": [
     "image#kanata",
     "custom/kanata-layer",
-  ]
+  ],
 },
 
 "image#kanata": {
