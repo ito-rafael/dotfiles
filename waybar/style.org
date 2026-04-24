@@ -69,6 +69,7 @@
 - [[#pomodoro-timer][Pomodoro timer]]
 - [[#kmonad][KMonad]]
 - [[#kanata][kanata]]
+- [[#zsa][ZSA]]
 
 * Initial config :noexport_1:
 ** Font
@@ -1371,6 +1372,38 @@ label:focus {
 ** Layer
 #+begin_src css
 #kanata #custom-kanata-layer {
+    color: lightgray;
+    font-family: ttf-jetbrains-mono;
+}
+#+end_src
+* ZSA :noexport_1:
+** Group
+*** General
+#+begin_src css
+#zsa {
+    border-radius: 10px;
+    padding: 0 10px;
+    margin:  0;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: lightgray;
+}
+#+end_src
+*** Hover
+#+begin_src css
+#zsa:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+#+end_src
+** Icon
+#+begin_src css
+#zsa #image.zsa {
+    padding-right: 5px;
+}
+#+end_src
+** Layer
+#+begin_src css
+#zsa #custom-zsa-layer {
     color: lightgray;
     font-family: ttf-jetbrains-mono;
 }

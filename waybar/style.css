@@ -857,3 +857,25 @@ label:focus {
     color: lightgray;
     font-family: ttf-jetbrains-mono;
 }
+
+#zsa {
+    border-radius: 10px;
+    padding: 0 10px;
+    margin:  0;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: lightgray;
+}
+
+#zsa:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+
+#zsa #image.zsa {
+    padding-right: 5px;
+}
+
+#zsa #custom-zsa-layer {
+    color: lightgray;
+    font-family: ttf-jetbrains-mono;
+}
