@@ -33,19 +33,3 @@ esac
 
 # print the result as a Waybar-compatible JSON object
 printf '{"text": "%s", "class": "layer-%s"}\n' "$name" "$layer"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
