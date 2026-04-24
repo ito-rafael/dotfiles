@@ -37,6 +37,7 @@
 - [[#tray][Tray]]
 - [[#mpris][MPRIS]]
   - [[#playing][Playing]]
+  - [[#paused][Paused]]
 - [[#mpd][MPD]]
 - [[#language][Language]]
 - [[#keyboard-state][Keyboard state]]
@@ -693,6 +694,13 @@ label:focus {
 #+begin_src css
 #mpris.playing {
     color: lightgray;
+}
+#+end_src
+** Paused
+#+begin_src css
+#mpris.paused {
+    background-color: transparent;
+    color: gray;
 }
 #+end_src
 * MPD :noexport_1:
