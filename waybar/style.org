@@ -36,6 +36,7 @@
   - [[#vlc][VLC]]
 - [[#tray][Tray]]
 - [[#mpris][MPRIS]]
+  - [[#playing][Playing]]
 - [[#mpd][MPD]]
 - [[#language][Language]]
 - [[#keyboard-state][Keyboard state]]
@@ -685,6 +686,12 @@ label:focus {
     padding: 0px 5px;
     margin:  0;
     background-color: rgba(0, 0, 0, 0.2);
+    color: lightgray;
+}
+#+end_src
+** Playing
+#+begin_src css
+#mpris.playing {
     color: lightgray;
 }
 #+end_src

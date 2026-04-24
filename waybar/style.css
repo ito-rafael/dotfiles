@@ -427,6 +427,17 @@ label:focus {
     color: #2d3436;
 }
 
+#mpris {
+    border-radius: 10px;
+    padding: 0px 5px;
+    margin:  0;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: lightgray;
+}
+
+#mpris.playing {
+    color: lightgray;
+}
 #mpd {
     background-color: #66cc99;
     color: #2a5c45;
