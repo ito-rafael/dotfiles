@@ -297,24 +297,26 @@
         }
 },
 
-    "mpris": {
-        "interval": 1,
-        "format": "{player_icon} {dynamic}  ",
-        "dynamic-order": ["artist", "title"],
-        "format-paused": "{status_icon} <i>{dynamic}</i>",
-        "player-icons": {
-            "default": "▶",
-            "mpv": "🎵"
-        },
-        "status-icons": {
-            "paused": "⏸"
-        },
-        //"ignored-players": ["firefox"]
-        "on-scroll-up": "amixer -q sset Master 1%+",
-        "on-scroll-down": "amixer -q sset Master 1%-",
-        "reverse-scrolling": true,
-        "reverse-mouse-scrolling": false,
+"mpris": {
+    "interval": 1,
+    "min-length": 40,
+    "max-length": 40,
+    "format": "{player_icon} {dynamic}  ",
+    "dynamic-order": ["artist", "title"],
+    "format-paused": "{status_icon} <i>{dynamic}</i>",
+    "player-icons": {
+        "default": "▶",
+        "mpv": "🎵"
     },
+    "status-icons": {
+        "paused": "⏸"
+    },
+    //"ignored-players": ["firefox"]
+    "on-scroll-up": "amixer -q sset Master 1%+",
+    "on-scroll-down": "amixer -q sset Master 1%-",
+    "reverse-scrolling": true,
+    "reverse-mouse-scrolling": false,
+},
 
 "custom/scratchpad-calendar": {
     "interval": 1,
