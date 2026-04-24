@@ -582,7 +582,9 @@
     "return-type": "json",
     "format": "{}",
     "restart-interval": 2,
-    "tooltip": true
+    "tooltip": true,
+    "min-length": 5,
+    "max-length": 5,
 },
 
 "image#scratchpad-icon": {

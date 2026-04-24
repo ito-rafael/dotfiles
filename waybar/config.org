@@ -803,7 +803,9 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
     "return-type": "json",
     "format": "{}",
     "restart-interval": 2,
-    "tooltip": true
+    "tooltip": true,
+    "min-length": 5,
+    "max-length": 5,
 },
 #+end_src
 * Groups
