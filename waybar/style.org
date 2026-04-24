@@ -1372,5 +1372,6 @@ label:focus {
 #+begin_src css
 #kanata #custom-kanata-layer {
     color: lightgray;
+    font-family: ttf-jetbrains-mono;
 }
 #+end_src
