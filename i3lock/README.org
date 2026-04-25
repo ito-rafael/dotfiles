@@ -4,12 +4,17 @@
 #+STARTUP: showeverything
 
 * Table of contents :toc_1:
+- [[#documentation][Documentation]]
 - [[#prerequisites][Prerequisites]]
 - [[#todo][TODO]]
 
+* Documentation
+https://github.com/i3/i3lock
 * Prerequisites
 #+begin_src sh
+paru -S i3lock-color
 sudo pacman -S imagemagick
+sudo pacman -S papirus-icon-theme
 #+end_src
 * TODO
 ** Task reminders
