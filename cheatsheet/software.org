@@ -969,6 +969,12 @@ Switch to the highest available state (and check if it's stable).
 echo 0f | sudo tee /sys/kernel/debug/dri/0/pstate
 #+end_src
 
+Make it permanent by adding this kernel parameter in =/etc/default/grub=.
+Note that this parameter requires the decimal =15= (equivalent of the =0x0f= in hexadecimal).
+#+begin_src sh
+GRUB_CMDLINE_LINUX_DEFAULT="nouveau.config=NvClkMode=15"
+#+end_src
+
 Then, regenerate the config file.
 #+begin_src sh
 grub-mkconfig -o /efi/EFI/arch/grub/grub.cfg
