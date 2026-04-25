@@ -964,6 +964,11 @@ Checking the GPU power states and available clocks. The line marked with a =*= i
 sudo cat /sys/kernel/debug/dri/0/pstate
 #+end_src
 
+Switch to the highest available state (and check if it's stable).
+#+begin_src sh
+echo 0f | sudo tee /sys/kernel/debug/dri/0/pstate
+#+end_src
+
 Then, regenerate the config file.
 #+begin_src sh
 grub-mkconfig -o /efi/EFI/arch/grub/grub.cfg
