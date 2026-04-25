@@ -958,6 +958,12 @@ Confirm the updated BIOS version.
 #+begin_src sh
 sudo nvflash --version
 #+end_src
+*** Reclocking the GPU
+Checking the GPU power states and available clocks. The line marked with a =*= is the currently active state.
+#+begin_src sh
+sudo cat /sys/kernel/debug/dri/0/pstate
+#+end_src
+
 Then, regenerate the config file.
 #+begin_src sh
 grub-mkconfig -o /efi/EFI/arch/grub/grub.cfg
