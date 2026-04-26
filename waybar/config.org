@@ -487,10 +487,10 @@
     "exec": "~/.config/waybar/scripts/mouse-warping.sh monitor",
     "on-click": "~/.config/waybar/scripts/mouse-warping.sh toggle",
     "format": " {} {icon} ",
-    "format-icons": {
-        "enabled": "<span color=\"#090\"></span>",
-        "disabled": "<span color=\"#F00\"></span>",
-    },
+    //"format-icons": {
+    //    "enabled": "<span color=\"#090\"></span>",
+    //    "disabled": "<span color=\"#F00\"></span>",
+    //},
 },
 #+end_src
 ** Dunst
@@ -501,10 +501,10 @@
     "on-click": "dunstctl set-paused toggle",
     "restart-interval": 1,
     "format": " {} {icon} ",
-    "format-icons": {
-        "enabled": "<span color=\"#090\"></span>",
-        "disabled": "<span color=\"#F00\"></span>",
-    },
+    //"format-icons": {
+    //    "enabled": "<span color=\"#090\"></span>",
+    //    "disabled": "<span color=\"#F00\"></span>",
+    //},
 },
 #+end_src
 ** Scale
