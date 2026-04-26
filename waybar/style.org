@@ -748,9 +748,17 @@ label:focus {
 }
 #+end_src
 *** Layer
+**** Connected
 #+begin_src css
 #zsa #custom-zsa-layer {
     color: lightgray;
+    font-family: ttf-jetbrains-mono;
+}
+#+end_src
+**** Disconnected
+#+begin_src css
+#zsa #custom-zsa-layer.disconnected {
+    color: gray;
     font-family: ttf-jetbrains-mono;
 }
 #+end_src

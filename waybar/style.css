@@ -477,6 +477,11 @@ label:focus {
     font-family: ttf-jetbrains-mono;
 }
 
+#zsa #custom-zsa-layer.disconnected {
+    color: gray;
+    font-family: ttf-jetbrains-mono;
+}
+
 #network {
     background-color: #2980b9;
 }
