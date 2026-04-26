@@ -5,7 +5,7 @@ layer=$(kontroll status 2>/dev/null | grep 'layer' | awk '{print $NF}')
 
 # safety check: If Keymapp is closed or the keyboard is unplugged, $layer will be empty
 if [ -z "$layer" ]; then
-    printf '{"text": "Disconnected", "class": "disconnected"}\n'
+    printf '{"text": "N/A", "class": "disconnected"}\n'
     exit 0
 fi
 
