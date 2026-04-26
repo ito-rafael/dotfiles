@@ -396,6 +396,87 @@ label:focus {
     color: gray;
 }
 
+#xremap,
+#kanata,
+#zsa {
+    padding: 0px 5px;
+    margin:  0;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: lightgray;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#xremap {
+    border-radius: 10px 0 0 10px;
+    padding: 0 0 0 10px;
+    margin:  0;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: lightgray;
+}
+
+#xremap:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+
+#xremap #image.xremap {
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+#custom-xremap-mode.default {
+    color: gray;
+}
+
+#custom-xremap-mode.lan-mouse {
+    color: lightgray;
+    background: rgba(255, 0, 0, 0.5);
+}
+
+#kanata {
+    padding: 0 10px;
+    margin:  0;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: lightgray;
+}
+
+#kanata:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+
+#kanata #image.kanata {
+    padding-right: 5px;
+}
+
+#kanata #custom-kanata-layer {
+    color: lightgray;
+    font-family: ttf-jetbrains-mono;
+}
+
+#zsa {
+    border-radius: 0 10px 10px 0;
+    padding: 0 10px;
+    margin:  0;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: lightgray;
+}
+
+#zsa:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+
+#zsa #image.zsa {
+    padding-right: 5px;
+}
+
+#zsa #custom-zsa-layer {
+    color: lightgray;
+    font-family: ttf-jetbrains-mono;
+}
+
 #network {
     background-color: #2980b9;
 }
@@ -759,34 +840,6 @@ label:focus {
     transition: background 0.3s ease;
 }
 
-#xremap {
-    border-radius: 10px;
-    padding: 0 0 0 10px;
-    margin:  0;
-    background-color: rgba(0, 0, 0, 0.2);
-    color: lightgray;
-}
-
-#xremap:hover {
-    background: rgba(128, 128, 128, 0.5);
-    transition: background 0.3s ease;
-}
-
-#xremap #image.xremap {
-    padding-top: 0px;
-    padding-right: 0px;
-    padding-left: 0px;
-}
-
-#custom-xremap-mode.default {
-    color: gray;
-}
-
-#custom-xremap-mode.lan-mouse {
-    color: lightgray;
-    background: rgba(255, 0, 0, 0.5);
-}
-
 #custom-pomodoro-timer.work {
     color: lightgray;
     /*background-color: #ff6b6b;*/
@@ -847,48 +900,4 @@ label:focus {
 #custom-kmonad:hover {
     background: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
-}
-
-#kanata {
-    border-radius: 10px;
-    padding: 0 10px;
-    margin:  0;
-    background-color: rgba(0, 0, 0, 0.2);
-    color: lightgray;
-}
-
-#kanata:hover {
-    background: rgba(128, 128, 128, 0.5);
-    transition: background 0.3s ease;
-}
-
-#kanata #image.kanata {
-    padding-right: 5px;
-}
-
-#kanata #custom-kanata-layer {
-    color: lightgray;
-    font-family: ttf-jetbrains-mono;
-}
-
-#zsa {
-    border-radius: 10px;
-    padding: 0 10px;
-    margin:  0;
-    background-color: rgba(0, 0, 0, 0.2);
-    color: lightgray;
-}
-
-#zsa:hover {
-    background: rgba(128, 128, 128, 0.5);
-    transition: background 0.3s ease;
-}
-
-#zsa #image.zsa {
-    padding-right: 5px;
-}
-
-#zsa #custom-zsa-layer {
-    color: lightgray;
-    font-family: ttf-jetbrains-mono;
 }
