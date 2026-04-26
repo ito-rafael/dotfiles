@@ -259,6 +259,13 @@ label:focus {
 }
 #+end_src
 * Group Monitoring
+#+begin_src css
+#cpu,
+#memory,
+#temperature {
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+#+end_src
 ** CPU
 #+begin_src css
 #cpu {
@@ -313,6 +320,12 @@ label:focus {
 }
 #+end_src
 * Group Control
+#+begin_src css
+#pulseaudio,
+#backlight {
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+#+end_src
 ** Pulseaudio :noexport_1:
 *** Normal
 #+begin_src css
@@ -361,6 +374,7 @@ label:focus {
     margin:  0;
     background-color: rgba(0, 0, 0, 0.2);
     color: lightgray;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
 #+end_src
 ** Mouse warping :noexport_1:
@@ -475,6 +489,7 @@ label:focus {
     margin:  0;
     background-color: rgba(0, 0, 0, 0.2);
     color: lightgray;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
 #+end_src
 ** Pacman :noexport_1:
