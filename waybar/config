@@ -12,9 +12,7 @@
 "modules-left": [
     "sway/workspaces",
     "sway/mode",
-    "group/xremap",
-    "group/kanata",
-    "group/zsa",
+    "group/keyboard",
     "group/sysadmin",
     "custom/pomodoro-timer",
 ],
@@ -261,6 +259,101 @@
     "on-scroll-down": "~/.config/scripts/keeb-backlit.sh dec",
 },
 
+"group/keyboard": {
+  "orientation": "inherit",
+  "modules": [
+    "group/xremap",
+    "group/kanata",
+    "group/zsa",
+  ]
+},
+
+"group/xremap": {
+  "orientation": "inherit",
+  "modules": [
+    "image#xremap",
+    "custom/xremap-mode",
+  ],
+},
+
+"image#xremap": {
+    "exec": "echo /home/rafael/.config/waybar/icon/xremap.png",
+    "interval": 3600,
+    "size": 16,
+},
+
+"custom/xremap-mode": {
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/xremap-mode.sh monitor",
+    "on-click": "~/.config/waybar/scripts/xremap-mode.sh toggle",
+    "format": "{}",
+},
+
+"group/kanata": {
+  "orientation": "inherit",
+  "modules": [
+    "image#kanata",
+    "custom/kanata-layer",
+  ],
+},
+
+"image#kanata": {
+    "exec": "echo /home/rafael/.config/waybar/icon/kanata.svg",
+    "interval": 3600,
+    "size": 14,
+},
+
+//"custom/kanata": {
+//    "return-type": "json",
+//    "exec": "sleep 2 && ~/.config/waybar/scripts/kanata.sh monitor --user",
+//    "on-click": "~/.config/waybar/scripts/kanata.sh toggle --user",
+//    "on-click-right": "~/.config/waybar/scripts/kanata.sh stop --user",
+//    "on-click-middle": "~/.config/waybar/scripts/kanata.sh restart --user",
+//    "format": " {} {icon} ",
+//    "format-icons": {
+//        "active":       "<span color=\"#393\"></span>",
+//        "inactive":     "<span color=\"#999\"></span>",
+//        "failed":       "<span color=\"#F33\"></span>",
+//        "activating":   "<span color=\"#FF7\"></span>",
+//        "deactivating": "<span color=\"#FF7\"></span>",
+//        "unknown":      "<span color=\"#FA5\"></span>",
+//    },
+//},
+
+"custom/kanata-layer": {
+    "exec": "~/.config/waybar/scripts/kanata-layer.sh",
+    "return-type": "json",
+    "format": "{}",
+    "restart-interval": 2,
+    "tooltip": true,
+    "min-length": 5,
+    "max-length": 5,
+},
+
+"group/zsa": {
+  "orientation": "inherit",
+  "modules": [
+    "image#zsa",
+    "custom/zsa-layer",
+  ],
+},
+
+"image#zsa": {
+    "exec": "echo /home/rafael/.config/waybar/icon/zsa.png",
+    "interval": 3600,
+    "size": 14,
+},
+
+"custom/zsa-layer": {
+    "exec": "~/.config/waybar/scripts/zsa-layer.sh",
+    "return-type": "json",
+    "format": "{}",
+    "restart-interval": 2,
+    "tooltip": true,
+    "min-length": 5,
+    "max-length": 5,
+},
+
 "battery": {
     "states": {
         "warning": 30,
@@ -473,27 +566,6 @@
     "format": " {} ",
 },
 
-"group/xremap": {
-  "orientation": "inherit",
-  "modules": [
-    "image#xremap",
-    "custom/xremap-mode",
-  ],
-},
-
-"image#xremap": {
-    "exec": "echo /home/rafael/.config/waybar/icon/xremap.png",
-    "interval": 3600,
-    "size": 16,
-},
-
-"custom/xremap-mode": {
-    "return-type": "json",
-    "exec": "~/.config/waybar/scripts/xremap-mode.sh monitor",
-    "on-click": "~/.config/waybar/scripts/xremap-mode.sh toggle",
-    "format": "{}",
-},
-
 "custom/pomodoro-timer": {
   "exec": "tomat status",
   "interval": 1,
@@ -546,71 +618,6 @@
         "deactivating": "<span color=\"#FF7\"></span>",
         "unknown":      "<span color=\"#FA5\"></span>",
     },
-},
-
-"group/zsa": {
-  "orientation": "inherit",
-  "modules": [
-    "image#zsa",
-    "custom/zsa-layer",
-  ],
-},
-
-"image#zsa": {
-    "exec": "echo /home/rafael/.config/waybar/icon/zsa.png",
-    "interval": 3600,
-    "size": 14,
-},
-
-"custom/zsa-layer": {
-    "exec": "~/.config/waybar/scripts/zsa-layer.sh",
-    "return-type": "json",
-    "format": "{}",
-    "restart-interval": 2,
-    "tooltip": true,
-    "min-length": 5,
-    "max-length": 5,
-},
-
-"group/kanata": {
-  "orientation": "inherit",
-  "modules": [
-    "image#kanata",
-    "custom/kanata-layer",
-  ],
-},
-
-"image#kanata": {
-    "exec": "echo /home/rafael/.config/waybar/icon/kanata.svg",
-    "interval": 3600,
-    "size": 14,
-},
-
-//"custom/kanata": {
-//    "return-type": "json",
-//    "exec": "sleep 2 && ~/.config/waybar/scripts/kanata.sh monitor --user",
-//    "on-click": "~/.config/waybar/scripts/kanata.sh toggle --user",
-//    "on-click-right": "~/.config/waybar/scripts/kanata.sh stop --user",
-//    "on-click-middle": "~/.config/waybar/scripts/kanata.sh restart --user",
-//    "format": " {} {icon} ",
-//    "format-icons": {
-//        "active":       "<span color=\"#393\"></span>",
-//        "inactive":     "<span color=\"#999\"></span>",
-//        "failed":       "<span color=\"#F33\"></span>",
-//        "activating":   "<span color=\"#FF7\"></span>",
-//        "deactivating": "<span color=\"#FF7\"></span>",
-//        "unknown":      "<span color=\"#FA5\"></span>",
-//    },
-//},
-
-"custom/kanata-layer": {
-    "exec": "~/.config/waybar/scripts/kanata-layer.sh",
-    "return-type": "json",
-    "format": "{}",
-    "restart-interval": 2,
-    "tooltip": true,
-    "min-length": 5,
-    "max-length": 5,
 },
 
 "image#scratchpad-icon": {
