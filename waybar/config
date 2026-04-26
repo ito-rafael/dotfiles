@@ -48,6 +48,154 @@
     "format": "{name}",
 },
 
+"image#scratchpad-icon": {
+     "exec": "echo /home/rafael/git/dotfiles/waybar/icon/sway.png",
+     "size": 16,
+     "interval": 3600,
+},
+
+"group/scratchpads": {
+  "orientation": "inherit",
+  "drawer": {
+      "transition-duration": 500,
+      "transition-left-to-right": false,
+  },
+  "modules": [
+    "image#scratchpad-icon",
+    "custom/scratchpad-translate",
+    "custom/scratchpad-llm",
+    "custom/scratchpad-calendar",
+    "custom/scratchpad-whatsapp",
+    "custom/scratchpad-ytmusic",
+    "custom/scratchpad-scrcpy-phone",
+    "custom/scratchpad-scrcpy-watch",
+    "custom/scratchpad-python",
+    "custom/scratchpad-terminal",
+    "custom/scratchpad-keymapp",
+    "custom/scratchpad-temp-1",
+    "custom/scratchpad-temp-2",
+    "custom/scratchpad-temp-3",
+  ]
+},
+
+"custom/scratchpad-calendar": {
+    "interval": 1,
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/scratchpad-calendar.sh",
+    "format": " {} ",
+    "on-click": "~/.config/scripts/show-or-launch.sh brave-calendar.google.com__-Default 0.6 0.9",
+},
+
+"custom/scratchpad-llm": {
+    "interval": 1,
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/scratchpad-llm.sh",
+    "format": " {} ",
+    "on-click": "~/.config/scripts/show-or-launch.sh brave-chatgpt.com__-Default 0.6 0.9",
+},
+
+"custom/scratchpad-translate": {
+    "interval": 1,
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/scratchpad-translate.sh",
+    "format": " {} ",
+    "on-click": "~/.config/scripts/show-or-launch.sh brave-translate.google.com__-Default 0.6 0.9",
+},
+
+"custom/scratchpad-keymapp": {
+    "interval": 1,
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/scratchpad-keymapp.sh",
+    "format": " {} ",
+    "on-click": "~/.config/scripts/show-or-launch.sh keymapp 0.75 0.75",
+    //"on-click": "~/.config/scripts/show-or-launch.sh Keymapp 0.75 0.75",
+},
+
+"custom/scratchpad-keymapp": {
+    "interval": 1,
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/scratchpad-keymapp.sh",
+    "format": " {} ",
+    "on-click": "~/.config/scripts/show-or-launch.sh keymapp 0.75 0.75",
+    //"on-click": "~/.config/scripts/show-or-launch.sh Keymapp 0.75 0.75",
+},
+
+    "custom/scratchpad-python": {
+        "interval": 1,
+        "return-type": "json",
+        "exec": "~/.config/waybar/scripts/scratchpad-python.sh",
+        "format": " {} ",
+        "on-click": "~/.config/scripts/show-or-launch.sh dropdown_python 0.6 0.6",
+    },
+
+"custom/scratchpad-scrcpy-phone": {
+    "interval": 1,
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/scratchpad-scrcpy.sh phone",
+    "format": " {} ",
+    "on-click": "~/.config/scripts/adb-mdns-scrcpy.sh phone",
+},
+
+"custom/scratchpad-scrcpy-watch": {
+    "interval": 1,
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/scratchpad-scrcpy.sh watch",
+    "format": " {} ",
+    "on-click": "~/.config/scripts/adb-mdns-scrcpy.sh watch",
+},
+
+"custom/scratchpad-terminal": {
+    "interval": 1,
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/scratchpad-terminal.sh",
+    "format": " {} ",
+    "on-click": "~/.config/scripts/show-or-launch.sh dropdown_terminal 0.75 0.75",
+},
+
+"custom/scratchpad-temp-1": {
+    "interval": 1,
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/scratchpad-temp.sh 1",
+    "format": " {} ",
+    "on-click": "~/.config/scripts/scratchpad-temp.sh 1 display",
+    //"on-click-right": "exec swaymsg 'move scratchpad'"
+},
+
+"custom/scratchpad-temp-2": {
+    "interval": 1,
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/scratchpad-temp.sh 2",
+    "format": " {} ",
+    "on-click": "~/.config/scripts/scratchpad-temp.sh 2 display",
+},
+
+"custom/scratchpad-temp-3": {
+    "interval": 1,
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/scratchpad-temp.sh 3",
+    "format": " {} ",
+    "on-click": "~/.config/scripts/scratchpad-temp.sh 3 display",
+},
+
+"custom/scratchpad-whatsapp": {
+    "interval": 1,
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/scratchpad-whatsapp.sh",
+    "format": " {} ",
+    "on-click": "~/.config/scripts/show-or-launch.sh wasistlos 0.6 0.9",
+    //"on-click": "~/.config/scripts/show-or-launch.sh brave-web.whatsapp.com__-Default 0.6 0.9",
+    //"on-click": "~/.config/scripts/show-or-launch.sh web.whatsapp.com 0.6 0.9",
+},
+
+"custom/scratchpad-ytmusic": {
+    "interval": 1,
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/scratchpad-ytmusic.sh",
+    "format": " {} ",
+    "on-click": "~/.config/scripts/show-or-launch.sh brave-music.youtube.com__-Default 0.9 0.9",
+    //"on-click": "~/.config/scripts/show-or-launch.sh music.youtube.com 0.9 0.9",
+},
+
 "group/monitoring": {
   "orientation": "inherit",
   "modules": [
@@ -127,8 +275,8 @@
   "orientation": "inherit",
   "modules": [
     "custom/pacman",
-    "group/informant",
-    "group/ansible",
+    "group/informant"
+    //"group/ansible",
   ]
 },
 
@@ -354,6 +502,23 @@
     "max-length": 5,
 },
 
+"custom/kmonad": {
+    "return-type": "json",
+    "exec": "sleep 2 && ~/.config/waybar/scripts/kmonad.sh monitor",
+    "on-click": "~/.config/waybar/scripts/kmonad.sh toggle --user",
+    "on-click-right": "~/.config/waybar/scripts/kmonad.sh stop --user",
+    "on-click-middle": "~/.config/waybar/scripts/kmonad.sh restart --user",
+    "format": " {} {icon} ",
+    "format-icons": {
+        "active":       "<span color=\"#393\"></span>",
+        "inactive":     "<span color=\"#999\"></span>",
+        "failed":       "<span color=\"#F33\"></span>",
+        "activating":   "<span color=\"#FF7\"></span>",
+        "deactivating": "<span color=\"#FF7\"></span>",
+        "unknown":      "<span color=\"#FA5\"></span>",
+    },
+},
+
 "battery": {
     "states": {
         "warning": 30,
@@ -414,124 +579,6 @@
     "reverse-mouse-scrolling": false,
 },
 
-"custom/scratchpad-calendar": {
-    "interval": 1,
-    "return-type": "json",
-    "exec": "~/.config/waybar/scripts/scratchpad-calendar.sh",
-    "format": " {} ",
-    "on-click": "~/.config/scripts/show-or-launch.sh brave-calendar.google.com__-Default 0.6 0.9",
-},
-
-"custom/scratchpad-llm": {
-    "interval": 1,
-    "return-type": "json",
-    "exec": "~/.config/waybar/scripts/scratchpad-llm.sh",
-    "format": " {} ",
-    "on-click": "~/.config/scripts/show-or-launch.sh brave-chatgpt.com__-Default 0.6 0.9",
-},
-
-"custom/scratchpad-translate": {
-    "interval": 1,
-    "return-type": "json",
-    "exec": "~/.config/waybar/scripts/scratchpad-translate.sh",
-    "format": " {} ",
-    "on-click": "~/.config/scripts/show-or-launch.sh brave-translate.google.com__-Default 0.6 0.9",
-},
-
-"custom/scratchpad-keymapp": {
-    "interval": 1,
-    "return-type": "json",
-    "exec": "~/.config/waybar/scripts/scratchpad-keymapp.sh",
-    "format": " {} ",
-    "on-click": "~/.config/scripts/show-or-launch.sh keymapp 0.75 0.75",
-    //"on-click": "~/.config/scripts/show-or-launch.sh Keymapp 0.75 0.75",
-},
-
-"custom/scratchpad-keymapp": {
-    "interval": 1,
-    "return-type": "json",
-    "exec": "~/.config/waybar/scripts/scratchpad-keymapp.sh",
-    "format": " {} ",
-    "on-click": "~/.config/scripts/show-or-launch.sh keymapp 0.75 0.75",
-    //"on-click": "~/.config/scripts/show-or-launch.sh Keymapp 0.75 0.75",
-},
-
-    "custom/scratchpad-python": {
-        "interval": 1,
-        "return-type": "json",
-        "exec": "~/.config/waybar/scripts/scratchpad-python.sh",
-        "format": " {} ",
-        "on-click": "~/.config/scripts/show-or-launch.sh dropdown_python 0.6 0.6",
-    },
-
-"custom/scratchpad-scrcpy-phone": {
-    "interval": 1,
-    "return-type": "json",
-    "exec": "~/.config/waybar/scripts/scratchpad-scrcpy.sh phone",
-    "format": " {} ",
-    "on-click": "~/.config/scripts/adb-mdns-scrcpy.sh phone",
-},
-
-"custom/scratchpad-scrcpy-watch": {
-    "interval": 1,
-    "return-type": "json",
-    "exec": "~/.config/waybar/scripts/scratchpad-scrcpy.sh watch",
-    "format": " {} ",
-    "on-click": "~/.config/scripts/adb-mdns-scrcpy.sh watch",
-},
-
-"custom/scratchpad-terminal": {
-    "interval": 1,
-    "return-type": "json",
-    "exec": "~/.config/waybar/scripts/scratchpad-terminal.sh",
-    "format": " {} ",
-    "on-click": "~/.config/scripts/show-or-launch.sh dropdown_terminal 0.75 0.75",
-},
-
-"custom/scratchpad-temp-1": {
-    "interval": 1,
-    "return-type": "json",
-    "exec": "~/.config/waybar/scripts/scratchpad-temp.sh 1",
-    "format": " {} ",
-    "on-click": "~/.config/scripts/scratchpad-temp.sh 1 display",
-    //"on-click-right": "exec swaymsg 'move scratchpad'"
-},
-
-"custom/scratchpad-temp-2": {
-    "interval": 1,
-    "return-type": "json",
-    "exec": "~/.config/waybar/scripts/scratchpad-temp.sh 2",
-    "format": " {} ",
-    "on-click": "~/.config/scripts/scratchpad-temp.sh 2 display",
-},
-
-"custom/scratchpad-temp-3": {
-    "interval": 1,
-    "return-type": "json",
-    "exec": "~/.config/waybar/scripts/scratchpad-temp.sh 3",
-    "format": " {} ",
-    "on-click": "~/.config/scripts/scratchpad-temp.sh 3 display",
-},
-
-"custom/scratchpad-whatsapp": {
-    "interval": 1,
-    "return-type": "json",
-    "exec": "~/.config/waybar/scripts/scratchpad-whatsapp.sh",
-    "format": " {} ",
-    "on-click": "~/.config/scripts/show-or-launch.sh wasistlos 0.6 0.9",
-    //"on-click": "~/.config/scripts/show-or-launch.sh brave-web.whatsapp.com__-Default 0.6 0.9",
-    //"on-click": "~/.config/scripts/show-or-launch.sh web.whatsapp.com 0.6 0.9",
-},
-
-"custom/scratchpad-ytmusic": {
-    "interval": 1,
-    "return-type": "json",
-    "exec": "~/.config/waybar/scripts/scratchpad-ytmusic.sh",
-    "format": " {} ",
-    "on-click": "~/.config/scripts/show-or-launch.sh brave-music.youtube.com__-Default 0.9 0.9",
-    //"on-click": "~/.config/scripts/show-or-launch.sh music.youtube.com 0.9 0.9",
-},
-
 "custom/vpn-lcn": {
     "interval": 1,
     "return-type": "json",
@@ -589,12 +636,6 @@
     },
 },
 
-"custom/lanmouse-status": {
-    "exec": "~/.config/waybar/scripts/lanmouse-status.sh",
-    "return-type": "json",
-    "format": " {} ",
-},
-
 "custom/systemd-lanmouse": {
     "exec": "~/.config/waybar/scripts/systemd-monitor.sh --user lanmouse.service --icon=",
     "return-type": "json",
@@ -603,51 +644,10 @@
     "on-click-right": "systemctl --user is-active --quiet lanmouse.service && systemctl --user stop lanmouse.service || systemctl --user start lanmouse.service"
 },
 
-"custom/kmonad": {
+"custom/lanmouse-status": {
+    "exec": "~/.config/waybar/scripts/lanmouse-status.sh",
     "return-type": "json",
-    "exec": "sleep 2 && ~/.config/waybar/scripts/kmonad.sh monitor",
-    "on-click": "~/.config/waybar/scripts/kmonad.sh toggle --user",
-    "on-click-right": "~/.config/waybar/scripts/kmonad.sh stop --user",
-    "on-click-middle": "~/.config/waybar/scripts/kmonad.sh restart --user",
-    "format": " {} {icon} ",
-    "format-icons": {
-        "active":       "<span color=\"#393\"></span>",
-        "inactive":     "<span color=\"#999\"></span>",
-        "failed":       "<span color=\"#F33\"></span>",
-        "activating":   "<span color=\"#FF7\"></span>",
-        "deactivating": "<span color=\"#FF7\"></span>",
-        "unknown":      "<span color=\"#FA5\"></span>",
-    },
-},
-
-"image#scratchpad-icon": {
-     "exec": "/home/rafael/git/dotfiles/waybar/scripts/scratchpad-icon.sh",
-     "size": 16,
-     "interval": 3600,
-},
-
-"group/scratchpads": {
-  "orientation": "inherit",
-  "drawer": {
-      "transition-duration": 500,
-      "transition-left-to-right": false,
-  },
-  "modules": [
-    "image#scratchpad-icon",
-    "custom/scratchpad-translate",
-    "custom/scratchpad-llm",
-    "custom/scratchpad-calendar",
-    "custom/scratchpad-whatsapp",
-    "custom/scratchpad-ytmusic",
-    "custom/scratchpad-scrcpy-phone",
-    "custom/scratchpad-scrcpy-watch",
-    "custom/scratchpad-python",
-    "custom/scratchpad-terminal",
-    "custom/scratchpad-keymapp",
-    "custom/scratchpad-temp-1",
-    "custom/scratchpad-temp-2",
-    "custom/scratchpad-temp-3",
-  ]
+    "format": " {} ",
 },
 
 }
