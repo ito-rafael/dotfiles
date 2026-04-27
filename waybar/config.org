@@ -287,14 +287,14 @@
 ** CPU
 #+begin_src js
 "cpu": {
-    "format": " {usage}%",
+    "format": "<span color='#89b4fa'></span>\u2002 {usage}%",
     "tooltip": false
 },
 #+end_src
 ** Memory
 #+begin_src js
 "memory": {
-    "format": " {used:0.1f} GiB",
+    "format": "<span color='#a6e3a1'></span> {used:0.1f} GiB",
     //"format": " {used:0.1f} / {total:0.1f} GiB".
 },
 #+end_src
@@ -305,8 +305,8 @@
     "hwmon-path-abs": "/sys/devices/platform/coretemp.0/hwmon",
     "input-filename": "temp1_input",
     "critical-threshold": 80,
-    "format-critical": "{icon} {temperatureC}°C",
-    "format": "{icon} {temperatureC}°C",
+    "format-critical": "<span color='#f9e2af'>{icon}</span> {temperatureC}°C",
+    "format": "<span color='#f9e2af'>{icon}</span> {temperatureC}°C",
     "format-icons": ["", "", ""],
     "interval": 1,
 },
@@ -317,8 +317,8 @@
     "hwmon-path-abs": "/sys/devices/platform/coretemp.0/hwmon",
     "input-filename": "temp1_input",
     "critical-threshold": 80,
-    "format-critical": "{icon} {temperatureC}°C",
-    "format": "{icon} {temperatureC}°C",
+    "format-critical": "<span color='#f9e2af'>{icon}</span> {temperatureC}°C",
+    "format": "<span color='#f9e2af'>{icon}</span> {temperatureC}°C",
     "format-icons": ["", "", ""],
     "interval": 1,
 },
@@ -327,7 +327,7 @@
 #+begin_src js
 "disk": {
     "interval": 30,
-    "format": " {specific_free:0.1f} GB",
+    "format": "<span color='#f38ba8'></span> {specific_free:0.1f} GB",
     "path": "/",
     "unit": "GB",
 },
