@@ -405,7 +405,7 @@ label:focus {
 *** Disabled
 #+begin_src css
 #custom-mouse-warping.disabled {
-    color: gray;
+    color: dimgray;
 }
 #+end_src
 *** Enabled
@@ -425,7 +425,7 @@ label:focus {
 *** Disabled
 #+begin_src css
 #custom-dunst.disabled {
-    color: gray;
+    color: dimgray;
 }
 #+end_src
 *** Enabled
@@ -445,7 +445,7 @@ label:focus {
 *** Default
 #+begin_src css
 #custom-scale.default {
-    color: lightgray;
+    color: dimgray;
 }
 #+end_src
 *** Zoom
@@ -478,7 +478,7 @@ label:focus {
 *** Off
 #+begin_src css
 #custom-keyboard-backlit.off {
-    color: gray;
+    color: dimgray;
 }
 #+end_src
 *** Low

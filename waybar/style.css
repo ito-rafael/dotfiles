@@ -272,7 +272,7 @@ label:focus {
 }
 
 #custom-mouse-warping.disabled {
-    color: gray;
+    color: dimgray;
 }
 
 #custom-mouse-warping.enabled {
@@ -285,7 +285,7 @@ label:focus {
 }
 
 #custom-dunst.disabled {
-    color: gray;
+    color: dimgray;
 }
 
 #custom-dunst.enabled {
@@ -298,7 +298,7 @@ label:focus {
 }
 
 #custom-scale.default {
-    color: lightgray;
+    color: dimgray;
 }
 
 #custom-scale.zoom {
@@ -321,7 +321,7 @@ label:focus {
 }
 
 #custom-keyboard-backlit.off {
-    color: gray;
+    color: dimgray;
 }
 
 #custom-keyboard-backlit.low {
