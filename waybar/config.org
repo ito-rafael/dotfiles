@@ -337,25 +337,34 @@
 "group/control": {
   "orientation": "inherit",
   "modules": [
-    "pulseaudio",
+    "pulseaudio#speaker",
+    "pulseaudio#microphone",
     "backlight",
     "custom/gamma",
   ]
 },
 #+end_src
-** Audio
+** Speaker
 #+begin_src js
-"pulseaudio": {
-    "format": "{volume}% {icon} {format_source}",
-    "format-bluetooth": "{volume}% {icon} {format_source}",
-    "format-bluetooth-muted": " {icon} {format_source}",
-    "format-muted": " {format_source}",
-    "format-source": "{volume}% ",
-    "format-source-muted": "",
+"pulseaudio#speaker": {
+    "format": "{icon} {volume}%",
+    "format-bluetooth": "{icon} {volume}%",
+    "format-bluetooth-muted": " {icon}",
+    "format-muted": "",
     "format-icons": {
         "headphone": "",
         "default": ["", "", ""]
     },
+    "reverse-scrolling": true,
+    "reverse-mouse-scrolling": false,
+},
+#+end_src
+** Microphone
+#+begin_src js
+"pulseaudio#microphone": {
+    "format": "{format_source}",
+    "format-source": " {volume}%",
+    "format-source-muted": "",
     "reverse-scrolling": true,
     "reverse-mouse-scrolling": false,
 },
