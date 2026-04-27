@@ -9,7 +9,7 @@
 - [[#initial-config][Initial config]]
 - [[#modules][Modules]]
 - [[#workspaces][Workspaces]]
-- [[#clock][Clock]]
+- [[#group-datetime][Group Datetime]]
 - [[#battery][Battery]]
 - [[#group-monitoring][Group Monitoring]]
 - [[#group-control][Group Control]]
@@ -207,14 +207,27 @@ https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-
     background-color: #eb4d4b;
 }
 #+end_src
-* Clock
+* Group Datetime
 #+begin_src css
-#clock {
+#datetime #clock.date,
+#datetime #clock.time {
     padding: 0px 5px;
     margin:  0;
     background-color: rgba(0, 0, 0, 0.2);
     color: lightgray;
+}
+#+end_src
+** Calendar
+#+begin_src css
+#datetime #clock.date {
+    border-radius: 10px 0 0 10px;
     border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+#+end_src
+** Clock
+#+begin_src css
+#datetime #clock.time {
+    border-radius: 0 10px 10px 0;
 }
 #+end_src
 * Battery :noexport_1:

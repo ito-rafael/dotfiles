@@ -123,12 +123,21 @@ window#waybar.chromium {
     background-color: #eb4d4b;
 }
 
-#clock {
+#datetime #clock.date,
+#datetime #clock.time {
     padding: 0px 5px;
     margin:  0;
     background-color: rgba(0, 0, 0, 0.2);
     color: lightgray;
+}
+
+#datetime #clock.date {
+    border-radius: 10px 0 0 10px;
     border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#datetime #clock.time {
+    border-radius: 0 10px 10px 0;
 }
 
 #battery {
