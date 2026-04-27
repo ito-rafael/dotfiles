@@ -211,7 +211,6 @@ https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-
 #+begin_src css
 #datetime #clock.date,
 #datetime #clock.time {
-    padding: 0px 5px;
     margin:  0;
     background-color: rgba(0, 0, 0, 0.2);
     color: lightgray;
@@ -220,6 +219,7 @@ https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-
 ** Calendar
 #+begin_src css
 #datetime #clock.date {
+    padding: 0px 5px 0px 8px;
     border-radius: 10px 0 0 10px;
     border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -227,6 +227,7 @@ https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-
 ** Clock
 #+begin_src css
 #datetime #clock.time {
+    padding: 0px 8px 0px 5px;
     border-radius: 0 10px 10px 0;
 }
 #+end_src
@@ -387,7 +388,7 @@ label:focus {
 #custom-dunst,
 #custom-scale,
 #custom-keyboard-backlit {
-    padding: 0px 5px;
+    padding: 0px 3px 0px 3px;
     margin:  0;
     background-color: rgba(0, 0, 0, 0.2);
     color: lightgray;
@@ -398,6 +399,7 @@ label:focus {
 #+begin_src css
 #custom-mouse-warping {
     border-radius: 10px 0 0 10px;
+    padding: 0px 3px 0px 8px;
 }
 #+end_src
 *** Disabled
@@ -463,6 +465,7 @@ label:focus {
 #+begin_src css
 #custom-keyboard-backlit {
     border-radius: 0 10px 10px 0;
+    padding: 0px 8px 0px 5px;
 }
 #+end_src
 *** General

@@ -125,18 +125,19 @@ window#waybar.chromium {
 
 #datetime #clock.date,
 #datetime #clock.time {
-    padding: 0px 5px;
     margin:  0;
     background-color: rgba(0, 0, 0, 0.2);
     color: lightgray;
 }
 
 #datetime #clock.date {
+    padding: 0px 5px 0px 8px;
     border-radius: 10px 0 0 10px;
     border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 #datetime #clock.time {
+    padding: 0px 8px 0px 5px;
     border-radius: 0 10px 10px 0;
 }
 
@@ -258,7 +259,7 @@ label:focus {
 #custom-dunst,
 #custom-scale,
 #custom-keyboard-backlit {
-    padding: 0px 5px;
+    padding: 0px 3px 0px 3px;
     margin:  0;
     background-color: rgba(0, 0, 0, 0.2);
     color: lightgray;
@@ -267,6 +268,7 @@ label:focus {
 
 #custom-mouse-warping {
     border-radius: 10px 0 0 10px;
+    padding: 0px 3px 0px 8px;
 }
 
 #custom-mouse-warping.disabled {
@@ -310,6 +312,7 @@ label:focus {
 
 #custom-keyboard-backlit {
     border-radius: 0 10px 10px 0;
+    padding: 0px 8px 0px 5px;
 }
 
 #custom-keyboard-backlit {
