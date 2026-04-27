@@ -290,6 +290,11 @@ window#waybar.chromium {
     background-color: rgba(116, 192, 219, 0.5);
 }
 
+#custom-pomodoro-timer:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+
 #custom-scratchpad-whatsapp,
 #custom-scratchpad-ytmusic,
 #custom-scratchpad-calendar,
@@ -324,6 +329,11 @@ window#waybar.chromium {
     margin:  0;
     background-color: rgba(0, 0, 0, 0.2);
     color: lightgray;
+}
+
+#scratchpads #image.scratchpad-icon:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
 }
 
 #custom-scratchpad-whatsapp {
@@ -589,6 +599,14 @@ window#waybar.chromium {
     color: lightgray;
 }
 
+#cpu:hover,
+#memory:hover,
+#temperature:hover,
+#disk:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+
 #cpu {
     border-radius: 10px 0 0 10px;
 }
@@ -620,6 +638,14 @@ window#waybar.chromium {
     margin:  0;
     background-color: rgba(0, 0, 0, 0.2);
     color: lightgray;
+}
+
+#pulseaudio.speaker:hover,
+#pulseaudio.microphone:hover,
+#backlight:hover,
+#custom-gamma:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
 }
 
 #pulseaudio.speaker {
@@ -683,11 +709,22 @@ label:focus {
     background-color: #000000;
 }
 
+#battery:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+
 #datetime #clock.date,
 #datetime #clock.time {
     margin:  0;
     background-color: rgba(0, 0, 0, 0.2);
     color: lightgray;
+}
+
+#datetime #clock.date:hover,
+#datetime #clock.time:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
 }
 
 #datetime #clock.date {
