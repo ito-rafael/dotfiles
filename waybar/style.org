@@ -210,8 +210,11 @@ https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-
 * Clock
 #+begin_src css
 #clock {
-    /*background-color: #64727D;*/
+    padding: 0px 5px;
+    margin:  0;
+    background-color: rgba(0, 0, 0, 0.2);
     color: lightgray;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
 #+end_src
 * Battery :noexport_1:
