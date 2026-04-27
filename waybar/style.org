@@ -9,13 +9,15 @@
 - [[#initial-config][Initial config]]
 - [[#modules][Modules]]
 - [[#workspaces][Workspaces]]
-- [[#group-datetime][Group Datetime]]
 - [[#battery][Battery]]
+- [[#group-keyboard][Group keyboard]]
+- [[#group-sysadmin][Group sysadmin]]
+- [[#pomodoro-timer][Pomodoro timer]]
+- [[#group-scratchpad][Group Scratchpad]]
+- [[#group-toggle][Group Toggle]]
 - [[#group-monitoring][Group Monitoring]]
 - [[#group-control][Group Control]]
-- [[#group-toggle][Group Toggle]]
-- [[#group-sysadmin][Group sysadmin]]
-- [[#group-keyboard][Group keyboard]]
+- [[#group-datetime][Group Datetime]]
 - [[#network][Network]]
 - [[#media][Media]]
 - [[#tray][Tray]]
@@ -23,13 +25,11 @@
 - [[#mpd][MPD]]
 - [[#language][Language]]
 - [[#keyboard-state][Keyboard state]]
-- [[#scratchpad][Scratchpad]]
 - [[#vpn][VPN]]
 - [[#caps-lock][Caps Lock]]
 - [[#mouse-battery][Mouse battery]]
 - [[#lan-mouse][lan-mouse]]
 - [[#systemd-services][systemd services]]
-- [[#pomodoro-timer][Pomodoro timer]]
 
 * Initial config :noexport_1:
 ** Font
@@ -187,30 +187,6 @@ https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-
     background-color: #eb4d4b;
 }
 #+end_src
-* Group Datetime
-#+begin_src css
-#datetime #clock.date,
-#datetime #clock.time {
-    margin:  0;
-    background-color: rgba(0, 0, 0, 0.2);
-    color: lightgray;
-}
-#+end_src
-** Calendar
-#+begin_src css
-#datetime #clock.date {
-    padding: 0px 5px 0px 8px;
-    border-radius: 10px 0 0 10px;
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
-}
-#+end_src
-** Clock
-#+begin_src css
-#datetime #clock.time {
-    padding: 0px 8px 0px 5px;
-    border-radius: 0 10px 10px 0;
-}
-#+end_src
 * Battery :noexport_1:
 ** Normal
 #+begin_src css
@@ -256,343 +232,6 @@ label:focus {
     background-color: #000000;
 }
 #+end_src
-* Group Monitoring
-#+begin_src css
-#cpu,
-#memory,
-#temperature {
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
-}
-#+end_src
-** CPU
-#+begin_src css
-#cpu {
-    border-radius: 10px 0 0 10px;
-    padding: 0px 5px;
-    margin:  0;
-    background-color: rgba(0, 0, 0, 0.2);
-    color: lightgray;
-}
-#+end_src
-** Memory
-#+begin_src css
-#memory {
-    border-radius: 0;
-    padding: 0px 5px;
-    margin:  0;
-    background-color: rgba(0, 0, 0, 0.2);
-    color: lightgray;
-}
-#+end_src
-** Temperature :noexport_1:
-*** Normal
-#+begin_src css
-#temperature {
-    border-radius: 0;
-    padding: 0px 5px;
-    margin:  0;
-    background-color: rgba(0, 0, 0, 0.2);
-    color: lightgray;
-}
-#+end_src
-*** Warning
-#+begin_src css
-#temperature.warning {
-    background-color: yellow;
-}
-#+end_src
-*** Critical
-#+begin_src css
-#temperature.critical {
-    background-color: #eb4d4b;
-}
-#+end_src
-** Disk
-#+begin_src css
-#disk {
-    border-radius: 0 10px 10px 0;
-    padding: 0px 5px;
-    margin:  0;
-    background-color: rgba(0, 0, 0, 0.2);
-    color: lightgray;
-}
-#+end_src
-* Group Control
-#+begin_src css
-#pulseaudio,
-#backlight {
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
-}
-#+end_src
-** Pulseaudio :noexport_1:
-*** Normal
-#+begin_src css
-#pulseaudio {
-    border-radius: 10px 0 0 10px;
-    padding: 0px 5px;
-    margin:  0;
-    background-color: rgba(0, 0, 0, 0.2);
-    color: lightgray;
-}
-#+end_src
-*** Muted
-#+begin_src css
-#pulseaudio.muted {
-    background-color: #90b1b1;
-    color: #2a5c45;
-}
-#+end_src
-** Brightness
-#+begin_src css
-#backlight {
-    border-radius: 0;
-    padding: 0px 5px;
-    margin:  0;
-    background-color: rgba(0, 0, 0, 0.2);
-    color: lightgray;
-}
-#+end_src
-** Gamma :noexport_1:
-#+begin_src css
-#custom-gamma {
-    border-radius: 0 10px 10px 0;
-    padding: 0px 5px;
-    margin:  0;
-    background-color: rgba(0, 0, 0, 0.2);
-    color: lightgray;
-}
-#+end_src
-* Group Toggle
-#+begin_src css
-#custom-mouse-warping,
-#custom-dunst,
-#custom-scale,
-#custom-keyboard-backlit {
-    padding: 0px 3px 0px 3px;
-    margin:  0;
-    background-color: rgba(0, 0, 0, 0.2);
-    color: lightgray;
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
-}
-#+end_src
-** Mouse warping :noexport_1:
-#+begin_src css
-#custom-mouse-warping {
-    border-radius: 10px 0 0 10px;
-    padding: 0px 3px 0px 8px;
-}
-#+end_src
-*** Disabled
-#+begin_src css
-#custom-mouse-warping.disabled {
-    color: dimgray;
-}
-#+end_src
-*** Enabled
-#+begin_src css
-#custom-mouse-warping.enabled {
-    color: lightgray;
-}
-#+end_src
-*** Hover
-#+begin_src css
-#custom-mouse-warping:hover {
-    background: rgba(128, 128, 128, 0.5);
-    transition: background 0.3s ease;
-}
-#+end_src
-** Dunst :noexport_1:
-*** Disabled
-#+begin_src css
-#custom-dunst.disabled {
-    color: dimgray;
-}
-#+end_src
-*** Enabled
-#+begin_src css
-#custom-dunst.enabled {
-    color: goldenrod;
-}
-#+end_src
-*** Hover
-#+begin_src css
-#custom-dunst:hover {
-    background: rgba(128, 128, 128, 0.5);
-    transition: background 0.3s ease;
-}
-#+end_src
-** Scale :noexport_1:
-*** Default
-#+begin_src css
-#custom-scale.default {
-    color: dimgray;
-}
-#+end_src
-*** Zoom
-#+begin_src css
-#custom-scale.zoom {
-    color: lightgray;
-}
-#+end_src
-*** Hover
-#+begin_src css
-#custom-scale:hover {
-    background: rgba(128, 128, 128, 0.5);
-    transition: background 0.3s ease;
-}
-#+end_src
-** Keyboard backlit :noexport_1:
-#+begin_src css
-#custom-keyboard-backlit {
-    border-radius: 0 10px 10px 0;
-    padding: 0px 8px 0px 5px;
-}
-#+end_src
-*** General
-#+begin_src css
-#custom-keyboard-backlit {
-    font-family: "Material Symbols Outlined";
-    font-size: 20px;
-}
-#+end_src
-*** Off
-#+begin_src css
-#custom-keyboard-backlit.off {
-    color: dimgray;
-}
-#+end_src
-*** Low
-#+begin_src css
-#custom-keyboard-backlit.low {
-    color: goldenrod;
-}
-#+end_src
-*** High
-#+begin_src css
-#custom-keyboard-backlit.high {
-    color: red;
-}
-#+end_src
-*** Hover
-#+begin_src css
-#custom-keyboard-backlit:hover {
-    background: rgba(128, 128, 128, 0.5);
-    transition: background 0.3s ease;
-}
-#+end_src
-* Group sysadmin
-#+begin_src css
-#custom-pacman,
-#ansible,
-#informant {
-    padding: 0px 5px;
-    margin:  0;
-    background-color: rgba(0, 0, 0, 0.2);
-    color: lightgray;
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
-}
-#+end_src
-** Pacman :noexport_1:
-#+begin_src css
-#custom-pacman {
-    border-radius: 10px 0 0 10px;
-}
-#+end_src
-*** Low
-#+begin_src css
-#custom-pacman.low {
-    color: lightgray;
-}
-#+end_src
-*** Medium
-#+begin_src css
-#custom-pacman.medium {
-    color: lightgray;
-}
-#+end_src
-*** High
-#+begin_src css
-#custom-pacman.high {
-    color: lightgray;
-}
-#+end_src
-*** Hover
-#+begin_src css
-#custom-pacman:hover {
-    background: rgba(128, 128, 128, 0.5);
-    transition: background 0.3s ease;
-}
-#+end_src
-** Informant
-*** Group
-**** Hover
-#+begin_src css
-#informant:hover {
-    background: rgba(128, 128, 128, 0.5);
-    transition: background 0.3s ease;
-}
-#+end_src
-*** Icon
-#+begin_src css
-#informant #image.arch-news {
-    padding-right: 5px;
-    margin-bottom: 3px;
-}
-#+end_src
-*** Parser
-#+begin_src css
-#informant #custom-informant {
-    padding-right: 3px;
-}
-#+end_src
-**** Zero
-#+begin_src css
-#informant #custom-informant.zero {
-    color: gray;
-}
-#+end_src
-**** News
-#+begin_src css
-#informant #custom-informant.news {
-    color: lightgray;
-}
-#+end_src
-** Ansible-provision :noexport_1:
-*** Group
-#+begin_src css
-#ansible {
-    border-radius: 0 10px 10px 0;
-    padding-right: 10px;
-}
-#+end_src
-**** Hover
-#+begin_src css
-#ansible:hover {
-    background: rgba(128, 128, 128, 0.5);
-    transition: background 0.3s ease;
-}
-#+end_src
-*** Icon
-#+begin_src css
-#ansible #image.ansible {
-    padding-right: 5px;
-    margin-bottom: 2px;
-}
-#+end_src
-*** Ansible-provision
-**** Changes
-#+begin_src css
-#custom-ansible-provision.out-of-sync {
-    font-weight: bold;
-    color: lightgray;
-}
-#+end_src
-**** Synced
-#+begin_src css
-#custom-ansible-provision.synced {
-    color: gray;
-}
-#+end_src
 * Group keyboard
 #+begin_src css
 #xremap,
@@ -611,10 +250,7 @@ label:focus {
 #+begin_src css
 #xremap {
     border-radius: 10px 0 0 10px;
-    padding: 0 0 0 10px;
-    margin:  0;
-    background-color: rgba(0, 0, 0, 0.2);
-    color: lightgray;
+    padding: 0 0 0 8px;
 }
 #+end_src
 **** Hover
@@ -627,9 +263,6 @@ label:focus {
 *** Icon
 #+begin_src css
 #xremap #image.xremap {
-    padding-top: 0px;
-    padding-right: 0px;
-    padding-left: 0px;
 }
 #+end_src
 *** Mode
@@ -642,7 +275,6 @@ label:focus {
 **** lan-mouse
 #+begin_src css
 #custom-xremap-mode.lan-mouse {
-    color: lightgray;
     background: rgba(255, 0, 0, 0.5);
 }
 #+end_src
@@ -652,9 +284,6 @@ label:focus {
 #+begin_src css
 #kanata {
     padding: 0 5px 0 10px;
-    margin:  0;
-    background-color: rgba(0, 0, 0, 0.2);
-    color: lightgray;
 }
 #+end_src
 **** Hover
@@ -775,9 +404,6 @@ label:focus {
 #zsa {
     border-radius: 0 10px 10px 0;
     padding: 0 5px;
-    margin:  0;
-    background-color: rgba(0, 0, 0, 0.2);
-    color: lightgray;
 }
 #+end_src
 **** Hover
@@ -808,163 +434,161 @@ label:focus {
     font-family: ttf-jetbrains-mono;
 }
 #+end_src
-* Network :noexport_1:
-** Normal
+* Group sysadmin
 #+begin_src css
-#network {
-    background-color: #2980b9;
-}
-#+end_src
-** Disconnected
-#+begin_src css
-#network.disconnected {
-    background-color: #f53c3c;
-}
-#+end_src
-* Media
-** Custom
-#+begin_src css
-#custom-media {
-    background-color: #66cc99;
-    color: #2a5c45;
-    min-width: 100px;
-}
-#+end_src
-** Spotify
-#+begin_src css
-#custom-media.custom-spotify {
-    background-color: #66cc99;
-}
-#+end_src
-** VLC
-#+begin_src css
-#custom-media.custom-vlc {
-    background-color: #ffa000;
-}
-#+end_src
-* Tray :noexport_1:
-** Normal
-#+begin_src css
-#tray {
-    background-color: #2980b9;
-}
-#+end_src
-** Passive
-#+begin_src css
-#tray > .passive {
-    -gtk-icon-effect: dim;
-}
-#+end_src
-** Needs attention
-#+begin_src css
-#tray > .needs-attention {
-    -gtk-icon-effect: highlight;
-    background-color: #eb4d4b;
-}
-#+end_src
-** Idle
-#+begin_src css
-#idle_inhibitor {
-    background-color: #2d3436;
-}
-#+end_src
-** Idle activated
-#+begin_src css
-#idle_inhibitor.activated {
-    background-color: #ecf0f1;
-    color: #2d3436;
-}
-#+end_src
-* MPRIS
-#+begin_src css
-#mpris {
-    border-radius: 10px;
+#custom-pacman,
+#ansible,
+#informant {
     padding: 0px 5px;
     margin:  0;
     background-color: rgba(0, 0, 0, 0.2);
     color: lightgray;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
 #+end_src
-** Playing
+** Pacman :noexport_1:
 #+begin_src css
-#mpris.playing {
+#custom-pacman {
+    border-radius: 10px 0 0 10px;
+}
+#+end_src
+*** Low
+#+begin_src css
+#custom-pacman.low {
+}
+#+end_src
+*** Medium
+#+begin_src css
+#custom-pacman.medium {
+}
+#+end_src
+*** High
+#+begin_src css
+#custom-pacman.high {
+}
+#+end_src
+*** Hover
+#+begin_src css
+#custom-pacman:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+#+end_src
+** Informant
+*** Group
+**** Hover
+#+begin_src css
+#informant:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+#+end_src
+*** Icon
+#+begin_src css
+#informant #image.arch-news {
+    padding-right: 5px;
+    margin-bottom: 3px;
+}
+#+end_src
+*** Parser
+#+begin_src css
+#informant #custom-informant {
+    padding-right: 3px;
+}
+#+end_src
+**** Zero
+#+begin_src css
+#informant #custom-informant.zero {
+    color: dimgray;
+}
+#+end_src
+**** News
+#+begin_src css
+#informant #custom-informant.news {
+}
+#+end_src
+** Ansible-provision :noexport_1:
+*** Group
+#+begin_src css
+#ansible {
+    border-radius: 0 10px 10px 0;
+    padding-right: 10px;
+}
+#+end_src
+**** Hover
+#+begin_src css
+#ansible:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+#+end_src
+*** Icon
+#+begin_src css
+#ansible #image.ansible {
+    padding-right: 5px;
+    margin-bottom: 2px;
+}
+#+end_src
+*** Ansible-provision
+**** Changes
+#+begin_src css
+#custom-ansible-provision.out-of-sync {
+    font-weight: bold;
+}
+#+end_src
+**** Synced
+#+begin_src css
+#custom-ansible-provision.synced {
+    color: dimgray;
+}
+#+end_src
+* Pomodoro timer :noexport_1:
+#+begin_src css
+#custom-pomodoro-timer {
+    padding: 0px 7px;
+    margin:  0;
+    background-color: rgba(0, 0, 0, 0.2);
     color: lightgray;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
 #+end_src
-** Paused
+** Work
+*** Playing
 #+begin_src css
-#mpris.paused {
-    background-color: transparent;
-    color: gray;
+#custom-pomodoro-timer.work {
 }
 #+end_src
-** Stopped
+*** Paused
 #+begin_src css
-#mpris.stopped {
-    background-color: transparent;
-    color: gray;
+#custom-pomodoro-timer.work-paused {
+    background-color: rgba(256, 153, 153, 0.5);
 }
 #+end_src
-* MPD :noexport_1:
-** Normal
+** Break
+*** Playing
 #+begin_src css
-#mpd {
-    background-color: #66cc99;
-    color: #2a5c45;
+#custom-pomodoro-timer.break {
 }
 #+end_src
-** Disconnected
+*** Paused
 #+begin_src css
-#mpd.disconnected {
-    background-color: #f53c3c;
+#custom-pomodoro-timer.break-paused {
+    background-color: rgba(125, 211, 219, 0.5);
 }
 #+end_src
-** Stopped
+** Long break
+*** Playing
 #+begin_src css
-#mpd.stopped {
-    background-color: #90b1b1;
+#custom-pomodoro-timer.long-break {
 }
 #+end_src
-** Paused
+*** Paused
 #+begin_src css
-#mpd.paused {
-    background-color: #51a37a;
+#custom-pomodoro-timer.long-break-paused {
+    background-color: rgba(116, 192, 219, 0.5);
 }
 #+end_src
-* Language
-#+begin_src css
-#language {
-    background: #00b093;
-    color: #740864;
-    padding: 0 5px;
-    margin: 0 5px;
-    min-width: 16px;
-}
-#+end_src
-* Keyboard state :noexport_1:
-** Normal
-#+begin_src css
-#keyboard-state {
-    background: #97e1ad;
-    color: #000000;
-    padding: 0 0px;
-    margin: 0 5px;
-    min-width: 16px;
-}
-#+end_src
-** Label
-#+begin_src css
-#keyboard-state > label {
-    padding: 0 5px;
-}
-#+end_src
-** Label locked
-#+begin_src css
-#keyboard-state > label.locked {
-    background: rgba(0, 0, 0, 0.2);
-}
-#+end_src
-* Scratchpad
+* Group Scratchpad
 ** Group
 #+begin_src css
 #custom-scratchpad-whatsapp,
@@ -1005,7 +629,6 @@ label:focus {
     margin:  0;
     background-color: rgba(0, 0, 0, 0.2);
     color: lightgray;
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
 #+end_src
 ** WhatsApp
@@ -1272,6 +895,387 @@ label:focus {
     transition: background 0.3s ease;
 }
 #+end_src
+* Group Toggle
+#+begin_src css
+#custom-mouse-warping,
+#custom-dunst,
+#custom-scale,
+#custom-keyboard-backlit {
+    padding: 0px 3px 0px 3px;
+    margin:  0;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: lightgray;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+#+end_src
+** Mouse warping :noexport_1:
+#+begin_src css
+#custom-mouse-warping {
+    border-radius: 10px 0 0 10px;
+    padding: 0px 3px 0px 8px;
+}
+#+end_src
+*** Disabled
+#+begin_src css
+#custom-mouse-warping.disabled {
+    color: dimgray;
+}
+#+end_src
+*** Enabled
+#+begin_src css
+#custom-mouse-warping.enabled {
+}
+#+end_src
+*** Hover
+#+begin_src css
+#custom-mouse-warping:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+#+end_src
+** Dunst :noexport_1:
+*** Disabled
+#+begin_src css
+#custom-dunst.disabled {
+    color: dimgray;
+}
+#+end_src
+*** Enabled
+#+begin_src css
+#custom-dunst.enabled {
+    color: goldenrod;
+}
+#+end_src
+*** Hover
+#+begin_src css
+#custom-dunst:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+#+end_src
+** Scale :noexport_1:
+*** Default
+#+begin_src css
+#custom-scale.default {
+    color: dimgray;
+}
+#+end_src
+*** Zoom
+#+begin_src css
+#custom-scale.zoom {
+}
+#+end_src
+*** Hover
+#+begin_src css
+#custom-scale:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+#+end_src
+** Keyboard backlit :noexport_1:
+#+begin_src css
+#custom-keyboard-backlit {
+    border-radius: 0 10px 10px 0;
+    padding: 0px 8px 0px 5px;
+}
+#+end_src
+*** General
+#+begin_src css
+#custom-keyboard-backlit {
+    font-family: "Material Symbols Outlined";
+    font-size: 20px;
+}
+#+end_src
+*** Off
+#+begin_src css
+#custom-keyboard-backlit.off {
+    color: dimgray;
+}
+#+end_src
+*** Low
+#+begin_src css
+#custom-keyboard-backlit.low {
+    color: goldenrod;
+}
+#+end_src
+*** High
+#+begin_src css
+#custom-keyboard-backlit.high {
+    color: red;
+}
+#+end_src
+*** Hover
+#+begin_src css
+#custom-keyboard-backlit:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+#+end_src
+* Group Monitoring
+** Group
+#+begin_src css
+#cpu,
+#memory,
+#temperature,
+#disk {
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0px 5px;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: lightgray;
+}
+#+end_src
+** CPU
+#+begin_src css
+#cpu {
+    border-radius: 10px 0 0 10px;
+}
+#+end_src
+** Memory
+#+begin_src css
+#memory {
+}
+#+end_src
+** Temperature :noexport_1:
+*** Normal
+#+begin_src css
+#temperature {
+}
+#+end_src
+*** Warning
+#+begin_src css
+#temperature.warning {
+    background-color: yellow;
+}
+#+end_src
+*** Critical
+#+begin_src css
+#temperature.critical {
+    background-color: #eb4d4b;
+}
+#+end_src
+** Disk
+#+begin_src css
+#disk {
+    border-radius: 0 10px 10px 0;
+}
+#+end_src
+* Group Control
+#+begin_src css
+#pulseaudio,
+#backlight,
+#custom-gamma {
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0px 5px;
+    margin:  0;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: lightgray;
+}
+#+end_src
+** Pulseaudio :noexport_1:
+*** Normal
+#+begin_src css
+#pulseaudio {
+    border-radius: 10px 0 0 10px;
+}
+#+end_src
+*** Muted
+#+begin_src css
+#pulseaudio.muted {
+    background-color: #90b1b1;
+    color: #2a5c45;
+}
+#+end_src
+** Brightness
+#+begin_src css
+#backlight {
+    border-radius: 0;
+}
+#+end_src
+** Gamma :noexport_1:
+#+begin_src css
+#custom-gamma {
+    border-radius: 0 10px 10px 0;
+}
+#+end_src
+* Group Datetime
+#+begin_src css
+#datetime #clock.date,
+#datetime #clock.time {
+    margin:  0;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: lightgray;
+}
+#+end_src
+** Calendar
+#+begin_src css
+#datetime #clock.date {
+    padding: 0px 5px 0px 8px;
+    border-radius: 10px 0 0 10px;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+#+end_src
+** Clock
+#+begin_src css
+#datetime #clock.time {
+    padding: 0px 8px 0px 5px;
+    border-radius: 0 10px 10px 0;
+}
+#+end_src
+* Network :noexport_1:
+** Normal
+#+begin_src css
+#network {
+    background-color: #2980b9;
+}
+#+end_src
+** Disconnected
+#+begin_src css
+#network.disconnected {
+    background-color: #f53c3c;
+}
+#+end_src
+* Media
+** Custom
+#+begin_src css
+#custom-media {
+    background-color: #66cc99;
+    color: #2a5c45;
+    min-width: 100px;
+}
+#+end_src
+** Spotify
+#+begin_src css
+#custom-media.custom-spotify {
+    background-color: #66cc99;
+}
+#+end_src
+** VLC
+#+begin_src css
+#custom-media.custom-vlc {
+    background-color: #ffa000;
+}
+#+end_src
+* Tray :noexport_1:
+** Normal
+#+begin_src css
+#tray {
+    background-color: #2980b9;
+}
+#+end_src
+** Passive
+#+begin_src css
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+#+end_src
+** Needs attention
+#+begin_src css
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #eb4d4b;
+}
+#+end_src
+** Idle
+#+begin_src css
+#idle_inhibitor {
+    background-color: #2d3436;
+}
+#+end_src
+** Idle activated
+#+begin_src css
+#idle_inhibitor.activated {
+    background-color: #ecf0f1;
+    color: #2d3436;
+}
+#+end_src
+* MPRIS
+#+begin_src css
+#mpris {
+    border-radius: 10px;
+    padding: 0px 5px;
+    margin:  0;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: lightgray;
+}
+#+end_src
+** Playing
+#+begin_src css
+#mpris.playing {
+}
+#+end_src
+** Paused
+#+begin_src css
+#mpris.paused {
+    background-color: transparent;
+    color: gray;
+}
+#+end_src
+** Stopped
+#+begin_src css
+#mpris.stopped {
+    background-color: transparent;
+    color: gray;
+}
+#+end_src
+* MPD :noexport_1:
+** Normal
+#+begin_src css
+#mpd {
+    background-color: #66cc99;
+    color: #2a5c45;
+}
+#+end_src
+** Disconnected
+#+begin_src css
+#mpd.disconnected {
+    background-color: #f53c3c;
+}
+#+end_src
+** Stopped
+#+begin_src css
+#mpd.stopped {
+    background-color: #90b1b1;
+}
+#+end_src
+** Paused
+#+begin_src css
+#mpd.paused {
+    background-color: #51a37a;
+}
+#+end_src
+* Language
+#+begin_src css
+#language {
+    background: #00b093;
+    color: #740864;
+    padding: 0 5px;
+    margin: 0 5px;
+    min-width: 16px;
+}
+#+end_src
+* Keyboard state :noexport_1:
+** Normal
+#+begin_src css
+#keyboard-state {
+    background: #97e1ad;
+    color: #000000;
+    padding: 0 0px;
+    margin: 0 5px;
+    min-width: 16px;
+}
+#+end_src
+** Label
+#+begin_src css
+#keyboard-state > label {
+    padding: 0 5px;
+}
+#+end_src
+** Label locked
+#+begin_src css
+#keyboard-state > label.locked {
+    background: rgba(0, 0, 0, 0.2);
+}
+#+end_src
 * VPN
 ** La Casa Nostra
 #+begin_src css
@@ -1309,29 +1313,30 @@ label:focus {
 }
 #+end_src
 * Mouse battery :noexport_1:
+#+begin_src css
+#custom-battery-mouse {
+    color: lightgray;
+}
+#+end_src
 ** Full
 #+begin_src css
 #custom-battery-mouse.full {
-    color: lightgray;
 }
 #+end_src
 ** Good
 #+begin_src css
 #custom-battery-mouse.good {
-    color: lightgray;
 }
 #+end_src
 ** Low
 #+begin_src css
 #custom-battery-mouse.low {
-    color: lightgray;
     background: rgba(255, 255, 0, 0.5);
 }
 #+end_src
 ** Critical
 #+begin_src css
 #custom-battery-mouse.critical {
-    color: lightgray;
     background: rgba(255, 0, 0, 0.5);
 }
 #+end_src
@@ -1400,63 +1405,5 @@ label:focus {
 #custom-systemd-lanmouse:hover {
     background: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
-}
-#+end_src
-* Pomodoro timer :noexport_1:
-#+begin_src css
-#custom-pomodoro-timer {
-    padding: 0px 7px;
-    margin:  0;
-    background-color: rgba(0, 0, 0, 0.2);
-    color: lightgray;
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
-}
-#+end_src
-** Work
-*** Playing
-#+begin_src css
-#custom-pomodoro-timer.work {
-    color: lightgray;
-    /*background-color: #ff6b6b;*/
-}
-#+end_src
-*** Paused
-#+begin_src css
-#custom-pomodoro-timer.work-paused {
-    color: lightgray;
-    /*background-color: #ff9999;*/
-    background-color: rgba(256, 153, 153, 0.5);
-}
-#+end_src
-** Break
-*** Playing
-#+begin_src css
-#custom-pomodoro-timer.break {
-    color: lightgray;
-    /*background-color: #4ecdc4;*/
-}
-#+end_src
-*** Paused
-#+begin_src css
-#custom-pomodoro-timer.break-paused {
-    color: lightgray;
-    /*background-color: #7dd3db;*/
-    background-color: rgba(125, 211, 219, 0.5);
-}
-#+end_src
-** Long break
-*** Playing
-#+begin_src css
-#custom-pomodoro-timer.long-break {
-    color: lightgray;
-    /*background-color: #45b7d1;*/
-}
-#+end_src
-*** Paused
-#+begin_src css
-#custom-pomodoro-timer.long-break-paused {
-    color: lightgray;
-    /*background-color: #74c0db;*/
-    background-color: rgba(116, 192, 219, 0.5);
 }
 #+end_src

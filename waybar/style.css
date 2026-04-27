@@ -104,24 +104,6 @@ window#waybar.chromium {
     background-color: #eb4d4b;
 }
 
-#datetime #clock.date,
-#datetime #clock.time {
-    margin:  0;
-    background-color: rgba(0, 0, 0, 0.2);
-    color: lightgray;
-}
-
-#datetime #clock.date {
-    padding: 0px 5px 0px 8px;
-    border-radius: 10px 0 0 10px;
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-#datetime #clock.time {
-    padding: 0px 8px 0px 5px;
-    border-radius: 0 10px 10px 0;
-}
-
 #battery {
     padding: 0px 7px;
     margin:  0;
@@ -156,245 +138,6 @@ label:focus {
     background-color: #000000;
 }
 
-#cpu,
-#memory,
-#temperature {
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-#cpu {
-    border-radius: 10px 0 0 10px;
-    padding: 0px 5px;
-    margin:  0;
-    background-color: rgba(0, 0, 0, 0.2);
-    color: lightgray;
-}
-
-#memory {
-    border-radius: 0;
-    padding: 0px 5px;
-    margin:  0;
-    background-color: rgba(0, 0, 0, 0.2);
-    color: lightgray;
-}
-
-#temperature {
-    border-radius: 0;
-    padding: 0px 5px;
-    margin:  0;
-    background-color: rgba(0, 0, 0, 0.2);
-    color: lightgray;
-}
-
-#temperature.warning {
-    background-color: yellow;
-}
-
-#temperature.critical {
-    background-color: #eb4d4b;
-}
-
-#disk {
-    border-radius: 0 10px 10px 0;
-    padding: 0px 5px;
-    margin:  0;
-    background-color: rgba(0, 0, 0, 0.2);
-    color: lightgray;
-}
-
-#pulseaudio,
-#backlight {
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-#pulseaudio {
-    border-radius: 10px 0 0 10px;
-    padding: 0px 5px;
-    margin:  0;
-    background-color: rgba(0, 0, 0, 0.2);
-    color: lightgray;
-}
-
-#pulseaudio.muted {
-    background-color: #90b1b1;
-    color: #2a5c45;
-}
-
-#backlight {
-    border-radius: 0;
-    padding: 0px 5px;
-    margin:  0;
-    background-color: rgba(0, 0, 0, 0.2);
-    color: lightgray;
-}
-
-#custom-gamma {
-    border-radius: 0 10px 10px 0;
-    padding: 0px 5px;
-    margin:  0;
-    background-color: rgba(0, 0, 0, 0.2);
-    color: lightgray;
-}
-
-#custom-mouse-warping,
-#custom-dunst,
-#custom-scale,
-#custom-keyboard-backlit {
-    padding: 0px 3px 0px 3px;
-    margin:  0;
-    background-color: rgba(0, 0, 0, 0.2);
-    color: lightgray;
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-#custom-mouse-warping {
-    border-radius: 10px 0 0 10px;
-    padding: 0px 3px 0px 8px;
-}
-
-#custom-mouse-warping.disabled {
-    color: dimgray;
-}
-
-#custom-mouse-warping.enabled {
-    color: lightgray;
-}
-
-#custom-mouse-warping:hover {
-    background: rgba(128, 128, 128, 0.5);
-    transition: background 0.3s ease;
-}
-
-#custom-dunst.disabled {
-    color: dimgray;
-}
-
-#custom-dunst.enabled {
-    color: goldenrod;
-}
-
-#custom-dunst:hover {
-    background: rgba(128, 128, 128, 0.5);
-    transition: background 0.3s ease;
-}
-
-#custom-scale.default {
-    color: dimgray;
-}
-
-#custom-scale.zoom {
-    color: lightgray;
-}
-
-#custom-scale:hover {
-    background: rgba(128, 128, 128, 0.5);
-    transition: background 0.3s ease;
-}
-
-#custom-keyboard-backlit {
-    border-radius: 0 10px 10px 0;
-    padding: 0px 8px 0px 5px;
-}
-
-#custom-keyboard-backlit {
-    font-family: "Material Symbols Outlined";
-    font-size: 20px;
-}
-
-#custom-keyboard-backlit.off {
-    color: dimgray;
-}
-
-#custom-keyboard-backlit.low {
-    color: goldenrod;
-}
-
-#custom-keyboard-backlit.high {
-    color: red;
-}
-
-#custom-keyboard-backlit:hover {
-    background: rgba(128, 128, 128, 0.5);
-    transition: background 0.3s ease;
-}
-
-#custom-pacman,
-#ansible,
-#informant {
-    padding: 0px 5px;
-    margin:  0;
-    background-color: rgba(0, 0, 0, 0.2);
-    color: lightgray;
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-#custom-pacman {
-    border-radius: 10px 0 0 10px;
-}
-
-#custom-pacman.low {
-    color: lightgray;
-}
-
-#custom-pacman.medium {
-    color: lightgray;
-}
-
-#custom-pacman.high {
-    color: lightgray;
-}
-
-#custom-pacman:hover {
-    background: rgba(128, 128, 128, 0.5);
-    transition: background 0.3s ease;
-}
-
-#informant:hover {
-    background: rgba(128, 128, 128, 0.5);
-    transition: background 0.3s ease;
-}
-
-#informant #image.arch-news {
-    padding-right: 5px;
-    margin-bottom: 3px;
-}
-
-#informant #custom-informant {
-    padding-right: 3px;
-}
-
-#informant #custom-informant.zero {
-    color: gray;
-}
-
-#informant #custom-informant.news {
-    color: lightgray;
-}
-
-#ansible {
-    border-radius: 0 10px 10px 0;
-    padding-right: 10px;
-}
-
-#ansible:hover {
-    background: rgba(128, 128, 128, 0.5);
-    transition: background 0.3s ease;
-}
-
-#ansible #image.ansible {
-    padding-right: 5px;
-    margin-bottom: 2px;
-}
-
-#custom-ansible-provision.out-of-sync {
-    font-weight: bold;
-    color: lightgray;
-}
-
-#custom-ansible-provision.synced {
-    color: gray;
-}
-
 #xremap,
 #kanata,
 #zsa {
@@ -407,10 +150,7 @@ label:focus {
 
 #xremap {
     border-radius: 10px 0 0 10px;
-    padding: 0 0 0 10px;
-    margin:  0;
-    background-color: rgba(0, 0, 0, 0.2);
-    color: lightgray;
+    padding: 0 0 0 8px;
 }
 
 #xremap:hover {
@@ -419,9 +159,6 @@ label:focus {
 }
 
 #xremap #image.xremap {
-    padding-top: 0px;
-    padding-right: 0px;
-    padding-left: 0px;
 }
 
 #custom-xremap-mode.default {
@@ -429,15 +166,11 @@ label:focus {
 }
 
 #custom-xremap-mode.lan-mouse {
-    color: lightgray;
     background: rgba(255, 0, 0, 0.5);
 }
 
 #kanata {
     padding: 0 5px 0 10px;
-    margin:  0;
-    background-color: rgba(0, 0, 0, 0.2);
-    color: lightgray;
 }
 
 #kanata:hover {
@@ -486,9 +219,6 @@ label:focus {
 #zsa {
     border-radius: 0 10px 10px 0;
     padding: 0 5px;
-    margin:  0;
-    background-color: rgba(0, 0, 0, 0.2);
-    color: lightgray;
 }
 
 #zsa:hover {
@@ -510,111 +240,105 @@ label:focus {
     font-family: ttf-jetbrains-mono;
 }
 
-#network {
-    background-color: #2980b9;
-}
-
-#network.disconnected {
-    background-color: #f53c3c;
-}
-
-#custom-media {
-    background-color: #66cc99;
-    color: #2a5c45;
-    min-width: 100px;
-}
-
-#custom-media.custom-spotify {
-    background-color: #66cc99;
-}
-
-#custom-media.custom-vlc {
-    background-color: #ffa000;
-}
-
-#tray {
-    background-color: #2980b9;
-}
-
-#tray > .passive {
-    -gtk-icon-effect: dim;
-}
-
-#tray > .needs-attention {
-    -gtk-icon-effect: highlight;
-    background-color: #eb4d4b;
-}
-
-#idle_inhibitor {
-    background-color: #2d3436;
-}
-
-#idle_inhibitor.activated {
-    background-color: #ecf0f1;
-    color: #2d3436;
-}
-
-#mpris {
-    border-radius: 10px;
+#custom-pacman,
+#ansible,
+#informant {
     padding: 0px 5px;
     margin:  0;
     background-color: rgba(0, 0, 0, 0.2);
     color: lightgray;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-#mpris.playing {
+#custom-pacman {
+    border-radius: 10px 0 0 10px;
+}
+
+#custom-pacman.low {
+}
+
+#custom-pacman.medium {
+}
+
+#custom-pacman.high {
+}
+
+#custom-pacman:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+
+#informant:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+
+#informant #image.arch-news {
+    padding-right: 5px;
+    margin-bottom: 3px;
+}
+
+#informant #custom-informant {
+    padding-right: 3px;
+}
+
+#informant #custom-informant.zero {
+    color: dimgray;
+}
+
+#informant #custom-informant.news {
+}
+
+#ansible {
+    border-radius: 0 10px 10px 0;
+    padding-right: 10px;
+}
+
+#ansible:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+
+#ansible #image.ansible {
+    padding-right: 5px;
+    margin-bottom: 2px;
+}
+
+#custom-ansible-provision.out-of-sync {
+    font-weight: bold;
+}
+
+#custom-ansible-provision.synced {
+    color: dimgray;
+}
+
+#custom-pomodoro-timer {
+    padding: 0px 7px;
+    margin:  0;
+    background-color: rgba(0, 0, 0, 0.2);
     color: lightgray;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-#mpris.paused {
-    background-color: transparent;
-    color: gray;
+#custom-pomodoro-timer.work {
 }
 
-#mpris.stopped {
-    background-color: transparent;
-    color: gray;
+#custom-pomodoro-timer.work-paused {
+    background-color: rgba(256, 153, 153, 0.5);
 }
 
-#mpd {
-    background-color: #66cc99;
-    color: #2a5c45;
+#custom-pomodoro-timer.break {
 }
 
-#mpd.disconnected {
-    background-color: #f53c3c;
+#custom-pomodoro-timer.break-paused {
+    background-color: rgba(125, 211, 219, 0.5);
 }
 
-#mpd.stopped {
-    background-color: #90b1b1;
+#custom-pomodoro-timer.long-break {
 }
 
-#mpd.paused {
-    background-color: #51a37a;
-}
-
-#language {
-    background: #00b093;
-    color: #740864;
-    padding: 0 5px;
-    margin: 0 5px;
-    min-width: 16px;
-}
-
-#keyboard-state {
-    background: #97e1ad;
-    color: #000000;
-    padding: 0 0px;
-    margin: 0 5px;
-    min-width: 16px;
-}
-
-#keyboard-state > label {
-    padding: 0 5px;
-}
-
-#keyboard-state > label.locked {
-    background: rgba(0, 0, 0, 0.2);
+#custom-pomodoro-timer.long-break-paused {
+    background-color: rgba(116, 192, 219, 0.5);
 }
 
 #custom-scratchpad-whatsapp,
@@ -826,6 +550,269 @@ label:focus {
     transition: background 0.3s ease;
 }
 
+#custom-mouse-warping,
+#custom-dunst,
+#custom-scale,
+#custom-keyboard-backlit {
+    padding: 0px 3px 0px 3px;
+    margin:  0;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: lightgray;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#custom-mouse-warping {
+    border-radius: 10px 0 0 10px;
+    padding: 0px 3px 0px 8px;
+}
+
+#custom-mouse-warping.disabled {
+    color: dimgray;
+}
+
+#custom-mouse-warping.enabled {
+}
+
+#custom-mouse-warping:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+
+#custom-dunst.disabled {
+    color: dimgray;
+}
+
+#custom-dunst.enabled {
+    color: goldenrod;
+}
+
+#custom-dunst:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+
+#custom-scale.default {
+    color: dimgray;
+}
+
+#custom-scale.zoom {
+}
+
+#custom-scale:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+
+#custom-keyboard-backlit {
+    border-radius: 0 10px 10px 0;
+    padding: 0px 8px 0px 5px;
+}
+
+#custom-keyboard-backlit {
+    font-family: "Material Symbols Outlined";
+    font-size: 20px;
+}
+
+#custom-keyboard-backlit.off {
+    color: dimgray;
+}
+
+#custom-keyboard-backlit.low {
+    color: goldenrod;
+}
+
+#custom-keyboard-backlit.high {
+    color: red;
+}
+
+#custom-keyboard-backlit:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+
+#cpu,
+#memory,
+#temperature,
+#disk {
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0px 5px;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: lightgray;
+}
+
+#cpu {
+    border-radius: 10px 0 0 10px;
+}
+
+#memory {
+}
+
+#temperature {
+}
+
+#temperature.warning {
+    background-color: yellow;
+}
+
+#temperature.critical {
+    background-color: #eb4d4b;
+}
+
+#disk {
+    border-radius: 0 10px 10px 0;
+}
+
+#pulseaudio,
+#backlight,
+#custom-gamma {
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0px 5px;
+    margin:  0;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: lightgray;
+}
+
+#pulseaudio {
+    border-radius: 10px 0 0 10px;
+}
+
+#pulseaudio.muted {
+    background-color: #90b1b1;
+    color: #2a5c45;
+}
+
+#backlight {
+    border-radius: 0;
+}
+
+#custom-gamma {
+    border-radius: 0 10px 10px 0;
+}
+
+#datetime #clock.date,
+#datetime #clock.time {
+    margin:  0;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: lightgray;
+}
+
+#datetime #clock.date {
+    padding: 0px 5px 0px 8px;
+    border-radius: 10px 0 0 10px;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#datetime #clock.time {
+    padding: 0px 8px 0px 5px;
+    border-radius: 0 10px 10px 0;
+}
+
+#network {
+    background-color: #2980b9;
+}
+
+#network.disconnected {
+    background-color: #f53c3c;
+}
+
+#custom-media {
+    background-color: #66cc99;
+    color: #2a5c45;
+    min-width: 100px;
+}
+
+#custom-media.custom-spotify {
+    background-color: #66cc99;
+}
+
+#custom-media.custom-vlc {
+    background-color: #ffa000;
+}
+
+#tray {
+    background-color: #2980b9;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #eb4d4b;
+}
+
+#idle_inhibitor {
+    background-color: #2d3436;
+}
+
+#idle_inhibitor.activated {
+    background-color: #ecf0f1;
+    color: #2d3436;
+}
+
+#mpris {
+    border-radius: 10px;
+    padding: 0px 5px;
+    margin:  0;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: lightgray;
+}
+
+#mpris.playing {
+}
+
+#mpris.paused {
+    background-color: transparent;
+    color: gray;
+}
+
+#mpris.stopped {
+    background-color: transparent;
+    color: gray;
+}
+
+#mpd {
+    background-color: #66cc99;
+    color: #2a5c45;
+}
+
+#mpd.disconnected {
+    background-color: #f53c3c;
+}
+
+#mpd.stopped {
+    background-color: #90b1b1;
+}
+
+#mpd.paused {
+    background-color: #51a37a;
+}
+
+#language {
+    background: #00b093;
+    color: #740864;
+    padding: 0 5px;
+    margin: 0 5px;
+    min-width: 16px;
+}
+
+#keyboard-state {
+    background: #97e1ad;
+    color: #000000;
+    padding: 0 0px;
+    margin: 0 5px;
+    min-width: 16px;
+}
+
+#keyboard-state > label {
+    padding: 0 5px;
+}
+
+#keyboard-state > label.locked {
+    background: rgba(0, 0, 0, 0.2);
+}
+
 #custom-vpn-lcn.enabled {
     background-color: #00b0b0;
     color: white;
@@ -851,21 +838,21 @@ label:focus {
     color: black;
 }
 
-#custom-battery-mouse.full {
+#custom-battery-mouse {
     color: lightgray;
+}
+
+#custom-battery-mouse.full {
 }
 
 #custom-battery-mouse.good {
-    color: lightgray;
 }
 
 #custom-battery-mouse.low {
-    color: lightgray;
     background: rgba(255, 255, 0, 0.5);
 }
 
 #custom-battery-mouse.critical {
-    color: lightgray;
     background: rgba(255, 0, 0, 0.5);
 }
 
@@ -911,45 +898,4 @@ label:focus {
 #custom-systemd-lanmouse:hover {
     background: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
-}
-
-#custom-pomodoro-timer {
-    padding: 0px 7px;
-    margin:  0;
-    background-color: rgba(0, 0, 0, 0.2);
-    color: lightgray;
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-#custom-pomodoro-timer.work {
-    color: lightgray;
-    /*background-color: #ff6b6b;*/
-}
-
-#custom-pomodoro-timer.work-paused {
-    color: lightgray;
-    /*background-color: #ff9999;*/
-    background-color: rgba(256, 153, 153, 0.5);
-}
-
-#custom-pomodoro-timer.break {
-    color: lightgray;
-    /*background-color: #4ecdc4;*/
-}
-
-#custom-pomodoro-timer.break-paused {
-    color: lightgray;
-    /*background-color: #7dd3db;*/
-    background-color: rgba(125, 211, 219, 0.5);
-}
-
-#custom-pomodoro-timer.long-break {
-    color: lightgray;
-    /*background-color: #45b7d1;*/
-}
-
-#custom-pomodoro-timer.long-break-paused {
-    color: lightgray;
-    /*background-color: #74c0db;*/
-    background-color: rgba(116, 192, 219, 0.5);
 }
