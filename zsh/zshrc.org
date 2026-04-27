@@ -528,6 +528,7 @@ alias vdc='vim docker-compose.yml'
 #+begin_src sh
 function gs() { git show $1 | vim - }
 alias grs='git reset --soft'
+alias grh='git reset --hard'
 #+end_src
 ** Config files
 *** Host
