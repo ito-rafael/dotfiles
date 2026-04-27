@@ -611,7 +611,8 @@ window#waybar.chromium {
     border-radius: 0 10px 10px 0;
 }
 
-#pulseaudio,
+#pulseaudio.speaker,
+#pulseaudio.microphone,
 #backlight,
 #custom-gamma {
     border-right: 1px solid rgba(255, 255, 255, 0.1);
@@ -621,11 +622,20 @@ window#waybar.chromium {
     color: lightgray;
 }
 
-#pulseaudio {
+#pulseaudio.speaker {
+    padding-left: 8px;
     border-radius: 10px 0 0 10px;
 }
 
-#pulseaudio.muted {
+#pulseaudio.speaker.muted {
+    background-color: #90b1b1;
+    color: #2a5c45;
+}
+
+#pulseaudio.microphone {
+}
+
+#pulseaudio.microphone.muted {
     background-color: #90b1b1;
     color: #2a5c45;
 }
@@ -636,6 +646,7 @@ window#waybar.chromium {
 
 #custom-gamma {
     border-radius: 0 10px 10px 0;
+    padding-right: 8px;
 }
 
 #battery {
