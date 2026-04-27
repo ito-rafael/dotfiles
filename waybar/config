@@ -35,7 +35,7 @@
     "group/control",
     "custom/battery-mouse",
     "battery",
-    "clock",
+    "group/datetime",
     //"keyboard-state",
     "custom/capslock",
     "tray",
@@ -275,8 +275,8 @@
   "orientation": "inherit",
   "modules": [
     "custom/pacman",
-    "group/informant"
-    //"group/ansible",
+    "group/informant",
+    "group/ansible",
   ]
 },
 
@@ -531,9 +531,45 @@
     "format-icons": ["", "", "", "", ""]
 },
 
-"clock": {
-    "format": "{:%a %d, %H:%M} ",
-    "format-alt": "{:%A, %B %d, %Y (%R)} ",
+"group/datetime": {
+  "orientation": "inherit",
+  "modules": [
+    "clock#date",
+    "clock#time",
+  ]
+},
+
+"clock#date": {
+    "format": " {:%a %d}",
+    "format-alt": " {:%A, %B %Y}",
+    "tooltip-format": "<tt><big>{calendar}</big></tt>",
+    "calendar": {
+        "mode"          : "year",
+        "mode-mon-col"  : 3,
+        "weeks-pos"     : "right",
+        "on-scroll"     : 1,
+        "on-click-right": "mode",
+        "format": {
+            "months":     "<span color='#ffead3'><b>{}</b></span>",
+            "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+            "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+            "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+            "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+            }
+        },
+    "actions":  {
+        "on-click-right": "mode",
+        "on-click-forward": "tz_up",
+        "on-click-backward": "tz_down",
+        "on-scroll-up": "shift_up",
+        "on-scroll-down": "shift_down"
+        }
+},
+
+"clock#time": {
+    "interval": 1,
+    "format": " {:%H:%M}",
+    "format-alt": " {:%H:%M:%S}",
     "tooltip-format": "<tt><big>{calendar}</big></tt>",
     "calendar": {
         "mode"          : "year",
