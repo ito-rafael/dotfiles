@@ -33,36 +33,17 @@ window#waybar.chromium {
     border-bottom: 3px solid #ffffff;
 }
 
-#backlight,
+#keyboard,
+#sysadmin {
+    margin-right: 5px;
+}
+
+#toggle,
+#monitoring,
+#control,
 #battery,
-#clock,
-#custom-battery-mouse,
-#custom-capslock,
-#custom-lanmouse-status,
-#custom-kanata,
-#custom-kmonad,
-#custom-media,
-#custom-pacman,
-#custom-pomodoro-timer,
-#custom-systemd-lanmouse,
-#custom-vpn-lcn,
-#custom-vpn-unicamp,
-#custom-vpn-lbic,
-#custom-vpn-samsung,
-#custom-xremap-mode,
-#idle_inhibitor,
-#keyboard-state,
-#language,
-#pulseaudio,
-#mpd,
-#mode,
-#network,
-#tray,
-#workspaces {
-    padding: 0px 10px;
-    margin:  0px 0px;
-    color: #ffffff;
-    border-radius: 10px;
+#datetime {
+    margin-left: 5px;
 }
 
 #window,
@@ -102,40 +83,6 @@ window#waybar.chromium {
 
 #workspaces button.urgent {
     background-color: #eb4d4b;
-}
-
-#battery {
-    padding: 0px 7px;
-    margin:  0;
-    background-color: rgba(0, 0, 0, 0.2);
-    color: lightgray;
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-#battery.charging, #battery.plugged {
-    color: #ffffff;
-    background-color: #26A65B;
-}
-
-@keyframes blink {
-    to {
-        background-color: #ffffff;
-        color: #000000;
-    }
-}
-
-#battery.critical:not(.charging) {
-    background-color: #f53c3c;
-    color: #ffffff;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
-label:focus {
-    background-color: #000000;
 }
 
 #xremap,
@@ -687,6 +634,39 @@ label:focus {
 
 #custom-gamma {
     border-radius: 0 10px 10px 0;
+}
+
+#battery {
+    padding: 0px 7px;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: lightgray;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#battery.charging, #battery.plugged {
+    color: #ffffff;
+    background-color: #26A65B;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background-color: #f53c3c;
+    color: #ffffff;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+label:focus {
+    background-color: #000000;
 }
 
 #datetime #clock.date,

@@ -9,7 +9,6 @@
 - [[#initial-config][Initial config]]
 - [[#modules][Modules]]
 - [[#workspaces][Workspaces]]
-- [[#battery][Battery]]
 - [[#group-keyboard][Group keyboard]]
 - [[#group-sysadmin][Group sysadmin]]
 - [[#pomodoro-timer][Pomodoro timer]]
@@ -17,6 +16,7 @@
 - [[#group-toggle][Group Toggle]]
 - [[#group-monitoring][Group Monitoring]]
 - [[#group-control][Group Control]]
+- [[#battery][Battery]]
 - [[#group-datetime][Group Datetime]]
 - [[#network][Network]]
 - [[#media][Media]]
@@ -94,36 +94,17 @@ window#waybar.chromium {
     border-bottom: 3px solid #ffffff;
 }
 
-#backlight,
+#keyboard,
+#sysadmin {
+    margin-right: 5px;
+}
+
+#toggle,
+#monitoring,
+#control,
 #battery,
-#clock,
-#custom-battery-mouse,
-#custom-capslock,
-#custom-lanmouse-status,
-#custom-kanata,
-#custom-kmonad,
-#custom-media,
-#custom-pacman,
-#custom-pomodoro-timer,
-#custom-systemd-lanmouse,
-#custom-vpn-lcn,
-#custom-vpn-unicamp,
-#custom-vpn-lbic,
-#custom-vpn-samsung,
-#custom-xremap-mode,
-#idle_inhibitor,
-#keyboard-state,
-#language,
-#pulseaudio,
-#mpd,
-#mode,
-#network,
-#tray,
-#workspaces {
-    padding: 0px 10px;
-    margin:  0px 0px;
-    color: #ffffff;
-    border-radius: 10px;
+#datetime {
+    margin-left: 5px;
 }
 #+end_src
 ** Window
@@ -185,51 +166,6 @@ https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-
 #+begin_src css
 #workspaces button.urgent {
     background-color: #eb4d4b;
-}
-#+end_src
-* Battery :noexport_1:
-** Normal
-#+begin_src css
-#battery {
-    padding: 0px 7px;
-    margin:  0;
-    background-color: rgba(0, 0, 0, 0.2);
-    color: lightgray;
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
-}
-#+end_src
-** Charging
-#+begin_src css
-#battery.charging, #battery.plugged {
-    color: #ffffff;
-    background-color: #26A65B;
-}
-#+end_src
-** Blink
-#+begin_src css
-@keyframes blink {
-    to {
-        background-color: #ffffff;
-        color: #000000;
-    }
-}
-#+end_src
-** Critical
-#+begin_src css
-#battery.critical:not(.charging) {
-    background-color: #f53c3c;
-    color: #ffffff;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-#+end_src
-** Label
-#+begin_src css
-label:focus {
-    background-color: #000000;
 }
 #+end_src
 * Group keyboard
@@ -1012,7 +948,6 @@ label:focus {
 }
 #+end_src
 * Group Monitoring
-** Group
 #+begin_src css
 #cpu,
 #memory,
@@ -1095,6 +1030,50 @@ label:focus {
 #+begin_src css
 #custom-gamma {
     border-radius: 0 10px 10px 0;
+}
+#+end_src
+* Battery :noexport_1:
+** Normal
+#+begin_src css
+#battery {
+    padding: 0px 7px;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: lightgray;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+#+end_src
+** Charging
+#+begin_src css
+#battery.charging, #battery.plugged {
+    color: #ffffff;
+    background-color: #26A65B;
+}
+#+end_src
+** Blink
+#+begin_src css
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+#+end_src
+** Critical
+#+begin_src css
+#battery.critical:not(.charging) {
+    background-color: #f53c3c;
+    color: #ffffff;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+#+end_src
+** Label
+#+begin_src css
+label:focus {
+    background-color: #000000;
 }
 #+end_src
 * Group Datetime
