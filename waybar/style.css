@@ -141,7 +141,7 @@ window#waybar.chromium {
 }
 
 #battery {
-    padding: 0px 5px;
+    padding: 0px 7px;
     margin:  0;
     background-color: rgba(0, 0, 0, 0.2);
     color: lightgray;
@@ -414,7 +414,7 @@ label:focus {
 #xremap,
 #kanata,
 #zsa {
-    padding: 0px 5px;
+    padding: 0px 0px;
     margin:  0;
     background-color: rgba(0, 0, 0, 0.2);
     color: lightgray;
@@ -450,7 +450,7 @@ label:focus {
 }
 
 #kanata {
-    padding: 0 10px;
+    padding: 0 5px 0 10px;
     margin:  0;
     background-color: rgba(0, 0, 0, 0.2);
     color: lightgray;
@@ -472,7 +472,7 @@ label:focus {
 
 #zsa {
     border-radius: 0 10px 10px 0;
-    padding: 0 10px;
+    padding: 0 5px;
     margin:  0;
     background-color: rgba(0, 0, 0, 0.2);
     color: lightgray;
@@ -606,7 +606,7 @@ label:focus {
 
 #scratchpads #image.scratchpad-icon {
     border-radius: 10px;
-    padding: 0px 5px;
+    padding: 0px 7px;
     margin:  0;
     background-color: rgba(0, 0, 0, 0.2);
     color: lightgray;
@@ -870,7 +870,7 @@ label:focus {
 }
 
 #custom-pomodoro-timer {
-    padding: 0px 5px;
+    padding: 0px 7px;
     margin:  0;
     background-color: rgba(0, 0, 0, 0.2);
     color: lightgray;
