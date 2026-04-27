@@ -65,25 +65,6 @@ window#waybar.chromium {
     border-radius: 10px;
 }
 
-#custom-scratchpad-python,
-#custom-scratchpad-keymapp,
-#custom-scratchpad-terminal,
-#custom-scratchpad-temp-1,
-#custom-scratchpad-temp-2,
-#custom-scratchpad-temp-3,
-#custom-scratchpad-scrcpy-phone,
-#custom-scratchpad-scrcpy-watch,
-#custom-scratchpad-whatsapp,
-#custom-scratchpad-calendar,
-#custom-scratchpad-translate,
-#custom-scratchpad-llm,
-#custom-scratchpad-ytmusic {
-    padding: 0px 5px;
-    margin:  0px 0px;
-    color: #ffffff;
-    border-radius: 10px;
-}
-
 #window,
 
 .modules-left > widget:first-child > #workspaces {
@@ -607,25 +588,119 @@ label:focus {
     background: rgba(0, 0, 0, 0.2);
 }
 
+#custom-scratchpad-whatsapp,
+#custom-scratchpad-ytmusic,
+#custom-scratchpad-calendar,
+#custom-scratchpad-llm,
+#custom-scratchpad-translate,
+#custom-scratchpad-scrcpy-phone,
+#custom-scratchpad-scrcpy-watch,
+#custom-scratchpad-terminal,
+#custom-scratchpad-python,
+#custom-scratchpad-keymapp,
+#custom-scratchpad-temp-1,
+#custom-scratchpad-temp-2,
+#custom-scratchpad-temp-3 {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 0px 2px;
+    margin:  0px 0px;
+    color: #ffffff;
+}
+
+#custom-scratchpad-calendar,
+#custom-scratchpad-translate,
+#custom-scratchpad-scrcpy-watch,
+#custom-scratchpad-python,
+#custom-scratchpad-keymapp,
+#custom-scratchpad-temp-3 {
+    border-right: 4px solid rgba(255, 255, 255, 0.1);
+}
+
 #scratchpads #image.scratchpad-icon {
     border-radius: 10px;
     padding: 0px 7px;
     margin:  0;
     background-color: rgba(0, 0, 0, 0.2);
     color: lightgray;
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-#custom-scratchpad-keymapp {
+#custom-scratchpad-whatsapp {
     color: gray;
+    border-radius: 10px 0 0 10px;
+    padding: 0px 5px 0px 8px;
 }
 
-#custom-scratchpad-keymapp.enabled {
+#custom-scratchpad-whatsapp.enabled {
     color: green;
 }
 
-#custom-scratchpad-keymapp:hover {
+#custom-scratchpad-whatsapp:hover {
     background: rgba(0, 255, 0, 0.5);
+    transition: background 0.3s ease;
+}
+
+#custom-scratchpad-ytmusic {
+    color: gray;
+}
+
+#custom-scratchpad-ytmusic.enabled {
+    color: red;
+}
+
+#custom-scratchpad-ytmusic:hover {
+    background: rgba(255, 0, 0, 0.5);
+    transition: background 0.3s ease;
+}
+
+#custom-scratchpad-calendar {
+    color: gray;
+}
+
+#custom-scratchpad-calendar.enabled {
+    color: #40409c;
+}
+
+#custom-scratchpad-calendar:hover {
+    background: rgba(128, 173, 248, 0.5);
+    transition: background 0.3s ease;
+}
+
+#custom-scratchpad-llm {
+    color: gray;
+}
+
+#custom-scratchpad-llm.enabled {
+    color: #e09b9b
+}
+
+#custom-scratchpad-llm:hover {
+    background: rgba(239, 203, 203, 0.5);
+    transition: background 0.3s ease;
+}
+
+#custom-scratchpad-translate {
+    color: gray;
+}
+
+#custom-scratchpad-translate.enabled {
+    color: #5080ff;
+}
+
+#custom-scratchpad-translate:hover {
+    background: rgba(128, 173, 248, 0.5);
+    transition: background 0.3s ease;
+}
+
+#custom-scratchpad-terminal {
+    color: gray;
+}
+
+#custom-scratchpad-terminal.enabled {
+    color: blue;
+}
+
+#custom-scratchpad-terminal:hover {
+    background: rgba(0, 0, 255, 0.5);
     transition: background 0.3s ease;
 }
 
@@ -642,16 +717,42 @@ label:focus {
     transition: background 0.3s ease;
 }
 
-#custom-scratchpad-terminal {
+#custom-scratchpad-scrcpy-phone {
     color: gray;
 }
 
-#custom-scratchpad-terminal.enabled {
-    color: blue;
+#custom-scratchpad-scrcpy-phone.enabled {
+    color: green;
 }
 
-#custom-scratchpad-terminal:hover {
-    background: rgba(0, 0, 255, 0.5);
+#custom-scratchpad-scrcpy-phone:hover {
+    background: rgba(0, 255, 0, 0.5);
+    transition: background 0.3s ease;
+}
+
+#custom-scratchpad-scrcpy-watch {
+    color: gray;
+}
+
+#custom-scratchpad-scrcpy-watch.enabled {
+    color: green;
+}
+
+#custom-scratchpad-scrcpy-watch:hover {
+    background: rgba(0, 255, 0, 0.5);
+    transition: background 0.3s ease;
+}
+
+#custom-scratchpad-keymapp {
+    color: gray;
+}
+
+#custom-scratchpad-keymapp.enabled {
+    color: green;
+}
+
+#custom-scratchpad-keymapp:hover {
+    background: rgba(0, 255, 0, 0.5);
     transition: background 0.3s ease;
 }
 
@@ -683,6 +784,8 @@ label:focus {
 
 #custom-scratchpad-temp-3 {
     color: gray;
+    border-radius: 0 10px 10px 0;
+    padding: 0px 8px 0px 5px;
 }
 
 #custom-scratchpad-temp-3.enabled {
@@ -691,97 +794,6 @@ label:focus {
 
 #custom-scratchpad-temp-3:hover {
     background: rgba(0, 0, 255, 0.5);
-    transition: background 0.3s ease;
-}
-
-#custom-scratchpad-scrcpy-phone {
-    color: gray;
-}
-
-#custom-scratchpad-scrcpy-phone.enabled {
-    color: green;
-}
-
-#custom-scratchpad-scrcpy-phone:hover {
-    background: rgba(0, 255, 0, 0.5);
-    transition: background 0.3s ease;
-}
-
-#custom-scratchpad-scrcpy-watch {
-    color: gray;
-}
-
-#custom-scratchpad-scrcpy-watch.enabled {
-    color: green;
-}
-
-#custom-scratchpad-scrcpy-watch:hover {
-    background: rgba(0, 255, 0, 0.5);
-    transition: background 0.3s ease;
-}
-
-#custom-scratchpad-whatsapp {
-    color: gray;
-}
-
-#custom-scratchpad-whatsapp.enabled {
-    color: green;
-}
-
-#custom-scratchpad-whatsapp:hover {
-    background: rgba(0, 255, 0, 0.5);
-    transition: background 0.3s ease;
-}
-
-#custom-scratchpad-calendar {
-    color: gray;
-}
-
-#custom-scratchpad-calendar.enabled {
-    color: #40409c;
-}
-
-#custom-scratchpad-calendar:hover {
-    background: rgba(128, 173, 248, 0.5);
-    transition: background 0.3s ease;
-}
-
-#custom-scratchpad-translate {
-    color: gray;
-}
-
-#custom-scratchpad-translate.enabled {
-    color: #5080ff;
-}
-
-#custom-scratchpad-translate:hover {
-    background: rgba(128, 173, 248, 0.5);
-    transition: background 0.3s ease;
-}
-
-#custom-scratchpad-llm {
-    color: gray;
-}
-
-#custom-scratchpad-llm.enabled {
-    color: #e09b9b
-}
-
-#custom-scratchpad-llm:hover {
-    background: rgba(239, 203, 203, 0.5);
-    transition: background 0.3s ease;
-}
-
-#custom-scratchpad-ytmusic {
-    color: gray;
-}
-
-#custom-scratchpad-ytmusic.enabled {
-    color: red;
-}
-
-#custom-scratchpad-ytmusic:hover {
-    background: rgba(255, 0, 0, 0.5);
     transition: background 0.3s ease;
 }
 

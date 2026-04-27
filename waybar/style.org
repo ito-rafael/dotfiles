@@ -126,25 +126,6 @@ window#waybar.chromium {
     color: #ffffff;
     border-radius: 10px;
 }
-
-#custom-scratchpad-python,
-#custom-scratchpad-keymapp,
-#custom-scratchpad-terminal,
-#custom-scratchpad-temp-1,
-#custom-scratchpad-temp-2,
-#custom-scratchpad-temp-3,
-#custom-scratchpad-scrcpy-phone,
-#custom-scratchpad-scrcpy-watch,
-#custom-scratchpad-whatsapp,
-#custom-scratchpad-calendar,
-#custom-scratchpad-translate,
-#custom-scratchpad-llm,
-#custom-scratchpad-ytmusic {
-    padding: 0px 5px;
-    margin:  0px 0px;
-    color: #ffffff;
-    border-radius: 10px;
-}
 #+end_src
 ** Window
 #+begin_src css
@@ -941,6 +922,38 @@ label:focus {
 }
 #+end_src
 * Scratchpad
+** Group
+#+begin_src css
+#custom-scratchpad-whatsapp,
+#custom-scratchpad-ytmusic,
+#custom-scratchpad-calendar,
+#custom-scratchpad-llm,
+#custom-scratchpad-translate,
+#custom-scratchpad-scrcpy-phone,
+#custom-scratchpad-scrcpy-watch,
+#custom-scratchpad-terminal,
+#custom-scratchpad-python,
+#custom-scratchpad-keymapp,
+#custom-scratchpad-temp-1,
+#custom-scratchpad-temp-2,
+#custom-scratchpad-temp-3 {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 0px 2px;
+    margin:  0px 0px;
+    color: #ffffff;
+}
+#+end_src
+** Separator
+#+begin_src css
+#custom-scratchpad-calendar,
+#custom-scratchpad-translate,
+#custom-scratchpad-scrcpy-watch,
+#custom-scratchpad-python,
+#custom-scratchpad-keymapp,
+#custom-scratchpad-temp-3 {
+    border-right: 4px solid rgba(255, 255, 255, 0.1);
+}
+#+end_src
 ** Icon
 #+begin_src css
 #scratchpads #image.scratchpad-icon {
@@ -952,23 +965,125 @@ label:focus {
     border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
 #+end_src
-** Keymapp
+** WhatsApp
 *** Disabled
 #+begin_src css
-#custom-scratchpad-keymapp {
+#custom-scratchpad-whatsapp {
     color: gray;
+    border-radius: 10px 0 0 10px;
+    padding: 0px 5px 0px 8px;
 }
 #+end_src
 *** Enabled
 #+begin_src css
-#custom-scratchpad-keymapp.enabled {
+#custom-scratchpad-whatsapp.enabled {
     color: green;
 }
 #+end_src
 *** Hover
 #+begin_src css
-#custom-scratchpad-keymapp:hover {
+#custom-scratchpad-whatsapp:hover {
     background: rgba(0, 255, 0, 0.5);
+    transition: background 0.3s ease;
+}
+#+end_src
+** YouTube Music
+*** Disabled
+#+begin_src css
+#custom-scratchpad-ytmusic {
+    color: gray;
+}
+#+end_src
+*** Enabled
+#+begin_src css
+#custom-scratchpad-ytmusic.enabled {
+    color: red;
+}
+#+end_src
+*** Hover
+#+begin_src css
+#custom-scratchpad-ytmusic:hover {
+    background: rgba(255, 0, 0, 0.5);
+    transition: background 0.3s ease;
+}
+#+end_src
+** Calendar
+*** Disabled
+#+begin_src css
+#custom-scratchpad-calendar {
+    color: gray;
+}
+#+end_src
+*** Enabled
+#+begin_src css
+#custom-scratchpad-calendar.enabled {
+    color: #40409c;
+}
+#+end_src
+*** Hover
+#+begin_src css
+#custom-scratchpad-calendar:hover {
+    background: rgba(128, 173, 248, 0.5);
+    transition: background 0.3s ease;
+}
+#+end_src
+** LLM
+*** Disabled
+#+begin_src css
+#custom-scratchpad-llm {
+    color: gray;
+}
+#+end_src
+*** Enabled
+#+begin_src css
+#custom-scratchpad-llm.enabled {
+    color: #e09b9b
+}
+#+end_src
+*** Hover
+#+begin_src css
+#custom-scratchpad-llm:hover {
+    background: rgba(239, 203, 203, 0.5);
+    transition: background 0.3s ease;
+}
+#+end_src
+** Translate
+*** Disabled
+#+begin_src css
+#custom-scratchpad-translate {
+    color: gray;
+}
+#+end_src
+*** Enabled
+#+begin_src css
+#custom-scratchpad-translate.enabled {
+    color: #5080ff;
+}
+#+end_src
+*** Hover
+#+begin_src css
+#custom-scratchpad-translate:hover {
+    background: rgba(128, 173, 248, 0.5);
+    transition: background 0.3s ease;
+}
+#+end_src
+** Terminal
+*** Disabled
+#+begin_src css
+#custom-scratchpad-terminal {
+    color: gray;
+}
+#+end_src
+*** Enabled
+#+begin_src css
+#custom-scratchpad-terminal.enabled {
+    color: blue;
+}
+#+end_src
+*** Hover
+#+begin_src css
+#custom-scratchpad-terminal:hover {
+    background: rgba(0, 0, 255, 0.5);
     transition: background 0.3s ease;
 }
 #+end_src
@@ -992,23 +1107,63 @@ label:focus {
     transition: background 0.3s ease;
 }
 #+end_src
-** Terminal
+** scrcpy Phone
 *** Disabled
 #+begin_src css
-#custom-scratchpad-terminal {
+#custom-scratchpad-scrcpy-phone {
     color: gray;
 }
 #+end_src
 *** Enabled
 #+begin_src css
-#custom-scratchpad-terminal.enabled {
-    color: blue;
+#custom-scratchpad-scrcpy-phone.enabled {
+    color: green;
 }
 #+end_src
 *** Hover
 #+begin_src css
-#custom-scratchpad-terminal:hover {
-    background: rgba(0, 0, 255, 0.5);
+#custom-scratchpad-scrcpy-phone:hover {
+    background: rgba(0, 255, 0, 0.5);
+    transition: background 0.3s ease;
+}
+#+end_src
+** scrcpy Watch
+*** Disabled
+#+begin_src css
+#custom-scratchpad-scrcpy-watch {
+    color: gray;
+}
+#+end_src
+*** Enabled
+#+begin_src css
+#custom-scratchpad-scrcpy-watch.enabled {
+    color: green;
+}
+#+end_src
+*** Hover
+#+begin_src css
+#custom-scratchpad-scrcpy-watch:hover {
+    background: rgba(0, 255, 0, 0.5);
+    transition: background 0.3s ease;
+}
+#+end_src
+** Keymapp
+*** Disabled
+#+begin_src css
+#custom-scratchpad-keymapp {
+    color: gray;
+}
+#+end_src
+*** Enabled
+#+begin_src css
+#custom-scratchpad-keymapp.enabled {
+    color: green;
+}
+#+end_src
+*** Hover
+#+begin_src css
+#custom-scratchpad-keymapp:hover {
+    background: rgba(0, 255, 0, 0.5);
     transition: background 0.3s ease;
 }
 #+end_src
@@ -1057,6 +1212,8 @@ label:focus {
 #+begin_src css
 #custom-scratchpad-temp-3 {
     color: gray;
+    border-radius: 0 10px 10px 0;
+    padding: 0px 8px 0px 5px;
 }
 #+end_src
 *** Enabled
@@ -1069,147 +1226,6 @@ label:focus {
 #+begin_src css
 #custom-scratchpad-temp-3:hover {
     background: rgba(0, 0, 255, 0.5);
-    transition: background 0.3s ease;
-}
-#+end_src
-** scrcpy
-*** Phone
-**** Disabled
-#+begin_src css
-#custom-scratchpad-scrcpy-phone {
-    color: gray;
-}
-#+end_src
-**** Enabled
-#+begin_src css
-#custom-scratchpad-scrcpy-phone.enabled {
-    color: green;
-}
-#+end_src
-**** Hover
-#+begin_src css
-#custom-scratchpad-scrcpy-phone:hover {
-    background: rgba(0, 255, 0, 0.5);
-    transition: background 0.3s ease;
-}
-#+end_src
-*** Watch
-**** Disabled
-#+begin_src css
-#custom-scratchpad-scrcpy-watch {
-    color: gray;
-}
-#+end_src
-**** Enabled
-#+begin_src css
-#custom-scratchpad-scrcpy-watch.enabled {
-    color: green;
-}
-#+end_src
-**** Hover
-#+begin_src css
-#custom-scratchpad-scrcpy-watch:hover {
-    background: rgba(0, 255, 0, 0.5);
-    transition: background 0.3s ease;
-}
-#+end_src
-** WhatsApp
-*** Disabled
-#+begin_src css
-#custom-scratchpad-whatsapp {
-    color: gray;
-}
-#+end_src
-*** Enabled
-#+begin_src css
-#custom-scratchpad-whatsapp.enabled {
-    color: green;
-}
-#+end_src
-*** Hover
-#+begin_src css
-#custom-scratchpad-whatsapp:hover {
-    background: rgba(0, 255, 0, 0.5);
-    transition: background 0.3s ease;
-}
-#+end_src
-** Calendar
-*** Disabled
-#+begin_src css
-#custom-scratchpad-calendar {
-    color: gray;
-}
-#+end_src
-*** Enabled
-#+begin_src css
-#custom-scratchpad-calendar.enabled {
-    color: #40409c;
-}
-#+end_src
-*** Hover
-#+begin_src css
-#custom-scratchpad-calendar:hover {
-    background: rgba(128, 173, 248, 0.5);
-    transition: background 0.3s ease;
-}
-#+end_src
-** Translate
-*** Disabled
-#+begin_src css
-#custom-scratchpad-translate {
-    color: gray;
-}
-#+end_src
-*** Enabled
-#+begin_src css
-#custom-scratchpad-translate.enabled {
-    color: #5080ff;
-}
-#+end_src
-*** Hover
-#+begin_src css
-#custom-scratchpad-translate:hover {
-    background: rgba(128, 173, 248, 0.5);
-    transition: background 0.3s ease;
-}
-#+end_src
-** LLM
-*** Disabled
-#+begin_src css
-#custom-scratchpad-llm {
-    color: gray;
-}
-#+end_src
-*** Enabled
-#+begin_src css
-#custom-scratchpad-llm.enabled {
-    color: #e09b9b
-}
-#+end_src
-*** Hover
-#+begin_src css
-#custom-scratchpad-llm:hover {
-    background: rgba(239, 203, 203, 0.5);
-    transition: background 0.3s ease;
-}
-#+end_src
-** YouTube Music
-*** Disabled
-#+begin_src css
-#custom-scratchpad-ytmusic {
-    color: gray;
-}
-#+end_src
-*** Enabled
-#+begin_src css
-#custom-scratchpad-ytmusic.enabled {
-    color: red;
-}
-#+end_src
-*** Hover
-#+begin_src css
-#custom-scratchpad-ytmusic:hover {
-    background: rgba(255, 0, 0, 0.5);
     transition: background 0.3s ease;
 }
 #+end_src
