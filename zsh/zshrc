@@ -325,6 +325,7 @@ alias vdf='vim Dockerfile'
 alias vdc='vim docker-compose.yml'
 
 function gs() { git show $1 | vim - }
+alias grs='git reset --soft'
 
 REMOTE="lbic"
 #REMOTE="y2p"
