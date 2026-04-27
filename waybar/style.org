@@ -925,6 +925,17 @@ label:focus {
 }
 #+end_src
 * Scratchpad
+** Icon
+#+begin_src css
+#scratchpads #image.scratchpad-icon {
+    border-radius: 10px;
+    padding: 0px 5px;
+    margin:  0;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: lightgray;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+#+end_src
 ** Keymapp
 *** Disabled
 #+begin_src css
