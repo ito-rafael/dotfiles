@@ -860,6 +860,14 @@ label:focus {
     transition: background 0.3s ease;
 }
 
+#custom-pomodoro-timer {
+    padding: 0px 5px;
+    margin:  0;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: lightgray;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 #custom-pomodoro-timer.work {
     color: lightgray;
     /*background-color: #ff6b6b;*/

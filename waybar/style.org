@@ -1328,6 +1328,15 @@ label:focus {
 }
 #+end_src
 * Pomodoro timer :noexport_1:
+#+begin_src css
+#custom-pomodoro-timer {
+    padding: 0px 5px;
+    margin:  0;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: lightgray;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+#+end_src
 ** Work
 *** Playing
 #+begin_src css
