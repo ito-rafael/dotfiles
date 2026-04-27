@@ -518,7 +518,7 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
     "on-scroll-down": "~/.config/scripts/sway-scale.sh dec",
     "format": " {icon} {text} ",
     "format-icons": {
-        "default": "<span color=\"#999\"></span>",
+        "default": "<span color=\"#666\"></span>",
         "zoom":    "<span color=\"#FF7\"></span>",
     },
     "reverse-scrolling": true,

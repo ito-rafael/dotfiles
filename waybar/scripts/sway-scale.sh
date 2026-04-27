@@ -10,7 +10,7 @@ print_scale() {
     
     IS_DEFAULT=$(echo "$CURRENT_SCALE == $SCALE_DEFAULT" | bc -l)
     if [ "$IS_DEFAULT" -eq 1 ]; then
-        echo '{"text": "'$CURRENT_SCALE'", "alt": "default", "class": "default"}'
+        echo '{"text": "", "alt": "default", "class": "default"}'
     else
         echo '{"text": "'$CURRENT_SCALE'", "alt": "zoom", "class": "zoom"}'
     fi
