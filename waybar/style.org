@@ -30,7 +30,6 @@
 - [[#lan-mouse][lan-mouse]]
 - [[#systemd-services][systemd services]]
 - [[#pomodoro-timer][Pomodoro timer]]
-- [[#kmonad][KMonad]]
 
 * Initial config :noexport_1:
 ** Font
@@ -725,6 +724,50 @@ label:focus {
     font-family: ttf-jetbrains-mono;
 }
 #+end_src
+** KMonad
+*** Active
+#+begin_src css
+#custom-kmonad.active {
+    color: green;
+}
+#+end_src
+*** Inactive
+#+begin_src css
+#custom-kmonad.inactive {
+    color: gray;
+}
+#+end_src
+*** Failed
+#+begin_src css
+#custom-kmonad.failed {
+    color: red;
+}
+#+end_src
+*** Activating
+#+begin_src css
+#custom-kmonad.activating {
+    color: yellow;
+}
+#+end_src
+*** Deactivating
+#+begin_src css
+#custom-kmonad.deactivating {
+    color: yellow;
+}
+#+end_src
+*** Unknown
+#+begin_src css
+#custom-kmonad.unknown {
+    color: orange;
+}
+#+end_src
+*** Hover
+#+begin_src css
+#custom-kmonad:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+#+end_src
 ** ZSA :noexport_1:
 *** Group
 **** General
@@ -1415,49 +1458,5 @@ label:focus {
     color: lightgray;
     /*background-color: #74c0db;*/
     background-color: rgba(116, 192, 219, 0.5);
-}
-#+end_src
-* KMonad :noexport_1:
-** Active
-#+begin_src css
-#custom-kmonad.active {
-    color: green;
-}
-#+end_src
-** Inactive
-#+begin_src css
-#custom-kmonad.inactive {
-    color: gray;
-}
-#+end_src
-** Failed
-#+begin_src css
-#custom-kmonad.failed {
-    color: red;
-}
-#+end_src
-** Activating
-#+begin_src css
-#custom-kmonad.activating {
-    color: yellow;
-}
-#+end_src
-** Deactivating
-#+begin_src css
-#custom-kmonad.deactivating {
-    color: yellow;
-}
-#+end_src
-** Unknown
-#+begin_src css
-#custom-kmonad.unknown {
-    color: orange;
-}
-#+end_src
-** Hover
-#+begin_src css
-#custom-kmonad:hover {
-    background: rgba(128, 128, 128, 0.5);
-    transition: background 0.3s ease;
 }
 #+end_src

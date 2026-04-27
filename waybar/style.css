@@ -454,6 +454,35 @@ label:focus {
     font-family: ttf-jetbrains-mono;
 }
 
+#custom-kmonad.active {
+    color: green;
+}
+
+#custom-kmonad.inactive {
+    color: gray;
+}
+
+#custom-kmonad.failed {
+    color: red;
+}
+
+#custom-kmonad.activating {
+    color: yellow;
+}
+
+#custom-kmonad.deactivating {
+    color: yellow;
+}
+
+#custom-kmonad.unknown {
+    color: orange;
+}
+
+#custom-kmonad:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+
 #zsa {
     border-radius: 0 10px 10px 0;
     padding: 0 5px;
@@ -923,33 +952,4 @@ label:focus {
     color: lightgray;
     /*background-color: #74c0db;*/
     background-color: rgba(116, 192, 219, 0.5);
-}
-
-#custom-kmonad.active {
-    color: green;
-}
-
-#custom-kmonad.inactive {
-    color: gray;
-}
-
-#custom-kmonad.failed {
-    color: red;
-}
-
-#custom-kmonad.activating {
-    color: yellow;
-}
-
-#custom-kmonad.deactivating {
-    color: yellow;
-}
-
-#custom-kmonad.unknown {
-    color: orange;
-}
-
-#custom-kmonad:hover {
-    background: rgba(128, 128, 128, 0.5);
-    transition: background 0.3s ease;
 }
