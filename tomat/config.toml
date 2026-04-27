@@ -23,6 +23,7 @@ text_format = "{session} {icon} {time} {state}"  # Text display format
 #   "[{session}] {icon} {time}" -> "[1/4] 🍅 25:00"
 #
 # text_format_idle = "" # Optional: format for idle state (defaults to text_format)
+text_format_idle = "🍅"
 
 # Customize icons/symbols (optional)
 # [display.icons]
