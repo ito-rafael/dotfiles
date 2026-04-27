@@ -186,7 +186,7 @@ https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-
 #+begin_src css
 #xremap {
     border-radius: 10px 0 0 10px;
-    padding: 0 0 0 8px;
+    padding: 0 8px 0 8px;
 }
 #+end_src
 **** Hover
@@ -199,6 +199,7 @@ https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-
 *** Icon
 #+begin_src css
 #xremap #image.xremap {
+    padding: 0 5px 0 0;
 }
 #+end_src
 *** Mode
@@ -232,7 +233,7 @@ https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-
 *** Icon
 #+begin_src css
 #kanata #image.kanata {
-    padding-right: 5px;
+    padding-right: 3px;
 }
 #+end_src
 *** systemd
@@ -481,6 +482,7 @@ https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-
 * Pomodoro timer :noexport_1:
 #+begin_src css
 #custom-pomodoro-timer {
+    border-radius: 10px;
     padding: 0px 7px;
     margin:  0;
     background-color: rgba(0, 0, 0, 0.2);
@@ -1036,7 +1038,8 @@ https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-
 ** Normal
 #+begin_src css
 #battery {
-    padding: 0px 7px;
+    border-radius: 10px;
+    padding: 0px 8px 0px 8px;
     background-color: rgba(0, 0, 0, 0.2);
     color: lightgray;
     border-right: 1px solid rgba(255, 255, 255, 0.1);
