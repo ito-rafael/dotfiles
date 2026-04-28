@@ -97,6 +97,7 @@ window#waybar.chromium {
 ** Groups
 *** Left side
 #+begin_src css
+#workspaces,
 #keyboard,
 #sysadmin {
     margin-right: 5px;
@@ -104,6 +105,7 @@ window#waybar.chromium {
 #+end_src
 *** Right side
 #+begin_src css
+#workspaces,
 #toggle,
 #monitoring,
 #control,
@@ -117,7 +119,7 @@ window#waybar.chromium {
 If workspaces is the leftmost module, omit left margin
 #+begin_src css
 .modules-left > widget:first-child > #workspaces {
-    margin-left: 0;
+    margin-left: 5px;
 }
 #+end_src
 ** Right
@@ -138,7 +140,8 @@ If workspaces is the rightmost module, omit right margin
 ** Main
 #+begin_src css
 #workspaces {
-    margin: 0 4px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
 }
 #+end_src
 ** Buttons
@@ -149,9 +152,7 @@ If workspaces is the rightmost module, omit right margin
     padding-left: 5px;
     background-color: transparent;
     color: #ffffff;
-    /* Use box-shadow instead of border so the text isn't offset */
     box-shadow: inset 0 -3px transparent;
-    /* Avoid rounded borders under each workspace name */
     border: none;
     border-radius: 0;
 }
@@ -167,8 +168,10 @@ https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-
 *** Focused
 #+begin_src css
 #workspaces button.focused {
-    background-color: #64727D;
-    box-shadow: inset 0 -3px #ffffff;
+    background-color: lightgray;
+    color: #000000;
+    border-radius: 10px;
+    font-weight: bold;
 }
 #+end_src
 *** Urgent

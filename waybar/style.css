@@ -33,11 +33,13 @@ window#waybar.chromium {
     border-bottom: 3px solid #ffffff;
 }
 
+#workspaces,
 #keyboard,
 #sysadmin {
     margin-right: 5px;
 }
 
+#workspaces,
 #toggle,
 #monitoring,
 #control,
@@ -47,7 +49,7 @@ window#waybar.chromium {
 }
 
 .modules-left > widget:first-child > #workspaces {
-    margin-left: 0;
+    margin-left: 5px;
 }
 
 .modules-right > widget:last-child > #workspaces {
@@ -60,7 +62,8 @@ window#waybar.chromium {
 }
 
 #workspaces {
-    margin: 0 4px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
 }
 
 #workspaces button {
@@ -68,9 +71,7 @@ window#waybar.chromium {
     padding-left: 5px;
     background-color: transparent;
     color: #ffffff;
-    /* Use box-shadow instead of border so the text isn't offset */
     box-shadow: inset 0 -3px transparent;
-    /* Avoid rounded borders under each workspace name */
     border: none;
     border-radius: 0;
 }
@@ -81,8 +82,10 @@ window#waybar.chromium {
 }
 
 #workspaces button.focused {
-    background-color: #64727D;
-    box-shadow: inset 0 -3px #ffffff;
+    background-color: lightgray;
+    color: #000000;
+    border-radius: 10px;
+    font-weight: bold;
 }
 
 #workspaces button.urgent {
