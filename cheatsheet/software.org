@@ -26,6 +26,10 @@
 - [[#python][Python]]
   - [[#virtualenv][virtualenv]]
   - [[#pypi][PyPI]]
+- [[#temperature-monitoring][Temperature monitoring]]
+  - [[#installation][Installation]]
+  - [[#list-hardware-monitors][List hardware monitors]]
+  - [[#get-temperature-value][Get temperature value]]
 - [[#scribd][Scribd]]
 - [[#ssh][SSH]]
 - [[#ventoy][Ventoy]]
@@ -1119,6 +1123,32 @@ python -m twine upload --repository testpypi dist/*
 #+begin_src shell
 python -m pip install --index-url https://test.pypi.org/simple/ --no-deps ofa2
 #+end_src
+* Temperature monitoring
+** Installation
+#+begin_src shell
+sudo pacman -S lm_sensors
+#+end_src
+** List hardware monitors
+#+begin_src shell
+for i in /sys/class/hwmon/hwmon*/name; do echo "$i: $(cat $i)"; done
+#+end_src
+
+Example of output:
+#+begin_src txt
+/sys/class/hwmon/hwmon0/name: nvme
+/sys/class/hwmon/hwmon1/name: nouveau
+/sys/class/hwmon/hwmon2/name: k10temp
+/sys/class/hwmon/hwmon3/name: asus
+/sys/class/hwmon/hwmon4/name: nct6798
+/sys/class/hwmon/hwmon5/name: hidpp_battery_1
+#+end_src
+** Get temperature value
+Once the device path is known, simply cat the temperature file.
+#+begin_src shell
+cat /sys/class/hwmon/hwmon2/temp1_input
+#+end_src
+
+Obs.: the value can be in the format "58750", which means 58.75ºC.
 * Scribd :noexport_1:
 ** How to view a document
 Take the URL for the document:
