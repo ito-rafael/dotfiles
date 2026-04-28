@@ -247,10 +247,13 @@
     "format": "{icon} {volume}%",
     "format-bluetooth": "{icon} {volume}%",
     "format-bluetooth-muted": " {icon}",
-    "format-muted": "",
+    //"format-muted": "",
+    "format-muted": "🔇",
     "format-icons": {
-        "headphone": "",
-        "default": ["", "", ""]
+        //"headphone": "",
+        //"default": ["", "", ""],
+        "headphone": "🎧",
+        "default": ["🔈", "🔉", "🔊"],
     },
     "reverse-scrolling": true,
     "reverse-mouse-scrolling": false,
