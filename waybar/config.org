@@ -642,19 +642,20 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
 },
 #+end_src
 ** ZSA keyboard
+*** Group
 #+begin_src js
 "group/zsa": {
   "orientation": "inherit",
   "modules": [
-    "image#zsa",
+    "image#zsa-icon",
     "custom/zsa-layer",
   ],
 },
 #+end_src
 *** Icon
 #+begin_src js
-"image#zsa": {
-    "exec": "echo /home/rafael/.config/waybar/icon/zsa.png",
+"image#zsa-icon": {
+    "exec": "/home/rafael/.config/waybar/scripts/zsa-icon.sh",
     "interval": 3600,
     "size": 14,
 },
@@ -698,9 +699,9 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
         "critical": 10
     },
     "format": "{icon}  {capacity}%",
+    "format-alt": "{time} {icon}  {capacity}%",
     //"format-charging": "{capacity}% ",
     //"format-plugged": "{capacity}% ",
-    "format-alt": "{time} {icon}  {capacity}%",
     "format-charging": "⚡ {capacity}%",
     "format-plugged": "🔌 {capacity}%",
     "format-icons": ["", "", "", "", ""],

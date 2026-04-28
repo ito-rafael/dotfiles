@@ -491,13 +491,13 @@
 "group/zsa": {
   "orientation": "inherit",
   "modules": [
-    "image#zsa",
+    "image#zsa-icon",
     "custom/zsa-layer",
   ],
 },
 
-"image#zsa": {
-    "exec": "echo /home/rafael/.config/waybar/icon/zsa.png",
+"image#zsa-icon": {
+    "exec": "/home/rafael/.config/waybar/scripts/zsa-icon.sh",
     "interval": 3600,
     "size": 14,
 },
@@ -535,9 +535,9 @@
         "critical": 10
     },
     "format": "{icon}  {capacity}%",
+    "format-alt": "{time} {icon}  {capacity}%",
     //"format-charging": "{capacity}% ",
     //"format-plugged": "{capacity}% ",
-    "format-alt": "{time} {icon}  {capacity}%",
     "format-charging": "⚡ {capacity}%",
     "format-plugged": "🔌 {capacity}%",
     "format-icons": ["", "", "", "", ""],
