@@ -719,8 +719,10 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
 ** Calendar
 #+begin_src js
 "clock#date": {
-    "format": " {:%a %d}",
-    "format-alt": " {:%A, %B %Y}",
+    //"format": " {:%a %d}",
+    //"format-alt": " {:%A, %B %Y}",
+    "format": "🗓️  {:%a %d}",
+    "format-alt": "🗓️  {:%A, %B %Y}",
     "tooltip-format": "<tt><big>{calendar}</big></tt>",
     "calendar": {
         "mode"          : "year",
@@ -749,8 +751,10 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
 #+begin_src js
 "clock#time": {
     "interval": 1,
-    "format": " {:%H:%M}",
-    "format-alt": " {:%H:%M:%S}",
+    //"format": " {:%H:%M}",
+    //"format-alt": " {:%H:%M:%S}",
+    "format": "🕛 {:%H:%M}",
+    "format-alt": "🕛 {:%H:%M:%S}",
     "tooltip-format": "<tt><big>{calendar}</big></tt>",
     "calendar": {
         "mode"          : "year",
