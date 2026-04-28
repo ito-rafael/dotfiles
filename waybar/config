@@ -448,15 +448,15 @@
 },
 
 "group/kanata": {
-  "orientation": "inherit",
-  "modules": [
-    "image#kanata",
-    "custom/kanata-layer",
-  ],
+    "orientation": "inherit",
+    "modules": [
+        "image#kanata-icon",
+        "custom/kanata-layer",
+    ]
 },
 
-"image#kanata": {
-    "exec": "echo /home/rafael/.config/waybar/icon/kanata.svg",
+"image#kanata-icon": {
+    "exec": "~/.config/waybar/scripts/kanata-icon.sh",
     "interval": 3600,
     "size": 14,
 },
@@ -484,8 +484,8 @@
     "format": "{}",
     "restart-interval": 2,
     "tooltip": true,
-    "min-length": 5,
-    "max-length": 5,
+    "min-length": 3,
+    "max-length": 3,
 },
 
 "group/zsa": {
