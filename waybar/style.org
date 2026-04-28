@@ -169,15 +169,27 @@ https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-
 }
 #+end_src
 * Group keyboard
+** Group
+*** Box
+#+begin_src css
+box#keyboard {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+#+end_src
+*** Modules
 #+begin_src css
 #xremap,
 #kanata,
 #zsa {
-    padding: 0px 0px;
-    margin:  0;
-    background-color: rgba(0, 0, 0, 0.2);
     color: lightgray;
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+#+end_src
+*** Separator
+#+begin_src css
+#kanata,
+#zsa #image.zsa-icon {
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
 #+end_src
 ** xremap :noexport_1:
