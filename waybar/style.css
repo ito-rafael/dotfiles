@@ -529,6 +529,11 @@ box#keyboard {
     transition: background 0.3s ease;
 }
 
+box#toggle {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
 #custom-mouse-warping,
 #custom-dunst,
 #custom-scale,
@@ -536,13 +541,16 @@ box#keyboard {
     padding-right: 3px;
     padding-left: 3px;
     margin:  0;
-    background-color: rgba(0, 0, 0, 0.2);
     color: lightgray;
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#custom-dunst,
+#custom-scale,
+#custom-keyboard-backlit {
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 #custom-mouse-warping {
-    border-radius: 10px 0 0 10px;
     padding-right: 3px;
     padding-left: 8px;
 }
@@ -585,7 +593,6 @@ box#keyboard {
 }
 
 #custom-keyboard-backlit {
-    border-radius: 0 10px 10px 0;
     padding-right: 8px;
     padding-left: 5px;
 }
@@ -610,6 +617,11 @@ box#keyboard {
 #custom-keyboard-backlit:hover {
     background: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
+}
+
+#custom-keyboard-backlit.empty {
+    border-left: 0;
+    padding: 0;
 }
 
 #cpu,
