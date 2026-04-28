@@ -358,13 +358,6 @@ box#keyboard {
 #+end_src
 ** ZSA :noexport_1:
 *** Group
-**** General
-#+begin_src css
-#zsa {
-    border-radius: 0 10px 10px 0;
-    padding: 0 5px;
-}
-#+end_src
 **** Hover
 #+begin_src css
 #zsa:hover {
@@ -374,23 +367,23 @@ box#keyboard {
 #+end_src
 *** Icon
 #+begin_src css
-#zsa #image.zsa {
-    padding-right: 5px;
+#zsa #image.zsa-icon {
+    padding-left: 5px;
+}
+#+end_src
+**** Empty
+#+begin_src css
+#zsa #image.zsa-icon.empty {
+    border-left: 0px;
+    padding-right: 0px;
 }
 #+end_src
 *** Layer
-**** Connected
 #+begin_src css
 #zsa #custom-zsa-layer {
     color: lightgray;
     font-family: ttf-jetbrains-mono;
-}
-#+end_src
-**** Disconnected
-#+begin_src css
-#zsa #custom-zsa-layer.disconnected {
-    color: gray;
-    font-family: ttf-jetbrains-mono;
+    padding-right: 3px;
 }
 #+end_src
 * Group sysadmin

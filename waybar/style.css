@@ -178,28 +178,24 @@ box#keyboard {
     transition: background 0.3s ease;
 }
 
-#zsa {
-    border-radius: 0 10px 10px 0;
-    padding: 0 5px;
-}
-
 #zsa:hover {
     background: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
 }
 
-#zsa #image.zsa {
-    padding-right: 5px;
+#zsa #image.zsa-icon {
+    padding-left: 5px;
+}
+
+#zsa #image.zsa-icon.empty {
+    border-left: 0px;
+    padding-right: 0px;
 }
 
 #zsa #custom-zsa-layer {
     color: lightgray;
     font-family: ttf-jetbrains-mono;
-}
-
-#zsa #custom-zsa-layer.disconnected {
-    color: gray;
-    font-family: ttf-jetbrains-mono;
+    padding-right: 3px;
 }
 
 #custom-pacman,
