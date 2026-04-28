@@ -1,8 +1,14 @@
 #!/usr/bin/env bash
 
+# check if file exists
+FILE="/sys/class/leds/platform::kbd_backlight/brightness"
+if [ ! -f "$FILE" ]; then
+    echo ""
+    exit 0
+fi
+
 # get variables
 DEVICE=$(brightnessctl --list | grep kbd_backlight | cut -d "'" -f2)
-FILE="/sys/class/leds/platform::kbd_backlight/brightness"
 CURRENT_BRIGHTNESS=$(brightnessctl --device=$DEVICE info | grep "Current brightness" | cut -d " " -f3)
 MAX_BRIGHTNESS=$(brightnessctl --device=$DEVICE info | grep "Max brightness" | cut -d " " -f3)
 
