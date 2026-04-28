@@ -696,11 +696,14 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
         "warning": 30,
         "critical": 10
     },
-    "format": "{capacity}% {icon}",
-    "format-charging": "{capacity}% ",
-    "format-plugged": "{capacity}% ",
-    "format-alt": "{time} {icon}",
-    "format-icons": ["", "", "", "", ""]
+    "format": "{icon}  {capacity}%",
+    //"format-charging": "{capacity}% ",
+    //"format-plugged": "{capacity}% ",
+    "format-alt": "{time} {icon}  {capacity}%",
+    "format-charging": "⚡ {capacity}%",
+    "format-plugged": "🔌 {capacity}%",
+    "format-icons": ["", "", "", "", ""],
+    //"format-icons": ["🪫", "🔋", "🔋", "🔋", "🔋"]
 },
 #+end_src
 * Group Datetime
