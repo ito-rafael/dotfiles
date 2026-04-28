@@ -299,23 +299,32 @@
 },
 #+end_src
 ** Temperature
+*** Devices
+**** LBiC's catuaba
+|------------+-------------------------------------|
+|            | LBiC's catuaba                      |
+|------------+-------------------------------------|
+| CPU        | AMD Ryzen 9 3900X                   |
+| GPU        | NVIDIA GeForce GTX 660 Ti           |
+| hwmon name | k10temp                             |
+| hwmon path | /sys/class/hwmon/hwmon2/temp1_input |
+|------------+-------------------------------------|
+**** IdeaPad Flex 5i
+|------------+-------------------------------------|
+|            | IdeaPad Flex 5i                     |
+|------------+-------------------------------------|
+| CPU        | Intel Core i7-1255U                 |
+| hwmon name | coretemp                            |
+| hwmon path | /sys/class/hwmon/hwmon6/temp1_input |
+|------------+-------------------------------------|
 *** Template
 #+begin_src js
 "temperature": {
-    "hwmon-path-abs": "/sys/devices/platform/coretemp.0/hwmon",
-    "input-filename": "temp1_input",
-    "critical-threshold": 80,
-    "format-critical": "<span color='#f9e2af'>{icon}</span> {temperatureC}°C",
-    "format": "<span color='#f9e2af'>{icon}</span> {temperatureC}°C",
-    "format-icons": ["", "", ""],
-    "interval": 1,
-},
-#+end_src
-*** Dell Vostro 15 5510
-#+begin_src js :tangle no
-"temperature": {
-    "hwmon-path-abs": "/sys/devices/platform/coretemp.0/hwmon",
-    "input-filename": "temp1_input",
+    "hwmon-path": [
+        "/sys/class/hwmon/hwmon2/temp1_input",
+        "/sys/devices/platform/coretemp.0/hwmon/temp1_input",
+        "/sys/class/thermal/thermal_zone0/temp"
+    ],
     "critical-threshold": 80,
     "format-critical": "<span color='#f9e2af'>{icon}</span> {temperatureC}°C",
     "format": "<span color='#f9e2af'>{icon}</span> {temperatureC}°C",
