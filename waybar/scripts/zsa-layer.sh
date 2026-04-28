@@ -5,7 +5,8 @@ layer=$(kontroll status 2>/dev/null | grep 'layer' | awk '{print $NF}')
 
 # safety check: If Keymapp is closed or the keyboard is unplugged, $layer will be empty
 if [ -z "$layer" ]; then
-    printf '{"text": "N/A", "class": "disconnected"}\n'
+    #printf '{"text": "N/A", "class": "disconnected"}\n'
+    echo ""  # output nothing to hide the module in Waybar
     exit 0
 fi
 
