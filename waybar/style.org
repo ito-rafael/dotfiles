@@ -6,7 +6,7 @@
 #+auto_tangle: t
 
 * Table of contents :toc_1:
-- [[#initial-config][Initial config]]
+- [[#general][General]]
 - [[#modules][Modules]]
 - [[#workspaces][Workspaces]]
 - [[#group-keyboard][Group keyboard]]
@@ -31,7 +31,7 @@
 - [[#lan-mouse][lan-mouse]]
 - [[#systemd-services][systemd services]]
 
-* Initial config :noexport_1:
+* General :noexport_1:
 ** Font
 #+begin_src css
 ,* {
@@ -93,12 +93,17 @@ window#waybar.chromium {
     background-color: #64727D;
     border-bottom: 3px solid #ffffff;
 }
-
+#+end_src
+** Groups
+*** Left side
+#+begin_src css
 #keyboard,
 #sysadmin {
     margin-right: 5px;
 }
-
+#+end_src
+*** Right side
+#+begin_src css
 #toggle,
 #monitoring,
 #control,
@@ -106,10 +111,6 @@ window#waybar.chromium {
 #datetime {
     margin-left: 5px;
 }
-#+end_src
-** Window
-#+begin_src css
-#window,
 #+end_src
 * Modules :noexport_1:
 ** Left
@@ -126,6 +127,13 @@ If workspaces is the rightmost module, omit right margin
     margin-right: 0;
 }
 #+end_src
+** All
+#+begin_src css
+,* {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+#+end_src
 * Workspaces :noexport_1:
 ** Main
 #+begin_src css
@@ -137,7 +145,8 @@ If workspaces is the rightmost module, omit right margin
 *** Normal
 #+begin_src css
 #workspaces button {
-    padding: 0 5px;
+    padding-right: 5px;
+    padding-left: 5px;
     background-color: transparent;
     color: #ffffff;
     /* Use box-shadow instead of border so the text isn't offset */
@@ -197,8 +206,8 @@ box#keyboard {
 **** General
 #+begin_src css
 #xremap {
-    border-radius: 10px 0 0 10px;
-    padding: 0 8px 0 8px;
+    padding-right: 8px;
+    padding-left: 8px;
 }
 #+end_src
 **** Hover
@@ -211,7 +220,7 @@ box#keyboard {
 *** Icon
 #+begin_src css
 #xremap #image.xremap {
-    padding: 0 5px 0 0;
+    padding-right: 5px;
 }
 #+end_src
 *** Mode
@@ -239,7 +248,7 @@ box#keyboard {
 **** Empty
 #+begin_src css
 #kanata.empty {
-    padding: 0px;
+    padding: 0;
 }
 #+end_src
 *** Icon
@@ -252,8 +261,8 @@ box#keyboard {
 **** Empty
 #+begin_src css
 #kanata #image.kanata-icon.empty {
-    border-left: 0px;
-    padding: 0px;
+    border-left: 0;
+    padding: 0;
 }
 #+end_src
 *** systemd
@@ -374,8 +383,8 @@ box#keyboard {
 **** Empty
 #+begin_src css
 #zsa #image.zsa-icon.empty {
-    border-left: 0px;
-    padding-right: 0px;
+    border-left: 0;
+    padding-right: 0;
 }
 #+end_src
 *** Layer
@@ -391,7 +400,8 @@ box#keyboard {
 #custom-pacman,
 #ansible,
 #informant {
-    padding: 0px 5px;
+    padding-right: 5px;
+    padding-left: 5px;
     margin:  0;
     background-color: rgba(0, 0, 0, 0.2);
     color: lightgray;
@@ -498,7 +508,8 @@ box#keyboard {
 #+begin_src css
 #custom-pomodoro-timer {
     border-radius: 10px;
-    padding: 0px 7px;
+    padding-right: 7px;
+    padding-left: 7px;
     margin:  0;
     background-color: rgba(0, 0, 0, 0.2);
     color: lightgray;
@@ -565,8 +576,9 @@ box#keyboard {
 #custom-scratchpad-temp-2,
 #custom-scratchpad-temp-3 {
     background-color: rgba(0, 0, 0, 0.5);
-    padding: 0px 2px;
-    margin:  0px 0px;
+    padding-right: 2px;
+    padding-left: 2px;
+    margin:  0;
     color: #ffffff;
 }
 #+end_src
@@ -585,7 +597,8 @@ box#keyboard {
 #+begin_src css
 #scratchpads #image.scratchpad-icon {
     border-radius: 10px;
-    padding: 0px 7px;
+    padding-right: 7px;
+    padding-left: 7px;
     margin:  0;
     background-color: rgba(0, 0, 0, 0.2);
     color: lightgray;
@@ -604,7 +617,8 @@ box#keyboard {
 #custom-scratchpad-whatsapp {
     color: gray;
     border-radius: 10px 0 0 10px;
-    padding: 0px 5px 0px 8px;
+    padding-right: 5px;
+    padding-left: 8px;
 }
 #+end_src
 *** Enabled
@@ -846,7 +860,8 @@ box#keyboard {
 #custom-scratchpad-temp-3 {
     color: gray;
     border-radius: 0 10px 10px 0;
-    padding: 0px 8px 0px 5px;
+    padding-right: 8px;
+    padding-left: 5px;
 }
 #+end_src
 *** Enabled
@@ -868,7 +883,8 @@ box#keyboard {
 #custom-dunst,
 #custom-scale,
 #custom-keyboard-backlit {
-    padding: 0px 3px 0px 3px;
+    padding-right: 3px;
+    padding-left: 3px;
     margin:  0;
     background-color: rgba(0, 0, 0, 0.2);
     color: lightgray;
@@ -879,7 +895,8 @@ box#keyboard {
 #+begin_src css
 #custom-mouse-warping {
     border-radius: 10px 0 0 10px;
-    padding: 0px 3px 0px 8px;
+    padding-right: 3px;
+    padding-left: 8px;
 }
 #+end_src
 *** Disabled
@@ -943,7 +960,8 @@ box#keyboard {
 #+begin_src css
 #custom-keyboard-backlit {
     border-radius: 0 10px 10px 0;
-    padding: 0px 8px 0px 5px;
+    padding-right: 8px;
+    padding-left: 5px;
 }
 #+end_src
 *** General
@@ -985,7 +1003,8 @@ box#keyboard {
 #temperature,
 #disk {
     border-right: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 0px 5px;
+    padding-right: 5px;
+    padding-left: 5px;
     background-color: rgba(0, 0, 0, 0.2);
     color: lightgray;
 }
@@ -1040,7 +1059,8 @@ box#keyboard {
 #backlight,
 #custom-gamma {
     border-right: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 0px 5px;
+    padding-right: 5px;
+    padding-left: 5px;
     margin:  0;
     background-color: rgba(0, 0, 0, 0.2);
     color: lightgray;
@@ -1100,7 +1120,8 @@ box#keyboard {
 #+begin_src css
 #battery {
     border-radius: 10px;
-    padding: 0px 8px 0px 8px;
+    padding-right: 8px;
+    padding-left: 8px;
     background-color: rgba(0, 0, 0, 0.2);
     color: lightgray;
     border-right: 1px solid rgba(255, 255, 255, 0.1);
@@ -1165,7 +1186,8 @@ label:focus {
 ** Calendar
 #+begin_src css
 #datetime #clock.date {
-    padding: 0px 5px 0px 8px;
+    padding-right: 5px;
+    padding-left: 8px;
     border-radius: 10px 0 0 10px;
     border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -1173,7 +1195,8 @@ label:focus {
 ** Clock
 #+begin_src css
 #datetime #clock.time {
-    padding: 0px 8px 0px 5px;
+    padding-right: 5px;
+    padding-left: 8px;
     border-radius: 0 10px 10px 0;
 }
 #+end_src
@@ -1248,7 +1271,6 @@ label:focus {
 #+begin_src css
 #mpris {
     border-radius: 10px;
-    padding: 0px 5px;
     margin:  0;
     background-color: rgba(0, 0, 0, 0.2);
     color: lightgray;
@@ -1304,8 +1326,10 @@ label:focus {
 #language {
     background: #00b093;
     color: #740864;
-    padding: 0 5px;
-    margin: 0 5px;
+    padding-right: 5px;
+    padding-left: 5px;
+    margin-right: 5px;
+    margin-left: 5px;
     min-width: 16px;
 }
 #+end_src
@@ -1315,15 +1339,16 @@ label:focus {
 #keyboard-state {
     background: #97e1ad;
     color: #000000;
-    padding: 0 0px;
-    margin: 0 5px;
+    padding: 0;
+    margin-right: 5px;
+    margin-left: 5px;
     min-width: 16px;
 }
 #+end_src
 ** Label
 #+begin_src css
 #keyboard-state > label {
-    padding: 0 5px;
+    padding-right: 5px;
 }
 #+end_src
 ** Label locked
@@ -1440,7 +1465,8 @@ label:focus {
 *** Common
 #+begin_src css
 #custom-systemd-lanmouse {
-    padding: 0 10px;
+    padding-right: 10px;
+    padding-left: 10px;
     font-size: 16px;
 }
 #+end_src
