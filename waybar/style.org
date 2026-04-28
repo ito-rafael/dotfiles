@@ -315,7 +315,7 @@ box#keyboard {
 *** Layer
 #+begin_src css
 #kanata #custom-kanata-layer {
-    color: lightgray;
+    color: gray;
     font-family: ttf-jetbrains-mono;
     padding-right: 5px;
     padding-bottom: 2px;
@@ -390,7 +390,7 @@ box#keyboard {
 *** Layer
 #+begin_src css
 #zsa #custom-zsa-layer {
-    color: lightgray;
+    color: gray;
     font-family: ttf-jetbrains-mono;
     padding-right: 3px;
 }
@@ -1259,6 +1259,8 @@ label:focus {
 #+begin_src css
 #tray {
     background-color: #2980b9;
+    padding-right: 5px;
+    padding-left: 5px;
 }
 #+end_src
 ** Passive
