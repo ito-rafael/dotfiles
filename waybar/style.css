@@ -123,22 +123,30 @@ box#keyboard {
     background: rgba(255, 0, 0, 0.5);
 }
 
-#kanata {
-    padding: 0 5px 0 10px;
-}
-
 #kanata:hover {
     background: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
 }
 
-#kanata #image.kanata {
-    padding-right: 3px;
+#kanata.empty {
+    padding: 0px;
+}
+
+#kanata #image.kanata-icon {
+    padding-right: 5px;
+    padding-left: 10px;
+}
+
+#kanata #image.kanata-icon.empty {
+    border-left: 0px;
+    padding: 0px;
 }
 
 #kanata #custom-kanata-layer {
     color: lightgray;
     font-family: ttf-jetbrains-mono;
+    padding-right: 5px;
+    padding-bottom: 2px;
 }
 
 #custom-kmonad.active {

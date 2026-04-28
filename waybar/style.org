@@ -229,12 +229,6 @@ box#keyboard {
 #+end_src
 ** kanata :noexport_1:
 *** Group
-**** General
-#+begin_src css
-#kanata {
-    padding: 0 5px 0 10px;
-}
-#+end_src
 **** Hover
 #+begin_src css
 #kanata:hover {
@@ -242,10 +236,24 @@ box#keyboard {
     transition: background 0.3s ease;
 }
 #+end_src
+**** Empty
+#+begin_src css
+#kanata.empty {
+    padding: 0px;
+}
+#+end_src
 *** Icon
 #+begin_src css
-#kanata #image.kanata {
-    padding-right: 3px;
+#kanata #image.kanata-icon {
+    padding-right: 5px;
+    padding-left: 10px;
+}
+#+end_src
+**** Empty
+#+begin_src css
+#kanata #image.kanata-icon.empty {
+    border-left: 0px;
+    padding: 0px;
 }
 #+end_src
 *** systemd
@@ -300,6 +308,8 @@ box#keyboard {
 #kanata #custom-kanata-layer {
     color: lightgray;
     font-family: ttf-jetbrains-mono;
+    padding-right: 5px;
+    padding-bottom: 2px;
 }
 #+end_src
 ** KMonad
