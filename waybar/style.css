@@ -715,6 +715,16 @@ box#toggle {
     padding-right: 8px;
 }
 
+#battery,
+#custom-battery-mx-master3 {
+    padding-right: 5px;
+    padding-left: 5px;
+    margin:  0;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: lightgray;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 #battery {
     border-radius: 10px;
     padding-right: 8px;
@@ -751,6 +761,29 @@ label:focus {
 }
 
 #battery:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+
+#custom-mx-master3-mouse {
+    color: lightgray;
+}
+
+#custom-mx-master3-mouse.full {
+}
+
+#custom-mx-master3-mouse.good {
+}
+
+#custom-mx-master3-mouse.low {
+    background: rgba(255, 255, 0, 0.5);
+}
+
+#custom-mx-master3-mouse.critical {
+    background: rgba(255, 0, 0, 0.5);
+}
+
+#custom-mx-master3:hover {
     background: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
 }
@@ -914,29 +947,6 @@ label:focus {
 #custom-capslock.enabled {
     background-color: #97e1ad;
     color: black;
-}
-
-#custom-battery-mouse {
-    color: lightgray;
-}
-
-#custom-battery-mouse.full {
-}
-
-#custom-battery-mouse.good {
-}
-
-#custom-battery-mouse.low {
-    background: rgba(255, 255, 0, 0.5);
-}
-
-#custom-battery-mouse.critical {
-    background: rgba(255, 0, 0, 0.5);
-}
-
-#custom-mouse-warping:hover {
-    background: rgba(128, 128, 128, 0.5);
-    transition: background 0.3s ease;
 }
 
 #custom-lanmouse-status.disconnected {

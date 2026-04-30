@@ -16,7 +16,7 @@
 - [[#group-toggle][Group Toggle]]
 - [[#group-monitoring][Group Monitoring]]
 - [[#group-control][Group Control]]
-- [[#battery][Battery]]
+- [[#group-battery][Group Battery]]
 - [[#group-datetime][Group Datetime]]
 - [[#network][Network]]
 - [[#media][Media]]
@@ -27,7 +27,6 @@
 - [[#keyboard-state][Keyboard state]]
 - [[#vpn][VPN]]
 - [[#caps-lock][Caps Lock]]
-- [[#mouse-battery][Mouse battery]]
 - [[#lan-mouse][lan-mouse]]
 - [[#systemd-services][systemd services]]
 
@@ -1138,8 +1137,20 @@ box#toggle {
     padding-right: 8px;
 }
 #+end_src
-* Battery :noexport_1:
-** Normal
+* Group Battery
+#+begin_src css
+#battery,
+#custom-battery-mx-master3 {
+    padding-right: 5px;
+    padding-left: 5px;
+    margin:  0;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: lightgray;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+#+end_src
+** Laptop :noexport_1:
+*** Normal
 #+begin_src css
 #battery {
     border-radius: 10px;
@@ -1150,14 +1161,14 @@ box#toggle {
     border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
 #+end_src
-** Charging
+*** Charging
 #+begin_src css
 #battery.charging, #battery.plugged {
     color: #ffffff;
     background-color: #26A65B;
 }
 #+end_src
-** Blink
+*** Blink
 #+begin_src css
 @keyframes blink {
     to {
@@ -1166,7 +1177,7 @@ box#toggle {
     }
 }
 #+end_src
-** Critical
+*** Critical
 #+begin_src css
 #battery.critical:not(.charging) {
     background-color: #f53c3c;
@@ -1178,15 +1189,50 @@ box#toggle {
     animation-direction: alternate;
 }
 #+end_src
-** Label
+*** Label
 #+begin_src css
 label:focus {
     background-color: #000000;
 }
 #+end_src
-** Hover
+*** Hover
 #+begin_src css
 #battery:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+#+end_src
+** Mouse MX Master 3 :noexport_1:
+#+begin_src css
+#custom-mx-master3-mouse {
+    color: lightgray;
+}
+#+end_src
+*** Full
+#+begin_src css
+#custom-mx-master3-mouse.full {
+}
+#+end_src
+*** Good
+#+begin_src css
+#custom-mx-master3-mouse.good {
+}
+#+end_src
+*** Low
+#+begin_src css
+#custom-mx-master3-mouse.low {
+    background: rgba(255, 255, 0, 0.5);
+}
+#+end_src
+*** Critical
+#+begin_src css
+#custom-mx-master3-mouse.critical {
+    background: rgba(255, 0, 0, 0.5);
+}
+#+end_src
+*** Hover
+#+begin_src css
+#custom-mx-master3:hover {
     background: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
 }
@@ -1416,41 +1462,6 @@ label:focus {
 #custom-capslock.enabled {
     background-color: #97e1ad;
     color: black;
-}
-#+end_src
-* Mouse battery :noexport_1:
-#+begin_src css
-#custom-battery-mouse {
-    color: lightgray;
-}
-#+end_src
-** Full
-#+begin_src css
-#custom-battery-mouse.full {
-}
-#+end_src
-** Good
-#+begin_src css
-#custom-battery-mouse.good {
-}
-#+end_src
-** Low
-#+begin_src css
-#custom-battery-mouse.low {
-    background: rgba(255, 255, 0, 0.5);
-}
-#+end_src
-** Critical
-#+begin_src css
-#custom-battery-mouse.critical {
-    background: rgba(255, 0, 0, 0.5);
-}
-#+end_src
-** Hover
-#+begin_src css
-#custom-mouse-warping:hover {
-    background: rgba(128, 128, 128, 0.5);
-    transition: background 0.3s ease;
 }
 #+end_src
 * lan-mouse :noexport_1:
