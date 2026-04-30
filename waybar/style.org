@@ -16,7 +16,7 @@
 - [[#group-toggle][Group Toggle]]
 - [[#group-monitoring][Group Monitoring]]
 - [[#group-control][Group Control]]
-- [[#group-battery][Group Battery]]
+- [[#group-power][Group Power]]
 - [[#group-datetime][Group Datetime]]
 - [[#network][Network]]
 - [[#media][Media]]
@@ -1137,28 +1137,45 @@ box#toggle {
     padding-right: 8px;
 }
 #+end_src
-* Group Battery
+* Group Power
+** Group
+*** Box
+#+begin_src css
+box#power {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+box#power.empty {
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+}
+#+end_src
+*** Modules
 #+begin_src css
 #battery,
 #custom-battery-mx-master3 {
     padding-right: 5px;
     padding-left: 5px;
     margin:  0;
-    background-color: rgba(0, 0, 0, 0.2);
     color: lightgray;
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+#+end_src
+*** Separator
+#+begin_src css
+#custom-battery-mx-master3 {
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#custom-battery-mx-master3.empty {
+    border-left: 0;
 }
 #+end_src
 ** Laptop :noexport_1:
 *** Normal
 #+begin_src css
 #battery {
-    border-radius: 10px;
-    padding-right: 8px;
-    padding-left: 8px;
-    background-color: rgba(0, 0, 0, 0.2);
-    color: lightgray;
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
 #+end_src
 *** Charging
@@ -1204,35 +1221,34 @@ label:focus {
 #+end_src
 ** Mouse MX Master 3 :noexport_1:
 #+begin_src css
-#custom-mx-master3-mouse {
-    color: lightgray;
+#custom-battery-mx-master3 {
 }
 #+end_src
 *** Full
 #+begin_src css
-#custom-mx-master3-mouse.full {
+#custom-battery-mx-master3.full {
 }
 #+end_src
 *** Good
 #+begin_src css
-#custom-mx-master3-mouse.good {
+#custom-battery-mx-master3.good {
 }
 #+end_src
 *** Low
 #+begin_src css
-#custom-mx-master3-mouse.low {
+#custom-battery-mx-master3.low {
     background: rgba(255, 255, 0, 0.5);
 }
 #+end_src
 *** Critical
 #+begin_src css
-#custom-mx-master3-mouse.critical {
+#custom-battery-mx-master3.critical {
     background: rgba(255, 0, 0, 0.5);
 }
 #+end_src
 *** Hover
 #+begin_src css
-#custom-mx-master3:hover {
+#custom-battery-mx-master3:hover {
     background: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
 }

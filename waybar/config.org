@@ -15,7 +15,7 @@
 - [[#group-sysadmin][Group sysadmin]]
 - [[#group-toggle][Group Toggle]]
 - [[#group-keyboard][Group Keyboard]]
-- [[#group-battery][Group Battery]]
+- [[#group-power][Group Power]]
 - [[#group-datetime][Group Datetime]]
 - [[#mpris][MPRIS]]
 - [[#vpn][VPN]]
@@ -71,8 +71,7 @@
     //"custom/lanmouse-status",
     "group/monitoring",
     "group/control",
-    "custom/battery-mouse",
-    "battery",
+    "group/power",
     "group/datetime",
     //"keyboard-state",
     "custom/capslock",
@@ -701,9 +700,9 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
     },
 },
 #+end_src
-* Group Battery
+* Group Power
 #+begin_src js
-"group/battery": {
+"group/power": {
   "orientation": "inherit",
   "modules": [
     "battery",

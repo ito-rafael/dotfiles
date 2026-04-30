@@ -33,8 +33,7 @@
     //"custom/lanmouse-status",
     "group/monitoring",
     "group/control",
-    "custom/battery-mouse",
-    "battery",
+    "group/power",
     "group/datetime",
     //"keyboard-state",
     "custom/capslock",
@@ -534,7 +533,7 @@
     },
 },
 
-"group/battery": {
+"group/power": {
   "orientation": "inherit",
   "modules": [
     "battery",
