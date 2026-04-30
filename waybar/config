@@ -301,7 +301,7 @@
     "exec": "~/.config/waybar/scripts/pacman.sh",
     "on-click": "~/.config/scripts/show-or-launch.sh dropdown_pacman 0.75 0.75",
     "exec-if": "exit 0",
-    "format": " {icon} {0} ",
+    "format": " {icon}\u2002{0} ",
     "format-icons": {
         "low":    "<span color=\"#999\"></span>",
         "medium": "<span color=\"#FF7\"></span>",
@@ -534,6 +534,14 @@
     },
 },
 
+"group/battery": {
+  "orientation": "inherit",
+  "modules": [
+    "battery",
+    "custom/battery-mx-master3",
+  ]
+},
+
 "battery": {
     "states": {
         "warning": 30,
@@ -547,6 +555,20 @@
     "format-plugged": "🔌 {capacity}%",
     "format-icons": ["", "", "", "", ""],
     //"format-icons": ["🪫", "🔋", "🔋", "🔋", "🔋"]
+},
+
+"custom/battery-mx-master3": {
+    "return-type": "json",
+    "interval": 60,
+    "exec": "~/.config/waybar/scripts/battery-mouse.sh",
+    "on-click": "solaar",
+    "format": "{}  {icon}",
+    "format-icons": {
+        "full":     "",
+        "good":     "",
+        "low":      "",
+        "critical": "",
+    },
 },
 
 "group/datetime": {
@@ -678,20 +700,6 @@
   "format": "{}",
   "on-click": "tomat toggle",
   "on-click-right": "tomat skip"
-},
-
-"custom/battery-mouse": {
-    "return-type": "json",
-    "interval": 60,
-    "exec": "~/.config/waybar/scripts/battery-mouse.sh",
-    "on-click": "solaar",
-    "format": "{}  {icon}",
-    "format-icons": {
-        "full":     "",
-        "good":     "",
-        "low":      "",
-        "critical": "",
-    },
 },
 
 "custom/systemd-lanmouse": {
