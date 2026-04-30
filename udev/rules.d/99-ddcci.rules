@@ -1,0 +1,2 @@
+ACTION=="add", SUBSYSTEM=="i2c", IMPORT{parent}="DRIVER"
+ACTION=="add", SUBSYSTEM=="i2c", ENV{DRIVER}=="nouveau", ATTR{new_device}="ddcci 0x37"
