@@ -23,7 +23,7 @@ CMD=$1
 
 case "${CMD}" in
     "monitor")
-        echo '{"text": '\"$DEFAULT_TEXT\"', "alt": '\"$CURRENT_MODE\"', "class": '\"$CURRENT_MODE\"'}'
+        echo '{"text": '\"$DEFAULT_TEXT\"', "alt": '\"$CURRENT_MODE\"', "class": '\"$CURRENT_MODE\"'}' || exit 0
         journalctl --user -u $UNIT -f -n 0 | while read -r line; do
             CURRENT_TIME=$(($(date +%s%N) / 1000000))
             
@@ -31,7 +31,7 @@ case "${CMD}" in
             if [[ "$line" == *"$MODE_LANMOUSE"* ]]; then
                 # check if enough time (cooldown) has passed since the last trigger
                 if ((CURRENT_TIME - LAST_TRIGGER >= COOLDOWN)); then
-                    echo '{"text": "lan-mouse", "alt": "lan-mouse", "class": "lan-mouse"}'
+                    echo '{"text": "lan-mouse", "alt": "lan-mouse", "class": "lan-mouse"}' || exit 0
                     LAST_TRIGGER=$CURRENT_TIME
                 fi
                 
@@ -39,8 +39,8 @@ case "${CMD}" in
             elif [[ "$line" == *"$MODE_DEFAULT"* ]]; then
                 # check if enough time (cooldown) has passed since the last trigger
                 if ((CURRENT_TIME - LAST_TRIGGER >= COOLDOWN)); then
-                    #echo '{"text": "default", "alt": "default", "class": "default"}'
-                    echo '{"text": "xremap", "alt": "default", "class": "default"}'
+                    #echo '{"text": "default", "alt": "default", "class": "default"}' || exit 0
+                    echo '{"text": "xremap", "alt": "default", "class": "default"}' || exit 0
                     LAST_TRIGGER=$CURRENT_TIME
                 fi
             fi
