@@ -1164,12 +1164,24 @@ box#power.empty {
 #+end_src
 *** Separator
 #+begin_src css
+/* give mouse module a border by default */
 #custom-battery-mx-master3 {
     border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
+/* if the mouse module is the first widget, remove the border */
+box#power > widget:first-child > #custom-battery-mx-master3 {
+    border-left: none;
+}
+/* if the battery exists but is marked as .empty, remove the border */
+box#power > widget.empty + widget > #custom-battery-mx-master3 {
+    border-left: none;
+}
 
+/* if there is no widget in group/power, strip everything and collapse */
 #custom-battery-mx-master3.empty {
-    border-left: 0;
+    border-left: none;
+    padding: 0;
+    margin: 0;
 }
 #+end_src
 ** Laptop :noexport_1:
