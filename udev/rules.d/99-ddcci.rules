@@ -1,8 +1,5 @@
-# grab the parent driver name when a new I2C bus is added
-ACTION=="add", SUBSYSTEM=="i2c", IMPORT{parent}="DRIVER"
+# bind ddcci to all I2C buses spawned by the Nouveau driver (open source)
+ACTION=="add|change", SUBSYSTEM=="i2c", ATTR{name}=="nvkm-*", ATTR{new_device}="ddcci 0x37"
 
-# attach ddcci for Nouveau driver (Open Source)
-ACTION=="add", SUBSYSTEM=="i2c", ENV{DRIVER}=="nouveau", ATTR{new_device}="ddcci 0x37"
-
-# attach ddcci for Nvidia Proprietary drivers
-ACTION=="add", SUBSYSTEM=="i2c", ENV{DRIVER}=="nvidia", ATTR{new_device}="ddcci 0x37"
+# fallback: bind ddcci to all I2C buses spawned by the NVIDIA proprietary drivers
+ACTION=="add|change", SUBSYSTEM=="i2c", ATTR{name}=="NVIDIA i2c adapter*", ATTR{new_device}="ddcci 0x37"
