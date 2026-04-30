@@ -388,6 +388,8 @@
     "format-icons": ["", "", "", "", "", "", "", "", ""],
     "reverse-scrolling": true,
     "reverse-mouse-scrolling": false,
+    "on-scroll-up": "~/.config/waybar/scripts/brightness.sh up",
+    "on-scroll-down": "~/.config/waybar/scripts/brightness.sh down",
 },
 #+end_src
 ** Gamma
