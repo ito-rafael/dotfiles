@@ -1165,6 +1165,8 @@ box#toggle {
 box#power {
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 10px;
+    padding-right: 5px;
+    padding-left: 5px;
 }
 
 box#power.empty {
@@ -1182,27 +1184,30 @@ box#power.empty {
     margin:  0;
     color: lightgray;
 }
+
+/* hide any empty modules completely so they collapse */
+#battery.empty,
+#custom-battery-mx-master3.empty,
+#upower-sennheiser-hd250bt.empty {
+    padding: 0;
+    margin: 0;
+    border: none;
+}
 #+end_src
 *** Separator
 #+begin_src css
-/* give mouse module a border by default */
+/* default state: remove borders from everything */
+#battery,
+#upower.sennheiser-hd250bt,
 #custom-battery-mx-master3 {
-    border-left: 1px solid rgba(255, 255, 255, 0.1);
-}
-/* if the mouse module is the first widget, remove the border */
-box#power > widget:first-child > #custom-battery-mx-master3 {
-    border-left: none;
-}
-/* if the battery exists but is marked as .empty, remove the border */
-box#power > widget.empty + widget > #custom-battery-mx-master3 {
     border-left: none;
 }
 
-/* if there is no widget in group/power, strip everything and collapse */
-#custom-battery-mx-master3.empty {
-    border-left: none;
-    padding: 0;
-    margin: 0;
+/* the magic sibling selector for n-items: apply a left border to any active widget that comes *after* another active widget (skipping the first visible item). */
+box#power > widget:not(.empty) ~ widget:not(.empty) > #battery,
+box#power > widget:not(.empty) ~ widget:not(.empty) > #upower.sennheiser-hd250bt,
+box#power > widget:not(.empty) ~ widget:not(.empty) > #custom-battery-mx-master3 {
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
     padding-left: 8px;
 }
 #+end_src
