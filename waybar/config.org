@@ -727,8 +727,9 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
   "orientation": "inherit",
   "modules": [
     "battery",
-    "upower#sennheiser-hd250bt",
     "custom/battery-mx-master3",
+    "upower#sennheiser-hd250bt",
+    "upower#soundcore-life-p3",
   ]
 },
 #+end_src
@@ -775,6 +776,19 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
     "hide-if-empty": true,
     "tooltip": true,
     "tooltip-spacing": 20,
+    "min-length": 7,
+},
+#+end_src
+** Earbuds: Soundcore Life P3
+#+begin_src js
+"upower#soundcore-life-p3": {
+    "native-path": "/org/bluez/hci0/dev_A4_77_58_58_EC_CC",
+    "format": "🎧\u2002{percentage}",
+    "show-icon": false,
+    "hide-if-empty": true,
+    "tooltip": true,
+    "tooltip-spacing": 20,
+    "min-length": 7,
 },
 #+end_src
 * Group Datetime
