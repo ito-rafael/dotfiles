@@ -347,7 +347,7 @@
     "pulseaudio#speaker",
     "pulseaudio#microphone",
     "backlight",
-    "custom/gamma",
+    "group/gamma",
   ]
 },
 #+end_src
@@ -391,10 +391,31 @@
 },
 #+end_src
 ** Gamma
+*** Group
 #+begin_src js
-"custom/gamma": {
-    "exec": "~/.config/waybar/scripts/gamma.sh",
-    "format": "🌡️ {}K",
+"group/gamma": {
+    "orientation": "inherit",
+    "modules": [
+        "image#gamma-icon",
+        "custom/gamma-temperature",
+    ]
+},
+#+end_src
+*** Icon
+#+begin_src js
+"image#gamma-icon": {
+    "exec": "~/.config/waybar/scripts/gamma-icon.sh",
+    //"interval": 3600,
+    "interval": 1,
+    "size": 14,
+},
+#+end_src
+*** Temperature
+#+begin_src js
+"custom/gamma-temperature": {
+    "exec": "~/.config/waybar/scripts/gamma-temperature.sh",
+    //"format": "🌡️ {}K",
+    "format": "{}K",
     "interval": 60,
     "signal": 8,
 },
