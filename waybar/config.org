@@ -727,20 +727,21 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
     //"format-icons": ["🪫", "🔋", "🔋", "🔋", "🔋"]
 },
 #+end_src
-** Mouse MX Master 3
+** Mouse: MX Master 3
 #+begin_src js
 "custom/battery-mx-master3": {
     "return-type": "json",
     "interval": 60,
-    "exec": "~/.config/waybar/scripts/battery-mouse.sh",
+    "exec": "~/.config/waybar/scripts/mx-master3-battery.sh",
     "on-click": "solaar",
-    "format": "{}  {icon}",
-    "format-icons": {
-        "full":     "",
-        "good":     "",
-        "low":      "",
-        "critical": "",
-    },
+    "format": "🖱️ {}",
+    //"format": " {icon} {}",
+    //"format-icons": {
+    //    "full":     "",
+    //    "good":     "",
+    //    "low":      "",
+    //    "critical": "",
+    //},
 },
 #+end_src
 * Group Datetime

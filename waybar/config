@@ -559,15 +559,16 @@
 "custom/battery-mx-master3": {
     "return-type": "json",
     "interval": 60,
-    "exec": "~/.config/waybar/scripts/battery-mouse.sh",
+    "exec": "~/.config/waybar/scripts/mx-master3-battery.sh",
     "on-click": "solaar",
-    "format": "{}  {icon}",
-    "format-icons": {
-        "full":     "",
-        "good":     "",
-        "low":      "",
-        "critical": "",
-    },
+    "format": "🖱️ {}",
+    //"format": " {icon} {}",
+    //"format-icons": {
+    //    "full":     "",
+    //    "good":     "",
+    //    "low":      "",
+    //    "critical": "",
+    //},
 },
 
 "group/datetime": {
