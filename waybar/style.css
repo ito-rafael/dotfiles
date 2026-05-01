@@ -671,7 +671,7 @@ box#toggle {
 #pulseaudio.speaker,
 #pulseaudio.microphone,
 #backlight,
-#custom-gamma {
+#gamma {
     border-right: 1px solid rgba(255, 255, 255, 0.1);
     padding-right: 5px;
     padding-left: 5px;
@@ -683,7 +683,7 @@ box#toggle {
 #pulseaudio.speaker:hover,
 #pulseaudio.microphone:hover,
 #backlight:hover,
-#custom-gamma:hover {
+#gamma:hover {
     background: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
 }
@@ -711,9 +711,22 @@ box#toggle {
     border-radius: 0;
 }
 
-#custom-gamma {
+#gamma {
     border-radius: 0 10px 10px 0;
     padding-right: 8px;
+}
+
+#gamma:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+
+#gamma #image.gamma-icon {
+    padding-right: 5px;
+}
+
+#gamma #custom-gamma-temperature {
+    padding-top: 3px;
 }
 
 box#power {

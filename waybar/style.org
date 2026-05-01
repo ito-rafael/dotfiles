@@ -1079,7 +1079,7 @@ box#toggle {
 #pulseaudio.speaker,
 #pulseaudio.microphone,
 #backlight,
-#custom-gamma {
+#gamma {
     border-right: 1px solid rgba(255, 255, 255, 0.1);
     padding-right: 5px;
     padding-left: 5px;
@@ -1091,7 +1091,7 @@ box#toggle {
 #pulseaudio.speaker:hover,
 #pulseaudio.microphone:hover,
 #backlight:hover,
-#custom-gamma:hover {
+#gamma:hover {
     background: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
 }
@@ -1132,10 +1132,30 @@ box#toggle {
 }
 #+end_src
 ** Gamma :noexport_1:
+*** Group
 #+begin_src css
-#custom-gamma {
+#gamma {
     border-radius: 0 10px 10px 0;
     padding-right: 8px;
+}
+#+end_src
+**** Hover
+#+begin_src css
+#gamma:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+#+end_src
+*** Icon
+#+begin_src css
+#gamma #image.gamma-icon {
+    padding-right: 5px;
+}
+#+end_src
+*** Temperature
+#+begin_src css
+#gamma #custom-gamma-temperature {
+    padding-top: 3px;
 }
 #+end_src
 * Group Power
