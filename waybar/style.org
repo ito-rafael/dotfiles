@@ -1188,7 +1188,8 @@ box#power.empty {
 /* hide any empty modules completely so they collapse */
 #battery.empty,
 #custom-battery-mx-master3.empty,
-#upower-sennheiser-hd250bt.empty {
+#upower-sennheiser-hd250bt.empty,
+#upower-soundcore-life-p3.empty {
     padding: 0;
     margin: 0;
     border: none;
@@ -1198,15 +1199,17 @@ box#power.empty {
 #+begin_src css
 /* default state: remove borders from everything */
 #battery,
+#custom-battery-mx-master3,
 #upower.sennheiser-hd250bt,
-#custom-battery-mx-master3 {
+#upower.soundcore-life-p3 {
     border-left: none;
 }
 
 /* the magic sibling selector for n-items: apply a left border to any active widget that comes *after* another active widget (skipping the first visible item). */
 box#power > widget:not(.empty) ~ widget:not(.empty) > #battery,
+box#power > widget:not(.empty) ~ widget:not(.empty) > #custom-battery-mx-master3,
 box#power > widget:not(.empty) ~ widget:not(.empty) > #upower.sennheiser-hd250bt,
-box#power > widget:not(.empty) ~ widget:not(.empty) > #custom-battery-mx-master3 {
+box#power > widget:not(.empty) ~ widget:not(.empty) > #upower.soundcore-life-p3 {
     border-left: 1px solid rgba(255, 255, 255, 0.1);
     padding-left: 8px;
 }
@@ -1296,6 +1299,15 @@ label:focus {
 ** Headphone: Sennheiser HD 250BT :noexport_1:
 #+begin_src css
 #power #upower.sennheiser-hd250bt {
+    padding-right: 2px;
+    padding-left: 0;
+    margin:  0;
+    color: lightgray;
+}
+#+end_src
+** Earbuds: Soundcore Life P3
+#+begin_src css
+#power #upower.soundcore-life-p3 {
     padding-right: 2px;
     padding-left: 0;
     margin:  0;
