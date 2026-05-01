@@ -825,6 +825,13 @@ label:focus {
     transition: background 0.3s ease;
 }
 
+#power #upower.sennheiser-hd250bt {
+    padding-right: 2px;
+    padding-left: 0;
+    margin:  0;
+    color: lightgray;
+}
+
 #datetime #clock.date,
 #datetime #clock.time {
     margin:  0;

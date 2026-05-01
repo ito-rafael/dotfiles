@@ -1254,7 +1254,7 @@ label:focus {
     transition: background 0.3s ease;
 }
 #+end_src
-** Mouse MX Master 3 :noexport_1:
+** Mouse: MX Master 3 :noexport_1:
 #+begin_src css
 #custom-battery-mx-master3 {
 }
@@ -1286,6 +1286,15 @@ label:focus {
 #custom-battery-mx-master3:hover {
     background: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
+}
+#+end_src
+** Headphone: Sennheiser HD 250BT :noexport_1:
+#+begin_src css
+#power #upower.sennheiser-hd250bt {
+    padding-right: 2px;
+    padding-left: 0;
+    margin:  0;
+    color: lightgray;
 }
 #+end_src
 * Group Datetime
