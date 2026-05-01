@@ -1115,6 +1115,7 @@ box#toggle {
 *** Normal
 #+begin_src css
 #pulseaudio.microphone {
+    padding-top: 2px;
 }
 #+end_src
 *** Muted
@@ -1182,12 +1183,14 @@ box#power > widget.empty + widget > #custom-battery-mx-master3 {
     border-left: none;
     padding: 0;
     margin: 0;
+    padding-left: 8px;
 }
 #+end_src
 ** Laptop :noexport_1:
 *** Normal
 #+begin_src css
 #battery {
+    margin-top: 1px;
 }
 #+end_src
 *** Charging

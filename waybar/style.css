@@ -699,6 +699,7 @@ box#toggle {
 }
 
 #pulseaudio.microphone {
+    padding-top: 2px;
 }
 
 #pulseaudio.microphone.muted {
@@ -755,6 +756,7 @@ box#power > widget.empty + widget > #custom-battery-mx-master3 {
 }
 
 #battery {
+    margin-top: 1px;
 }
 
 #battery.charging, #battery.plugged {

@@ -14,6 +14,7 @@
     "sway/mode",
     "group/keyboard",
     "group/sysadmin",
+    "group/toggle",
     "custom/pomodoro-timer",
 ],
 
@@ -28,7 +29,6 @@
     "custom/vpn-lbic",
     "custom/vpn-samsung",
     "group/scratchpads",
-    "group/toggle",
     //"custom/systemd-lanmouse",
     //"custom/lanmouse-status",
     "group/monitoring",
