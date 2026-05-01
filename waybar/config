@@ -553,6 +553,7 @@
   "orientation": "inherit",
   "modules": [
     "battery",
+    "upower#sennheiser-hd250bt",
     "custom/battery-mx-master3",
   ]
 },
@@ -585,6 +586,15 @@
     //    "low":      "",
     //    "critical": "",
     //},
+},
+
+"upower#sennheiser-hd250bt": {
+    "native-path": "/org/bluez/hci0/dev_00_1B_66_C9_83_A7",
+    "format": "🎧\u2002{percentage}",
+    "show-icon": false,
+    "hide-if-empty": true,
+    "tooltip": true,
+    "tooltip-spacing": 20,
 },
 
 "group/datetime": {

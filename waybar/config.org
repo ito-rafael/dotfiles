@@ -727,6 +727,7 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
   "orientation": "inherit",
   "modules": [
     "battery",
+    "upower#sennheiser-hd250bt",
     "custom/battery-mx-master3",
   ]
 },
@@ -763,6 +764,17 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
     //    "low":      "",
     //    "critical": "",
     //},
+},
+#+end_src
+** Headphone: Sennheiser HD 250BT
+#+begin_src js
+"upower#sennheiser-hd250bt": {
+    "native-path": "/org/bluez/hci0/dev_00_1B_66_C9_83_A7",
+    "format": "🎧\u2002{percentage}",
+    "show-icon": false,
+    "hide-if-empty": true,
+    "tooltip": true,
+    "tooltip-spacing": 20,
 },
 #+end_src
 * Group Datetime
