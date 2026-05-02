@@ -116,4 +116,7 @@ if (window.location.host === 'music.youtube.com') {
     });
 
 }
+
 api.unmapallexcept([], /localhost/);
+
+api.unmap("c", /youtube.com/);

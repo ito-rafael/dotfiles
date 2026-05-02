@@ -25,6 +25,8 @@
   - [[#redirect-from-startpage-to-google][Redirect from Startpage to Google]]
 - [[#website-specific][Website specific]]
   - [[#youtube-music][YouTube Music]]
+- [[#exceptions][Exceptions]]
+  - [[#youtube][YouTube]]
 
 * Information
 ** How to load config file
@@ -208,5 +210,13 @@ if (window.location.host === 'music.youtube.com') {
         }
         Front.showPopup('Library button not found.');
     });
+#+end_src
+*** EoS
+#+begin_src js
+}
+#+end_src
+** YouTube
+#+begin_src js
+api.unmap("c", /youtube.com/);
 #+end_src
 #+end_src
