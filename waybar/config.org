@@ -17,11 +17,11 @@
 - [[#group-power][Group Power]]
 - [[#group-datetime][Group Datetime]]
 - [[#mpris][MPRIS]]
-- [[#vpn][VPN]]
 - [[#caps-lock][Caps Lock]]
 - [[#caps-lock-1][Caps Lock]]
 - [[#pomodoro-timer][Pomodoro timer]]
 - [[#systemd-services][Systemd services]]
+- [[#vpn][VPN]]
 
 * JSON header :noexport:
 #+begin_src js
@@ -518,6 +518,7 @@
     "custom/mouse-warping",
     "custom/dunst",
     "custom/scale",
+    "group/proton-vpn",
     "custom/keyboard-backlit",
   ]
 },
@@ -887,43 +888,6 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
     "reverse-mouse-scrolling": false,
 },
 #+end_src
-* VPN
-** La Casa Nostra
-#+begin_src js
-"custom/vpn-lcn": {
-    "interval": 1,
-    "return-type": "json",
-    "exec": "~/.config/waybar/scripts/vpn.sh lcn",
-    "format": " {} ",
-},
-#+end_src
-** Unicamp
-#+begin_src js
-"custom/vpn-unicamp": {
-    "interval": 1,
-    "return-type": "json",
-    "exec": "~/.config/waybar/scripts/vpn.sh unicamp",
-    "format": " {} ",
-},
-#+end_src
-** LBiC
-#+begin_src js
-"custom/vpn-lbic": {
-    "interval": 1,
-    "return-type": "json",
-    "exec": "~/.config/waybar/scripts/vpn.sh lbic",
-    "format": " {} ",
-},
-#+end_src
-** Samsung
-#+begin_src js
-"custom/vpn-samsung": {
-    "interval": 1,
-    "return-type": "json",
-    "exec": "~/.config/waybar/scripts/vpn.sh samsung",
-    "format": " {} ",
-},
-#+end_src
 * Caps Lock
 #+begin_src js :tangle no
 //"keyboard-state": {
@@ -972,6 +936,76 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
 "custom/lanmouse-status": {
     "exec": "~/.config/waybar/scripts/lanmouse-status.sh",
     "return-type": "json",
+    "format": " {} ",
+},
+#+end_src
+* VPN
+** Proton VPN
+*** Group
+#+begin_src js
+"group/proton-vpn": {
+    "orientation": "inherit",
+    "modules": [
+        "image#proton-vpn-icon",
+        "custom/proton-vpn-script",
+    ],
+},
+#+end_src
+*** Icon
+#+begin_src js
+"image#proton-vpn-icon": {
+    "exec": "~/.config/waybar/scripts/proton-vpn-icon.sh",
+    "interval": 120,
+    "size": 14,
+    "on-click": "~/.config/waybar/scripts/proton-vpn-script.sh toggle &",
+    "tooltip": true,
+    "tooltip-format": "Proton VPN",
+    "signal": 9,
+},
+#+end_src
+*** Script
+#+begin_src js
+"custom/proton-vpn-script": {
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/proton-vpn-script.sh status",
+    "interval": 120,
+    "on-click": "~/.config/waybar/scripts/proton-vpn-script.sh toggle &",
+    "signal": 9,
+},
+#+end_src
+** La Casa Nostra
+#+begin_src js
+"custom/vpn-lcn": {
+    "interval": 1,
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/vpn.sh lcn",
+    "format": " {} ",
+},
+#+end_src
+** Unicamp
+#+begin_src js
+"custom/vpn-unicamp": {
+    "interval": 1,
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/vpn.sh unicamp",
+    "format": " {} ",
+},
+#+end_src
+** LBiC
+#+begin_src js
+"custom/vpn-lbic": {
+    "interval": 1,
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/vpn.sh lbic",
+    "format": " {} ",
+},
+#+end_src
+** Samsung
+#+begin_src js
+"custom/vpn-samsung": {
+    "interval": 1,
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/vpn.sh samsung",
     "format": " {} ",
 },
 #+end_src

@@ -382,6 +382,7 @@
     "custom/mouse-warping",
     "custom/dunst",
     "custom/scale",
+    "group/proton-vpn",
     "custom/keyboard-backlit",
   ]
 },
@@ -698,34 +699,6 @@
     "reverse-mouse-scrolling": false,
 },
 
-"custom/vpn-lcn": {
-    "interval": 1,
-    "return-type": "json",
-    "exec": "~/.config/waybar/scripts/vpn.sh lcn",
-    "format": " {} ",
-},
-
-"custom/vpn-unicamp": {
-    "interval": 1,
-    "return-type": "json",
-    "exec": "~/.config/waybar/scripts/vpn.sh unicamp",
-    "format": " {} ",
-},
-
-"custom/vpn-lbic": {
-    "interval": 1,
-    "return-type": "json",
-    "exec": "~/.config/waybar/scripts/vpn.sh lbic",
-    "format": " {} ",
-},
-
-"custom/vpn-samsung": {
-    "interval": 1,
-    "return-type": "json",
-    "exec": "~/.config/waybar/scripts/vpn.sh samsung",
-    "format": " {} ",
-},
-
 "custom/capslock": {
     "return-type": "json",
     "exec": "~/.config/waybar/scripts/capslock.sh",
@@ -752,6 +725,60 @@
 "custom/lanmouse-status": {
     "exec": "~/.config/waybar/scripts/lanmouse-status.sh",
     "return-type": "json",
+    "format": " {} ",
+},
+
+"group/proton-vpn": {
+    "orientation": "inherit",
+    "modules": [
+        "image#proton-vpn-icon",
+        "custom/proton-vpn-script",
+    ],
+},
+
+"image#proton-vpn-icon": {
+    "exec": "~/.config/waybar/scripts/proton-vpn-icon.sh",
+    "interval": 120,
+    "size": 14,
+    "on-click": "~/.config/waybar/scripts/proton-vpn-script.sh toggle &",
+    "tooltip": true,
+    "tooltip-format": "Proton VPN",
+    "signal": 9,
+},
+
+"custom/proton-vpn-script": {
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/proton-vpn-script.sh status",
+    "interval": 120,
+    "on-click": "~/.config/waybar/scripts/proton-vpn-script.sh toggle &",
+    "signal": 9,
+},
+
+"custom/vpn-lcn": {
+    "interval": 1,
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/vpn.sh lcn",
+    "format": " {} ",
+},
+
+"custom/vpn-unicamp": {
+    "interval": 1,
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/vpn.sh unicamp",
+    "format": " {} ",
+},
+
+"custom/vpn-lbic": {
+    "interval": 1,
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/vpn.sh lbic",
+    "format": " {} ",
+},
+
+"custom/vpn-samsung": {
+    "interval": 1,
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/vpn.sh samsung",
     "format": " {} ",
 },
 
