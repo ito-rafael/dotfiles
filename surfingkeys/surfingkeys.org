@@ -159,4 +159,20 @@ if (window.location.host === 'music.youtube.com') {
         }
     });
 #+end_src
+*** Save/remove to/from library
+#+begin_src js
+    api.mapkey('s', 'Toggle Save/Remove Album in YouTube Music', function() {
+        let saveBtn = document.querySelector(
+            'button[aria-label="Save to library"],' +
+            'button[aria-label="Added to library"],' +
+            'button[aria-label="Remove from library"]'
+        );
+
+        if (saveBtn) {
+            saveBtn.click();
+        } else {
+            Front.showPopup('Save/Remove button not found.');
+        }
+    });
+#+end_src
 #+end_src
