@@ -22,3 +22,7 @@ https://chromewebstore.google.com/detail/video-speed-controller/nffaoalbilbmmfgb
 | preferred speed (x2.0)  | h   |
 | preferred speed (x3.0)  | a   |
 |-------------------------+-----|
+** Disable on sites
+#+begin_src conf
+music.youtube.com
+#+end_src
