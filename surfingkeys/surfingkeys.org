@@ -175,4 +175,21 @@ if (window.location.host === 'music.youtube.com') {
         }
     });
 #+end_src
+*** Navigate to Home
+#+begin_src js
+    api.mapkey('h', 'Go to Home', function() {
+        // find all sidebar items
+        let items = document.querySelectorAll('tp-yt-paper-item.style-scope.ytmusic-guide-entry-renderer');
+
+        // filter "Home" and click on it
+        for (let item of items) {
+            let titleElem = item.querySelector('yt-formatted-string.title');
+            if (titleElem && titleElem.textContent.trim() === 'Home') {
+                item.click();
+                return;
+            }
+        }
+        Front.showPopup('Home button not found.');
+    });
+#+end_src
 #+end_src
