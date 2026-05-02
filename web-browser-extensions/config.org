@@ -4,5 +4,21 @@
 #+startup: showeverything
 
 * Vimium
-Source:
 https://github.com/philc/vimium
+* Video Speed Controller
+https://github.com/igrigorik/videospeed
+https://chromewebstore.google.com/detail/video-speed-controller/nffaoalbilbmmfgbnbgppjihopabppdk
+** Shortcuts
+|-------------------------+-----|
+| description             | key |
+|-------------------------+-----|
+| decrease speed          | [   |
+| increase speed          | ]   |
+| reset speed             | u   |
+|-------------------------+-----|
+| preferred speed (x0.75) | -   |
+| preferred speed (x1.0)  | u   |
+| preferred speed (x1.5)  | \   |
+| preferred speed (x2.0)  | h   |
+| preferred speed (x3.0)  | a   |
+|-------------------------+-----|
