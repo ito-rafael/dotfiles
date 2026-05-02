@@ -99,4 +99,21 @@ if (window.location.host === 'music.youtube.com') {
         }
         Front.showPopup('Home button not found.');
     });
+
+    api.mapkey('l', 'Go to Library', function() {
+        // find all sidebar items
+        let items = document.querySelectorAll('tp-yt-paper-item.style-scope.ytmusic-guide-entry-renderer');
+
+        // filter "Library" and click on it
+        for (let item of items) {
+            let titleElem = item.querySelector('yt-formatted-string.title');
+            if (titleElem && titleElem.textContent.trim() === 'Library') {
+                item.click();
+                return;
+            }
+        }
+        Front.showPopup('Library button not found.');
+    });
+
+}
 api.unmapallexcept([], /localhost/);
