@@ -6,7 +6,6 @@
 #+auto_tangle: t
 
 * Table of contents :toc_1:
-- [[#layout][Layout]]
 - [[#positioning][Positioning]]
 - [[#sway][Sway]]
 - [[#group-scratchpad][Group Scratchpad]]
@@ -28,18 +27,19 @@
 #+begin_src js
 {
 #+end_src
-* Layout
+* Positioning :noexport_1:
+#+begin_src js
+"height": 15,
+"layer": "top",
+"fixed-center": false,
+#+end_src
+** Layout
 #+begin_src js
 "margin-top": 4,
 "margin-left": 10,
 "margin-right": 10,
 "margin-bottom": -4,
 "spacing": 5,
-#+end_src
-* Positioning :noexport_1:
-#+begin_src js
-"height": 15,
-"layer": "top",
 #+end_src
 ** Left
 #+begin_src js
