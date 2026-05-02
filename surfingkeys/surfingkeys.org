@@ -23,6 +23,8 @@
   - [[#google-maps][Google Maps]]
   - [[#stackoverflow][StackOverflow]]
   - [[#redirect-from-startpage-to-google][Redirect from Startpage to Google]]
+- [[#website-specific][Website specific]]
+  - [[#youtube-music][YouTube Music]]
 
 * Information
 ** How to load config file
@@ -136,5 +138,25 @@ api.mapkey('ss', 'Search current Startpage query on Google', function() {
     window.location.href = googleUrl;
 });
 #+end_src
+* Website specific
+** YouTube Music
 #+begin_src js
+if (window.location.host === 'music.youtube.com') {
+#+end_src
+*** Focus search bar
+#+begin_src js
+    api.mapkey('t', 'Focus search bar on YouTube Music', function() {
+        // click the search icon to reveal the search bar
+        let searchBtn = document.querySelector('ytmusic-search-box button');
+        if (searchBtn) {
+            searchBtn.click();
+            setTimeout(() => {
+                let input = document.querySelector('ytmusic-search-box input');
+                if (input) {
+                    input.focus();
+                }
+            }, 300); // slight delay to allow DOM to update
+        }
+    });
+#+end_src
 #+end_src

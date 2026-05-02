@@ -55,4 +55,19 @@ api.mapkey('ss', 'Search current Startpage query on Google', function() {
     window.location.href = googleUrl;
 });
 
+if (window.location.host === 'music.youtube.com') {
+
+    api.mapkey('t', 'Focus search bar on YouTube Music', function() {
+        // click the search icon to reveal the search bar
+        let searchBtn = document.querySelector('ytmusic-search-box button');
+        if (searchBtn) {
+            searchBtn.click();
+            setTimeout(() => {
+                let input = document.querySelector('ytmusic-search-box input');
+                if (input) {
+                    input.focus();
+                }
+            }, 300); // slight delay to allow DOM to update
+        }
+    });
 api.unmapallexcept([], /localhost/);
