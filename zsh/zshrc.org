@@ -456,6 +456,7 @@ alias cdpx='cd $HOME/git/dotfiles/xremap'
 alias cdpz='cd $HOME/git/dotfiles/zsh'
 alias cdpw='cd $HOME/git/dotfiles/waybar'
 alias cdpws='cd $HOME/git/dotfiles/waybar/scripts'
+alias cdpwi='cd $HOME/git/dotfiles/waybar/icon'
 #+end_src
 *** XDG_CONFIG_HOME
 #+begin_src sh
