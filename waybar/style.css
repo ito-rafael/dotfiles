@@ -111,6 +111,7 @@ box#keyboard {
 #xremap {
     padding-right: 8px;
     padding-left: 8px;
+    padding-top: 1px;
 }
 
 #xremap:hover {
@@ -142,6 +143,7 @@ box#keyboard {
 #kanata #image.kanata-icon {
     padding-right: 5px;
     padding-left: 10px;
+    padding-bottom: 1px;
 }
 
 #kanata #image.kanata-icon.empty {
@@ -214,6 +216,7 @@ box#keyboard {
     background-color: rgba(0, 0, 0, 0.2);
     color: lightgray;
     border-right: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1px;
 }
 
 #custom-pacman {
@@ -627,15 +630,18 @@ box#toggle {
     padding: 0;
 }
 
+box#monitoring {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    color: lightgray;
+}
+
 #cpu,
 #memory,
 #temperature,
 #disk {
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
     padding-right: 5px;
     padding-left: 5px;
-    background-color: rgba(0, 0, 0, 0.2);
-    color: lightgray;
 }
 
 #cpu:hover,
@@ -646,14 +652,21 @@ box#toggle {
     transition: background 0.3s ease;
 }
 
+#cpu:hover,
+#memory:hover,
+#temperature:hover {
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 #cpu {
-    border-radius: 10px 0 0 10px;
 }
 
 #memory {
+    padding-top: 1px;
 }
 
 #temperature {
+    padding-top: 1px;
 }
 
 #temperature.warning {
@@ -665,7 +678,7 @@ box#toggle {
 }
 
 #disk {
-    border-radius: 0 10px 10px 0;
+    padding-top: 1px;
 }
 
 #pulseaudio.speaker,
