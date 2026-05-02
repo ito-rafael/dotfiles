@@ -19,6 +19,7 @@
     - [[#google-arts--culture][Google Arts & Culture]]
     - [[#jiffy-reader][Jiffy Reader]]
     - [[#bitwarden][Bitwarden]]
+    - [[#violentmonkey][Violentmonkey]]
   - [[#scholar][Scholar]]
     - [[#google-scholar-button][Google Scholar Button]]
     - [[#zotero][Zotero]]
@@ -116,6 +117,12 @@ Deprecated in favour of [[Surfingkeys]].
 - description: password manager.
 #+begin_src js :noweb yes
 <<install(extension_id="nngceckbapebfimnlniiiahkandclblb")>>
+#+end_src
+*** Violentmonkey
+- link: https://chromewebstore.google.com/detail/violentmonkey/jinjaccalgkegednnccohejagnlnfdag
+- description: userscripts support.
+#+begin_src js :noweb yes
+<<install(extension_id="jinjaccalgkegednnccohejagnlnfdag")>>
 #+end_src
 *** Floccus
 - link: https://chromewebstore.google.com/detail/floccus-bookmarks-sync/fnaicdffflnofjppbagibeoednhnbjhg
