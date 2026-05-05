@@ -5,8 +5,8 @@ dbus-monitor path='/org/freedesktop/Notifications',interface='org.freedesktop.DB
     while read -r _; do
         PAUSED="$(dunstctl is-paused)"
         if [ "$PAUSED" == 'false' ]; then
-            echo '{"text": "", "alt": "enabled", "class": "enabled"}'
+            echo '{"text": "", "alt": "enabled", "class": "enabled"}' || exit 0
         else
-            echo '{"text": "", "alt": "disabled", "class": "disabled"}'
+            echo '{"text": "", "alt": "disabled", "class": "disabled"}' || exit 0
         fi
     done
