@@ -1023,16 +1023,28 @@ box#toggle {
     animation-iteration-count: infinite;
 }
 #+end_src
+*** Connected
 #+begin_src css
-#proton-vpn #custom-proton-vpn-script {
-    padding-right: 3px;
-    padding-left: 3px;
+#custom-proton-vpn.connected {
+    background-image: url("/home/rafael/.config/waybar/icon/proton-vpn.svg");
 }
 #+end_src
+*** Disconnected
 #+begin_src css
-#proton-vpn #custom-proton-vpn-script.empty {
-    padding-right: 0px;
-    padding-left: 0px;
+#custom-proton-vpn.disconnected {
+    background-image: url("/home/rafael/.config/waybar/icon/proton-vpn-disconnected.svg");
+}
+#+end_src
+*** Connecting
+#+begin_src css
+#custom-proton-vpn.connecting {
+    background-image: url("/home/rafael/.config/waybar/icon/proton-vpn.svg");
+}
+#+end_src
+*** Disconnecting
+#+begin_src css
+#custom-proton-vpn.disconnecting {
+    background-image: url("/home/rafael/.config/waybar/icon/proton-vpn-disconnected.svg");
 }
 #+end_src
 ** Keyboard backlit :noexport_1:
