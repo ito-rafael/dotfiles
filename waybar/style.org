@@ -996,10 +996,15 @@ box#toggle {
     transition: background 0.3s ease;
 }
 #+end_src
+*** Image
 #+begin_src css
-#proton-vpn #image.proton-vpn-icon {
-    padding-right: 3px;
-    padding-left: 3px;
+#custom-proton-vpn.connected,
+#custom-proton-vpn.disconnected,
+#custom-proton-vpn.connecting,
+#custom-proton-vpn.disconnecting {
+    background-size: 16px;
+    background-repeat: no-repeat;
+    background-position: center calc(50% - 1px);
 }
 #+end_src
 #+begin_src css

@@ -614,9 +614,14 @@ box#toggle {
     transition: background 0.3s ease;
 }
 
-#proton-vpn #image.proton-vpn-icon {
-    padding-right: 3px;
-    padding-left: 3px;
+#custom-proton-vpn.connected,
+#custom-proton-vpn.disconnected,
+#custom-proton-vpn.connecting,
+#custom-proton-vpn.disconnecting {
+    background-size: 16px;
+    background-repeat: no-repeat;
+    background-position: center calc(50% - 1px);
+}
 }
 
 #proton-vpn #image.proton-vpn-icon.empty {
