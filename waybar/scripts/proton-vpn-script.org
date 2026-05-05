@@ -1,0 +1,144 @@
+#+TITLE: Proton VPN script
+#+AUTHOR: Rafael Ito
+#+PROPERTY: header-args :tangle proton-vpn-script.sh :shebang "#!/usr/bin/env bash"
+#+DESCRIPTION: wrapper script for protonvpn that manages the temporary status file used by Waybar
+#+STARTUP: showeverything
+#+auto_tangle: t
+
+* Table of Contents
+- [[#header][Header]]
+- [[#functions][Functions]]
+  - [[#check-connection][Check connection]]
+  - [[#update-status-file][Update status file]]
+  - [[#vpn-connect][VPN Connect]]
+  - [[#vpn-disconnect][VPN Disconnect]]
+- [[#parse-parameter][Parse parameter]]
+  - [[#status][Status]]
+  - [[#connect][Connect]]
+  - [[#disconnect][Disconnect]]
+  - [[#toggle][Toggle]]
+  - [[#fallback][Fallback]]
+
+* Header
+** Definitions
+#+begin_src sh
+PROTON_FILE="/tmp/proton-vpn-status.tmp"
+#+end_src
+* Functions
+** Check connection
+Check if the vpn is currently connected.
+#+begin_src sh
+is_connected() {
+    protonvpn status | grep -q "Connected"
+}
+#+end_src
+** Update status file
+Fetch the actual system status and write it to the tmp file.
+#+begin_src sh
+update_status() {
+    if is_connected; then
+        echo "connected" > "$PROTON_FILE"
+    else
+        echo "disconnected" > "$PROTON_FILE"
+    fi
+}
+#+end_src
+** VPN Connect
+Handle the connection sequence.
+#+begin_src sh
+connecting() {
+    echo "connecting" > "$PROTON_FILE"
+    protonvpn connect
+    update_status
+}
+#+end_src
+** VPN Disconnect
+Handle the disconnection sequence.
+#+begin_src sh
+disconnecting() {
+    echo "disconnecting" > "$PROTON_FILE"
+    protonvpn disconnect
+    update_status
+}
+#+end_src
+* Parse parameter
+:PROPERTIES:
+:header-args+: :padline no
+:END:
+#+begin_src sh :padline yes
+case "$1" in
+#+end_src
+** Status
+Display the current status.
+#+begin_src sh
+status)
+    protonvpn status
+    ;;
+#+end_src
+** Monitor
+#+begin_src sh
+monitor)
+    print_state() {
+        PROTON_STATUS=$(cat "$PROTON_FILE" 2>/dev/null)
+        case "$PROTON_STATUS" in
+        connected)
+            echo '{"text": ".", "alt": "connected", "class": "connected"}' ;;
+        disconnected)
+            echo '{"text": ".", "alt": "disconnected", "class": "disconnected"}' ;;
+        connecting)
+            echo '{"text": ".", "alt": "connecting", "class": "connecting"}' ;;
+        disconnecting)
+            echo '{"text": ".", "alt": "disconnecting", "class": "disconnecting"}' ;;
+        ,*)
+            echo '{"text": ".", "alt": "unknown", "class": "unknown"}' ;;
+        esac
+    }
+
+    print_state
+
+    inotifywait --quiet --monitor --event close_write "$PROTON_FILE" | while read; do
+        print_state
+    done
+    ;;
+#+end_src
+** Connect
+Connect only if currently disconnected (idempotent).
+#+begin_src sh
+connect)
+    if ! is_connected; then
+        connecting
+    fi
+    ;;
+#+end_src
+** Disconnect
+Disconnect only if currently connected (idempotent).
+#+begin_src sh
+disconnect)
+    if is_connected; then
+        disconnecting
+    fi
+    ;;
+#+end_src
+** Toggle
+Toggle the connection state.
+#+begin_src sh
+toggle)
+    if is_connected; then
+        disconnecting
+    else
+        connecting
+    fi
+    ;;
+#+end_src
+** Fallback
+Handle invalid or missing arguments.
+#+begin_src sh
+*)
+    echo "usage: $0 {status|connect|disconnect|toggle}"
+    exit 1
+    ;;
+#+end_src
+** EoS :noexport:
+#+begin_src sh
+esac
+#+end_src
