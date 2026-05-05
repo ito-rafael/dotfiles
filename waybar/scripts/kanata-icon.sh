@@ -7,4 +7,4 @@ if ! systemctl --user is-active --quiet kanata; then
 fi
 
 # if active, output the path to the image
-echo /home/rafael/.config/waybar/icon/kanata.svg
+echo "/home/rafael/.config/waybar/icon/kanata.svg"
