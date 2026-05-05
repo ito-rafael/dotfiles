@@ -382,7 +382,7 @@
     "custom/mouse-warping",
     "custom/dunst",
     "custom/scale",
-    "group/proton-vpn",
+    "custom/proton-vpn",
     "custom/keyboard-backlit",
   ]
 },
@@ -728,30 +728,14 @@
     "format": " {} ",
 },
 
-"group/proton-vpn": {
-    "orientation": "inherit",
-    "modules": [
-        "image#proton-vpn-icon",
-        "custom/proton-vpn-script",
-    ],
-},
-
-"image#proton-vpn-icon": {
-    "exec": "~/.config/waybar/scripts/proton-vpn-icon.sh",
-    "interval": 120,
-    "size": 14,
-    "on-click": "~/.config/waybar/scripts/proton-vpn-script.sh toggle &",
     "tooltip": true,
-    "tooltip-format": "Proton VPN",
-    "signal": 9,
 },
 
-"custom/proton-vpn-script": {
+"custom/proton-vpn": {
     "return-type": "json",
-    "exec": "~/.config/waybar/scripts/proton-vpn-script.sh status",
-    "interval": 120,
+    "exec": "~/.config/waybar/scripts/proton-vpn-script.sh monitor",
+    "format": "{}",
     "on-click": "~/.config/waybar/scripts/proton-vpn-script.sh toggle &",
-    "signal": 9,
 },
 
 "custom/vpn-lcn": {

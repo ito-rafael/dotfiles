@@ -518,7 +518,7 @@
     "custom/mouse-warping",
     "custom/dunst",
     "custom/scale",
-    "group/proton-vpn",
+    "custom/proton-vpn",
     "custom/keyboard-backlit",
   ]
 },
@@ -939,38 +939,18 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
     "format": " {} ",
 },
 #+end_src
+#+begin_src js
+    "tooltip": true,
+},
+#+end_src
 * VPN
 ** Proton VPN
-*** Group
 #+begin_src js
-"group/proton-vpn": {
-    "orientation": "inherit",
-    "modules": [
-        "image#proton-vpn-icon",
-        "custom/proton-vpn-script",
-    ],
-},
-#+end_src
-*** Icon
-#+begin_src js
-"image#proton-vpn-icon": {
-    "exec": "~/.config/waybar/scripts/proton-vpn-icon.sh",
-    "interval": 120,
-    "size": 14,
-    "on-click": "~/.config/waybar/scripts/proton-vpn-script.sh toggle &",
-    "tooltip": true,
-    "tooltip-format": "Proton VPN",
-    "signal": 9,
-},
-#+end_src
-*** Script
-#+begin_src js
-"custom/proton-vpn-script": {
+"custom/proton-vpn": {
     "return-type": "json",
-    "exec": "~/.config/waybar/scripts/proton-vpn-script.sh status",
-    "interval": 120,
+    "exec": "~/.config/waybar/scripts/proton-vpn-script.sh monitor",
+    "format": "{}",
     "on-click": "~/.config/waybar/scripts/proton-vpn-script.sh toggle &",
-    "signal": 9,
 },
 #+end_src
 ** La Casa Nostra
