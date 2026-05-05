@@ -543,7 +543,7 @@ box#toggle {
 #custom-mouse-warping,
 #custom-dunst,
 #custom-scale,
-#proton-vpn,
+#custom-proton-vpn,
 #custom-keyboard-backlit {
     padding-right: 3px;
     padding-left: 3px;
@@ -553,7 +553,7 @@ box#toggle {
 
 #custom-dunst,
 #custom-scale,
-#proton-vpn,
+#custom-proton-vpn,
 #custom-keyboard-backlit {
     border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -600,7 +600,16 @@ box#toggle {
     transition: background 0.3s ease;
 }
 
-#proton-vpn:hover {
+#custom-proton-vpn {
+    padding-right: 5px;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    color: transparent;
+    min-width: 16px;
+    min-height: 16px;
+}
+
+#custom-proton-vpn:hover {
     background: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
 }

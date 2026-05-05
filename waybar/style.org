@@ -896,7 +896,7 @@ box#toggle {
 #custom-mouse-warping,
 #custom-dunst,
 #custom-scale,
-#proton-vpn,
+#custom-proton-vpn,
 #custom-keyboard-backlit {
     padding-right: 3px;
     padding-left: 3px;
@@ -908,7 +908,7 @@ box#toggle {
 #+begin_src css
 #custom-dunst,
 #custom-scale,
-#proton-vpn,
+#custom-proton-vpn,
 #custom-keyboard-backlit {
     border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -978,36 +978,42 @@ box#toggle {
 }
 #+end_src
 ** Proton VPN
-*** Group
-**** Hover
+*** Default
 #+begin_src css
-#proton-vpn:hover {
+#custom-proton-vpn {
+    padding-right: 5px;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    color: transparent;
+    min-width: 16px;
+    min-height: 16px;
+}
+#+end_src
+*** Hover
+#+begin_src css
+#custom-proton-vpn:hover {
     background: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
 }
 #+end_src
-*** Icon
 #+begin_src css
 #proton-vpn #image.proton-vpn-icon {
     padding-right: 3px;
     padding-left: 3px;
 }
 #+end_src
-**** Empty
 #+begin_src css
 #proton-vpn #image.proton-vpn-icon.empty {
     padding-right: 0;
     padding-left: 0;
 }
 #+end_src
-*** Script
 #+begin_src css
 #proton-vpn #custom-proton-vpn-script {
     padding-right: 3px;
     padding-left: 3px;
 }
 #+end_src
-**** Empty
 #+begin_src css
 #proton-vpn #custom-proton-vpn-script.empty {
     padding-right: 0px;
