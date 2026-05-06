@@ -2004,6 +2004,10 @@ exec --no-startup-id "rm /tmp/vpn_lbic.tmp"
 bindsym $alt+$mod+4 exec "$SCRIPT_PATH/vpn-connect.sh samsung toggle"
 exec --no-startup-id "rm /tmp/vpn_samsung.tmp"
 #+end_src
+** Proton VPN
+#+begin_src conf :noweb-ref vpn
+bindsym $alt+$mod+0 exec "$XDG_CONFIG_HOME/waybar/scripts/proton-vpn.sh toggle"
+#+end_src
 ** Tangle :noexport:
 *** i3
 #+begin_src conf :noweb yes :tangle _config_i3
