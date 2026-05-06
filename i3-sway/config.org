@@ -2069,6 +2069,10 @@ Create file to track screen color temperature (used by status bar).
 #+begin_src conf :noweb-ref sway-gamma
 exec echo "6500" > /tmp/gamma_temp.tmp
 #+end_src
+** Proton VPN
+#+begin_src conf :noweb-ref proton-vpn
+exec echo "disconnected" > /tmp/proton-vpn-status.tmp
+#+end_src
 ** Background images
 *** i3
 Before, wallpapers were set calling =feh= directly in i3wm.
@@ -2172,6 +2176,7 @@ exec --no-startup-id "sleep 5 && swaymsg '[app_id=brave-browser]' move to worksp
 <<i3-wallpaper>>
 <<daemons>>
 <<i3-daemons>>
+<<proton-vpn>>
 #<<i3-i3bar>>
 <<i3-polybar>>
 <<applets>>
@@ -2185,6 +2190,7 @@ exec --no-startup-id "sleep 5 && swaymsg '[app_id=brave-browser]' move to worksp
 <<sway-lanmouse>>
 <<sway-xremap>>
 <<sway-gamma>>
+<<proton-vpn>>
 <<sway-wallpaper>>
 <<daemons>>
 <<sway-waybar>>

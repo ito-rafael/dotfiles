@@ -465,6 +465,7 @@ bindsym $alt+ctrl+l exec "emacsclient -c -s efs"                                
 bindsym $alt+ctrl+shift+l exec 'emacsclient -s efs --eval "(emacs-everywhere)"'     # emacs-everywhere
 bindsym $alt+ctrl+w exec "$XDG_CONFIG_HOME/waybar/scripts/mouse-warping.sh toggle"  # enable/disable mouse warping
 exec_always --no-startup-id flashfocus
+exec echo "disconnected" > /tmp/proton-vpn-status.tmp
 #bar {
 #    # set i3bar position
 #    position top

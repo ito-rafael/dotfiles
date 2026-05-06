@@ -619,6 +619,7 @@ exec echo "disconnected" > /tmp/lanmouse-status.tmp
 exec echo "default" > /tmp/xremap_mode.tmp
 exec gammastep
 exec echo "6500" > /tmp/gamma_temp.tmp
+exec echo "disconnected" > /tmp/proton-vpn-status.tmp
 output $laptop    background ~/.config/wallpaper/london.jpg fill
 output $primary   background ~/.config/wallpaper/london.jpg fill
 output $secondary background ~/.config/wallpaper/london.jpg fill
