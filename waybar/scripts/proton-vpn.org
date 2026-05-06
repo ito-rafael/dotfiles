@@ -1,6 +1,6 @@
 #+TITLE: Proton VPN script
 #+AUTHOR: Rafael Ito
-#+PROPERTY: header-args :tangle proton-vpn-script.sh :shebang "#!/usr/bin/env bash"
+#+PROPERTY: header-args :tangle proton-vpn.sh :shebang "#!/usr/bin/env bash"
 #+DESCRIPTION: wrapper script for protonvpn that manages the temporary status file used by Waybar
 #+STARTUP: showeverything
 #+auto_tangle: t
