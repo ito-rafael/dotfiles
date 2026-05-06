@@ -981,8 +981,8 @@ box#toggle {
 *** Default
 #+begin_src css
 #custom-proton-vpn {
-    padding-right: 5px;
-    padding-left: 5px;
+    padding-right: 4px;
+    padding-left: 4px;
     padding-bottom: 5px;
     color: transparent;
     min-width: 16px;
@@ -1002,7 +1002,7 @@ box#toggle {
 #custom-proton-vpn.disconnected,
 #custom-proton-vpn.connecting,
 #custom-proton-vpn.disconnecting {
-    background-size: 16px;
+    background-size: 14px;
     background-repeat: no-repeat;
     background-position: center calc(50% - 1px);
 }
@@ -1026,7 +1026,8 @@ box#toggle {
 *** Connected
 #+begin_src css
 #custom-proton-vpn.connected {
-    background-image: url("/home/rafael/.config/waybar/icon/proton-vpn.svg");
+    /*background-image: url("/home/rafael/.config/waybar/icon/proton-vpn.svg");*/
+    padding-top: 4px;
 }
 #+end_src
 *** Disconnected
