@@ -425,6 +425,13 @@
     "reverse-mouse-scrolling": false,
 },
 
+"custom/proton-vpn": {
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/proton-vpn.sh monitor",
+    "format": "{}",
+    "on-click": "~/.config/waybar/scripts/proton-vpn.sh toggle &",
+},
+
 "custom/keyboard-backlit": {
     "exec": "~/.config/waybar/scripts/keyboard-backlit.sh",
     "return-type": "json",
@@ -729,13 +736,6 @@
 },
 
     "tooltip": true,
-},
-
-"custom/proton-vpn": {
-    "return-type": "json",
-    "exec": "~/.config/waybar/scripts/proton-vpn-script.sh monitor",
-    "format": "{}",
-    "on-click": "~/.config/waybar/scripts/proton-vpn-script.sh toggle &",
 },
 
 "custom/vpn-lcn": {

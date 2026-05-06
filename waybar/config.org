@@ -568,6 +568,15 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
     "reverse-mouse-scrolling": false,
 },
 #+end_src
+** Proton VPN
+#+begin_src js
+"custom/proton-vpn": {
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/proton-vpn.sh monitor",
+    "format": "{}",
+    "on-click": "~/.config/waybar/scripts/proton-vpn.sh toggle &",
+},
+#+end_src
 ** Keyboard backlit
 #+begin_src js
 "custom/keyboard-backlit": {
@@ -944,15 +953,6 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
 },
 #+end_src
 * VPN
-** Proton VPN
-#+begin_src js
-"custom/proton-vpn": {
-    "return-type": "json",
-    "exec": "~/.config/waybar/scripts/proton-vpn-script.sh monitor",
-    "format": "{}",
-    "on-click": "~/.config/waybar/scripts/proton-vpn-script.sh toggle &",
-},
-#+end_src
 ** La Casa Nostra
 #+begin_src js
 "custom/vpn-lcn": {
