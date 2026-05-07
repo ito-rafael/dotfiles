@@ -807,6 +807,7 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
   "orientation": "inherit",
   "modules": [
     "clock#date",
+    "custom/weather",
     "clock#time",
   ]
 },
@@ -842,6 +843,15 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
         }
 },
 #+end_src
+** Weather
+#+begin_src js
+"custom/weather": {
+    "format": "{}°",
+    "tooltip": true,
+    "interval": 3600,
+    "exec": "wttrbar --hide-conditions",
+    "return-type": "json"
+},
 ** Clock
 #+begin_src js
 "clock#time": {
