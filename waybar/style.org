@@ -1411,6 +1411,7 @@ label:focus {
 * Group Datetime
 #+begin_src css
 #datetime #clock.date,
+#datetime #custom-weather,
 #datetime #clock.time {
     margin:  0;
     background-color: rgba(0, 0, 0, 0.2);
@@ -1430,6 +1431,18 @@ label:focus {
     padding-left: 8px;
     border-radius: 10px 0 0 10px;
     border-right: 1px solid rgba(255, 255, 255, 0.1);
+** Weather
+#+begin_src css
+#datetime #custom-weather {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+#+end_src
+*** Hover
+#+begin_src css
+#datetime #custom-weather:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
 }
 #+end_src
 ** Clock
@@ -1438,6 +1451,7 @@ label:focus {
     padding-right: 5px;
     padding-left: 8px;
     border-radius: 0 10px 10px 0;
+}
 }
 #+end_src
 * Network :noexport_1:
