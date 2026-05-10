@@ -16,7 +16,6 @@
     "group/keyboard",
     "group/sysadmin",
     "group/toggle",
-    "custom/pomodoro-timer",
 ],
 
 "modules-center": [
@@ -384,6 +383,7 @@
     "custom/scale",
     "custom/proton-vpn",
     "custom/keyboard-backlit",
+    "custom/pomodoro-timer",
   ]
 },
 
