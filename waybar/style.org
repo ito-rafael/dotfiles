@@ -450,44 +450,31 @@ box#keyboard {
 }
 #+end_src
 ** Informant
-*** Group
-**** Hover
+*** News
 #+begin_src css
-#informant:hover {
-    background: rgba(128, 128, 128, 0.5);
-    transition: background 0.3s ease;
+#custom-informant.news {
+    background-image: url("/home/rafael/.config/waybar/icon/archlinux.png");
+    background-size: 14px;
+    background-repeat: no-repeat;
+    background-position: 5px calc(50% - 1px);
+    padding-left: 24px;
+    padding-top: 2px;
 }
 #+end_src
-*** Icon
+*** Hover
 #+begin_src css
-#informant #image.arch-news {
-    padding-right: 5px;
-    margin-bottom: 3px;
+#custom-informant.news:hover {
+    background-color: rgba(128, 128, 128, 0.5);
+    transition: background-color 0.3s ease;
 }
 #+end_src
-*** Parser
+*** Empty
 #+begin_src css
-#informant #custom-informant {
-    padding-right: 3px;
-}
-#+end_src
-**** Zero
-#+begin_src css
-#informant #custom-informant.zero {
-    color: dimgray;
-}
-#+end_src
-**** News
-#+begin_src css
-#informant #custom-informant.news {
-}
-#+end_src
-** Ansible-provision :noexport_1:
-*** Group
-#+begin_src css
-#ansible {
-    border-radius: 0 10px 10px 0;
-    padding-right: 10px;
+#custom-informant.empty {
+    padding: 0;
+    margin: 0;
+    border: none;
+    min-width: 0;
 }
 #+end_src
 **** Hover
