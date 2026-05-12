@@ -312,15 +312,15 @@
 
 "custom/pacman": {
     "return-type": "json",
-    "interval": 600,
     "exec": "~/.config/waybar/scripts/pacman.sh",
     "on-click": "~/.config/scripts/show-or-launch.sh dropdown_pacman 0.75 0.75",
     "exec-if": "exit 0",
     "format": " {icon}\u2002{0} ",
     "format-icons": {
-        "low":    "<span color=\"#999\"></span>",
-        "medium": "<span color=\"#FF7\"></span>",
-        "high":   "<span color=\"#F33\"></span>",
+        "loading": "<span color=\"#999\"></span>",
+        "low":     "<span color=\"#999\"></span>",
+        "medium":  "<span color=\"#FF7\"></span>",
+        "high":    "<span color=\"#F33\"></span>",
     },
 },
 
