@@ -305,7 +305,7 @@
   "orientation": "inherit",
   "modules": [
     "custom/pacman",
-    "group/informant",
+    "custom/informant",
     "custom/ansible-provision",
   ]
 },
@@ -331,24 +331,8 @@
     "format": "{}",
 },
 
-"group/informant": {
-    "orientation": "horizontal",
-    "modules": [
-        "image#arch-news",
-        "custom/informant"
-    ]
-},
-
-"image#arch-news": {
-    // display image only if there is news
-    "exec": "echo /home/rafael/.config/waybar/icon/archlinux.png",
-    "interval": 3600,
-    "size": 14,
-    "on-click": "kitty -e informant read"
-},
-
 "custom/informant": {
-    "exec": "informant check | awk '{ num = ($3 == \"no\" ? 0 : $3); class = (num == 0 ? \"zero\" : \"news\"); printf \"{\\\"text\\\": \\\"%s\\\", \\\"tooltip\\\": \\\"%s unread Arch News items!\\\", \\\"class\\\": \\\"%s\\\"}\\n\", num, num, class }'",
+    "exec": "~/.config/waybar/scripts/informant-script.sh",
     "interval": 3600,
     "return-type": "json",
     "format": "{}",
