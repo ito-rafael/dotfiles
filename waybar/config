@@ -685,12 +685,11 @@
 },
 
 "custom/pomodoro-timer": {
-  "exec": "tomat status",
-  "interval": 1,
-  "return-type": "json",
-  "format": "{}",
-  "on-click": "tomat toggle",
-  "on-click-right": "tomat skip"
+    "exec": "~/.config/waybar/scripts/pomodoro-timer.sh",
+    "return-type": "json",
+    "on-click": "tomat toggle",
+    "on-click-middle": "tomat stop",
+    "on-click-right": "tomat skip"
 },
 
 "custom/systemd-lanmouse": {

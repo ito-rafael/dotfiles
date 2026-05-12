@@ -886,12 +886,11 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
 * Pomodoro timer
 #+begin_src js
 "custom/pomodoro-timer": {
-  "exec": "tomat status",
-  "interval": 1,
-  "return-type": "json",
-  "format": "{}",
-  "on-click": "tomat toggle",
-  "on-click-right": "tomat skip"
+    "exec": "~/.config/waybar/scripts/pomodoro-timer.sh",
+    "return-type": "json",
+    "on-click": "tomat toggle",
+    "on-click-middle": "tomat stop",
+    "on-click-right": "tomat skip"
 },
 #+end_src
 * Systemd services
