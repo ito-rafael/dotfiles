@@ -808,6 +808,7 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
     "exec": "wttrbar --hide-conditions",
     "return-type": "json"
 },
+#+end_src
 ** Clock
 #+begin_src js
 "clock#time": {
@@ -911,10 +912,6 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
     "exec": "~/.config/waybar/scripts/lanmouse-status.sh",
     "return-type": "json",
     "format": " {} ",
-},
-#+end_src
-#+begin_src js
-    "tooltip": true,
 },
 #+end_src
 * VPN

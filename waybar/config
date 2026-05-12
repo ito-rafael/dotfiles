@@ -627,6 +627,7 @@
     "exec": "wttrbar --hide-conditions",
     "return-type": "json"
 },
+
 "clock#time": {
     "interval": 1,
     //"format": " {:%H:%M}",
@@ -704,9 +705,6 @@
     "exec": "~/.config/waybar/scripts/lanmouse-status.sh",
     "return-type": "json",
     "format": " {} ",
-},
-
-    "tooltip": true,
 },
 
 "custom/vpn-lcn": {
