@@ -542,13 +542,16 @@ box#sysadmin {
 box#toggle {
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 10px;
+    padding-right: 2px;
+    padding-left: 2px;
 }
 
 #custom-mouse-warping,
 #custom-dunst,
 #custom-scale,
 #custom-proton-vpn,
-#custom-keyboard-backlit {
+#custom-keyboard-backlit,
+#custom-pomodoro-timer {
     padding-right: 3px;
     padding-left: 3px;
     margin:  0;
@@ -558,13 +561,14 @@ box#toggle {
 #custom-dunst,
 #custom-scale,
 #custom-proton-vpn,
-#custom-keyboard-backlit {
+#custom-keyboard-backlit,
+#custom-pomodoro-timer {
     border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 #custom-mouse-warping {
     padding-right: 3px;
-    padding-left: 8px;
+    padding-left: 5px;
 }
 
 #custom-mouse-warping.disabled {
@@ -577,6 +581,8 @@ box#toggle {
 #custom-mouse-warping:hover {
     background: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 
 #custom-dunst.disabled {
@@ -610,7 +616,6 @@ box#toggle {
     padding-bottom: 5px;
     color: transparent;
     min-width: 16px;
-    min-height: 16px;
 }
 
 #custom-proton-vpn:hover {
@@ -653,7 +658,7 @@ box#toggle {
 }
 
 #custom-keyboard-backlit {
-    padding-right: 8px;
+    padding-right: 5px;
     padding-left: 5px;
 }
 
@@ -796,7 +801,9 @@ box#monitoring {
     border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-#cpu {
+#cpu:hover {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 
 #memory {
@@ -817,6 +824,11 @@ box#monitoring {
 
 #disk {
     padding-top: 1px;
+}
+
+#disk {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 #pulseaudio.speaker,
@@ -870,6 +882,8 @@ box#monitoring {
 #gamma:hover {
     background: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 #gamma #image.gamma-icon {

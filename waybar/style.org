@@ -877,6 +877,8 @@ box#sysadmin {
 box#toggle {
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 10px;
+    padding-right: 2px;
+    padding-left: 2px;
 }
 #+end_src
 *** Modules
@@ -885,7 +887,8 @@ box#toggle {
 #custom-dunst,
 #custom-scale,
 #custom-proton-vpn,
-#custom-keyboard-backlit {
+#custom-keyboard-backlit,
+#custom-pomodoro-timer {
     padding-right: 3px;
     padding-left: 3px;
     margin:  0;
@@ -897,7 +900,8 @@ box#toggle {
 #custom-dunst,
 #custom-scale,
 #custom-proton-vpn,
-#custom-keyboard-backlit {
+#custom-keyboard-backlit,
+#custom-pomodoro-timer {
     border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
 #+end_src
@@ -905,7 +909,7 @@ box#toggle {
 #+begin_src css
 #custom-mouse-warping {
     padding-right: 3px;
-    padding-left: 8px;
+    padding-left: 5px;
 }
 #+end_src
 *** Disabled
@@ -924,6 +928,8 @@ box#toggle {
 #custom-mouse-warping:hover {
     background: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 #+end_src
 ** Dunst :noexport_1:
@@ -974,7 +980,6 @@ box#toggle {
     padding-bottom: 5px;
     color: transparent;
     min-width: 16px;
-    min-height: 16px;
 }
 #+end_src
 *** Hover
@@ -1033,7 +1038,7 @@ box#toggle {
 ** Keyboard backlit :noexport_1:
 #+begin_src css
 #custom-keyboard-backlit {
-    padding-right: 8px;
+    padding-right: 5px;
     padding-left: 5px;
 }
 #+end_src
@@ -1226,8 +1231,11 @@ box#monitoring {
 }
 #+end_src
 ** CPU
+*** Hover
 #+begin_src css
-#cpu {
+#cpu:hover {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 #+end_src
 ** Memory
@@ -1259,6 +1267,13 @@ box#monitoring {
 #+begin_src css
 #disk {
     padding-top: 1px;
+}
+#+end_src
+*** Hover
+#+begin_src css
+#disk {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 #+end_src
 * Group Control
@@ -1331,6 +1346,8 @@ box#monitoring {
 #gamma:hover {
     background: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 #+end_src
 *** Icon
@@ -1401,7 +1418,7 @@ box#power > widget:not(.empty) ~ widget:not(.empty) > #upower.soundcore-life-p3 
     padding-left: 8px;
 }
 #+end_src
-** Laptop :noexport_1:
+** Battery :noexport_1:
 *** Normal
 #+begin_src css
 #battery {
