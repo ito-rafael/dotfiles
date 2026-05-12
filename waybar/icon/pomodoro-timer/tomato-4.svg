@@ -3,9 +3,9 @@
 	 viewBox="0 0 128 128" style="enable-background:new 0 0 128 128;" xml:space="preserve">
 
     <defs>
-        <!-- define the clip path: 50% of 128px = 64px wide -->
+        <!-- define the clip path: 70% of 128px = 83px wide -->
         <clipPath id="split-clip">
-            <rect x="0" y="0" width="64" height="128" />
+            <rect x="0" y="0" width="90" height="128" />
         </clipPath>
 
         <!-- define the tomato group: wrap original paths inside a single for easier reference -->
