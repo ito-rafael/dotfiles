@@ -280,28 +280,38 @@ box#sysadmin {
     min-width: 0;
 }
 
+#custom-ansible-provision {
+    background-image: url("/home/rafael/.config/waybar/icon/ansible.svg");
+    background-size: 14px;
+    background-repeat: no-repeat;
+    background-position: 6px calc(50% - 1px);
 
-#ansible {
-    border-radius: 0 10px 10px 0;
-    padding-right: 10px;
+    min-width: 20px;
+    padding-top: 2px;
 }
 
-#ansible:hover {
-    background: rgba(128, 128, 128, 0.5);
-    transition: background 0.3s ease;
-}
+#custom-ansible-provision.loading {
+    color: transparent;
+    font-size: 0;
+    padding-left: 15px;
 
-#ansible #image.ansible {
-    padding-right: 5px;
-    margin-bottom: 2px;
+    animation-name: blink-image;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
 }
 
 #custom-ansible-provision.out-of-sync {
-    font-weight: bold;
+    font-size: 12px;
+    padding-left: 20px;
+    padding-right: 0;
 }
 
 #custom-ansible-provision.synced {
+    font-size: 12px;
     color: dimgray;
+    padding-left: 20px;
+    padding-right: 0;
 }
 
 #custom-pomodoro-timer {

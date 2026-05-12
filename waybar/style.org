@@ -501,33 +501,44 @@ box#sysadmin {
     min-width: 0;
 }
 #+end_src
-**** Hover
+** Ansible-provision
 #+begin_src css
-#ansible:hover {
-    background: rgba(128, 128, 128, 0.5);
-    transition: background 0.3s ease;
+#custom-ansible-provision {
+    background-image: url("/home/rafael/.config/waybar/icon/ansible.svg");
+    background-size: 14px;
+    background-repeat: no-repeat;
+    background-position: 6px calc(50% - 1px);
+
+    min-width: 20px;
+    padding-top: 2px;
 }
 #+end_src
-*** Icon
+*** Loading
 #+begin_src css
-#ansible #image.ansible {
-    padding-right: 5px;
-    margin-bottom: 2px;
+#custom-ansible-provision.loading {
+    color: transparent;
+    font-size: 0;
+    padding-left: 15px;
+
+    animation-name: blink-image;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
 }
 #+end_src
-*** Ansible-provision
-**** Changes
+*** Out-of-sync
 #+begin_src css
 #custom-ansible-provision.out-of-sync {
-    font-weight: bold;
+    font-size: 12px;
+    padding-left: 20px;
+    padding-right: 0;
 }
 #+end_src
-**** Synced
+*** Synced
 #+begin_src css
 #custom-ansible-provision.synced {
+    font-size: 12px;
     color: dimgray;
-}
-#+end_src
 * Pomodoro timer :noexport_1:
 #+begin_src css
 #custom-pomodoro-timer {
