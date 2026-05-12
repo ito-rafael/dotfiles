@@ -306,7 +306,7 @@
   "modules": [
     "custom/pacman",
     "group/informant",
-    "group/ansible",
+    "custom/ansible-provision",
   ]
 },
 
@@ -324,31 +324,11 @@
     },
 },
 
-"group/ansible": {
-    "orientation": "horizontal",
-    "modules": [
-        "image#ansible",
-        "custom/ansible-provision"
-    ]
-},
-
-"image#ansible": {
-    "exec": "echo /home/rafael/.config/waybar/icon/ansible.svg",
-    "interval": 3600,
-    "size": 14,
-},
-
 "custom/ansible-provision": {
     "exec": "/home/rafael/.config/waybar/scripts/ansible-provision.sh",
     "return-type": "json",
-    "interval": 3600,
     "on-click": "kitty /home/rafael/git/dotfiles/semaphore/api.sh run -v",
     "format": "{}",
-    //"format": "{icon} {0}",
-    //"format-icons": {
-    //    "out-of-sync": "oos",
-    //    "synced": "S",
-    //},
 },
 
 "group/informant": {
