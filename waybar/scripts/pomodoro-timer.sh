@@ -2,13 +2,24 @@
 
 # run tomat watch and pipe it directly into jq to process the stream and give Waybar classes
 tomat watch | jq --unbuffered -c '
+    #------------------------
+    # get phase number
+    #------------------------
+    # if the timer is stopped and no session exists, it defaults to "1"
+    (if (.text | test("[0-9]+/[0-9]+")) then
+        (.text | capture("(?<num>[0-9]+)/").num)
+    else
+        "1"
+    end) as $phase |
+
+    #------------------------
     # class assignment
     #------------------------
     if (.text | contains("⏹")) then
         .class = "idle" |
         .text = " "
     elif (.text | contains("🍅") and contains("▶")) then
-        .class = "work"
+        .class = "work-\($phase)"
     elif (.text | contains("🍅") and contains("⏸")) then
         .class = "work-paused"
     elif (.text | contains("☕") and contains("▶")) then
@@ -24,6 +35,7 @@ tomat watch | jq --unbuffered -c '
         .text = " "
     end |
 
+    #------------------------
     # conditional formatting
     #------------------------
     if (.class == "idle" or .class == "unknown") then
