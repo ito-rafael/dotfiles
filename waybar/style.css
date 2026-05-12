@@ -235,6 +235,12 @@ box#sysadmin {
 #custom-pacman {
 }
 
+#custom-pacman.loading {
+    animation-name: blink-image;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    min-width: 37px;
 }
 
 #custom-pacman.low {
@@ -249,6 +255,8 @@ box#sysadmin {
 #custom-pacman:hover {
     background: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 
 #custom-informant.news {
