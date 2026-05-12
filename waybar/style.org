@@ -1502,19 +1502,28 @@ label:focus {
 }
 #+end_src
 * Group Datetime
+** Group
+*** Box
+#+begin_src css
+box#datetime {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+#+end_src
+*** Modules
 #+begin_src css
 #datetime #clock.date,
 #datetime #custom-weather,
 #datetime #clock.time {
     margin:  0;
-    background-color: rgba(0, 0, 0, 0.2);
     color: lightgray;
 }
-
-#datetime #clock.date:hover,
-#datetime #clock.time:hover {
-    background: rgba(128, 128, 128, 0.5);
-    transition: background 0.3s ease;
+#+end_src
+*** Separator
+#+begin_src css
+#datetime #custom-weather,
+#datetime #clock.time {
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
 #+end_src
 ** Calendar
@@ -1522,8 +1531,17 @@ label:focus {
 #datetime #clock.date {
     padding-right: 5px;
     padding-left: 8px;
-    border-radius: 10px 0 0 10px;
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+#+end_src
+*** Hover
+#+begin_src css
+#datetime #clock.date:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+#+end_src
 ** Weather
 #+begin_src css
 #datetime #custom-weather {
@@ -1543,8 +1561,15 @@ label:focus {
 #datetime #clock.time {
     padding-right: 5px;
     padding-left: 8px;
-    border-radius: 0 10px 10px 0;
 }
+#+end_src
+*** Hover
+#+begin_src css
+#datetime #clock.time:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 #+end_src
 * Network :noexport_1:
