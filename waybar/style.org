@@ -11,7 +11,6 @@
 - [[#workspaces][Workspaces]]
 - [[#group-keyboard][Group keyboard]]
 - [[#group-sysadmin][Group sysadmin]]
-- [[#pomodoro-timer][Pomodoro timer]]
 - [[#group-scratchpad][Group Scratchpad]]
 - [[#group-toggle][Group Toggle]]
 - [[#group-monitoring][Group Monitoring]]
@@ -1095,6 +1094,117 @@ box#toggle {
 #custom-keyboard-backlit.empty {
     border-left: 0;
     padding: 0;
+}
+#+end_src
+** Pomodoro timer :noexport_1:
+#+begin_src css
+#custom-pomodoro-timer {
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 3px;
+    min-width: 16px;
+    font-size: 12px;
+
+    background-size: 14px;
+    background-repeat: no-repeat;
+    background-position: 5px calc(50% - 1px);
+
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+#+end_src
+*** Idle
+#+begin_src css
+#custom-pomodoro-timer.idle {
+    background-image: url("/home/rafael/.config/waybar/icon/pomodoro-timer/tomato-gray.svg");
+    color: transparent;
+}
+#+end_src
+*** Work
+**** Phase 1
+#+begin_src css
+#custom-pomodoro-timer.work-1 {
+    background-image: url("/home/rafael/.config/waybar/icon/pomodoro-timer/tomato-1.svg");
+    padding-left: 20px;
+    font-size: 12px;
+}
+#+end_src
+**** Phase 2
+#+begin_src css
+#custom-pomodoro-timer.work-2 {
+    background-image: url("/home/rafael/.config/waybar/icon/pomodoro-timer/tomato-2.svg");
+    padding-left: 20px;
+    font-size: 12px;
+}
+#+end_src
+**** Phase 3
+#+begin_src css
+#custom-pomodoro-timer.work-3 {
+    background-image: url("/home/rafael/.config/waybar/icon/pomodoro-timer/tomato-3.svg");
+    padding-left: 20px;
+    font-size: 12px;
+}
+#+end_src
+**** Phase 4
+#+begin_src css
+#custom-pomodoro-timer.work-4 {
+    background-image: url("/home/rafael/.config/waybar/icon/pomodoro-timer/tomato-4.svg");
+    padding-left: 20px;
+    font-size: 12px;
+}
+#+end_src
+**** Paused
+#+begin_src css
+#custom-pomodoro-timer.work-paused {
+    background-image: url("/home/rafael/.config/waybar/icon/pomodoro-timer/tomato-gray.svg");
+    background-color: rgba(256, 153, 153, 0.5);
+    padding-left: 20px;
+    font-size: 12px;
+}
+#+end_src
+*** Break
+**** Playing
+#+begin_src css
+#custom-pomodoro-timer.break {
+    background-image: url("/home/rafael/.config/waybar/icon/pomodoro-timer/hot-beverage.svg");
+    padding-left: 20px;
+    font-size: 12px;
+}
+#+end_src
+**** Paused
+#+begin_src css
+#custom-pomodoro-timer.break-paused {
+    background-image: url("/home/rafael/.config/waybar/icon/pomodoro-timer/hot-beverage-gray.svg");
+    background-color: rgba(125, 211, 219, 0.5);
+    padding-left: 22px;
+    font-size: 12px;
+}
+#+end_src
+*** Long break
+**** Playing
+#+begin_src css
+#custom-pomodoro-timer.long-break {
+    background-image: url("/home/rafael/.config/waybar/icon/pomodoro-timer/beach-with-umbrella.svg");
+    padding-left: 22px;
+    font-size: 12px;
+}
+#+end_src
+**** Paused
+#+begin_src css
+#custom-pomodoro-timer.long-break-paused {
+    background-image: url("/home/rafael/.config/waybar/icon/pomodoro-timer/beach-with-umbrella-gray.svg");
+    background-color: rgba(116, 192, 219, 0.5);
+    padding-left: 22px;
+    font-size: 12px;
+}
+#+end_src
+**** Hover
+#+begin_src css
+#custom-pomodoro-timer:hover {
+    background: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 #+end_src
 * Group Monitoring
