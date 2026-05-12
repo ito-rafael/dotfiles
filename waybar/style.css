@@ -314,40 +314,11 @@ box#sysadmin {
     padding-right: 0;
 }
 
-#custom-pomodoro-timer {
-    border-radius: 10px;
-    padding-right: 7px;
-    padding-left: 7px;
-    margin:  0;
-    background-color: rgba(0, 0, 0, 0.2);
-    color: lightgray;
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-#custom-pomodoro-timer.work {
-}
-
-#custom-pomodoro-timer.work-paused {
-    background-color: rgba(256, 153, 153, 0.5);
-}
-
-#custom-pomodoro-timer.break {
-}
-
-#custom-pomodoro-timer.break-paused {
-    background-color: rgba(125, 211, 219, 0.5);
-}
-
-#custom-pomodoro-timer.long-break {
-}
-
-#custom-pomodoro-timer.long-break-paused {
-    background-color: rgba(116, 192, 219, 0.5);
-}
-
-#custom-pomodoro-timer:hover {
+#custom-ansible-provision:hover {
     background: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 #custom-scratchpad-whatsapp,
