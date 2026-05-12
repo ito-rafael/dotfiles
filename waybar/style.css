@@ -213,20 +213,28 @@ box#keyboard {
     padding-right: 3px;
 }
 
+box#sysadmin {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
 #custom-pacman,
-#ansible,
-#informant {
+#custom-informant.news,
+#custom-ansible-provision {
+    color: lightgray;
+    padding-top: 1px;
     padding-right: 5px;
     padding-left: 5px;
-    margin:  0;
-    background-color: rgba(0, 0, 0, 0.2);
-    color: lightgray;
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 1px;
+}
+
+#custom-informant.news,
+#custom-ansible-provision {
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 #custom-pacman {
-    border-radius: 10px 0 0 10px;
+}
+
 }
 
 #custom-pacman.low {
