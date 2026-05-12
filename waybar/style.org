@@ -44,6 +44,15 @@
 #+begin_src css
 @define-color darkergray #505050;
 #+end_src
+** Animation
+*** Blink
+#+begin_src css
+@keyframes blink-image {
+    0%   { opacity: 1.0; }
+    50%  { opacity: 0.1; }
+    100% { opacity: 1.0; }
+}
+#+end_src
 ** Window
 *** Normal
 #+begin_src css
@@ -1009,12 +1018,6 @@ box#toggle {
 #+end_src
 *** Blink animation
 #+begin_src css
-@keyframes blink-image {
-    0%   { opacity: 1.0; }
-    50%  { opacity: 0.1; }
-    100% { opacity: 1.0; }
-}
-
 #custom-proton-vpn.connecting,
 #custom-proton-vpn.disconnecting {
     animation-name: blink-image;

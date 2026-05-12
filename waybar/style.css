@@ -7,6 +7,12 @@
 
 @define-color darkergray #505050;
 
+@keyframes blink-image {
+    0%   { opacity: 1.0; }
+    50%  { opacity: 0.1; }
+    100% { opacity: 1.0; }
+}
+
 window#waybar {
     background-color: rgba(43, 48, 59, 0.5);
     border-bottom: 3px solid rgba(100, 114, 125, 0.5);
@@ -621,12 +627,6 @@ box#toggle {
     background-size: 14px;
     background-repeat: no-repeat;
     background-position: center calc(50% - 1px);
-}
-
-@keyframes blink-image {
-    0%   { opacity: 1.0; }
-    50%  { opacity: 0.1; }
-    100% { opacity: 1.0; }
 }
 
 #custom-proton-vpn.connecting,
