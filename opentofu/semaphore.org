@@ -10,8 +10,12 @@
   - [[#terraform][Terraform]]
   - [[#provider][Provider]]
   - [[#variables][Variables]]
+    - [[#hostname][Hostname]]
+    - [[#vault][Vault]]
   - [[#project][Project]]
   - [[#key-store][Key Store]]
+    - [[#none-key][None Key]]
+    - [[#vault-password-lbic][Vault Password LBiC]]
   - [[#repositories][Repositories]]
   - [[#variable-groups-environment][Variable Groups (Environment)]]
   - [[#inventory][Inventory]]
@@ -40,10 +44,18 @@ provider "semaphoreui" {
 }
 #+end_src
 ** Variables
+*** Hostname
 #+begin_src conf
 variable "target_hostname" {
   type        = string
   description = "The target hostname passed from Ansible to use in the --limit flag"
+}
+#+end_src
+*** Vault
+#+begin_src conf
+variable "vault_password_lbic" {
+  type        = string
+  description = "The Ansible Vault password for the LBiC domain"
 }
 #+end_src
 ** Project 
@@ -53,11 +65,24 @@ resource "semaphoreui_project" "ansible-provision" {
 }
 #+end_src
 ** Key Store
+*** None Key
 #+begin_src conf
 resource "semaphoreui_project_key" "none" {
   project_id = semaphoreui_project.ansible-provision.id
   name       = "None"
   none       = {}
+}
+#+end_src
+*** Vault Password LBiC
+#+begin_src conf
+resource "semaphoreui_project_key" "vault_key_lbic" {
+  project_id = semaphoreui_project.ansible-provision.id
+  name       = "LBiC Vault Password"
+
+  login_password {
+    login    = "ansible_vault"
+    password = var.vault_password_lbic
+  }
 }
 #+end_src
 ** Repositories :noexport_1:
@@ -89,6 +114,7 @@ resource "semaphoreui_project_repository" "local_repo" {
 resource "semaphoreui_project_environment" "linear_strategy" {
   project_id  = semaphoreui_project.ansible-provision.id
   name        = "Linear Strategy"
+  password_id = semaphoreui_project_key.vault_key_lbic.id
   environment = {
     "ANSIBLE_STRATEGY" = "linear"
   }
@@ -100,6 +126,7 @@ Mitogen enabled.
 resource "semaphoreui_project_environment" "empty_environment" {
   project_id  = semaphoreui_project.ansible-provision.id
   name        = "Empty"
+  password_id = semaphoreui_project_key.vault_key_lbic.id
   environment = {}
 }
 #+end_src

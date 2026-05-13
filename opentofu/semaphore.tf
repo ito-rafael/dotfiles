@@ -17,6 +17,11 @@ variable "target_hostname" {
   description = "The target hostname passed from Ansible to use in the --limit flag"
 }
 
+variable "vault_password_lbic" {
+  type        = string
+  description = "The Ansible Vault password for the LBiC domain"
+}
+
 resource "semaphoreui_project" "ansible-provision" {
   name = "ansible-provision"
 }
@@ -25,6 +30,16 @@ resource "semaphoreui_project_key" "none" {
   project_id = semaphoreui_project.ansible-provision.id
   name       = "None"
   none       = {}
+}
+
+resource "semaphoreui_project_key" "vault_key_lbic" {
+  project_id = semaphoreui_project.ansible-provision.id
+  name       = "LBiC Vault Password"
+
+  login_password {
+    login    = "ansible_vault"
+    password = var.vault_password_lbic
+  }
 }
 
 resource "semaphoreui_project_repository" "github_repo" {
@@ -46,6 +61,7 @@ resource "semaphoreui_project_repository" "local_repo" {
 resource "semaphoreui_project_environment" "linear_strategy" {
   project_id  = semaphoreui_project.ansible-provision.id
   name        = "Linear Strategy"
+  password_id = semaphoreui_project_key.vault_key_lbic.id
   environment = {
     "ANSIBLE_STRATEGY" = "linear"
   }
@@ -54,6 +70,7 @@ resource "semaphoreui_project_environment" "linear_strategy" {
 resource "semaphoreui_project_environment" "empty_environment" {
   project_id  = semaphoreui_project.ansible-provision.id
   name        = "Empty"
+  password_id = semaphoreui_project_key.vault_key_lbic.id
   environment = {}
 }
 
