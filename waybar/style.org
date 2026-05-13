@@ -147,7 +147,7 @@ If workspaces is the rightmost module, omit right margin
 ** Main
 #+begin_src css
 #workspaces {
-    background: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.2);
     border-radius: 10px;
 }
 #+end_src
@@ -168,7 +168,7 @@ If workspaces is the rightmost module, omit right margin
 https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 #+begin_src css
 #workspaces button:hover {
-    background: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.2);
     box-shadow: inset 0 -3px #ffffff;
 }
 #+end_src
@@ -224,7 +224,7 @@ box#keyboard {
 **** Hover
 #+begin_src css
 #xremap:hover {
-    background: rgba(128, 128, 128, 0.5);
+    background-color: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
 }
 #+end_src
@@ -244,7 +244,7 @@ box#keyboard {
 **** lan-mouse
 #+begin_src css
 #custom-xremap-mode.lan-mouse {
-    background: rgba(255, 0, 0, 0.5);
+    background-color: rgba(255, 0, 0, 0.5);
 }
 #+end_src
 ** kanata :noexport_1:
@@ -252,7 +252,7 @@ box#keyboard {
 **** Hover
 #+begin_src css
 #kanata:hover {
-    background: rgba(128, 128, 128, 0.5);
+    background-color: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
 }
 #+end_src
@@ -320,7 +320,7 @@ box#keyboard {
 **** Hover
 #+begin_src css
 #custom-kanata:hover {
-    background: rgba(128, 128, 128, 0.5);
+    background-color: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
 }
 #+end_src
@@ -329,7 +329,7 @@ box#keyboard {
 #kanata #custom-kanata-layer {
     color: gray;
     font-family: ttf-jetbrains-mono;
-    padding-right: 5px;
+    padding-right: 2px;
     padding-bottom: 2px;
 }
 #+end_src
@@ -373,7 +373,7 @@ box#keyboard {
 *** Hover
 #+begin_src css
 #custom-kmonad:hover {
-    background: rgba(128, 128, 128, 0.5);
+    background-color: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
 }
 #+end_src
@@ -382,7 +382,7 @@ box#keyboard {
 **** Hover
 #+begin_src css
 #zsa:hover {
-    background: rgba(128, 128, 128, 0.5);
+    background-color: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
 }
 #+end_src
@@ -467,7 +467,7 @@ box#sysadmin {
 *** Hover
 #+begin_src css
 #custom-pacman:hover {
-    background: rgba(128, 128, 128, 0.5);
+    background-color: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
@@ -546,7 +546,7 @@ box#sysadmin {
 *** Hover
 #+begin_src css
 #custom-ansible-provision:hover {
-    background: rgba(128, 128, 128, 0.5);
+    background-color: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -600,7 +600,7 @@ box#sysadmin {
 *** Hover
 #+begin_src css
 #scratchpads #image.scratchpad-icon:hover {
-    background: rgba(128, 128, 128, 0.5);
+    background-color: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
 }
 #+end_src
@@ -623,7 +623,7 @@ box#sysadmin {
 *** Hover
 #+begin_src css
 #custom-scratchpad-whatsapp:hover {
-    background: rgba(0, 255, 0, 0.5);
+    background-color: rgba(0, 255, 0, 0.5);
     transition: background 0.3s ease;
 }
 #+end_src
@@ -643,7 +643,7 @@ box#sysadmin {
 *** Hover
 #+begin_src css
 #custom-scratchpad-ytmusic:hover {
-    background: rgba(255, 0, 0, 0.5);
+    background-color: rgba(255, 0, 0, 0.5);
     transition: background 0.3s ease;
 }
 #+end_src
@@ -663,7 +663,7 @@ box#sysadmin {
 *** Hover
 #+begin_src css
 #custom-scratchpad-calendar:hover {
-    background: rgba(128, 173, 248, 0.5);
+    background-color: rgba(128, 173, 248, 0.5);
     transition: background 0.3s ease;
 }
 #+end_src
@@ -683,7 +683,7 @@ box#sysadmin {
 *** Hover
 #+begin_src css
 #custom-scratchpad-llm:hover {
-    background: rgba(239, 203, 203, 0.5);
+    background-color: rgba(239, 203, 203, 0.5);
     transition: background 0.3s ease;
 }
 #+end_src
@@ -703,7 +703,7 @@ box#sysadmin {
 *** Hover
 #+begin_src css
 #custom-scratchpad-translate:hover {
-    background: rgba(128, 173, 248, 0.5);
+    background-color: rgba(128, 173, 248, 0.5);
     transition: background 0.3s ease;
 }
 #+end_src
@@ -723,7 +723,7 @@ box#sysadmin {
 *** Hover
 #+begin_src css
 #custom-scratchpad-terminal:hover {
-    background: rgba(0, 0, 255, 0.5);
+    background-color: rgba(0, 0, 255, 0.5);
     transition: background 0.3s ease;
 }
 #+end_src
@@ -743,7 +743,7 @@ box#sysadmin {
 *** Hover
 #+begin_src css
 #custom-scratchpad-python:hover {
-    background: rgba(0, 255, 0, 0.5);
+    background-color: rgba(0, 255, 0, 0.5);
     transition: background 0.3s ease;
 }
 #+end_src
@@ -763,7 +763,7 @@ box#sysadmin {
 *** Hover
 #+begin_src css
 #custom-scratchpad-scrcpy-phone:hover {
-    background: rgba(0, 255, 0, 0.5);
+    background-color: rgba(0, 255, 0, 0.5);
     transition: background 0.3s ease;
 }
 #+end_src
@@ -783,7 +783,7 @@ box#sysadmin {
 *** Hover
 #+begin_src css
 #custom-scratchpad-scrcpy-watch:hover {
-    background: rgba(0, 255, 0, 0.5);
+    background-color: rgba(0, 255, 0, 0.5);
     transition: background 0.3s ease;
 }
 #+end_src
@@ -803,7 +803,7 @@ box#sysadmin {
 *** Hover
 #+begin_src css
 #custom-scratchpad-keymapp:hover {
-    background: rgba(0, 255, 0, 0.5);
+    background-color: rgba(0, 255, 0, 0.5);
     transition: background 0.3s ease;
 }
 #+end_src
@@ -823,7 +823,7 @@ box#sysadmin {
 *** Hover
 #+begin_src css
 #custom-scratchpad-temp-1:hover {
-    background: rgba(255, 0, 0, 0.5);
+    background-color: rgba(255, 0, 0, 0.5);
     transition: background 0.3s ease;
 }
 #+end_src
@@ -843,7 +843,7 @@ box#sysadmin {
 *** Hover
 #+begin_src css
 #custom-scratchpad-temp-2:hover {
-    background: rgba(0, 255, 0, 0.5);
+    background-color: rgba(0, 255, 0, 0.5);
     transition: background 0.3s ease;
 }
 #+end_src
@@ -866,7 +866,7 @@ box#sysadmin {
 *** Hover
 #+begin_src css
 #custom-scratchpad-temp-3:hover {
-    background: rgba(0, 0, 255, 0.5);
+    background-color: rgba(0, 0, 255, 0.5);
     transition: background 0.3s ease;
 }
 #+end_src
@@ -926,7 +926,7 @@ box#toggle {
 *** Hover
 #+begin_src css
 #custom-mouse-warping:hover {
-    background: rgba(128, 128, 128, 0.5);
+    background-color: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
@@ -948,7 +948,7 @@ box#toggle {
 *** Hover
 #+begin_src css
 #custom-dunst:hover {
-    background: rgba(128, 128, 128, 0.5);
+    background-color: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
 }
 #+end_src
@@ -967,7 +967,7 @@ box#toggle {
 *** Hover
 #+begin_src css
 #custom-scale:hover {
-    background: rgba(128, 128, 128, 0.5);
+    background-color: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
 }
 #+end_src
@@ -985,7 +985,7 @@ box#toggle {
 *** Hover
 #+begin_src css
 #custom-proton-vpn:hover {
-    background: rgba(128, 128, 128, 0.5);
+    background-color: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
 }
 #+end_src
@@ -1070,7 +1070,7 @@ box#toggle {
 *** Hover
 #+begin_src css
 #custom-keyboard-backlit:hover {
-    background: rgba(128, 128, 128, 0.5);
+    background-color: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
 }
 #+end_src
@@ -1142,7 +1142,7 @@ box#toggle {
 #+begin_src css
 #custom-pomodoro-timer.work-paused {
     background-image: url("/home/rafael/.config/waybar/icon/pomodoro-timer/tomato-gray.svg");
-    background-color: rgba(256, 153, 153, 0.5);
+    background-color: rgba(255, 153, 153, 0.5);
     padding-left: 20px;
     font-size: 12px;
 }
@@ -1183,10 +1183,10 @@ box#toggle {
     font-size: 12px;
 }
 #+end_src
-**** Hover
+*** Hover
 #+begin_src css
 #custom-pomodoro-timer:hover {
-    background: rgba(128, 128, 128, 0.5);
+    background-color: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -1218,7 +1218,7 @@ box#monitoring {
 #memory:hover,
 #temperature:hover,
 #disk:hover {
-    background: rgba(128, 128, 128, 0.5);
+    background-color: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
 }
 #+end_src
@@ -1294,7 +1294,7 @@ box#monitoring {
 #pulseaudio.microphone:hover,
 #backlight:hover,
 #gamma:hover {
-    background: rgba(128, 128, 128, 0.5);
+    background-color: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
 }
 #+end_src
@@ -1344,7 +1344,7 @@ box#monitoring {
 **** Hover
 #+begin_src css
 #gamma:hover {
-    background: rgba(128, 128, 128, 0.5);
+    background-color: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -1462,7 +1462,7 @@ label:focus {
 *** Hover
 #+begin_src css
 #battery:hover {
-    background: rgba(128, 128, 128, 0.5);
+    background-color: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
 }
 #+end_src
@@ -1484,19 +1484,19 @@ label:focus {
 *** Low
 #+begin_src css
 #custom-battery-mx-master3.low {
-    background: rgba(255, 255, 0, 0.5);
+    background-color: rgba(255, 255, 0, 0.5);
 }
 #+end_src
 *** Critical
 #+begin_src css
 #custom-battery-mx-master3.critical {
-    background: rgba(255, 0, 0, 0.5);
+    background-color: rgba(255, 0, 0, 0.5);
 }
 #+end_src
 *** Hover
 #+begin_src css
 #custom-battery-mx-master3:hover {
-    background: rgba(128, 128, 128, 0.5);
+    background-color: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
 }
 #+end_src
@@ -1553,7 +1553,7 @@ box#datetime {
 *** Hover
 #+begin_src css
 #datetime #clock.date:hover {
-    background: rgba(128, 128, 128, 0.5);
+    background-color: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
@@ -1569,7 +1569,7 @@ box#datetime {
 *** Hover
 #+begin_src css
 #datetime #custom-weather:hover {
-    background: rgba(128, 128, 128, 0.5);
+    background-color: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
 }
 #+end_src
@@ -1583,7 +1583,7 @@ box#datetime {
 *** Hover
 #+begin_src css
 #datetime #clock.time:hover {
-    background: rgba(128, 128, 128, 0.5);
+    background-color: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -1628,8 +1628,10 @@ box#datetime {
 #+begin_src css
 #tray {
     background-color: #2980b9;
+    border-radius: 10px;
     padding-right: 5px;
     padding-left: 5px;
+    margin-right: 5px;
 }
 #+end_src
 ** Passive
@@ -1745,7 +1747,7 @@ box#datetime {
 ** Label locked
 #+begin_src css
 #keyboard-state > label.locked {
-    background: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.2);
 }
 #+end_src
 * VPN
@@ -1812,7 +1814,7 @@ box#datetime {
 ** Hover
 #+begin_src css
 #custom-lanmouse-status:hover {
-    background: rgba(128, 128, 128, 0.5);
+    background-color: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
 }
 #+end_src
@@ -1841,7 +1843,7 @@ box#datetime {
 *** Hover
 #+begin_src css
 #custom-systemd-lanmouse:hover {
-    background: rgba(128, 128, 128, 0.5);
+    background-color: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
 }
 #+end_src
