@@ -36,7 +36,7 @@ resource "semaphoreui_project_key" "vault_key_lbic" {
   project_id = semaphoreui_project.ansible-provision.id
   name       = "LBiC Vault Password"
 
-  login_password {
+  login_password = {
     login    = "ansible_vault"
     password = var.vault_password_lbic
   }
@@ -61,7 +61,6 @@ resource "semaphoreui_project_repository" "local_repo" {
 resource "semaphoreui_project_environment" "linear_strategy" {
   project_id  = semaphoreui_project.ansible-provision.id
   name        = "Linear Strategy"
-  password_id = semaphoreui_project_key.vault_key_lbic.id
   environment = {
     "ANSIBLE_STRATEGY" = "linear"
   }
@@ -70,7 +69,6 @@ resource "semaphoreui_project_environment" "linear_strategy" {
 resource "semaphoreui_project_environment" "empty_environment" {
   project_id  = semaphoreui_project.ansible-provision.id
   name        = "Empty"
-  password_id = semaphoreui_project_key.vault_key_lbic.id
   environment = {}
 }
 
@@ -96,6 +94,15 @@ resource "semaphoreui_project_template" "github_template" {
     "--limit", var.target_hostname,
   ]
   allow_override_args_in_task = true
+
+  vaults = [
+    {
+      name = "lbic"
+      password = {
+        vault_key_id = semaphoreui_project_key.vault_key_lbic.id
+      }
+    }
+  ]
 }
 
 resource "semaphoreui_project_template" "local_template" {
@@ -110,4 +117,13 @@ resource "semaphoreui_project_template" "local_template" {
     "--limit", var.target_hostname,
   ]
   allow_override_args_in_task = true
+
+  vaults = [
+    {
+      name = "lbic"
+      password = {
+        vault_key_id = semaphoreui_project_key.vault_key_lbic.id
+      }
+    }
+  ]
 }
