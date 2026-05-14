@@ -9,5 +9,5 @@ export ANSIBLE_STDOUT_CALLBACK=json
 # run the dry-run check
 ansible-playbook /home/ansible/git/ansible-provision/local.yml \
   --inventory /home/ansible/git/ansible-provision/inventory/hosts.yml \
-  --limit $(hostname -f) \
+  --limit $(hostname) \
   --check
