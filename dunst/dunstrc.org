@@ -1,5 +1,18 @@
-[global]
+#+TITLE: Dunst notification
+#+AUTHOR: Rafael Ito
+#+PROPERTY: header-args :tangle dunstrc
+#+DESCRIPTION: Dunst config file
+#+STARTUP: showeverything
+#+auto_tangle: t
 
+* Table of Contents
+
+* Global
+#+begin_src conf
+[global]
+#+end_src
+** Display
+#+begin_src conf
 ### Display ###
 
 # Which monitor should the notifications be displayed on.
@@ -17,7 +30,9 @@ monitor = 0
 # If this option is set to mouse or keyboard, the monitor option
 # will be ignored.
 follow = none
-
+#+end_src
+** Geometry
+#+begin_src conf
 ### Geometry ###
 
 # dynamic width from 0 to 300
@@ -39,7 +54,9 @@ scale = 0
 
 # Maximum number of notification (0 means no limit)
 notification_limit = 0
-
+#+end_src
+** Progress bar
+#+begin_src conf
 ### Progress bar ###
 
 # Turn on the progess bar. It appears when a progress hint is passed with
@@ -107,7 +124,9 @@ sort = yes
 # A client can set the 'transient' hint to bypass this. See the rules
 # section for how to disable this if necessary
 # idle_threshold = 120
-
+#+end_src
+** Text
+#+begin_src conf
 ### Text ###
 
 font = Monospace 8
@@ -180,7 +199,9 @@ hide_duplicate_count = false
 
 # Display indicators for URLs (U) and actions (A).
 show_indicators = yes
-
+#+end_src
+** Icons
+#+begin_src conf
 ### Icons ###
 
 # Align icons left/right/top/off
@@ -196,7 +217,9 @@ max_icon_size = 32
 
 # Paths to default icons.
 icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
-
+#+end_src
+** History
+#+begin_src conf
 ### History ###
 
 # Should a notification popped up from history be sticky or timeout
@@ -205,7 +228,9 @@ sticky_history = yes
 
 # Maximum amount of notifications kept in history
 history_length = 20
-
+#+end_src
+** Misc/Advanced
+#+begin_src conf
 ### Misc/Advanced ###
 
 # dmenu path.
@@ -235,7 +260,9 @@ corner_radius = 0
 # parameter, an application may close the notification sent before the
 # user defined timeout.
 ignore_dbusclose = false
-
+#+end_src
+** Wayland
+#+begin_src conf
 ### Wayland ###
 # These settings are Wayland-specific. They have no effect when using X11
 
@@ -245,7 +272,9 @@ ignore_dbusclose = false
 
 # Set this to true to use X11 output on Wayland.
 force_xwayland = false
-
+#+end_src
+** Legacy
+#+begin_src conf
 ### Legacy
 
 # Use the Xinerama extension instead of RandR for multi-monitor support.
@@ -257,7 +286,9 @@ force_xwayland = false
 # is connected or disconnected which might break follow mode if the screen
 # layout changes.
 force_xinerama = false
-
+#+end_src
+** Mouse
+#+begin_src conf
 ### mouse
 
 # Defines list of actions for each mouse event
@@ -276,7 +307,9 @@ force_xinerama = false
 mouse_left_click = close_current
 mouse_middle_click = do_action, close_current
 mouse_right_click = close_all
-
+#+end_src
+* Experimental
+#+begin_src conf
 # Experimental features that may or may not work correctly. Do not expect them
 # to have a consistent behaviour across releases.
 [experimental]
@@ -286,7 +319,10 @@ mouse_right_click = close_all
     # using the resolution and physical size. This might be useful in setups
     # where there are multiple screens with very different dpi values.
     per_monitor_dpi = false
-
+#+end_src
+* Urgency
+** Low
+#+begin_src conf
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
@@ -295,14 +331,18 @@ mouse_right_click = close_all
     timeout = 10
     # Icon for notifications with low urgency, uncomment to enable
     #default_icon = /path/to/icon
-
+#+end_src
+** Normal
+#+begin_src conf
 [urgency_normal]
     background = "#285577"
     foreground = "#ffffff"
     timeout = 10
     # Icon for notifications with normal urgency, uncomment to enable
     #default_icon = /path/to/icon
-
+#+end_src
+** Critical
+#+begin_src conf
 [urgency_critical]
     background = "#900000"
     foreground = "#ffffff"
@@ -310,7 +350,9 @@ mouse_right_click = close_all
     timeout = 0
     # Icon for notifications with critical urgency, uncomment to enable
     #default_icon = /path/to/icon
-
+#+end_src
+* Override
+#+begin_src conf
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.
 #
@@ -361,7 +403,9 @@ mouse_right_click = close_all
 #
 # NOTE: It might be helpful to run dunst -print in a terminal in order
 # to find fitting options for rules.
-
+#+end_src
+** Transient
+#+begin_src conf
 # Disable the transient hint so that idle_threshold cannot be bypassed from the
 # client
 #[transient_disable]
@@ -373,7 +417,9 @@ mouse_right_click = close_all
 #[transient_history_ignore]
 #    match_transient = yes
 #    history_ignore = yes
-
+#+end_src
+** Fullscreen
+#+begin_src conf
 # fullscreen values
 # show: show the notifications, regardless if there is a fullscreen window opened
 # delay: displays the new notification, if there is no fullscreen window active
@@ -385,7 +431,9 @@ mouse_right_click = close_all
 #[fullscreen_show_critical]
 #    msg_urgency = critical
 #    fullscreen = show
-
+#+end_src
+** Examples
+#+begin_src conf
 #[espeak]
 #    summary = "*"
 #    script = dunst_espeak.sh
@@ -434,3 +482,4 @@ mouse_right_click = close_all
 #    set_stack_tag = "volume"
 #
 # vim: ft=cfg
+#+end_src
