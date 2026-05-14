@@ -139,6 +139,7 @@ alias wt='watch -n 1'                   # watch
 alias wtc='watch -n 1 "cat '            # watch "cat"
 alias wtl='watch -n 1 "ls '             # watch "ls"
 alias wtp='watch -n 1 "ps aux | grep '  # watch "ps aux"
+alias wtm='watch grep -e Dirty -e Writeback /proc/meminfo'  # watch memory write
 
 alias p1='ping 192.168.0.'                         # ping local IP
 alias pl='ping 192.168.0.'                         # ping local IP
