@@ -376,6 +376,8 @@
     "format": "{format_source}",
     "format-source": " {volume}%",
     "format-source-muted": "",
+    "on-scroll-up": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SOURCE@ 1%+",
+    "on-scroll-down": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SOURCE@ 1%-",
     "reverse-scrolling": true,
     "reverse-mouse-scrolling": false,
 },
