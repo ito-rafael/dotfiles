@@ -637,8 +637,8 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
     "format": "{}",
     "restart-interval": 2,
     "tooltip": true,
-    "min-length": 3,
-    "max-length": 3,
+    "min-length": 5,
+    "max-length": 5,
 },
 #+end_src
 ** ZSA keyboard
@@ -703,7 +703,7 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
   ]
 },
 #+end_src
-** Laptop
+** Battery
 #+begin_src js
 "battery": {
     "states": {

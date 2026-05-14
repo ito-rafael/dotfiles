@@ -481,8 +481,8 @@
     "format": "{}",
     "restart-interval": 2,
     "tooltip": true,
-    "min-length": 3,
-    "max-length": 3,
+    "min-length": 5,
+    "max-length": 5,
 },
 
 "group/zsa": {
