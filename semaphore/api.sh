@@ -24,7 +24,7 @@ show_help() {
     echo "  -h, --help        Show this help message"
     echo "  -v, --verbose     Show detailed execution messages"
     echo "  --test            Use the 'local (test)' template"
-    echo "  --tags TAGS       Specify tags to run (eg: 'waybar,kanata)"
+    echo "  --tags TAGS       Specify tags to run (eg: 'waybar,kanata')"
     echo "  --skip-tags TAGS  Specify tags to skip"
     echo ""
     echo "Examples:"
@@ -62,11 +62,13 @@ while [[ "$#" -gt 0 ]]; do
         shift
         ;;
     --tags)
-        TAGS="$2"
+        # remove all spaces
+        TAGS="${2// /}"
         shift 2
         ;;
     --skip-tags)
-        SKIP_TAGS="$2"
+        # remove all spaces
+        SKIP_TAGS="${2// /}"
         shift 2
         ;;
     *)
