@@ -18,21 +18,27 @@ if [ -z "$TOKEN" ]; then
     exit 1
 fi
 
-COMMAND="$1"
-shift # remove the command from the argument list so we can loop over the rest
-
-if [ -z "$COMMAND" ]; then
+show_help() {
     echo "Usage: $0 <trigger|status|logs|run> [options] [Task ID]"
     echo "Options:"
+    echo "  -h, --help        Show this help message"
     echo "  -v, --verbose     Show detailed execution messages"
     echo "  --test            Use the 'local (test)' template"
-    echo "  --tags TAGS       Specify tags to run (e.g., 'nginx,postgres')"
+    echo "  --tags TAGS       Specify tags to run (eg: 'waybar,kanata)"
     echo "  --skip-tags TAGS  Specify tags to skip"
     echo ""
     echo "Examples:"
     echo "  $0 run --test --tags \"acl,users\" -v"
     echo "  $0 run --skip-tags \"emacs\""
     echo "  $0 status 42"
+}
+
+COMMAND="$1"
+shift # remove the command from the argument list so we can loop over the rest
+
+# if help flags or no command
+if [ -z "$COMMAND" ] || [[ "$COMMAND" == "-h" ]] || [[ "$COMMAND" == "--help" ]]; then
+    show_help
     exit 1
 fi
 
