@@ -257,6 +257,8 @@
         "headphone": "🎧",
         "default": ["🔈", "🔉", "🔊"],
     },
+    "on-scroll-up": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 1%+",
+    "on-scroll-down": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 1%-",
     "reverse-scrolling": true,
     "reverse-mouse-scrolling": false,
 },
@@ -673,8 +675,8 @@
         "paused": "⏸"
     },
     //"ignored-players": ["firefox"]
-    "on-scroll-up": "amixer -q sset Master 1%+",
-    "on-scroll-down": "amixer -q sset Master 1%-",
+    "on-scroll-up": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 1%+",
+    "on-scroll-down": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 1%-",
     "reverse-scrolling": true,
     "reverse-mouse-scrolling": false,
 },
