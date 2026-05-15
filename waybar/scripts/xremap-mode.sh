@@ -5,13 +5,17 @@ UNIT="xremap"
 # define message to monitor on the output of journalctl
 MODE_LANMOUSE="mode: lan-mouse"
 MODE_DEFAULT="mode: default"
-# set cooldown (in miliseconds) to avoid double trigger
-COOLDOWN=250
-LAST_TRIGGER=0
+# define temp file that holds the current mode
+FILE="/tmp/xremap_mode.tmp"
+
+# gracefully get current mode (prevents errors if file doesn't exist on boot)
+if [[ -f "$FILE" ]]; then
+    CURRENT_MODE=$(cat "$FILE")
+else
+    CURRENT_MODE="default"
+fi
 
 # get current mode
-FILE="/tmp/xremap_mode.tmp"
-CURRENT_MODE=$(cat $FILE)
 if [[ $CURRENT_MODE == "" || $CURRENT_MODE == "default" ]]; then
     DEFAULT_TEXT="xremap"
 else
@@ -23,25 +27,28 @@ CMD=$1
 
 case "${CMD}" in
     "monitor")
+        # print initial state
         echo '{"text": '\"$DEFAULT_TEXT\"', "alt": '\"$CURRENT_MODE\"', "class": '\"$CURRENT_MODE\"'}' || exit 0
+
+        # internal state machine to prevent double-triggers
+        TRACKED_MODE="$CURRENT_MODE"
+
+        # infinite loop that tracks xremap mode by reading the logs of user xremap.service
         journalctl --user -u $UNIT -f -n 0 | while read -r line; do
-            CURRENT_TIME=$(($(date +%s%N) / 1000000))
             
             # xremap switching to =lan-mouse= mode
             if [[ "$line" == *"$MODE_LANMOUSE"* ]]; then
-                # check if enough time (cooldown) has passed since the last trigger
-                if ((CURRENT_TIME - LAST_TRIGGER >= COOLDOWN)); then
+                if [[ "$TRACKED_MODE" != "lan-mouse" ]]; then
                     echo '{"text": "lan-mouse", "alt": "lan-mouse", "class": "lan-mouse"}' || exit 0
-                    LAST_TRIGGER=$CURRENT_TIME
+                    TRACKED_MODE="lan-mouse"
                 fi
                 
             # xremap switching to =default= mode
             elif [[ "$line" == *"$MODE_DEFAULT"* ]]; then
-                # check if enough time (cooldown) has passed since the last trigger
-                if ((CURRENT_TIME - LAST_TRIGGER >= COOLDOWN)); then
+                if [[ "$TRACKED_MODE" != "default" ]]; then
                     #echo '{"text": "default", "alt": "default", "class": "default"}' || exit 0
                     echo '{"text": "xremap", "alt": "default", "class": "default"}' || exit 0
-                    LAST_TRIGGER=$CURRENT_TIME
+                    TRACKED_MODE="default"
                 fi
             fi
 
