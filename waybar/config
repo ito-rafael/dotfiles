@@ -599,7 +599,7 @@
     //"format": " {:%a %d}",
     //"format-alt": " {:%A, %B %Y}",
     "format": "🗓️  {:%a %d}",
-    "format-alt": "🗓️  {:%A, %B %Y}",
+    "format-alt": "🗓️  {:%A %d, %B %Y}",
     "tooltip-format": "<tt><big>{calendar}</big></tt>",
     "calendar": {
         "mode"          : "year",
