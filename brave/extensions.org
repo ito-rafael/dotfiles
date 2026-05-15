@@ -15,7 +15,8 @@
     - [[#dark-reader][Dark Reader]]
     - [[#vimium][+Vimium+]]
     - [[#surfingkeys][Surfingkeys]]
-    - [[#better-onetab][Better OneTab]]
+    - [[#onetab][+OneTab+]]
+    - [[#better-onetab][+Better OneTab+]]
     - [[#google-arts--culture][Google Arts & Culture]]
     - [[#jiffy-reader][Jiffy Reader]]
     - [[#bitwarden][Bitwarden]]
@@ -82,23 +83,35 @@
 - link: https://chromewebstore.google.com/detail/dark-reader/eimadpbcbfnmbkopoojfekhnkhdbieeh
 - description: dark mode everywhere.
 #+begin_src js :noweb yes
-<<install(extension_id="eimadpbcbfnmbkopoojfekhnkhdbieeh")>>
+<<install(extension_id="eimadpbcbfnmbkopoojfekhnkhdbieeh", pin=1)>>
 #+end_src
 *** +Vimium+
 Deprecated in favour of [[Surfingkeys]].
 +- link: https://chromewebstore.google.com/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb+
 +- description: vim-like navigation.+
 #+begin_src js :tangle no
-<<install(extension_id="dbepggeogbaibhgnhhndojpepiihcmeb")>>
+//<<install(extension_id="dbepggeogbaibhgnhhndojpepiihcmeb")>>
 #+end_src
 *** Surfingkeys
 - link: https://chromewebstore.google.com/detail/gfbliohnnapiefjpjlpjnehglfpaknnc
 - description: vim-like navigation.
 #+begin_src js :noweb yes
-<<install(extension_id="gfbliohnnapiefjpjlpjnehglfpaknnc", pin=1)>>
+<<install(extension_id="gfbliohnnapiefjpjlpjnehglfpaknnc")>>
 #+end_src
-*** Better OneTab
-- link: https://chromewebstore.google.com/detail/better-onetab/eookhngofldnbnidjlbkeecljkfpmfpg
+*** +OneTab+
+Deprecated in favour of [[id:43fb6375-1456-493d-a907-e920566c3ee4][Better OneTab]].
++- link: https://chromewebstore.google.com/detail/better-onetab/eookhngofldnbnidjlbkeecljkfpmfpg+
++- description: save and restore tabs.+
+#+begin_src js :tangle no
+//<<install(extension_id="eookhngofldnbnidjlbkeecljkfpmfpg", pin=1)>>
+#+end_src
+*** +Better OneTab+
+Deprecated in favour of [[id:e3ee1d03-6d7e-410e-b696-ee90b1436c1d][Tab Session Manager]].
++- link: https://chromewebstore.google.com/detail/better-onetab/eookhngofldnbnidjlbkeecljkfpmfpg+
++- description: save and restore tabs.+
+#+begin_src js :tangle no
+//<<install(extension_id="eookhngofldnbnidjlbkeecljkfpmfpg", pin=1)>>
+#+end_src
 - description: save and restore tabs.
 #+begin_src js :noweb yes
 <<install(extension_id="eookhngofldnbnidjlbkeecljkfpmfpg")>>
