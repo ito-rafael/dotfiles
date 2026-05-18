@@ -1869,7 +1869,7 @@ for_window [title="^dropdown_scrcpy.*$" $prop="^scrcpy$"] border pixel 5
 #+end_src
 *** Phone
 #+begin_src conf :noweb-ref scratchpads
-bindsym $mod+i exec "$SCRIPT_PATH/adb-mdns-scrcpy.sh phone"
+bindsym $mod+k exec "$SCRIPT_PATH/adb-mdns-scrcpy.sh phone"
 #+end_src
 *** Watch
 #+begin_src conf :noweb-ref scratchpads

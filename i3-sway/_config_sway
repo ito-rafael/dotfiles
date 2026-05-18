@@ -522,7 +522,7 @@ for_window [title="^dropdown_scrcpy.*$" $prop="^scrcpy$"] floating enable
 for_window [title="^dropdown_scrcpy.*$" $prop="^scrcpy$"] move position center
 for_window [title="^dropdown_scrcpy.*$" $prop="^scrcpy$"] move scratchpad
 for_window [title="^dropdown_scrcpy.*$" $prop="^scrcpy$"] border pixel 5
-bindsym $mod+i exec "$SCRIPT_PATH/adb-mdns-scrcpy.sh phone"
+bindsym $mod+k exec "$SCRIPT_PATH/adb-mdns-scrcpy.sh phone"
 #bindsym $mod+v exec "$SCRIPT_PATH/adb-mdns-scrcpy.sh watch"
 exec --no-startup-id "rm /tmp/scratchpad_pid_1.tmp"
 bindsym $mod+h       exec "$SCRIPT_PATH/scratchpad-temp.sh 1 create-show"
