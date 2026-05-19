@@ -778,6 +778,7 @@ This is a custom config to copy some tangled files into predefined paths.
   ;; dotfiles
   (,(expand-file-name "~/git/dotfiles/dunst/dunstrc.org")  . (("dunstrc"       . "~/.config/dunst/dunstrc")))
   (,(expand-file-name "~/git/dotfiles/emacs/config.org")   . (("init.el"       . "~/.config/emacs-efs/init.el")))
+  (,(expand-file-name "~/git/dotfiles/eww/osd.org")        . (("osd.sh"        . "~/.config/scripts/osd.sh")))
   (,(expand-file-name "~/git/dotfiles/i3-sway/config.org") . (("_config_sway"  . "~/.config/sway/_config")
                                                               ("_config_i3"    . "~/.config/i3/_config")))
   (,(expand-file-name "~/git/dotfiles/waybar/config.org")  . (("config"        . "~/.config/waybar/config")))
