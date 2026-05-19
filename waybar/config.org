@@ -364,8 +364,8 @@
         "headphone": "🎧",
         "default": ["🔈", "🔉", "🔊"],
     },
-    "on-scroll-up": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 1%+",
-    "on-scroll-down": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 1%-",
+    "on-scroll-up": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 1%+ && ~/.config/eww/volume.sh",
+    "on-scroll-down": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 1%- && ~/.config/eww/volume.sh",
     "reverse-scrolling": true,
     "reverse-mouse-scrolling": false,
 },
@@ -862,8 +862,8 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
         "paused": "⏸"
     },
     //"ignored-players": ["firefox"]
-    "on-scroll-up": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 1%+",
-    "on-scroll-down": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 1%-",
+    "on-scroll-up": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 1%+ && ~/.config/eww/volume.sh",
+    "on-scroll-down": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 1%- && ~/.config/eww/volume.sh",
     "reverse-scrolling": true,
     "reverse-mouse-scrolling": false,
 },
