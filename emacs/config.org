@@ -1784,3 +1784,7 @@ Related:
     (setf (alist-get 'wayland emacs-everywhere-system-configs) wayland-config))
 )
 #+end_src
+* yuck
+#+begin_src emacs-lisp
+(use-package yuck-mode)
+#+end_src
