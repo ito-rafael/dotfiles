@@ -8,21 +8,21 @@
 
 * Table of Contents :toc_2:
 - [[#yuck][Yuck]]
-  - [[#volume][Volume]]
+  - [[#system-osd][System OSD]]
 - [[#scss][SCSS]]
   - [[#general][General]]
-  - [[#volume-1][Volume]]
+  - [[#system-osd-1][System OSD]]
 
 * Yuck
-** Volume
+** System OSD
 *** Variables
 #+begin_src yuck
-(defvar volume "0")
-(defvar icon "")
+(defvar osd_value 0)
+(defvar osd_icon "")
 #+end_src
 *** Window layout
 #+begin_src yuck
-(defwindow volume_osd
+(defwindow system_osd
   :monitor 0
   :geometry (geometry
     :x "20px"
@@ -35,12 +35,12 @@
   :exclusive false
   :focusable false
   :namespace "osd"
-  (volume_widget)
+  (system_widget)
 )
 #+end_src
 *** Widget structure
 #+begin_src yuck
-(defwidget volume_widget []
+(defwidget system_widget []
   (box :class "osd-container" 
        :orientation "h"
        :space-evenly false 
@@ -51,7 +51,7 @@
 #+begin_src yuck
 (image
   :class "osd-image" 
-  :path icon
+  :path osd_icon
   :image-width 24
   :image-height 24
   :valign "center"
@@ -61,9 +61,9 @@
 #+begin_src yuck
 (progress
   :class "osd-bar" 
-  :value volume 
+  :value osd_value
   :orientation "h" 
-  :valign "center" ;; 3. Centers the bar vertically to match the icon
+  :valign "center"
   :hexpand true
 )
 #+end_src
@@ -78,7 +78,7 @@ window {
   background-color: transparent;
 }
 #+end_src
-** Volume
+** System OSD
 *** Pill shape
 #+begin_src css
 .osd-container {
@@ -111,5 +111,4 @@ window {
     border-radius: 10px;
   }
 }
-
 #+end_src

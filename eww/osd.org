@@ -1,0 +1,85 @@
+#+TITLE: OSD script for settings control via eww
+#+AUTHOR: Rafael Ito
+#+PROPERTY: header-args :shebang "#!/usr/bin/env bash" :tangle osd.sh
+#+DESCRIPTION: On-Screen Display (OSD) script to display settings via eww
+#+STARTUP: showeverything
+#+auto_tangle: t
+
+* Table of Contents :toc_2:
+- [[#header][Header]]
+- [[#attributes][Attributes]]
+  - [[#volume][Volume]]
+  - [[#default][Default]]
+  - [[#eos][EoS]]
+- [[#display-window][Display window]]
+  - [[#update-eww][Update eww]]
+  - [[#kill-previous-timer][Kill previous timer]]
+  - [[#start-timer][Start timer]]
+
+* Header :noexport_1:
+** Variables
+#+begin_src sh
+# define notification duration in seconds
+TIMEOUT=1
+# get setting to control via argument (volume, mic, brightness, gamma, backlit)
+ATTRIBUTE=$1
+#+end_src
+* Attributes
+#+begin_src sh
+case "$ATTRIBUTE" in
+#+end_src
+** Volume
+#+begin_src sh
+volume)
+    RAW=$(wpctl get-volume @DEFAULT_AUDIO_SINK@)
+    VALUE=$(echo "$RAW" | awk '{print int($2 * 100)}')
+    if [[ "$RAW" == *"[MUTED]"* ]] || [ "$VALUE" -eq "0" ]; then
+        ICON="/home/rafael/.config/icon/vol-mute.png"
+    elif [ "$VALUE" -lt "33" ]; then
+        ICON="/home/rafael/.config/icon/vol-low.png"
+    elif [ "$VALUE" -lt "66" ]; then
+        ICON="/home/rafael/.config/icon/vol-med.png"
+    else
+        ICON="/home/rafael/.config/icon/vol-high.png"
+    fi
+    ;;
+#+end_src
+** Default
+#+begin_src sh
+*)
+    echo "Usage: $0 {volume}"
+    exit 1
+    ;;
+#+end_src
+** EoS
+#+begin_src sh
+esac
+#+end_src
+* Display window
+** Update eww
+#+begin_src sh
+# update generic variables in eww.yuck
+eww update osd_value="$VALUE" osd_icon="$ICON"
+# open generic OSD window
+eww open system_osd
+#+end_src
+** Kill previous timer
+#+begin_src sh
+# set sleep timer
+PID_FILE="/tmp/eww-osd.pid"
+# kill previous timer if it exists
+if [ -f "$PID_FILE" ]; then
+    kill $(cat "$PID_FILE") 2>/dev/null
+fi
+#+end_src
+** Start timer
+#+begin_src sh
+# start new timer
+(
+    sleep $TIMEOUT
+    eww close system_osd
+    rm -f "$PID_FILE"
+) &
+
+echo $! > "$PID_FILE"
+#+end_src
