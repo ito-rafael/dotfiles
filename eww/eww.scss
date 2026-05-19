@@ -1,0 +1,30 @@
+window {
+  background-color: transparent;
+}
+
+.osd-container {
+  background-color: rgba(26, 26, 26, 0.9);
+  border-radius: 25px;
+  padding: 0px 20px;
+  min-height: 50px;
+  /*min-width: 300px;*/
+}
+
+.osd-image {
+  margin-right: 15px;
+}
+
+.osd-bar {
+  trough {
+    background-image: none;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    min-height: 8px;
+    min-width: 200px;
+  }
+  progress {
+    background-image: none;
+    background-color: white;
+    border-radius: 10px;
+  }
+}

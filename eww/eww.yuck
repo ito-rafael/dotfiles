@@ -1,0 +1,43 @@
+(defvar volume "0")
+(defvar icon "")
+
+(defwindow volume_osd
+  :monitor 0
+  :geometry (geometry
+    :x "20px"
+    :y "20px"
+    :width "10px"
+    :height "50px"
+    :anchor "top right"
+  )
+  :stacking "overlay"
+  :exclusive false
+  :focusable false
+  :namespace "osd"
+  (volume_widget)
+)
+
+(defwidget volume_widget []
+  (box :class "osd-container" 
+       :orientation "h"
+       :space-evenly false 
+       :halign "center" 
+       :valign "center"
+
+(image
+  :class "osd-image" 
+  :path icon
+  :image-width 24
+  :image-height 24
+  :valign "center"
+)
+
+(progress
+  :class "osd-bar" 
+  :value volume 
+  :orientation "h" 
+  :valign "center" ;; 3. Centers the bar vertically to match the icon
+  :hexpand true
+)
+
+))

@@ -1,0 +1,115 @@
+#+TITLE: Yuck & SCSS config for Eww
+#+AUTHOR: Rafael Ito
+#+PROPERTY: header-args:yuck :tangle ./eww.yuck
+#+PROPERTY: header-args:css :tangle ./eww.scss
+#+DESCRIPTION: config files for eww
+#+STARTUP: showeverything
+#+AUTO_TANGLE: t
+
+* Table of Contents :toc_2:
+- [[#yuck][Yuck]]
+  - [[#volume][Volume]]
+- [[#scss][SCSS]]
+  - [[#general][General]]
+  - [[#volume-1][Volume]]
+
+* Yuck
+** Volume
+*** Variables
+#+begin_src yuck
+(defvar volume "0")
+(defvar icon "")
+#+end_src
+*** Window layout
+#+begin_src yuck
+(defwindow volume_osd
+  :monitor 0
+  :geometry (geometry
+    :x "20px"
+    :y "20px"
+    :width "10px"
+    :height "50px"
+    :anchor "top right"
+  )
+  :stacking "overlay"
+  :exclusive false
+  :focusable false
+  :namespace "osd"
+  (volume_widget)
+)
+#+end_src
+*** Widget structure
+#+begin_src yuck
+(defwidget volume_widget []
+  (box :class "osd-container" 
+       :orientation "h"
+       :space-evenly false 
+       :halign "center" 
+       :valign "center"
+#+end_src
+**** Icon
+#+begin_src yuck
+(image
+  :class "osd-image" 
+  :path icon
+  :image-width 24
+  :image-height 24
+  :valign "center"
+)
+#+end_src
+**** Progress Bar
+#+begin_src yuck
+(progress
+  :class "osd-bar" 
+  :value volume 
+  :orientation "h" 
+  :valign "center" ;; 3. Centers the bar vertically to match the icon
+  :hexpand true
+)
+#+end_src
+**** EoS
+#+begin_src yuck
+))
+#+end_src
+* SCSS
+** General
+#+begin_src css
+window {
+  background-color: transparent;
+}
+#+end_src
+** Volume
+*** Pill shape
+#+begin_src css
+.osd-container {
+  background-color: rgba(26, 26, 26, 0.9);
+  border-radius: 25px;
+  padding: 0px 20px;
+  min-height: 50px;
+  /*min-width: 300px;*/
+}
+#+end_src
+*** Icon
+#+begin_src css
+.osd-image {
+  margin-right: 15px;
+}
+#+end_src
+*** Progress Bar
+#+begin_src css
+.osd-bar {
+  trough {
+    background-image: none;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    min-height: 8px;
+    min-width: 200px;
+  }
+  progress {
+    background-image: none;
+    background-color: white;
+    border-radius: 10px;
+  }
+}
+
+#+end_src
