@@ -822,6 +822,12 @@ Restart applications with new config file.
 #+begin_src emacs-lisp
 (cond
 #+end_src
+***** Dunst
+#+begin_src emacs-lisp
+((string-match-p "dunst" target-dest)
+ (call-process-shell-command "dunstctl reload" nil "*Messages*")
+ (message "↻ Reloading Dunst..."))
+#+end_src
 ***** Emacs
 #+begin_src emacs-lisp
 ((string-match-p "emacs" target-dest)
