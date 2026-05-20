@@ -30,8 +30,15 @@ mic)
     fi
     ;;
 
+brightness)
+    MAX=$(brightnessctl max)
+    CURRENT=$(brightnessctl get)
+    VALUE=$((CURRENT * 100 / MAX))
+    ICON="/home/rafael/.config/icon/brightness.svg"
+    ;;
+
 *)
-    echo "Usage: $0 {volume|mic}"
+    echo "Usage: $0 {volume|mic|brightness}"
     exit 1
     ;;
 

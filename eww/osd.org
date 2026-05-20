@@ -10,6 +10,7 @@
 - [[#attributes][Attributes]]
   - [[#volume][Volume]]
   - [[#microphone][Microphone]]
+  - [[#brightness][Brightness]]
   - [[#default][Default]]
   - [[#eos][EoS]]
 - [[#display-window][Display window]]
@@ -57,10 +58,19 @@ mic)
     fi
     ;;
 #+end_src
+** Brightness
+#+begin_src sh
+brightness)
+    MAX=$(brightnessctl max)
+    CURRENT=$(brightnessctl get)
+    VALUE=$((CURRENT * 100 / MAX))
+    ICON="/home/rafael/.config/icon/brightness.svg"
+    ;;
+#+end_src
 ** Default
 #+begin_src sh
 *)
-    echo "Usage: $0 {volume|mic}"
+    echo "Usage: $0 {volume|mic|brightness}"
     exit 1
     ;;
 #+end_src
