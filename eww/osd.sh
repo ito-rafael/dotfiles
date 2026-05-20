@@ -66,8 +66,23 @@ gamma)
     esac
     ;;
 
+backlit)
+    # The -d flag targets the keyboard backlight (find your exact name with 'brightnessctl --list' if this fails)
+    MAX=$(brightnessctl -d '*kbd_backlight*' max)
+    CURRENT=$(brightnessctl -d '*kbd_backlight*' get)
+    VALUE=$((CURRENT * 100 / MAX))
+
+    if [ "$VALUE" -eq 0 ]; then
+        ICON="/home/rafael/.config/icon/kbd-backlit-off.svg"
+    elif [ "$VALUE" -le 50 ]; then
+        ICON="/home/rafael/.config/icon/kbd-backlit-low.svg"
+    else
+        ICON="/home/rafael/.config/icon/kbd-backlit-high.svg"
+    fi
+    ;;
+
 *)
-    echo "Usage: $0 {volume|mic|brightness|gamma}"
+    echo "Usage: $0 {volume|mic|brightness|gamma|backlit}"
     exit 1
     ;;
 
