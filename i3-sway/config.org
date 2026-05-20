@@ -609,13 +609,13 @@ bindsym XF86AudioMute exec --no-startup-id wpctl set-mute @DEFAULT_AUDIO_SINK@ t
 All keybindings were moved to =xremap=. The only exception is the XF86AudioMicMute (which has an equivalent binding in =xremap=).
 **** Coarse
 #+begin_src conf :noweb-ref microphone :tangle no
-#bindsym F14      exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%- && ~/.config/scripts/osd.sh mic
-#bindsym ctrl+F14 exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%+ && ~/.config/scripts/osd.sh mic
+bindsym F14      exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%- && ~/.config/scripts/osd.sh mic
+bindsym ctrl+F14 exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%+ && ~/.config/scripts/osd.sh mic
 #+end_src
 **** Fine
 #+begin_src conf :noweb-ref microphone :tangle no
-#bindsym shift+F14      exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%- && ~/.config/scripts/osd.sh mic
-#bindsym ctrl+shift+F14 exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%+ && ~/.config/scripts/osd.sh mic
+bindsym shift+F14      exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%- && ~/.config/scripts/osd.sh mic
+bindsym ctrl+shift+F14 exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%+ && ~/.config/scripts/osd.sh mic
 #+end_src
 **** Toggle
 #+begin_src conf :noweb-ref microphone
