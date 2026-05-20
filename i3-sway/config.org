@@ -593,33 +593,33 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 *** Volume
 **** Coarse
 #+begin_src conf :noweb-ref volume
-bindsym XF86AudioRaiseVolume exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ && ~/.config/eww/volume.sh
-bindsym XF86AudioLowerVolume exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && ~/.config/eww/volume.sh
+bindsym XF86AudioRaiseVolume exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ && ~/.config/scripts/osd.sh volume
+bindsym XF86AudioLowerVolume exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && ~/.config/scripts/osd.sh volume
 #+end_src
 **** Fine
 #+begin_src conf :noweb-ref volume
-bindsym shift+XF86AudioRaiseVolume exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%- && ~/.config/eww/volume.sh
-bindsym shift+XF86AudioLowerVolume exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%- && ~/.config/eww/volume.sh
+bindsym shift+XF86AudioRaiseVolume exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%- && ~/.config/scripts/osd.sh volume
+bindsym shift+XF86AudioLowerVolume exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%- && ~/.config/scripts/osd.sh volume
 #+end_src
 **** Toggle
 #+begin_src conf :noweb-ref volume
-bindsym XF86AudioMute exec --no-startup-id wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && ~/.config/eww/volume.sh
+bindsym XF86AudioMute exec --no-startup-id wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && ~/.config/scripts/osd.sh volume
 #+end_src
 ** Microphone control
 All keybindings were moved to =xremap=. The only exception is the XF86AudioMicMute (which has an equivalent binding in =xremap=).
 **** Coarse
 #+begin_src conf :noweb-ref microphone :tangle no
-#bindsym F14      exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%-
-#bindsym ctrl+F14 exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%+
+#bindsym F14      exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%- && ~/.config/scripts/osd.sh mic
+#bindsym ctrl+F14 exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%+ && ~/.config/scripts/osd.sh mic
 #+end_src
 **** Fine
 #+begin_src conf :noweb-ref microphone :tangle no
-#bindsym shift+F14      exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%-
-#bindsym ctrl+shift+F14 exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%+
+#bindsym shift+F14      exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%- && ~/.config/scripts/osd.sh mic
+#bindsym ctrl+shift+F14 exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%+ && ~/.config/scripts/osd.sh mic
 #+end_src
 **** Toggle
 #+begin_src conf :noweb-ref microphone
-bindsym XF86AudioMicMute exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SOURCE@ toggle
+bindsym XF86AudioMicMute exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SOURCE@ toggle && ~/.config/scripts/osd.sh mic
 #+end_src
 ** Tangle :noexport:
 *** i3
