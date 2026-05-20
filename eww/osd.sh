@@ -94,12 +94,15 @@ esac
 
 # update generic variables in eww.yuck
 eww update osd_value="$VALUE" osd_icon="$ICON"
-# open generic OSD window
-eww open system_osd
 
-# set sleep timer
 PID_FILE="/tmp/eww-osd.pid"
-# kill previous timer if it exists
+
+# If the PID file doesn't exist, or the timer process is dead, the window is closed.
+if [ ! -f "$PID_FILE" ] || ! kill -0 $(cat "$PID_FILE") 2>/dev/null; then
+    eww open system_osd
+fi
+
+# kill previous timer subshell if it exists
 if [ -f "$PID_FILE" ]; then
     kill $(cat "$PID_FILE") 2>/dev/null
 fi
