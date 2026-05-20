@@ -972,10 +972,10 @@ bindsym shift+XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 1
 #+end_src
 **** brightnessctl
 #+begin_src conf :noweb-ref keybindings
-bindsym XF86MonBrightnessUp         exec brightnessctl set 5%+
-bindsym XF86MonBrightnessDown       exec brightnessctl set 5%-
-bindsym shift+XF86MonBrightnessUp   exec brightnessctl set 1%+
-bindsym shift+XF86MonBrightnessDown exec brightnessctl set 1%-
+bindsym XF86MonBrightnessUp         exec brightnessctl set 5%+ && ~/.config/scripts/osd.sh brightness
+bindsym XF86MonBrightnessDown       exec brightnessctl set 5%- && ~/.config/scripts/osd.sh brightness
+bindsym shift+XF86MonBrightnessUp   exec brightnessctl set 1%+ && ~/.config/scripts/osd.sh brightness
+bindsym shift+XF86MonBrightnessDown exec brightnessctl set 1%- && ~/.config/scripts/osd.sh brightness
 #+end_src
 *** Keyboard backlit
 #+begin_src conf :noweb-ref keybindings
