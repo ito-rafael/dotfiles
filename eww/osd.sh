@@ -9,15 +9,19 @@ case "$ATTRIBUTE" in
 volume)
     RAW=$(wpctl get-volume @DEFAULT_AUDIO_SINK@)
     VALUE=$(echo "$RAW" | awk '{print int($2 * 100)}')
-    if [[ "$RAW" == *"[MUTED]"* ]] || [ "$VALUE" -eq "0" ]; then
+    case "$RAW" in
+    *"[MUTED]"*)
         ICON="/home/rafael/.config/icon/vol-mute.png"
-    elif [ "$VALUE" -lt "33" ]; then
-        ICON="/home/rafael/.config/icon/vol-low.png"
-    elif [ "$VALUE" -lt "66" ]; then
-        ICON="/home/rafael/.config/icon/vol-med.png"
-    else
-        ICON="/home/rafael/.config/icon/vol-high.png"
-    fi
+        ;;
+    *)
+        case 1 in
+        $((VALUE == 0))) ICON="/home/rafael/.config/icon/vol-mute.png" ;;
+        $((VALUE < 33))) ICON="/home/rafael/.config/icon/vol-low.png" ;;
+        $((VALUE < 66))) ICON="/home/rafael/.config/icon/vol-med.png" ;;
+        *) ICON="/home/rafael/.config/icon/vol-high.png" ;;
+        esac
+        ;;
+    esac
     ;;
 
 mic)
