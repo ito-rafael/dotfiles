@@ -20,8 +20,18 @@ volume)
     fi
     ;;
 
+mic)
+    RAW=$(wpctl get-volume @DEFAULT_AUDIO_SOURCE@)
+    VALUE=$(echo "$RAW" | awk '{print int($2 * 100)}')
+    if [[ "$RAW" == *"[MUTED]"* ]] || [ "$VALUE" -eq "0" ]; then
+        ICON="/home/rafael/.config/icon/mic-mute.svg"
+    else
+        ICON="/home/rafael/.config/icon/mic.svg"
+    fi
+    ;;
+
 *)
-    echo "Usage: $0 {volume}"
+    echo "Usage: $0 {volume|mic}"
     exit 1
     ;;
 

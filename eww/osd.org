@@ -9,6 +9,7 @@
 - [[#header][Header]]
 - [[#attributes][Attributes]]
   - [[#volume][Volume]]
+  - [[#microphone][Microphone]]
   - [[#default][Default]]
   - [[#eos][EoS]]
 - [[#display-window][Display window]]
@@ -44,10 +45,22 @@ volume)
     fi
     ;;
 #+end_src
+** Microphone
+#+begin_src sh
+mic)
+    RAW=$(wpctl get-volume @DEFAULT_AUDIO_SOURCE@)
+    VALUE=$(echo "$RAW" | awk '{print int($2 * 100)}')
+    if [[ "$RAW" == *"[MUTED]"* ]] || [ "$VALUE" -eq "0" ]; then
+        ICON="/home/rafael/.config/icon/mic-mute.svg"
+    else
+        ICON="/home/rafael/.config/icon/mic.svg"
+    fi
+    ;;
+#+end_src
 ** Default
 #+begin_src sh
 *)
-    echo "Usage: $0 {volume}"
+    echo "Usage: $0 {volume|mic}"
     exit 1
     ;;
 #+end_src
