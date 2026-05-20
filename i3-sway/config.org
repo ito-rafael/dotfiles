@@ -987,7 +987,8 @@ bindsym XF86KbdLightOnOff exec "$SCRIPT_PATH/keeb-backlit.sh toggle && ~/.config
 ** Rofi
 #+begin_src conf :noweb-ref rofi
 bindsym $mod+Return       exec "$SCRIPT_PATH/rofi.sh drun"
-bindsym Shift+$mod+Return exec "$SCRIPT_PATH/rofi.sh ssh"
+#bindsym Shift+$mod+Return exec "$SCRIPT_PATH/rofi.sh ssh"
+bindsym Shift+$mod+Return exec rofi-bluetooth
 bindsym Ctrl+$mod+Return  exec "$SCRIPT_PATH/rofi.sh window"
 #bindsym $alt+$mod+Return  exec "$SCRIPT_PATH/rofi.sh run"
 bindsym $alt+$mod+Return  exec networkmanager_dmenu
