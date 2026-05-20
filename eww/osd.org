@@ -11,6 +11,7 @@
   - [[#volume][Volume]]
   - [[#microphone][Microphone]]
   - [[#brightness][Brightness]]
+  - [[#gamma][Gamma]]
   - [[#default][Default]]
   - [[#eos][EoS]]
 - [[#display-window][Display window]]
@@ -51,6 +52,7 @@ volume)
 mic)
     RAW=$(wpctl get-volume @DEFAULT_AUDIO_SOURCE@)
     VALUE=$(echo "$RAW" | awk '{print int($2 * 100)}')
+
     if [[ "$RAW" == *"[MUTED]"* ]] || [ "$VALUE" -eq "0" ]; then
         ICON="/home/rafael/.config/icon/mic-mute.svg"
     else
@@ -67,10 +69,40 @@ brightness)
     ICON="/home/rafael/.config/icon/brightness.svg"
     ;;
 #+end_src
+** Gamma
+#+begin_src sh
+gamma)
+    CURRENT_TEMP=$(cat /tmp/gamma_temp.tmp)
+    MIN_TEMP=2000
+    MAX_TEMP=6500
+
+    # map the 2000K~6500K range to a 0-100 percentage for the eww progress bar
+    VALUE=$(( (CURRENT_TEMP - MIN_TEMP) * 100 / (MAX_TEMP - MIN_TEMP) ))
+
+    # safety checks to ensure the progress bar doesn't break if values go out of bounds
+    if [ "$VALUE" -lt 0 ]; then VALUE=0; fi
+    if [ "$VALUE" -gt 100 ]; then VALUE=100; fi
+
+    # select icon according to current temperature (using case statement)
+    case "$CURRENT_TEMP" in
+        2000) ICON="/home/rafael/.config/icon/screen-color-temperature/2000.png" ;;
+        2500) ICON="/home/rafael/.config/icon/screen-color-temperature/2500.png" ;;
+        3000) ICON="/home/rafael/.config/icon/screen-color-temperature/3000.png" ;;
+        3500) ICON="/home/rafael/.config/icon/screen-color-temperature/3500.png" ;;
+        4000) ICON="/home/rafael/.config/icon/screen-color-temperature/4000.png" ;;
+        4500) ICON="/home/rafael/.config/icon/screen-color-temperature/4500.png" ;;
+        5000) ICON="/home/rafael/.config/icon/screen-color-temperature/5000.png" ;;
+        5500) ICON="/home/rafael/.config/icon/screen-color-temperature/5500.png" ;;
+        6000) ICON="/home/rafael/.config/icon/screen-color-temperature/6000.png" ;;
+        6500) ICON="/home/rafael/.config/icon/screen-color-temperature/6500.png" ;;
+        *)    ICON="/home/rafael/.config/icon/screen-color-temperature/6500.png" ;;
+    esac
+    ;;
+#+end_src
 ** Default
 #+begin_src sh
 *)
-    echo "Usage: $0 {volume|mic|brightness}"
+    echo "Usage: $0 {volume|mic|brightness|gamma}"
     exit 1
     ;;
 #+end_src
