@@ -1773,18 +1773,28 @@ Related:
   ;; force system config evaluation
   (emacs-everywhere--configure-system)
 
-  ;; get current config
-  (let ((wayland-config (alist-get 'wayland emacs-everywhere-system-configs)))
-    ;; edit the copy command (%f is the temp file created by emacs-everywhere creates)
-    (setq wayland-config
-          ;(plist-put wayland-config :copy-command '("sh" "-c" "wl-copy < %f")))
-          (plist-put wayland-config :copy-command '("ydotool" "key" "42:1" "186:1" "186:0" "42:0")))
-    ;; edit the paste command to "Ctrl-F16"
-    (setq wayland-config
-          ;(plist-put wayland-config :paste-command '("wtype" "-M" "Shift" "-P" "Insert" "-m" "Shift" "-p" "Insert")))
-          (plist-put wayland-config :paste-command '("ydotool" "key" "29:1" "186:1" "186:0" "29:0")))
-    ;; apply the updated config
-    (setf (alist-get 'wayland emacs-everywhere-system-configs) wayland-config))
+  ;; get built-in Sway config
+  (let ((sway-config (alist-get '(wayland . sway) emacs-everywhere-system-configs nil nil #'equal)))
+
+    (when sway-config
+      ;; edit the copy command (%f is the temp file created by emacs-everywhere creates)
+      (setq sway-config
+        ;(plist-put wayland-config :copy-command '("sh" "-c" "wl-copy < %f")))
+        (plist-put sway-config :copy-command '("ydotool" "key" "42:1" "186:1" "186:0" "42:0")))
+      ;; edit the paste command to "Ctrl-F16"
+      (setq sway-config
+        ;(plist-put wayland-config :paste-command '("wtype" "-M" "Shift" "-P" "Insert" "-m" "Shift" "-p" "Insert")))
+        (plist-put sway-config :paste-command '("ydotool" "key" "29:1" "186:1" "186:0" "29:0")))
+
+      ;; assign this config to both 'sway and 'sway:wlroots
+      (setf (alist-get '(wayland . sway) emacs-everywhere-system-configs nil nil #'equal) sway-config)
+      (setf (alist-get '(wayland . sway:wlroots) emacs-everywhere-system-configs nil nil #'equal) sway-config)
+
+      ;; wipe the currently cached system config and force a re-detect
+      (setq emacs-everywhere-system-config nil)
+      (emacs-everywhere--configure-system)
+    )
+  )
 )
 #+end_src
 * yuck
