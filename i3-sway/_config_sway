@@ -495,11 +495,17 @@ for_window [$prop="yad"] floating enable
 for_window [$prop="showmethekey-gtk"] {
     floating enable
     sticky enable
-    resize set width 1920 height 100
+    resize set width 1720 height 75
     # x=0; y=(width - 200)
-    move position 0 880
+    move position 100 1000
 }
-for_window [$prop="one.alynx.showmethekey"] floating enable
+for_window [$prop="one.alynx.showmethekey"] {
+    floating enable
+    sticky enable
+    resize set width 1720 height 75
+    # x=0; y=(width - 200)
+    move position 100 1000
+}
 for_window [app_id="emacs" title="^(emacs-everywhere|Emacs Everywhere|Emacs Everywhere ∷)"] floating enable, resize set 700 400, move position center
 for_window [class="Emacs" title="^(emacs-everywhere|Emacs Everywhere|Emacs Everywhere ∷)"] floating enable, resize set 700 400, move position center
 

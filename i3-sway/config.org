@@ -1709,11 +1709,17 @@ for_window [$prop="showmethekey-gtk" title="Show Me The Key"] floating enable
 for_window [$prop="showmethekey-gtk"] {
     floating enable
     sticky enable
-    resize set width 1920 height 100
+    resize set width 1720 height 75
     # x=0; y=(width - 200)
-    move position 0 880
+    move position 100 1000
 }
-for_window [$prop="one.alynx.showmethekey"] floating enable
+for_window [$prop="one.alynx.showmethekey"] {
+    floating enable
+    sticky enable
+    resize set width 1720 height 75
+    # x=0; y=(width - 200)
+    move position 100 1000
+}
 #+end_src
 *** lan-mouse
 (deprecated) Proxy window used to lose main window focus when switching from sender to receiving end with lan-mouse (software switch KVM).
