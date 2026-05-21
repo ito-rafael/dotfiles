@@ -453,15 +453,14 @@
 "group/kanata": {
     "orientation": "inherit",
     "modules": [
-        "image#kanata-icon",
+        "custom/kanata-icon",
         "custom/kanata-layer",
     ]
 },
 
-"image#kanata-icon": {
+"custom/kanata-icon": {
     "exec": "~/.config/waybar/scripts/kanata-icon.sh",
-    "interval": 3600,
-    "size": 14,
+    "return-type": "json",
 },
 
 //"custom/kanata": {

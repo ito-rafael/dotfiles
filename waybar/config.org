@@ -605,17 +605,16 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
 "group/kanata": {
     "orientation": "inherit",
     "modules": [
-        "image#kanata-icon",
+        "custom/kanata-icon",
         "custom/kanata-layer",
     ]
 },
 #+end_src
 *** Icon
 #+begin_src js
-"image#kanata-icon": {
+"custom/kanata-icon": {
     "exec": "~/.config/waybar/scripts/kanata-icon.sh",
-    "interval": 3600,
-    "size": 14,
+    "return-type": "json",
 },
 #+end_src
 *** systemd
