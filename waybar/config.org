@@ -578,17 +578,16 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
 "group/xremap": {
   "orientation": "inherit",
   "modules": [
-    "image#xremap",
+    "custom/xremap-icon",
     "custom/xremap-mode",
   ],
 },
 #+end_src
 *** Icon
 #+begin_src js
-"image#xremap": {
-    "exec": "echo /home/rafael/.config/waybar/icon/xremap.png",
-    "interval": 3600,
-    "size": 16,
+"custom/xremap-icon": {
+    "exec": "~/.config/waybar/scripts/xremap-icon.sh",
+    "return-type": "json",
 },
 #+end_src
 *** Mode

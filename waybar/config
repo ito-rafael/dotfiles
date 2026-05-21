@@ -433,15 +433,14 @@
 "group/xremap": {
   "orientation": "inherit",
   "modules": [
-    "image#xremap",
+    "custom/xremap-icon",
     "custom/xremap-mode",
   ],
 },
 
-"image#xremap": {
-    "exec": "echo /home/rafael/.config/waybar/icon/xremap.png",
-    "interval": 3600,
-    "size": 16,
+"custom/xremap-icon": {
+    "exec": "~/.config/waybar/scripts/xremap-icon.sh",
+    "return-type": "json",
 },
 
 "custom/xremap-mode": {
