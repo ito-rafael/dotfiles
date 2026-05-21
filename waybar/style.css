@@ -551,6 +551,7 @@ box#toggle {
 #custom-scale,
 #custom-proton-vpn,
 #custom-keyboard-backlit,
+#custom-screencast,
 #custom-pomodoro-timer {
     padding-right: 3px;
     padding-left: 3px;
@@ -562,6 +563,7 @@ box#toggle {
 #custom-scale,
 #custom-proton-vpn,
 #custom-keyboard-backlit,
+#custom-screencast,
 #custom-pomodoro-timer {
     border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -687,6 +689,31 @@ box#toggle {
 #custom-keyboard-backlit.empty {
     border-left: 0;
     padding: 0;
+}
+
+#custom-screencast {
+    padding-right: 4px;
+    padding-left: 4px;
+    padding-bottom: 5px;
+    color: transparent;
+    min-width: 16px;
+
+    background-size: 14px;
+    background-repeat: no-repeat;
+    background-position: center calc(50% - 1px);
+}
+
+#custom-screencast.active {
+    background-image: url("/home/rafael/.config/waybar/icon/cc-active.png");
+}
+
+#custom-screencast.inactive {
+    background-image: url("/home/rafael/.config/waybar/icon/cc-inactive.png");
+}
+
+#custom-screencast:hover {
+    background-color: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
 }
 
 #custom-pomodoro-timer {
