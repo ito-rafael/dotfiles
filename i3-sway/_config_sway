@@ -508,6 +508,12 @@ for_window [$prop="one.alynx.showmethekey"] {
 }
 for_window [app_id="emacs" title="^(emacs-everywhere|Emacs Everywhere|Emacs Everywhere ∷)"] floating enable, resize set 700 400, move position center
 for_window [class="Emacs" title="^(emacs-everywhere|Emacs Everywhere|Emacs Everywhere ∷)"] floating enable, resize set 700 400, move position center
+for_window [$prop="zsa_update"] {
+    floating enable
+    sticky enable
+    resize set width 500 height 200
+    move position center
+}
 
 exec --no-startup-id kitty --class="dropdown_terminal" -o font_size=14 -o include=$XDG_CONFIG_HOME/kitty/themes/terminal.conf -o background_opacity=0.85
 bindsym $mod+n exec "$SCRIPT_PATH/show-or-launch.sh dropdown_terminal 0.75 0.75"

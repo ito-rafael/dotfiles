@@ -1740,6 +1740,16 @@ for_window [$prop="one.alynx.showmethekey"] {
 for_window [app_id="emacs" title="^(emacs-everywhere|Emacs Everywhere|Emacs Everywhere ∷)"] floating enable, resize set 700 400, move position center
 for_window [class="Emacs" title="^(emacs-everywhere|Emacs Everywhere|Emacs Everywhere ∷)"] floating enable, resize set 700 400, move position center
 #+end_src
+*** ZSA firmware update
+Floating window for updating the firmware of ZSA keyboards (eg: Moonlander, Planck EZ).
+#+begin_src conf :noweb-ref zsa-update
+for_window [$prop="zsa_update"] {
+    floating enable
+    sticky enable
+    resize set width 500 height 200
+    move position center
+}
+#+end_src
 ** Tangle :noexport:
 *** i3
 #+begin_src conf :noweb yes :tangle _config_i3
