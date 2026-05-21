@@ -96,6 +96,7 @@ window#waybar.chromium {
 
 #workspaces button.urgent {
     background-color: #eb4d4b;
+    border-radius: 10px;
 }
 
 box#keyboard {

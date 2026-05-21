@@ -185,6 +185,7 @@ https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-
 #+begin_src css
 #workspaces button.urgent {
     background-color: #eb4d4b;
+    border-radius: 10px;
 }
 #+end_src
 * Group keyboard
