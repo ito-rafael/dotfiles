@@ -230,8 +230,28 @@ box#keyboard {
 #+end_src
 *** Icon
 #+begin_src css
-#xremap #image.xremap {
-    padding-right: 5px;
+#xremap #custom-xremap-icon {
+    background-size: 16px;
+    background-repeat: no-repeat;
+    background-position: left calc(50% - 1px);
+
+    margin-top: 1px;
+    padding-left: 5px;
+    min-width: 16px;
+
+    transition: filter 0.3s ease;
+}
+#+end_src
+**** Active
+#+begin_src css
+#xremap #custom-xremap-icon.active {
+    background-image: url("/home/rafael/.config/waybar/icon/xremap-active.svg");
+}
+#+end_src
+**** Inactive
+#+begin_src css
+#xremap #custom-xremap-icon.inactive {
+    background-image: url("/home/rafael/.config/waybar/icon/xremap-inactive.svg");
 }
 #+end_src
 *** Mode
