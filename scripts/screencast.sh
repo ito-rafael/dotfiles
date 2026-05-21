@@ -54,7 +54,7 @@ case "${ACTION}" in
         else
             # start application and save its PID to file
             echo "Starting application..."
-            showmethekey-gtk & 
+            showmethekey-gtk -A &
             echo $! > $PID_FILE 
             exit 0
         fi
@@ -86,7 +86,7 @@ case "${ACTION}" in
         else
             # start application and save its PID to file
             echo "Starting application..."
-            showmethekey-gtk & 
+            showmethekey-gtk -A &
             echo $! > $PID_FILE 
             exit 0
         fi
