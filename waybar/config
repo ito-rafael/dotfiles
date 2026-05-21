@@ -426,7 +426,7 @@
   "modules": [
     "group/xremap",
     "group/kanata",
-    "group/zsa",
+    "custom/zsa",
   ]
 },
 
@@ -490,28 +490,14 @@
     "max-length": 5,
 },
 
-"group/zsa": {
-  "orientation": "inherit",
-  "modules": [
-    "image#zsa-icon",
-    "custom/zsa-layer",
-  ],
-},
-
-"image#zsa-icon": {
-    "exec": "/home/rafael/.config/waybar/scripts/zsa-icon.sh",
-    "interval": 3600,
-    "size": 14,
-},
-
-"custom/zsa-layer": {
-    "exec": "~/.config/waybar/scripts/zsa-layer.sh",
+"custom/zsa": {
+    "exec": "~/.config/waybar/scripts/zsa.sh",
     "return-type": "json",
     "format": "{}",
     "restart-interval": 2,
     "tooltip": true,
     "min-length": 5,
-    "max-length": 5,
+    "max-length": 5
 },
 
 "custom/kmonad": {

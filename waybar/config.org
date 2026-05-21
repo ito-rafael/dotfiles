@@ -569,7 +569,7 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
   "modules": [
     "group/xremap",
     "group/kanata",
-    "group/zsa",
+    "custom/zsa",
   ]
 },
 #+end_src
@@ -649,34 +649,15 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
 },
 #+end_src
 ** ZSA keyboard
-*** Group
 #+begin_src js
-"group/zsa": {
-  "orientation": "inherit",
-  "modules": [
-    "image#zsa-icon",
-    "custom/zsa-layer",
-  ],
-},
-#+end_src
-*** Icon
-#+begin_src js
-"image#zsa-icon": {
-    "exec": "/home/rafael/.config/waybar/scripts/zsa-icon.sh",
-    "interval": 3600,
-    "size": 14,
-},
-#+end_src
-*** Layer
-#+begin_src js
-"custom/zsa-layer": {
-    "exec": "~/.config/waybar/scripts/zsa-layer.sh",
+"custom/zsa": {
+    "exec": "~/.config/waybar/scripts/zsa.sh",
     "return-type": "json",
     "format": "{}",
     "restart-interval": 2,
     "tooltip": true,
     "min-length": 5,
-    "max-length": 5,
+    "max-length": 5
 },
 #+end_src
 ** KMonad
