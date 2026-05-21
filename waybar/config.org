@@ -479,6 +479,7 @@
     "custom/scale",
     "custom/proton-vpn",
     "custom/keyboard-backlit",
+    "custom/screencast",
     "custom/pomodoro-timer",
   ]
 },
@@ -535,6 +536,14 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
     "exec": "~/.config/waybar/scripts/proton-vpn.sh monitor",
     "format": "{}",
     "on-click": "~/.config/waybar/scripts/proton-vpn.sh toggle &",
+},
+#+end_src
+** Screencast
+#+begin_src js
+"custom/screencast": {
+    "exec": "~/.config/waybar/scripts/screencast.sh",
+    "return-type": "json",
+    "on-click": "~/.config/scripts/screencast.sh toggle"
 },
 #+end_src
 ** Keyboard backlit
