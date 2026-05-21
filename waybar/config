@@ -497,7 +497,8 @@
     "restart-interval": 2,
     "tooltip": true,
     "min-length": 5,
-    "max-length": 5
+    "max-length": 5,
+    "on-click": "kitty --class=zsa_update -o font_size=14 -o include=$XDG_CONFIG_HOME/kitty/themes/pacman.conf -o background_opacity=0.85 sh -c 'zapp update && echo \"\" > /tmp/zsa_firmware_status'"
 },
 
 "custom/kmonad": {
