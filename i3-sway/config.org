@@ -1785,7 +1785,7 @@ for_window [$prop="zsa_update"] {
 #    move scratchpad
 #    border pixel 5
 #}
-#exec --no-startup-id brave-beta --app=https://web.whatsapp.com
+#exec distrobox-enter -n brave-origin-beta -- brave-origin-beta --skip-origin-startup-dialog --app=https://web.whatsapp.com
 #bindsym $mod+t exec "$SCRIPT_PATH/show-or-launch.sh brave-web.whatsapp.com__-Default 0.6 0.9"
 #+end_src
 ** WhatsApp (WasIstLos)
@@ -1827,7 +1827,7 @@ for_window [$prop="^brave-music.youtube.com__-Default$"] {
     move scratchpad
     border pixel 5
 }
-exec --no-startup-id brave-beta --app=https://music.youtube.com
+exec distrobox-enter -n brave-origin-beta -- brave-origin-beta --skip-origin-startup-dialog --app=https://music.youtube.com
 bindsym $mod+s exec "$SCRIPT_PATH/show-or-launch.sh brave-music.youtube.com__-Default 0.9 0.9"
 #+end_src
 ** Calendar (on Brave Beta)
@@ -1848,7 +1848,7 @@ for_window [$prop="^brave-calendar.google.com__-Default$"] {
     move scratchpad
     border pixel 5
 }
-exec --no-startup-id brave-beta --app=https://calendar.google.com
+exec distrobox-enter -n brave-origin-beta -- brave-origin-beta --skip-origin-startup-dialog --app=https://calendar.google.com
 bindsym $mod+r exec "$SCRIPT_PATH/show-or-launch.sh brave-calendar.google.com__-Default 0.6 0.9"
 #+end_src
 ** Terminal
@@ -1931,7 +1931,7 @@ for_window [$prop="^brave-chatgpt.com__-Default$"] {
     move scratchpad
     border pixel 5
 }
-exec --no-startup-id brave-beta --app=https://chatgpt.com
+exec distrobox-enter -n brave-origin-beta -- brave-origin-beta --skip-origin-startup-dialog --app=https://chatgpt.com
 bindsym $alt+$mod+t exec "$SCRIPT_PATH/show-or-launch.sh brave-chatgpt.com__-Default 0.6 0.9"
 #+end_src
 ** Translate (on Brave Beta)
@@ -1952,7 +1952,7 @@ for_window [$prop="^brave-translate.google.com__-Default$"] {
     move scratchpad
     border pixel 5
 }
-exec --no-startup-id brave-beta --app=https://translate.google.com
+exec distrobox-enter -n brave-origin-beta -- brave-origin-beta --skip-origin-startup-dialog --app=https://translate.google.com
 bindsym $alt+$mod+s exec "$SCRIPT_PATH/show-or-launch.sh brave-translate.google.com__-Default 0.6 0.9"
 #+end_src
 ** Temporary scratchpads
