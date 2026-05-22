@@ -212,7 +212,7 @@ SCRATCHPAD=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | selec
 if [[ ! $SCRATCHPAD ]]; then
     case "${APPLICATION}" in
         "brave-music.youtube.com__-Default")
-            brave-beta --app=https://music.youtube.com &
+            distrobox enter brave-origin-beta -- brave-origin-beta --skip-origin-startup-dialog --app=https://music.youtube.com &
             sleep 2
             ;;
         #"brave-web.whatsapp.com__-Default")
@@ -220,15 +220,15 @@ if [[ ! $SCRATCHPAD ]]; then
         #    sleep 2
         #    ;;
         "brave-calendar.google.com__-Default")
-            brave-beta --app=https://calendar.google.com &
+            distrobox enter brave-origin-beta -- brave-origin-beta --skip-origin-startup-dialog --app=https://calendar.google.com &
             sleep 2
             ;;
         "brave-chatgpt.com__-Default")
-            brave-beta --app=https://chatgpt.com &
+            distrobox enter brave-origin-beta -- brave-origin-beta --skip-origin-startup-dialog --app=https://chatgpt.com &
             sleep 2
             ;;
         "brave-translate.google.com__-Default")
-            brave-beta --app=https://translate.google.com &
+            distrobox enter brave-origin-beta -- brave-origin-beta --skip-origin-startup-dialog --app=https://translate.google.com &
             sleep 2
             ;;
         "calendar.google.com")
