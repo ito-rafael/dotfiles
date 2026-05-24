@@ -1765,6 +1765,7 @@ for_window [$prop="zsa_update"] {
 <<sway-dialog>>
 <<sway-screencast>>
 <<sway-emacs>>
+<<zsa-update>>
 #+end_src
 * Scratchpads
 ** WhatsApp Web (on Brave Beta)
