@@ -430,6 +430,7 @@
   "modules": [
     "custom/pacman",
     "custom/informant",
+    "custom/xwayland",
     "custom/ansible-provision",
   ]
 },
@@ -457,6 +458,15 @@
     "return-type": "json",
     "on-click": "kitty /home/rafael/git/dotfiles/semaphore/api.sh run -v",
     "format": "{}",
+},
+#+end_src
+** Xwayland
+#+begin_src js
+"custom/xwayland": {
+    "exec": "~/.config/waybar/scripts/xwayland.sh",
+    "return-type": "json",
+    "format": "{}",
+    "tooltip": true
 },
 #+end_src
 ** Informant
