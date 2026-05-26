@@ -25,13 +25,16 @@
     - [[#floccus][Floccus]]
   - [[#scholar][Scholar]]
     - [[#google-scholar-button][Google Scholar Button]]
+    - [[#sci-hub][Sci-Hub]]
     - [[#zotero][Zotero]]
   - [[#misc][Misc]]
+    - [[#disable-javascript][Disable JavaScript]]
     - [[#grammarly][Grammarly]]
     - [[#xtranslate][XTranslate]]
     - [[#read-aloud][Read Aloud]]
     - [[#kde-connect][KDE Connect]]
     - [[#hola-vpn][Hola VPN]]
+    - [[#save-to-pocket][Save to Pocket]]
   - [[#shopping][Shopping]]
     - [[#aliexpress-superstar][AliExpress Superstar]]
     - [[#descontos-aliexpress][Descontos AliExpress]]
@@ -156,6 +159,12 @@ Deprecated in favour of [[id:e3ee1d03-6d7e-410e-b696-ee90b1436c1d][Tab Session M
 #+begin_src js :noweb yes
 <<install(extension_id="ldipcbpaocekfooobnbcddclnhejkcpn")>>
 #+end_src
+*** Sci-Hub
+- link:
+- description:
+#+begin_src js :noweb yes :tangle no
+"",
+#+end_src
 *** Zotero
 - link: https://chromewebstore.google.com/detail/ekhagklcjbdpajgpjgmbionohlpdbjgc
 - description: save references to Zotero.
@@ -163,6 +172,12 @@ Deprecated in favour of [[id:e3ee1d03-6d7e-410e-b696-ee90b1436c1d][Tab Session M
 <<install(extension_id="ekhagklcjbdpajgpjgmbionohlpdbjgc")>>
 #+end_src
 ** Misc
+*** Disable JavaScript
+- link:
+- description:
+#+begin_src js :noweb yes :tangle no
+"",
+#+end_src
 *** Grammarly
 - link: https://chromewebstore.google.com/detail/kbfnbcaeplbcioakkpcpgfkobkghlhen
 - description: grammar & spell checker.
@@ -192,6 +207,12 @@ Deprecated in favour of [[id:e3ee1d03-6d7e-410e-b696-ee90b1436c1d][Tab Session M
 - description: free VPN.
 #+begin_src js :noweb yes
 <<install(extension_id="gkojfkhlekighikafcpjkiklfbnlmeio")>>
+#+end_src
+*** Save to Pocket
+- link: https://chromewebstore.google.com/detail/save-to-pocket/niloccemoadcdkdjlinkgdfekeahmflj
+- description: save content for later.
+#+begin_src js :noweb yes
+<<install(extension_id="niloccemoadcdkdjlinkgdfekeahmflj")>>
 #+end_src
 ** Shopping
 *** AliExpress Superstar
