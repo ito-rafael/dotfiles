@@ -18,11 +18,13 @@ Uses Selenium with a real user profile, ensuring state is securely saved to disk
 Before running this script, be sure there is no Brave process running.
 """
 
-EXTENSION_ID = "gfbliohnnapiefjpjlpjnehglfpaknnc"
-BRAVE_BINARY_PATH = "/usr/bin/brave"
+EXTENSION_ID = "gfbliohnnapiefjpjlpjnehglfpaknnc"  # Surfingkeys
+#BRAVE_BINARY_PATH = "/usr/bin/brave"
+BRAVE_BINARY_PATH = "/usr/bin/brave-origin"
 
 username = os.getenv("USER")
-profile_base = f"/home/{username}/.config/BraveSoftware/Brave-Browser"
+#profile_base = f"/home/{username}/.config/BraveSoftware/Brave-Browser"
+profile_base = f"/home/{username}/.config/BraveSoftware/Brave-Origin-Beta"
 
 def get_chromium_version_for_brave(binary_path):
     """
@@ -98,8 +100,6 @@ options.add_argument("--headless=new")
 options.add_argument("--window-size=1920,1080")
 options.add_argument("--window-position=0,0")
 
-username = os.getenv("USER")
-profile_base = f"/home/{username}/.config/BraveSoftware/Brave-Browser"
 options.add_argument(f"--user-data-dir={profile_base}")
 options.add_argument("--profile-directory=Default")
 
@@ -109,7 +109,7 @@ if is_user_scripts_enabled(profile_base, EXTENSION_ID):
 
 try:
     # pgrep returns exit code 0 if it finds the process
-    subprocess.check_output(["pgrep", "-f", "brave"])
+    subprocess.check_output(["pgrep", "brave"])
     print("Error: Brave is currently running. Aborting to protect active session.")
     sys.exit(1)  # exit with error
 
