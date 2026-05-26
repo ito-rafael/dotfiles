@@ -27,9 +27,9 @@ RUN apt-get update && apt-get install -y \
 
 # create the managed policies directory & copy the dotfile
 RUN mkdir -p /etc/brave/policies/managed
-COPY extension_install_policy.json /etc/brave/policies/managed/
+COPY json/extension_install_policy.json /etc/brave/policies/managed/
 
 # copy the scripts to configure Surfingkeys
-COPY allow_user_scripts.py        /usr/local/bin/allow_user_scripts.py
-COPY surfingkeys_advanced_mode.py /usr/local/bin/surfingkeys_advanced_mode.py
-COPY surfingkeys_load_settings.py /usr/local/bin/surfingkeys_load_settings.py
+COPY scripts/allow_user_scripts.py        /usr/local/bin/allow_user_scripts.py
+COPY scripts/surfingkeys_advanced_mode.py /usr/local/bin/surfingkeys_advanced_mode.py
+COPY scripts/surfingkeys_load_settings.py /usr/local/bin/surfingkeys_load_settings.py
