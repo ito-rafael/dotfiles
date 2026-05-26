@@ -137,8 +137,14 @@ Then add this at the top of the file:
 :END:
 #+end_src
 *** Tangle only source code blocks of a specific language
+**** Single language
 #+begin_src elisp
-#+property: header-args:emacs-lisp :tangle .init.el
+#+PROPERTY: header-args:emacs-lisp :tangle .init.el
+#+end_src
+**** Multiple languages
+#+begin_src elisp
+#+PROPERTY: header-args:yuck :tangle ./eww.yuck
+#+PROPERTY: header-args:css :tangle ./eww.scss
 #+end_src
 *** Table of Contents (ToC)
 #+begin_src elisp
