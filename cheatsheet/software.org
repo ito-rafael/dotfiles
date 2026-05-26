@@ -130,10 +130,17 @@ Then add this at the top of the file:
 #+begin_src elisp
 :padline no
 #+end_src
-*** Add header argument in all children
+*** Edit header argument in all children
 #+begin_src elisp
 :PROPERTIES:
 :header-args: :tangle config.json
+:END:
+#+end_src
+*** Add header argument in all children
+Note the =+= after =header-args=: =:header-args+:=
+#+begin_src elisp
+:PROPERTIES:
+:header-args+: :padline no
 :END:
 #+end_src
 *** Tangle only source code blocks of a specific language
