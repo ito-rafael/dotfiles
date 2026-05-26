@@ -26,6 +26,7 @@
 - [[#website-specific][Website specific]]
   - [[#youtube-music][YouTube Music]]
 - [[#exceptions][Exceptions]]
+  - [[#localhost][localhost]]
   - [[#youtube][YouTube]]
 
 * Information
@@ -214,6 +215,11 @@ if (window.location.host === 'music.youtube.com') {
 *** EoS
 #+begin_src js
 }
+#+end_src
+* Exceptions
+** localhost
+#+begin_src js
+api.unmapAllExcept([], /localhost/);
 #+end_src
 ** YouTube
 #+begin_src js
