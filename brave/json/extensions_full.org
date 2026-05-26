@@ -1,6 +1,6 @@
 #+TITLE: Brave Extensions
 #+AUTHOR: Rafael Ito
-#+PROPERTY: header-args :padline no :tangle extension_install_policy.json
+#+PROPERTY: header-args :padline no :tangle extension_install_policy_full.json
 #+DESCRIPTION: config file to automate the installation of Brave extensions
 #+STARTUP: showeverything
 #+auto_tangle: t

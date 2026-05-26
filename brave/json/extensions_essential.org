@@ -1,6 +1,6 @@
 #+TITLE: Brave Extensions
 #+AUTHOR: Rafael Ito
-#+PROPERTY: header-args :padline no :tangle extension_install_policy.json
+#+PROPERTY: header-args :padline no :tangle extension_install_policy_essential.json
 #+DESCRIPTION: config file to automate the installation of Brave extensions
 #+STARTUP: showeverything
 #+auto_tangle: t
@@ -56,7 +56,7 @@ if (comma == true){
 - link: https://chromewebstore.google.com/detail/nffaoalbilbmmfgbnbgppjihopabppdk
 - description: speed up and slow down HTML5 audio & video.
 #+begin_src js :noweb yes
-<<install(extension_id="nffaoalbilbmmfgbnbgppjihopabppdk", pin=1)>>
+<<install(extension_id="nffaoalbilbmmfgbnbgppjihopabppdk", pin=1, comma=0)>>
 #+end_src
 * End
 Don't forget to remove the trailing comma on the previous block of JSON code (last extension)
