@@ -145,6 +145,11 @@ Then add this at the top of the file:
 ,* Table of Contents :toc:  --> default (level 2)
 ,* Table of Contents :toc_3: --> level 3
 #+end_src
+*** Add shebang in tangled file
+This automatically set the tangled file as executable.
+#+begin_src elisp
+#+PROPERTY: header-args :shebang "#!/usr/bin/env bash"
+#+end_src
 **** Exclude heading from ToC
 Single heading:
 #+begin_src elisp
