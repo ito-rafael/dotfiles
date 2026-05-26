@@ -150,6 +150,15 @@ This automatically set the tangled file as executable.
 #+begin_src elisp
 #+PROPERTY: header-args :shebang "#!/usr/bin/env bash"
 #+end_src
+*** File permission on tangles files
+**** On header
+#+begin_src elisp
+,#+PROPERTY: header-args:python :tangle-mode (identity #o744)
+#+end_src
+**** Per block
+#+begin_src elisp
+#+begin_src bash :tangle my_script.sh :tangle-mode (identity #o755)
+#+end_src
 **** Exclude heading from ToC
 Single heading:
 #+begin_src elisp
