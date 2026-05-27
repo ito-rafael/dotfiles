@@ -1,7 +1,7 @@
-#+TITLE: Script to clean up Brave Origin running via Distrobox
+#+TITLE: Script to clean up & build Brave Origin via Distrobox
 #+AUTHOR: Rafael Ito
 #+PROPERTY: header-args :shebang "#!/usr/bin/env bash"
-#+PROPERTY: header-args:sh :tangle cleanup.sh :tangle-mode o744
+#+PROPERTY: header-args:sh :tangle build.sh :tangle-mode o744
 #+DESCRIPTION: Brave Origin via Distrobox build
 #+STARTUP: showeverything
 #+AUTO_TANGLE: t
@@ -16,7 +16,9 @@
 - [[#pre-warm][Pre-warm]]
 - [[#generating-brave-profile][Generating Brave profile]]
 - [[#dark-theme][Dark Theme]]
-- [[#enabling-developer-mode][Enabling Developer Mode]]
+- [[#preferences][Preferences]]
+  - [[#enabling-developer-mode][Enabling Developer Mode]]
+  - [[#block-translations][Block Translations]]
 - [[#surfingkeys][Surfingkeys]]
   - [[#allow-user-scripts][Allow User Scripts]]
   - [[#enable-advanced-mode][Enable Advanced Mode]]
@@ -67,10 +69,16 @@ stty sane
 echo -e '\n********************\nDark Theme\n********************'
 distrobox enter brave-origin-beta -- sh -c 'jq ".browser.theme.color_scheme2 = 2" ~/.config/BraveSoftware/Brave-Origin-Beta/Default/Preferences > tmp.json && mv tmp.json ~/.config/BraveSoftware/Brave-Origin-Beta/Default/Preferences'
 #+end_src
-* Enabling Developer Mode
+* Preferences
+** Enabling Developer Mode
 #+begin_src sh
-echo -e '\n********************\nEnabling Developer Mode\n********************'
-distrobox enter brave-origin-beta -- python3 /usr/local/bin/developer_mode.py
+echo -e '\n********************\nPreferences: Enabling Developer Mode\n********************'
+distrobox enter brave-origin-beta -- python3 /usr/local/bin/preferences_developer_mode.py
+#+end_src
+** Block Translations
+#+begin_src sh
+echo -e '\n********************\nPreferences: Block EN and PT Translations\n********************'
+distrobox enter brave-origin-beta -- python3 /usr/local/bin/preferences_block_translations.py
 #+end_src
 * Surfingkeys
 ** Allow User Scripts
@@ -91,5 +99,5 @@ distrobox enter brave-origin-beta -- python3 /usr/local/bin/surfingkeys_load_set
 * Export application
 #+begin_src sh
 rm -rf ~/.local/share/applications/brave-origin-beta*
-distrobox enter brave-origin-beta -- distrobox-export --app brave-origin-beta
+distrobox enter brave-origin-beta -- distrobox-export --app brave-origin-beta --extra-flags "--no-default-browser-check"
 #+end_src
