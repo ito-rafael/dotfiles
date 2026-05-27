@@ -9,6 +9,7 @@ RUN apt-get update && apt-get install -y \
     sudo \
     jq \
     xvfb \
+    libpulse0 \
     python3 \
     python3-pip \
     && rm -rf /var/lib/apt/lists/*
