@@ -495,6 +495,7 @@ alias rmf='rm -rf'
 ** Distrobox
 #+begin_src sh
 function dbe() { distrobox enter $(docker ps | grep $1 | awk '{print $1}') -- ${2:-bash} }
+alias dbl='distrobox list'
 #+end_src
 ** Docker
 *** Function
