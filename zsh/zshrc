@@ -301,6 +301,8 @@ alias cpry='command cp -R'
 
 alias rmf='rm -rf'
 
+function dbe() { distrobox enter $(docker ps | grep $1 | awk '{print $1}') -- ${2:-bash} }
+
 function de() { docker exec -it $(docker ps | grep $1 | awk '{print $1}') ${2:-bash} }
 function dl() { docker logs $(docker ps | grep $1 | awk '{print $1}') }
 function dc() { docker-compose $1 }

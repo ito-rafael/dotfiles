@@ -492,6 +492,10 @@ alias cpry='command cp -R'
 #+begin_src sh
 alias rmf='rm -rf'
 #+end_src
+** Distrobox
+#+begin_src sh
+function dbe() { distrobox enter $(docker ps | grep $1 | awk '{print $1}') -- ${2:-bash} }
+#+end_src
 ** Docker
 *** Function
 #+begin_src sh
