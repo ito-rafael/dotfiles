@@ -33,7 +33,10 @@ COPY json/extension_install_policy_essential.json /etc/brave/policies/managed/
 
 # enable extensions developer mode
 COPY config/initial_preferences /opt/brave.com/brave-origin-beta/initial_preferences
-COPY scripts/developer_mode.py /usr/local/bin/developer_mode.py
+COPY scripts/preferences_developer_mode.py /usr/local/bin/preferences_developer_mode.py
+
+# block translations from En & Pt
+COPY scripts/preferences_block_translations.py /usr/local/bin/preferences_block_translations.py
 
 # copy the scripts to configure Surfingkeys
 COPY scripts/surfingkeys_allow_user_scripts.py /usr/local/bin/surfingkeys_allow_user_scripts.py
