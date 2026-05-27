@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
-# run informant check silently
-informant check > /dev/null 2>&1
-UNREAD_COUNT=$?
+# run informant silently
+UNREAD_COUNT=$(informant list --unread 2>/dev/null | wc -l)
 
 # check if the exit code is greater than 0
 if [ "$UNREAD_COUNT" -gt 0 ]; then
