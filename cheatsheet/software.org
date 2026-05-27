@@ -166,13 +166,13 @@ This automatically set the tangled file as executable.
 *** File permission on tangles files
 **** On header
 #+begin_src elisp
-,#+PROPERTY: header-args:python :tangle-mode (identity #o744)
+,#+PROPERTY: header-args:python :tangle my-tangled-file.py :tangle-mode (identity #o744)
 #+end_src
 **** Per block
 #+begin_src elisp
-#+begin_src bash :tangle my_script.sh :tangle-mode (identity #o755)
+#+begin_src bash :tangle my_script.sh :tangle-mode (identity #o744)
 #+end_src
-**** Exclude heading from ToC
+*** Exclude heading from ToC
 Single heading:
 #+begin_src elisp
 ,* Heading :noexport:
