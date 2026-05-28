@@ -96,22 +96,31 @@ esac
 eww update osd_value="$VALUE" osd_icon="$ICON"
 
 PID_FILE="/tmp/eww-osd.pid"
+LOCK_DIR="/tmp/eww-osd.lock"
 
-# If the PID file doesn't exist, or the timer process is dead, the window is closed.
-if [ ! -f "$PID_FILE" ] || ! kill -0 $(cat "$PID_FILE") 2>/dev/null; then
+# clean up stale lock if the script previously crashed
+if [ -f "$PID_FILE" ] && ! kill -0 $(cat "$PID_FILE") 2>/dev/null; then
+    rmdir "$LOCK_DIR" 2>/dev/null
+fi
+
+# atomic lock: only the first script to create this folder will open the window
+if mkdir "$LOCK_DIR" 2>/dev/null; then
     eww open system_osd
 fi
 
-# kill previous timer subshell if it exists
-if [ -f "$PID_FILE" ]; then
-    kill $(cat "$PID_FILE") 2>/dev/null
-fi
+# kill any previously spawned sleep processes, looking for the exact unique name given for the timer
+pkill -f "eww-osd-sleep" 2>/dev/null
 
 # start new timer
 (
-    sleep $TIMEOUT
-    eww close system_osd
-    rm -f "$PID_FILE"
+    # use "exec -a" to mask the sleep command with a unique process name.
+    # if a new scroll triggers the "pkill" above, this sleep is killed and exits with an error code.
+    # the "if" statement catches the error and safely prevents "eww close" from triggering early.
+    if bash -c "exec -a eww-osd-sleep sleep $TIMEOUT"; then
+        eww close system_osd
+        rmdir "$LOCK_DIR" 2>/dev/null
+    fi
 ) &
 
+# save PID only for the stale-lock check on the next run
 echo $! >"$PID_FILE"
