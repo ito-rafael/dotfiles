@@ -3,5 +3,12 @@
     "ui": {
       "developer_mode": true
     }
+  },
+  "browser": {
+    "has_seen_welcome_page": true
+  },
+  "distribution": {
+    "skip_first_run_ui": true,
+    "show_welcome_page": false
   }
 }
