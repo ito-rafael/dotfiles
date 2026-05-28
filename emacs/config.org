@@ -1469,15 +1469,43 @@ Supported window managers:
   :ensure nil  ;; do not install (windmove is already built-in)
   :after windmove
   :config
-  ;; Selects the window that's hopefully at the location returned by
-  ;; `windmove-find-other-window', or screams if there's no window there.
+
+  ;; helper function to replicate the logic from sway-dispatch.sh
+  (defun my/wm-focus-out-of-emacs (dir)
+    "Focus window outside of Emacs based on DIR, respecting lan-mouse status."
+    (let* ((session-type (getenv "XDG_SESSION_TYPE"))
+           (lanmouse-file "/tmp/lanmouse-status.tmp")
+           ;; safely read the lanmouse status file if it exists
+           (lanmouse-status (when (file-exists-p lanmouse-file)
+                              (with-temp-buffer
+                                (insert-file-contents lanmouse-file)
+                                (string-trim (buffer-string)))))
+           ;; check if status is either connected or active
+           (lanmouse-active (member lanmouse-status '("connected" "active")))
+
+           ;; resolve the script path (fallback to ~/.config if XDG_CONFIG_HOME is unset)
+           (config-home (or (getenv "XDG_CONFIG_HOME") (expand-file-name "~/.config")))
+           (nav-script (expand-file-name "scripts/sway-window-nav.py" config-home))
+
+           ;; construct the appropriate window manager command
+           (wm-cmd (pcase session-type
+                     ("x11"     (format "i3-msg focus %s" dir))
+                     ("wayland" (if lanmouse-active
+                                    (format "swaymsg exec %s %s" nav-script dir)
+                                  (format "swaymsg focus %s" dir)))
+                     (_         nil))))
+
+      (when wm-cmd
+        (shell-command (concat wm-cmd " > /dev/null 2>&1") nil nil))))
+
+  ;; overridden windmove behavior
   (defun windmove-do-window-select (dir &optional arg window)
     "Move to the window at direction DIR as seen from WINDOW.
-  DIR, ARG, and WINDOW are handled as by `windmove-find-other-window'.
-  If no window is at direction DIR, an error is signaled.
-  If `windmove-create-window' is a function, call that function with
-  DIR, ARG and WINDOW.  If it is non-nil, try to create a new window
-  in direction DIR instead."
+DIR, ARG, and WINDOW are handled as by `windmove-find-other-window'.
+If no window is at direction DIR, an error is signaled.
+If `windmove-create-window' is a function, call that function with
+DIR, ARG and WINDOW.  If it is non-nil, try to create a new window
+in direction DIR instead."
     (let ((other-window (windmove-find-other-window dir arg window)))
       (when (and windmove-create-window
                  (or (null other-window)
@@ -1487,36 +1515,14 @@ Supported window managers:
                                (funcall windmove-create-window dir arg window)
                              (split-window window nil dir))))
       (cond ((null other-window)
-         ;;====================================================================
-         ;; the next line (warning message) is replaced by the shell command
-         ;; that focus the window outside of Emacs based on the =dir= variable
-             ;;(user-error "No window %s from selected window" dir))
-         ;;--------------------------------------------------------------------
-	     ;; identify environment
-             (setq wm_cmd (pcase (getenv "XDG_SESSION_TYPE")
-	                    ("x11"      "i3-msg")
-	                    ("wayland"  "swaymsg")
-	                    ("tty"      "tty")
-			    (_          "nil")))
-	     ;; focus adjacent window
-             (shell-command (concat wm_cmd " focus " (format "%s" dir) " > /dev/null 2>&1") nil nil))
-         ;;====================================================================
+             ;; replaced error with our context-aware WM routing function
+             (my/wm-focus-out-of-emacs dir))
+
             ((and (window-minibuffer-p other-window)
                   (not (minibuffer-window-active-p other-window)))
-         ;;====================================================================
-         ;; the next line (warning message) is replaced by the shell command
-         ;; that focus the window outside of Emacs based on the =dir= variable
-             ;;(user-error "Minibuffer is inactive"))
-         ;;--------------------------------------------------------------------
-	     ;; identify environment
-             (setq wm_cmd (pcase (getenv "XDG_SESSION_TYPE")
-	                    ("x11"      "i3-msg")
-	                    ("wayland"  "swaymsg")
-	                    ("tty"      "tty")
-			    (_          "nil")))
-	     ;; focus adjacent window
-             (shell-command (concat wm_cmd " focus " (format "%s" dir) " > /dev/null 2>&1") nil nil))
-         ;;====================================================================
+             ;; replaced error with our context-aware WM routing function
+             (my/wm-focus-out-of-emacs dir))
+
             ((eq other-window 'no-select))
             (t
              (select-window other-window))))))
