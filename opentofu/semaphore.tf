@@ -90,9 +90,7 @@ resource "semaphoreui_project_template" "github_template" {
   inventory_id   = semaphoreui_project_inventory.file_inventory.id
   #environment_id = semaphoreui_project_environment.linear_strategy.id
   environment_id = semaphoreui_project_environment.empty_environment.id
-  arguments = [
-    "--limit", var.target_hostname,
-  ]
+  arguments = ["--limit", var.target_hostname]
   allow_override_args_in_task = true
 
   vaults = [
@@ -113,9 +111,47 @@ resource "semaphoreui_project_template" "local_template" {
   inventory_id   = semaphoreui_project_inventory.file_inventory.id
   #environment_id = semaphoreui_project_environment.linear_strategy.id
   environment_id = semaphoreui_project_environment.empty_environment.id
-  arguments = [
-    "--limit", var.target_hostname,
+  arguments = ["--limit", var.target_hostname]
+  allow_override_args_in_task = true
+
+  vaults = [
+    {
+      name = "lbic"
+      password = {
+        vault_key_id = semaphoreui_project_key.vault_key_lbic.id
+      }
+    }
   ]
+}
+
+resource "semaphoreui_project_template" "github_template_linear" {
+  project_id                  = semaphoreui_project.ansible-provision.id
+  name                        = "ansible-provision [linear]"
+  playbook                    = "local.yml"
+  repository_id               = semaphoreui_project_repository.github_repo.id
+  inventory_id                = semaphoreui_project_inventory.file_inventory.id
+  environment_id              = semaphoreui_project_environment.linear_strategy.id
+  arguments                   = ["--limit", var.target_hostname]
+  allow_override_args_in_task = true
+
+  vaults = [
+    {
+      name = "lbic"
+      password = {
+        vault_key_id = semaphoreui_project_key.vault_key_lbic.id
+      }
+    }
+  ]
+}
+
+resource "semaphoreui_project_template" "local_template_linear" {
+  project_id                  = semaphoreui_project.ansible-provision.id
+  name                        = "local (test) [linear]"
+  playbook                    = "local.yml"
+  repository_id               = semaphoreui_project_repository.local_repo.id
+  inventory_id                = semaphoreui_project_inventory.file_inventory.id
+  environment_id              = semaphoreui_project_environment.linear_strategy.id
+  arguments                   = ["--limit", var.target_hostname]
   allow_override_args_in_task = true
 
   vaults = [
