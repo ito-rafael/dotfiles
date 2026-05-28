@@ -21,13 +21,35 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 
-# --- CONFIGURATION ---
 EXTENSION_ID = "gfbliohnnapiefjpjlpjnehglfpaknnc"
-BRAVE_BINARY_PATH = "/usr/bin/brave-origin"
+
+# dynamically find the right Brave binary path based on what exists on the system
+POSSIBLE_BINARIES = [
+    "/usr/bin/brave-origin",       # Debian
+    "/usr/bin/brave-origin-beta",  # Arch Linux
+    #"/usr/bin/brave",              # Fallback Stable
+    #"/usr/bin/brave-browser",      # Fallback Standard
+    #"/usr/bin/brave-beta",         # Fallback Beta
+]
+
+BRAVE_BINARY_PATH = next((path for path in POSSIBLE_BINARIES if os.path.exists(path)), None)
+
+if not BRAVE_BINARY_PATH:
+    raise FileNotFoundError("Critical: Could not find the Brave executable in any known locations.")
 
 username = os.getenv("USER")
-profile_base = f"/home/{username}/.config/BraveSoftware/Brave-Origin-Beta"
 
+# dynamically find the correct Brave profile directory based on what exists
+POSSIBLE_PROFILES = [
+    f"/home/{username}/.config/BraveSoftware/Brave-Origin-Beta",  # Debian & Arch Linux
+    #f"/home/{username}/.config/BraveSoftware/Brave-Browser",      # Fallback Standard
+    #f"/home/{username}/.config/BraveSoftware/Brave-Browser-Beta"  # Fallback Beta
+]
+
+profile_base = next((path for path in POSSIBLE_PROFILES if os.path.exists(path)), None)
+
+if not profile_base:
+    raise FileNotFoundError("Critical: Could not locate the Brave profile directory.")
 
 def get_chromium_version_for_brave(binary_path):
     """Fetches the exact Chromium milestone required for the current Brave build."""
