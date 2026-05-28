@@ -21,17 +21,19 @@ fi
 show_help() {
     echo "Usage: $0 <trigger|status|logs|run> [options] [Task ID]"
     echo "Options:"
-    echo "  -h, --help        Show this help message"
-    echo "  -v, --verbose     Show detailed execution messages"
-    echo "  --test            Use the 'local (test)' template"
-    echo "  --linear          Run using the Linear strategy (bypasses Mitogen)"
-    echo "  --tags TAGS       Specify tags to run (eg: 'waybar,kanata')"
-    echo "  --skip-tags TAGS  Specify tags to skip"
+    echo "  -h, --help            Show this help message"
+    echo "  -v, --verbose         Show detailed execution messages"
+    echo "  --test                Use the 'local (test)' template"
+    echo "  --linear              Run using the Linear strategy (bypasses Mitogen)"
+    echo "  --tags TAGS           Specify tags to run (eg: 'waybar,kanata')"
+    echo "  --skip-tags TAGS      Specify tags to skip"
+    echo "  --start-at-task TASK  Start the playbook at a specific task name"
     echo ""
     echo "Examples:"
     echo "  $0 run --test --tags \"acl,users\" -v"
     echo "  $0 run --skip-tags \"emacs\""
     echo "  $0 run --test --linear -v"
+    echo "  $0 run --start-at-task \"software | browser | copy Brave dotfiles\" -v"
     echo "  $0 status 42"
 }
 
@@ -49,6 +51,7 @@ TEMPLATE_NAME="ansible-provision"
 TASK_ID=""
 TAGS=""
 SKIP_TAGS=""
+START_AT_TASK=""
 VERBOSE_FLAG=""
 LINEAR=false
 
@@ -82,6 +85,10 @@ while [[ "$#" -gt 0 ]]; do
         SKIP_TAGS="${2// /}"
         shift 2
         ;;
+    --start-at-task)
+        START_AT_TASK="$2"
+        shift 2
+        ;;
     *)
         # if it is not a recognized flag, we assume it is the Task ID
         if [[ "$1" != -* ]]; then
@@ -111,12 +118,16 @@ if [ -z "$PROJECT_ID" ] || [ "$PROJECT_ID" == "null" ]; then
 fi
 
 if [ "$COMMAND" == "trigger" ] || [ "$COMMAND" == "run" ]; then
-    TEMPLATE_ID=$(curl -s -H "Authorization: Bearer $TOKEN" "$API_URL/project/$PROJECT_ID/templates" | jq -r ".[] | select(.name == \"$TEMPLATE_NAME\") | .id")
+    # fetch the full JSON of the template to safely extract its existing arguments
+    TEMPLATE_JSON=$(curl -s -H "Authorization: Bearer $TOKEN" "$API_URL/project/$PROJECT_ID/templates" | jq -c ".[] | select(.name == \"$TEMPLATE_NAME\")")
 
-    if [ -z "$TEMPLATE_ID" ] || [ "$TEMPLATE_ID" == "null" ]; then
+    if [ -z "$TEMPLATE_JSON" ] || [ "$TEMPLATE_JSON" == "null" ]; then
         echo "Error: Template '$TEMPLATE_NAME' not found." >&2
         exit 1
     fi
+
+    # extract the ID from the JSON we just downloaded
+    TEMPLATE_ID=$(echo "$TEMPLATE_JSON" | jq -r '.id')
 fi
 
 case "$COMMAND" in
@@ -140,6 +151,16 @@ case "$COMMAND" in
         JSON_PAYLOAD=$(echo "$JSON_PAYLOAD" | jq --arg skips "$SKIP_TAGS" '.params.skip_tags = ($skips | split(","))')
     fi
 
+    # inject "--start-at-task" safely by merging with existing template arguments
+    if [ -n "$START_AT_TASK" ]; then
+        # dynamically parse existing arguments (handles nulls, arrays, and stringified JSON arrays)
+        EXT_ARGS=$(echo "$TEMPLATE_JSON" | jq -c '(if .arguments | type == "string" then (.arguments | fromjson?) else .arguments end) // []')
+
+        # append --start-at-task to the array so we do not lose the --limit flag
+        JSON_PAYLOAD=$(echo "$JSON_PAYLOAD" | jq --argjson ext "$EXT_ARGS" --arg start "$START_AT_TASK" '.arguments = ($ext + ["--start-at-task", $start] | tostring)')
+    fi
+
+    vecho "DEBUG PAYLOAD: $JSON_PAYLOAD"
     RESPONSE=$(curl -s -X POST -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \
         -d "$JSON_PAYLOAD" \
         "$API_URL/project/$PROJECT_ID/tasks")
@@ -235,6 +256,16 @@ case "$COMMAND" in
         JSON_PAYLOAD=$(echo "$JSON_PAYLOAD" | jq --arg skips "$SKIP_TAGS" '.params.skip_tags = ($skips | split(","))')
     fi
 
+    # inject "--start-at-task" safely by merging with existing template arguments
+    if [ -n "$START_AT_TASK" ]; then
+        # dynamically parse existing arguments (handles nulls, arrays, and stringified JSON arrays)
+        EXT_ARGS=$(echo "$TEMPLATE_JSON" | jq -c '(if .arguments | type == "string" then (.arguments | fromjson?) else .arguments end) // []')
+
+        # append --start-at-task to the array so we do not lose the --limit flag
+        JSON_PAYLOAD=$(echo "$JSON_PAYLOAD" | jq --argjson ext "$EXT_ARGS" --arg start "$START_AT_TASK" '.arguments = ($ext + ["--start-at-task", $start] | tostring)')
+    fi
+
+    vecho "DEBUG PAYLOAD: $JSON_PAYLOAD"
     RESPONSE=$(curl -s -X POST -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \
         -d "$JSON_PAYLOAD" \
         "$API_URL/project/$PROJECT_ID/tasks")
