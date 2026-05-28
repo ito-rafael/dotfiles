@@ -24,12 +24,14 @@ show_help() {
     echo "  -h, --help        Show this help message"
     echo "  -v, --verbose     Show detailed execution messages"
     echo "  --test            Use the 'local (test)' template"
+    echo "  --linear          Run using the Linear strategy (bypasses Mitogen)"
     echo "  --tags TAGS       Specify tags to run (eg: 'waybar,kanata')"
     echo "  --skip-tags TAGS  Specify tags to skip"
     echo ""
     echo "Examples:"
     echo "  $0 run --test --tags \"acl,users\" -v"
     echo "  $0 run --skip-tags \"emacs\""
+    echo "  $0 run --test --linear -v"
     echo "  $0 status 42"
 }
 
@@ -48,10 +50,15 @@ TASK_ID=""
 TAGS=""
 SKIP_TAGS=""
 VERBOSE_FLAG=""
+LINEAR=false
 
 # loop through remaining arguments
 while [[ "$#" -gt 0 ]]; do
     case $1 in
+    -h | --help)
+        show_help
+        exit 0
+        ;;
     -v | --verbose)
         VERBOSE=true
         VERBOSE_FLAG="-v"
@@ -59,6 +66,10 @@ while [[ "$#" -gt 0 ]]; do
         ;;
     --test)
         TEMPLATE_NAME="local (test)"
+        shift
+        ;;
+    --linear)
+        LINEAR=true
         shift
         ;;
     --tags)
@@ -80,6 +91,11 @@ while [[ "$#" -gt 0 ]]; do
         ;;
     esac
 done
+
+# append " [linear]" to the Template Name if the flag was passed
+if [ "$LINEAR" = true ]; then
+    TEMPLATE_NAME="${TEMPLATE_NAME} [linear]"
+fi
 
 # safety check: prevent running status/logs without an ID
 if [[ "$COMMAND" == "status" || "$COMMAND" == "logs" ]] && [ -z "$TASK_ID" ]; then
