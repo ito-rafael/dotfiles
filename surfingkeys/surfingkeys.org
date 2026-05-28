@@ -216,6 +216,7 @@ if (window.location.host === 'music.youtube.com') {
 #+begin_src js
 }
 #+end_src
+*** Focus search bar
 * Exceptions
 ** localhost
 #+begin_src js
