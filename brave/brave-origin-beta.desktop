@@ -1,0 +1,32 @@
+[Desktop Entry]
+Version=1.0
+Name=Brave Origin (beta)
+# Only KDE 4 seems to use GenericName, so we reuse the KDE strings.
+# From Ubuntu's language-pack-kde-XX-base packages, version 9.04-20090413.
+GenericName=Web Browser
+GenericName[en_GB]=Web Browser
+GenericName[pt_BR]=Navegador da Internet
+# Gnome and KDE 3 uses Comment.
+Comment=Access the Internet
+Comment[en_GB]=Access the Internet
+Comment[pt_BR]=Acessar a internet
+Exec=/usr/bin/brave-origin-beta %U
+StartupNotify=true
+Terminal=false
+Icon=brave-origin-beta
+Type=Application
+Categories=Network;WebBrowser;
+MimeType=application/pdf;application/rdf+xml;application/rss+xml;application/xhtml+xml;application/xhtml_xml;application/xml;image/gif;image/jpeg;image/png;image/webp;text/html;text/xml;x-scheme-handler/http;x-scheme-handler/https;x-scheme-handler/chromium;
+Actions=new-window;new-private-window;
+
+[Desktop Action new-window]
+Name=New Window
+Name[en_GB]=New Window
+Name[pt_BR]=Nova janela
+Exec=/usr/bin/brave-origin-beta
+
+[Desktop Action new-private-window]
+Name=New Incognito Window
+Name[en_GB]=New Incognito window
+Name[pt_BR]=Nova janela anônima
+Exec=/usr/bin/brave-origin-beta --incognito
