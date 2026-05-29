@@ -116,7 +116,9 @@ options.add_argument("--disable-dev-shm-usage")
 options.add_argument("--disable-gpu")
 
 # headless mode (runs the full browser pipeline without a UI)
-options.add_argument("--headless=new")
+#options.add_argument("--headless=new")
+# force X11 so Brave doesn't crash trying to use Wayland inside the Xvfb buffer
+options.add_argument("--ozone-platform=x11")
 
 # virtual geometry (even though it's headless, it needs a virtual canvas to "draw" the DOM, so our Javascript can find the toggle button coordinates)
 options.add_argument("--window-size=1920,1080")
