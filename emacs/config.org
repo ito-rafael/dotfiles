@@ -776,16 +776,17 @@ This is a custom config to copy some tangled files into predefined paths.
 #+begin_src emacs-lisp
 (let ((transfer-list `(
   ;; dotfiles
-  (,(expand-file-name "~/git/dotfiles/dunst/dunstrc.org")  . (("dunstrc"       . "~/.config/dunst/dunstrc")))
-  (,(expand-file-name "~/git/dotfiles/emacs/config.org")   . (("init.el"       . "~/.config/emacs-efs/init.el")))
-  (,(expand-file-name "~/git/dotfiles/eww/osd.org")        . (("osd.sh"        . "~/.config/scripts/osd.sh")))
-  (,(expand-file-name "~/git/dotfiles/eww/eww.org")        . (("eww.yuck"      . "~/.config/eww/eww.yuck")
-                                                              ("eww.scss"      . "~/.config/eww/eww.scss")))
-  (,(expand-file-name "~/git/dotfiles/i3-sway/config.org") . (("_config_sway"  . "~/.config/sway/_config")
-                                                              ("_config_i3"    . "~/.config/i3/_config")))
-  (,(expand-file-name "~/git/dotfiles/waybar/config.org")  . (("config"        . "~/.config/waybar/config")))
-  (,(expand-file-name "~/git/dotfiles/waybar/style.org")   . (("style.css"     . "~/.config/waybar/style.css")))
-  (,(expand-file-name "~/git/dotfiles/zsh/zshrc.org")      . (("zshrc"         . "~/.config/zsh/.zshrc")))
+  (,(expand-file-name "~/git/dotfiles/dunst/dunstrc.org")       . (("dunstrc"          . "~/.config/dunst/dunstrc")))
+  (,(expand-file-name "~/git/dotfiles/emacs/config.org")        . (("init.el"          . "~/.config/emacs-efs/init.el")))
+  (,(expand-file-name "~/git/dotfiles/eww/osd.org")             . (("osd.sh"           . "~/.config/scripts/osd.sh")))
+  (,(expand-file-name "~/git/dotfiles/eww/eww.org")             . (("eww.yuck"         . "~/.config/eww/eww.yuck")
+                                                                   ("eww.scss"         . "~/.config/eww/eww.scss")))
+  (,(expand-file-name "~/git/dotfiles/hypr/lock-screen.org")    . (("lock-screen.sh"   . "~/.config/hypr/lock-screen.sh")))
+  (,(expand-file-name "~/git/dotfiles/i3-sway/config.org")      . (("_config_sway"     . "~/.config/sway/_config")
+                                                                   ("_config_i3"       . "~/.config/i3/_config")))
+  (,(expand-file-name "~/git/dotfiles/waybar/config.org")       . (("config"           . "~/.config/waybar/config")))
+  (,(expand-file-name "~/git/dotfiles/waybar/style.org")        . (("style.css"        . "~/.config/waybar/style.css")))
+  (,(expand-file-name "~/git/dotfiles/zsh/zshrc.org")           . (("zshrc"            . "~/.config/zsh/.zshrc")))
 
   ;; keebab
   (,(expand-file-name "~/git/keebab/kanata/kanata.org")         . (("kanata.kbd"       . "~/.config/kanata/kanata.kbd")))
