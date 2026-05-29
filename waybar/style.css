@@ -183,6 +183,9 @@ box#keyboard {
     background-image: url("/home/rafael/.config/waybar/icon/kanata-inactive.svg");
 }
 
+#kanata #custom-kanata-icon.missing {
+}
+
 #kanata #custom-kanata-layer {
     color: gray;
     font-family: ttf-jetbrains-mono;

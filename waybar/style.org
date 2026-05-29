@@ -309,6 +309,11 @@ box#keyboard {
     background-image: url("/home/rafael/.config/waybar/icon/kanata-inactive.svg");
 }
 #+end_src
+**** Missing
+#+begin_src css
+#kanata #custom-kanata-icon.missing {
+}
+#+end_src
 *** systemd
 :PROPERTIES:
 :header-args: :tangle no
