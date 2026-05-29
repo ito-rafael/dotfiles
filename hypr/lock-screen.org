@@ -1,8 +1,38 @@
-#!/usr/bin/env bash
-TODO_FILE='/tmp/todo-list.tmp'             # tasks file
-HYPRLOCK_CONF="/tmp/hyprlock-dynamic.conf" # config generated on the fly
-XKCD_IMG="/tmp/hyprlock-xkcd.png"          # path for xkcd image
+#+TITLE: hyprlock screen locking config
+#+AUTHOR: Rafael Ito
+#+PROPERTY: header-args :shebang "#!/usr/bin/env bash" :tangle lock-screen.sh
+#+DESCRIPTION: Hyprland's screen locker script
+#+STARTUP: showeverything
+#+auto_tangle: t
 
+* Table of Contents :toc_2:
+- [[#header][Header]]
+- [[#pre-locking][Pre-locking]]
+  - [[#pause-notifications--media][Pause notifications & media]]
+  - [[#dim-kbd-leds][Dim kbd LEDs]]
+  - [[#fetch-todo-list][Fetch TODO list]]
+  - [[#fetch-xkcd][Fetch xkcd]]
+  - [[#build-dynamic-config][Build dynamic config]]
+  - [[#dim-screen-brightness][Dim screen brightness]]
+- [[#screen-locking][Screen locking]]
+  - [[#lock-remote-screen][Lock remote screen]]
+  - [[#lock-local-sceen][Lock local sceen]]
+- [[#post-unlocking][Post-unlocking]]
+  - [[#unlock-remote-screen][Unlock remote screen]]
+  - [[#restore-screen-brightness][Restore screen brightness]]
+  - [[#restore-kbd-leds][Restore kbd LEDs]]
+  - [[#unpause-notifications][Unpause notifications]]
+  - [[#cleanup-screenshots][Cleanup screenshots]]
+
+* Header :noexport_1:
+** Variables
+#+begin_src sh
+TODO_FILE='/tmp/todo-list.tmp'              # tasks file
+HYPRLOCK_CONF="/tmp/hyprlock-dynamic.conf"  # config generated on the fly
+XKCD_IMG="/tmp/hyprlock-xkcd.png"           # path for xkcd image
+#+end_src
+** Outputs
+#+begin_src sh
 # set main output for displaying the time
 NUM_OUTPUTITORS=$(swaymsg -t get_outputs | jq '[.[] | select(.active)] | length')
 if [[ $NUM_OUTPUTITORS == "1" ]]; then
@@ -14,17 +44,27 @@ else
     SECONDARY_OUTPUT="DP-1"
     TERTIARY_OUTPUT="DVI-I-1"
 fi
-
+#+end_src
+* Pre-locking
+Tasks to be executed before screen locking.
+** Pause notifications & media
+#+begin_src sh
 # pause notifications & media
 dunstctl set-paused true
 playerctl --all-players pause
-
+#+end_src
+** Dim kbd LEDs
+#+begin_src sh
 # dim LEDs of keyboard
 $XDG_CONFIG_HOME/scripts/keeb-leds.sh dim
-
+#+end_src
+** Fetch TODO list
+#+begin_src sh
 REMINDERS=$(cat "$TODO_FILE" | wc -l)
 SCREENSHOTS=""
-
+#+end_src
+** Fetch xkcd
+#+begin_src sh
 # fetch random xkcd
 # check if xkcd.com is reachable
 if curl --output /dev/null --silent --head --fail "https://xkcd.com"; then
@@ -44,9 +84,11 @@ else
     # if offline, remove the temp file so hyprlock doesn't try to load garbage
     rm -f "$XKCD_IMG"
 fi
-
+#+end_src
+** Build dynamic config
+#+begin_src sh
 # start building the Hyprlock configuration
->"$HYPRLOCK_CONF" # clear the file
+> "$HYPRLOCK_CONF" # clear the file
 
 if [[ "$REMINDERS" == "0" ]]; then
     # no reminders: use Hyprlock's native, instant blur across all monitors.
@@ -59,7 +101,7 @@ if [[ "$REMINDERS" == "0" ]]; then
         blur_size = 8
         brightness = 0.25
         contrast = 0.9
-    }" >>"$HYPRLOCK_CONF"
+    }" >> "$HYPRLOCK_CONF"
 
 else
     # if any reminders, take screenshot (grim's stdout) and apply a red background (ImageMagick's stdin)
@@ -68,9 +110,9 @@ else
         SCREENSHOTS="$SCREENSHOTS $SCREENSHOT"
 
         grim -o "$OUTPUT" - | magick - \
-            -format png \
-            -fill red \
-            -colorize 80% \
+            -format png    \
+            -fill red      \
+            -colorize 80%  \
             "$SCREENSHOT"
 
         # write a specific background block for this exact monitor
@@ -78,10 +120,12 @@ else
         background {
             monitor = $OUTPUT
             path = $SCREENSHOT
-        }" >>"$HYPRLOCK_CONF"
+        }" >> "$HYPRLOCK_CONF"
     done
 fi
-
+#+end_src
+*** Output #1
+#+begin_src sh
 # primary output: clock and password input ring
 echo "
 label {
@@ -109,8 +153,10 @@ input-field {
     halign = center
     valign = center
 }
-" >>"$HYPRLOCK_CONF"
-
+" >> "$HYPRLOCK_CONF"
+#+end_src
+*** Output #2
+#+begin_src sh
 # secondary output: xkcd image
 if [[ -n "$SECONDARY_OUTPUT" ]] && [[ -f "$XKCD_IMG" ]]; then
     echo "
@@ -125,9 +171,11 @@ if [[ -n "$SECONDARY_OUTPUT" ]] && [[ -f "$XKCD_IMG" ]]; then
         halign = center
         valign = center
     }
-    " >>"$HYPRLOCK_CONF"
+    " >> "$HYPRLOCK_CONF"
 fi
-
+#+end_src
+*** Output #3
+#+begin_src sh
 # tertiary: reminder/to-do list
 if [[ -n "$TERTIARY_OUTPUT" ]] && [[ "$REMINDERS" != "0" ]]; then
     echo "
@@ -142,32 +190,53 @@ if [[ -n "$TERTIARY_OUTPUT" ]] && [[ "$REMINDERS" != "0" ]]; then
         halign = center
         valign = center
     }
-    " >>"$HYPRLOCK_CONF"
+    " >> "$HYPRLOCK_CONF"
 fi
-
+#+end_src
+** Dim screen brightness
+#+begin_src sh
 # save current screen brightness and dim it
 brightnessctl --quiet --save
 brightnessctl --quiet set 10%
-
+#+end_src
+* Screen locking
+** Lock remote screen
+#+begin_src sh
 # lock remote screen, if any
 ssh ipf "export SWAYSOCK=\$(ls /run/user/$(id -u)/sway-ipc.*.sock | head -n 1); swaymsg exec $XDG_CONFIG_HOME/hypr/lock-screen.sh" &
-
+#+end_src
+** Lock local sceen
+#+begin_src sh
 # lock the screen with hyprlock using the dynamically generated config
 hyprlock --config "$HYPRLOCK_CONF"
-
+#+end_src
+* Post-unlocking
+Tasks to be executed after screen unlocking.
+** Unlock remote screen
+#+begin_src sh
 # unlock remote screen, if any
 ssh ipf "export SWAYSOCK=\$(ls /run/user/$(id -u)/sway-ipc.*.sock | head -n 1); pkill -USR1 hyprlock" &
-
+#+end_src
+** Restore screen brightness
+#+begin_src sh
 # restore previous screen brightness
 brightnessctl --quiet --restore
-
+#+end_src
+** Restore kbd LEDs
+#+begin_src sh
 # turn on keyboard LEDs
 $XDG_CONFIG_HOME/scripts/keeb-leds.sh on
-
+#+end_src
+** Unpause notifications
+#+begin_src sh
 # unpause notifications
 dunstctl set-paused false
-
+#+end_src
+** Cleanup screenshots
+The screenshots were used as background image during the screen locking.
+#+begin_src sh
 # cleanup screenshots if they were generated
 if [ -n "$SCREENSHOTS" ]; then
     rm -f $SCREENSHOTS
 fi
+#+end_src
