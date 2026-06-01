@@ -24,6 +24,7 @@
 - [[#gpu][GPU]]
 - [[#pdf][PDF]]
   - [[#separate][Separate]]
+  - [[#unite][Unite]]
 - [[#pdfpc][pdfpc]]
 - [[#python][Python]]
   - [[#virtualenv][virtualenv]]
@@ -1016,6 +1017,10 @@ grub-mkconfig -o /efi/EFI/arch/grub/grub.cfg
 ** Separate
 #+begin_src sh
 pdfseparate input.pdf output-%d.pdf
+#+end_src
+** Unite
+#+begin_src sh
+pdfunite input1.pdf input2.pdf output.pdf
 #+end_src
 * pdfpc :noexport_1:
 ** Navigation
