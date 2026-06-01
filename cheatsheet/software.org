@@ -22,6 +22,8 @@
 - [[#gnupg][GnuPG]]
 - [[#pass][pass]]
 - [[#gpu][GPU]]
+- [[#pdf][PDF]]
+  - [[#separate][Separate]]
 - [[#pdfpc][pdfpc]]
 - [[#python][Python]]
   - [[#virtualenv][virtualenv]]
@@ -1009,6 +1011,11 @@ GRUB_CMDLINE_LINUX_DEFAULT="nouveau.config=NvClkMode=15"
 Then, regenerate the config file.
 #+begin_src sh
 grub-mkconfig -o /efi/EFI/arch/grub/grub.cfg
+#+end_src
+* PDF
+** Separate
+#+begin_src sh
+pdfseparate input.pdf output-%d.pdf
 #+end_src
 * pdfpc :noexport_1:
 ** Navigation
