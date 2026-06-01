@@ -120,17 +120,33 @@ driver = webdriver.Chrome(service=service, options=options)
 try:
     # 1. Navigate directly to the extension's internal options page
     options_url = f"chrome-extension://{EXTENSION_ID}/pages/options.html"
-    driver.get(options_url)
+    toggle_checkbox = None
+
+    # polling loop
+    for i in range(30):
+        driver.get(options_url)
+
+        # give the extension database 1 second to apply your saved settings to the HTML
+        time.sleep(1)
+
+        try:
+            toggle_checkbox = driver.find_element(By.ID, "advancedToggler")
+            print("Extension loaded successfully!")
+            break
+        except:
+            print(f"Still unpacking... (Attempt {i+1}/30)")
+
+    if not toggle_checkbox:
+        print("Error: Surfingkeys never installed or loaded.")
+        sys.exit(1)
     
-    # 2. Wait for the DOM to render and locate the toggle
-    wait = WebDriverWait(driver, 10)
+    # 3. Idempotent action: Use pure Javascript to read the true DOM property
+    # This completely bypasses Selenium's flaky .is_selected() wrapper!
+    is_checked = driver.execute_script("return arguments[0].checked;", toggle_checkbox)
     
-    # Using By.ID is the cleanest implementation of your XPath: //*[@id="advancedToggler"]
-    toggle_checkbox = wait.until(EC.presence_of_element_located((By.ID, "advancedToggler")))
-    
-    # 3. Idempotent action: Check state before clicking
-    if not toggle_checkbox.is_selected():
-        toggle_checkbox.click()
+    if not is_checked:
+        # Use Javascript to execute a trusted click directly on the element
+        driver.execute_script("arguments[0].click();", toggle_checkbox)
         print("Success: Toggled ON.")
     else:
         print("Skipped: Already ON.")
