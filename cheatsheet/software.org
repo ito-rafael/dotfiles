@@ -25,6 +25,7 @@
 - [[#pdf][PDF]]
   - [[#separate][Separate]]
   - [[#unite][Unite]]
+  - [[#remove-password][Remove password]]
 - [[#pdfpc][pdfpc]]
 - [[#python][Python]]
   - [[#virtualenv][virtualenv]]
@@ -1021,6 +1022,10 @@ pdfseparate input.pdf output-%d.pdf
 ** Unite
 #+begin_src sh
 pdfunite input1.pdf input2.pdf output.pdf
+#+end_src
+** Remove password
+#+begin_src sh
+incognito qpdf --decrypt --password=YOUR_PASSWORD input.pdf output.pdf
 #+end_src
 * pdfpc :noexport_1:
 ** Navigation
