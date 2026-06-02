@@ -29,9 +29,9 @@ DOTFILES_URL = "https://raw.githubusercontent.com/ito-rafael/dotfiles/refs/heads
 POSSIBLE_BINARIES = [
     "/usr/bin/brave-origin",       # Debian
     "/usr/bin/brave-origin-beta",  # Arch Linux
-    #"/usr/bin/brave",              # Fallback Stable
-    #"/usr/bin/brave-browser",      # Fallback Standard
-    #"/usr/bin/brave-beta",         # Fallback Beta
+    #"/usr/bin/brave",              # fallback Stable
+    #"/usr/bin/brave-browser",      # fallback Standard
+    #"/usr/bin/brave-beta",         # fallback Beta
 ]
 
 BRAVE_BINARY_PATH = next((path for path in POSSIBLE_BINARIES if os.path.exists(path)), None)
@@ -44,8 +44,8 @@ username = os.getenv("USER")
 # dynamically find the correct Brave profile directory based on what exists
 POSSIBLE_PROFILES = [
     f"/home/{username}/.config/BraveSoftware/Brave-Origin-Beta",  # Debian & Arch Linux
-    #f"/home/{username}/.config/BraveSoftware/Brave-Browser",      # Fallback Standard
-    #f"/home/{username}/.config/BraveSoftware/Brave-Browser-Beta"  # Fallback Beta
+    #f"/home/{username}/.config/BraveSoftware/Brave-Browser",      # fallback Standard
+    #f"/home/{username}/.config/BraveSoftware/Brave-Browser-Beta"  # fallback Beta
 ]
 
 profile_base = next((path for path in POSSIBLE_PROFILES if os.path.exists(path)), None)
@@ -64,7 +64,7 @@ def get_chromium_version_for_brave(binary_path):
 
         major_version = match.group(1)
         api_url = "https://googlechromelabs.github.io/chrome-for-testing/latest-versions-per-milestone.json"
-        
+
         req = urllib.request.Request(api_url, headers={'User-Agent': 'Mozilla/5.0'})
         with urllib.request.urlopen(req) as response:
             data = json.loads(response.read().decode('utf-8'))
@@ -74,13 +74,19 @@ def get_chromium_version_for_brave(binary_path):
     except Exception as e:
         raise RuntimeError(f"Critical failure: Could not auto-detect or map Brave version. ({e})") from e
 
-# --- STATE MARKER PRE-FLIGHT CHECK ---
+
+#----------------------------------------
+# state marker pre-flight check
+#----------------------------------------
 if os.path.exists(MARKER_FILE):
-    # bypass the entire Selenium process and active session check!
+    # bypass the entire Selenium process and active session check
     print("Skipped: URL is already set (Verified by state marker).")
     sys.exit(0)
 
-# --- ACTIVE SESSION SAFETY CHECK ---
+
+#----------------------------------------
+# active session safety check
+#----------------------------------------
 try:
     # get the full command line (-a) of all processes containing "brave" (-f)
     result = subprocess.check_output(["pgrep", "-a", "-f", "[o]pt/brave.com/brave-origin-beta/brave"], text=True)
@@ -90,7 +96,7 @@ try:
         if " --type=" in line:
             continue
 
-        # ignore your Distrobox Web Apps (--app=...)
+        # ignore Distrobox Web Apps (--app=...)
         if " --app=" in line:
             continue
 
@@ -104,7 +110,7 @@ try:
                 pass
             continue
 
-        # real desktop brave process found!
+        # real desktop brave process found
         running_standard_sessions = True
         break
 
@@ -114,11 +120,13 @@ try:
     else:
         print("No active standard Brave sessions found. Proceeding with headless configuration...")
 except subprocess.CalledProcessError:
-    # pgrep returns non-zero if no processes are found --> safe to proceed!
+    # pgrep returns non-zero if no processes are found, safe to proceed
     print("No active Brave sessions found. Proceeding with headless configuration...")
 
 
-# --- LOCK CLEANUP ---
+#----------------------------------------
+# lock cleanup
+#----------------------------------------
 for lock in ["SingletonLock", "SingletonCookie", "SingletonSocket"]:
     lock_path = os.path.join(profile_base, lock)
     if os.path.islink(lock_path) or os.path.exists(lock_path):
@@ -128,7 +136,9 @@ for lock in ["SingletonLock", "SingletonCookie", "SingletonSocket"]:
             pass
 
 
-# --- BROWSER CONFIGURATION ---
+#----------------------------------------
+# browser configuration
+#----------------------------------------
 options = Options()
 options.binary_location = BRAVE_BINARY_PATH
 
@@ -147,23 +157,27 @@ options.add_argument(f"--user-data-dir={profile_base}")
 options.add_argument("--profile-directory=Default")
 
 
-# --- INITIALIZE DRIVER ---
+#----------------------------------------
+# initialize driver
+#----------------------------------------
 print("Initializing ChromeDriver...")
 driver_path = ChromeDriverManager(driver_version=get_chromium_version_for_brave(BRAVE_BINARY_PATH)).install()
 service = Service(driver_path)
 driver = webdriver.Chrome(service=service, options=options)
 
 
-# --- AUTOMATION EXECUTION ---
+#----------------------------------------
+# automation execution
+#----------------------------------------
 try:
     options_url = f"chrome-extension://{EXTENSION_ID}/pages/options.html"
 
-    # 1. POLLING LOOP WITH HYDRATION WAIT
+    # polling loop with hydration wait
     print("Waiting for the Surfingkeys extension to load...")
     path_input = None
     for i in range(30):
         driver.get(options_url)
-        time.sleep(3) # Give LevelDB time to hydrate the DOM
+        time.sleep(3) # give LevelDB time to hydrate the DOM
 
         try:
             path_input = driver.find_element(By.ID, "localPath")
@@ -178,34 +192,34 @@ try:
 
     wait = WebDriverWait(driver, 10)
 
-    # 2. ENSURE ADVANCED MODE IS ACTIVE (Requires pure JS check)
+    # ensure Advanced Mode is active (requires pure JS check)
     print("Ensuring Advanced Mode is active...")
     advanced_toggle = wait.until(EC.presence_of_element_located((By.ID, "advancedToggler")))
 
-    # Bypass Selenium's flaky .is_selected() wrapper!
+    # bypass Selenium's flaky .is_selected() wrapper
     is_advanced = driver.execute_script("return arguments[0].checked;", advanced_toggle)
 
     if not is_advanced:
         driver.execute_script("arguments[0].click();", advanced_toggle)
         time.sleep(1)
 
-    # 3. IDEMPOTENT CHECK FOR URL
+    # idempotent check for URL
     current_val = path_input.get_attribute("value")
-    
+
     if current_val == DOTFILES_URL:
-        # Write the receipt so we skip Selenium next time
+        # write the receipt so we skip Selenium next time
         with open(MARKER_FILE, 'w') as f:
             f.write(f"Settings URL verified via Ansible on {time.ctime()}\n")
         print("Skipped: URL is already set to the dotfiles repository.")
 
     else:
         print("Injecting dotfiles URL...")
-        
-        # Bypass UI blocks with direct DOM injection
+
+        # bypass UI blocks with direct DOM injection
         driver.execute_script("""
             let input = arguments[0];
             let newUrl = arguments[1];
-            
+
             input.value = newUrl;
             input.dispatchEvent(new Event('input', { bubbles: true }));
             input.dispatchEvent(new Event('change', { bubbles: true }));
@@ -217,23 +231,23 @@ try:
                 bubbles: true
             }));
         """, path_input, DOTFILES_URL)
-        
-        # EXPLICITLY CLICK SAVE
+
+        # explicitly click save
         print("Saving configuration...")
-        # 1. Give the Javascript framework 1 second to process the URL we just injected
+        # give the Javascript framework 1 second to process the URL we just injected
         time.sleep(1)
-        # 2. Use PRESENCE, not clickable!
+        # use presence, not clickable
         save_button = wait.until(EC.presence_of_element_located((By.ID, "save_button")))
-        # 3. Force the click via Javascript
+        # force the click via Javascript
         driver.execute_script("arguments[0].click();", save_button)
-        
-        # Write the receipt so we skip Selenium next time
+
+        # write the receipt so we skip Selenium next time
         with open(MARKER_FILE, 'w') as f:
             f.write(f"Settings URL configured via Ansible on {time.ctime()}\n")
 
         print("Success: Configuration URL saved and applied.")
 
-    # 4. FORCE DISK FLUSH
+    # force disk flush
     time.sleep(1)
     driver.get("chrome://version")
     time.sleep(2)

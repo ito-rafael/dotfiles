@@ -13,17 +13,17 @@
   - [[#constants][Constants]]
   - [[#init][Init]]
 - [[#functions][Functions]]
-  - [[#get-chromium-version][Get Chromium version]]
-  - [[#pre-flight-check][Pre-flight check]]
+  - [[#resolve-chromium-version][Resolve Chromium version]]
+  - [[#validate-extension-state][Validate extension state]]
 - [[#options][Options]]
-- [[#cleanup][Cleanup]]
-  - [[#pre-flight-check-1][Pre-flight check]]
+- [[#environment-preparation][Environment preparation]]
+  - [[#process-verification][Process verification]]
   - [[#kill-processes][Kill processes]]
-  - [[#clear-locks][Clear locks]]
+  - [[#stale-lock-removal][Stale lock removal]]
 - [[#automation][Automation]]
-  - [[#get-toggle][Get toggle]]
-  - [[#polling][Polling]]
-  - [[#enable-toggle][Enable toggle]]
+  - [[#find-toggle][Find toggle]]
+  - [[#polling--hydration][Polling & Hydration]]
+  - [[#click-on-toggle][Click on toggle]]
   - [[#force-flush][Force flush]]
   - [[#eos][EoS]]
 
@@ -57,10 +57,10 @@ EXTENSION_ID = "gfbliohnnapiefjpjlpjnehglfpaknnc"  # Surfingkeys
 
 # bypass the Linux bash wrappers and target the compiled binaries directly
 POSSIBLE_BINARIES = [
-    "/opt/brave.com/brave-origin-beta/brave",  # Arch Origin Beta
-    "/opt/brave.com/brave-origin/brave",       # Debian Origin
+    "/opt/brave.com/brave-origin-beta/brave",  # Arch Linux
+    "/opt/brave.com/brave-origin/brave",       # Debian
     "/opt/brave.com/brave/brave",              # Standard Stable
-    "/usr/bin/brave-origin-beta",              # Bash Wrapper Fallbacks
+    "/usr/bin/brave-origin-beta",              # Bash wrapper fallbacks
     "/usr/bin/brave-origin",
     "/usr/bin/brave",
     "/usr/bin/brave-browser"
@@ -88,7 +88,7 @@ if not profile_base:
     raise FileNotFoundError("Critical: Could not locate the Brave profile directory.")
 #+end_src
 * Functions
-** Get Chromium version
+** Resolve Chromium version
 #+begin_src python
 def get_chromium_version_for_brave(binary_path):
     """
@@ -98,7 +98,7 @@ def get_chromium_version_for_brave(binary_path):
         # ask Brave version
         result = subprocess.run([binary_path, "--version"], capture_output=True, text=True, check=True)
 
-        # extract just the very first number (the Major Milestone)
+        # extract just the very first number (the major milestone)
         match = re.search(r'(\d+)\.\d+\.\d+\.\d+', result.stdout)
         if not match:
             raise ValueError(f"Could not parse major version from: {result.stdout}")
@@ -126,7 +126,7 @@ def get_chromium_version_for_brave(binary_path):
 
 BRAVE_VERSION = get_chromium_version_for_brave(BRAVE_BINARY_PATH)
 #+end_src
-** Pre-flight check
+** Validate extension state
 #+begin_src python
 def is_user_scripts_enabled(profile_path, ext_id):
     """Safely checks the profile JSON without touching the browser process."""
@@ -189,10 +189,9 @@ options.add_argument("--window-position=0,0")
 options.add_argument(f"--user-data-dir={profile_base}")
 options.add_argument("--profile-directory=Default")
 #+end_src
-* Cleanup
-** Pre-flight check
+* Environment preparation
 #+end_src
-*** Button OFF, but Brave running
+** Process verification
 #+begin_src python
 try:
     # get the full command line (-a) of all processes containing "brave" (-f)
@@ -227,9 +226,7 @@ try:
         sys.exit(1)
     else:
         print("No active standard Brave sessions found. Proceeding with headless configuration...")
-#+end_src
-*** Button OFF, no Brave process
-#+begin_src python
+
 except subprocess.CalledProcessError:
     # pgrep returns non-zero if no processes are found --> safe to proceed!
     print("No active Brave sessions found. Proceeding with headless configuration...")
@@ -249,7 +246,7 @@ except subprocess.CalledProcessError:
 #    except subprocess.CalledProcessError:
 #        break
 #+end_src
-** Clear locks
+** Stale lock removal
 #+begin_src python
 # clear stale locks left behind by abrupt process termination (pkill)
 for lock in ["SingletonLock", "SingletonCookie", "SingletonSocket"]:
@@ -270,7 +267,7 @@ try:
     # driver.get is handled inside the polling loop now to ensure hydration
     pass
 #+end_src
-** Get toggle
+** Find toggle
 #+begin_src python
     # retrieve the nested toggle WebElement through Chromium's Web Components (Shadow DOM)
     js_get_element = """
@@ -297,7 +294,7 @@ try:
     return row.querySelector('cr-toggle') || (row.shadowRoot && row.shadowRoot.querySelector('cr-toggle'));
     """
 #+end_src
-** Polling
+** Polling & Hydration
 #+begin_src python
     toggle_element = None
     print("Waiting for the Brave Extensions page to load...")
@@ -310,7 +307,7 @@ try:
             break
         print(f"Waiting for extension to download and install... (Attempt {i+1}/30)")
 #+end_src
-** Enable toggle
+** Click on toggle
 #+begin_src python
     if toggle_element is None:
         print("Error: Toggle element could not be found.")

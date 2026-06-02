@@ -22,10 +22,10 @@ EXTENSION_ID = "gfbliohnnapiefjpjlpjnehglfpaknnc"  # Surfingkeys
 
 # bypass the Linux bash wrappers and target the compiled binaries directly
 POSSIBLE_BINARIES = [
-    "/opt/brave.com/brave-origin-beta/brave",  # Arch Origin Beta
-    "/opt/brave.com/brave-origin/brave",       # Debian Origin
+    "/opt/brave.com/brave-origin-beta/brave",  # Arch Linux
+    "/opt/brave.com/brave-origin/brave",       # Debian
     "/opt/brave.com/brave/brave",              # Standard Stable
-    "/usr/bin/brave-origin-beta",              # Bash Wrapper Fallbacks
+    "/usr/bin/brave-origin-beta",              # Bash wrapper fallbacks
     "/usr/bin/brave-origin",
     "/usr/bin/brave",
     "/usr/bin/brave-browser"
@@ -58,7 +58,7 @@ def get_chromium_version_for_brave(binary_path):
         # ask Brave version
         result = subprocess.run([binary_path, "--version"], capture_output=True, text=True, check=True)
 
-        # extract just the very first number (the Major Milestone)
+        # extract just the very first number (the major milestone)
         match = re.search(r'(\d+)\.\d+\.\d+\.\d+', result.stdout)
         if not match:
             raise ValueError(f"Could not parse major version from: {result.stdout}")
