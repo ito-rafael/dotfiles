@@ -23,6 +23,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.keys import Keys
 
 EXTENSION_ID = "gfbliohnnapiefjpjlpjnehglfpaknnc"
+DOTFILES_URL = "https://raw.githubusercontent.com/ito-rafael/dotfiles/refs/heads/master/surfingkeys/surfingkeys.js"
 
 # dynamically find the right Brave binary path based on what exists on the system
 POSSIBLE_BINARIES = [
@@ -38,8 +39,6 @@ BRAVE_BINARY_PATH = next((path for path in POSSIBLE_BINARIES if os.path.exists(p
 if not BRAVE_BINARY_PATH:
     raise FileNotFoundError("Critical: Could not find the Brave executable in any known locations.")
 
-DOTFILES_URL = "https://raw.githubusercontent.com/ito-rafael/dotfiles/refs/heads/master/surfingkeys/surfingkeys.js"
-
 username = os.getenv("USER")
 
 # dynamically find the correct Brave profile directory based on what exists
@@ -50,6 +49,7 @@ POSSIBLE_PROFILES = [
 ]
 
 profile_base = next((path for path in POSSIBLE_PROFILES if os.path.exists(path)), None)
+MARKER_FILE = os.path.join(profile_base, ".surfingkeys_load_settings_configured")
 
 if not profile_base:
     raise FileNotFoundError("Critical: Could not locate the Brave profile directory.")
@@ -74,6 +74,11 @@ def get_chromium_version_for_brave(binary_path):
     except Exception as e:
         raise RuntimeError(f"Critical failure: Could not auto-detect or map Brave version. ({e})") from e
 
+# --- STATE MARKER PRE-FLIGHT CHECK ---
+if os.path.exists(MARKER_FILE):
+    # bypass the entire Selenium process and active session check!
+    print("Skipped: URL is already set (Verified by state marker).")
+    sys.exit(0)
 
 # --- ACTIVE SESSION SAFETY CHECK ---
 try:
@@ -151,15 +156,16 @@ try:
         driver.execute_script("arguments[0].click();", advanced_toggle)
         time.sleep(1)
 
-    # 3. LOCATE THE INPUT FIELD
-    print("Locating 'Load settings from' input field...")
+    # 3. IDEMPOTENT CHECK FOR URL
     path_input = wait.until(EC.presence_of_element_located((By.ID, "localPath")))
-    
-    # 4. IDEMPOTENT CHECK
     current_val = path_input.get_attribute("value")
     
     if current_val == DOTFILES_URL:
+        # Write the receipt so we skip Selenium next time
+        with open(MARKER_FILE, 'w') as f:
+            f.write(f"Settings URL verified via Ansible on {time.ctime()}\n")
         print("Skipped: URL is already set to the dotfiles repository.")
+
     else:
         print("Injecting dotfiles URL...")
         
@@ -180,15 +186,18 @@ try:
             }));
         """, path_input, DOTFILES_URL)
         
-        # 5. EXPLICITLY CLICK SAVE
+        # EXPLICITLY CLICK SAVE
         print("Saving configuration...")
         save_button = wait.until(EC.element_to_be_clickable((By.ID, "save_button")))
-        # Using JS click here as well, just in case a sticky header is covering the save button in headless mode
         driver.execute_script("arguments[0].click();", save_button)
         
+        # Write the receipt so we skip Selenium next time
+        with open(MARKER_FILE, 'w') as f:
+            f.write(f"Settings URL configured via Ansible on {time.ctime()}\n")
+
         print("Success: Configuration URL saved and applied.")
 
-    # 6. FORCE DISK FLUSH
+    # 4. FORCE DISK FLUSH
     time.sleep(1)
     driver.get("chrome://version")
     time.sleep(2)
