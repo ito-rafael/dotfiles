@@ -74,11 +74,28 @@ def get_chromium_version_for_brave(binary_path):
 
 # --- ACTIVE SESSION SAFETY CHECK ---
 try:
-    subprocess.check_output(["pgrep", "brave"])
-    print("Error: Brave is currently running. Aborting to protect active session.")
-    sys.exit(1)
+    # get the full command line (-a) of all processes containing "brave" (-f)
+    result = subprocess.check_output(["pgrep", "-a", "-f", "[o]pt/brave.com/brave-origin-beta/brave"], text=True)
+    running_standard_sessions = False
+    for line in result.splitlines():
+        # ignore child processes (renderers, GPU, utility, etc.)
+        if " --type=" in line:
+            continue
+        # ignore your Distrobox Web Apps (--app=...)
+        if " --app=" in line:
+            continue
+        # real desktop brave process found!
+        running_standard_sessions = True
+        break
+
+    if running_standard_sessions:
+        print("Error: Standard Brave is currently running. Aborting to protect active session.")
+        sys.exit(1)
+    else:
+        print("No active standard Brave sessions found. Proceeding with headless configuration...")
 except subprocess.CalledProcessError:
-    pass # No active sessions found, safe to proceed!
+    # pgrep returns non-zero if no processes are found --> safe to proceed!
+    print("No active Brave sessions found. Proceeding with headless configuration...")
 
 
 # --- LOCK CLEANUP ---

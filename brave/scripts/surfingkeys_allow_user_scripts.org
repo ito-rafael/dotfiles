@@ -181,10 +181,25 @@ if is_user_scripts_enabled(profile_base, EXTENSION_ID):
 *** Button OFF, but Brave running
 #+begin_src python
 try:
-    # pgrep returns exit code 0 if it finds the process
-    subprocess.check_output(["pgrep", "brave"])
-    print("Error: Brave is currently running. Aborting to protect active session.")
-    sys.exit(1)  # exit with error
+    # get the full command line (-a) of all processes containing "brave" (-f)
+    result = subprocess.check_output(["pgrep", "-a", "-f", "[o]pt/brave.com/brave-origin-beta/brave"], text=True)
+    running_standard_sessions = False
+    for line in result.splitlines():
+        # ignore child processes (renderers, GPU, utility, etc.)
+        if " --type=" in line:
+            continue
+        # ignore your Distrobox Web Apps (--app=...)
+        if " --app=" in line:
+            continue
+        # real desktop brave process found!
+        running_standard_sessions = True
+        break
+
+    if running_standard_sessions:
+        print("Error: Standard Brave is currently running. Aborting to protect active session.")
+        sys.exit(1)
+    else:
+        print("No active standard Brave sessions found. Proceeding with headless configuration...")
 #+end_src
 *** Button OFF, no Brave process
 #+begin_src python
