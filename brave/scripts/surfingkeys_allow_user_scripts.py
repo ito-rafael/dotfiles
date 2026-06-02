@@ -86,9 +86,11 @@ BRAVE_VERSION = get_chromium_version_for_brave(BRAVE_BINARY_PATH)
 
 def is_user_scripts_enabled(profile_path, ext_id):
     """Safely checks the profile JSON without touching the browser process."""
+
+    target_profile_dir = os.path.join(profile_path, "Default")
     prefs_paths = [
-        os.path.join(profile_path, "Secure Preferences"),
-        os.path.join(profile_path, "Preferences")
+        os.path.join(target_profile_dir, "Secure Preferences"),
+        os.path.join(target_profile_dir, "Preferences")
     ]
     for path in prefs_paths:
         if os.path.exists(path):
@@ -96,9 +98,16 @@ def is_user_scripts_enabled(profile_path, ext_id):
                 with open(path, 'r', encoding='utf-8') as f:
                     data = json.load(f)
                 ext_settings = data.get("extensions", {}).get("settings", {}).get(ext_id, {})
+
+                # method 1: the direct Manifest V3 UI toggle boolean (primary)
+                if ext_settings.get("user_scripts_enabled") is True:
+                    return True
+
+                # method 2: the active permissions API list (fallback)
                 active_api = ext_settings.get("active_permissions", {}).get("api", [])
                 if "userScripts" in active_api:
                     return True
+
             except Exception:
                 pass
     return False
