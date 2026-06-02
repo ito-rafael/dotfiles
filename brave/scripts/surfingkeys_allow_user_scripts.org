@@ -22,6 +22,7 @@
   - [[#clear-locks][Clear locks]]
 - [[#automation][Automation]]
   - [[#get-toggle][Get toggle]]
+  - [[#polling][Polling]]
   - [[#enable-toggle][Enable toggle]]
   - [[#force-flush][Force flush]]
   - [[#eos][EoS]]
@@ -54,13 +55,15 @@ Before running this script, be sure there is no Brave process running.
 #+begin_src python
 EXTENSION_ID = "gfbliohnnapiefjpjlpjnehglfpaknnc"  # Surfingkeys
 
-# dynamically find the right Brave binary path based on what exists on the system
+# bypass the Linux bash wrappers and target the compiled binaries directly
 POSSIBLE_BINARIES = [
-    "/usr/bin/brave-origin",       # Debian
-    "/usr/bin/brave-origin-beta",  # Arch Linux
-    #"/usr/bin/brave",              # Fallback Stable
-    #"/usr/bin/brave-browser",      # Fallback Standard
-    #"/usr/bin/brave-beta",         # Fallback Beta
+    "/opt/brave.com/brave-origin-beta/brave",  # Arch Origin Beta
+    "/opt/brave.com/brave-origin/brave",       # Debian Origin
+    "/opt/brave.com/brave/brave",              # Standard Stable
+    "/usr/bin/brave-origin-beta",              # Bash Wrapper Fallbacks
+    "/usr/bin/brave-origin",
+    "/usr/bin/brave",
+    "/usr/bin/brave-browser"
 ]
 
 BRAVE_BINARY_PATH = next((path for path in POSSIBLE_BINARIES if os.path.exists(path)), None)
@@ -159,18 +162,25 @@ options = Options()
 options.binary_location = BRAVE_BINARY_PATH
 
 # cloaking flags (prevents Brave from isolating preference changes in an automation sandbox)
-options.add_experimental_option("excludeSwitches", ["enable-automation"])
+options.add_experimental_option("excludeSwitches", [
+    "enable-automation",
+    "disable-background-networking"
+])
 options.add_experimental_option('useAutomationExtension', False)
+
+# fix the crash bubble (trick Brave into thinking it closed safely)
+options.add_experimental_option("prefs", {
+    "profile.exit_type": "Normal",
+    "profile.exited_cleanly": True
+})
 
 # stability flags (required for launching UI head-on in Wayland/Sway environments)
 options.add_argument("--no-sandbox")
 options.add_argument("--disable-dev-shm-usage")
 options.add_argument("--disable-gpu")
-
-# headless mode (runs the full browser pipeline without a UI)
-#options.add_argument("--headless=new")
-# force X11 so Brave doesn't crash trying to use Wayland inside the Xvfb buffer
 options.add_argument("--ozone-platform=x11")
+options.add_argument("--disable-software-rasterizer")
+options.add_argument("--remote-allow-origins=*")
 
 # virtual geometry (even though it's headless, it needs a virtual canvas to "draw" the DOM, so our Javascript can find the toggle button coordinates)
 options.add_argument("--window-size=1920,1080")
@@ -181,11 +191,6 @@ options.add_argument("--profile-directory=Default")
 #+end_src
 * Cleanup
 ** Pre-flight check
-*** Button already ON
-#+begin_src python
-if is_user_scripts_enabled(profile_base, EXTENSION_ID):
-    print("Skipped: Already ON.")
-    sys.exit(0)  # exit cleanly
 #+end_src
 *** Button OFF, but Brave running
 #+begin_src python
@@ -193,13 +198,26 @@ try:
     # get the full command line (-a) of all processes containing "brave" (-f)
     result = subprocess.check_output(["pgrep", "-a", "-f", "[o]pt/brave.com/brave-origin-beta/brave"], text=True)
     running_standard_sessions = False
+
     for line in result.splitlines():
         # ignore child processes (renderers, GPU, utility, etc.)
         if " --type=" in line:
             continue
+
         # ignore your Distrobox Web Apps (--app=...)
         if " --app=" in line:
             continue
+
+        # kill Ansible burn-in zombie process, if any
+        if "--ansible-burn-in" in line:
+            try:
+                pid = line.split()[0]
+                subprocess.run(["kill", "-9", pid], check=False)
+                print(f"Terminated lingering background burn-in process (PID {pid}).")
+            except Exception:
+                pass
+            continue
+
         # real desktop brave process found!
         running_standard_sessions = True
         break
@@ -247,41 +265,72 @@ for lock in ["SingletonLock", "SingletonCookie", "SingletonSocket"]:
 driver_path = ChromeDriverManager(driver_version=BRAVE_VERSION).install()
 service = Service(driver_path)
 driver = webdriver.Chrome(service=service, options=options)
+target_url = f"brave://extensions/?id={EXTENSION_ID}"
 try:
-    driver.get(f"brave://extensions/?id={EXTENSION_ID}")
-    time.sleep(2) 
+    # driver.get is handled inside the polling loop now to ensure hydration
+    pass
 #+end_src
 ** Get toggle
 #+begin_src python
     # retrieve the nested toggle WebElement through Chromium's Web Components (Shadow DOM)
     js_get_element = """
     const manager = document.querySelector('extensions-manager');
-    if (!manager) return null;
+    if (!manager || !manager.shadowRoot) return null;
 
     const detailView = manager.shadowRoot.querySelector('extensions-detail-view');
-    if (!detailView) return null;
+    if (!detailView || !detailView.shadowRoot) return null;
 
-    const toggleContainer = detailView.shadowRoot.querySelector('#allow-user-scripts');
-    if (!toggleContainer) return null;
+    // Try to find the row by ID first, fallback to searching for the text label
+    let row = detailView.shadowRoot.querySelector('#allow-user-scripts');
+    if (!row) {
+        const rows = detailView.shadowRoot.querySelectorAll('extensions-toggle-row');
+        for (let r of rows) {
+            if (r.textContent.toLowerCase().includes('script')) {
+                row = r;
+                break;
+            }
+        }
+    }
+    if (!row) return null;
 
-    return toggleContainer.querySelector('cr-toggle') || toggleContainer;
+    // Return the wrapper so Python can read its 'checked' attribute
+    return row.querySelector('cr-toggle') || (row.shadowRoot && row.shadowRoot.querySelector('cr-toggle'));
     """
-
-    toggle_element = driver.execute_script(js_get_element)
+#+end_src
+** Polling
+#+begin_src python
+    toggle_element = None
+    print("Waiting for the Brave Extensions page to load...")
+    for i in range(30):
+        driver.get(target_url)
+        time.sleep(2)
+        toggle_element = driver.execute_script(js_get_element)
+        if toggle_element:
+            print("Extension details loaded successfully!")
+            break
+        print(f"Waiting for extension to download and install... (Attempt {i+1}/30)")
 #+end_src
 ** Enable toggle
 #+begin_src python
     if toggle_element is None:
         print("Error: Toggle element could not be found.")
-    else:
-        is_checked = toggle_element.get_attribute("checked")
+        sys.exit(1)
 
-        if is_checked is None or is_checked == "false":
-            # Perform a trusted hardware-level click so the browser allows the security change
-            toggle_element.click()
-            print("Success: Toggled ON.")
-        else:
-            print("Skipped: Already ON.")
+    # bypass Selenium attribute wrapper with pure Javascript
+    is_checked = driver.execute_script("return arguments[0].checked === true || arguments[0].getAttribute('aria-pressed') === 'true';", toggle_element)
+
+    if not is_checked:
+        # scroll the element into the exact center of the headless screen
+        driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", toggle_element)
+        time.sleep(0.5)
+
+        # use ActionChains to perform a trusted OS-level hardware click
+        from selenium.webdriver.common.action_chains import ActionChains
+        ActionChains(driver).move_to_element(toggle_element).click().perform()
+
+        print("Success: Toggled ON.")
+    else:
+        print("Skipped: Already ON.")
 #+end_src
 ** Force flush
 #+begin_src python
