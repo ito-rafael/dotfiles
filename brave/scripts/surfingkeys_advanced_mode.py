@@ -51,6 +51,9 @@ profile_base = next((path for path in POSSIBLE_PROFILES if os.path.exists(path))
 if not profile_base:
     raise FileNotFoundError("Critical: Could not locate the Brave profile directory.")
 
+# define the state marker file
+MARKER_FILE = os.path.join(profile_base, ".surfingkeys_advanced_mode_configured")
+
 def get_chromium_version_for_brave(binary_path):
     """Fetches the exact Chromium milestone required for the current Brave build."""
     try:
@@ -71,6 +74,11 @@ def get_chromium_version_for_brave(binary_path):
     except Exception as e:
         raise RuntimeError(f"Critical failure: Could not auto-detect or map Brave version. ({e})") from e
 
+# --- STATE MARKER PRE-FLIGHT CHECK ---
+if os.path.exists(MARKER_FILE):
+    # If the receipt exists, we already did the hard work. Skip everything!
+    print("Skipped: Already ON (Verified by state marker).")
+    sys.exit(0)
 
 # --- ACTIVE SESSION SAFETY CHECK ---
 try:
@@ -158,14 +166,21 @@ try:
         sys.exit(1)
     
     # 3. Idempotent action: Use pure Javascript to read the true DOM property
-    # This completely bypasses Selenium's flaky .is_selected() wrapper!
     is_checked = driver.execute_script("return arguments[0].checked;", toggle_checkbox)
     
     if not is_checked:
-        # Use Javascript to execute a trusted click directly on the element
         driver.execute_script("arguments[0].click();", toggle_checkbox)
+
+        # Write the receipt to disk so we never have to run Selenium for this again!
+        with open(MARKER_FILE, 'w') as f:
+            f.write(f"Advanced Mode configured via Ansible on {time.ctime()}\n")
+
         print("Success: Toggled ON.")
     else:
+        # If it was already on (maybe you clicked it manually), write the receipt anyway
+        with open(MARKER_FILE, 'w') as f:
+            f.write(f"Advanced Mode verified via Ansible on {time.ctime()}\n")
+
         print("Skipped: Already ON.")
 
     # 4. Force a disk flush to save extension settings locally
