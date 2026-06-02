@@ -1,7 +1,7 @@
 #+TITLE: Enable "Allow User Scripts" option in Brave extensions
 #+AUTHOR: Rafael Ito
 #+PROPERTY: header-args :shebang "#!/usr/bin/env python3"
-#+PROPERTY: header-args:python :tangle surfingkeys_allow_user_scripts.py :tangle-mode (identity #o744)
+#+PROPERTY: header-args:python :tangle surfingkeys_allow_user_scripts.py :tangle-mode (identity #o740)
 #+DESCRIPTION: Brave browser extensions automations
 #+STARTUP: showeverything
 #+AUTO_TANGLE: t
