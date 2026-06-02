@@ -156,20 +156,40 @@ driver = webdriver.Chrome(service=service, options=options)
 
 # --- AUTOMATION EXECUTION ---
 try:
-    # 1. NAVIGATE TO EXTENSION SETTINGS
     options_url = f"chrome-extension://{EXTENSION_ID}/pages/options.html"
-    driver.get(options_url)
+
+    # 1. POLLING LOOP WITH HYDRATION WAIT
+    print("Waiting for the Surfingkeys extension to load...")
+    path_input = None
+    for i in range(30):
+        driver.get(options_url)
+        time.sleep(3) # Give LevelDB time to hydrate the DOM
+
+        try:
+            path_input = driver.find_element(By.ID, "localPath")
+            print("Extension loaded successfully!")
+            break
+        except:
+            print(f"Still unpacking... (Attempt {i+1}/30)")
+
+    if not path_input:
+        print("Error: Surfingkeys never installed or loaded.")
+        sys.exit(1)
+
     wait = WebDriverWait(driver, 10)
 
-    # 2. ENSURE ADVANCED MODE IS ON
+    # 2. ENSURE ADVANCED MODE IS ACTIVE (Requires pure JS check)
     print("Ensuring Advanced Mode is active...")
     advanced_toggle = wait.until(EC.presence_of_element_located((By.ID, "advancedToggler")))
-    if not advanced_toggle.is_selected():
+
+    # Bypass Selenium's flaky .is_selected() wrapper!
+    is_advanced = driver.execute_script("return arguments[0].checked;", advanced_toggle)
+
+    if not is_advanced:
         driver.execute_script("arguments[0].click();", advanced_toggle)
         time.sleep(1)
 
     # 3. IDEMPOTENT CHECK FOR URL
-    path_input = wait.until(EC.presence_of_element_located((By.ID, "localPath")))
     current_val = path_input.get_attribute("value")
     
     if current_val == DOTFILES_URL:
@@ -200,7 +220,11 @@ try:
         
         # EXPLICITLY CLICK SAVE
         print("Saving configuration...")
-        save_button = wait.until(EC.element_to_be_clickable((By.ID, "save_button")))
+        # 1. Give the Javascript framework 1 second to process the URL we just injected
+        time.sleep(1)
+        # 2. Use PRESENCE, not clickable!
+        save_button = wait.until(EC.presence_of_element_located((By.ID, "save_button")))
+        # 3. Force the click via Javascript
         driver.execute_script("arguments[0].click();", save_button)
         
         # Write the receipt so we skip Selenium next time
