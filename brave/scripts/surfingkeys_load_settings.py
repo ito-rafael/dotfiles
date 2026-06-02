@@ -89,9 +89,21 @@ try:
         # ignore child processes (renderers, GPU, utility, etc.)
         if " --type=" in line:
             continue
+
         # ignore your Distrobox Web Apps (--app=...)
         if " --app=" in line:
             continue
+
+        # kill Ansible burn-in zombie process, if any
+        if "--ansible-burn-in" in line:
+            try:
+                pid = line.split()[0]
+                subprocess.run(["kill", "-9", pid], check=False)
+                print(f"Terminated lingering background burn-in process (PID {pid}).")
+            except Exception:
+                pass
+            continue
+
         # real desktop brave process found!
         running_standard_sessions = True
         break
