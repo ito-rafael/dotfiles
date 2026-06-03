@@ -58,6 +58,7 @@
 window#waybar {
     background-color: rgba(43, 48, 59, 0.5);
     border-bottom: 3px solid rgba(100, 114, 125, 0.5);
+    border-radius: 100px;
     color: #ffffff;
     transition-property: background-color;
     transition-duration: .5s;
@@ -106,14 +107,13 @@ window#waybar.chromium {
 #+begin_src css
 #workspaces,
 #keyboard,
-#sysadmin {
+#sysadmin,
+#toggle {
     margin-right: 5px;
 }
 #+end_src
 *** Right side
 #+begin_src css
-#workspaces,
-#toggle,
 #monitoring,
 #control,
 #battery,
@@ -123,14 +123,14 @@ window#waybar.chromium {
 #+end_src
 * Modules :noexport_1:
 ** Left
-If workspaces is the leftmost module, omit left margin
+If workspaces is the leftmost module, omit left margin.
 #+begin_src css
 .modules-left > widget:first-child > #workspaces {
-    margin-left: 5px;
+    margin-left: 0;
 }
 #+end_src
 ** Right
-If workspaces is the rightmost module, omit right margin
+If workspaces is the rightmost module, omit right margin.
 #+begin_src css
 .modules-right > widget:last-child > #workspaces {
     margin-right: 0;
@@ -1740,7 +1740,7 @@ box#datetime {
     border-radius: 10px;
     padding-right: 5px;
     padding-left: 5px;
-    margin-right: 5px;
+    margin-right: 0;
 }
 #+end_src
 ** Passive
