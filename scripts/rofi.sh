@@ -13,17 +13,15 @@ case "${XDG_SESSION_TYPE}" in
     "x11")
         FOCUSED_OUTPUT=$(i3-msg -t get_workspaces | jq '.[] | select(.focused).output')
         WM_CMD="i3-msg"
-        RESOLUTION=$(i3-msg -t get_outputs | jq -r '.[] | select(.name=='"$FOCUSED_OUTPUT"')')
-        RES_WIDTH=$(echo $RESOLUTION | jq '.rect.width')
-        RES_HEIGHT=$(echo $RESOLUTION | jq '.rect.height')
-        OUTPUT_SCALE=1.0  # to be implemented
+        RESOLUTION=$(i3-msg -t get_workspaces | jq -r '.[] | select(.name=='"$FOCUSED_OUTPUT"')')
+        WIDTH=$(echo $RESOLUTION | jq '.rect.width')
+        HEIGHT=$(echo $RESOLUTION | jq '.rect.height')
         ;;
     "wayland")
         WM_CMD="swaymsg"
-        RESOLUTION=$(swaymsg -t get_outputs | jq '.[] | select(.focused==true).rect')
-        RES_WIDTH=$(echo $RESOLUTION | jq '.width')
-        RES_HEIGHT=$(echo $RESOLUTION | jq '.height')
-        OUTPUT_SCALE=$(swaymsg -t get_outputs | jq '.[] | select(.focused==true).scale')
+        RESOLUTION=$(swaymsg -t get_workspaces | jq '.[] | select(.focused==true).rect')
+        WIDTH=$(echo $RESOLUTION | jq '.width')
+        HEIGHT=$(echo $RESOLUTION | jq '.height')
         ;;
     "tty")
         exit 1
@@ -42,8 +40,6 @@ PROPORTION=${2-3.75}
 #=======================================
 # calc height & width (as int) according to the output scale
 #=======================================
-WIDTH=$(echo "$RES_WIDTH / $OUTPUT_SCALE" | bc)
-HEIGHT=$(echo "$RES_HEIGHT / $OUTPUT_SCALE" | bc)
 PAD_W=$(echo "$WIDTH / $PROPORTION" | bc)
 PAD_H=$(echo "$HEIGHT / $PROPORTION" | bc)
 
