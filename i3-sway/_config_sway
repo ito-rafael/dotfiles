@@ -186,8 +186,10 @@ bindsym mod1+h split toggle
 bindsym mod1+$mod+e layout toggle stacked tabbed
 #bindsym mod1+$mod+f fullscreen toggle
 #bindsym Shift+mod1+$mod+f fullscreen toggle
-bindsym mod1+$mod+f exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh fullscreen
-bindsym Shift+mod1+$mod+f fullscreen toggle
+#bindsym mod1+$mod+f exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh fullscreen
+#bindsym Shift+mod1+$mod+f fullscreen toggle
+bindsym $mod+f exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh fullscreen  # SwayFX bug
+bindsym Shift+$mod+f fullscreen toggle                                    # SwayFX bug
 bindsym $mod+b floating toggle
 #bindsym mod1+$mod+q exec $SCRIPT_PATH/hide-or-kill.sh
 #bindsym shift+mod1+$mod+q exec $SCRIPT_PATH/kill-window.sh
