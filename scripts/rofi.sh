@@ -13,13 +13,13 @@ case "${XDG_SESSION_TYPE}" in
     "x11")
         FOCUSED_OUTPUT=$(i3-msg -t get_workspaces | jq '.[] | select(.focused).output')
         WM_CMD="i3-msg"
-        RESOLUTION=$(i3-msg -t get_workspaces | jq -r '.[] | select(.name=='"$FOCUSED_OUTPUT"')')
+        RESOLUTION=$(i3-msg -t get_outputs | jq -r '.[] | select(.name=='"$FOCUSED_OUTPUT"')')
         WIDTH=$(echo $RESOLUTION | jq '.rect.width')
         HEIGHT=$(echo $RESOLUTION | jq '.rect.height')
         ;;
     "wayland")
         WM_CMD="swaymsg"
-        RESOLUTION=$(swaymsg -t get_workspaces | jq '.[] | select(.focused==true).rect')
+        RESOLUTION=$(swaymsg -t get_outputs | jq '.[] | select(.focused==true).rect')
         WIDTH=$(echo $RESOLUTION | jq '.width')
         HEIGHT=$(echo $RESOLUTION | jq '.height')
         ;;
@@ -48,8 +48,8 @@ PAD_H=$(echo "$HEIGHT / $PROPORTION" | bc)
 #=======================================
 if [ $WIN_WIDTH -gt $WIN_HEIGHT ]; then
     # horizontal monitor
-    rofi -show $CMD -monitor $FOCUSED_OUTPUT -theme-str 'window {width: '$WIDTH'; height: '$HEIGHT'; padding: '$PAD_H' '$PAD_W';}'
+    rofi -show $CMD -monitor $FOCUSED_OUTPUT -theme-str 'window {fullscreen: true; width: '$WIDTH'px; height: '$HEIGHT'px; padding: '$PAD_H'px '$PAD_W'px;}'
 else
     # vertical monitor
-    rofi -show $CMD -monitor $FOCUSED_OUTPUT -theme-str 'window {width: '$WIDTH'; height: '$HEIGHT'; padding: '$PAD_H' '$PAD_W';}'
+    rofi -show $CMD -monitor $FOCUSED_OUTPUT -theme-str 'window {fullscreen: true; width: '$WIDTH'px; height: '$HEIGHT'px; padding: '$PAD_H'px '$PAD_W'px;}'
 fi
