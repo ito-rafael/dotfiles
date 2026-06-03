@@ -770,8 +770,10 @@ Kill focused window, unless it's a scratchpad. Check the [[https://github.com/it
 #+begin_src conf :noweb-ref window-settings
 #bindsym mod1+$mod+q exec $SCRIPT_PATH/hide-or-kill.sh
 #bindsym shift+mod1+$mod+q exec $SCRIPT_PATH/kill-window.sh
-bindsym mod1+$mod+q exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh kill
-bindsym shift+mod1+$mod+q exec $SCRIPT_PATH/kill-window.sh
+#bindsym mod1+$mod+q exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh kill
+#bindsym shift+mod1+$mod+q exec $SCRIPT_PATH/kill-window.sh
+bindsym $mod+q exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh kill  # SwayFX bug
+bindsym shift+$mod+q exec $SCRIPT_PATH/kill-window.sh               # SwayFX bug
 #+end_src
 ** Tangle :noexport:
 *** i3

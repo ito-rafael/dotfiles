@@ -193,8 +193,10 @@ bindsym Shift+$mod+f fullscreen toggle                                    # Sway
 bindsym $mod+b floating toggle
 #bindsym mod1+$mod+q exec $SCRIPT_PATH/hide-or-kill.sh
 #bindsym shift+mod1+$mod+q exec $SCRIPT_PATH/kill-window.sh
-bindsym mod1+$mod+q exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh kill
-bindsym shift+mod1+$mod+q exec $SCRIPT_PATH/kill-window.sh
+#bindsym mod1+$mod+q exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh kill
+#bindsym shift+mod1+$mod+q exec $SCRIPT_PATH/kill-window.sh
+bindsym $mod+q exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh kill  # SwayFX bug
+bindsym shift+$mod+q exec $SCRIPT_PATH/kill-window.sh               # SwayFX bug
 
 bindsym mod1+$mod+c exec ~/.config/sway/i3bang.rb; reload
 bindsym mod1+$mod+x exec "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit Sway? This will end your session.' -B 'Yes, exit Sway' 'swaymsg exit'"
