@@ -21,13 +21,13 @@ update_state() {
     # output JSON based on the count and focus state
     if [[ -z "$count" || "$count" -eq 0 ]]; then
         # no Xwayland windows running
-        echo '{"text": "", "class": "empty", "tooltip": ""}'
+        echo '{"text": "", "class": "empty", "tooltip": ""}' || exit 0
     elif [[ "$focused_shell" == "xwayland" ]]; then
         # Xwayland windows exist and one is currently focused
-        echo "{\"text\": \"$count\", \"class\": \"focused\", \"tooltip\": \"Focused window is Xwayland.\\nTotal Xwayland windows: $count\"}"
+        echo "{\"text\": \"$count\", \"class\": \"focused\", \"tooltip\": \"Focused window is Xwayland.\\nTotal Xwayland windows: $count\"}" || exit 0
     else
         # Xwayland windows exist, but a native Wayland window is currently focused
-        echo "{\"text\": \"$count\", \"class\": \"background\", \"tooltip\": \"Native Wayland window focused.\\nTotal Xwayland windows: $count\"}"
+        echo "{\"text\": \"$count\", \"class\": \"background\", \"tooltip\": \"Native Wayland window focused.\\nTotal Xwayland windows: $count\"}" || exit 0
     fi
 }
 
