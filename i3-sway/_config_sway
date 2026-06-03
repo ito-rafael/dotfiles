@@ -46,6 +46,9 @@ input "9011:26214:ydotoold_virtual_device" {
 exec echo 1 > /tmp/mouse_warping.tmp
 mouse_warping container
 
+animation_duration_ms 250  # enable smooth window animations
+corner_radius 10
+
 set $laptop    eDP-1
 set $primary   HDMI-A-1
 #set $secondary HDMI3

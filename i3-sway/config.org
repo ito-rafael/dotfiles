@@ -9,6 +9,7 @@
 - [[#documentation][Documentation]]
 - [[#general-config][General config]]
 - [[#sway][Sway]]
+- [[#swayfx][SwayFX]]
 - [[#outputs][Outputs]]
 - [[#workspaces-definition][Workspaces definition]]
 - [[#i3bang-raw-section-beginning][i3bang: raw section (beginning)]]
@@ -242,6 +243,15 @@ input "9011:26214:ydotoold_virtual_device" {
 #+begin_src conf :noweb yes :tangle _config_sway
 <<sway-input>>
 <<sway-mouse-warping>>
+#+end_src
+* SwayFX
+#+begin_src conf :noweb-ref swayfx
+animation_duration_ms 250  # enable smooth window animations
+corner_radius 10
+#+end_src
+** Tangle
+#+begin_src conf :noweb yes :tangle _config_sway
+<<swayfx>>
 #+end_src
 * Outputs
 ** Default Scenario
