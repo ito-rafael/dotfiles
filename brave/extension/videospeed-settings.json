@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 1,
+  "lastSpeed": null,
+  "enabled": true,
+  "rememberSpeed": false,
+  "exclusiveKeys": false,
+  "audioBoolean": true,
+  "startHidden": false,
+  "controllerOpacity": 0.3,
+  "controllerButtonSize": 14,
+  "customCSS": "",
+  "keyBindings": [
+    {
+      "action": "slower",
+      "code": "BracketLeft",
+      "displayKey": "[",
+      "key": 219,
+      "keyCode": 219,
+      "modifiers": {
+        "shift": true,
+        "ctrl": false,
+        "alt": false,
+        "meta": false
+      },
+      "predefined": true,
+      "value": 0.25
+    },
+    {
+      "action": "faster",
+      "code": "BracketRight",
+      "displayKey": "]",
+      "key": 221,
+      "keyCode": 221,
+      "modifiers": {
+        "shift": true,
+        "ctrl": false,
+        "alt": false,
+        "meta": false
+      },
+      "predefined": true,
+      "value": 0.25
+    },
+    {
+      "action": "rewind",
+      "code": null,
+      "displayKey": null,
+      "key": null,
+      "keyCode": null,
+      "predefined": true,
+      "value": 5
+    },
+    {
+      "action": "advance",
+      "code": "KeyX",
+      "displayKey": "x",
+      "key": 88,
+      "keyCode": 88,
+      "predefined": true,
+      "value": 5
+    },
+    {
+      "action": "reset",
+      "code": "KeyU",
+      "displayKey": "u",
+      "key": 85,
+      "keyCode": 85,
+      "predefined": true,
+      "value": 1
+    },
+    {
+      "action": "fast",
+      "code": "Minus",
+      "displayKey": "-",
+      "key": 189,
+      "keyCode": 189,
+      "predefined": true,
+      "value": 0.75
+    },
+    {
+      "action": "display",
+      "code": "KeyV",
+      "displayKey": "v",
+      "key": 86,
+      "keyCode": 86,
+      "predefined": true,
+      "value": 0
+    },
+    {
+      "action": "mark",
+      "code": "KeyM",
+      "displayKey": "m",
+      "key": 77,
+      "keyCode": 77,
+      "predefined": true,
+      "value": 0
+    },
+    {
+      "action": "jump",
+      "code": "KeyJ",
+      "displayKey": "j",
+      "key": 74,
+      "keyCode": 74,
+      "predefined": true,
+      "value": 0
+    },
+    {
+      "action": "fast",
+      "code": "Backslash",
+      "displayKey": "\\",
+      "key": 220,
+      "keyCode": 220,
+      "predefined": false,
+      "value": 1.5
+    },
+    {
+      "action": "fast",
+      "code": "KeyH",
+      "displayKey": "h",
+      "key": 72,
+      "keyCode": 72,
+      "predefined": false,
+      "value": 2
+    },
+    {
+      "action": "fast",
+      "code": "KeyA",
+      "displayKey": "a",
+      "key": 65,
+      "keyCode": 65,
+      "predefined": false,
+      "value": 3
+    }
+  ],
+  "siteRules": [
+    {
+      "enabled": false,
+      "pattern": "https://music.youtube.com/",
+      "speed": null
+    }
+  ],
+  "blacklist": "www.instagram.com\nimgur.com\nteams.microsoft.com\nmeet.google.com",
+  "defaultLogLevel": 4,
+  "logLevel": 3
+}
