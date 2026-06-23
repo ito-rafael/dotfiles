@@ -348,7 +348,7 @@
     "interval": 3600,
     "return-type": "json",
     "format": "{}",
-    "on-click": "kitty -e informant read"
+    "on-click": "kitty --class informant-news -o include=/home/rafael/.config/kitty/themes/midnight_press.conf --hold -e informant read"
 },
 
 "group/toggle": {
