@@ -5,7 +5,7 @@ update_state() {
     # check if the unit exists (exit code = 4; message "Unit kanata.service could not be found.")
     if ! systemctl --user status kanata.service >/dev/null 2>&1; then
         if systemctl --user status kanata.service 2>&1 | grep -q "could not be found"; then
-             echo '{"text": "", "class": "missing", "tooltip": "kanata.service not found on this host"}'
+             echo '{"text": "", "class": "missing", "tooltip": "kanata.service not found on this host"}' || exit 0
              return
         fi
     fi
@@ -13,10 +13,10 @@ update_state() {
     # if it exists, check if it is active or inactive
     if systemctl --user is-active --quiet kanata; then
         # service active
-        echo '{"text": " ", "class": "active", "tooltip": "kanata is running"}'
+        echo '{"text": " ", "class": "active", "tooltip": "kanata is running"}' || exit 0
     else
         # service inactive
-        echo '{"text": " ", "class": "inactive", "tooltip": "kanata is stopped"}'
+        echo '{"text": " ", "class": "inactive", "tooltip": "kanata is stopped"}' || exit 0
     fi
 }
 
