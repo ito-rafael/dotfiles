@@ -1309,7 +1309,8 @@ set $messenger swaymsg exit
 **** Mode
 Obs: the -i argument for systemctl poweroff causes a shutdown even if other users are logged-in (this requires polkit), or when logind (wrongly) assumes so.
 #+begin_src conf :noweb-ref sway-mode-system
-set $mode_system System: (s)hutdown, (r)eboot, (l)ock, (S)uspend, (h)ibernate, (e)xit/logout
+#set $mode_system System: (s)hutdown, (r)eboot, (l)ock, (S)uspend, (h)ibernate, (e)xit/logout
+set $mode_system Power
 #-----------------------------
 mode "$mode_system" {
     bindsym l       exec --no-startup-id $locker,                         mode "default"

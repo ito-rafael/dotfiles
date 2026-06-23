@@ -360,7 +360,8 @@ bindsym mod1+$mod+Down exec "\
 
 set $locker $XDG_CONFIG_HOME/hypr/lock-screen.sh
 set $messenger swaymsg exit
-set $mode_system System: (s)hutdown, (r)eboot, (l)ock, (S)uspend, (h)ibernate, (e)xit/logout
+#set $mode_system System: (s)hutdown, (r)eboot, (l)ock, (S)uspend, (h)ibernate, (e)xit/logout
+set $mode_system Power
 #-----------------------------
 mode "$mode_system" {
     bindsym l       exec --no-startup-id $locker,                         mode "default"
