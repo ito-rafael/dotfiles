@@ -7,6 +7,8 @@
 
 * Table of contents :toc_3:
 - [[#init][Init]]
+- [[#extensions][Extensions]]
+  - [[#dark-reader][Dark Reader]]
 - [[#eos][EoS]]
 
 * Init :noexport_1:
@@ -18,11 +20,36 @@
 ** Pacman
 #+begin_src json
 "DisableAppUpdate": true,
-"DefaultSerialGuardSetting": 3
+"DefaultSerialGuardSetting": 3,
+#+end_src
+* Extensions
+** Header :noexport_0:
+*** Template
+#+name: install
+#+begin_src elisp :var pin=0 comma=1 extension_id="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" slug="default-slug" :results output :tangle no
+(princ (format "\"%s\": {\n" extension_id))
+(when (= pin 1)
+  (princ "  \"toolbar_pin\": \"force_pinned\",\n"))
+(princ "  \"installation_mode\": \"normal_installed\",\n")
+(princ (format "  \"install_url\": \"https://addons.mozilla.org/firefox/downloads/latest/%s/latest.xpi\"\n" slug))
+(if (= comma 1)
+    (princ "},\n")
+  (princ "}\n"))
+#+end_src
+*** ExtensionSettings
+#+begin_src json
+    "ExtensionSettings": {
+#+end_src
+** Dark Reader
+- link: https://addons.mozilla.org/en-US/firefox/addon/darkreader/
+- description: dark mode everywhere.
+#+begin_src json :noweb yes
+<<install(extension_id="addon@darkreader.org", slug="darkreader", pin=0, comma=1)>>
 #+end_src
 * EoS
 Don't forget to remove the trailing comma on the previous block of JSON code (last extension)
 #+begin_src json
+    }
   }
 }
 #+end_src
