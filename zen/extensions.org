@@ -1,0 +1,28 @@
+#+TITLE: Zen Browser Add-ons
+#+AUTHOR: Rafael Ito
+#+PROPERTY: header-args :padline no :tangle policies.json
+#+DESCRIPTION: config file to automate the installation of Zen Browser add-ons
+#+STARTUP: showeverything
+#+auto_tangle: t
+
+* Table of contents :toc_3:
+- [[#init][Init]]
+- [[#eos][EoS]]
+
+* Init :noexport_1:
+** Header
+#+begin_src json
+{
+  "policies": {
+#+end_src
+** Pacman
+#+begin_src json
+"DisableAppUpdate": true,
+"DefaultSerialGuardSetting": 3
+#+end_src
+* EoS
+Don't forget to remove the trailing comma on the previous block of JSON code (last extension)
+#+begin_src json
+  }
+}
+#+end_src
