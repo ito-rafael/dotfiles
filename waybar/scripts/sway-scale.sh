@@ -7,12 +7,12 @@ SCALE_DEFAULT="1.0"
 print_scale() {
     SCALE=$(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .scale')
     CURRENT_SCALE=$(swaymsg -t get_outputs | jq -r '.[0].scale')
-    
+
     IS_DEFAULT=$(echo "$CURRENT_SCALE == $SCALE_DEFAULT" | bc -l)
     if [ "$IS_DEFAULT" -eq 1 ]; then
-        echo '{"text": "", "alt": "default", "class": "default"}'
+        echo '{"text": "", "alt": "default", "class": "default"}' || exit 0
     else
-        echo '{"text": "'$CURRENT_SCALE'", "alt": "zoom", "class": "zoom"}'
+        echo '{"text": "'$CURRENT_SCALE'", "alt": "zoom", "class": "zoom"}' || exit 0
     fi
 }
 
