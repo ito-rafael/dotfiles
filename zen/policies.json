@@ -5,6 +5,7 @@
     "Preferences": {
       "zen.welcome-screen.seen": true,
       "browser.aboutwelcome.enabled": false,
+      "browser.translations.neverTranslateLanguages": "en,pt,pt-BR,pt-PT"
     },
     "ExtensionSettings": {
       "addon@darkreader.org": {

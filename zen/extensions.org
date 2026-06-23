@@ -32,6 +32,10 @@
 "zen.welcome-screen.seen": true,
 "browser.aboutwelcome.enabled": false,
 #+end_src
+*** Translations
+#+begin_src json
+"browser.translations.neverTranslateLanguages": "en,pt,pt-BR,pt-PT"
+#+end_src
 *** EoS
 #+begin_src json
 },
