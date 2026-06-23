@@ -47,7 +47,7 @@ exec echo 1 > /tmp/mouse_warping.tmp
 mouse_warping container
 
 animation_duration_ms 250  # enable smooth window animations
-corner_radius 10
+corner_radius 20
 
 set $laptop    eDP-1
 set $primary   HDMI-A-1

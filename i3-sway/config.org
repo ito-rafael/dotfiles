@@ -247,7 +247,7 @@ input "9011:26214:ydotoold_virtual_device" {
 * SwayFX
 #+begin_src conf :noweb-ref swayfx
 animation_duration_ms 250  # enable smooth window animations
-corner_radius 10
+corner_radius 20
 #+end_src
 ** Tangle
 #+begin_src conf :noweb yes :tangle _config_sway
