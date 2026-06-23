@@ -2,6 +2,10 @@
   "policies": {
     "DisableAppUpdate": true,
     "DefaultSerialGuardSetting": 3,
+    "Preferences": {
+      "zen.welcome-screen.seen": true,
+      "browser.aboutwelcome.enabled": false,
+    },
     "ExtensionSettings": {
       "addon@darkreader.org": {
         "installation_mode": "normal_installed",

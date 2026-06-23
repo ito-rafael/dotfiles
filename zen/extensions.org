@@ -23,6 +23,19 @@
 "DisableAppUpdate": true,
 "DefaultSerialGuardSetting": 3,
 #+end_src
+** Preferences
+#+begin_src json
+"Preferences": {
+#+end_src
+*** Welcome message
+#+begin_src json
+"zen.welcome-screen.seen": true,
+"browser.aboutwelcome.enabled": false,
+#+end_src
+*** EoS
+#+begin_src json
+},
+#+end_src
 * Extensions
 ** Header :noexport_0:
 *** Template
