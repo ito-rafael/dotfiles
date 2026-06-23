@@ -99,7 +99,9 @@ window#waybar.chromium {
 #+begin_src css
 #mode {
     background-color: #64727D;
-    border-bottom: 3px solid #ffffff;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 #+end_src
 ** Groups

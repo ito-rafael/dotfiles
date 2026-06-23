@@ -37,7 +37,9 @@ window#waybar.chromium {
 
 #mode {
     background-color: #64727D;
-    border-bottom: 3px solid #ffffff;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 #workspaces,
