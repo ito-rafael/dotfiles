@@ -1223,6 +1223,11 @@ box#datetime {
     color: gray;
 }
 
+#mpris:hover {
+    background-color: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+
 #mpd {
     background-color: #66cc99;
     color: #2a5c45;
