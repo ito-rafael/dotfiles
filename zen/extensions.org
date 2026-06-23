@@ -40,6 +40,10 @@
 #+begin_src json
 },
 #+end_src
+** Default browser
+#+begin_src json
+"DontCheckDefaultBrowser": true,
+#+end_src
 * Extensions
 ** Header :noexport_0:
 *** Template

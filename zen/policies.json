@@ -7,6 +7,7 @@
       "browser.aboutwelcome.enabled": false,
       "browser.translations.neverTranslateLanguages": "en,pt,pt-BR,pt-PT"
     },
+    "DontCheckDefaultBrowser": true,
     "ExtensionSettings": {
       "addon@darkreader.org": {
         "installation_mode": "normal_installed",
