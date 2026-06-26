@@ -9,6 +9,7 @@
 - [[#init][Init]]
 - [[#extensions][Extensions]]
   - [[#dark-reader][Dark Reader]]
+  - [[#floccus][floccus]]
   - [[#video-speed-controller][Video Speed Controller]]
 - [[#eos][EoS]]
 
@@ -67,6 +68,12 @@
 - description: dark mode everywhere.
 #+begin_src json :noweb yes
 <<install(extension_id="addon@darkreader.org", slug="darkreader", pin=0, comma=1)>>
+#+end_src
+** floccus
+- link: https://addons.mozilla.org/en-US/firefox/addon/floccus/
+- description: dark mode everywhere.
+#+begin_src json :noweb yes
+<<install(extension_id="floccus@handmadeideas.org", slug="floccus", pin=0, comma=1)>>
 #+end_src
 ** Video Speed Controller
 - link: https://addons.mozilla.org/en-US/firefox/addon/videospeed/
