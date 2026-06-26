@@ -12,6 +12,8 @@
   - [[#academic-unicamp][Academic (Unicamp)]]
   - [[#promotional][Promotional]]
   - [[#personal-2-outlook][Personal #2 (Outlook)]]
+- [[#other-configs][Other configs]]
+  - [[#view][View]]
 
 * Information
 #+begin_src txt :tangle no
@@ -131,4 +133,12 @@ user_pref("mail.smtpserver.smtp4.username", "{{ email_personal_outlook }}");
 user_pref("mail.smtpserver.smtp4.port", 587);
 user_pref("mail.smtpserver.smtp4.authMethod", 10);
 user_pref("mail.smtpserver.smtp4.try_ssl", 2);
+#+end_src
+* Other configs
+** View
+*** Layout
+- 0: Classic
+- 1: Wide (needed to trigger Table View generation)
+#+begin_src js
+user_pref("mail.pane_config.dynamic", 0);
 #+end_src
