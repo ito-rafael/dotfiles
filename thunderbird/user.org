@@ -1,0 +1,22 @@
+#+TITLE: Thunderbird user.js config
+#+AUTHOR: Rafael Ito
+#+PROPERTY: header-args :tangle user.js.j2
+#+DESCRIPTION: config file for Thunderbird
+#+STARTUP: showeverything
+#+auto_tangle: t
+
+* Table of Contents :toc:
+- [[#information][Information]]
+
+* Information
+#+begin_src txt :tangle no
+/**
+ * Thunderbird dotfile configuration
+ * Path: ~/.thunderbird/[profile]/user.js
+ **/
+#+end_src
+
+- Incoming emails are handled using the =IMAP= protocol.
+  - socketType: 3, SSL/TLS
+  - authMethod: 10, OAuth2
+- Outgoing emails are handled using the =SMTP= protocol.
