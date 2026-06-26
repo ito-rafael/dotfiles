@@ -10,6 +10,7 @@
 - [[#extensions][Extensions]]
   - [[#dark-reader][Dark Reader]]
   - [[#floccus][floccus]]
+  - [[#surfingkeys][Surfingkeys]]
   - [[#video-speed-controller][Video Speed Controller]]
 - [[#eos][EoS]]
 
@@ -74,6 +75,12 @@
 - description: dark mode everywhere.
 #+begin_src json :noweb yes
 <<install(extension_id="floccus@handmadeideas.org", slug="floccus", pin=0, comma=1)>>
+#+end_src
+** Surfingkeys
+- link: https://addons.mozilla.org/en-US/firefox/addon/surfingkeys_ff/
+- description: vim-like navigation.
+#+begin_src json :noweb yes
+<<install(extension_id="{a8332c60-5b6d-41ee-bfc8-e9bb331d34ad}", slug="surfingkeys_ff", pin=1, comma=1)>>
 #+end_src
 ** Video Speed Controller
 - link: https://addons.mozilla.org/en-US/firefox/addon/videospeed/

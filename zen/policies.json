@@ -17,6 +17,11 @@
         "installation_mode": "normal_installed",
         "install_url": "https://addons.mozilla.org/firefox/downloads/latest/floccus/latest.xpi"
       },
+      "{a8332c60-5b6d-41ee-bfc8-e9bb331d34ad}": {
+        "toolbar_pin": "force_pinned",
+        "installation_mode": "normal_installed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/surfingkeys_ff/latest.xpi"
+      },
       "{7be2ba16-0f1e-4d93-9ebc-5164397477a9}": {
         "toolbar_pin": "force_pinned",
         "installation_mode": "normal_installed",
