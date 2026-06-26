@@ -178,3 +178,12 @@ Force the underlying system engine to render as Dark Theme.
 #+begin_src js
 user_pref("ui.systemUsesDarkTheme", 1);
 #+end_src
+*** CSS color scheme
+Force the preferred color scheme for web content and emails to Dark.
+  - 0: Dark
+  - 1: Light
+  - 2: System
+  - 3: Browser
+#+begin_src js
+user_pref("layout.css.prefers-color-scheme.content-override", 0);
+#+end_src
