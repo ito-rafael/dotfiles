@@ -39,3 +39,22 @@ user_pref("mail.smtpserver.smtp2.username", "{{ email_academic_unicamp }}");
 user_pref("mail.smtpserver.smtp2.port", 465);
 user_pref("mail.smtpserver.smtp2.try_ssl", 3);
 user_pref("mail.smtpserver.smtp2.authMethod", 10);
+
+user_pref("mail.account.account3.identities", "id3");
+user_pref("mail.account.account3.server", "server3");
+user_pref("mail.identity.id3.fullName", "Rafael Ito (Promo)");
+user_pref("mail.identity.id3.useremail", "{{ email_personal_promotional }}");
+user_pref("mail.identity.id3.smtpServer", "smtp3");
+
+user_pref("mail.server.server3.hostname", "imap.gmail.com");
+user_pref("mail.server.server3.userName", "{{ email_personal_promotional }}");
+user_pref("mail.server.server3.type", "imap");
+user_pref("mail.server.server3.port", 993);
+user_pref("mail.server.server3.socketType", 3);
+user_pref("mail.server.server3.authMethod", 10);
+
+user_pref("mail.smtpserver.smtp3.hostname", "smtp.gmail.com");
+user_pref("mail.smtpserver.smtp3.username", "{{ email_personal_promotional }}");
+user_pref("mail.smtpserver.smtp3.port", 465);
+user_pref("mail.smtpserver.smtp3.authMethod", 10);
+user_pref("mail.smtpserver.smtp3.try_ssl", 3);
