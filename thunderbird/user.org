@@ -154,3 +154,7 @@ Needed to sort emails by date, instead of grouped into threads.
 #+begin_src js
 user_pref("mailnews.default_view_flags", 0);
 #+end_src
+*** Sort by date
+#+begin_src js
+user_pref("mailnews.default_sort_type", 18);
+#+end_src
