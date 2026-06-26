@@ -147,3 +147,10 @@ Change from =card= to =table= view (not working).
 #+begin_src js
 //user_pref("mailnews.ui.threadpane.version", 1);
 #+end_src
+*** Unthreading by default
+Needed to sort emails by date, instead of grouped into threads.
+  - 0 = Unthreaded (emails shown individually)
+  - 1 = Threaded   (emails grouped by conversation)
+#+begin_src js
+user_pref("mailnews.default_view_flags", 0);
+#+end_src
