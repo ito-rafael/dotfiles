@@ -58,3 +58,22 @@ user_pref("mail.smtpserver.smtp3.username", "{{ email_personal_promotional }}");
 user_pref("mail.smtpserver.smtp3.port", 465);
 user_pref("mail.smtpserver.smtp3.authMethod", 10);
 user_pref("mail.smtpserver.smtp3.try_ssl", 3);
+
+user_pref("mail.account.account4.identities", "id4");
+user_pref("mail.account.account4.server", "server4");
+user_pref("mail.identity.id4.fullName", "Rafael Ito");
+user_pref("mail.identity.id4.useremail", "{{ email_personal_outlook }}");
+user_pref("mail.identity.id4.smtpServer", "smtp4");
+
+user_pref("mail.server.server4.hostname", "outlook.office365.com");
+user_pref("mail.server.server4.userName", "{{ email_personal_outlook }}");
+user_pref("mail.server.server4.type", "imap");
+user_pref("mail.server.server4.port", 993);
+user_pref("mail.server.server4.socketType", 3);
+user_pref("mail.server.server4.authMethod", 10); // Modern Auth for Outlook
+
+user_pref("mail.smtpserver.smtp4.hostname", "smtp.office365.com");
+user_pref("mail.smtpserver.smtp4.username", "{{ email_personal_outlook }}");
+user_pref("mail.smtpserver.smtp4.port", 587);
+user_pref("mail.smtpserver.smtp4.authMethod", 10);
+user_pref("mail.smtpserver.smtp4.try_ssl", 2);
