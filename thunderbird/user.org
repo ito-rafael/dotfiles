@@ -187,3 +187,10 @@ Force the preferred color scheme for web content and emails to Dark.
 #+begin_src js
 user_pref("layout.css.prefers-color-scheme.content-override", 0);
 #+end_src
+*** In-content pages
+Enable dark mode for in-content Thunderbird pages (eg: Settings, Add-ons manager)
+#+begin_src js
+user_pref("browser.in-content.dark-mode", true);
+user_pref("browser.theme.content-theme", 0);
+user_pref("browser.theme.toolbar-theme", 0);
+#+end_src
