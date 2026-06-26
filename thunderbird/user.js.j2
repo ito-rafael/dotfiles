@@ -1,56 +1,22 @@
-#+TITLE: Thunderbird user.js config
-#+AUTHOR: Rafael Ito
-#+PROPERTY: header-args :tangle user.js.j2
-#+DESCRIPTION: config file for Thunderbird
-#+STARTUP: showeverything
-#+auto_tangle: t
-
-* Table of Contents :toc:
-- [[#information][Information]]
-- [[#accounts][Accounts]]
-  - [[#personal-1-gmail][Personal #1 (Gmail)]]
-
-* Information
-#+begin_src txt :tangle no
-/**
- * Thunderbird dotfile configuration
- * Path: ~/.thunderbird/[profile]/user.js
- **/
-#+end_src
-
-- Incoming emails are handled using the =IMAP= protocol.
-  - socketType: 3, SSL/TLS
-  - authMethod: 10, OAuth2
-- Outgoing emails are handled using the =SMTP= protocol.
-* Accounts
-Global account list.
-#+begin_src js
 user_pref("mail.accountmanager.accounts", "account1,account2,account3,account4");
 user_pref("mail.accountmanager.defaultaccount", "account1");
 user_pref("mail.smtpservers", "smtp1,smtp2,smtp3,smtp4");
-#+end_src
-** Personal #1 (Gmail)
-#+begin_src js
+
 user_pref("mail.account.account1.identities", "id1");
 user_pref("mail.account.account1.server", "server1");
 user_pref("mail.identity.id1.fullName", "Rafael Ito");
 user_pref("mail.identity.id1.useremail", "{{ email_personal_gmail }}");
 user_pref("mail.identity.id1.smtpServer", "smtp1");
-#+end_src
-*** Incoming
-#+begin_src js
+
 user_pref("mail.server.server1.hostname", "imap.gmail.com");
 user_pref("mail.server.server1.userName", "{{ email_personal_gmail }}");
 user_pref("mail.server.server1.type", "imap");
 user_pref("mail.server.server1.port", 993);
 user_pref("mail.server.server1.socketType", 3);
 user_pref("mail.server.server1.authMethod", 10);
-#+end_src
-*** Outgoing
-#+begin_src js
+
 user_pref("mail.smtpserver.smtp1.hostname", "smtp.gmail.com");
 user_pref("mail.smtpserver.smtp1.username", "{{ email_personal_gmail }}");
 user_pref("mail.smtpserver.smtp1.port", 465);
 user_pref("mail.smtpserver.smtp1.authMethod", 10);
 user_pref("mail.smtpserver.smtp1.try_ssl", 3);
-#+end_src
