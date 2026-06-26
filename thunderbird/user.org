@@ -194,3 +194,8 @@ user_pref("browser.in-content.dark-mode", true);
 user_pref("browser.theme.content-theme", 0);
 user_pref("browser.theme.toolbar-theme", 0);
 #+end_src
+*** Active theme
+Set the active theme to the built-in dark theme (ensures toolbars are dark).
+#+begin_src js
+user_pref("extensions.activeThemeID", "firefox-compact-dark@mozilla.org");
+#+end_src
