@@ -15,6 +15,7 @@
 - [[#other-configs][Other configs]]
   - [[#view][View]]
   - [[#disable-systems-default-check][Disable system's default check]]
+  - [[#dark-mode][Dark mode]]
 
 * Information
 #+begin_src txt :tangle no
@@ -168,4 +169,12 @@ user_pref("mailnews.default_sort_order", 2);
 #+begin_src js
 user_pref("mail.shell.checkDefaultClient", false);
 user_pref("mail.shell.checkDefaultMail", false);
+#+end_src
+** Dark mode
+*** System engine
+Force the underlying system engine to render as Dark Theme.
+  - 0: Light
+  - 1: Dark
+#+begin_src js
+user_pref("ui.systemUsesDarkTheme", 1);
 #+end_src
