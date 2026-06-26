@@ -9,13 +9,13 @@ NETMASK="32"
 TIMEOUT="56"
 #-------------------------------------------------
 # wait any host within the range to be up
-while [ "$(fping -ag $IP/$NETMASK)" == "" ]; do 
+while [ "$(fping -ag $IP/$NETMASK)" == "" ]; do
     echo "[$(date +%H:%M:%S)] waiting..."
     sleep $TIMEOUT
 done
 #-------------------------------------------------
 # get first host up within the range given
-HOST="$(fping -ag $IP/$NETMASK | head -n1)" 
+HOST="$(fping -ag $IP/$NETMASK | head -n1)"
 echo "[$(date +%H:%M:%S)] host $IP up"
 #-------------------------------------------------
 # send desktop notification
