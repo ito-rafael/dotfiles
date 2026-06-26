@@ -158,3 +158,8 @@ user_pref("mailnews.default_view_flags", 0);
 #+begin_src js
 user_pref("mailnews.default_sort_type", 18);
 #+end_src
+*** Sort in descending order
+Newest messages at the top
+#+begin_src js
+user_pref("mailnews.default_sort_order", 2);
+#+end_src
