@@ -142,3 +142,8 @@ user_pref("mail.smtpserver.smtp4.try_ssl", 2);
 #+begin_src js
 user_pref("mail.pane_config.dynamic", 0);
 #+end_src
+*** Table view
+Change from =card= to =table= view (not working).
+#+begin_src js
+//user_pref("mailnews.ui.threadpane.version", 1);
+#+end_src
