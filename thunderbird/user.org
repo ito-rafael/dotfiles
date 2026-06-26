@@ -14,6 +14,7 @@
   - [[#personal-2-outlook][Personal #2 (Outlook)]]
 - [[#other-configs][Other configs]]
   - [[#view][View]]
+  - [[#disable-systems-default-check][Disable system's default check]]
 
 * Information
 #+begin_src txt :tangle no
@@ -162,4 +163,9 @@ user_pref("mailnews.default_sort_type", 18);
 Newest messages at the top
 #+begin_src js
 user_pref("mailnews.default_sort_order", 2);
+#+end_src
+** Disable system's default check
+#+begin_src js
+user_pref("mail.shell.checkDefaultClient", false);
+user_pref("mail.shell.checkDefaultMail", false);
 #+end_src
