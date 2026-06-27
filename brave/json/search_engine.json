@@ -1,0 +1,8 @@
+{
+  "DefaultSearchProviderEnabled": true,
+  "DefaultSearchProviderName": "Startpage",
+  "DefaultSearchProviderKeyword": ":sp",
+  "DefaultSearchProviderSearchURL": "https://www.startpage.com/do/search?q={searchTerms}&segment=startpage.brave",
+  "DefaultSearchProviderSuggestURL": "https://www.startpage.com/cgi-bin/csuggest?query={searchTerms}&limit=10&format=json",
+  "DefaultSearchProviderIconURL": "https://www.startpage.com/favicon.ico"
+}
