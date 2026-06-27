@@ -2,7 +2,7 @@
   "DefaultSearchProviderEnabled": true,
   "DefaultSearchProviderName": "Startpage",
   "DefaultSearchProviderKeyword": ":sp",
-  "DefaultSearchProviderSearchURL": "https://www.startpage.com/do/search?q={searchTerms}&segment=startpage.brave",
+  "DefaultSearchProviderSearchURL": "https://www.startpage.com/do/search?q={searchTerms}&segment=startpage.brave&prfe=b87c0ffca61a6d2a6189796e5ceb2543c2d9af1f93b6739c43d6443a064646ba8dada333a5e31641b45d7657294cd85c5eeb6975b765f97d2e48b65a95aac964f07a076b150d8806068ba68c560911c4",
   "DefaultSearchProviderSuggestURL": "https://www.startpage.com/cgi-bin/csuggest?query={searchTerms}&limit=10&format=json",
   "DefaultSearchProviderIconURL": "https://www.startpage.com/favicon.ico"
 }
