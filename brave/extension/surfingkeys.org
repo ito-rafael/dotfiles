@@ -226,4 +226,3 @@ api.unmapAllExcept([], /localhost/);
 #+begin_src js
 api.unmap("c", /youtube.com/);
 #+end_src
-#+end_src
