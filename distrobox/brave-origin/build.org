@@ -38,66 +38,66 @@ mkdir -p ~/.config/BraveSoftware/Brave-Distrobox
 #+end_src
 ** Delete distrobox
 #+begin_src sh
-distrobox rm -f brave-origin-beta
+distrobox rm -f brave-origin
 #+end_src
 ** Build image
 #+begin_src sh
-podman build -t brave-origin-beta -f Dockerfile ../../brave/
-#podman build --no-cache -t brave-origin-beta -f Dockerfile ../../brave/
+podman build -t brave-origin -f Dockerfile ../../brave/
+#podman build --no-cache -t brave-origin -f Dockerfile ../../brave/
 #+end_src
 * Create distrobox
 #+begin_src sh
-distrobox create --name brave-origin-beta --image brave-origin-beta --volume ~/.config/BraveSoftware/Brave-Distrobox:/home/rafael/.config/BraveSoftware
+distrobox create --name brave-origin --image brave-origin --volume ~/.config/BraveSoftware/Brave-Distrobox:/home/rafael/.config/BraveSoftware
 #+end_src
 * Pre-warm
 This forces the container setup to finish before launching Brave.
 #+begin_src sh
 echo -e '********************\nPre-warming Distrobox Container...\n********************'
-distrobox enter brave-origin-beta -- echo "Container is ready!"
+distrobox enter brave-origin -- echo "Container is ready!"
 #+end_src
-* Generating Brave profile 
+* Generating Brave profile
 #+begin_src sh
 echo -e '********************\nGenerating Brave Profile...\n********************'
-#distrobox enter brave-origin-beta -- sh -c 'xvfb-run -a brave-origin-beta --skip-origin-startup-dialog --no-first-run --disable-gpu --disable-dev-shm-usage https://example.com > /dev/null 2>&1 & sleep 15 && pkill -15 brave'
-distrobox enter brave-origin-beta -- sh -c 'xvfb-run -a brave-origin-beta --skip-origin-startup-dialog --no-first-run --disable-gpu --disable-dev-shm-usage --ozone-platform=x11 https://example.com > /dev/null 2>&1 & sleep 15 && pkill -15 brave'
+#distrobox enter brave-origin -- sh -c 'xvfb-run -a brave-origin --skip-origin-startup-dialog --no-first-run --disable-gpu --disable-dev-shm-usage https://example.com > /dev/null 2>&1 & sleep 15 && pkill -15 brave'
+distrobox enter brave-origin -- sh -c 'xvfb-run -a brave-origin --skip-origin-startup-dialog --no-first-run --disable-gpu --disable-dev-shm-usage --ozone-platform=x11 https://example.com > /dev/null 2>&1 & sleep 15 && pkill -15 brave'
 echo -e '\n********************\nWaiting for Brave to finish saving its profile...\n********************'
 sleep 3
 stty sane
 #+end_src
-* Dark Theme 
+* Dark Theme
 #+begin_src sh
 echo -e '\n********************\nDark Theme\n********************'
-distrobox enter brave-origin-beta -- sh -c 'jq ".browser.theme.color_scheme2 = 2" ~/.config/BraveSoftware/Brave-Origin-Beta/Default/Preferences > tmp.json && mv tmp.json ~/.config/BraveSoftware/Brave-Origin-Beta/Default/Preferences'
+distrobox enter brave-origin -- sh -c 'jq ".browser.theme.color_scheme2 = 2" ~/.config/BraveSoftware/Brave-Origin/Default/Preferences > tmp.json && mv tmp.json ~/.config/BraveSoftware/Brave-Origin/Default/Preferences'
 #+end_src
 * Preferences
 ** Enabling Developer Mode
 #+begin_src sh
 echo -e '\n********************\nPreferences: Enabling Developer Mode\n********************'
-distrobox enter brave-origin-beta -- python3 /usr/local/bin/preferences_developer_mode.py
+distrobox enter brave-origin -- python3 /usr/local/bin/preferences_developer_mode.py
 #+end_src
 ** Block Translations
 #+begin_src sh
 echo -e '\n********************\nPreferences: Block EN and PT Translations\n********************'
-distrobox enter brave-origin-beta -- python3 /usr/local/bin/preferences_block_translations.py
+distrobox enter brave-origin -- python3 /usr/local/bin/preferences_block_translations.py
 #+end_src
 * Surfingkeys
 ** Allow User Scripts
 #+begin_src sh
 echo -e '\n********************\nSurfingkeys: Allow User Scripts\n********************'
-distrobox enter brave-origin-beta -- python3 /usr/local/bin/surfingkeys_allow_user_scripts.py
+distrobox enter brave-origin -- python3 /usr/local/bin/surfingkeys_allow_user_scripts.py
 #+end_src
 ** Enable Advanced Mode
 #+begin_src sh
 echo -e '\n********************\nSurfingkeys: Advanced Mode\n********************'
-distrobox enter brave-origin-beta -- python3 /usr/local/bin/surfingkeys_advanced_mode.py
+distrobox enter brave-origin -- python3 /usr/local/bin/surfingkeys_advanced_mode.py
 #+end_src
 ** Load Settings
 #+begin_src sh
 echo -e '\n********************\nSurfingkeys: Load Settings\n********************'
-distrobox enter brave-origin-beta -- python3 /usr/local/bin/surfingkeys_load_settings.py
+distrobox enter brave-origin -- python3 /usr/local/bin/surfingkeys_load_settings.py
 #+end_src
 * Export application
 #+begin_src sh
-rm -rf ~/.local/share/applications/brave-origin-beta*
-distrobox enter brave-origin-beta -- distrobox-export --app brave-origin-beta --extra-flags "--no-default-browser-check"
+rm -rf ~/.local/share/applications/brave-origin*
+distrobox enter brave-origin -- distrobox-export --app brave-origin --extra-flags "--no-default-browser-check"
 #+end_src
