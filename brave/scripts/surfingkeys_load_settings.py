@@ -23,7 +23,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.keys import Keys
 
 EXTENSION_ID = "gfbliohnnapiefjpjlpjnehglfpaknnc"
-DOTFILES_URL = "https://raw.githubusercontent.com/ito-rafael/dotfiles/refs/heads/master/surfingkeys/surfingkeys.js"
+DOTFILES_URL = "https://raw.githubusercontent.com/ito-rafael/dotfiles/refs/heads/master/brave/extension/surfingkeys.json"
 
 # dynamically find the right Brave binary path based on what exists on the system
 POSSIBLE_BINARIES = [
