@@ -25,8 +25,8 @@ EXTENSION_ID = "gfbliohnnapiefjpjlpjnehglfpaknnc"
 
 # dynamically find the right Brave binary path based on what exists on the system
 POSSIBLE_BINARIES = [
-    "/usr/bin/brave-origin",       # Debian
-    "/usr/bin/brave-origin-beta",  # Arch Linux
+    "/usr/bin/brave-origin",        # Debian / Arch Linux
+    #"/usr/bin/brave-origin-beta",  # Arch Linux (Beta)
     #"/usr/bin/brave",              # fallback Stable
     #"/usr/bin/brave-browser",      # fallback Standard
     #"/usr/bin/brave-beta",         # fallback Beta
@@ -41,8 +41,7 @@ username = os.getenv("USER")
 
 # dynamically find the correct Brave profile directory based on what exists
 POSSIBLE_PROFILES = [
-    f"/home/{username}/.config/BraveSoftware/Brave-Origin-Beta",  # Debian & Arch Linux
-    #f"/home/{username}/.config/BraveSoftware/Brave-Browser",      # fallback Standard
+    f"/home/{username}/.config/BraveSoftware/Brave-Origin",        # Debian & Arch Linux
     #f"/home/{username}/.config/BraveSoftware/Brave-Browser-Beta"  # fallback Beta
 ]
 
