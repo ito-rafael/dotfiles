@@ -36,12 +36,13 @@ BRAVE_BINARY_PATH = next((path for path in POSSIBLE_BINARIES if os.path.exists(p
 if not BRAVE_BINARY_PATH:
     raise FileNotFoundError("Critical: Could not find the Brave executable in any known locations.")
 
-username = os.getenv("USER")
+#username = os.getenv("USER")
+home_dir = os.path.expanduser("~")
 
 # dynamically find the correct Brave profile directory based on what exists
 POSSIBLE_PROFILES = [
-    f"/home/{username}/.config/BraveSoftware/Brave-Origin",        # Debian & Arch Linux
-    #f"/home/{username}/.config/BraveSoftware/Brave-Browser-Beta"  # fallback Beta
+    f"{home_dir}/.config/BraveSoftware/Brave-Origin",        # Debian & Arch Linux
+    #f"{home_dir}/.config/BraveSoftware/Brave-Browser-Beta"  # fallback Beta
 ]
 
 profile_base = next((path for path in POSSIBLE_PROFILES if os.path.exists(path)), None)
