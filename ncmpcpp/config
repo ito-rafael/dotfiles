@@ -12,3 +12,6 @@ state_flags_color = "red"
 main_window_color = "white"
 color1 = "white"
 color2 = "green"
+
+# progress bar
+progressbar_look = "━━━"
