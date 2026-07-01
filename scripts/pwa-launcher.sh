@@ -35,16 +35,16 @@ echo "Target URL: $APP_URL"
 # wait distrobox to be available before launching the PWA
 for i in {1..30}; do
     echo "Checking if Distrobox is ready (Attempt $i/30)..."
-    
-    if distrobox-enter -n brave-origin-beta -- true; then
+
+    if distrobox-enter -n brave-origin -- true; then
         echo "SUCCESS: Container is ready!"
         break
     fi
-    
+
     sleep 1
 done
 
 echo "Launching $APP_CHOICE..."
 
 # launch PWA
-exec distrobox-enter -n brave-origin-beta -- brave-origin-beta --skip-origin-startup-dialog --app="$APP_URL"
+exec distrobox-enter -n brave-origin -- brave-origin --skip-origin-startup-dialog --app="$APP_URL"
