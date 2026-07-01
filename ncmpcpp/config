@@ -2,3 +2,13 @@
 mpd_host = "localhost"
 mpd_port = "6600"
 mpd_music_dir = "~/Music"
+
+# visuals
+colors_enabled = "yes"
+user_interface = "alternative"
+volume_color = "cyan"
+state_line_color = "yellow"
+state_flags_color = "red"
+main_window_color = "white"
+color1 = "white"
+color2 = "green"
