@@ -570,7 +570,7 @@ bindsym ctrl+$mod+period  exec "$SCRIPT_PATH/scratchpad-temp.sh 3 destroy"
 ##    move scratchpad
 ##    border pixel 5
 ##}
-###exec distrobox-enter -n brave-origin-beta -- brave-origin-beta --skip-origin-startup-dialog --app=https://web.whatsapp.com
+###exec distrobox-enter -n brave-origin -- brave-origin --skip-origin-startup-dialog --app=https://web.whatsapp.com
 ##exec "$SCRIPT_PATH/pwa-launcher.sh whatsapp"
 ##bindsym $mod+t exec "$SCRIPT_PATH/show-or-launch.sh brave-web.whatsapp.com__-Default 0.6 0.9"
 for_window [$prop="^wasistlos$"] {
@@ -587,7 +587,7 @@ for_window [$prop="^brave-music.youtube.com__-Default$"] {
     move scratchpad
     border pixel 5
 }
-#exec distrobox-enter -n brave-origin-beta -- brave-origin-beta --skip-origin-startup-dialog --app=https://music.youtube.com
+#exec distrobox-enter -n brave-origin -- brave-origin --skip-origin-startup-dialog --app=https://music.youtube.com
 exec "$SCRIPT_PATH/pwa-launcher.sh ytmusic"
 bindsym $mod+s exec "$SCRIPT_PATH/show-or-launch.sh brave-music.youtube.com__-Default 0.9 0.9"
 for_window [$prop="^keymapp$"] {
@@ -604,7 +604,7 @@ for_window [$prop="^brave-calendar.google.com__-Default$"] {
     move scratchpad
     border pixel 5
 }
-#exec distrobox-enter -n brave-origin-beta -- brave-origin-beta --skip-origin-startup-dialog --app=https://calendar.google.com
+#exec distrobox-enter -n brave-origin -- brave-origin --skip-origin-startup-dialog --app=https://calendar.google.com
 exec "$SCRIPT_PATH/pwa-launcher.sh calendar"
 bindsym $mod+r exec "$SCRIPT_PATH/show-or-launch.sh brave-calendar.google.com__-Default 0.6 0.9"
 for_window [$prop="^brave-chatgpt.com__-Default$"] {
@@ -613,7 +613,7 @@ for_window [$prop="^brave-chatgpt.com__-Default$"] {
     move scratchpad
     border pixel 5
 }
-#exec distrobox-enter -n brave-origin-beta -- brave-origin-beta --skip-origin-startup-dialog --app=https://chatgpt.com
+#exec distrobox-enter -n brave-origin -- brave-origin --skip-origin-startup-dialog --app=https://chatgpt.com
 exec "$SCRIPT_PATH/pwa-launcher.sh chatgpt"
 bindsym $alt+$mod+t exec "$SCRIPT_PATH/show-or-launch.sh brave-chatgpt.com__-Default 0.6 0.9"
 for_window [$prop="^brave-translate.google.com__-Default$"] {
@@ -622,7 +622,7 @@ for_window [$prop="^brave-translate.google.com__-Default$"] {
     move scratchpad
     border pixel 5
 }
-#exec distrobox-enter -n brave-origin-beta -- brave-origin-beta --skip-origin-startup-dialog --app=https://translate.google.com
+#exec distrobox-enter -n brave-origin -- brave-origin --skip-origin-startup-dialog --app=https://translate.google.com
 exec "$SCRIPT_PATH/pwa-launcher.sh translate"
 bindsym $alt+$mod+s exec "$SCRIPT_PATH/show-or-launch.sh brave-translate.google.com__-Default 0.6 0.9"
 
