@@ -67,12 +67,12 @@ TEMP_PID_3=0
 # temporary scratchpad #1 (comma)
 if [ -f $SCRATCHPAD_TEMP_1 ]; then
     TEMP_PID_1=$(cat $SCRATCHPAD_TEMP_1)
-fi 
+fi
 #----------------------------------
 # temporary scratchpad #2 (period)
 if [ -f $SCRATCHPAD_TEMP_2 ]; then
     TEMP_PID_2=$(cat $SCRATCHPAD_TEMP_2)
-fi 
+fi
 #----------------------------------
 # temporary scratchpad #3 (slash)
 if [ -f $SCRATCHPAD_TEMP_3 ]; then
@@ -180,8 +180,8 @@ if [ $FOCUSED != $APPLICATION ]; then
         .'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX''$INSTANCE' == "translate.google.com" or
         .'$PROP_PREFIX''$PROP' == "scrcpy" and .'$PROP_PREFIX''$CAPTION' == "dropdown_scrcpy_phone" or
         .'$PROP_PREFIX''$PROP' == "scrcpy" and .'$PROP_PREFIX''$CAPTION' == "dropdown_scrcpy_watch" or
-        .'$ID_PROP' == '$TEMP_PID_1' or 
-        .'$ID_PROP' == '$TEMP_PID_2' or 
+        .'$ID_PROP' == '$TEMP_PID_1' or
+        .'$ID_PROP' == '$TEMP_PID_2' or
         .'$ID_PROP' == '$TEMP_PID_3'
         ')
         # deprecated
@@ -212,31 +212,31 @@ SCRATCHPAD=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | selec
 if [[ ! $SCRATCHPAD ]]; then
     case "${APPLICATION}" in
         "brave-music.youtube.com__-Default")
-            distrobox enter brave-origin-beta -- brave-origin-beta --skip-origin-startup-dialog --app=https://music.youtube.com &
+            distrobox enter brave-origin -- brave-origin --skip-origin-startup-dialog --app=https://music.youtube.com &
             sleep 2
             ;;
         #"brave-web.whatsapp.com__-Default")
-        #    brave-beta --app=https://web.whatsapp.com &
+        #    brave --app=https://web.whatsapp.com &
         #    sleep 2
         #    ;;
         "brave-calendar.google.com__-Default")
-            distrobox enter brave-origin-beta -- brave-origin-beta --skip-origin-startup-dialog --app=https://calendar.google.com &
+            distrobox enter brave-origin -- brave-origin --skip-origin-startup-dialog --app=https://calendar.google.com &
             sleep 2
             ;;
         "brave-chatgpt.com__-Default")
-            distrobox enter brave-origin-beta -- brave-origin-beta --skip-origin-startup-dialog --app=https://chatgpt.com &
+            distrobox enter brave-origin -- brave-origin --skip-origin-startup-dialog --app=https://chatgpt.com &
             sleep 2
             ;;
         "brave-translate.google.com__-Default")
-            distrobox enter brave-origin-beta -- brave-origin-beta --skip-origin-startup-dialog --app=https://translate.google.com &
+            distrobox enter brave-origin -- brave-origin --skip-origin-startup-dialog --app=https://translate.google.com &
             sleep 2
             ;;
         "calendar.google.com")
-            brave-beta --app=https://calendar.google.com &
+            brave --app=https://calendar.google.com &
             sleep 2
             ;;
         "chatgpt.com")
-            brave-beta --app=https://chatgpt.com &
+            brave --app=https://chatgpt.com &
             sleep 2
             ;;
         "dropdown_terminal")
@@ -260,15 +260,15 @@ if [[ ! $SCRATCHPAD ]]; then
             sleep 1
             ;;
         "music.youtube.com")
-            brave-beta --app=https://music.youtube.com &
+            brave --app=https://music.youtube.com &
             sleep 2
             ;;
         "translate.google.com")
-            brave-beta --app=https://translate.google.com &
+            brave --app=https://translate.google.com &
             sleep 2
             ;;
         #"web.whatsapp.com")
-        #    brave-beta --app=https://web.whatsapp.com &
+        #    brave --app=https://web.whatsapp.com &
         #    sleep 2
         #    ;;
         "wasistlos")
