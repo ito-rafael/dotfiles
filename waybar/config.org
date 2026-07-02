@@ -17,6 +17,7 @@
 - [[#group-power][Group Power]]
 - [[#group-datetime][Group Datetime]]
 - [[#mpris][MPRIS]]
+- [[#mpd][MPD]]
 - [[#caps-lock][Caps Lock]]
 - [[#caps-lock-1][Caps Lock]]
 - [[#pomodoro-timer][Pomodoro timer]]
@@ -56,6 +57,7 @@
 "modules-center": [
     //"sway/window",
     "mpris",
+    "mpd",
 ],
 #+end_src
 ** Right
@@ -867,6 +869,35 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
     "reverse-mouse-scrolling": false,
 },
 #+end_src
+* MPD
+#+begin_src js
+"mpd": {
+    "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) \uf001",
+    "format-disconnected": "Disconnected \uf001",
+    "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped \uf001",
+    "interval": 2,
+    "consume-icons": {
+        "on": "\uf0c4 "
+    },
+    "random-icons": {
+        "off": "",
+        "on": " "
+    },
+    "repeat-icons": {
+        "off": "",
+        "on": "\uf01e "
+    },
+    "single-icons": {
+        "off": "",
+        "on": "\uf01e1 "
+    },
+    "state-icons": {
+        "paused": "",
+        "playing": ""
+    },
+    "tooltip-format": "MPD (connected)",
+    "tooltip-format-disconnected": "MPD (disconnected)"
+},
 * Caps Lock
 #+begin_src js :tangle no
 //"keyboard-state": {

@@ -21,6 +21,7 @@
 "modules-center": [
     //"sway/window",
     "mpris",
+    "mpd",
 ],
 
 "modules-right": [
@@ -683,6 +684,33 @@
     "reverse-mouse-scrolling": false,
 },
 
+"mpd": {
+    "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) \uf001",
+    "format-disconnected": "Disconnected \uf001",
+    "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped \uf001",
+    "interval": 2,
+    "consume-icons": {
+        "on": "\uf0c4 "
+    },
+    "random-icons": {
+        "off": "",
+        "on": " "
+    },
+    "repeat-icons": {
+        "off": "",
+        "on": "\uf01e "
+    },
+    "single-icons": {
+        "off": "",
+        "on": "\uf01e1 "
+    },
+    "state-icons": {
+        "paused": "",
+        "playing": ""
+    },
+    "tooltip-format": "MPD (connected)",
+    "tooltip-format-disconnected": "MPD (disconnected)"
+},
 "custom/capslock": {
     "return-type": "json",
     "exec": "~/.config/waybar/scripts/capslock.sh",
