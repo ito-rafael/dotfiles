@@ -1229,6 +1229,15 @@ box#datetime {
 }
 
 #mpd {
+    border-radius: 10px;
+    padding-right: 5px;
+    padding-left: 5px;
+    margin:  0;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: lightgray;
+}
+
+#mpd {
     background-color: #66cc99;
     color: #2a5c45;
 }

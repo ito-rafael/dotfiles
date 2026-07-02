@@ -22,6 +22,7 @@
 - [[#tray][Tray]]
 - [[#mpris][MPRIS]]
 - [[#mpd][MPD]]
+- [[#mpd-1][MPD]]
 - [[#language][Language]]
 - [[#keyboard-state][Keyboard state]]
 - [[#vpn][VPN]]
@@ -1804,6 +1805,17 @@ box#datetime {
 #mpris:hover {
     background-color: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
+}
+#+end_src
+* MPD
+#+begin_src css
+#mpd {
+    border-radius: 10px;
+    padding-right: 5px;
+    padding-left: 5px;
+    margin:  0;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: lightgray;
 }
 #+end_src
 * MPD :noexport_1:
