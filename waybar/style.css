@@ -1237,6 +1237,9 @@ box#datetime {
     color: lightgray;
 }
 
+#mpd.playing {
+}
+
 #mpd {
     background-color: #66cc99;
     color: #2a5c45;

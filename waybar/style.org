@@ -1818,6 +1818,11 @@ box#datetime {
     color: lightgray;
 }
 #+end_src
+** Playing
+#+begin_src css
+#mpd.playing {
+}
+#+end_src
 * MPD :noexport_1:
 ** Normal
 #+begin_src css
