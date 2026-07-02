@@ -1,0 +1,8 @@
+#!/bin/bash
+unset LD_LIBRARY_PATH
+
+if [ "$#" -eq 0 ]; then
+    exec /usr/bin/brave-origin --new-window "chrome-extension://iaiomicjabeggjcfkbimgmglanimpnae/popup/index.html#inTab"
+else
+    exec /usr/bin/brave-origin "$@"
+fi
