@@ -1823,6 +1823,13 @@ box#datetime {
 #mpd.playing {
 }
 #+end_src
+** Paused
+#+begin_src css
+#mpd.paused {
+    background-color: transparent;
+    color: gray;
+}
+#+end_src
 * MPD :noexport_1:
 ** Normal
 #+begin_src css

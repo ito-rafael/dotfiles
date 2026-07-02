@@ -1240,6 +1240,11 @@ box#datetime {
 #mpd.playing {
 }
 
+#mpd.paused {
+    background-color: transparent;
+    color: gray;
+}
+
 #mpd {
     background-color: #66cc99;
     color: #2a5c45;
