@@ -1245,6 +1245,11 @@ box#datetime {
     color: gray;
 }
 
+#mpd.stopped {
+    background-color: transparent;
+    color: gray;
+}
+
 #mpd {
     background-color: #66cc99;
     color: #2a5c45;

@@ -1830,6 +1830,13 @@ box#datetime {
     color: gray;
 }
 #+end_src
+** Stopped
+#+begin_src css
+#mpd.stopped {
+    background-color: transparent;
+    color: gray;
+}
+#+end_src
 * MPD :noexport_1:
 ** Normal
 #+begin_src css
