@@ -1837,6 +1837,13 @@ box#datetime {
     color: gray;
 }
 #+end_src
+** Disconnected
+#+begin_src css
+#mpd.disconnected {
+    background-color: transparent;
+    color: gray;
+}
+#+end_src
 * MPD :noexport_1:
 ** Normal
 #+begin_src css
