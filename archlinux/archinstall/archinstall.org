@@ -1,6 +1,6 @@
 #+TITLE: archinstall config
 #+AUTHOR: Rafael Ito
-#+PROPERTY: header-args:sh :tangle archinstall.sh 
+#+PROPERTY: header-args:sh :tangle archinstall.sh
 #+DESCRIPTION: configuration file for installing Arch Linux with archinstall in an automated way
 #+STARTUP: showeverything
 #+auto_tangle: t
