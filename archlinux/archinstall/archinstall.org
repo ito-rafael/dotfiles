@@ -1,6 +1,6 @@
 #+TITLE: archinstall config
 #+AUTHOR: Rafael Ito
-#+PROPERTY: header-args:sh :tangle archinstall.sh 
+#+PROPERTY: header-args:sh :tangle archinstall.sh
 #+DESCRIPTION: configuration file for installing Arch Linux with archinstall in an automated way
 #+STARTUP: showeverything
 #+auto_tangle: t
@@ -371,16 +371,16 @@ BTRFS partition.
       "unit": "B",
       "value": 512
     },
-    "unit": "B",
-    "value": 284283633664
+    "unit": "%",
+    "value": 100
   },
   "start": {
     "sector_size": {
       "unit": "B",
       "value": 512
     },
-    "unit": "B",
-    "value": 215823155200
+    "unit": "MiB",
+    "value": 2049
   },
   "status": "create",
   "type": "primary"

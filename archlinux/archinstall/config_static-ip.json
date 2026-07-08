@@ -129,16 +129,16 @@
                 "unit": "B",
                 "value": 512
               },
-              "unit": "B",
-              "value": 284283633664
+              "unit": "%",
+              "value": 100
             },
             "start": {
               "sector_size": {
                 "unit": "B",
                 "value": 512
               },
-              "unit": "B",
-              "value": 215823155200
+              "unit": "MiB",
+              "value": 2049
             },
             "status": "create",
             "type": "primary"
