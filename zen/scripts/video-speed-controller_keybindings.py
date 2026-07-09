@@ -176,7 +176,7 @@ KEYBINDINGS_CONFIG = [
     {
         "description": "Reset speed: Key",
         "xpath": "/html/body/section[1]/div[6]/input[1]",
-        "target_value": "u"
+        "target_value": "U"
     },
     {
         "description": "Reset speed: Value",
@@ -245,6 +245,13 @@ KEYBINDINGS_CONFIG = [
         "description": "Preferred speed (added): Value (Row 10)",
         "xpath": "/html/body/section[1]/div[10]/input[2]",
         "target_value": "3"
+    },
+    #----------------------------------------
+    # Clear blocked sites
+    {
+        "description": "Blacklisted Sites",
+        "xpath": "//*[@id='blacklist']",
+        "target_value": ""
     }
 ]
 
@@ -293,7 +300,8 @@ try:
         current_val = element.get_attribute("value")
 
         if current_val != setting["target_value"]:
-            print(f"Updating '{setting['description']}': [{current_val}] -> [{setting['target_value']}]")
+            # Added repr() so the multiline blacklist output formats cleanly in your terminal
+            print(f"Updating '{setting['description']}': [{repr(current_val)}] -> [{repr(setting['target_value'])}]")
 
             # Handle dropdowns (<select>) and normal text fields differently
             if element.tag_name == "select":
@@ -304,7 +312,9 @@ try:
                 )
             else:
                 element.clear()
-                element.send_keys(setting["target_value"])
+                # Prevent sending empty keys if the goal is just to leave it blank
+                if setting["target_value"] != "":
+                    element.send_keys(setting["target_value"])
 
             needs_saving = True
 
