@@ -724,7 +724,8 @@ https://github.com/yilkalargaw/org-auto-tangle
   (org-auto-tangle-default t)
   (org-auto-tangle-babel-safelist '(
      "/home/rafael/git/dotfiles/archlinux/archinstall/archinstall.org"
-     "/home/rafael/git/dotfiles/brave/extensions.org"
+     "/home/rafael/git/dotfiles/brave/json/extensions_full.org"
+     "/home/rafael/git/dotfiles/brave/json/extensions_essential.org"
      "/home/rafael/git/dotfiles/cups/printers.org"
      "/home/rafael/git/dotfiles/i3-sway/config.org"
      "/home/rafael/git/dotfiles/scripts/sway-dispatch.org"
