@@ -1310,10 +1310,20 @@ box#datetime {
     border-radius: 10px;
 }
 
+#custom-vpn-lcn:hover {
+    background-color: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+
 #custom-vpn-unicamp.enabled {
     background-color: #00b0b0;
     color: white;
     border-radius: 10px;
+}
+
+#custom-vpn-unicamp:hover {
+    background-color: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
 }
 
 #custom-vpn-lbic.enabled {
@@ -1322,10 +1332,20 @@ box#datetime {
     border-radius: 10px;
 }
 
+#custom-vpn-lbic:hover {
+    background-color: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+
 #custom-vpn-samsung.enabled {
     background-color: #00b0b0;
     color: white;
     border-radius: 10px;
+}
+
+#custom-vpn-samsung:hover {
+    background-color: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
 }
 
 #custom-capslock.enabled {

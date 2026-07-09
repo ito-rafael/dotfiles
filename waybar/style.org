@@ -1922,12 +1922,26 @@ box#datetime {
     border-radius: 10px;
 }
 #+end_src
+*** Hover
+#+begin_src css
+#custom-vpn-lcn:hover {
+    background-color: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+#+end_src
 ** Unicamp
 #+begin_src css
 #custom-vpn-unicamp.enabled {
     background-color: #00b0b0;
     color: white;
     border-radius: 10px;
+}
+#+end_src
+*** Hover
+#+begin_src css
+#custom-vpn-unicamp:hover {
+    background-color: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
 }
 #+end_src
 ** LBiC
@@ -1938,12 +1952,26 @@ box#datetime {
     border-radius: 10px;
 }
 #+end_src
+*** Hover
+#+begin_src css
+#custom-vpn-lbic:hover {
+    background-color: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+#+end_src
 ** Samsung
 #+begin_src css
 #custom-vpn-samsung.enabled {
     background-color: #00b0b0;
     color: white;
     border-radius: 10px;
+}
+#+end_src
+*** Hover
+#+begin_src css
+#custom-vpn-samsung:hover {
+    background-color: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
 }
 #+end_src
 * Caps Lock
