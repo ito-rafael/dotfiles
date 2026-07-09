@@ -1919,6 +1919,7 @@ box#datetime {
 #custom-vpn-lcn.enabled {
     background-color: #00b0b0;
     color: white;
+    border-radius: 10px;
 }
 #+end_src
 ** Unicamp
@@ -1926,6 +1927,7 @@ box#datetime {
 #custom-vpn-unicamp.enabled {
     background-color: #00b0b0;
     color: white;
+    border-radius: 10px;
 }
 #+end_src
 ** LBiC
@@ -1933,6 +1935,7 @@ box#datetime {
 #custom-vpn-lbic.enabled {
     background-color: #00b0b0;
     color: white;
+    border-radius: 10px;
 }
 #+end_src
 ** Samsung
@@ -1940,6 +1943,7 @@ box#datetime {
 #custom-vpn-samsung.enabled {
     background-color: #00b0b0;
     color: white;
+    border-radius: 10px;
 }
 #+end_src
 * Caps Lock

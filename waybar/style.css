@@ -1307,21 +1307,25 @@ box#datetime {
 #custom-vpn-lcn.enabled {
     background-color: #00b0b0;
     color: white;
+    border-radius: 10px;
 }
 
 #custom-vpn-unicamp.enabled {
     background-color: #00b0b0;
     color: white;
+    border-radius: 10px;
 }
 
 #custom-vpn-lbic.enabled {
     background-color: #00b0b0;
     color: white;
+    border-radius: 10px;
 }
 
 #custom-vpn-samsung.enabled {
     background-color: #00b0b0;
     color: white;
+    border-radius: 10px;
 }
 
 #custom-capslock.enabled {
