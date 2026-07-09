@@ -2,6 +2,7 @@
 """
 Automates setting custom keybindings in the Video Speed Controller extension for Zen Browser.
 Idempotent task that skips execution if the values are already set.
+Designed to be easily extensible for multiple keybindings.
 Must be run when Zen is closed to prevent profile corruption.
 """
 
@@ -141,73 +142,92 @@ driver_path = GeckoDriverManager().install()
 service = Service(driver_path)
 driver = webdriver.Firefox(service=service, options=options)
 
+
+#========================================
+# CONFIGURATION MANIFEST
+#========================================
+KEYBINDINGS_CONFIG = [
+    {
+        "description": "Decrease Speed Key",
+        "xpath": "/html/body/section[1]/div[2]/input[1]",
+        "target_value": "{"
+    },
+    {
+        "description": "Decrease Speed Value",
+        "xpath": "/html/body/section[1]/div[2]/input[2]",
+        "target_value": "0.25"
+    },
+    {
+        "description": "Increase Speed Key",
+        "xpath": "/html/body/section[1]/div[3]/input[1]",
+        "target_value": "}"
+    },
+    {
+        "description": "Increase Speed Value",
+        "xpath": "/html/body/section[1]/div[3]/input[2]",
+        "target_value": "0.25"
+    }
+]
+
+
 #----------------------------------------
 # Automation execution
 #----------------------------------------
 try:
-    # Use the specific options page file for this extension
     options_url = f"moz-extension://{internal_uuid}/options.html"
 
     print("Waiting for the Video Speed Controller extension to load...")
-    key_input = None
 
     for i in range(30):
         driver.get(options_url)
-        time.sleep(2) # Give the extension storage time to hydrate the DOM
+        time.sleep(2)
 
         try:
-            # We look for the exact inputs using your XPaths
-            key_input = driver.find_element(By.XPATH, "/html/body/section[1]/div[2]/input[1]")
-            val_input = driver.find_element(By.XPATH, "/html/body/section[1]/div[2]/input[2]")
+            # Check if the DOM is ready by looking for the save button
+            driver.find_element(By.ID, "save")
             print("Extension loaded successfully!")
             break
         except:
             print(f"Still unpacking... (Attempt {i+1}/30)")
 
-    if not key_input:
-        print("Error: Video Speed Controller options DOM did not render properly.")
-        sys.exit(1)
-
     wait = WebDriverWait(driver, 10)
 
-    # Target Values
-    target_key = "a"    # Extensions usually prefer lowercase for keystrokes
-    target_val = "0.25"
+    needs_saving = False
 
-    # Read the current DOM properties
-    current_key = key_input.get_attribute("value")
-    current_val = val_input.get_attribute("value")
+    # Loop through the configuration manifest and process each setting
+    for setting in KEYBINDINGS_CONFIG:
+        try:
+            element = driver.find_element(By.XPATH, setting["xpath"])
+            current_val = element.get_attribute("value")
 
-    # Idempotency Check: Are they already set correctly?
-    if current_key == target_key and current_val == target_val:
-        with open(MARKER_FILE, 'w') as f:
-            f.write(f"VSC Keybindings verified via Ansible on {time.ctime()}\n")
-        print("Skipped: Keybindings are already configured correctly.")
+            if current_val != setting["target_value"]:
+                print(f"Updating '{setting['description']}': [{current_val}] -> [{setting['target_value']}]")
+                element.clear()
+                element.send_keys(setting["target_value"])
+                needs_saving = True
+        except Exception as e:
+            print(f"Error locating DOM element for {setting['description']}. Is the XPath correct? ({e})")
+            sys.exit(1)
 
-    else:
-        print("Injecting new keybindings...")
-
-        # Clear existing values and inject new ones
-        key_input.clear()
-        key_input.send_keys(target_key)
-
-        val_input.clear()
-        val_input.send_keys(target_val)
-
-        print("Saving configuration...")
+    # Idempotency check: Only save and write marker if a change was actually made
+    if needs_saving:
+        print("Changes detected. Saving configuration...")
         time.sleep(1)
 
-        # Find the native VSC "Save" button and click it
         save_button = wait.until(EC.element_to_be_clickable((By.ID, "save")))
         driver.execute_script("arguments[0].click();", save_button)
 
-        # Write the receipt so we skip Selenium next time
         with open(MARKER_FILE, 'w') as f:
             f.write(f"VSC Keybindings configured via Ansible on {time.ctime()}\n")
 
         print("Success: Keybindings saved and applied.")
+    else:
+        with open(MARKER_FILE, 'w') as f:
+            f.write(f"VSC Keybindings verified via Ansible on {time.ctime()}\n")
 
-    # Force disk flush (using Firefox internal page)
+        print("Skipped: All keybindings are already configured correctly.")
+
+    # Force disk flush
     time.sleep(1)
     driver.get("about:support")
     time.sleep(2)
