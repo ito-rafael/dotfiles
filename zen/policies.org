@@ -1,7 +1,7 @@
-#+TITLE: Zen Browser Add-ons
+#+TITLE: Zen Browser Policies (settings & add-ons)
 #+AUTHOR: Rafael Ito
 #+PROPERTY: header-args :padline no :tangle policies.json
-#+DESCRIPTION: config file to automate the installation of Zen Browser add-ons
+#+DESCRIPTION: config file to automate the installation of Zen Browser add-ons and other settings
 #+STARTUP: showeverything
 #+auto_tangle: t
 
@@ -45,6 +45,22 @@
 ** Default browser
 #+begin_src json
 "DontCheckDefaultBrowser": true,
+#+end_src
+** Search Engine
+#+begin_src json
+"SearchEngines": {
+  "Default": "Startpage",
+  "Add": [
+    {
+      "Name": "Startpage",
+      "URLTemplate": "https://www.startpage.com/sp/search?query={searchTerms}",
+      "Method": "GET",
+      "IconURL": "https://www.startpage.com/favicon.ico",
+      "Alias": "@sp",
+      "Description": "Startpage Search"
+    }
+  ]
+},
 #+end_src
 * Extensions
 ** Header :noexport_0:

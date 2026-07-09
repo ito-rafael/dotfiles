@@ -8,6 +8,19 @@
       "browser.translations.neverTranslateLanguages": "en,pt,pt-BR,pt-PT"
     },
     "DontCheckDefaultBrowser": true,
+    "SearchEngines": {
+      "Default": "Startpage",
+      "Add": [
+        {
+          "Name": "Startpage",
+          "URLTemplate": "https://www.startpage.com/sp/search?query={searchTerms}",
+          "Method": "GET",
+          "IconURL": "https://www.startpage.com/favicon.ico",
+          "Alias": "@sp",
+          "Description": "Startpage Search"
+        }
+      ]
+    },
     "ExtensionSettings": {
       "addon@darkreader.org": {
         "installation_mode": "normal_installed",
