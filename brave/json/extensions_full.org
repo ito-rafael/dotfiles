@@ -23,6 +23,8 @@
     - [[#bitwarden][Bitwarden]]
     - [[#violentmonkey][Violentmonkey]]
     - [[#floccus][Floccus]]
+    - [[#ublock-origin][+uBlock Origin+]]
+    - [[#ublock-origin-lite][uBlock Origin Lite]]
   - [[#scholar][Scholar]]
     - [[#google-scholar-button][Google Scholar Button]]
     - [[#sci-hub][Sci-Hub]]
@@ -47,7 +49,6 @@
     - [[#youtube-playback-speed-control][+Youtube Playback Speed Control+]]
     - [[#return-youtube-dislike][Return YouTube Dislike]]
     - [[#sponsorblock][SponsorBlock]]
-    - [[#ublock-origin][uBlock Origin]]
     - [[#unhook][Unhook]]
     - [[#video-downloadhelper][Video DownloadHelper]]
     - [[#video-speed-controller][Video Speed Controller]]
@@ -151,6 +152,18 @@ Deprecated in favour of [[id:e3ee1d03-6d7e-410e-b696-ee90b1436c1d][Tab Session M
 - description: sync bookmarks across browsers and devices.
 #+begin_src js :noweb yes
 <<install(extension_id="fnaicdffflnofjppbagibeoednhnbjhg")>>
+#+end_src
+*** +uBlock Origin+
+- link: https://chromewebstore.google.com/detail/cjpalhdlnbpafiamejdnhcphjbkeiagm
+- description: content blocker (Manifest V2).
+#+begin_src js :tangle no
+<<install(extension_id="cjpalhdlnbpafiamejdnhcphjbkeiagm")>>
+#+end_src
+*** uBlock Origin Lite
+- link: https://chromewebstore.google.com/detail/ddkjiahejlhfcafbddmgiahcphecmpfh
+- description: content blocker (Manifest V3).
+#+begin_src js :noweb yes
+<<install(extension_id="ddkjiahejlhfcafbddmgiahcphecmpfh")>>
 #+end_src
 ** Scholar
 *** Google Scholar Button
@@ -270,12 +283,6 @@ Deprecated in favour of [[id:e3ee1d03-6d7e-410e-b696-ee90b1436c1d][Tab Session M
 - description: skip sponsorship on YouTube videos.
 #+begin_src js :noweb yes
 <<install(extension_id="mnjggcdmjocbbbhaepdhchncahnbgone")>>
-#+end_src
-*** uBlock Origin
-- link: https://chromewebstore.google.com/detail/cjpalhdlnbpafiamejdnhcphjbkeiagm
-- description: content blocker.
-#+begin_src js :noweb yes
-<<install(extension_id="cjpalhdlnbpafiamejdnhcphjbkeiagm")>>
 #+end_src
 *** Unhook
 - link: https://chromewebstore.google.com/detail/khncfooichmfjbepaaaebmommgaepoid
