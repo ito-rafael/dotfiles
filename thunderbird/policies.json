@@ -1,0 +1,10 @@
+{
+  "policies": {
+    "DisableAppUpdate": true,
+    "DisableTelemetry": true,
+    "ExtensionSettings": {},
+    "Preferences": {
+      "mail.spam.manualMark": true
+    }
+  }
+}
