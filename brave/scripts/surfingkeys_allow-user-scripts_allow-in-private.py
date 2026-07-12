@@ -200,61 +200,75 @@ try:
     # driver.get is handled inside the polling loop now to ensure hydration
     pass
 
-    # retrieve the nested toggle WebElement through Chromium's Web Components (Shadow DOM)
-    js_get_element = """
+    # Javascript to pierce the Shadow DOM for "Allow User Scripts"
+    js_get_scripts_toggle = """
     const manager = document.querySelector('extensions-manager');
     if (!manager || !manager.shadowRoot) return null;
-
     const detailView = manager.shadowRoot.querySelector('extensions-detail-view');
     if (!detailView || !detailView.shadowRoot) return null;
 
-    // Try to find the row by ID first, fallback to searching for the text label
     let row = detailView.shadowRoot.querySelector('#allow-user-scripts');
     if (!row) {
         const rows = detailView.shadowRoot.querySelectorAll('extensions-toggle-row');
-        for (let r of rows) {
-            if (r.textContent.toLowerCase().includes('script')) {
-                row = r;
-                break;
-            }
-        }
+        for (let r of rows) { if (r.textContent.toLowerCase().includes('script')) { row = r; break; } }
     }
     if (!row) return null;
-
-    // Return the wrapper so Python can read its 'checked' attribute
     return row.querySelector('cr-toggle') || (row.shadowRoot && row.shadowRoot.querySelector('cr-toggle'));
     """
 
-    toggle_element = None
+    # Javascript to pierce the Shadow DOM for "Allow in Private / Incognito"
+    js_get_incognito_toggle = """
+    const manager = document.querySelector('extensions-manager');
+    if (!manager || !manager.shadowRoot) return null;
+    const detailView = manager.shadowRoot.querySelector('extensions-detail-view');
+    if (!detailView || !detailView.shadowRoot) return null;
+
+    let row = detailView.shadowRoot.querySelector('#allow-incognito');
+    if (!row) return null;
+    return row.querySelector('cr-toggle') || (row.shadowRoot && row.shadowRoot.querySelector('cr-toggle'));
+    """
+
+    toggle_scripts = None
+    toggle_incognito = None
+
     print("Waiting for the Brave Extensions page to load...")
     for i in range(30):
         driver.get(target_url)
         time.sleep(2)
-        toggle_element = driver.execute_script(js_get_element)
-        if toggle_element:
+
+        # Grab both elements from the DOM
+        toggle_scripts = driver.execute_script(js_get_scripts_toggle)
+        toggle_incognito = driver.execute_script(js_get_incognito_toggle)
+
+        if toggle_scripts and toggle_incognito:
             print("Extension details loaded successfully!")
             break
-        print(f"Waiting for extension to download and install... (Attempt {i+1}/30)")
+        print(f"Waiting for extension DOM to hydrate... (Attempt {i+1}/30)")
 
-    if toggle_element is None:
-        print("Error: Toggle element could not be found.")
+    if not toggle_scripts or not toggle_incognito:
+        print("Error: One or both toggle elements could not be found in the DOM.")
         sys.exit(1)
 
-    # bypass Selenium attribute wrapper with pure Javascript
-    is_checked = driver.execute_script("return arguments[0].checked === true || arguments[0].getAttribute('aria-pressed') === 'true';", toggle_element)
+    from selenium.webdriver.common.action_chains import ActionChains
+    actions = ActionChains(driver)
 
-    if not is_checked:
-        # scroll the element into the exact center of the headless screen
-        driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", toggle_element)
+    scripts_checked = driver.execute_script("return arguments[0].checked === true || arguments[0].getAttribute('aria-pressed') === 'true';", toggle_scripts)
+    if not scripts_checked:
+        driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", toggle_scripts)
         time.sleep(0.5)
-
-        # use ActionChains to perform a trusted OS-level hardware click
-        from selenium.webdriver.common.action_chains import ActionChains
-        ActionChains(driver).move_to_element(toggle_element).click().perform()
-
-        print("Success: Toggled ON.")
+        actions.move_to_element(toggle_scripts).click().perform()
+        print("Success: 'Allow User Scripts' toggled ON.")
     else:
-        print("Skipped: Already ON.")
+        print("Skipped: 'Allow User Scripts' already ON.")
+
+    incognito_checked = driver.execute_script("return arguments[0].checked === true || arguments[0].getAttribute('aria-pressed') === 'true';", toggle_incognito)
+    if not incognito_checked:
+        driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", toggle_incognito)
+        time.sleep(0.5)
+        actions.move_to_element(toggle_incognito).click().perform()
+        print("Success: 'Allow in Private' toggled ON.")
+    else:
+        print("Skipped: 'Allow in Private' already ON.")
 
     # force an asynchronous disk flush by navigating away before terminating the process
     time.sleep(2)
