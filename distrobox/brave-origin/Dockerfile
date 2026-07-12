@@ -40,6 +40,6 @@ COPY scripts/preferences_developer_mode.py /usr/local/bin/preferences_developer_
 COPY scripts/preferences_block_translations.py /usr/local/bin/preferences_block_translations.py
 
 # copy the scripts to configure Surfingkeys
-COPY scripts/surfingkeys_allow_user_scripts.py /usr/local/bin/surfingkeys_allow_user_scripts.py
-COPY scripts/surfingkeys_advanced_mode.py      /usr/local/bin/surfingkeys_advanced_mode.py
-COPY scripts/surfingkeys_load_settings.py      /usr/local/bin/surfingkeys_load_settings.py
+COPY scripts/surfingkeys_allow-user-scripts_allow-in-private.py /usr/local/bin/surfingkeys_allow-user-scripts_allow-in-private.py
+COPY scripts/surfingkeys_advanced_mode.py                       /usr/local/bin/surfingkeys_advanced_mode.py
+COPY scripts/surfingkeys_load_settings.py                       /usr/local/bin/surfingkeys_load_settings.py

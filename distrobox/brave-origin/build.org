@@ -20,7 +20,7 @@
   - [[#enabling-developer-mode][Enabling Developer Mode]]
   - [[#block-translations][Block Translations]]
 - [[#surfingkeys][Surfingkeys]]
-  - [[#allow-user-scripts][Allow User Scripts]]
+  - [[#allow-user-scripts--allow-in-private][Allow User Scripts + Allow in Private]]
   - [[#enable-advanced-mode][Enable Advanced Mode]]
   - [[#load-settings][Load Settings]]
 - [[#export-application][Export application]]
@@ -81,10 +81,10 @@ echo -e '\n********************\nPreferences: Block EN and PT Translations\n****
 distrobox enter brave-origin -- python3 /usr/local/bin/preferences_block_translations.py
 #+end_src
 * Surfingkeys
-** Allow User Scripts
+** Allow User Scripts + Allow in Private
 #+begin_src sh
 echo -e '\n********************\nSurfingkeys: Allow User Scripts\n********************'
-distrobox enter brave-origin -- python3 /usr/local/bin/surfingkeys_allow_user_scripts.py
+distrobox enter brave-origin -- python3 /usr/local/bin/surfingkeys_allow-user-scripts_allow-in-private.py
 #+end_src
 ** Enable Advanced Mode
 #+begin_src sh

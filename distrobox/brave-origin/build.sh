@@ -32,7 +32,7 @@ echo -e '\n********************\nPreferences: Block EN and PT Translations\n****
 distrobox enter brave-origin -- python3 /usr/local/bin/preferences_block_translations.py
 
 echo -e '\n********************\nSurfingkeys: Allow User Scripts\n********************'
-distrobox enter brave-origin -- python3 /usr/local/bin/surfingkeys_allow_user_scripts.py
+distrobox enter brave-origin -- python3 /usr/local/bin/surfingkeys_allow-user-scripts_allow-in-private.py
 
 echo -e '\n********************\nSurfingkeys: Advanced Mode\n********************'
 distrobox enter brave-origin -- python3 /usr/local/bin/surfingkeys_advanced_mode.py
