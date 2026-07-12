@@ -139,7 +139,7 @@ Deprecated in favour of [[id:e3ee1d03-6d7e-410e-b696-ee90b1436c1d][Tab Session M
 - link: https://chromewebstore.google.com/detail/nngceckbapebfimnlniiiahkandclblb
 - description: password manager.
 #+begin_src js :noweb yes
-<<install(extension_id="nngceckbapebfimnlniiiahkandclblb")>>
+<<install(extension_id="nngceckbapebfimnlniiiahkandclblb", pin=1)>>
 #+end_src
 *** Violentmonkey
 - link: https://chromewebstore.google.com/detail/violentmonkey/jinjaccalgkegednnccohejagnlnfdag
