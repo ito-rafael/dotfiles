@@ -2,7 +2,12 @@
   "policies": {
     "DisableAppUpdate": true,
     "DisableTelemetry": true,
-    "ExtensionSettings": {},
+    "ExtensionSettings": {
+      "uBlock0@raymondhill.net": {
+        "installation_mode": "force_installed",
+        "install_url": "https://addons.thunderbird.net/thunderbird/downloads/latest/ublock-origin/latest.xpi"
+      }
+    },
     "Preferences": {
       "mail.spam.manualMark": true
     }

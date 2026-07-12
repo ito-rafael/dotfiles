@@ -9,6 +9,8 @@
 - [[#init][Init]]
   - [[#policies-start][Policies Start]]
   - [[#template][Template]]
+- [[#extensions][Extensions]]
+  - [[#ublock-origin][uBlock Origin]]
 - [[#end][End]]
   - [[#preferences-and-closing][Preferences and closing]]
 
@@ -32,6 +34,13 @@ if (comma == true){
 } else {
     console.log(`      }`);
 }
+#+end_src
+* Extensions
+** uBlock Origin
+- link: https://addons.thunderbird.net/en-US/thunderbird/addon/ublock-origin/
+- description: Finally, an efficient blocker. Easy on CPU and memory.
+#+begin_src js :noweb yes
+<<install(extension_id="uBlock0@raymondhill.net", install_url="https://addons.thunderbird.net/thunderbird/downloads/latest/ublock-origin/latest.xpi", comma=0)>>
 #+end_src
 * End
 Don't forget to remove the trailing comma on the previous block of JSON code (last extension).
