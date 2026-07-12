@@ -151,7 +151,7 @@ Deprecated in favour of [[id:e3ee1d03-6d7e-410e-b696-ee90b1436c1d][Tab Session M
 - link: https://chromewebstore.google.com/detail/floccus-bookmarks-sync/fnaicdffflnofjppbagibeoednhnbjhg
 - description: sync bookmarks across browsers and devices.
 #+begin_src js :noweb yes
-<<install(extension_id="fnaicdffflnofjppbagibeoednhnbjhg")>>
+<<install(extension_id="fnaicdffflnofjppbagibeoednhnbjhg", pin=1)>>
 #+end_src
 *** +uBlock Origin+
 - link: https://chromewebstore.google.com/detail/cjpalhdlnbpafiamejdnhcphjbkeiagm
