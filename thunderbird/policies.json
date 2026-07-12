@@ -7,9 +7,9 @@
         "installation_mode": "force_installed",
         "install_url": "https://addons.thunderbird.net/thunderbird/downloads/latest/ublock-origin/latest.xpi"
       },
-      "tbkeys-lite@addons.thunderbird.net": {
+      "tbkeys@addons.thunderbird.net": {
         "installation_mode": "force_installed",
-        "install_url": "https://addons.thunderbird.net/thunderbird/downloads/latest/tbkeys-lite/latest.xpi"
+        "install_url": "https://github.com/wshanks/tbkeys/releases/latest/download/tbkeys.xpi"
       }
     },
     "Preferences": {

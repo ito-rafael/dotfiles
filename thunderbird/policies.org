@@ -11,7 +11,8 @@
 - [[#extensions][Extensions]]
   - [[#template][Template]]
   - [[#ublock-origin][uBlock Origin]]
-  - [[#tbkeys-lite][tbkeys-lite]]
+  - [[#tbkeys-lite][+tbkeys-lite+]]
+  - [[#tbkeys][tbkeys]]
 - [[#end][End]]
   - [[#preferences-and-closing][Preferences and closing]]
 
@@ -45,11 +46,17 @@ if (comma == true){
 #+begin_src js :noweb yes
 <<install(extension_id="uBlock0@raymondhill.net", install_url="https://addons.thunderbird.net/thunderbird/downloads/latest/ublock-origin/latest.xpi", comma=1)>>
 #+end_src
-** tbkeys-lite
+** +tbkeys-lite+
 - link: https://addons.thunderbird.net/en-US/thunderbird/addon/tbkeys-lite
 - description: Custom keybindings for Thunderbird (version with no javascript execution).
+#+begin_src js :noweb yes :tangle no
+<<install(extension_id="tbkeys-lite@addons.thunderbird.net", install_url="https://addons.thunderbird.net/thunderbird/downloads/latest/tbkeys-lite/latest.xpi", comma=1)>>
+#+end_src
+** tbkeys
+- link: https://github.com/wshanks/tbkeys
+- description: Custom keybindings for Thunderbird (full version).
 #+begin_src js :noweb yes
-<<install(extension_id="tbkeys-lite@addons.thunderbird.net", install_url="https://addons.thunderbird.net/thunderbird/downloads/latest/tbkeys-lite/latest.xpi", comma=0)>>
+<<install(extension_id="tbkeys@addons.thunderbird.net", install_url="https://github.com/wshanks/tbkeys/releases/latest/download/tbkeys.xpi", comma=0)>>
 #+end_src
 ** EoS :noexport:
 Don't forget to remove the trailing comma on the previous block of JSON code (last extension).
