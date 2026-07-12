@@ -1,6 +1,6 @@
 {
-    "j": "cmd:cmd_nextMsg",
-    "k": "cmd:cmd_previousMsg",
+    "e": "cmd:cmd_nextMsg",
+    "i": "cmd:cmd_previousMsg",
     "o": "cmd:cmd_openMessage",
     "f": "cmd:cmd_forward",
     "#": "cmd:cmd_delete",
@@ -8,5 +8,5 @@
     "a": "cmd:cmd_replyall",
     "x": "cmd:cmd_archive",
     "c": "func:MsgNewMessage",
-    "u": "tbkeys:closeMessageAndRefresh"
+    "n": "tbkeys:closeMessageAndRefresh",
 }
