@@ -469,6 +469,7 @@ mode "$mode_tilde" {
     bindsym g exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type '~/git/',               mode "default"
     bindsym k exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type '~/git/keebab/',        mode "default"
     bindsym d exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type '~/git/dotfiles/',      mode "default"
+    bindsym l exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type '~/.local/',            mode "default"
     bindsym c exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type '~/.config/',           mode "default"
     bindsym e exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type '~/.config/emacs-efs/', mode "default"
     bindsym s exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type '~/.config/scripts/',   mode "default"
