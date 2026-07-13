@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Zen (Session Manager)
+Comment=Launch Zen Browser directly into Tab Session Manager
+Exec=/home/rafael/.local/bin/zen-tsm-launcher.py
+Icon=zen-browser
+Type=Application
+Terminal=false
+Categories=Network;WebBrowser;
+StartupWMClass=zen
