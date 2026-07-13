@@ -30,6 +30,11 @@
         "installation_mode": "normal_installed",
         "install_url": "https://addons.mozilla.org/firefox/downloads/latest/floccus/latest.xpi"
       },
+      "Tab-Session-Manager@sienori": {
+        "toolbar_pin": "force_pinned",
+        "installation_mode": "normal_installed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/tab-session-manager/latest.xpi"
+      },
       "{a8332c60-5b6d-41ee-bfc8-e9bb331d34ad}": {
         "toolbar_pin": "force_pinned",
         "installation_mode": "normal_installed",

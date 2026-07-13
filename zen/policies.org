@@ -10,6 +10,7 @@
 - [[#extensions][Extensions]]
   - [[#dark-reader][Dark Reader]]
   - [[#floccus][floccus]]
+  - [[#tab-session-manager][Tab Session Manager]]
   - [[#surfingkeys][Surfingkeys]]
   - [[#video-speed-controller][Video Speed Controller]]
 - [[#eos][EoS]]
@@ -91,6 +92,12 @@
 - description: dark mode everywhere.
 #+begin_src json :noweb yes
 <<install(extension_id="floccus@handmadeideas.org", slug="floccus", pin=0, comma=1)>>
+#+end_src
+** Tab Session Manager
+- link: https://addons.mozilla.org/en-US/firefox/addon/tab-session-manager/
+- description: save and restore tabs.
+#+begin_src json :noweb yes
+<<install(extension_id="Tab-Session-Manager@sienori", slug="tab-session-manager", pin=1, comma=1)>>
 #+end_src
 ** Surfingkeys
 - link: https://addons.mozilla.org/en-US/firefox/addon/surfingkeys_ff/
