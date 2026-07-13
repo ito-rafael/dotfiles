@@ -35,7 +35,7 @@
     - [[#xtranslate][XTranslate]]
     - [[#read-aloud][Read Aloud]]
     - [[#kde-connect][KDE Connect]]
-    - [[#hola-vpn][Hola VPN]]
+    - [[#hola-vpn][+Hola VPN+]]
     - [[#save-to-pocket][Save to Pocket]]
   - [[#shopping][Shopping]]
     - [[#aliexpress-superstar][AliExpress Superstar]]
@@ -215,10 +215,10 @@ Deprecated in favour of [[id:e3ee1d03-6d7e-410e-b696-ee90b1436c1d][Tab Session M
 #+begin_src js :noweb yes
 <<install(extension_id="ofmplbbfigookafjahpeepbggpofdhbo")>>
 #+end_src
-*** Hola VPN
+*** +Hola VPN+
 - link: https://chromewebstore.google.com/detail/gkojfkhlekighikafcpjkiklfbnlmeio
 - description: free VPN.
-#+begin_src js :noweb yes
+#+begin_src js :noweb yes :tangle no
 <<install(extension_id="gkojfkhlekighikafcpjkiklfbnlmeio")>>
 #+end_src
 *** Save to Pocket
