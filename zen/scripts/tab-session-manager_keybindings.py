@@ -29,6 +29,11 @@ EXTENSION_ID = "Tab-Session-Manager@sienori"
 EXTENSION_PAGE_PATH = "/options/index.html#shortcuts"
 SETTINGS_CONFIG = [
     {
+        "description": "Open toolbar popup",
+        "xpath": "//*[@id='_execute_action']",
+        "target_value": "Alt+B"
+    },
+    {
         "description": "Save session (only current window)",
         "xpath": "//*[@id='saveCurrentWindow']",
         "target_value": "Alt+O"
@@ -71,7 +76,7 @@ profile_base = valid_profiles[0]
 
 print(f"Targeting active profile: {profile_base}")
 
-MARKER_FILE = os.path.join(profile_base, f".tab-session-manager_configured")
+MARKER_FILE = os.path.join(profile_base, f".tab-session-manager_keybindings_configured")
 
 if os.path.exists(MARKER_FILE):
     print("Skipped: Extension settings already configured (Verified by state marker).")
@@ -187,8 +192,25 @@ try:
             # Note: For many shortcut fields, hitting Backspace clears it natively
             actions.send_keys(Keys.BACKSPACE).pause(0.5).perform()
 
-            # Physically hold ALT, press 'o', then release ALT
-            actions.key_down(Keys.ALT).send_keys("o").key_up(Keys.ALT).perform()
+            # Dynamic Keystroke Parser: split "Alt+X" into ["Alt", "X"]
+            keys_list = setting["target_value"].split("+")
+            modifier_string = keys_list[0]
+            letter = keys_list[1].lower() # Selenium requires lowercase letters for send_keys
+
+            # Map the string to the correct Selenium Key object
+            if modifier_string == "Alt":
+                mod_key = Keys.ALT
+            elif modifier_string == "Ctrl":
+                mod_key = Keys.CONTROL
+            elif modifier_string == "Shift":
+                mod_key = Keys.SHIFT
+            else:
+                mod_key = Keys.ALT # Fallback
+
+            # Physically hold the modifier, press the letter, then release
+            actions.key_down(mod_key).send_keys(letter).key_up(mod_key).perform()
+            # -------------------------------------
+
             time.sleep(0.5)
 
         except Exception as e:
