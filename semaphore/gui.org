@@ -50,10 +50,13 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
         # inject custom CSS
         css_provider = Gtk.CssProvider()
 
-        # Adding margin-left to checkbutton labels creates the gap!
+        # Added min-height override to textview to allow it to shrink fully
         css_data = b"""
-        .small-cmd { font-size: 0.85em; }
+        .small-cmd { font-size: 0.7em; }
+        textview.small-cmd { min-height: 10px; }
         checkbutton label { margin-left: 10px; }
+        .small-mode { font-size: 0.8em; }
+        separator.thick-sep { min-width: 3px; min-height: 3px; }
         """
         css_provider.load_from_data(css_data)
 
@@ -73,7 +76,7 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
 
         # SINGLE GRID setup
         grid = Gtk.Grid(row_spacing=15, column_spacing=12)
-        grid.set_halign(Gtk.Align.CENTER) # Centers the tight form in the window
+        grid.set_halign(Gtk.Align.CENTER)
         main_box.append(grid)
 #+end_src
 
@@ -101,8 +104,7 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
         right_logo.set_margin_end(15)
         header_box.set_end_widget(right_logo)
 
-        # Spanning 4 columns forces the header to match the width of the form inputs!
-        grid.attach(header_box, 0, 0, 4, 1)
+        grid.attach(header_box, 0, 0, 5, 1)
 #+end_src
 
 *** Target Configuration
@@ -137,70 +139,96 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
 
 *** Execution Flags
 #+begin_src python
-        # vertical separator spans Rows 1 to 4
+        # Spring 1: Vertical separator
         v_sep = Gtk.Separator(orientation=Gtk.Orientation.VERTICAL)
-        v_sep.set_halign(Gtk.Align.CENTER) # Prevents the rectangle! Keeps it 1px wide in the center.
-        v_sep.set_hexpand(True) # Makes this column act as a spring to absorb empty space.
+        v_sep.add_css_class("thick-sep")
+        v_sep.set_halign(Gtk.Align.CENTER)
+        v_sep.set_hexpand(True)
         grid.attach(v_sep, 2, 1, 1, 4)
 
-        # options label - Row 1
+        # options label
         grid.attach(Gtk.Label(label="<b>Options:</b>", use_markup=True, halign=Gtk.Align.START), 3, 1, 1, 1)
 
-        # dry run (c) - Row 2
+        # dry run (c)
         self.dry_run_check = Gtk.CheckButton(label="Dry run (c)")
         self.dry_run_check.connect("toggled", self.update_command)
         grid.attach(self.dry_run_check, 3, 2, 1, 1)
 
-        # diff (d) - Row 3
+        # diff (d)
         self.diff_check = Gtk.CheckButton(label="Diff (d)")
         self.diff_check.connect("toggled", self.update_command)
         grid.attach(self.diff_check, 3, 3, 1, 1)
 
-        # debug (D) - Row 4
+        # debug (D)
         self.debug_check = Gtk.CheckButton(label="Debug (D)")
         self.debug_check.connect("toggled", self.update_command)
         grid.attach(self.debug_check, 3, 4, 1, 1)
+
+        # Spring 2: Invisible dummy box
+        right_spring = Gtk.Box()
+        right_spring.set_hexpand(True)
+        grid.attach(right_spring, 4, 1, 1, 4)
 #+end_src
 
 *** Command Bar
 #+begin_src python
-        # start at task (a) - Row 5
+        # start at task (a)
         task_box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=12)
         task_box.append(Gtk.Label(label="Start at task (a)", halign=Gtk.Align.START))
         self.start_task_entry = Gtk.Entry(placeholder_text="Search tasks...", hexpand=True)
         self.start_task_entry.connect("changed", self.update_command)
         task_box.append(self.start_task_entry)
+        grid.attach(task_box, 0, 5, 5, 1)
 
-        grid.attach(task_box, 0, 5, 4, 1)
-
-        # horizontal separator - Row 6
+        # horizontal separator
         h_sep = Gtk.Separator(margin_top=5, margin_bottom=5)
-        grid.attach(h_sep, 0, 6, 4, 1)
+        h_sep.add_css_class("thick-sep")
+        grid.attach(h_sep, 0, 6, 5, 1)
 
-        # command - Row 7
+        # command
         cmd_box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=12)
         cmd_box.append(Gtk.Label(label="Command:", halign=Gtk.Align.START))
-        self.command_entry = Gtk.Entry(hexpand=True)
-        self.command_entry.set_editable(False) # Read-only
-        self.command_entry.add_css_class("monospace")
-        self.command_entry.add_css_class("small-cmd") # Applies our smaller font
-        cmd_box.append(self.command_entry)
 
-        grid.attach(cmd_box, 0, 7, 4, 1)
+        self.command_scroll = Gtk.ScrolledWindow(hexpand=True)
+        self.command_scroll.set_has_frame(True)
+
+        # CHANGED: These properties strip GTK's safety nets and allow a true 1-line height
+        self.command_scroll.set_min_content_height(1)
+        self.command_scroll.set_propagate_natural_height(True)
+        self.command_scroll.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.NEVER)
+
+        self.command_view = Gtk.TextView()
+        self.command_view.set_editable(False)
+        self.command_view.set_cursor_visible(False)
+        self.command_view.set_wrap_mode(Gtk.WrapMode.WORD_CHAR)
+        self.command_view.add_css_class("monospace")
+        self.command_view.add_css_class("small-cmd")
+
+        # Snug interior padding for the small font
+        self.command_view.set_left_margin(8)
+        self.command_view.set_right_margin(8)
+        self.command_view.set_top_margin(4)
+        self.command_view.set_bottom_margin(4)
+
+        self.command_scroll.set_child(self.command_view)
+        cmd_box.append(self.command_scroll)
+
+        grid.attach(cmd_box, 0, 7, 5, 1)
 #+end_src
 
 *** Bottom Bar (Modes & Actions)
 #+begin_src python
-        # left: Mode Indicator - Row 8
+        # left: Mode Indicator
         self.mode_label = Gtk.Label(label="NORMAL")
-        self.mode_label.add_css_class("dim-label") # GTK's native class for discrete, faded text
+        self.mode_label.add_css_class("dim-label")
+        self.mode_label.add_css_class("small-mode")
         self.mode_label.set_halign(Gtk.Align.START)
         self.mode_label.set_margin_top(10)
         grid.attach(self.mode_label, 0, 8, 1, 1)
 
-        # center: Action buttons - Row 8
+        # center: Action buttons
         btn_box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
-        btn_box.set_halign(Gtk.Align.CENTER) # Centers the buttons relative to the inputs above
+        btn_box.set_halign(Gtk.Align.CENTER)
         btn_box.set_margin_top(10)
 
         cancel_btn = Gtk.Button(label="Cancel")
@@ -212,8 +240,7 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
         launch_btn.connect("clicked", self.on_launch_clicked)
         btn_box.append(launch_btn)
 
-        # Spanning columns 1 to 3 underneath the input fields
-        grid.attach(btn_box, 1, 8, 3, 1)
+        grid.attach(btn_box, 1, 8, 4, 1)
 #+end_src
 
 *** Controller Setup
@@ -263,7 +290,8 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
         if start_task:
             cmd.append(f'--start-at-task "{start_task}"')
 
-        self.command_entry.set_text(" ".join(cmd))
+        # Gtk.TextView requires fetching the buffer to set text
+        self.command_view.get_buffer().set_text(" ".join(cmd))
 #+end_src
 
 *** Focus & Mode Tracker
@@ -361,7 +389,11 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
 #+begin_src python
     def on_launch_clicked(self, button):
         """Executes the generated command."""
-        command = self.command_entry.get_text()
+        # Gtk.TextView requires reading from the buffer's bounds
+        buffer = self.command_view.get_buffer()
+        start, end = buffer.get_bounds()
+        command = buffer.get_text(start, end, True)
+
         print(f"Executing: {command}")
 
         # here you would actually launch it, e.g., using subprocess
