@@ -149,7 +149,7 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
         grid.attach(self.tags_entry, 1, 2, 1, 1)
 
         # skip tags (s) - Row 3
-        grid.attach(Gtk.Label(label="Skip tags (s)", halign=Gtk.Align.START), 0, 3, 1, 1)
+        grid.attach(Gtk.Label(label="Skip tags (k)", halign=Gtk.Align.START), 0, 3, 1, 1)
         self.skip_tags_entry = Gtk.Entry(placeholder_text="e.g. emacs")
         self.skip_tags_entry.connect("changed", self.update_command)
         grid.attach(self.skip_tags_entry, 1, 3, 1, 1)
