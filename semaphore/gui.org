@@ -43,6 +43,13 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
     def __init__(self, app):
         super().__init__(application=app, title="ansible-provision")
         self.set_default_size(500, 420)
+
+        # Tells GTK to default to keyboard focus visibility
+        self.set_focus_visible(True)
+
+        # Core State Variables for Modal Navigation
+        self.current_mode = "NORMAL"
+        self.ignore_focus_change = False
 #+end_src
 
 *** Core Layout & CSS
@@ -50,13 +57,19 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
         # inject custom CSS
         css_provider = Gtk.CssProvider()
 
-        # Added min-height override to textview to allow it to shrink fully
         css_data = b"""
         .small-cmd { font-size: 0.7em; }
         textview.small-cmd { min-height: 10px; }
         checkbutton label { margin-left: 10px; }
         .small-mode { font-size: 0.8em; }
         separator.thick-sep { min-width: 3px; min-height: 3px; }
+
+        /* OVERRIDE: Uses the dynamic OS theme color to perfectly match native entries */
+        checkbutton:focus, dropdown:focus, button:focus {
+            box-shadow: inset 0 0 0 1px @theme_selected_bg_color;
+            outline: none;
+            border-radius: 4px;
+        }
         """
         css_provider.load_from_data(css_data)
 
@@ -192,7 +205,6 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
         self.command_scroll = Gtk.ScrolledWindow(hexpand=True)
         self.command_scroll.set_has_frame(True)
 
-        # CHANGED: These properties strip GTK's safety nets and allow a true 1-line height
         self.command_scroll.set_min_content_height(1)
         self.command_scroll.set_propagate_natural_height(True)
         self.command_scroll.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.NEVER)
@@ -204,7 +216,6 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
         self.command_view.add_css_class("monospace")
         self.command_view.add_css_class("small-cmd")
 
-        # Snug interior padding for the small font
         self.command_view.set_left_margin(8)
         self.command_view.set_right_margin(8)
         self.command_view.set_top_margin(4)
@@ -231,33 +242,54 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
         btn_box.set_halign(Gtk.Align.CENTER)
         btn_box.set_margin_top(10)
 
-        cancel_btn = Gtk.Button(label="Cancel")
-        cancel_btn.connect("clicked", lambda b: self.close())
-        btn_box.append(cancel_btn)
+        self.cancel_btn = Gtk.Button(label="Cancel")
+        self.cancel_btn.connect("clicked", lambda b: self.close())
+        btn_box.append(self.cancel_btn)
 
-        launch_btn = Gtk.Button(label="Launch")
-        launch_btn.add_css_class("suggested-action")
-        launch_btn.connect("clicked", self.on_launch_clicked)
-        btn_box.append(launch_btn)
+        self.launch_btn = Gtk.Button(label="Launch")
+        self.launch_btn.add_css_class("suggested-action")
+        self.launch_btn.connect("clicked", self.on_launch_clicked)
+        btn_box.append(self.launch_btn)
 
         grid.attach(btn_box, 1, 8, 4, 1)
 #+end_src
 
 *** Controller Setup
 #+begin_src python
-        # keybindings (event controller)
+        # Build the Spatial Colemak-DH Navigation Map
+        self.nav_map = {
+            self.hosts_drop:      {'n': None, 'e': self.tags_entry, 'i': None, 'o': self.dry_run_check},
+            self.tags_entry:      {'n': None, 'e': self.skip_tags_entry, 'i': self.hosts_drop, 'o': self.dry_run_check},
+            self.skip_tags_entry: {'n': None, 'e': self.strategy_drop, 'i': self.tags_entry, 'o': self.diff_check},
+            self.strategy_drop:   {'n': None, 'e': self.start_task_entry, 'i': self.skip_tags_entry, 'o': self.debug_check},
+
+            self.dry_run_check:   {'n': self.tags_entry, 'e': self.diff_check, 'i': self.hosts_drop, 'o': None},
+            self.diff_check:      {'n': self.skip_tags_entry, 'e': self.debug_check, 'i': self.dry_run_check, 'o': None},
+            self.debug_check:     {'n': self.strategy_drop, 'e': self.start_task_entry, 'i': self.diff_check, 'o': None},
+
+            self.start_task_entry:{'n': None, 'e': self.command_view, 'i': self.strategy_drop, 'o': None},
+            self.command_view:    {'n': None, 'e': self.cancel_btn, 'i': self.start_task_entry, 'o': None},
+
+            self.cancel_btn:      {'n': None, 'e': None, 'i': self.command_view, 'o': self.launch_btn},
+            self.launch_btn:      {'n': self.cancel_btn, 'e': None, 'i': self.command_view, 'o': None}
+        }
+
+        # Key Controller Initialization
         key_controller = Gtk.EventControllerKey.new()
+
+        # EXTREMELY IMPORTANT: Capture the key events BEFORE they bubble down to the widgets!
+        key_controller.set_propagation_phase(Gtk.PropagationPhase.CAPTURE)
+
         key_controller.connect("key-pressed", self.on_key_pressed)
         self.add_controller(key_controller)
 
-        # focus tracker to update Mode indicator automatically
+        # Mouse click focus tracker
         self.connect("notify::focus-widget", self.on_focus_changed)
 
         # initialize the command string
         self.update_command()
 
-        # GTK automatically focuses the first text entry on launch.
-        # This idle hook guarantees we start in perfect NORMAL mode.
+        # Bootstrap the app gracefully into NORMAL mode
         GLib.idle_add(self.drop_initial_focus)
 #+end_src
 
@@ -290,66 +322,149 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
         if start_task:
             cmd.append(f'--start-at-task "{start_task}"')
 
-        # Gtk.TextView requires fetching the buffer to set text
         self.command_view.get_buffer().set_text(" ".join(cmd))
 #+end_src
 
 *** Focus & Mode Tracker
 #+begin_src python
+    def get_nav_node(self, focus_widget):
+        """Resolves internal GTK composite widgets (like Gtk.Text) to their parent UI node."""
+        if not focus_widget:
+            return None
+        current = focus_widget
+        while current:
+            if hasattr(self, 'nav_map') and current in self.nav_map:
+                return current
+            current = current.get_parent()
+        return None
+
+    def set_mode(self, mode):
+        """Explicitly handles the transition between NORMAL and INSERT."""
+        self.current_mode = mode
+        if hasattr(self, 'mode_label'):
+            self.mode_label.set_text(mode)
+
+        is_insert = (mode == "INSERT")
+
+        # Definitively disable GTK Input Methods to prevent leaked typing in NORMAL mode
+        if hasattr(self, 'tags_entry'):
+            self.tags_entry.set_editable(is_insert)
+            self.skip_tags_entry.set_editable(is_insert)
+            self.start_task_entry.set_editable(is_insert)
+
     def drop_initial_focus(self):
-        """Drops focus to enter NORMAL mode on startup."""
-        self.set_focus(None)
+        """Ensures the app starts cleanly focused on the top element in NORMAL mode."""
+        self.ignore_focus_change = True
+        self.hosts_drop.grab_focus()
+        self.set_mode("NORMAL")
+        self.ignore_focus_change = False
         return False # Removes the idle hook
 
     def on_focus_changed(self, *args):
-        """Updates the Mode indicator whenever focus shifts (clicks or keys)."""
-        focus_widget = self.get_focus()
-        is_insert_mode = isinstance(focus_widget, (Gtk.Entry, Gtk.Text, Gtk.TextView))
+        """Only triggered when the user explicitly CLICKS a widget or uses native Tab."""
+        if self.ignore_focus_change:
+            return
 
-        if is_insert_mode:
-            self.mode_label.set_text("INSERT")
+        focus_widget = self.get_focus()
+        nav_node = self.get_nav_node(focus_widget)
+
+        if isinstance(nav_node, Gtk.Entry):
+            self.set_mode("INSERT")
         else:
-            self.mode_label.set_text("NORMAL")
+            self.set_mode("NORMAL")
 #+end_src
 
 ** Event Handlers
 *** Vim Mode Controller
 #+begin_src python
     def on_key_pressed(self, controller, keyval, keycode, state):
-        """Handles Vim-style mode switching."""
+        """Handles Vim-style mode switching and Colemak-DH navigation."""
         focus_widget = self.get_focus()
-        is_insert_mode = isinstance(focus_widget, (Gtk.Entry, Gtk.Text, Gtk.TextView))
+        nav_node = self.get_nav_node(focus_widget)
+        is_entry = isinstance(nav_node, Gtk.Entry)
 #+end_src
 
 **** Mode-Aware Escape
 #+begin_src python
         if keyval == Gdk.KEY_Escape:
-            if is_insert_mode:
-                # 1st ESC: Leave the text entry (Drop to NORMAL mode)
-                self.set_focus(None)
+            if self.current_mode == "INSERT":
+                self.set_mode("NORMAL")
             else:
-                # 2nd ESC (or starting ESC): Exit the application
                 self.close()
             return True
 #+end_src
 
 **** Insert Mode Pass-Through
 #+begin_src python
-        # If in a text entry, let the user type normally
-        if is_insert_mode:
+        # If in INSERT mode, let the keystrokes pass through cleanly
+        if self.current_mode == "INSERT":
             return False
+
+        # SAFEGUARD: Block non-printable modifiers from deleting text in NORMAL mode
+        if is_entry and keyval in (Gdk.KEY_BackSpace, Gdk.KEY_Delete, Gdk.KEY_Return):
+            return True
 #+end_src
 
-**** Normal Mode: Toggles
+**** Normal Mode: Navigation & Toggles
 #+begin_src python
-        # convert keyval to a string character
         unicode_char = Gdk.keyval_to_unicode(keyval)
         if not unicode_char:
-            return False
+            return False # Let structural keys (Tab, Arrows) act natively
 
         key = chr(unicode_char)
 
-        if key == 'c':
+        # 1. Trigger INSERT Mode
+        if key == 's':
+            if is_entry:
+                self.set_mode("INSERT")
+                nav_node.set_position(-1)
+            return True
+
+        # 2. Colemak-DH Spatial Navigation
+        elif key in ['n', 'e', 'i', 'o']:
+            if nav_node and nav_node in self.nav_map:
+                target = self.nav_map[nav_node][key]
+                if target:
+                    self.ignore_focus_change = True
+                    target.grab_focus()
+                    self.ignore_focus_change = False
+            return True
+
+        # 3. Direct Jumps
+        elif key == 'h':
+            self.ignore_focus_change = True
+            self.hosts_drop.grab_focus()
+            self.ignore_focus_change = False
+            return True
+        elif key == 'm':
+            self.ignore_focus_change = True
+            self.strategy_drop.grab_focus()
+            self.ignore_focus_change = False
+            return True
+        elif key == 't':
+            self.ignore_focus_change = True
+            self.tags_entry.grab_focus()
+            self.set_mode("INSERT") # Explicitly jump into insert mode immediately
+            self.tags_entry.set_position(-1)
+            self.ignore_focus_change = False
+            return True
+        elif key == 'k':
+            self.ignore_focus_change = True
+            self.skip_tags_entry.grab_focus()
+            self.set_mode("INSERT")
+            self.skip_tags_entry.set_position(-1)
+            self.ignore_focus_change = False
+            return True
+        elif key == 'a':
+            self.ignore_focus_change = True
+            self.start_task_entry.grab_focus()
+            self.set_mode("INSERT")
+            self.start_task_entry.set_position(-1)
+            self.ignore_focus_change = False
+            return True
+
+        # 4. Checkbox Toggles
+        elif key == 'c':
             self.dry_run_check.set_active(not self.dry_run_check.get_active())
             return True
         elif key == 'd':
@@ -358,28 +473,10 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
         elif key == 'D':
             self.debug_check.set_active(not self.debug_check.get_active())
             return True
-#+end_src
 
-**** Normal Mode: Navigation
-#+begin_src python
-        # focus jumps (enters INSERT mode or opens dropdown)
-        elif key == 'h':
-            self.hosts_drop.grab_focus()
-            return True
-        elif key == 'm':
-            self.strategy_drop.grab_focus()
-            return True
-        elif key == 't':
-            self.tags_entry.grab_focus()
-            self.tags_entry.set_position(-1) # Move cursor to end of text
-            return True
-        elif key == 's':
-            self.skip_tags_entry.grab_focus()
-            self.skip_tags_entry.set_position(-1)
-            return True
-        elif key == 'a':
-            self.start_task_entry.grab_focus()
-            self.start_task_entry.set_position(-1)
+        # 5. Catch-All Block
+        # Guaranteed block of all other typing while parked on an entry in NORMAL mode
+        if is_entry and key.isprintable():
             return True
 
         return False
@@ -389,15 +486,13 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
 #+begin_src python
     def on_launch_clicked(self, button):
         """Executes the generated command."""
-        # Gtk.TextView requires reading from the buffer's bounds
         buffer = self.command_view.get_buffer()
         start, end = buffer.get_bounds()
         command = buffer.get_text(start, end, True)
 
         print(f"Executing: {command}")
 
-        # here you would actually launch it, e.g., using subprocess
-        import subprocess
+        # import subprocess
         # subprocess.Popen(command, shell=True)
 #+end_src
 
