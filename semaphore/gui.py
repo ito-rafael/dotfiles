@@ -164,6 +164,7 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
 
         self.command_view = Gtk.TextView()
         self.command_view.set_editable(False)
+        self.command_view.set_focusable(False) # Blocks native Tab navigation into the read-only box
         self.command_view.set_cursor_visible(False)
         self.command_view.set_wrap_mode(Gtk.WrapMode.WORD_CHAR)
         self.command_view.add_css_class("monospace")
@@ -214,11 +215,11 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
             self.diff_check:      {'n': self.skip_tags_entry, 'e': self.debug_check, 'i': self.dry_run_check, 'o': None},
             self.debug_check:     {'n': self.strategy_drop, 'e': self.start_task_entry, 'i': self.diff_check, 'o': None},
 
-            self.start_task_entry:{'n': None, 'e': self.command_view, 'i': self.strategy_drop, 'o': None},
-            self.command_view:    {'n': None, 'e': self.cancel_btn, 'i': self.start_task_entry, 'o': None},
+            # Bypassed the command_view directly to the cancel_btn
+            self.start_task_entry:{'n': None, 'e': self.cancel_btn, 'i': self.strategy_drop, 'o': None},
 
-            self.cancel_btn:      {'n': None, 'e': None, 'i': self.command_view, 'o': self.launch_btn},
-            self.launch_btn:      {'n': self.cancel_btn, 'e': None, 'i': self.command_view, 'o': None}
+            self.cancel_btn:      {'n': None, 'e': None, 'i': self.start_task_entry, 'o': self.launch_btn},
+            self.launch_btn:      {'n': self.cancel_btn, 'e': None, 'i': self.start_task_entry, 'o': None}
         }
 
         # Key Controller Initialization
@@ -292,8 +293,8 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
             self.skip_tags_entry.set_editable(is_insert)
             self.start_task_entry.set_editable(is_insert)
 
-            # CHANGED: Dynamically inject/remove the transparent caret CSS!
-            widgets_with_carets = [self.tags_entry, self.skip_tags_entry, self.start_task_entry, self.command_view]
+            # Dynamically inject/remove the transparent caret CSS
+            widgets_with_carets = [self.tags_entry, self.skip_tags_entry, self.start_task_entry]
             for w in widgets_with_carets:
                 if is_insert:
                     w.remove_css_class("hide-caret")
@@ -327,7 +328,19 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
         nav_node = self.get_nav_node(focus_widget)
         is_entry = isinstance(nav_node, Gtk.Entry)
 
+        # Detect if focus is currently inside a dropdown's Popover
+        is_in_popover = False
+        curr = focus_widget
+        while curr:
+            if isinstance(curr, Gtk.Popover):
+                is_in_popover = True
+                break
+            curr = curr.get_parent()
+
         if keyval == Gdk.KEY_Escape:
+            if is_in_popover:
+                return False # Let native GTK close the dropdown popup naturally
+
             if self.current_mode == "INSERT":
                 self.set_mode("NORMAL")
             else:
@@ -351,6 +364,31 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
                 self.set_mode("INSERT")
                 nav_node.set_position(-1)
             return True
+
+        # 1.5. Dropdown Popover List Navigation
+        # Bypasses spatial grid entirely to allow list scrolling when the menu is open
+        if is_in_popover and isinstance(nav_node, Gtk.DropDown):
+            if key == 'e' or keyval == Gdk.KEY_Down:
+                idx = nav_node.get_selected()
+                model = nav_node.get_model()
+                if model and idx + 1 < model.get_n_items():
+                    nav_node.set_selected(idx + 1)
+                return True
+
+            elif key == 'i' or keyval == Gdk.KEY_Up:
+                idx = nav_node.get_selected()
+                if idx > 0:
+                    nav_node.set_selected(idx - 1)
+                return True
+
+            elif keyval in (Gdk.KEY_Return, Gdk.KEY_KP_Enter, Gdk.KEY_space):
+                return False # Let GTK execute the native selection process
+
+            # Block other printable keys from breaking focus or typing into search bars
+            if key.isprintable():
+                return True
+
+            return False
 
         # 2. Spatial Navigation (Colemak-DH + Arrow Keys!)
         direction = None
