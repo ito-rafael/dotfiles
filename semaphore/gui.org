@@ -42,14 +42,21 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
 #+begin_src python
     def __init__(self, app):
         super().__init__(application=app, title="ansible-provision")
-        self.set_default_size(600, 420)
+        self.set_default_size(500, 420)
 #+end_src
 
 *** Core Layout & CSS
 #+begin_src python
-        # inject custom CSS for the smaller command preview font
+        # inject custom CSS
         css_provider = Gtk.CssProvider()
-        css_provider.load_from_data(b".small-cmd { font-size: 0.85em; }")
+
+        # Adding margin-left to checkbutton labels creates the gap!
+        css_data = b"""
+        .small-cmd { font-size: 0.85em; }
+        checkbutton label { margin-left: 10px; }
+        """
+        css_provider.load_from_data(css_data)
+
         Gtk.StyleContext.add_provider_for_display(
             Gdk.Display.get_default(),
             css_provider,
@@ -74,6 +81,7 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
         left_logo = Gtk.Picture.new_for_filename("../icon/ansible.png")
         left_logo.set_size_request(50, 50)
         left_logo.set_content_fit(Gtk.ContentFit.CONTAIN)
+        left_logo.set_margin_start(15) # Adds space to the left of the logo
         header_box.set_start_widget(left_logo)
 
         # title text
@@ -85,13 +93,15 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
         right_logo = Gtk.Picture.new_for_filename("../icon/semaphore-ui.png")
         right_logo.set_size_request(50, 50)
         right_logo.set_content_fit(Gtk.ContentFit.CONTAIN)
+        right_logo.set_margin_end(15) # Adds space to the right of the logo
         header_box.set_end_widget(right_logo)
 
         main_box.append(header_box)
 
-        # TOP GRID (For snug elements)
+        # TOP GRID
         self.top_grid = Gtk.Grid(row_spacing=15, column_spacing=12)
-        self.top_grid.set_halign(Gtk.Align.CENTER)
+        # FILL forces the grid to stretch the full width of the window
+        self.top_grid.set_halign(Gtk.Align.FILL)
 #+end_src
 
 *** Target Configuration
@@ -128,8 +138,10 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
 #+begin_src python
         # vertical separator
         v_sep = Gtk.Separator(orientation=Gtk.Orientation.VERTICAL)
-        v_sep.set_margin_start(15)
-        v_sep.set_margin_end(15)
+        # hexpand forces the separator's column to absorb all leftover space!
+        v_sep.set_hexpand(True)
+        # Centers the 1px line directly inside that newly expanded empty space
+        v_sep.set_halign(Gtk.Align.CENTER)
         self.top_grid.attach(v_sep, 2, 0, 1, 4)
 
         # options label - Row 0
@@ -182,15 +194,17 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
 
 *** Bottom Bar (Modes & Actions)
 #+begin_src python
-        # A CenterBox naturally aligns elements to the Left, Center, and Right
-        bottom_bar = Gtk.CenterBox(margin_top=10)
+        # left: Mode Indicator perfectly aligned in Col 0 - Row 2 of bottom_grid
+        self.mode_label = Gtk.Label(label="NORMAL")
+        self.mode_label.add_css_class("dim-label") # GTK's native class for discrete, faded text
+        self.mode_label.set_halign(Gtk.Align.START)
+        self.mode_label.set_margin_top(10)
+        self.bottom_grid.attach(self.mode_label, 0, 2, 1, 1)
 
-        # left: Mode Indicator
-        self.mode_label = Gtk.Label(label="<b>NORMAL</b>", use_markup=True)
-        bottom_bar.set_start_widget(self.mode_label)
-
-        # center: Action buttons
+        # center: Action buttons wrapped in a Box
         btn_box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
+        btn_box.set_halign(Gtk.Align.CENTER) # Centers the buttons relative to the inputs above
+        btn_box.set_margin_top(10)
 
         cancel_btn = Gtk.Button(label="Cancel")
         cancel_btn.connect("clicked", lambda b: self.close())
@@ -201,8 +215,8 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
         launch_btn.connect("clicked", self.on_launch_clicked)
         btn_box.append(launch_btn)
 
-        bottom_bar.set_center_widget(btn_box)
-        main_box.append(bottom_bar)
+        # Spanning columns 1 to 3 underneath the input fields
+        self.bottom_grid.attach(btn_box, 1, 2, 3, 1)
 #+end_src
 
 *** Controller Setup
@@ -268,9 +282,9 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
         is_insert_mode = isinstance(focus_widget, (Gtk.Entry, Gtk.Text, Gtk.TextView))
 
         if is_insert_mode:
-            self.mode_label.set_markup("<b>INSERT</b>")
+            self.mode_label.set_text("INSERT")
         else:
-            self.mode_label.set_markup("<b>NORMAL</b>")
+            self.mode_label.set_text("NORMAL")
 #+end_src
 
 ** Event Handlers
