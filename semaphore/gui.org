@@ -273,9 +273,9 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
             self.diff_check:      {'n': self.skip_tags_entry, 'e': self.debug_check, 'i': self.dry_run_check, 'o': None},
             self.debug_check:     {'n': self.strategy_drop, 'e': self.start_task_entry, 'i': self.diff_check, 'o': None},
 
-            # Bypassed the command_view directly to the cancel_btn
             self.start_task_entry:{'n': None, 'e': self.cancel_btn, 'i': self.strategy_drop, 'o': None},
 
+            # Removed command_view from mapping and fixed the up ('i') action to hit start_task_entry
             self.cancel_btn:      {'n': None, 'e': None, 'i': self.start_task_entry, 'o': self.launch_btn},
             self.launch_btn:      {'n': self.cancel_btn, 'e': None, 'i': self.start_task_entry, 'o': None}
         }
@@ -396,15 +396,40 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
         focus_widget = self.get_focus()
         nav_node = self.get_nav_node(focus_widget)
         is_entry = isinstance(nav_node, Gtk.Entry)
+
+        # Detect if focus is currently inside a dropdown's Popover
+        is_in_popover = False
+        curr = focus_widget
+        while curr:
+            if isinstance(curr, Gtk.Popover):
+                is_in_popover = True
+                break
+            curr = curr.get_parent()
 #+end_src
 
-**** Mode-Aware Escape
+**** Mode-Aware Escape & Global Actions
 #+begin_src python
+        # Global Ctrl+C intercept to terminate the window
+        if (state & Gdk.ModifierType.CONTROL_MASK) and keyval in (Gdk.KEY_c, Gdk.KEY_C):
+            self.close()
+            return True
+
         if keyval == Gdk.KEY_Escape:
+            if is_in_popover:
+                return False # Let native GTK close the dropdown popup naturally
+
             if self.current_mode == "INSERT":
                 self.set_mode("NORMAL")
             else:
                 self.close()
+            return True
+
+        if keyval in (Gdk.KEY_Return, Gdk.KEY_KP_Enter):
+            if is_in_popover:
+                return False # Let native GTK handle the dropdown option selection
+
+            # Anywhere else, Enter launches the script and closes the window
+            self.on_launch_clicked(self.launch_btn)
             return True
 #+end_src
 
@@ -415,7 +440,7 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
             return False
 
         # SAFEGUARD: Block non-printable modifiers from deleting text in NORMAL mode
-        if is_entry and keyval in (Gdk.KEY_BackSpace, Gdk.KEY_Delete, Gdk.KEY_Return):
+        if is_entry and keyval in (Gdk.KEY_BackSpace, Gdk.KEY_Delete):
             return True
 #+end_src
 
@@ -519,6 +544,9 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
 
         # import subprocess
         # subprocess.Popen(command, shell=True)
+
+        # Kill the window upon execution
+        self.close()
 #+end_src
 
 * Application Entry Point
