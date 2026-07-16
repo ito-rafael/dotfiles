@@ -27,11 +27,16 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
         .small-mode { font-size: 0.8em; }
         separator.thick-sep { min-width: 3px; min-height: 3px; }
 
-        /* OVERRIDE: Uses the dynamic OS theme color to perfectly match native entries */
+        /* OVERRIDE: Uses the official Adwaita Dark Blue to perfectly match native entries */
         checkbutton:focus, dropdown:focus, button:focus {
-            box-shadow: inset 0 0 0 1px @theme_selected_bg_color;
+            box-shadow: inset 0 0 0 1px #1c71d8;
             outline: none;
             border-radius: 4px;
+        }
+
+        /* DYNAMIC CLASS: Makes the blinking cursor invisible in NORMAL mode */
+        .hide-caret {
+            caret-color: transparent;
         }
         """
         css_provider.load_from_data(css_data)
@@ -287,6 +292,14 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
             self.skip_tags_entry.set_editable(is_insert)
             self.start_task_entry.set_editable(is_insert)
 
+            # CHANGED: Dynamically inject/remove the transparent caret CSS!
+            widgets_with_carets = [self.tags_entry, self.skip_tags_entry, self.start_task_entry, self.command_view]
+            for w in widgets_with_carets:
+                if is_insert:
+                    w.remove_css_class("hide-caret")
+                else:
+                    w.add_css_class("hide-caret")
+
     def drop_initial_focus(self):
         """Ensures the app starts cleanly focused on the top element in NORMAL mode."""
         self.ignore_focus_change = True
@@ -321,7 +334,7 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
                 self.close()
             return True
 
-        # If in INSERT mode, let the keystrokes pass through cleanly
+        # If in INSERT mode, let the keystrokes (including arrows) pass through cleanly
         if self.current_mode == "INSERT":
             return False
 
@@ -330,10 +343,7 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
             return True
 
         unicode_char = Gdk.keyval_to_unicode(keyval)
-        if not unicode_char:
-            return False # Let structural keys (Tab, Arrows) act natively
-
-        key = chr(unicode_char)
+        key = chr(unicode_char) if unicode_char else ""
 
         # 1. Trigger INSERT Mode
         if key == 's':
@@ -342,18 +352,32 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
                 nav_node.set_position(-1)
             return True
 
-        # 2. Colemak-DH Spatial Navigation
-        elif key in ['n', 'e', 'i', 'o']:
+        # 2. Spatial Navigation (Colemak-DH + Arrow Keys!)
+        direction = None
+        if keyval == Gdk.KEY_Left or key == 'n':
+            direction = 'n'
+        elif keyval == Gdk.KEY_Down or key == 'e':
+            direction = 'e'
+        elif keyval == Gdk.KEY_Up or key == 'i':
+            direction = 'i'
+        elif keyval == Gdk.KEY_Right or key == 'o':
+            direction = 'o'
+
+        if direction:
             if nav_node and nav_node in self.nav_map:
-                target = self.nav_map[nav_node][key]
+                target = self.nav_map[nav_node][direction]
                 if target:
                     self.ignore_focus_change = True
                     target.grab_focus()
                     self.ignore_focus_change = False
             return True
 
+        # Let OTHER structural keys (Tab, etc.) act natively if not explicitly handled
+        if not key:
+            return False
+
         # 3. Direct Jumps
-        elif key == 'h':
+        if key == 'h':
             self.ignore_focus_change = True
             self.hosts_drop.grab_focus()
             self.ignore_focus_change = False
