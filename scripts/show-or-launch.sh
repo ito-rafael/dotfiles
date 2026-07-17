@@ -165,9 +165,10 @@ fi
 if [ $FOCUSED != $APPLICATION ]; then
     # then check if the {class,app_id} is one of the listed bellow
     is_scratchpad=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.focused) |
-        .'$PROP_PREFIX''$PROP' == "dropdown_terminal" or
+        .'$PROP_PREFIX''$PROP' == "dropdown_ansible" or
         .'$PROP_PREFIX''$PROP' == "dropdown_python" or
         .'$PROP_PREFIX''$PROP' == "dropdown_pacman" or
+        .'$PROP_PREFIX''$PROP' == "dropdown_terminal" or
         .'$PROP_PREFIX''$PROP' == "keymapp" or .'$PROP_PREFIX''$PROP' == "Keymapp" or
         .'$PROP_PREFIX''$PROP' == "brave-calendar.google.com__-Default" or
         .'$PROP_PREFIX''$PROP' == "brave-chatgpt.com__-Default" or
@@ -239,8 +240,8 @@ if [[ ! $SCRATCHPAD ]]; then
             brave --app=https://chatgpt.com &
             sleep 2
             ;;
-        "dropdown_terminal")
-            kitty --detach --class="dropdown_terminal" -o font_size=14 -o include=$XDG_CONFIG_HOME/kitty/themes/terminal.conf -o background_opacity=0.85
+        "dropdown_ansible")
+            /home/rafael/git/dotfiles/semaphore/gui.py
             sleep 0.05
             ;;
         "dropdown_python")
@@ -249,6 +250,10 @@ if [[ ! $SCRATCHPAD ]]; then
             ;;
         "dropdown_pacman")
             $XDG_CONFIG_HOME/waybar/scripts/scratchpad-pacman.sh
+            sleep 0.05
+            ;;
+        "dropdown_terminal")
+            kitty --detach --class="dropdown_terminal" -o font_size=14 -o include=$XDG_CONFIG_HOME/kitty/themes/terminal.conf -o background_opacity=0.85
             sleep 0.05
             ;;
         "keymapp")
