@@ -492,7 +492,7 @@ while ! swaymsg -t get_tree | grep -q '"app_id": "dropdown_ansible"'; do
 done
 
 # Explicitly command Sway to unhide the scratchpad and bring it into focus!
-swaymsg '[app_id="dropdown_ansible"] scratchpad show'
+$XDG_CONFIG_HOME/scripts/show-or-launch.sh dropdown_ansible 0.75 0.75
 """
 
         import subprocess
