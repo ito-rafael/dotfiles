@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import os
 import gi
 gi.require_version('Gtk', '4.0')
 gi.require_version('Gdk', '4.0')
@@ -60,11 +61,16 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
         grid.set_halign(Gtk.Align.CENTER)
         main_box.append(grid)
 
+        # Calculate dynamic absolute paths based on the script's actual location
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        ansible_icon_path = os.path.join(script_dir, "../icon/ansible.png")
+        semaphore_icon_path = os.path.join(script_dir, "../icon/semaphore-ui.png")
+
         # Header Box
         header_box = Gtk.CenterBox()
 
         # left logo
-        left_logo = Gtk.Picture.new_for_filename("../icon/ansible.png")
+        left_logo = Gtk.Picture.new_for_filename(ansible_icon_path)
         left_logo.set_size_request(50, 50)
         left_logo.set_content_fit(Gtk.ContentFit.CONTAIN)
         left_logo.set_margin_start(15)
@@ -76,7 +82,7 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
         header_box.set_center_widget(header)
 
         # right logo
-        right_logo = Gtk.Picture.new_for_filename("../icon/semaphore-ui.png")
+        right_logo = Gtk.Picture.new_for_filename(semaphore_icon_path)
         right_logo.set_size_request(50, 50)
         right_logo.set_content_fit(Gtk.ContentFit.CONTAIN)
         right_logo.set_margin_end(15)
@@ -217,7 +223,6 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
 
             self.start_task_entry:{'n': None, 'e': self.cancel_btn, 'i': self.strategy_drop, 'o': None},
 
-            # Removed command_view from mapping and fixed the up ('i') action to hit start_task_entry
             self.cancel_btn:      {'n': None, 'e': None, 'i': self.start_task_entry, 'o': self.launch_btn},
             self.launch_btn:      {'n': self.cancel_btn, 'e': None, 'i': self.start_task_entry, 'o': None}
         }
@@ -242,7 +247,8 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
 
     def update_command(self, *args):
         """Dynamically builds the bash command based on UI state."""
-        cmd = ["./api.sh", "run"]
+        # Cleaned up to output purely the arguments, so they drop cleanly into the kitty script
+        cmd = ["run"]
 
         if self.strategy_drop.get_selected_item().get_string() == "Linear":
             cmd.append("--linear")
@@ -293,7 +299,7 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
             self.skip_tags_entry.set_editable(is_insert)
             self.start_task_entry.set_editable(is_insert)
 
-            # CHANGED: Dynamically inject/remove the transparent caret CSS!
+            # Dynamically inject/remove the transparent caret CSS!
             widgets_with_carets = [self.tags_entry, self.skip_tags_entry, self.start_task_entry, self.command_view]
             for w in widgets_with_carets:
                 if is_insert:
