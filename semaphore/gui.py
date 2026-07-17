@@ -242,8 +242,8 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
         # initialize the command string
         self.update_command()
 
-        # Bootstrap the app gracefully into NORMAL mode
-        GLib.idle_add(self.drop_initial_focus)
+        # Bootstrap the app gracefully into INSERT mode on tags_entry
+        GLib.idle_add(self.set_initial_focus)
 
     def update_command(self, *args):
         """Dynamically builds the bash command based on UI state."""
@@ -307,11 +307,12 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
                 else:
                     w.add_css_class("hide-caret")
 
-    def drop_initial_focus(self):
-        """Ensures the app starts cleanly focused on the top element in NORMAL mode."""
+    def set_initial_focus(self):
+        """Ensures the app starts cleanly focused on the tags entry in INSERT mode."""
         self.ignore_focus_change = True
-        self.hosts_drop.grab_focus()
-        self.set_mode("NORMAL")
+        self.tags_entry.grab_focus()
+        self.set_mode("INSERT")
+        self.tags_entry.set_position(-1)
         self.ignore_focus_change = False
         return False # Removes the idle hook
 
@@ -334,14 +335,8 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
         nav_node = self.get_nav_node(focus_widget)
         is_entry = isinstance(nav_node, Gtk.Entry)
 
-        # Detect if focus is currently inside a dropdown's Popover
-        is_in_popover = False
-        curr = focus_widget
-        while curr:
-            if isinstance(curr, Gtk.Popover):
-                is_in_popover = True
-                break
-            curr = curr.get_parent()
+        unicode_char = Gdk.keyval_to_unicode(keyval)
+        key = chr(unicode_char) if unicode_char else ""
 
         # Global Ctrl+C intercept to terminate the window
         if (state & Gdk.ModifierType.CONTROL_MASK) and keyval in (Gdk.KEY_c, Gdk.KEY_C):
@@ -349,9 +344,6 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
             return True
 
         if keyval == Gdk.KEY_Escape:
-            if is_in_popover:
-                return False # Let native GTK close the dropdown popup naturally
-
             if self.current_mode == "INSERT":
                 self.set_mode("NORMAL")
             else:
@@ -359,10 +351,7 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
             return True
 
         if keyval in (Gdk.KEY_Return, Gdk.KEY_KP_Enter):
-            if is_in_popover:
-                return False # Let native GTK handle the dropdown option selection
-
-            # Anywhere else, Enter launches the script and closes the window
+            # Enter launches the script and closes the window
             self.on_launch_clicked(self.launch_btn)
             return True
 
@@ -373,9 +362,6 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
         # SAFEGUARD: Block non-printable modifiers from deleting text in NORMAL mode
         if is_entry and keyval in (Gdk.KEY_BackSpace, Gdk.KEY_Delete):
             return True
-
-        unicode_char = Gdk.keyval_to_unicode(keyval)
-        key = chr(unicode_char) if unicode_char else ""
 
         # 1. Trigger INSERT Mode
         if key == 's':
