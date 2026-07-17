@@ -546,7 +546,11 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
         start, end = buffer.get_bounds()
         gui_args = buffer.get_text(start, end, True)
 
-        print(f"Executing api.py with args: {gui_args}")
+        print(f"Executing api.sh with args: {gui_args}")
+
+        # Resolve api.sh path dynamically so it can be called from anywhere
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        api_script = os.path.join(script_dir, "api.sh")
 
         bash_script = f"""
 kitty \\
@@ -554,9 +558,9 @@ kitty \\
     --hold \\
     -o font_size=12 \\
     -o include="$XDG_CONFIG_HOME/kitty/themes/root.conf" \\
-    bash -c 'exec /home/ansible/git/dotfiles/semaphore/api.sh {gui_args}' &
+    bash -c 'exec "{api_script}" {gui_args}' &
 
-# wait for dropdown_ansible appears in Sway's window tree
+# wait for dropdown_ansible to appear in Sway's window tree
 MAX_WAIT=50
 COUNTER=0
 while ! swaymsg -t get_tree | grep -q '"app_id": "dropdown_ansible"'; do
@@ -567,11 +571,13 @@ while ! swaymsg -t get_tree | grep -q '"app_id": "dropdown_ansible"'; do
         exit 1
     fi
 done
+
+# Explicitly command Sway to unhide the scratchpad and bring it into focus!
+swaymsg '[app_id="dropdown_ansible"] scratchpad show'
 """
 
         import subprocess
-        # start_new_session=True detaches the child process, guaranteeing Kitty and the wait loop
-        # survive even when the Python GUI app closes milliseconds later.
+        # start_new_session=True fully detaches the process group so the background loop survives when GUI closes
         subprocess.Popen(bash_script, shell=True, executable='/bin/bash', start_new_session=True)
 
         # Closes the window after launching
