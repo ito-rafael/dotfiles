@@ -125,10 +125,20 @@ alias wdf='watch -n1 df -h'
 alias fl='faillock --user $USER --reset'
 alias kb='pkill brave && brave &'
 alias km='$XDG_CONFIG_HOME/waybar/scripts/kmonad.sh'
-alias ssh='kitten ssh --kitten=color_scheme=themes/ssh.conf'
 alias cmd='command'
 alias rmw='rm -rf ~/.cache/wasistlos/'          # clean WasIstLos (WhatsApp) cache
 function cv() { cat $1 | vim - }
+
+#alias ssh='kitten ssh --kitten=color_scheme=themes/ssh.conf'
+ssh() {
+  # change the local terminal to the SSH theme
+  kitty @ set-colors -a "$XDG_CONFIG_HOME/kitty/themes/ssh.conf"
+  # run the actual SSH command (using kitten ssh)
+  kitten ssh "$@"
+  # revert back to your default theme when you disconnect
+  #kitty @ set-colors -a "$XDG_CONFIG_HOME/kitty/themes/default.conf"
+  kitty @ set-colors -a --reset
+}
 
 alias j='journalctl -u'                    # journalctl
 alias jf='journalctl --follow -u'          # journalctl follow
@@ -557,7 +567,7 @@ bindkey "^I" history-substring-search-up
 
 # fix: workaround for history-substring-search to work with zsh-vi-mode
 zvm_after_init_commands+=(
-    "bindkey '^[[A' up-line-or-search" 
+    "bindkey '^[[A' up-line-or-search"
     "bindkey '^[[B' down-line-or-search"
 )
 
