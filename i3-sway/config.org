@@ -1776,6 +1776,13 @@ for_window [$prop="informant-news"] {
     move position center
 }
 #+end_src
+*** ansible-provision
+#+begin_src conf :noweb-ref ansible-provision
+for_window [$prop="local.ansible-provision"] {
+    floating enable
+    move position center
+}
+#+end_src
 ** Tangle :noexport:
 *** i3
 #+begin_src conf :noweb yes :tangle _config_i3
@@ -1793,6 +1800,7 @@ for_window [$prop="informant-news"] {
 <<sway-emacs>>
 <<zsa-update>>
 <<informant-news>>
+<<ansible-provision>>
 #+end_src
 * Scratchpads
 ** ansible-provision

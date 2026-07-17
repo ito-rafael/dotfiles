@@ -529,6 +529,10 @@ for_window [$prop="informant-news"] {
     resize set width 1000 height 1000
     move position center
 }
+for_window [$prop="local.ansible-provision"] {
+    floating enable
+    move position center
+}
 
 for_window [$prop="^dropdown_ansible$"] floating enable
 for_window [$prop="^dropdown_ansible$"] move position center
