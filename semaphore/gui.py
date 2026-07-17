@@ -457,14 +457,37 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
         """Executes the generated command."""
         buffer = self.command_view.get_buffer()
         start, end = buffer.get_bounds()
-        command = buffer.get_text(start, end, True)
+        gui_args = buffer.get_text(start, end, True)
 
-        print(f"Executing: {command}")
+        print(f"Executing api.py with args: {gui_args}")
 
-        # import subprocess
-        # subprocess.Popen(command, shell=True)
+        bash_script = f"""
+kitty \\
+    --class="dropdown_ansible" \\
+    --hold \\
+    -o font_size=12 \\
+    -o include="$XDG_CONFIG_HOME/kitty/themes/root.conf" \\
+    bash -c 'exec /home/ansible/git/dotfiles/semaphore/api.sh {gui_args}' &
 
-        # Kill the window upon execution
+# wait for dropdown_ansible appears in Sway's window tree
+MAX_WAIT=50
+COUNTER=0
+while ! swaymsg -t get_tree | grep -q '"app_id": "dropdown_ansible"'; do
+    sleep 0.1
+    ((COUNTER++))
+    if [[ $COUNTER -ge $MAX_WAIT ]]; then
+        echo "Error: Kitty window never appeared."
+        exit 1
+    fi
+done
+"""
+
+        import subprocess
+        # start_new_session=True detaches the child process, guaranteeing Kitty and the wait loop
+        # survive even when the Python GUI app closes milliseconds later.
+        subprocess.Popen(bash_script, shell=True, executable='/bin/bash', start_new_session=True)
+
+        # Closes the window after launching
         self.close()
 
 class MyApp(Gtk.Application):
