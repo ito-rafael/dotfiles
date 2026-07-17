@@ -4,6 +4,7 @@ import gi
 gi.require_version('Gtk', '4.0')
 gi.require_version('Gdk', '4.0')
 from gi.repository import Gtk, Gdk, Gio, GLib
+import subprocess
 
 class AnsibleProvisionApp(Gtk.ApplicationWindow):
 
@@ -11,10 +12,10 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
         super().__init__(application=app, title="ansible-provision")
         self.set_default_size(500, 420)
 
-        # Tells GTK to default to keyboard focus visibility
+        # tells GTK to default to keyboard focus visibility
         self.set_focus_visible(True)
 
-        # Core State Variables for Modal Navigation
+        # core State Variables for Modal Navigation
         self.current_mode = "NORMAL"
         self.ignore_focus_change = False
 
@@ -28,14 +29,14 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
         .small-mode { font-size: 0.8em; }
         separator.thick-sep { min-width: 3px; min-height: 3px; }
 
-        /* OVERRIDE: Uses the official Adwaita Dark Blue to perfectly match native entries */
+        /* uses the official Adwaita Dark Blue to perfectly match native entries */
         checkbutton:focus, dropdown:focus, button:focus {
             box-shadow: inset 0 0 0 2px #1d487d;
             outline: none;
             border-radius: 4px;
         }
 
-        /* DYNAMIC CLASS: Makes the blinking cursor invisible in NORMAL mode */
+        /* dynamic class: makes the blinking cursor invisible in NORMAL mode */
         .hide-caret {
             caret-color: transparent;
         }
@@ -90,19 +91,19 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
 
         grid.attach(header_box, 0, 0, 5, 1)
 
-        # hosts (h) - Row 1
+        # hosts (h) [row 1]
         grid.attach(Gtk.Label(label="Hosts (h)", halign=Gtk.Align.START), 0, 1, 1, 1)
         self.hosts_drop = Gtk.DropDown.new(Gtk.StringList.new(["localhost", "LBiC", "homelab", "rootless"]))
         self.hosts_drop.connect("notify::selected", self.update_command)
         grid.attach(self.hosts_drop, 1, 1, 1, 1)
 
-        # strategy (m) - Row 4
+        # strategy (m) [row 4]
         grid.attach(Gtk.Label(label="Strategy (m)", halign=Gtk.Align.START), 0, 4, 1, 1)
         self.strategy_drop = Gtk.DropDown.new(Gtk.StringList.new(["Mitogen", "Linear"]))
         self.strategy_drop.connect("notify::selected", self.update_command)
         grid.attach(self.strategy_drop, 1, 4, 1, 1)
 
-        # tags (t) - Row 2
+        # tags (t) [row 2]
         grid.attach(Gtk.Label(label="Tags (t)", halign=Gtk.Align.START), 0, 2, 1, 1)
         self.tags_entry = Gtk.Entry(placeholder_text="e.g. brave")
         self.tags_entry.connect("changed", self.update_command)
@@ -210,7 +211,7 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
 
         grid.attach(btn_box, 1, 8, 4, 1)
 
-        # Build the Spatial Colemak-DH Navigation Map
+        # build the Spatial Colemak-DH Navigation Map
         self.nav_map = {
             self.hosts_drop:      {'n': None, 'e': self.tags_entry, 'i': None, 'o': self.dry_run_check},
             self.tags_entry:      {'n': None, 'e': self.skip_tags_entry, 'i': self.hosts_drop, 'o': self.dry_run_check},
@@ -227,27 +228,27 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
             self.launch_btn:      {'n': self.cancel_btn, 'e': None, 'i': self.start_task_entry, 'o': None}
         }
 
-        # Key Controller Initialization
+        # key controller initialization
         key_controller = Gtk.EventControllerKey.new()
 
-        # EXTREMELY IMPORTANT: Capture the key events BEFORE they bubble down to the widgets!
+        # capture the key events before they bubble down to the widgets
         key_controller.set_propagation_phase(Gtk.PropagationPhase.CAPTURE)
 
         key_controller.connect("key-pressed", self.on_key_pressed)
         self.add_controller(key_controller)
 
-        # Mouse click focus tracker
+        # mouse click focus tracker
         self.connect("notify::focus-widget", self.on_focus_changed)
 
         # initialize the command string
         self.update_command()
 
-        # Bootstrap the app gracefully into INSERT mode on tags_entry
+        # bootstrap the app gracefully into INSERT mode on tags_entry
         GLib.idle_add(self.set_initial_focus)
 
     def update_command(self, *args):
         """Dynamically builds the bash command based on UI state."""
-        # Cleaned up to output purely the arguments, so they drop cleanly into the kitty script
+        # cleaned up to output purely the arguments, so they drop cleanly into the kitty script
         cmd = ["run"]
 
         if self.strategy_drop.get_selected_item().get_string() == "Linear":
@@ -293,13 +294,13 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
 
         is_insert = (mode == "INSERT")
 
-        # Definitively disable GTK Input Methods to prevent leaked typing in NORMAL mode
+        # definitively disable GTK Input Methods to prevent leaked typing in NORMAL mode
         if hasattr(self, 'tags_entry'):
             self.tags_entry.set_editable(is_insert)
             self.skip_tags_entry.set_editable(is_insert)
             self.start_task_entry.set_editable(is_insert)
 
-            # Dynamically inject/remove the transparent caret CSS!
+            # dynamically inject/remove the transparent caret CSS
             widgets_with_carets = [self.tags_entry, self.skip_tags_entry, self.start_task_entry, self.command_view]
             for w in widgets_with_carets:
                 if is_insert:
@@ -338,7 +339,7 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
         unicode_char = Gdk.keyval_to_unicode(keyval)
         key = chr(unicode_char) if unicode_char else ""
 
-        # Global Ctrl+C intercept to terminate the window
+        # global Ctrl+C intercept to terminate the window
         if (state & Gdk.ModifierType.CONTROL_MASK) and keyval in (Gdk.KEY_c, Gdk.KEY_C):
             self.close()
             return True
@@ -355,22 +356,22 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
             self.on_launch_clicked(self.launch_btn)
             return True
 
-        # If in INSERT mode, let the keystrokes (including arrows) pass through cleanly
+        # if in INSERT mode, let the keystrokes (including arrows) pass through cleanly
         if self.current_mode == "INSERT":
             return False
 
-        # SAFEGUARD: Block non-printable modifiers from deleting text in NORMAL mode
+        # block non-printable modifiers from deleting text in NORMAL mode
         if is_entry and keyval in (Gdk.KEY_BackSpace, Gdk.KEY_Delete):
             return True
 
-        # 1. Trigger INSERT Mode
+        # trigger INSERT mode
         if key == 's':
             if is_entry:
                 self.set_mode("INSERT")
                 nav_node.set_position(-1)
             return True
 
-        # 2. Spatial Navigation (Colemak-DH + Arrow Keys!)
+        # spatial navigation: Colemak-DH {neio} + arrow keys
         direction = None
         if keyval == Gdk.KEY_Left or key == 'n':
             direction = 'n'
@@ -390,11 +391,11 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
                     self.ignore_focus_change = False
             return True
 
-        # Let OTHER structural keys (Tab, etc.) act natively if not explicitly handled
+        # let other structural keys (eg: Tab) act natively if not explicitly handled
         if not key:
             return False
 
-        # 3. Direct Jumps
+        # direct jumps
         if key == 'h':
             self.ignore_focus_change = True
             self.hosts_drop.grab_focus()
@@ -427,7 +428,7 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
             self.ignore_focus_change = False
             return True
 
-        # 4. Checkbox Toggles
+        # checkbox toggles
         elif key == 'c':
             self.dry_run_check.set_active(not self.dry_run_check.get_active())
             return True
@@ -438,8 +439,8 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
             self.debug_check.set_active(not self.debug_check.get_active())
             return True
 
-        # 5. Catch-All Block
-        # Guaranteed block of all other typing while parked on an entry in NORMAL mode
+        # catch-all block
+        # guaranteed block of all other typing while parked on an entry in NORMAL mode
         if is_entry and key.isprintable():
             return True
 
@@ -453,10 +454,11 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
 
         print(f"Executing api.sh with args: {gui_args}")
 
-        # Resolve api.sh path dynamically so it can be called from anywhere
+        # resolve api.sh path dynamically so it can be called from anywhere
         script_dir = os.path.dirname(os.path.abspath(__file__))
         api_script = os.path.join(script_dir, "api.sh")
 
+        # run api.sh with the selected tags, and then focus on the scratchpad window with the logs
         bash_script = f"""
 kitty \\
     --class="dropdown_ansible" \\
@@ -481,11 +483,10 @@ done
 $XDG_CONFIG_HOME/scripts/show-or-launch.sh dropdown_ansible 0.75 0.75
 """
 
-        import subprocess
         # start_new_session=True fully detaches the process group so the background loop survives when GUI closes
         subprocess.Popen(bash_script, shell=True, executable='/bin/bash', start_new_session=True)
 
-        # Closes the window after launching
+        # closes the window after launching
         self.close()
 
 class MyApp(Gtk.Application):
