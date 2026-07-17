@@ -364,6 +364,11 @@ for_window [$prop="showmethekey-gtk" title="Show Me The Key"] floating enable
 #for_window [$prop="showmethekey-gtk" title="Floating Window - Show Me The Key"] floating enable
 #for_window [$prop="showmethekey-gtk" title="Floating Window - Show Me The Key"] sticky enable
 
+for_window [$prop="^dropdown_ansible$"] floating enable
+for_window [$prop="^dropdown_ansible$"] move position center
+for_window [$prop="^dropdown_ansible$"] move scratchpad
+for_window [$prop="^dropdown_ansible$"] border pixel 5
+bindsym $alt+$mod+k exec "$SCRIPT_PATH/show-or-launch.sh dropdown_ansible 0.75 0.75"
 exec --no-startup-id kitty --class="dropdown_terminal" -o font_size=14 -o include=$XDG_CONFIG_HOME/kitty/themes/terminal.conf -o background_opacity=0.85
 bindsym $mod+n exec "$SCRIPT_PATH/show-or-launch.sh dropdown_terminal 0.75 0.75"
 for_window [$prop="^dropdown_terminal$"] floating enable
