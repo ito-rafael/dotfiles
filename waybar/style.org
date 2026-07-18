@@ -461,6 +461,7 @@ box#sysadmin {
 *** Modules
 #+begin_src css
 #custom-pacman,
+#custom-aur,
 #custom-informant.news,
 #custom-xwayland,
 #custom-ansible-provision {
@@ -472,6 +473,7 @@ box#sysadmin {
 #+end_src
 *** Separator
 #+begin_src css
+#custom-aur,
 #custom-informant.news,
 #custom-xwayland,
 #custom-ansible-provision {
@@ -515,6 +517,17 @@ box#sysadmin {
     transition: background 0.3s ease;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
+}
+#+end_src
+** AUR :noexport_1:
+#+begin_src css
+#custom-aur {
+    background-image: url("/home/rafael/.config/waybar/icon/archlinux.svg");
+    background-size: 14px;
+    background-repeat: no-repeat;
+    background-position: 5px calc(50% - 1px);
+    padding-left: 22px;
+    padding-top: 3px;
 }
 #+end_src
 ** Informant
