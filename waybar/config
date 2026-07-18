@@ -342,7 +342,7 @@
 "custom/ansible-provision": {
     "exec": "/home/rafael/.config/waybar/scripts/ansible-provision.sh",
     "return-type": "json",
-    "on-click": "kitty /home/rafael/git/dotfiles/semaphore/api.sh run -v",
+    "on-click": "/home/rafael/git/dotfiles/semaphore/gui.py",
     "format": "{}",
 },
 
