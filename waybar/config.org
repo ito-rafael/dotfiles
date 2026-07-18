@@ -431,6 +431,7 @@
   "orientation": "inherit",
   "modules": [
     "custom/pacman",
+    "custom/aur",
     "custom/informant",
     "custom/xwayland",
     "custom/ansible-provision",
@@ -451,6 +452,16 @@
         "medium":  "<span color=\"#FF7\"></span>",
         "high":    "<span color=\"#F33\"></span>",
     },
+},
+#+end_src
+** AUR
+#+begin_src js
+"custom/aur": {
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/aur.sh",
+    "on-click": "~/.config/scripts/show-or-launch.sh dropdown_aur 0.75 0.75",
+    "exec-if": "exit 0",
+    "format": "{}",
 },
 #+end_src
 ** Ansible-provision
