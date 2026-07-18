@@ -310,7 +310,7 @@ box#sysadmin {
 }
 
 #custom-informant.news {
-    background-image: url("/home/rafael/.config/waybar/icon/archlinux.png");
+    background-image: url("/home/rafael/.config/waybar/icon/newspaper.svg");
     background-size: 14px;
     background-repeat: no-repeat;
     background-position: 5px calc(50% - 1px);
