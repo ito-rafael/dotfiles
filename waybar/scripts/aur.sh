@@ -10,7 +10,7 @@ DELAY=600  # 600 seconds = 10 minutes
 
 while true; do
     # output the loading state
-    echo '{"text": "", "alt": "loading", "class": "loading"}'
+    echo '{"text": " ", "alt": "loading", "class": "loading"}'
 
     # check for available AUR updates
     # - "Qua":
