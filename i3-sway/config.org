@@ -1811,6 +1811,14 @@ for_window [$prop="^dropdown_ansible$"] move scratchpad
 for_window [$prop="^dropdown_ansible$"] border pixel 5
 bindsym $alt+$mod+k exec "$SCRIPT_PATH/show-or-launch.sh dropdown_ansible 0.75 0.75"
 #+end_src
+** AUR
+#+begin_src conf :noweb-ref scratchpads
+for_window [$prop="^dropdown_aur$"] floating enable
+for_window [$prop="^dropdown_aur$"] move position center
+for_window [$prop="^dropdown_aur$"] move scratchpad
+for_window [$prop="^dropdown_aur$"] border pixel 5
+bindsym $alt+$mod+v exec "$SCRIPT_PATH/show-or-launch.sh dropdown_aur 0.75 0.75"
+#+end_src
 ** WhatsApp Web (on Brave Beta)
 *** i3
 #+begin_src conf :noweb-ref i3-whatsapp-web
