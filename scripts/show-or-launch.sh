@@ -166,6 +166,7 @@ if [ $FOCUSED != $APPLICATION ]; then
     # then check if the {class,app_id} is one of the listed bellow
     is_scratchpad=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.focused) |
         .'$PROP_PREFIX''$PROP' == "dropdown_ansible" or
+        .'$PROP_PREFIX''$PROP' == "dropdown_aur" or
         .'$PROP_PREFIX''$PROP' == "dropdown_python" or
         .'$PROP_PREFIX''$PROP' == "dropdown_pacman" or
         .'$PROP_PREFIX''$PROP' == "dropdown_terminal" or
@@ -242,6 +243,10 @@ if [[ ! $SCRATCHPAD ]]; then
             ;;
         "dropdown_ansible")
             /home/rafael/git/dotfiles/semaphore/gui.py
+            sleep 0.05
+            ;;
+        "dropdown_aur")
+            $XDG_CONFIG_HOME/waybar/scripts/scratchpad-aur.sh
             sleep 0.05
             ;;
         "dropdown_python")
