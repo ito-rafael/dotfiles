@@ -540,6 +540,13 @@ box#sysadmin {
     min-width: 10px;
 }
 #+end_src
+*** Hover
+#+begin_src css
+#custom-aur:hover {
+    background-color: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+#+end_src
 ** Informant
 *** News
 #+begin_src css
