@@ -74,6 +74,10 @@ zvm_vi_yank () {
 #=======================================
 # kill previous/next word
 #=======================================
+
+# define characters that are considered part of a word
+WORDCHARS='*?_-.[]~=/&;!#$%^(){}<>'
+
 bindkey '^H' backward-kill-word                  # ctrl+backspace: delete previous word
 bindkey '5~' kill-word                           # ctrl+delete: delete next word
 #bindkey '^[[3;5~' kill-word                      # ctrl+shift+delete: delete next word

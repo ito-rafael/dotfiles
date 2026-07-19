@@ -842,6 +842,11 @@ export THEME_LIGHT='Adwaita'
 export GROFF_NO_SGR=1
 #+end_src
 * ZVM: zsh-vi-mode
+** WORDCHARS
+#+begin_src sh
+# define characters that are considered part of a word
+WORDCHARS='*?_-.[]~=/&;!#$%^(){}<>'
+#+end_src
 ** history-substring-search
 #+begin_src sh
 bindkey "^[[A" history-substring-search-up

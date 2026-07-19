@@ -560,6 +560,9 @@ export THEME_LIGHT='Adwaita'
 
 export GROFF_NO_SGR=1
 
+# define characters that are considered part of a word
+WORDCHARS='*?_-.[]~=/&;!#$%^(){}<>'
+
 bindkey "^[[A" history-substring-search-up
 bindkey "^[[B" history-substring-search-down
 bindkey "^E" history-substring-search-down
