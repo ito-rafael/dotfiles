@@ -962,9 +962,7 @@ zvm_after_lazy_keybindings_commands+=(
     "bindkey -M visual 'o' vi-forward-char"
 
     # end of word
-    "bindkey -M vicmd 'l' vi-forward-word-end-skip-slash"
     "bindkey -M vicmd 'L' vi-forward-blank-word-end"
-    "bindkey -M visual 'l' vi-forward-word-end-skip-slash"
     "bindkey -M visual 'L' vi-forward-blank-word-end"
 
     # insert mode

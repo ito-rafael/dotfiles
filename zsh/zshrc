@@ -615,10 +615,10 @@ bindkey "^I" history-substring-search-up
 
 # fix: workaround for history-substring-search to work with zsh-vi-mode
 zvm_after_init_commands+=(
-    "bindkey '^[[A' up-line-or-search"
-    "bindkey '^[[B' down-line-or-search"
-    #"bindkey '^[[A' history-substring-search-up"
-    #"bindkey '^[[B' history-substring-search-down"
+#    "bindkey '^[[A' up-line-or-search"
+#    "bindkey '^[[B' down-line-or-search"
+    "bindkey '^[[A' history-substring-search-up"
+    "bindkey '^[[B' history-substring-search-down"
 )
 
 bindkey '^H' backward-kill-word                  # ctrl+backspace: delete previous word
@@ -657,9 +657,7 @@ zvm_after_lazy_keybindings_commands+=(
     "bindkey -M visual 'o' vi-forward-char"
 
     # end of word
-    "bindkey -M vicmd 'l' vi-forward-word-end-skip-slash"
     "bindkey -M vicmd 'L' vi-forward-blank-word-end"
-    "bindkey -M visual 'l' vi-forward-word-end-skip-slash"
     "bindkey -M visual 'L' vi-forward-blank-word-end"
 
     # insert mode
