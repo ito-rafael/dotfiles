@@ -845,7 +845,7 @@ export GROFF_NO_SGR=1
 ** WORDCHARS
 #+begin_src sh
 # define characters that are considered part of a word
-WORDCHARS='*?_-.[]~=/&;!#$%^(){}<>'
+WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 #+end_src
 ** history-substring-search
 #+begin_src sh
