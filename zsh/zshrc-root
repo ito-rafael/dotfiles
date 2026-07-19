@@ -37,7 +37,7 @@ function zvm_after_select_vi_mode() {
 
 # create a clean root prompt (username/path + mode indicator)
 setopt PROMPT_SUBST
-PROMPT='%F{red}%n@%m%f %F{cyan}%~%f %# '
+PROMPT='%F{red}%n%f %F{cyan}%~%f %# '
 RPROMPT='${ZVM_PROMPT_INDICATOR}'
 
 # Now source the plugin
