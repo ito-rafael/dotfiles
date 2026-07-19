@@ -1,0 +1,343 @@
+#+TITLE: Enable "Allow User Scripts" option in Brave extensions
+#+AUTHOR: Rafael Ito
+#+PROPERTY: header-args :shebang "#!/usr/bin/env python3"
+#+PROPERTY: header-args:python :tangle violentmonkey_allow_user_scripts.py :tangle-mode (identity #o740)
+#+DESCRIPTION: Brave browser extensions automations
+#+STARTUP: showeverything
+#+AUTO_TANGLE: t
+
+* Table of Contents :toc_2:
+- [[#imports][Imports]]
+- [[#header][Header]]
+  - [[#description][Description]]
+  - [[#constants][Constants]]
+  - [[#init][Init]]
+- [[#functions][Functions]]
+  - [[#resolve-chromium-version][Resolve Chromium version]]
+  - [[#validate-extension-state][Validate extension state]]
+- [[#options][Options]]
+- [[#environment-preparation][Environment preparation]]
+  - [[#process-verification][Process verification]]
+  - [[#kill-processes][Kill processes]]
+  - [[#stale-lock-removal][Stale lock removal]]
+- [[#automation][Automation]]
+  - [[#find-toggle][Find toggle]]
+  - [[#polling--hydration][Polling & Hydration]]
+  - [[#click-on-toggle][Click on toggle]]
+  - [[#force-flush][Force flush]]
+  - [[#eos][EoS]]
+
+* Imports
+#+begin_src python
+import os
+import re
+import sys
+import time
+import json
+import subprocess
+import urllib.request
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
+from webdriver_manager.chrome import ChromeDriverManager
+#+end_src
+* Header
+** Description
+#+begin_src python
+"""
+Automates toggling the "Allow User Scripts" permission for the Surfingkeys extension.
+Uses Selenium with a real user profile, ensuring state is securely saved to disk.
+
+Before running this script, be sure there is no Brave process running.
+"""
+#+end_src
+** Constants
+#+begin_src python
+EXTENSION_ID = "jinjaccalgkegednnccohejagnlnfdag"  # Violentmonkey
+
+# bypass the Linux bash wrappers and target the compiled binaries directly
+POSSIBLE_BINARIES = [
+    "/opt/brave.com/brave-origin/brave",  # Debian
+    "/opt/brave-origin-bin/brave",        # Arch Linux
+    "/opt/brave.com/brave/brave",         # Standard Stable
+    "/usr/bin/brave-origin-beta",         # Bash wrapper fallbacks
+    "/usr/bin/brave-origin",
+    "/usr/bin/brave",
+    "/usr/bin/brave-browser"
+]
+
+BRAVE_BINARY_PATH = next((path for path in POSSIBLE_BINARIES if os.path.exists(path)), None)
+
+if not BRAVE_BINARY_PATH:
+    raise FileNotFoundError("Critical: Could not find the Brave executable in any known locations.")
+#+end_src
+** Init
+#+begin_src python
+#username = os.getenv("USER")
+home_dir = os.path.expanduser("~")
+
+# dynamically find the correct Brave profile directory based on what exists
+POSSIBLE_PROFILES = [
+    f"{home_dir}/.config/BraveSoftware/Brave-Origin",        # Debian & Arch Linux
+    #f"{home_dir}/.config/BraveSoftware/Brave-Browser-Beta"  # fallback Beta
+]
+
+profile_base = next((path for path in POSSIBLE_PROFILES if os.path.exists(path)), None)
+
+if not profile_base:
+    raise FileNotFoundError("Critical: Could not locate the Brave profile directory.")
+#+end_src
+* Functions
+** Resolve Chromium version
+#+begin_src python
+def get_chromium_version_for_brave(binary_path):
+    """
+    Extracts Brave's major version, then queries the official Chrome for Testing API to map it to the exact underlying Chromium version required by ChromeDriver
+    """
+    try:
+        # ask Brave version
+        result = subprocess.run([binary_path, "--version"], capture_output=True, text=True, check=True)
+
+        # extract just the very first number (the major milestone)
+        match = re.search(r'(\d+)\.\d+\.\d+\.\d+', result.stdout)
+        if not match:
+            raise ValueError(f"Could not parse major version from: {result.stdout}")
+
+        major_version = match.group(1)
+        print(f"Detected Brave Milestone: {major_version}")
+
+        # ask Google for the exact Chromium version for this milestone
+        api_url = "https://googlechromelabs.github.io/chrome-for-testing/latest-versions-per-milestone.json"
+
+        # use a simple User-Agent to prevent getting blocked by the API
+        req = urllib.request.Request(api_url, headers={'User-Agent': 'Mozilla/5.0'})
+        with urllib.request.urlopen(req) as response:
+            data = json.loads(response.read().decode('utf-8'))
+
+        # extract the exact Chromium version string
+        exact_chromium_version = data["milestones"][major_version]["version"]
+        print(f"Mapped to Chromium Version: {exact_chromium_version}")
+
+        return exact_chromium_version
+
+    except Exception as e:
+        # raise a fatal error and chain the original exception for debugging
+        raise RuntimeError(f"Critical failure: Could not auto-detect or map Brave version. ({e})") from e
+
+BRAVE_VERSION = get_chromium_version_for_brave(BRAVE_BINARY_PATH)
+#+end_src
+** Validate extension state
+#+begin_src python
+def is_user_scripts_enabled(profile_path, ext_id):
+    """Safely checks the profile JSON without touching the browser process."""
+
+    target_profile_dir = os.path.join(profile_path, "Default")
+    prefs_paths = [
+        os.path.join(target_profile_dir, "Secure Preferences"),
+        os.path.join(target_profile_dir, "Preferences")
+    ]
+    for path in prefs_paths:
+        if os.path.exists(path):
+            try:
+                with open(path, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+                ext_settings = data.get("extensions", {}).get("settings", {}).get(ext_id, {})
+
+                # method 1: the direct Manifest V3 UI toggle boolean (primary)
+                if ext_settings.get("user_scripts_enabled") is True:
+                    return True
+
+                # method 2: the active permissions API list (fallback)
+                active_api = ext_settings.get("active_permissions", {}).get("api", [])
+                if "userScripts" in active_api:
+                    return True
+
+            except Exception:
+                pass
+    return False
+#+end_src
+* Options
+#+begin_src python
+options = Options()
+options.binary_location = BRAVE_BINARY_PATH
+
+# cloaking flags (prevents Brave from isolating preference changes in an automation sandbox)
+options.add_experimental_option("excludeSwitches", [
+    "enable-automation",
+    "disable-background-networking"
+])
+options.add_experimental_option('useAutomationExtension', False)
+
+# fix the crash bubble (trick Brave into thinking it closed safely)
+options.add_experimental_option("prefs", {
+    "profile.exit_type": "Normal",
+    "profile.exited_cleanly": True
+})
+
+# stability flags (required for launching UI head-on in Wayland/Sway environments)
+options.add_argument("--no-sandbox")
+options.add_argument("--disable-dev-shm-usage")
+options.add_argument("--disable-gpu")
+options.add_argument("--ozone-platform=x11")
+options.add_argument("--disable-software-rasterizer")
+options.add_argument("--remote-allow-origins=*")
+
+# virtual geometry (even though it's headless, it needs a virtual canvas to "draw" the DOM, so our Javascript can find the toggle button coordinates)
+options.add_argument("--window-size=1920,1080")
+options.add_argument("--window-position=0,0")
+
+options.add_argument(f"--user-data-dir={profile_base}")
+options.add_argument("--profile-directory=Default")
+#+end_src
+* Environment preparation
+#+end_src
+** Process verification
+#+begin_src python
+try:
+    # get the full command line (-a) of all processes containing "brave" (-f)
+    result = subprocess.check_output(["pgrep", "-a", "-f", "[o]pt/brave.com/brave-origin-beta/brave"], text=True)
+    running_standard_sessions = False
+
+    for line in result.splitlines():
+        # ignore child processes (renderers, GPU, utility, etc.)
+        if " --type=" in line:
+            continue
+
+        # ignore your Distrobox Web Apps (--app=...)
+        if " --app=" in line:
+            continue
+
+        # kill Ansible burn-in zombie process, if any
+        if "--ansible-burn-in" in line:
+            try:
+                pid = line.split()[0]
+                subprocess.run(["kill", "-9", pid], check=False)
+                print(f"Terminated lingering background burn-in process (PID {pid}).")
+            except Exception:
+                pass
+            continue
+
+        # real desktop brave process found!
+        running_standard_sessions = True
+        break
+
+    if running_standard_sessions:
+        print("Error: Standard Brave is currently running. Aborting to protect active session.")
+        sys.exit(1)
+    else:
+        print("No active standard Brave sessions found. Proceeding with headless configuration...")
+
+except subprocess.CalledProcessError:
+    # pgrep returns non-zero if no processes are found --> safe to proceed!
+    print("No active Brave sessions found. Proceeding with headless configuration...")
+#+end_src
+** Kill processes
+#+begin_src python :tangle no
+## ensure all background Brave processes are dead before touching the profile
+#print("Ensuring all background Brave processes are dead...")
+#os.system("pkill -f brave")
+#os.system("pkill -f brave-bin")
+#
+## wait up to 5 seconds for the OS to actually clear the processes
+#for _ in range(5):
+#    try:
+#        subprocess.check_output(["pgrep", "-f", "brave"])
+#        time.sleep(1)
+#    except subprocess.CalledProcessError:
+#        break
+#+end_src
+** Stale lock removal
+#+begin_src python
+# clear stale locks left behind by abrupt process termination (pkill)
+for lock in ["SingletonLock", "SingletonCookie", "SingletonSocket"]:
+    lock_path = os.path.join(profile_base, lock)
+    if os.path.islink(lock_path) or os.path.exists(lock_path):
+        try:
+            os.remove(lock_path)
+        except OSError:
+            pass
+#+end_src
+* Automation
+#+begin_src python
+driver_path = ChromeDriverManager(driver_version=BRAVE_VERSION).install()
+service = Service(driver_path)
+driver = webdriver.Chrome(service=service, options=options)
+target_url = f"brave://extensions/?id={EXTENSION_ID}"
+try:
+    # driver.get is handled inside the polling loop now to ensure hydration
+    pass
+#+end_src
+** Find toggle
+#+begin_src python
+    # retrieve the nested toggle WebElement through Chromium's Web Components (Shadow DOM)
+    js_get_element = """
+    const manager = document.querySelector('extensions-manager');
+    if (!manager || !manager.shadowRoot) return null;
+
+    const detailView = manager.shadowRoot.querySelector('extensions-detail-view');
+    if (!detailView || !detailView.shadowRoot) return null;
+
+    // Try to find the row by ID first, fallback to searching for the text label
+    let row = detailView.shadowRoot.querySelector('#allow-user-scripts');
+    if (!row) {
+        const rows = detailView.shadowRoot.querySelectorAll('extensions-toggle-row');
+        for (let r of rows) {
+            if (r.textContent.toLowerCase().includes('script')) {
+                row = r;
+                break;
+            }
+        }
+    }
+    if (!row) return null;
+
+    // Return the wrapper so Python can read its 'checked' attribute
+    return row.querySelector('cr-toggle') || (row.shadowRoot && row.shadowRoot.querySelector('cr-toggle'));
+    """
+#+end_src
+** Polling & Hydration
+#+begin_src python
+    toggle_element = None
+    print("Waiting for the Brave Extensions page to load...")
+    for i in range(30):
+        driver.get(target_url)
+        time.sleep(2)
+        toggle_element = driver.execute_script(js_get_element)
+        if toggle_element:
+            print("Extension details loaded successfully!")
+            break
+        print(f"Waiting for extension to download and install... (Attempt {i+1}/30)")
+#+end_src
+** Click on toggle
+#+begin_src python
+    if toggle_element is None:
+        print("Error: Toggle element could not be found.")
+        sys.exit(1)
+
+    # bypass Selenium attribute wrapper with pure Javascript
+    is_checked = driver.execute_script("return arguments[0].checked === true || arguments[0].getAttribute('aria-pressed') === 'true';", toggle_element)
+
+    if not is_checked:
+        # scroll the element into the exact center of the headless screen
+        driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", toggle_element)
+        time.sleep(0.5)
+
+        # use ActionChains to perform a trusted OS-level hardware click
+        from selenium.webdriver.common.action_chains import ActionChains
+        ActionChains(driver).move_to_element(toggle_element).click().perform()
+
+        print("Success: Toggled ON.")
+    else:
+        print("Skipped: Already ON.")
+#+end_src
+** Force flush
+#+begin_src python
+    # force an asynchronous disk flush by navigating away before terminating the process
+    time.sleep(2)
+    driver.get("brave://settings")
+    time.sleep(3)
+#+end_src
+** EoS
+#+begin_src python
+finally:
+    driver.quit()
+#+end_src
