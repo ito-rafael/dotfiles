@@ -25,6 +25,26 @@ ls_after_cd() {
 chpwd_functions+=( ls_after_cd )
 
 #=======================================
+# clipboard wrapper for root
+#=======================================
+wl-copy() {
+    local target_user="rafael"
+    local target_uid="1000"
+
+    # dynamically find the active Wayland socket (ignores .lock files)
+    local wl_sock=$(ls /run/user/${target_uid}/wayland-* 2>/dev/null | grep -v '\.lock$' | head -n 1)
+
+    if [[ -n "$wl_sock" ]]; then
+        local wl_disp=$(basename "$wl_sock")
+        # run wl-copy as regular user with the correct environment variables
+        sudo -u ${target_user} XDG_RUNTIME_DIR=/run/user/${target_uid} WAYLAND_DISPLAY="$wl_disp" /usr/bin/wl-copy "$@"
+    else
+        # if in TTY (no Wayland), ignore
+        cat > /dev/null
+    fi
+}
+
+#=======================================
 # aliases
 #=======================================
 # general
