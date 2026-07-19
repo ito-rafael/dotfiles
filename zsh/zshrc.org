@@ -847,6 +847,30 @@ export GROFF_NO_SGR=1
 # define characters that are considered part of a word
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 #+end_src
+** Custom Vim-like navigation
+*** Skip slash backward (b)
+#+begin_src sh
+vi-backward-word-skip-slash() {
+    local pos=$CURSOR
+    zle vi-backward-word
+    # if we land on a slash, and the cursor actually moved, jump again
+    while [[ "${RBUFFER:0:1}" == "/" && $CURSOR != $pos ]]; do
+        pos=$CURSOR
+        zle vi-backward-word
+    done
+}
+zle -N vi-backward-word-skip-slash
+#+end_src
+*** Update zsh-vi-mode
+#+begin_src sh
+zvm_after_init_commands+=(
+    # custom vim-like navigation mappings
+    # commnd
+    "bindkey -M vicmd 'b' vi-backward-word-skip-slash"
+    # visual
+    "bindkey -M visual 'b' vi-backward-word-skip-slash"
+)
+#+end_src
 ** history-substring-search
 #+begin_src sh
 bindkey "^[[A" history-substring-search-up

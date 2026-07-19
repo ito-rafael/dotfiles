@@ -92,6 +92,31 @@ zvm_vi_yank () {
     zvm_exit_visual_mode
 }
 
+# ==========================================
+# Custom Vim-like navigation (skip slashes)
+# ==========================================
+
+# Skip slash backward (b)
+vi-backward-word-skip-slash() {
+    local pos=$CURSOR
+    zle vi-backward-word
+    # if we land on a slash, and the cursor actually moved, jump again
+    while [[ "${RBUFFER:0:1}" == "/" && $CURSOR != $pos ]]; do
+        pos=$CURSOR
+        zle vi-backward-word
+    done
+}
+zle -N vi-backward-word-skip-slash
+#-----------------------------
+# Update zsh-vi-mode
+zvm_after_init_commands+=(
+    # custom vim-like navigation mappings
+    # commnd
+    "bindkey -M vicmd 'b' vi-backward-word-skip-slash"
+    # visual
+    "bindkey -M visual 'b' vi-backward-word-skip-slash"
+)
+
 #=======================================
 # kill previous/next word
 #=======================================
