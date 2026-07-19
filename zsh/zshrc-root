@@ -138,11 +138,11 @@ zvm_after_init_commands+=(
     # commnd
     "bindkey -M vicmd 'b' vi-backward-word-skip-slash"
     "bindkey -M vicmd 'w' vi-forward-word-skip-slash"
-    "bindkey -M vicmd 'e' vi-forward-word-end-skip-slash"
+    "bindkey -M vicmd 'l' vi-forward-word-end-skip-slash"
     # visual
     "bindkey -M visual 'b' vi-backward-word-skip-slash"
     "bindkey -M visual 'w' vi-forward-word-skip-slash"
-    "bindkey -M visual 'e' vi-forward-word-end-skip-slash"
+    "bindkey -M visual 'l' vi-forward-word-end-skip-slash"
 )
 
 #=======================================
@@ -167,3 +167,46 @@ zvm_after_init_commands+=(
 #=======================================
 bindkey "^[[1;5D" backward-word
 bindkey "^[[1;5C" forward-word
+
+#=======================================
+# Colemak-DH
+#=======================================
+
+#-----------------------------
+# init phase: setup overrides and INSERT keys
+#-----------------------------
+zvm_after_init_commands+=(
+    # insert mode
+    # (these keybindings must be here, so ZVM can track them)
+    "bindkey -M vicmd 's' vi-insert"
+    "bindkey -M vicmd 'S' vi-insert-bol"
+    "bindkey -M visual 's' vi-insert"
+)
+
+#-----------------------------
+# lazy phase: overwrite ZVM's default movements
+#-----------------------------
+zvm_after_lazy_keybindings_commands+=(
+    # movement keys
+    # (these keybindings must be here so ZVM doesn't overwrite them with its defaults)
+
+    # navigation: commnd
+    "bindkey -M vicmd 'n' vi-backward-char"
+    "bindkey -M vicmd 'e' down-line-or-history"
+    "bindkey -M vicmd 'i' up-line-or-history"
+    "bindkey -M vicmd 'o' vi-forward-char"
+
+    # navigation: visual
+    "bindkey -M visual 'n' vi-backward-char"
+    "bindkey -M visual 'e' down-line-or-history"
+    "bindkey -M visual 'i' up-line-or-history"
+    "bindkey -M visual 'o' vi-forward-char"
+
+    # end of word
+    "bindkey -M vicmd 'L' vi-forward-blank-word-end"
+    "bindkey -M visual 'L' vi-forward-blank-word-end"
+
+    # search next
+    "bindkey -M vicmd 'k' vi-repeat-search"
+    "bindkey -M vicmd 'K' vi-rev-repeat-search"
+)
