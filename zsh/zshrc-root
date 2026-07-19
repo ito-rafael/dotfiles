@@ -35,7 +35,8 @@ alias v=vim                # Vim
 
 #-----------------------------
 # dotfiles
-alias zz='vim $XDG_CONFIG_HOME/zsh/.zshrc'      # zsh
+alias zz='vim $XDG_CONFIG_HOME/zsh/.zshrc'      # zshrc
+alias ze='vim $XDG_CONFIG_HOME/zsh/.zshenv'     # zshenv
 alias vv='vim $XDG_CONFIG_HOME/nvim/vimrc.vim'  # Neovim
 # reload config files
 alias {rzz,rz}='source $XDG_CONFIG_HOME/zsh/.zshrc'
