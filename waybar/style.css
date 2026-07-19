@@ -309,6 +309,14 @@ box#sysadmin {
     padding-top: 3px;
 }
 
+#custom-aur.loading {
+    animation-name: blink-image;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    min-width: 10px;
+}
+
 #custom-informant.news {
     background-image: url("/home/rafael/.config/waybar/icon/newspaper.svg");
     background-size: 14px;

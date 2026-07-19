@@ -530,6 +530,16 @@ box#sysadmin {
     padding-top: 3px;
 }
 #+end_src
+*** Loading
+#+begin_src css
+#custom-aur.loading {
+    animation-name: blink-image;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    min-width: 10px;
+}
+#+end_src
 ** Informant
 *** News
 #+begin_src css
