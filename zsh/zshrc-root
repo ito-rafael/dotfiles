@@ -5,6 +5,42 @@
 #=======================================
 plugins=()
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+#-----------------------------
+# ZVM: zsh-vi-mode
+#-----------------------------
+
+# define the custom prompt variable (Insert mode as default)
+ZVM_PROMPT_INDICATOR="%F{green}[I]%f"
+
+# hook into ZVM's built-in mode change event to update our variable
+function zvm_after_select_vi_mode() {
+    case $ZVM_MODE in
+        # normal
+        $ZVM_MODE_NORMAL)
+            ZVM_PROMPT_INDICATOR="%F{red}[N]%f"
+            ;;
+        # insert
+        $ZVM_MODE_INSERT)
+            ZVM_PROMPT_INDICATOR="%F{green}[I]%f"
+            ;;
+        # visual
+        $ZVM_MODE_VISUAL | $ZVM_MODE_VISUAL_LINE)
+            ZVM_PROMPT_INDICATOR="%F{yellow}[V]%f"
+            ;;
+        # replace
+        $ZVM_MODE_REPLACE)
+            ZVM_PROMPT_INDICATOR="%F{magenta}[R]%f"
+            ;;
+    esac
+}
+
+# create a clean root prompt (username/path + mode indicator)
+setopt PROMPT_SUBST
+PROMPT='%F{red}%n@%m%f %F{cyan}%~%f %# '
+RPROMPT='${ZVM_PROMPT_INDICATOR}'
+
+# Now source the plugin
 source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.zsh
 
 #=======================================
