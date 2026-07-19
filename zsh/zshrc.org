@@ -861,14 +861,29 @@ vi-backward-word-skip-slash() {
 }
 zle -N vi-backward-word-skip-slash
 #+end_src
+*** Skip slash forward (w)
+#+begin_src sh
+vi-forward-word-skip-slash() {
+    local pos=$CURSOR
+    zle vi-forward-word
+    # if we land on a slash, and the cursor actually moved, jump again
+    while [[ "${RBUFFER:0:1}" == "/" && $CURSOR != $pos ]]; do
+        pos=$CURSOR
+        zle vi-forward-word
+    done
+}
+zle -N vi-forward-word-skip-slash
+#+end_src
 *** Update zsh-vi-mode
 #+begin_src sh
 zvm_after_init_commands+=(
     # custom vim-like navigation mappings
     # commnd
     "bindkey -M vicmd 'b' vi-backward-word-skip-slash"
+    "bindkey -M vicmd 'w' vi-forward-word-skip-slash"
     # visual
     "bindkey -M visual 'b' vi-backward-word-skip-slash"
+    "bindkey -M visual 'w' vi-forward-word-skip-slash"
 )
 #+end_src
 ** history-substring-search
