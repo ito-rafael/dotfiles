@@ -3,10 +3,11 @@
 # launch scratchpad
 kitty \
     --class="dropdown_aur" \
+    -d "~" \
     --hold \
     -o font_size=12 \
     -o include="$XDG_CONFIG_HOME/kitty/themes/pacman.conf" \
-    zsh -ic 'paru -Syu' &
+    zsh -ic 'paru -Syu; exec zsh' &
 
 # wait for dropdown_pacman appears in Sway's window tree
 MAX_WAIT=50
