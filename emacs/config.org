@@ -1812,12 +1812,27 @@ Related:
 (use-package yuck-mode)
 #+end_src
 * rainbow-mode
-Give colors on hex codes (eg: #ffffff).
+Give colors on hex codes (eg: #ff0000).
 https://github.com/emacsmirror/rainbow-mode
 #+begin_src emacs-lisp
 (use-package rainbow-mode
   :diminish
-  ;; The code block below enables rainbow-mode in all programming modes (prog-mode) as well as org-mode, which is why rainbow works in this document.
   :hook ((org-mode . rainbow-mode)
-         (conf-mode . rainbow-mode)))
+         (conf-mode . rainbow-mode))
+  :config
+  ;; define function to handle only RGBA colors
+  (defun my-rainbow-colorize-rgba ()
+    "Colorize 8-digit and 4-digit hex colors by ignoring the alpha channel."
+    (let ((color (match-string-no-properties 0)))
+      (cond
+       ;; if 8-digit (#RRGGBBAA), colorize using the first 7 chars (#RRGGBB)
+       ((= (length color) 9) (rainbow-colorize-match (substring color 0 7)))
+       ;; if 4-digit (#RGBA), colorize using the first 4 chars (#RGB)
+       ((= (length color) 5) (rainbow-colorize-match (substring color 0 4))))))
+
+  ;; add a new font-lock rule specifically for length-5 and length-9 hex codes
+  (add-to-list 'rainbow-hexadecimal-colors-font-lock-keywords
+               '("#[0-9a-fA-F]\\{4\\}\\([0-9a-fA-F]\\{4\\}\\)?\\>"
+                 (0 (my-rainbow-colorize-rgba))) t)
+)
 #+end_src
