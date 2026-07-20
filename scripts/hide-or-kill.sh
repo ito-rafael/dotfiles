@@ -17,12 +17,12 @@ TEMP_PID_3=0
 # temporary scratchpad #1 (comma)
 if [ -f $SCRATCHPAD_TEMP_1 ]; then
     TEMP_PID_1=$(cat $SCRATCHPAD_TEMP_1)
-fi 
+fi
 #----------------------------------
 # temporary scratchpad #2 (period)
 if [ -f $SCRATCHPAD_TEMP_2 ]; then
     TEMP_PID_2=$(cat $SCRATCHPAD_TEMP_2)
-fi 
+fi
 #----------------------------------
 # temporary scratchpad #3 (slash)
 if [ -f $SCRATCHPAD_TEMP_3 ]; then
@@ -59,9 +59,10 @@ esac
 # check if the app_id is one of the listed bellow
 #=======================================
 is_scratchpad=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.focused) |
-    .'$PROP_PREFIX''$PROP' == "dropdown_terminal" or
-    .'$PROP_PREFIX''$PROP' == "dropdown_pacman" or
+    .'$PROP_PREFIX''$PROP' == "dropdown_ansible" and .name != "rafael@ipf-archlinux:~" or
+    .'$PROP_PREFIX''$PROP' == "dropdown_pacman" and .name != "rafael@ipf-archlinux:~" or
     .'$PROP_PREFIX''$PROP' == "dropdown_python" or
+    .'$PROP_PREFIX''$PROP' == "dropdown_terminal" or
     .'$PROP_PREFIX''$PROP' == "keymapp" or .'$PROP_PREFIX''$PROP' == "Keymapp" or
     .'$PROP_PREFIX''$PROP' == "brave-calendar.google.com__-Default" or
     .'$PROP_PREFIX''$PROP' == "brave-chatgpt.com__-Default" or
@@ -74,8 +75,8 @@ is_scratchpad=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | se
     .'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX''$INSTANCE' == "translate.google.com" or
     .'$PROP_PREFIX''$PROP' == "scrcpy" and .'$PROP_PREFIX''$CAPTION' == "dropdown_scrcpy_phone" or
     .'$PROP_PREFIX''$PROP' == "scrcpy" and .'$PROP_PREFIX''$CAPTION' == "dropdown_scrcpy_watch" or
-    .'$ID_PROP' == '$TEMP_PID_1' or 
-    .'$ID_PROP' == '$TEMP_PID_2' or 
+    .'$ID_PROP' == '$TEMP_PID_1' or
+    .'$ID_PROP' == '$TEMP_PID_2' or
     .'$ID_PROP' == '$TEMP_PID_3'
     ')
     # deprecated
