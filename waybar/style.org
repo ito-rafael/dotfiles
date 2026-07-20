@@ -558,6 +558,12 @@ box#sysadmin {
     background-image: url("/home/rafael/.config/waybar/icon/archlinux-orange.svg");
 }
 #+end_src
+*** High
+#+begin_src css
+#custom-aur.high {
+    background-image: url("/home/rafael/.config/waybar/icon/archlinux-red.svg");
+}
+#+end_src
 *** Hover
 #+begin_src css
 #custom-aur:hover {
