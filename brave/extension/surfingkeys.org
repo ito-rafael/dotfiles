@@ -25,6 +25,7 @@
   - [[#redirect-from-startpage-to-google][Redirect from Startpage to Google]]
 - [[#website-specific][Website specific]]
   - [[#youtube-music][YouTube Music]]
+  - [[#aliexpress][AliExpress]]
 - [[#exceptions][Exceptions]]
   - [[#localhost][localhost]]
   - [[#youtube][YouTube]]
@@ -216,7 +217,37 @@ if (window.location.host === 'music.youtube.com') {
 #+begin_src js
 }
 #+end_src
-*** Focus search bar
+** AliExpress
+*** Copy clean URL
+#+begin_src js
+// unmap the default "yy" behavior to prevent conflicts
+api.unmap('yy');
+
+// map "yy" to our custom URL cleaner function
+api.mapkey('yy', 'Copy current page URL (Cleaned for AliExpress)', function() {
+    let currentUrl = window.location.href;
+
+    try {
+        let urlObj = new URL(currentUrl);
+        // check if we are on an AliExpress domain
+        if (urlObj.hostname.endsWith("aliexpress.com")) {
+            // change any subdomain (like "pt.") to "www."
+            urlObj.hostname = "www.aliexpress.com";
+            // remove all tracking and query parameters (everything after "?")
+            urlObj.search = "";
+            // update the URL string with our clean version
+            currentUrl = urlObj.toString();
+        }
+    } catch(e) {
+        // if URL parsing fails, we gracefully fall back to the raw URL
+        console.error("Surfingkeys: URL parsing error", e);
+    }
+    // copy the final string to the clipboard
+    api.Clipboard.write(currentUrl);
+    // show a visual banner confirming what was copied
+    api.Front.showBanner("Copied: " + currentUrl);
+});
+#+end_src
 * Exceptions
 ** localhost
 #+begin_src js
