@@ -40,6 +40,7 @@
 - [[#ace-window][ace-window]]
 - [[#highlight-indent-guides][highlight-indent-guides]]
 - [[#emacs-everywhere][emacs-everywhere]]
+- [[#rainbow-mode][rainbow-mode]]
 
 * UI :noexport_1:
 ** Misc
@@ -1809,4 +1810,14 @@ Related:
 * yuck
 #+begin_src emacs-lisp
 (use-package yuck-mode)
+#+end_src
+* rainbow-mode
+Give colors on hex codes (eg: #ffffff).
+https://github.com/emacsmirror/rainbow-mode
+#+begin_src emacs-lisp
+(use-package rainbow-mode
+  :diminish
+  ;; The code block below enables rainbow-mode in all programming modes (prog-mode) as well as org-mode, which is why rainbow works in this document.
+  :hook ((org-mode . rainbow-mode)
+         (conf-mode . rainbow-mode)))
 #+end_src
