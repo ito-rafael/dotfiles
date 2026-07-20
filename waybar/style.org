@@ -540,6 +540,12 @@ box#sysadmin {
     min-width: 10px;
 }
 #+end_src
+*** Zero
+#+begin_src css
+#custom-aur.zero {
+    background-image: url("/home/rafael/.config/waybar/icon/archlinux.svg");
+}
+#+end_src
 *** Hover
 #+begin_src css
 #custom-aur:hover {
