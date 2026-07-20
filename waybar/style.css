@@ -321,6 +321,10 @@ box#sysadmin {
     background-image: url("/home/rafael/.config/waybar/icon/archlinux.svg");
 }
 
+#custom-aur.low {
+    background-image: url("/home/rafael/.config/waybar/icon/archlinux-yellow.svg");
+}
+
 #custom-aur:hover {
     background-color: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;

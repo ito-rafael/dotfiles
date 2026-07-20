@@ -546,6 +546,12 @@ box#sysadmin {
     background-image: url("/home/rafael/.config/waybar/icon/archlinux.svg");
 }
 #+end_src
+*** Low
+#+begin_src css
+#custom-aur.low {
+    background-image: url("/home/rafael/.config/waybar/icon/archlinux-yellow.svg");
+}
+#+end_src
 *** Hover
 #+begin_src css
 #custom-aur:hover {
