@@ -17,8 +17,19 @@ api.mapkey("O", "Go forward in history", () => { history.go(1); });
 api.mapkey("E", "Next tab",     () => { api.RUNTIME("nextTab"); });
 api.mapkey("I", "Previous tab", () => { api.RUNTIME("previousTab"); });
 
-api.mapkey("f", "Open link", () => { api.Hints.create("", api.Hints.dispatchMouseClick, {tabbed: false, active: true}); })
 api.mapkey("F", "Open link in new tab", () => { api.Hints.create("", api.Hints.dispatchMouseClick, {tabbed: true, active: true}); })
+//api.mapkey("f", "Open link", () => { api.Hints.create("", api.Hints.dispatchMouseClick); });
+//api.mapkey("f", "Open link", () => { api.Hints.create("", api.Hints.dispatchMouseClick, {tabbed: false, active: true}); })
+api.mapkey("f", "Open link in current tab", () => {
+    api.Hints.create("", (element) => {
+        // strip the target attribute to prevent forced new tabs/windows
+        if (element.hasAttribute('target')) {
+            element.removeAttribute('target');
+        }
+        // now click on the link normally
+        api.Hints.dispatchMouseClick(element);
+    });
+});
 
 api.vmap("_h",  "h");
 api.vmap("_j",  "j");
