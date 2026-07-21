@@ -55,13 +55,15 @@ case "${XDG_SESSION_TYPE}" in
         ;;
 esac
 
+DROPDOWN_TITLE="$(whoami)@$(hostname):~"
+
 #=======================================
 # check if the app_id is one of the listed bellow
 #=======================================
-is_scratchpad=$($WM_CMD -t get_tree | jq -re '.. | select(type == "object") | select(.focused) |
-    .'$PROP_PREFIX''$PROP' == "dropdown_ansible" and .name != "rafael@ipf-archlinux:~" or
-    .'$PROP_PREFIX''$PROP' == "dropdown_aur" and .name != "rafael@ipf-archlinux:~" or
-    .'$PROP_PREFIX''$PROP' == "dropdown_pacman" and .name != "rafael@ipf-archlinux:~" or
+is_scratchpad=$($WM_CMD -t get_tree | jq -re --arg title "$DROPDOWN_TITLE" '.. | select(type == "object") | select(.focused) |
+    .'$PROP_PREFIX''$PROP' == "dropdown_ansible" and .name != $title or
+    .'$PROP_PREFIX''$PROP' == "dropdown_aur" and .name != $title or
+    .'$PROP_PREFIX''$PROP' == "dropdown_pacman" and .name != $title or
     .'$PROP_PREFIX''$PROP' == "dropdown_python" or
     .'$PROP_PREFIX''$PROP' == "dropdown_terminal" or
     .'$PROP_PREFIX''$PROP' == "keymapp" or .'$PROP_PREFIX''$PROP' == "Keymapp" or
