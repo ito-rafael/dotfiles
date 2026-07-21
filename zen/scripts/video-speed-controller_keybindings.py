@@ -20,7 +20,7 @@ from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
-from webdriver_manager.firefox import GeckoDriverManager
+#from webdriver_manager.firefox import GeckoDriverManager
 
 # The official Firefox Extension ID for Video Speed Controller
 EXTENSION_ID = "{7be2ba16-0f1e-4d93-9ebc-5164397477a9}"
@@ -137,9 +137,15 @@ options.add_argument(profile_base)
 #----------------------------------------
 # Initialize driver
 #----------------------------------------
-print("Initializing GeckoDriver...")
-driver_path = GeckoDriverManager().install()
-service = Service(driver_path)
+# using "webdriver_manager.firefox"
+#print("Initializing GeckoDriver...")
+#driver_path = GeckoDriverManager().install()
+#service = Service(driver_path)
+#driver = webdriver.Firefox(service=service, options=options)
+
+# using binary from package manager
+print("Initializing system GeckoDriver...")
+service = Service("/usr/bin/geckodriver")
 driver = webdriver.Firefox(service=service, options=options)
 
 

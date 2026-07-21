@@ -17,7 +17,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.service import Service
 from selenium.webdriver.firefox.options import Options
-from webdriver_manager.firefox import GeckoDriverManager
+#from webdriver_manager.firefox import GeckoDriverManager
 
 # The official Firefox Extension ID for Surfingkeys
 EXTENSION_ID = "{a8332c60-5b6d-41ee-bfc8-e9bb331d34ad}"
@@ -146,9 +146,15 @@ options.add_argument(profile_base)
 #----------------------------------------
 # Initialize driver
 #----------------------------------------
-# Geckodriver manages itself beautifully, no need to match Chromium milestones!
-driver_path = GeckoDriverManager().install()
-service = Service(driver_path)
+# using "webdriver_manager.firefox"
+#print("Initializing GeckoDriver...")
+#driver_path = GeckoDriverManager().install()
+#service = Service(driver_path)
+#driver = webdriver.Firefox(service=service, options=options)
+
+# using binary from package manager
+print("Initializing system GeckoDriver...")
+service = Service("/usr/bin/geckodriver")
 driver = webdriver.Firefox(service=service, options=options)
 
 #----------------------------------------

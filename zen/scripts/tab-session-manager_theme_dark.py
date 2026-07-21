@@ -19,7 +19,7 @@ from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import Select
-from webdriver_manager.firefox import GeckoDriverManager
+#from webdriver_manager.firefox import GeckoDriverManager
 
 # ========================================
 # CONFIGURATION
@@ -133,9 +133,15 @@ options.binary_location = ZEN_BINARY_PATH
 options.add_argument("-profile")
 options.add_argument(profile_base)
 
-print("Initializing GeckoDriver...")
-driver_path = GeckoDriverManager().install()
-service = Service(driver_path)
+# using "webdriver_manager.firefox"
+#print("Initializing GeckoDriver...")
+#driver_path = GeckoDriverManager().install()
+#service = Service(driver_path)
+#driver = webdriver.Firefox(service=service, options=options)
+
+# using binary from package manager
+print("Initializing system GeckoDriver...")
+service = Service("/usr/bin/geckodriver")
 driver = webdriver.Firefox(service=service, options=options)
 
 # Force a 1080p viewport so elements don't get squished off-screen
