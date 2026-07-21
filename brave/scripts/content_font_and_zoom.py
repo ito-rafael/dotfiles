@@ -112,7 +112,7 @@ try:
             f.truncate()
             print("\nSuccess: Preferences file updated with new appearance settings.")
         else:
-            print("\nSuccess: Appearance settings were already configured correctly. No disk writes needed.")
+            print("\nSkipped: Appearance settings were already configured correctly. No disk writes needed.")
 
         fcntl.flock(f, fcntl.LOCK_UN)
 
