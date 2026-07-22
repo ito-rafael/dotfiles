@@ -458,3 +458,11 @@ mouse_right_click = close_all
 #
 # vim: ft=cfg
 #+end_src
+** WhatsApp
+#+begin_src conf
+[wasistlos]
+appname = "wasistlos"
+background = "#128C7EE6"
+foreground = "#FFFFFF"
+script = "~/.config/dunst/sound-dispatch.sh"
+#+end_src

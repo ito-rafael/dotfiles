@@ -409,3 +409,9 @@ mouse_right_click = close_all
 #    set_stack_tag = "volume"
 #
 # vim: ft=cfg
+
+[wasistlos]
+appname = "wasistlos"
+background = "#128C7EE6"
+foreground = "#FFFFFF"
+script = "~/.config/dunst/sound-dispatch.sh"
