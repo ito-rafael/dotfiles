@@ -2094,9 +2094,21 @@ bindsym $alt+$mod+0 exec "$XDG_CONFIG_HOME/waybar/scripts/proton-vpn.sh toggle"
 * Startup commands
 ** Set env vars
 *** Sway
+**** D-Bus
 #+begin_src conf :noweb-ref sway-dbus
 # XDG Desktop Portals & systemd user services
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway SWAYSOCK
+#+end_src
+**** Systemd
+Deprecated. The "--systemd" in the D-Bus command above already does the trick.
+#+begin_src conf :noweb-ref sway-systemd :tangle no
+# push env vars to systemd and announce the graphical session
+#exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP && systemctl --user start graphical-session.target
+#+end_src
+**** Session
+#+begin_src conf :noweb-ref sway-session
+# start systemd session target
+exec systemctl --user start sway-session.target
 #+end_src
 ** Transparency
 Set inactive window transparency.
@@ -2264,6 +2276,7 @@ exec --no-startup-id "sleep 5 && swaymsg '[app_id=brave-origin]' move to workspa
 *** Sway
 #+begin_src conf :noweb yes :tangle _config_sway
 <<sway-dbus>>
+<<sway-session>>
 <<sway-transparency>>
 <<sway-capslock>>
 <<sway-lanmouse>>
