@@ -677,7 +677,7 @@ output $laptop    background ~/.config/wallpaper/london.jpg fill
 output $primary   background ~/.config/wallpaper/london.jpg fill
 output $secondary background ~/.config/wallpaper/london.jpg fill
 output $tertiary  background ~/.config/wallpaper/nasa.png fill
-exec --no-startup-id /usr/bin/dunst &             # dunst: notification daemon
+#exec --no-startup-id /usr/bin/dunst &             # dunst: notification daemon
 #exec_always dunstctl set-paused true              # dunst: start with notifications paused
 exec --no-startup-id emote                        # emoji picker
 exec_always --no-startup-id autotiling            # autotiling

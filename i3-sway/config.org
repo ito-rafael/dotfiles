@@ -2189,7 +2189,7 @@ output $tertiary  background ~/.config/wallpaper/nasa.png fill
 ** Daemons
 *** Common
 #+begin_src conf :noweb-ref daemons
-exec --no-startup-id /usr/bin/dunst &             # dunst: notification daemon
+#exec --no-startup-id /usr/bin/dunst &             # dunst: notification daemon
 #exec_always dunstctl set-paused true              # dunst: start with notifications paused
 exec --no-startup-id emote                        # emoji picker
 exec_always --no-startup-id autotiling            # autotiling
