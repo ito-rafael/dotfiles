@@ -560,7 +560,7 @@ kitty \\
     --class="dropdown_ansible" \\
     --hold \\
     -o font_size=12 \\
-    -o include="$XDG_CONFIG_HOME/kitty/themes/root.conf" \\
+    -o include="$XDG_CONFIG_HOME/kitty/themes/ansible-provision.conf" \\
     bash -c 'exec "{api_script}" {gui_args}' &
 
 # wait for dropdown_ansible to appear in Sway's window tree
