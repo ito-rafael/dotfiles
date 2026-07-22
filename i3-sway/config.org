@@ -2229,8 +2229,9 @@ bar {
 }
 #+end_src
 *** Sway (Waybar)
+Deprecated in favour of systemd service.
 #+begin_src conf :noweb-ref sway-waybar
-exec_always --no-startup-id ~/.config/waybar/waybar.sh
+#exec_always --no-startup-id ~/.config/waybar/waybar.sh
 #+end_src
 *** Applets
 #+begin_src conf :noweb-ref applets
