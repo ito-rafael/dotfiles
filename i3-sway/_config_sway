@@ -199,7 +199,8 @@ bindsym $mod+q exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh kill  # SwayFX bug
 bindsym shift+$mod+q exec $SCRIPT_PATH/kill-window.sh               # SwayFX bug
 
 bindsym mod1+$mod+c exec ~/.config/sway/i3bang.rb; reload
-bindsym mod1+$mod+x exec "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit Sway? This will end your session.' -B 'Yes, exit Sway' 'swaymsg exit'"
+# exit from Sway + kill systemd graphical session target
+bindsym mod1+$mod+x exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'systemctl --user stop graphical-session.target; swaymsg exit'
 
 bindsym $mod+1 exec "$SCRIPT_PATH/navigate2ws.sh 1"
 bindsym $mod+2 exec "$SCRIPT_PATH/navigate2ws.sh 2"
@@ -359,7 +360,8 @@ bindsym mod1+$mod+Down exec "\
 >
 
 set $locker $XDG_CONFIG_HOME/hypr/lock-screen.sh
-set $messenger swaymsg exit
+# exit from Sway + kill systemd graphical session target
+set $messenger "systemctl --user stop graphical-session.target && swaymsg exit"
 #set $mode_system System: (s)hutdown, (r)eboot, (l)ock, (S)uspend, (h)ibernate, (e)xit/logout
 set $mode_system Power
 #-----------------------------
