@@ -1,3 +1,30 @@
+#+TITLE: TLP configuration
+#+AUTHOR: Rafael Ito
+#+PROPERTY: header-args :tangle tlp.conf
+#+DESCRIPTION: TLP user configuration file
+#+STARTUP: showeverything
+#+auto_tangle: t
+
+* Table of Contents :toc:
+- [[#general][General]]
+- [[#profiles][Profiles]]
+- [[#disks-and-file-system][Disks and File System]]
+  - [[#file-system][File System]]
+  - [[#disks-and-ahci][Disks and AHCI]]
+  - [[#media-bay][Media Bay]]
+- [[#cpu][CPU]]
+- [[#platform-profile-and-suspend][Platform Profile and Suspend]]
+- [[#gpu-and-graphics][GPU and Graphics]]
+- [[#networking][Networking]]
+- [[#audio][Audio]]
+- [[#pcie][PCIe]]
+- [[#usb][USB]]
+- [[#radio-devices][Radio Devices]]
+- [[#battery-care][Battery Care]]
+- [[#tlp-rdw-radio-device-wizard][TLP-RDW (Radio Device Wizard)]]
+
+* General
+#+begin_src conf
 # ----------------------------------------------------------------------------
 # /etc/tlp.conf - TLP user configuration (version 1.10.1)
 # See full explanation: https://linrunner.de/tlp/settings
@@ -83,7 +110,9 @@
 # Default: "91 93 1 92"
 
 #TLP_MSG_COLORS="91 93 1 92"
-
+#+end_src
+* Profiles
+#+begin_src conf
 # Control automatic switching of the TLP profile when connecting or removing
 # the charger, when booting the system or when executing 'tlp start':
 #   0=disabled - never switch, use TLP_PROFILE_DEFAULT if configured
@@ -121,7 +150,10 @@
 # Default: <none>
 
 #TLP_PS_IGNORE="BAT"
-
+#+end_src
+* Disks and File System
+** File System
+#+begin_src conf
 # Seconds laptop mode has to wait after the disk goes idle before doing a
 # sync. Non-zero value enables, zero disables laptop mode.
 # Default: 0 (AC), 2 (BAT)
@@ -134,7 +166,9 @@
 
 #MAX_LOST_WORK_SECS_ON_AC=15
 #MAX_LOST_WORK_SECS_ON_BAT=60
-
+#+end_src
+** Disks and AHCI
+#+begin_src conf
 # Define disk devices on which the following DISK/AHCI_RUNTIME parameters act.
 # Separate multiple devices with spaces.
 # Devices can be specified by disk ID also (lookup with: tlp diskid).
@@ -223,7 +257,9 @@
 # Default: 15
 
 #AHCI_RUNTIME_PM_TIMEOUT=15
-
+#+end_src
+** Media Bay
+#+begin_src conf
 # Power off optical drive in UltraBay/MediaBay: 0=disable, 1=enable.
 # Drive can be powered on again by releasing (and reinserting) the eject lever
 # or by pressing the disc eject button on newer models.
@@ -237,7 +273,9 @@
 # Default: sr0
 
 #BAY_DEVICE="sr0"
-
+#+end_src
+* CPU
+#+begin_src conf
 # Select a CPU scaling driver operation mode.
 # Intel CPU with intel_pstate driver:
 #   active, passive.
@@ -343,7 +381,9 @@
 # Default: 0
 
 #NMI_WATCHDOG=0
-
+#+end_src
+* Platform Profile and Suspend
+#+begin_src conf
 # Select platform profile:
 #   performance, balanced, low-power.
 # Controls system operating characteristics around power/performance levels,
@@ -368,7 +408,9 @@
 
 #MEM_SLEEP_ON_AC=s2idle
 #MEM_SLEEP_ON_BAT=deep
-
+#+end_src
+* GPU and Graphics
+#+begin_src conf
 # Intel GPU power management.
 # Select power profile for the Intel Xe GPU: base, power_saving.
 # Note: requires xe driver.
@@ -414,7 +456,9 @@
 #AMDGPU_ABM_LEVEL_ON_AC=0
 #AMDGPU_ABM_LEVEL_ON_BAT=1
 #AMDGPU_ABM_LEVEL_ON_SAV=3
-
+#+end_src
+* Networking
+#+begin_src conf
 # Wi-Fi power saving mode: on=enable, off=disable.
 # Default: off (AC), on (BAT)
 
@@ -425,7 +469,9 @@
 # Default: Y
 
 #WOL_DISABLE=Y
-
+#+end_src
+* Audio
+#+begin_src conf
 # Enable audio power saving for Intel HDA, AC97 devices (timeout in secs).
 # A value of 0 disables, >= 1 enables power saving.
 # Note: 1 is recommended for Linux desktop environments with PulseAudio,
@@ -440,7 +486,9 @@
 # Default: Y
 
 #SOUND_POWER_SAVE_CONTROLLER=Y
-
+#+end_src
+* PCIe
+#+begin_src conf
 # PCIe Active State Power Management (ASPM):
 #   default(*), performance, powersave, powersupersave.
 # (*) keeps BIOS ASPM defaults (recommended)
@@ -482,7 +530,9 @@
 
 #RUNTIME_PM_ENABLE="11:22.3"
 #RUNTIME_PM_DISABLE="44:55.6"
-
+#+end_src
+* USB
+#+begin_src conf
 # Autosuspend USB devices:
 #   0=disable, 1=enable.
 # Default: 1
@@ -532,7 +582,9 @@
 # Default: 0
 
 #USB_ALLOWLIST="1111:2222 3333:4444"
-
+#+end_src
+* Radio Devices
+#+begin_src conf
 # Radio devices to disable on startup: bluetooth, nfc, wifi, wwan.
 # Separate multiple devices with spaces.
 # Default: <none>
@@ -564,7 +616,9 @@
 # Default: <none>
 
 #DEVICES_TO_DISABLE_ON_BAT_NOT_IN_USE="bluetooth nfc wifi wwan"
-
+#+end_src
+* Battery Care
+#+begin_src conf
 # Battery Care -- Charge thresholds
 # Charging will start once the charger is connected and the battery level
 # is below the start threshold. Charging stops when the battery level
@@ -605,7 +659,9 @@
 # Default: 1
 
 #RESTORE_THRESHOLDS_ON_BAT=0
-
+#+end_src
+* TLP-RDW (Radio Device Wizard)
+#+begin_src conf
 # ----------------------------------------------------------------------------
 # tlp-rdw - Radio Device Wizard
 # Note: requires installation of the optional package tlp-rdw.
@@ -638,3 +694,4 @@
 
 #DEVICES_TO_ENABLE_ON_UNDOCK="wifi"
 #DEVICES_TO_DISABLE_ON_UNDOCK=""
+#+end_src
