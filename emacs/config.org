@@ -597,6 +597,8 @@ https://github.com/hlissner/evil-snipe
   :config
   ;; enable evil-snipe globally
   (evil-snipe-mode 1)
+  ; do not use snipe engine search with {f,F,t,T}
+  (evil-snipe-override-mode 0)
 )
 #+end_src
 * Theme
