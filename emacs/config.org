@@ -1058,7 +1058,8 @@ https://github.com/noctuid/general.el
 #+begin_src emacs-lisp
   (efs/leader-keys
     "n"   '(:ignore t :wk "navigate")
-    "n n" '(avy-goto-char-timer   :wk "Avy")
+    "n n" '(evil-avy-goto-char-timer :wk "Avy char")
+    "n l" '(evil-avy-goto-line       :wk "Avy line")
   )
 #+end_src
   )
