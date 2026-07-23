@@ -1348,7 +1348,9 @@ Resize window (you can also use the mouse for that)
 *** Mode
 #+begin_src conf :noweb-ref mode-resize
 mode "resize" {
-    #-----------------------------
+    #=============================
+    # fine control
+    #=============================
     # colemak home row
     bindsym n resize shrink width  5 px or 5 ppt
     bindsym e resize shrink height 5 px or 5 ppt
@@ -1360,8 +1362,23 @@ mode "resize" {
     bindsym Down  resize shrink height 5 px or 5 ppt
     bindsym Up    resize grow   height 5 px or 5 ppt
     bindsym Right resize grow   width  5 px or 5 ppt
+    #=============================
+    # coarse control
+    #=============================
+    # colemak home row
+    bindsym ctrl+n resize shrink width  20 px or 20 ppt
+    bindsym ctrl+e resize shrink height 20 px or 20 ppt
+    bindsym ctrl+i resize grow   height 20 px or 20 ppt
+    bindsym ctrl+o resize grow   width  20 px or 20 ppt
     #-----------------------------
+    # same bindings, but for the arrow keys
+    bindsym ctrl+Left  resize shrink width  20 px or 20 ppt
+    bindsym ctrl+Down  resize shrink height 20 px or 20 ppt
+    bindsym ctrl+Up    resize grow   height 20 px or 20 ppt
+    bindsym ctrl+Right resize grow   width  20 px or 20 ppt
+    #=============================
     # back to normal: Enter or Escape or $mod+r
+    #=============================
     bindsym Return mode "default"
     bindsym Escape mode "default"
     bindsym mod1+$mod+r mode "default"
