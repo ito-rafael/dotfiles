@@ -1389,7 +1389,8 @@ mode "resize" {
 #+end_src
 *** Keybinding
 #+begin_src conf :noweb-ref mode-resize
-bindsym mod1+$mod+r mode "resize"
+bindsym $mod+a exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh resize
+bindsym shift+$mod+a mode "resize"
 #+end_src
 ** Number
 *** Description

@@ -423,7 +423,8 @@ mode "resize" {
     # inherent default keybinds (i3bang)
     !@default_keybindings
 }
-bindsym mod1+$mod+r mode "resize"
+bindsym $mod+a exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh resize
+bindsym shift+$mod+a mode "resize"
 
 set $mode_acute acute
 mode "$mode_acute" {
