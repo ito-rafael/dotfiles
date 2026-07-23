@@ -589,6 +589,16 @@ Forked repo: https://github.com/ito-rafael/evil-colemak
   :config
   (global-evil-colemak-mode))
 #+end_src
+** evil-snipe
+https://github.com/hlissner/evil-snipe
+#+begin_src emacs-lisp
+(use-package evil-snipe
+  :after evil
+  :config
+  ;; enable evil-snipe globally
+  (evil-snipe-mode 1)
+)
+#+end_src
 * Theme
 ** doom-themes
 https://github.com/doomemacs/themes
