@@ -533,11 +533,8 @@
 #+end_src
 * USB
 #+begin_src conf
-# Autosuspend USB devices:
-#   0=disable, 1=enable.
-# Default: 1
-
-#USB_AUTOSUSPEND=1
+# disable autosuspend
+USB_AUTOSUSPEND=0
 
 # Exclude listed devices from USB autosuspend (separate with spaces).
 # Use lsusb to get the ids.
