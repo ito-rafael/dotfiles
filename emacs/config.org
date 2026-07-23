@@ -1029,6 +1029,13 @@ https://github.com/noctuid/general.el
     "m t" '(hydra-text-scale/body    :wk "scale text")
   )
 #+end_src
+** n --> navigate
+#+begin_src emacs-lisp
+  (efs/leader-keys
+    "n"   '(:ignore t :wk "navigate")
+    "n n" '(avy-goto-char-timer   :wk "Avy")
+  )
+#+end_src
   )
 #+end_src
 ** p --> project
