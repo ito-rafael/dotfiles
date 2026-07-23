@@ -1844,6 +1844,8 @@ https://github.com/abo-abo/avy
   :custom
   ;; enable avy search in all windows
   (avy-all-windows t)
+  ;; dim background text during a jump
+  (avy-background t)
 
   ;; hint characters
   ;;avy-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l) ;; original qwerty
