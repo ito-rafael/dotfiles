@@ -1840,5 +1840,9 @@ https://github.com/emacsmirror/rainbow-mode
 * Avy
 https://github.com/abo-abo/avy
 #+begin_src emacs-lisp
-(use-package avy)
+(use-package avy
+  :custom
+  ;; enable avy search in all windows
+  (avy-all-windows t)
+)
 #+end_src
