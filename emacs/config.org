@@ -1844,5 +1844,10 @@ https://github.com/abo-abo/avy
   :custom
   ;; enable avy search in all windows
   (avy-all-windows t)
+
+  ;; hint characters
+  ;;avy-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l) ;; original qwerty
+  (avy-keys '(?a ?r ?s ?t ?n ?e ?i ?o)) ;; Colemak-DH
+  ;;(avy-keys '(?n ?e ?i ?o ?h ?t ?s ?r ?a ?d))
 )
 #+end_src
