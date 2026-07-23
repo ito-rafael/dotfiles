@@ -599,6 +599,19 @@ https://github.com/hlissner/evil-snipe
   (evil-snipe-mode 1)
   ; do not use snipe engine search with {f,F,t,T}
   (evil-snipe-override-mode 0)
+
+  ;; unbind keys from minor mode map to avoid conflicts with Colemak-DH translations
+  (evil-define-key '(normal motion visual) evil-snipe-local-mode-map
+    "s" nil
+    "S" nil
+    "x" nil
+    "X" nil)
+
+  ;; bind {f,F,t,T} use snipe's 2-char functions globally
+  (evil-global-set-key 'motion "f" #'evil-snipe-s)   ;; 2-char inclusive forward
+  (evil-global-set-key 'motion "F" #'evil-snipe-S)   ;; 2-char inclusive backward
+  (evil-global-set-key 'motion "t" #'evil-snipe-x)   ;; 2-char exclusive forward
+  (evil-global-set-key 'motion "T" #'evil-snipe-X)   ;; 2-char exclusive backward
 )
 #+end_src
 * Theme
