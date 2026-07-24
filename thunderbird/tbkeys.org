@@ -10,6 +10,7 @@
 - [[#configuration][Configuration]]
   - [[#openclose-message][Open/Close message]]
   - [[#nextprevious-message][Next/Previous message]]
+  - [[#previousnext-tab][Previous/Next tab]]
   - [[#miscellaneous][Miscellaneous]]
   - [[#allow-content-from-sender][Allow content from sender]]
   - [[#eos][EoS]]
@@ -19,6 +20,7 @@ Because JSON does not support comments natively, the documentation for these key
 #+begin_src txt
 - =o= / =n= : Open the currently selected message / Close the message and refresh.
 - =e= / =i= : Navigate to the next and previous message.
+- =N= / =O= : Navigate to the previous and next tab.
 - =f= : Forward the message.
 - =#= : Delete the message.
 - =r= / =a= : Reply / Reply to all.
@@ -40,6 +42,11 @@ Custom keybindings for Thunderbird using the tbkeys extension.
 #+begin_src js
 "e": "cmd:cmd_nextMsg",
 "i": "cmd:cmd_previousMsg",
+#+end_src
+** Previous/Next tab
+#+begin_src js
+"N": "(function(){ try { let tm = window.gTabmail; let tabs = tm.tabInfo; let idx = tabs.indexOf(tm.currentTabInfo); tm.switchToTab(tabs[(idx - 1 + tabs.length) % tabs.length]); } catch(e){} })();",
+"O": "(function(){ try { let tm = window.gTabmail; let tabs = tm.tabInfo; let idx = tabs.indexOf(tm.currentTabInfo); tm.switchToTab(tabs[(idx + 1) % tabs.length]); } catch(e){} })();",
 #+end_src
 ** Miscellaneous
 #+begin_src js

@@ -3,6 +3,8 @@
   "o": "cmd:cmd_openMessage",
   "e": "cmd:cmd_nextMsg",
   "i": "cmd:cmd_previousMsg",
+  "N": "(function(){ try { let tm = window.gTabmail; let tabs = tm.tabInfo; let idx = tabs.indexOf(tm.currentTabInfo); tm.switchToTab(tabs[(idx - 1 + tabs.length) % tabs.length]); } catch(e){} })();",
+  "O": "(function(){ try { let tm = window.gTabmail; let tabs = tm.tabInfo; let idx = tabs.indexOf(tm.currentTabInfo); tm.switchToTab(tabs[(idx + 1) % tabs.length]); } catch(e){} })();",
   "f": "cmd:cmd_forward",
   "#": "cmd:cmd_delete",
   "r": "cmd:cmd_reply",
