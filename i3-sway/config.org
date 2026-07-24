@@ -660,8 +660,7 @@ https://github.com/yshui/picom
 ** Sway
 Windows transparency/opacity can be achieved with the inactive-windows-transparency.py script:
 https://github.com/OctopusET/sway-contrib
-
-All keybindings were moved to =xremap=.
+Deprecated: all keybindings were moved to =xremap=.
 *** Current window
 #+begin_src conf :noweb-ref sway-opacity :tangle no
 #bindsym F19      exec --no-startup-id pkill -f inactive-windows-transparency; exec "$SCRIPT_PATH/opacity.sh current dec"
@@ -2138,7 +2137,7 @@ exec_always --no-startup-id picom -b --config ~/.config/picom/picom.conf
 #+end_src
 *** Sway
 #+begin_src conf :noweb-ref sway-transparency
-exec /usr/share/sway-contrib/inactive-windows-transparency.py --opacity 0.85
+#exec /usr/share/sway-contrib/inactive-windows-transparency.py --opacity 0.85
 #+end_src
 ** Touchpad
 *** i3
