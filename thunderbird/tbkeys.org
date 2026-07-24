@@ -17,14 +17,13 @@
 * Documentation
 Because JSON does not support comments natively, the documentation for these keybindings is detailed below:
 #+begin_src txt
+- =o= / =n= : Open the currently selected message / Close the message and refresh.
 - =e= / =i= : Navigate to the next and previous message.
-- =o= : Open the currently selected message.
 - =f= : Forward the message.
 - =#= : Delete the message.
 - =r= / =a= : Reply / Reply to all.
 - =x= : Archive the message.
 - =c= : Compose a new message.
-- =n= : Close the message and refresh.
 - =s= : A custom injected JavaScript function. When pressed, it evaluates the DOM to find the sender's email address and dynamically allows remote content (like images) for that specific sender in the current message.
 #+end_src
 * Configuration
@@ -34,26 +33,26 @@ Custom keybindings for Thunderbird using the tbkeys extension.
 #+end_src
 ** Open/Close message
 #+begin_src js
-    "n": "tbkeys:closeMessageAndRefresh",
-    "o": "cmd:cmd_openMessage",
+"n": "tbkeys:closeMessageAndRefresh",
+"o": "cmd:cmd_openMessage",
 #+end_src
 ** Next/Previous message
 #+begin_src js
-    "e": "cmd:cmd_nextMsg",
-    "i": "cmd:cmd_previousMsg",
+"e": "cmd:cmd_nextMsg",
+"i": "cmd:cmd_previousMsg",
 #+end_src
 ** Miscellaneous
 #+begin_src js
-    "f": "cmd:cmd_forward",
-    "#": "cmd:cmd_delete",
-    "r": "cmd:cmd_reply",
-    "a": "cmd:cmd_replyall",
-    "x": "cmd:cmd_archive",
-    "c": "func:MsgNewMessage",
+"f": "cmd:cmd_forward",
+"#": "cmd:cmd_delete",
+"r": "cmd:cmd_reply",
+"a": "cmd:cmd_replyall",
+"x": "cmd:cmd_archive",
+"c": "func:MsgNewMessage",
 #+end_src
 ** Allow content from sender
 #+begin_src js
-    "s": "(function(){ let am=window.gTabmail.currentAboutMessage; if(!am||!am.document)return; let s=am.document.querySelector('mail-headerfield[name=\"author\"] mail-emailaddress, .message-header-author mail-emailaddress'); let a=s?(s.getAttribute('email')||s.textContent):''; if(!a){let h=am.document.getElementById('messageHeader')||am.document.body; let m=h.innerText.match(/[\\w.-]+@[\\w.-]+\\.\\w+/); if(m)a=m[0];} let m2=a.match(/<([^>]+)>/); let e=(m2?m2[1]:a).replace(/[\"<>]/g,'').trim().toLowerCase(); if(e.includes('@')&&window.Services){let u=window.Services.io.newURI('chrome://messenger/content/email='+e); let p=window.Services.scriptSecurityManager.createContentPrincipal(u,{}); window.Services.perms.addFromPrincipal(p,'image',1); window.Services.perms.addFromPrincipal(p,'remote-content',1); am.LoadMsgWithRemoteContent();} })();"
+"s": "(function(){ let am=window.gTabmail.currentAboutMessage; if(!am||!am.document)return; let s=am.document.querySelector('mail-headerfield[name=\"author\"] mail-emailaddress, .message-header-author mail-emailaddress'); let a=s?(s.getAttribute('email')||s.textContent):''; if(!a){let h=am.document.getElementById('messageHeader')||am.document.body; let m=h.innerText.match(/[\\w.-]+@[\\w.-]+\\.\\w+/); if(m)a=m[0];} let m2=a.match(/<([^>]+)>/); let e=(m2?m2[1]:a).replace(/[\"<>]/g,'').trim().toLowerCase(); if(e.includes('@')&&window.Services){let u=window.Services.io.newURI('chrome://messenger/content/email='+e); let p=window.Services.scriptSecurityManager.createContentPrincipal(u,{}); window.Services.perms.addFromPrincipal(p,'image',1); window.Services.perms.addFromPrincipal(p,'remote-content',1); am.LoadMsgWithRemoteContent();} })();"
 #+end_src
 ** EoS
 #+begin_src js
