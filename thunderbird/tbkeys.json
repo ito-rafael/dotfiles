@@ -5,6 +5,8 @@
   "i": "cmd:cmd_previousMsg",
   "N": "(function(){ try { let tm = window.gTabmail; let tabs = tm.tabInfo; let idx = tabs.indexOf(tm.currentTabInfo); tm.switchToTab(tabs[(idx - 1 + tabs.length) % tabs.length]); } catch(e){} })();",
   "O": "(function(){ try { let tm = window.gTabmail; let tabs = tm.tabInfo; let idx = tabs.indexOf(tm.currentTabInfo); tm.switchToTab(tabs[(idx + 1) % tabs.length]); } catch(e){} })();",
+  "E": "(function(){ try { let cw = window.gTabmail.currentAboutMessage.getMessagePaneBrowser().contentWindow; cw.scrollBy({ top: cw.innerHeight * 0.8, behavior: 'smooth' }); } catch(e){} })();",
+  "I": "(function(){ try { let cw = window.gTabmail.currentAboutMessage.getMessagePaneBrowser().contentWindow; cw.scrollBy({ top: -(cw.innerHeight * 0.8), behavior: 'smooth' }); } catch(e){} })();",
   "f": "cmd:cmd_forward",
   "#": "cmd:cmd_delete",
   "r": "cmd:cmd_reply",
