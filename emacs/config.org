@@ -1329,6 +1329,10 @@ It's Magit! A Git Porcelain inside Emacs.
 (use-package magit
   :after transient
   :commands magit-status
+  :hook (
+    (git-commit-post-finish . magit-status)       ;; return to magit-status after a commit
+    (magit-status-mode . efs/magit-status-setup)  ;; set line number type to visual in magit-status
+  )
   :custom
   (magit-section-disable-line-numbers nil)
   (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1)  ;; show diff in the same window
@@ -1346,9 +1350,6 @@ It's Magit! A Git Porcelain inside Emacs.
     ;; custom navigation
     (kbd "M-i") 'magit-section-show-level-2-all  ;; fold everything
   )
-  ;;---------------------------
-  ;; return to magit-status after a commit
-  (add-hook 'git-commit-post-finish-hook 'magit)
   ;;---------------------------
   ;; return to magit-status after C-c C-k (with-editor-cancel)
   (defun my/magit-restore-status-smooth (orig-fun &rest args)
@@ -1370,6 +1371,13 @@ It's Magit! A Git Porcelain inside Emacs.
   (advice-add 'with-editor-cancel :around #'my/magit-restore-status-smooth)
   ;;---------------------------
 )
+#+end_src
+**** Use visual line number in magit-status
+Custom function to change the line number type to visual.
+#+begin_src emacs-lisp
+(defun efs/magit-status-setup ()
+  "Custom settings for Magit status buffer."
+  (setq-local display-line-numbers-type 'visual))
 #+end_src
 ** Forge
 Pulls down all information from repositories: issues, pull requests, notifications, etc.
