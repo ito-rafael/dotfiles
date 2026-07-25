@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-configures brave extension shortcuts by directly modifying the profile preferences file.
-targets the root extensions.commands dictionary and maps the shortcut string directly.
+configures multiple brave extension shortcuts by directly modifying the profile preferences file.
+iterates through a configuration list and applies all changes in a single disk write.
 must be run when brave is closed.
 """
 
@@ -9,10 +9,23 @@ import os
 import sys
 import json
 import fcntl
+import subprocess
 
-TARGET_EXTENSION_NAME = "Dark Reader"
-TARGET_COMMAND_NAME = "Toggle extension"
-TARGET_SHORTCUT_STRING = "Alt+D"
+#----------------------------------------
+# define all your target shortcuts here
+#----------------------------------------
+SHORTCUTS_CONFIG = [
+    {
+        "extension": "Dark Reader",
+        "command": "Toggle current site",
+        "shortcut": "Alt+D"
+    },
+    {
+        "extension": "Tab Session Manager",
+        "command": "Save session (all windows)",
+        "shortcut": "Alt+O"
+    }
+]
 
 username = os.getenv("USER")
 
@@ -38,7 +51,6 @@ if not os.path.exists(prefs_path):
 #----------------------------------------
 # active session safety check
 #----------------------------------------
-import subprocess
 try:
     # get the full command line (-a) of all processes containing "brave" (-f)
     result = subprocess.check_output(["pgrep", "-a", "-f", "[o]pt/brave.com/brave-origin-beta/brave"], text=True)
@@ -54,7 +66,19 @@ try:
         print("Error: Standard Brave is currently running. Aborting to prevent profile corruption.")
         sys.exit(1)
 except subprocess.CalledProcessError:
-    pass # pgrep returned non-zero, meaning no matching processes were found. Safe!
+    pass # pgrep returned non-zero, meaning no matching processes were found, safe to proceed
+
+
+#----------------------------------------
+# determine os prefix for shortcuts
+#----------------------------------------
+os_prefix = ""
+if sys.platform.startswith("linux"):
+    os_prefix = "linux:"
+elif sys.platform == "darwin":
+    os_prefix = "mac:"
+elif sys.platform == "win32":
+    os_prefix = "win:"
 
 
 #----------------------------------------
@@ -72,91 +96,92 @@ try:
             sys.exit(1)
 
         extensions = data.get('extensions', {}).get('settings', {})
-        target_ext_id = None
 
-        # 1. find the specific extension id by looking for its manifest name
-        for ext_id, ext_data in extensions.items():
-            manifest = ext_data.get('manifest', {})
-            if manifest.get('name') == TARGET_EXTENSION_NAME:
-                target_ext_id = ext_id
-                break
-
-        if not target_ext_id:
-            print(f"Error: Could not find '{TARGET_EXTENSION_NAME}' installed in this profile.")
-            sys.exit(1)
-
-        # 2. find the internal command mapping (e.g., "Toggle extension" -> "toggle")
-        manifest = extensions[target_ext_id].get('manifest', {})
-        manifest_commands = manifest.get('commands', {})
-        actual_command_key = None
-
-        for cmd_key, cmd_data in manifest_commands.items():
-            if cmd_data.get('description') == TARGET_COMMAND_NAME:
-                actual_command_key = cmd_key
-                break
-
-        if not actual_command_key:
-             print(f"Error: Could not find a command with description '{TARGET_COMMAND_NAME}' in the manifest.")
-             sys.exit(1)
-
-        print(f"Found {TARGET_EXTENSION_NAME} (ID: {target_ext_id})")
-        print(f"Mapped command '{TARGET_COMMAND_NAME}' to internal key: '{actual_command_key}'")
-
-        # 3. ensure the root commands dictionary exists
+        # ensure the root commands dictionary exists
         if 'commands' not in data.get('extensions', {}):
             if 'extensions' not in data:
                 data['extensions'] = {}
             data['extensions']['commands'] = {}
 
         commands_dict = data['extensions']['commands']
+        changes_made = False
 
-        # 4. generate the os-specific target key (e.g., "linux:Alt+D")
-        os_prefix = ""
-        if sys.platform.startswith("linux"):
-            os_prefix = "linux:"
-        elif sys.platform == "darwin":
-            os_prefix = "mac:"
-        elif sys.platform == "win32":
-            os_prefix = "win:"
+        # iterate through the configuration list
+        for config in SHORTCUTS_CONFIG:
+            target_ext_name = config["extension"]
+            target_cmd_name = config["command"]
+            target_shortcut_string = config["shortcut"]
 
-        target_shortcut_key = f"{os_prefix}{TARGET_SHORTCUT_STRING}"
+            target_ext_id = None
 
-        # 5. idempotent check: is it already set perfectly?
-        if target_shortcut_key in commands_dict:
-            existing_binding = commands_dict[target_shortcut_key]
-            if existing_binding.get('extension') == target_ext_id and existing_binding.get('command_name') == actual_command_key:
-                print(f"Skipped: Shortcut for '{TARGET_COMMAND_NAME}' is already set to '{TARGET_SHORTCUT_STRING}'.")
-                fcntl.flock(f, fcntl.LOCK_UN)
-                sys.exit(0)
+            # 1. find the specific extension id by looking for its manifest name
+            for ext_id, ext_data in extensions.items():
+                manifest = ext_data.get('manifest', {})
+                if manifest.get('name') == target_ext_name:
+                    target_ext_id = ext_id
+                    break
 
-        print(f"Injecting shortcut '{target_shortcut_key}'...")
+            if not target_ext_id:
+                print(f"Error: Could not find '{target_ext_name}' installed in this profile. Aborting.")
+                sys.exit(1)
 
-        # 6. clear any old shortcuts mapped to this specific extension command so we don't create duplicates
-        keys_to_delete = []
-        for shortcut_key, shortcut_data in commands_dict.items():
-            if shortcut_data.get('extension') == target_ext_id and shortcut_data.get('command_name') == actual_command_key:
-                keys_to_delete.append(shortcut_key)
+            # 2. find the internal command mapping (e.g., "Toggle extension" -> "toggle")
+            manifest = extensions[target_ext_id].get('manifest', {})
+            manifest_commands = manifest.get('commands', {})
+            actual_command_key = None
 
-        for k in keys_to_delete:
-            del commands_dict[k]
+            for cmd_key, cmd_data in manifest_commands.items():
+                if cmd_data.get('description') == target_cmd_name:
+                    actual_command_key = cmd_key
+                    break
 
-        # 7. warn if another extension was currently using our desired shortcut (chromium will overwrite it)
-        if target_shortcut_key in commands_dict:
-            print(f"Warning: Shortcut '{target_shortcut_key}' was used by another extension. Overwriting to enforce state...")
+            if not actual_command_key:
+                 print(f"Error: Could not find a command '{target_cmd_name}' for '{target_ext_name}'. Aborting.")
+                 sys.exit(1)
 
-        # 8. apply the new shortcut
-        commands_dict[target_shortcut_key] = {
-            "command_name": actual_command_key,
-            "extension": target_ext_id,
-            "global": False
-        }
+            target_shortcut_key = f"{os_prefix}{target_shortcut_string}"
 
-        # 9. write back to disk
-        f.seek(0)
-        json.dump(data, f, separators=(',', ':'))
-        f.truncate()
+            # 3. idempotent check: is it already set perfectly?
+            if target_shortcut_key in commands_dict:
+                existing_binding = commands_dict[target_shortcut_key]
+                if existing_binding.get('extension') == target_ext_id and existing_binding.get('command_name') == actual_command_key:
+                    print(f"Skipped: '{target_ext_name}' -> '{target_cmd_name}' is already '{target_shortcut_string}'.")
+                    continue
 
-        print("Success: Preferences file updated.")
+            print(f"Injecting: '{target_ext_name}' -> '{target_shortcut_key}'...")
+
+            # 4. clear any old shortcuts mapped to this specific extension command
+            keys_to_delete = []
+            for shortcut_key, shortcut_data in commands_dict.items():
+                if shortcut_data.get('extension') == target_ext_id and shortcut_data.get('command_name') == actual_command_key:
+                    keys_to_delete.append(shortcut_key)
+
+            for k in keys_to_delete:
+                del commands_dict[k]
+
+            # 5. warn if another extension was currently using our desired shortcut
+            if target_shortcut_key in commands_dict:
+                print(f"  Warning: '{target_shortcut_key}' was used by another extension. Overwriting...")
+
+            # 6. apply the new shortcut
+            commands_dict[target_shortcut_key] = {
+                "command_name": actual_command_key,
+                "extension": target_ext_id,
+                "global": False
+            }
+
+            changes_made = True
+
+        #----------------------------------------
+        # save to disk if necessary
+        #----------------------------------------
+        if changes_made:
+            f.seek(0)
+            json.dump(data, f, separators=(',', ':'))
+            f.truncate()
+            print("\nSuccess: Preferences file updated with new shortcuts.")
+        else:
+            print("\nSuccess: All shortcuts were already configured correctly. No disk writes needed.")
 
         fcntl.flock(f, fcntl.LOCK_UN)
 
