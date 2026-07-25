@@ -19,7 +19,7 @@ from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from webdriver_manager.firefox import GeckoDriverManager
+#from webdriver_manager.firefox import GeckoDriverManager
 
 # Dynamically find the Zen Browser binary path
 POSSIBLE_BINARIES = [
@@ -113,9 +113,15 @@ options.add_argument(profile_base)
 #----------------------------------------
 # Initialize driver
 #----------------------------------------
-print("Initializing GeckoDriver...")
-driver_path = GeckoDriverManager().install()
-service = Service(driver_path)
+# using "webdriver_manager.firefox"
+#print("Initializing GeckoDriver...")
+#driver_path = GeckoDriverManager().install()
+#service = Service(driver_path)
+#driver = webdriver.Firefox(service=service, options=options)
+
+# using binary from package manager
+print("Initializing system GeckoDriver...")
+service = Service("/usr/bin/geckodriver")
 driver = webdriver.Firefox(service=service, options=options)
 
 #----------------------------------------
