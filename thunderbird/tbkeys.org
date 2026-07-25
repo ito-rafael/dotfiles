@@ -9,9 +9,10 @@
 - [[#documentation][Documentation]]
 - [[#configuration][Configuration]]
   - [[#openclose-message][Open/Close message]]
-  - [[#nextprevious-message][Next/Previous message]]
-  - [[#previousnext-tab][Previous/Next tab]]
+  - [[#message-navigation][Message navigation]]
+  - [[#tab-navigation][Tab navigation]]
   - [[#scroll-message][Scroll message]]
+  - [[#scroll-message-list][Scroll message list]]
   - [[#accounts-navigation][Accounts navigation]]
   - [[#miscellaneous][Miscellaneous]]
   - [[#allow-content-from-sender][Allow content from sender]]
@@ -43,12 +44,12 @@ Custom keybindings for Thunderbird using the tbkeys extension.
 "n": "tbkeys:closeMessageAndRefresh",
 "o": "cmd:cmd_openMessage",
 #+end_src
-** Next/Previous message
+** Message navigation
 #+begin_src js
 "e": "cmd:cmd_nextMsg",
 "i": "cmd:cmd_previousMsg",
 #+end_src
-** Previous/Next tab
+** Tab navigation
 #+begin_src js
 "N": "window.document.getElementById('tabmail-tabs').advanceSelectedTab(-1, true)",
 "O": "window.document.getElementById('tabmail-tabs').advanceSelectedTab(1, true)",
