@@ -24,6 +24,7 @@ Because JSON does not support comments natively, the documentation for these key
 - =e= / =i= : Navigate to the next and previous message.
 - =N= / =O= : Navigate to the previous and next tab.
 - =E= / =I= : Scroll the current message down and up (by 80% of window height).
+- =Ctrl+e= / =Ctrl+i= : Cycle to the next and previous account's Inbox.
 - =1=, =2=, =3=, =4= : Switch directly to the Inbox of Account #1, #2, #3, or #4.
 - =f= : Forward the message.
 - =#= : Delete the message.
@@ -58,6 +59,14 @@ Custom keybindings for Thunderbird using the tbkeys extension.
 "I": "(function(){ try { let cw = window.gTabmail.currentAboutMessage.getMessagePaneBrowser().contentWindow; cw.scrollBy({ top: -(cw.innerHeight * 0.8), behavior: 'smooth' }); } catch(e){} })();",
 #+end_src
 ** Accounts navigation
+*** Next account
+#+begin_src js
+"Ctrl+e": "(function(){ try { let win = window.Services.wm.getMostRecentWindow('mail:3pane'); let servers = ['server1', 'server2', 'server3', 'server4']; if(typeof win._tbkeysAccIdx !== 'number') win._tbkeysAccIdx = 0; win._tbkeysAccIdx = (win._tbkeysAccIdx + 1) % servers.length; let srvKey = servers[win._tbkeysAccIdx]; let srv = null; for(let s of window.MailServices.accounts.allServers){ if(s.key === srvKey) { srv = s; break; } } if(srv) { let root = srv.rootFolder || srv.rootMsgFolder; let inbox = root.getFolderWithFlags(0x1000) || root.getChildNamed('INBOX') || root.getChildNamed('Inbox'); if(inbox && win.MailUtils) win.MailUtils.displayFolderIn3Pane(inbox); } } catch(e) {} })();",
+#+end_src
+*** Previous account
+#+begin_src js
+"Ctrl+i": "(function(){ try { let win = window.Services.wm.getMostRecentWindow('mail:3pane'); let servers = ['server1', 'server2', 'server3', 'server4']; if(typeof win._tbkeysAccIdx !== 'number') win._tbkeysAccIdx = 0; win._tbkeysAccIdx = (win._tbkeysAccIdx - 1 + servers.length) % servers.length; let srvKey = servers[win._tbkeysAccIdx]; let srv = null; for(let s of window.MailServices.accounts.allServers){ if(s.key === srvKey) { srv = s; break; } } if(srv) { let root = srv.rootFolder || srv.rootMsgFolder; let inbox = root.getFolderWithFlags(0x1000) || root.getChildNamed('INBOX') || root.getChildNamed('Inbox'); if(inbox && win.MailUtils) win.MailUtils.displayFolderIn3Pane(inbox); } } catch(e) {} })();",
+#+end_src
 *** Switch accounts
 **** Account #1
 #+begin_src js
