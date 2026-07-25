@@ -1105,6 +1105,7 @@ https://github.com/noctuid/general.el
     "t b" '(dashboard-open            :wk "Toggle dashboard")
     "t d" '(efs/dimmer-toggle         :wk "Toggle Dimmer")
     "t k" '(keycast-mode              :wk "Toggle keycast")
+    "t p" '(dired-preview-global-mode :wk "Toggle dired-preview")
   )
 #+end_src
 ** w --> window
