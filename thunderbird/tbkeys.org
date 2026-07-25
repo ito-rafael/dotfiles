@@ -64,14 +64,19 @@ Custom keybindings for Thunderbird using the tbkeys extension.
 "E": "(function(){ try { let cw = window.gTabmail.currentAboutMessage.getMessagePaneBrowser().contentWindow; cw.scrollBy({ top: cw.innerHeight * 0.8, behavior: 'smooth' }); } catch(e){} })();",
 "I": "(function(){ try { let cw = window.gTabmail.currentAboutMessage.getMessagePaneBrowser().contentWindow; cw.scrollBy({ top: -(cw.innerHeight * 0.8), behavior: 'smooth' }); } catch(e){} })();",
 #+end_src
+** Scroll message list
+#+begin_src js
+"ctrl+e": "(function(){ try { let win = window.Services.wm.getMostRecentWindow('mail:3pane'); let t = win.gTabmail.tabInfo.find(tab => tab.mode && tab.mode.name === 'mail3PaneTab'); if(t && t.chromeBrowser) { let cw = t.chromeBrowser.contentWindow; let tt = cw.document.getElementById('threadTree'); if(tt) tt.scrollBy({top: 60, behavior: 'smooth'}); } } catch(e){} })();",
+"ctrl+i": "(function(){ try { let win = window.Services.wm.getMostRecentWindow('mail:3pane'); let t = win.gTabmail.tabInfo.find(tab => tab.mode && tab.mode.name === 'mail3PaneTab'); if(t && t.chromeBrowser) { let cw = t.chromeBrowser.contentWindow; let tt = cw.document.getElementById('threadTree'); if(tt) tt.scrollBy({top: -60, behavior: 'smooth'}); } } catch(e){} })();",
+#+end_src
 ** Accounts navigation
 *** Next account
 #+begin_src js
-"Ctrl+e": "(function(){ try { let win = window.Services.wm.getMostRecentWindow('mail:3pane'); let servers = ['server1', 'server2', 'server3', 'server4']; if(typeof win._tbkeysAccIdx !== 'number') win._tbkeysAccIdx = 0; win._tbkeysAccIdx = (win._tbkeysAccIdx + 1) % servers.length; let srvKey = servers[win._tbkeysAccIdx]; let srv = null; for(let s of window.MailServices.accounts.allServers){ if(s.key === srvKey) { srv = s; break; } } if(srv) { let root = srv.rootFolder || srv.rootMsgFolder; let inbox = root.getFolderWithFlags(0x1000) || root.getChildNamed('INBOX') || root.getChildNamed('Inbox'); if(inbox && win.MailUtils) win.MailUtils.displayFolderIn3Pane(inbox); } } catch(e) {} })();",
+"alt+e": "(function(){ try { let win = window.Services.wm.getMostRecentWindow('mail:3pane'); let servers = ['server1', 'server2', 'server3', 'server4']; if(typeof win._tbkeysAccIdx !== 'number') win._tbkeysAccIdx = 0; win._tbkeysAccIdx = (win._tbkeysAccIdx + 1) % servers.length; let srvKey = servers[win._tbkeysAccIdx]; let srv = null; for(let s of window.MailServices.accounts.allServers){ if(s.key === srvKey) { srv = s; break; } } if(srv) { let root = srv.rootFolder || srv.rootMsgFolder; let inbox = root.getFolderWithFlags(0x1000) || root.getChildNamed('INBOX') || root.getChildNamed('Inbox'); if(inbox && win.MailUtils) win.MailUtils.displayFolderIn3Pane(inbox); } } catch(e) {} })();",
 #+end_src
 *** Previous account
 #+begin_src js
-"Ctrl+i": "(function(){ try { let win = window.Services.wm.getMostRecentWindow('mail:3pane'); let servers = ['server1', 'server2', 'server3', 'server4']; if(typeof win._tbkeysAccIdx !== 'number') win._tbkeysAccIdx = 0; win._tbkeysAccIdx = (win._tbkeysAccIdx - 1 + servers.length) % servers.length; let srvKey = servers[win._tbkeysAccIdx]; let srv = null; for(let s of window.MailServices.accounts.allServers){ if(s.key === srvKey) { srv = s; break; } } if(srv) { let root = srv.rootFolder || srv.rootMsgFolder; let inbox = root.getFolderWithFlags(0x1000) || root.getChildNamed('INBOX') || root.getChildNamed('Inbox'); if(inbox && win.MailUtils) win.MailUtils.displayFolderIn3Pane(inbox); } } catch(e) {} })();",
+"alt+i": "(function(){ try { let win = window.Services.wm.getMostRecentWindow('mail:3pane'); let servers = ['server1', 'server2', 'server3', 'server4']; if(typeof win._tbkeysAccIdx !== 'number') win._tbkeysAccIdx = 0; win._tbkeysAccIdx = (win._tbkeysAccIdx - 1 + servers.length) % servers.length; let srvKey = servers[win._tbkeysAccIdx]; let srv = null; for(let s of window.MailServices.accounts.allServers){ if(s.key === srvKey) { srv = s; break; } } if(srv) { let root = srv.rootFolder || srv.rootMsgFolder; let inbox = root.getFolderWithFlags(0x1000) || root.getChildNamed('INBOX') || root.getChildNamed('Inbox'); if(inbox && win.MailUtils) win.MailUtils.displayFolderIn3Pane(inbox); } } catch(e) {} })();",
 #+end_src
 *** Switch accounts
 **** Account #1
