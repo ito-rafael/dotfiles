@@ -12,17 +12,19 @@
   - [[#nextprevious-message][Next/Previous message]]
   - [[#previousnext-tab][Previous/Next tab]]
   - [[#scroll-message][Scroll message]]
+  - [[#accounts-navigation][Accounts navigation]]
   - [[#miscellaneous][Miscellaneous]]
   - [[#allow-content-from-sender][Allow content from sender]]
   - [[#eos][EoS]]
 
 * Documentation
 Because JSON does not support comments natively, the documentation for these keybindings is detailed below:
-#+begin_src txt
+#+begin_src emacs-lisp
 - =o= / =n= : Open the currently selected message / Close the message and refresh.
 - =e= / =i= : Navigate to the next and previous message.
 - =N= / =O= : Navigate to the previous and next tab.
 - =E= / =I= : Scroll the current message down and up (by 80% of window height).
+- =1=, =2=, =3=, =4= : Switch directly to the Inbox of Account #1, #2, #3, or #4.
 - =f= : Forward the message.
 - =#= : Delete the message.
 - =r= / =a= : Reply / Reply to all.
@@ -54,6 +56,24 @@ Custom keybindings for Thunderbird using the tbkeys extension.
 #+begin_src js
 "E": "(function(){ try { let cw = window.gTabmail.currentAboutMessage.getMessagePaneBrowser().contentWindow; cw.scrollBy({ top: cw.innerHeight * 0.8, behavior: 'smooth' }); } catch(e){} })();",
 "I": "(function(){ try { let cw = window.gTabmail.currentAboutMessage.getMessagePaneBrowser().contentWindow; cw.scrollBy({ top: -(cw.innerHeight * 0.8), behavior: 'smooth' }); } catch(e){} })();",
+#+end_src
+** Accounts navigation
+*** Switch accounts
+**** Account #1
+#+begin_src js
+"1": "(function(){ try { let win = window.Services.wm.getMostRecentWindow('mail:3pane'); let srv = null; for(let s of window.MailServices.accounts.allServers){ if(s.key === 'server1') { srv = s; break; } } if(srv) { let root = srv.rootFolder || srv.rootMsgFolder; let inbox = root.getFolderWithFlags(0x1000) || root.getChildNamed('INBOX') || root.getChildNamed('Inbox'); if(inbox && win.MailUtils) win.MailUtils.displayFolderIn3Pane(inbox); } } catch(e) {} })();",
+#+end_src
+**** Account #2
+#+begin_src js
+"2": "(function(){ try { let win = window.Services.wm.getMostRecentWindow('mail:3pane'); let srv = null; for(let s of window.MailServices.accounts.allServers){ if(s.key === 'server2') { srv = s; break; } } if(srv) { let root = srv.rootFolder || srv.rootMsgFolder; let inbox = root.getFolderWithFlags(0x1000) || root.getChildNamed('INBOX') || root.getChildNamed('Inbox'); if(inbox && win.MailUtils) win.MailUtils.displayFolderIn3Pane(inbox); } } catch(e) {} })();",
+#+end_src
+**** Account #3
+#+begin_src js
+"3": "(function(){ try { let win = window.Services.wm.getMostRecentWindow('mail:3pane'); let srv = null; for(let s of window.MailServices.accounts.allServers){ if(s.key === 'server3') { srv = s; break; } } if(srv) { let root = srv.rootFolder || srv.rootMsgFolder; let inbox = root.getFolderWithFlags(0x1000) || root.getChildNamed('INBOX') || root.getChildNamed('Inbox'); if(inbox && win.MailUtils) win.MailUtils.displayFolderIn3Pane(inbox); } } catch(e) {} })();",
+#+end_src
+**** Account #4
+#+begin_src js
+"4": "(function(){ try { let win = window.Services.wm.getMostRecentWindow('mail:3pane'); let srv = null; for(let s of window.MailServices.accounts.allServers){ if(s.key === 'server4') { srv = s; break; } } if(srv) { let root = srv.rootFolder || srv.rootMsgFolder; let inbox = root.getFolderWithFlags(0x1000) || root.getChildNamed('INBOX') || root.getChildNamed('Inbox'); if(inbox && win.MailUtils) win.MailUtils.displayFolderIn3Pane(inbox); } } catch(e) {} })();",
 #+end_src
 ** Miscellaneous
 #+begin_src js
