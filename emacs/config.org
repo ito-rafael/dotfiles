@@ -61,6 +61,7 @@
 (global-display-line-numbers-mode t)              ;; enable line number
 (setq display-line-numbers-type 'visual)          ;; set line number to relative (visually)
 (column-number-mode)                              ;; enable column number
+(global-visual-line-mode 1)                       ;; enable text wrapping
 #+end_src
 *** Exceptions
 Disable line numbers for some modes.
