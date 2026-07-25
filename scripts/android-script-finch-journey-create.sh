@@ -17,25 +17,39 @@ DELAY=2.0
 
 sleep $DELAY
     
+# hamburger icon
+ydotool mousemove --absolute 757 148
+ydotool click $LEFT_CLICK
+sleep $DELAY
+
+# "My Self-Care Areas"
+ydotool mousemove --absolute 849 389
+ydotool click $LEFT_CLICK
+sleep $DELAY
+
 for NUMBER in {1..100..1}
 do
-    # hamburger icon
-    ydotool mousemove --absolute 757 148
+    # scroll down (10x PageDown)
+    for i in {0..3..1}
+    do
+        ydotool key 109:1 109:0
+        sleep 1
+    done
+    
+    # "+ Start a new area" icon
+    ydotool mousemove --absolute 738 938
     ydotool click $LEFT_CLICK
     sleep $DELAY
-    
-    # My Journeys
-    ydotool mousemove --absolute 849 389
-    ydotool click $LEFT_CLICK
-    sleep $DELAY
-    
-    # "+" icon
-    ydotool mousemove --absolute 1154 148
-    ydotool click $LEFT_CLICK
-    sleep $DELAY
-    
-    # Start a new Journey
-    ydotool mousemove --absolute 975 249
+
+    # scroll down (3x PageDown)
+    for i in {0..2..1}
+    do
+        ydotool key 109:1 109:0
+        sleep 0.5
+    done
+
+    # "+ Create my own area" icon
+    ydotool mousemove --absolute 798 980
     ydotool click $LEFT_CLICK
     sleep $DELAY
     
