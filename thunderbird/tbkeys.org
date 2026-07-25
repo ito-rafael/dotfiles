@@ -54,6 +54,12 @@ Custom keybindings for Thunderbird using the tbkeys extension.
 "O": "window.document.getElementById('tabmail-tabs').advanceSelectedTab(1, true)",
 #+end_src
 ** Scroll message
+*** Snap scroll
+#+begin_src js :tangle no
+"E": "window.gTabmail.currentAboutMessage.getMessagePaneBrowser().contentWindow.scrollBy(0, 100)",
+"I": "window.gTabmail.currentAboutMessage.getMessagePaneBrowser().contentWindow.scrollBy(0, -100)",
+#+end_src
+*** Smooth scroll
 #+begin_src js
 "E": "(function(){ try { let cw = window.gTabmail.currentAboutMessage.getMessagePaneBrowser().contentWindow; cw.scrollBy({ top: cw.innerHeight * 0.8, behavior: 'smooth' }); } catch(e){} })();",
 "I": "(function(){ try { let cw = window.gTabmail.currentAboutMessage.getMessagePaneBrowser().contentWindow; cw.scrollBy({ top: -(cw.innerHeight * 0.8), behavior: 'smooth' }); } catch(e){} })();",
