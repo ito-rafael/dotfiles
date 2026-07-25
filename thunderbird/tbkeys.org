@@ -50,8 +50,8 @@ Custom keybindings for Thunderbird using the tbkeys extension.
 #+end_src
 ** Previous/Next tab
 #+begin_src js
-"N": "(function(){ try { let tm = window.gTabmail; let tabs = tm.tabInfo; let idx = tabs.indexOf(tm.currentTabInfo); tm.switchToTab(tabs[(idx - 1 + tabs.length) % tabs.length]); } catch(e){} })();",
-"O": "(function(){ try { let tm = window.gTabmail; let tabs = tm.tabInfo; let idx = tabs.indexOf(tm.currentTabInfo); tm.switchToTab(tabs[(idx + 1) % tabs.length]); } catch(e){} })();",
+"N": "window.document.getElementById('tabmail-tabs').advanceSelectedTab(-1, true)",
+"O": "window.document.getElementById('tabmail-tabs').advanceSelectedTab(1, true)",
 #+end_src
 ** Scroll message
 #+begin_src js
