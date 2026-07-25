@@ -43,32 +43,27 @@ do
     ydotool type $NUMBER
     sleep $DELAY
     
-    # Next
-    ydotool mousemove --absolute 959 649
+    # Save
+    ydotool mousemove --absolute 961 494
     ydotool click $LEFT_CLICK
     sleep $DELAY
     
-    # Start Journey
-    ydotool mousemove --absolute 964 503
+    # "Add a new goal"
+    ydotool mousemove --absolute 964 865
     ydotool click $LEFT_CLICK
     sleep $DELAY
-    
+
     # type number
     ydotool type $NUMBER
     sleep $DELAY
-    
-    # Does no repeat
-    ydotool mousemove --absolute 949 412
-    ydotool click $LEFT_CLICK
-    sleep $DELAY
-    
-    # Every day
-    ydotool mousemove --absolute 968 684
-    ydotool click $LEFT_CLICK
-    sleep $DELAY
-    
+
     # Save
-    ydotool mousemove --absolute 1097 482
+    ydotool mousemove --absolute 1092 484
+    ydotool click $LEFT_CLICK
+    sleep $DELAY
+    
+    # Go back to main page
+    ydotool mousemove --absolute 756 149
     ydotool click $LEFT_CLICK
     sleep $DELAY
     
