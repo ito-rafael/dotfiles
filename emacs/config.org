@@ -1350,15 +1350,20 @@ It's Magit! A Git Porcelain inside Emacs.
     '((stashes . hide)      ;; hide stashes
       (untracked . show)))  ;; show untracked
   :config
-  (evil-set-initial-state 'git-commit-mode 'insert)  ;; start git-commit-mode in insert mode
+  ;; start git-commit-mode in insert mode
+  (evil-set-initial-state 'git-commit-mode 'insert)
+  ;;---------------------------
+  ;; override keybindings for =magit-section-show-level-{1,2,3,4}= and use as counts for evil commands
   (evil-collection-define-key '(normal visual) 'magit-status-mode-map
-    ;; override keybindings for =magit-section-show-level-{1,2,3,4}= and use as counts for evil commands
     "1" 'digit-argument
     "2" 'digit-argument
     "3" 'digit-argument
     "4" 'digit-argument
     ;; custom navigation
-    (kbd "M-i") 'magit-section-show-level-2-all  ;; fold everything
+    (kbd "M-i") 'magit-section-show-level-2-all    ;; fold everything
+    ;; major section navigation
+    (kbd "M-n") 'efs/magit-previous-major-section  ;; previous major section
+    (kbd "M-o") 'efs/magit-next-major-section      ;; next major section
   )
   ;;---------------------------
   ;; return to magit-status after C-c C-k (with-editor-cancel)
@@ -1379,6 +1384,34 @@ It's Magit! A Git Porcelain inside Emacs.
       ;; run full refresh to fix transient prefixes after a small delay
       (when repo (run-at-time 0.05 nil (lambda (dir) (magit-status dir)) repo))))
   (advice-add 'with-editor-cancel :around #'my/magit-restore-status-smooth)
+  ;;===========================
+  ;; major section navigation
+  ;;===========================
+  ;; previous section (eg: Unstaged --> Untracked)
+  (defun efs/magit-previous-major-section ()
+    "Jump directly to the previous major section (Unstaged -> Untracked), skipping files."
+    (interactive)
+    (let ((sec (magit-current-section)))
+      (when sec
+        (while (and (oref sec parent)
+                    (oref (oref sec parent) parent))
+          (setq sec (oref sec parent)))
+        (goto-char (oref sec start))
+        (magit-section-backward-sibling))))
+  ;;---------------------------
+  ;; next section (eg: Untracked --> Unstaged)
+  (defun efs/magit-next-major-section ()
+    "Jump directly to the next major section (eg: Untracked -> Unstaged), skipping files."
+    (interactive)
+    (let ((sec (magit-current-section)))
+      (when sec
+        ;; Climb up the section tree using 'oref' until we reach a top-level section
+        (while (and (oref sec parent)
+                    (oref (oref sec parent) parent))
+          (setq sec (oref sec parent)))
+        ;; Move cursor to the major section header, then jump to its sibling
+        (goto-char (oref sec start))
+        (magit-section-forward-sibling))))
   ;;---------------------------
 )
 #+end_src
