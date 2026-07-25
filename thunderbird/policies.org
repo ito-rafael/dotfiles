@@ -1,6 +1,6 @@
 #+TITLE: Thunderbird Policies
 #+AUTHOR: Rafael Ito
-#+PROPERTY: header-args :padline no :tangle policies2.json
+#+PROPERTY: header-args :padline no :tangle policies.json
 #+DESCRIPTION: config file to automate the configuration of Thunderbird
 #+STARTUP: showeverything
 #+auto_tangle: t
@@ -10,9 +10,10 @@
   - [[#policies-start][Policies Start]]
 - [[#extensions][Extensions]]
   - [[#template][Template]]
-  - [[#ublock-origin][uBlock Origin]]
+  - [[#external-editor-revived][+External Editor Revived+]]
   - [[#tbkeys-lite][+tbkeys-lite+]]
   - [[#tbkeys][tbkeys]]
+  - [[#ublock-origin][uBlock Origin]]
 - [[#end][End]]
   - [[#preferences-and-closing][Preferences and closing]]
 
@@ -40,11 +41,11 @@ if (comma == true){
     console.log(`      }`);
 }
 #+end_src
-** uBlock Origin
-- link: https://addons.thunderbird.net/en-US/thunderbird/addon/ublock-origin/
-- description: Finally, an efficient blocker. Easy on CPU and memory.
-#+begin_src js :noweb yes
-<<install(extension_id="uBlock0@raymondhill.net", install_url="https://addons.thunderbird.net/thunderbird/downloads/latest/ublock-origin/latest.xpi", comma=1)>>
+** +External Editor Revived+
+- link: https://addons.thunderbird.net/en-US/thunderbird/addon/external-editor-revived
+- description: Edit emails in an external editor like Neovim or Emacs.
+#+begin_src js :noweb yes :tangle no
+<<install(extension_id="exteditorR@vletnx.com", install_url="https://addons.thunderbird.net/thunderbird/downloads/latest/external-editor-revived/latest.xpi", comma=1)>>
 #+end_src
 ** +tbkeys-lite+
 - link: https://addons.thunderbird.net/en-US/thunderbird/addon/tbkeys-lite
@@ -56,7 +57,13 @@ if (comma == true){
 - link: https://github.com/wshanks/tbkeys
 - description: Custom keybindings for Thunderbird (full version).
 #+begin_src js :noweb yes
-<<install(extension_id="tbkeys@addons.thunderbird.net", install_url="https://github.com/wshanks/tbkeys/releases/latest/download/tbkeys.xpi", comma=0)>>
+<<install(extension_id="tbkeys@addons.thunderbird.net", install_url="https://github.com/wshanks/tbkeys/releases/latest/download/tbkeys.xpi", comma=1)>>
+#+end_src
+** uBlock Origin
+- link: https://addons.thunderbird.net/en-US/thunderbird/addon/ublock-origin/
+- description: Finally, an efficient blocker. Easy on CPU and memory.
+#+begin_src js :noweb yes
+<<install(extension_id="uBlock0@raymondhill.net", install_url="https://addons.thunderbird.net/thunderbird/downloads/latest/ublock-origin/latest.xpi", comma=0)>>
 #+end_src
 ** EoS :noexport:
 Don't forget to remove the trailing comma on the previous block of JSON code (last extension).
