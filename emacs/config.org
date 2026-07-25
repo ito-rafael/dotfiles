@@ -966,6 +966,14 @@ https://github.com/jtbm37/all-the-icons-dired
   :config
   (setq all-the-icons-dired-monochrome nil))
 #+end_src
+** dired-preview
+https://github.com/protesilaos/dired-preview
++https://github.com/asok/peep-dired+ (deprecated)
+#+begin_src emacs-lisp
+(use-package dired-preview
+  :config
+  (dired-preview-global-mode -1))
+#+end_src
 * General
 Keybindings
 https://github.com/noctuid/general.el
