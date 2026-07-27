@@ -251,6 +251,8 @@ alias kb='pkill brave && brave &'
 alias km='$XDG_CONFIG_HOME/waybar/scripts/kmonad.sh'
 alias cmd='command'
 alias rmw='rm -rf ~/.cache/wasistlos/'          # clean WasIstLos (WhatsApp) cache
+# build cache database of MIME types
+alias udd='update-desktop-database ~/.local/share/applications'
 function cv() { cat $1 | vim - }
 #+end_src
 ** SSH
