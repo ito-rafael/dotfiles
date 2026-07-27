@@ -564,7 +564,7 @@ export THEME_LIGHT='Adwaita'
 export GROFF_NO_SGR=1
 
 # define characters that are considered part of a word
-WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
+WORDCHARS='*?_.[]~=&;!#$%^(){}<>'
 
 vi-backward-word-skip-slash() {
     local pos=$CURSOR
