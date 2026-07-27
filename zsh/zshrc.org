@@ -351,6 +351,7 @@ alias pss='pacman -Ss'                       # pacman search packages
 alias pqi='pacman -Qi'                       # pacman query installed
 alias pqs='pacman -Qs'                       # pacman list installed
 alias pqm='pacman -Qm'                       # pacman list foreign
+alias pr='paru'                              # paru
 alias prs='paru -S'                          # paru install
 alias pru='paru -Syu'                        # paru update/upgrade
 alias prm='paru -Rns'                        # paru uninstall
