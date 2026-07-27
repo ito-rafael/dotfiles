@@ -416,14 +416,20 @@ background = "#128C7EE6"
 foreground = "#FFFFFF"
 script = "~/.config/dunst/sound-dispatch.sh"
 
-[pacman]
-appname = "dropdown_pacman"
-background = "#3A3A20E6"
-foreground = "#FFCC2F"
+[ansible-provision]
+appname = "dropdown_ansible"
+background = "#280000E6"
+foreground = "#FF0055"
 script = "~/.config/dunst/sound-dispatch.sh"
 
 [aur]
 appname = "dropdown_aur"
 background = "#1D2D3AE6"
 foreground = "#1793D1"
+script = "~/.config/dunst/sound-dispatch.sh"
+
+[pacman]
+appname = "dropdown_pacman"
+background = "#3A3A20E6"
+foreground = "#FFCC2F"
 script = "~/.config/dunst/sound-dispatch.sh"
