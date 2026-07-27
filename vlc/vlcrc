@@ -1884,7 +1884,7 @@
 [skins2] # Skinnable Interface
 
 # Skin to use (string)
-skins2-last=/usr/share/vlc/skins2/default.vlt
+#skins2-last=
 
 # Config of last used skin (string)
 #skins2-config=
@@ -1934,7 +1934,7 @@ skins2-last=/usr/share/vlc/skins2/default.vlt
 #qt-compositor=auto
 
 # Enable window titlebar (boolean)
-#qt-titlebar=1
+qt-titlebar=0
 
 # Show the menu bar (boolean)
 #qt-menubar=0
@@ -1952,7 +1952,7 @@ skins2-last=/usr/share/vlc/skins2/default.vlt
 #qt-error-dialogs=1
 
 # Ask for network policy at start (boolean)
-#qt-privacy-ask=1
+qt-privacy-ask=0
 
 # Define which screen fullscreen goes (integer)
 #qt-fullscreen-screennumber=-1
