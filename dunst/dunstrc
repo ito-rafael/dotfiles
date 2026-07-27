@@ -415,3 +415,9 @@ appname = "wasistlos"
 background = "#128C7EE6"
 foreground = "#FFFFFF"
 script = "~/.config/dunst/sound-dispatch.sh"
+
+[pacman]
+appname = "dropdown_pacman"
+background = "#3A3A20E6"
+foreground = "#FFCC2F"
+script = "~/.config/dunst/sound-dispatch.sh"
