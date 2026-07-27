@@ -553,6 +553,7 @@ for_window [$prop="local.ansible-provision"] {
     floating enable
     move position center
 }
+for_window [class="XEyes"] floating enable
 
 for_window [$prop="^dropdown_ansible$"] floating enable
 for_window [$prop="^dropdown_ansible$"] move position center
