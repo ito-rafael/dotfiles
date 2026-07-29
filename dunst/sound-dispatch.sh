@@ -11,6 +11,9 @@ case "$APPNAME" in
         paplay ~/.config/dunst/sound/r2d2.mp3 ;;
     "thunderbird")
         paplay /usr/share/sounds/freedesktop/stereo/complete.oga ;;
+    "pomodoro")
+        paplay /usr/share/sounds/freedesktop/stereo/tomato.oga ;;
     *)
         paplay /usr/share/sounds/freedesktop/stereo/bell.oga ;;
+#        paplay /usr/share/sounds/freedesktop/stereo/message.oga ;;
 esac
