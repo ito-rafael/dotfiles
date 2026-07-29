@@ -553,7 +553,7 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
         # resolve api.sh and icon paths dynamically
         script_dir = os.path.dirname(os.path.abspath(__file__))
         api_script = os.path.join(script_dir, "api.sh")
-        ansible_icon = os.path.join(script_dir, "../icon/ansible.png")
+        ansible_icon = os.path.join(script_dir, "../icon/ansible-red.svg")
 
         # run api.sh with the selected tags, trigger notification, then drop to interactive shell
         bash_script = f"""
