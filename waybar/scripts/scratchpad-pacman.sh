@@ -61,13 +61,59 @@ else
     exit 1
 fi
 
-# launch scratchpad (pass the password securely via env var to avoid quote-escaping issues)
-env SUDO_PASS="$PASSWORD" kitty \
+# launch scratchpad (pass the password securely via env var)
+# how this block works:
+#   - after "sudo pacman -Syu" finishes, it triggers a notification.
+#   - if the terminal window is closed, the notification is automatically killed.
+#   - if the notification is clicked and the window is hidden, it shows the window.
+#   - if the notification is clicked and the window is visible, it just dismisses itself.
+#   - an interactive shell is left open so the user can continue typing.
+env SUDO_PASS="$PASSWORD" PACMAN_ICON="$ORIGINAL_IMAGE_2" kitty \
     --class="dropdown_pacman" \
-    --hold \
     -o font_size=12 \
     -o include="$XDG_CONFIG_HOME/kitty/themes/pacman.conf" \
-    bash -c 'printf "%s\n" "$SUDO_PASS" | sudo -S -v && exec sudo pacman -Syu' &
+    bash -c '
+        # run the update command
+        printf "%s\n" "$SUDO_PASS" | sudo -S -v && \
+        sudo pacman -Syu
+
+        # run the notification logic in a background subshell
+        (
+            cleanup() {
+                if [ -n "$NOTIF_ID" ]; then
+                    gdbus call --session \
+                        --dest org.freedesktop.Notifications \
+                        --object-path /org/freedesktop/Notifications \
+                        --method org.freedesktop.Notifications.CloseNotification \
+                        "$NOTIF_ID" >/dev/null 2>&1
+                fi
+            }
+
+            # trap termination so cleanup runs when Kitty closes
+            trap cleanup EXIT SIGHUP SIGINT SIGTERM
+
+            exec 3< <(notify-send -p -a dropdown_pacman \
+                "Arch Linux" \
+                "Pacman update finished!" \
+                --icon="$PACMAN_ICON" \
+                --action="default=Focus Window" \
+                --expire-time=0)
+
+            read -u 3 NOTIF_ID
+            read -u 3 ACTION
+
+            # check if the notification was clicked, and if the scratchpad is currently visible or hidden
+            if [ "$ACTION" = "default" ]; then
+                # Check if the dropdown_pacman window is currently visible
+                if ! swaymsg -t get_tree | jq -e ".. | objects | select(.app_id == \"dropdown_pacman\" and .visible == true)" >/dev/null 2>&1; then
+                    swaymsg exec ~/.config/scripts/show-or-launch.sh dropdown_pacman 0.75 0.75
+                fi
+            fi
+        ) &
+
+        # hand control over to a fully interactive shell so you can keep typing.
+        exec bash
+    ' &
 
 # wait for dropdown_pacman appears in Sway's window tree
 MAX_WAIT=50
