@@ -141,8 +141,9 @@ user_pref("mail.smtpserver.smtp4.try_ssl", 2);
 *** Layout
 - 0: Classic
 - 1: Wide (needed to trigger Table View generation)
+- 2: Vertical
 #+begin_src js
-user_pref("mail.pane_config.dynamic", 0);
+user_pref("mail.pane_config.dynamic", 2);
 #+end_src
 *** Table view
 Change from =card= to =table= view (not working).
