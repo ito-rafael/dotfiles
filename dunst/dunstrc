@@ -444,3 +444,10 @@ foreground = "#FFFFFF"
 appname = "tomat"
 background = "#E6394699"
 foreground = "#FFFFFF"
+
+[google_calendar]
+appname = "Brave Origin"
+summary = "*Calendar*"
+background = "#4285F4E6"
+foreground = "#FFFFFF"
+script = "~/.config/dunst/sound-dispatch.sh"
