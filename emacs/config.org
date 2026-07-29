@@ -1747,7 +1747,11 @@ Save and restore Emacs sessions.
 (use-package desktop
   :ensure nil  ;; do not install (desktop is already built-in)
   :init
-  (desktop-save-mode 1))
+  ;; prevent desktop from saving image buffers to avoid PGTK daemon crashes
+  (add-to-list 'desktop-modes-not-to-save 'image-mode)
+
+  ;; enable desktop-save
+  (desktop-save-mode 1)
 * consult-gh
 Alternatives:
   - https://github.com/sigma/gh.el
