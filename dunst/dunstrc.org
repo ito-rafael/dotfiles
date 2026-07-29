@@ -498,3 +498,10 @@ appname = "Slack"
 background = "#4A154BE6"
 foreground = "#FFFFFF"
 #+end_src
+** Pomodoro Timer
+#+begin_src conf
+[pomodoro]
+appname = "tomat"
+background = "#E6394699"
+foreground = "#FFFFFF"
+#+end_src
