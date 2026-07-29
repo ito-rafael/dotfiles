@@ -454,20 +454,60 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
 
         print(f"Executing api.sh with args: {gui_args}")
 
-        # resolve api.sh path dynamically so it can be called from anywhere
+        # resolve api.sh and icon paths dynamically
         script_dir = os.path.dirname(os.path.abspath(__file__))
         api_script = os.path.join(script_dir, "api.sh")
+        ansible_icon = os.path.join(script_dir, "../icon/ansible.png")
 
-        # run api.sh with the selected tags, and then focus on the scratchpad window with the logs
+        # run api.sh with the selected tags, trigger notification, then drop to interactive shell
         bash_script = f"""
-kitty \\
+env ANSIBLE_ICON="{ansible_icon}" kitty \\
     --class="dropdown_ansible" \\
-    --hold \\
     -o font_size=12 \\
     -o include="$XDG_CONFIG_HOME/kitty/themes/ansible-provision.conf" \\
-    bash -c 'exec "{api_script}" {gui_args}' &
+    bash -c '
+        "{api_script}" {gui_args}
 
-# wait for dropdown_ansible to appear in Sway's window tree
+        # notification & window lifecycle:
+        #   - trigger:         notification spawns when ansible-playbook finishes.
+        #   - window closed:   notification is forcefully dismissed via d-bus trap.
+        #   - click (hidden):  summons/reveals the ansible scratchpad.
+        #   - click (visible): does nothing (notification naturally dismisses).
+        (
+            cleanup() {{
+                if [ -n "$NOTIF_ID" ]; then
+                    gdbus call --session \\
+                        --dest org.freedesktop.Notifications \\
+                        --object-path /org/freedesktop/Notifications \\
+                        --method org.freedesktop.Notifications.CloseNotification \\
+                        "$NOTIF_ID" >/dev/null 2>&1
+                fi
+            }}
+
+            trap cleanup EXIT SIGHUP SIGINT SIGTERM
+
+            exec 3< <(notify-send -p -a dropdown_ansible \\
+                "Ansible Provision" \\
+                "Task execution finished!" \\
+                --icon="$ANSIBLE_ICON" \\
+                --action="default=Focus Window" \\
+                --expire-time=0)
+
+            read -u 3 NOTIF_ID
+            read -u 3 ACTION
+
+            if [ "$ACTION" = "default" ]; then
+                if ! swaymsg -t get_tree | jq -e ".. | objects | select(.app_id == \\"dropdown_ansible\\" and .visible == true)" >/dev/null 2>&1; then
+                    swaymsg exec ~/.config/scripts/show-or-launch.sh dropdown_ansible 0.75 0.75
+                fi
+            fi
+        ) &
+
+        # hand control over to a fully interactive shell
+        exec bash
+    ' &
+
+# wait for dropdown_ansible to appear in Sway window tree
 MAX_WAIT=50
 COUNTER=0
 while ! swaymsg -t get_tree | grep -q '"app_id": "dropdown_ansible"'; do
