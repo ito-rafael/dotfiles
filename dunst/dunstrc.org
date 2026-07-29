@@ -467,6 +467,15 @@ background = "#128C7EE6"
 foreground = "#FFFFFF"
 script = "~/.config/dunst/sound-dispatch.sh"
 #+end_src
+** Thunderbird
+#+begin_src conf
+[thunderbird]
+appname = "Thunderbird"
+# A distinct bright blue
+background = "#0078D7E6"
+foreground = "#FFFFFF"
+script = "~/.config/dunst/sound-dispatch.sh"
+#+end_src
 ** Dropdown Ansible-provision
 #+begin_src conf
 [ansible-provision]
