@@ -166,6 +166,10 @@ Newest messages at the top
 #+begin_src js
 user_pref("mailnews.default_sort_order", 2);
 #+end_src
+*** Enable custom CSS
+#+begin_src js
+user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
+#+end_src
 ** Disable system's default check
 #+begin_src js
 user_pref("mail.shell.checkDefaultClient", false);
