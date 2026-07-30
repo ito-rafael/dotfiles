@@ -471,7 +471,14 @@ script = "~/.config/dunst/sound-dispatch.sh"
 #+begin_src conf
 [thunderbird]
 appname = "Thunderbird"
-# A distinct bright blue
+background = "#0078D7E6"
+foreground = "#FFFFFF"
+script = "~/.config/dunst/sound-dispatch.sh"
+#+end_src
+** Betterbird
+#+begin_src conf
+[betterbird]
+appname = "Betterbird"
 background = "#0078D7E6"
 foreground = "#FFFFFF"
 script = "~/.config/dunst/sound-dispatch.sh"
