@@ -9,7 +9,7 @@ case "$APPNAME" in
         paplay ~/.config/dunst/sound/pacman-waka.mp3 ;;
     "dropdown_ansible")
         paplay ~/.config/dunst/sound/r2d2.mp3 ;;
-    "thunderbird")
+    "thunderbird"|"Betterbird")
         paplay /usr/share/sounds/freedesktop/stereo/complete.oga ;;
     "pomodoro")
         paplay /usr/share/sounds/freedesktop/stereo/tomato.oga ;;
