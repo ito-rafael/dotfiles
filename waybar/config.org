@@ -28,6 +28,10 @@
 #+begin_src js
 {
 #+end_src
+** Enable CSS reload
+#+begin_src js
+"reload_style_on_change": true,
+#+end_src
 * Positioning :noexport_1:
 #+begin_src js
 "height": 15,

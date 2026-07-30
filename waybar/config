@@ -1,5 +1,7 @@
 {
 
+"reload_style_on_change": true,
+
 "height": 15,
 "layer": "top",
 "fixed-center": false,
