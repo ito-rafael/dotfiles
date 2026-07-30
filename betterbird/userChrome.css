@@ -1,0 +1,16 @@
+/* redefine the dynamic row to a single horizontal line (subject on left, star/info on right) */
+#threadTree[rows="thread-card"] .thread-card-dynamic-row {
+    grid-template-areas: "subject button info" !important;
+    grid-template-columns: 1fr auto auto !important;
+    grid-template-rows: max-content !important;
+}
+
+/* adjust the overall card height to fit the new 2-line layout cleanly */
+#threadTree[rows="thread-card"] .card-layout {
+    height: 54px !important;
+}
+
+/* (optional) force the message preview text area to hide just in case it tries to reappear */
+#threadTree[rows="thread-card"] .thread-card-preview {
+    display: none !important;
+}
