@@ -51,6 +51,7 @@ window#waybar.chromium {
     margin-right: 5px;
 }
 
+#scratchpads #image.scratchpad-icon,
 #monitoring,
 #control,
 #power,
@@ -423,6 +424,12 @@ box#sysadmin {
     transition: background 0.3s ease;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
+}
+
+box#scratchpads {
+    background-color: @bg;
+    border-radius: 10px;
+    margin-right: 5px;
 }
 
 #custom-scratchpad-whatsapp,

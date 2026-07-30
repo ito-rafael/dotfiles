@@ -119,6 +119,7 @@ window#waybar.chromium {
 #+end_src
 *** Right side
 #+begin_src css
+#scratchpads #image.scratchpad-icon,
 #monitoring,
 #control,
 #power,
@@ -685,6 +686,15 @@ box#sysadmin {
 #+end_src
 * Group Scratchpad
 ** Group
+*** Box
+#+begin_src css
+box#scratchpads {
+    background-color: @bg;
+    border-radius: 10px;
+    margin-right: 5px;
+}
+#+end_src
+*** Modules
 #+begin_src css
 #custom-scratchpad-whatsapp,
 #custom-scratchpad-ytmusic,
