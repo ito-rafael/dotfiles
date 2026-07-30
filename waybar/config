@@ -113,13 +113,12 @@
     //"on-click": "~/.config/scripts/show-or-launch.sh Keymapp 0.75 0.75",
 },
 
-"custom/scratchpad-keymapp": {
+"custom/scratchpad-maps": {
     "interval": 1,
     "return-type": "json",
-    "exec": "~/.config/waybar/scripts/scratchpad-keymapp.sh",
+    "exec": "~/.config/waybar/scripts/scratchpad-maps.sh",
     "format": " {} ",
-    "on-click": "~/.config/scripts/show-or-launch.sh keymapp 0.75 0.75",
-    //"on-click": "~/.config/scripts/show-or-launch.sh Keymapp 0.75 0.75",
+    "on-click": "~/.config/scripts/show-or-launch.sh maps 0.75 0.75",
 },
 
     "custom/scratchpad-python": {
