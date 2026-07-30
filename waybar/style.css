@@ -967,6 +967,12 @@ box#monitoring {
     border-bottom-right-radius: 10px;
 }
 
+box#control {
+    border-radius: 10px;
+    padding-right: 2px;
+    padding-left: 2px;
+}
+
 #pulseaudio.speaker,
 #pulseaudio.microphone,
 #backlight,

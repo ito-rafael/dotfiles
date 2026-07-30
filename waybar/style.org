@@ -1451,6 +1451,16 @@ box#monitoring {
 }
 #+end_src
 * Group Control
+** Group
+*** Box
+#+begin_src css
+box#control {
+    border-radius: 10px;
+    padding-right: 2px;
+    padding-left: 2px;
+}
+#+end_src
+*** Modules
 #+begin_src css
 #pulseaudio.speaker,
 #pulseaudio.microphone,
@@ -1462,7 +1472,9 @@ box#monitoring {
     margin:  0;
     color: lightgray;
 }
-
+#+end_src
+*** Hover
+#+begin_src css
 #pulseaudio.speaker:hover,
 #pulseaudio.microphone:hover,
 #backlight:hover,
