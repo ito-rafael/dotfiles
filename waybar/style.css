@@ -53,7 +53,7 @@ window#waybar.chromium {
 
 #monitoring,
 #control,
-#battery,
+#power,
 #datetime {
     background-color: @bg;
     margin-left: 5px;
@@ -1024,9 +1024,8 @@ box#monitoring {
 
 box#power {
     border-radius: 10px;
-    padding-right: 5px;
-    padding-left: 5px;
     background-color: @bg;
+    padding: 0;
 }
 
 box#power.empty {
@@ -1037,8 +1036,8 @@ box#power.empty {
 
 #battery,
 #custom-battery-mx-master3 {
-    padding-right: 5px;
-    padding-left: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
     margin:  0;
     color: lightgray;
 }
@@ -1072,11 +1071,13 @@ box#power > widget:not(.empty) ~ widget:not(.empty) > #upower.soundcore-life-p3 
 
 #battery {
     margin-top: 1px;
+    border-radius: 5px;
 }
 
 #battery.charging, #battery.plugged {
     color: #ffffff;
     background-color: #26A65B;
+    border-radius: 10px;
 }
 
 @keyframes blink {
