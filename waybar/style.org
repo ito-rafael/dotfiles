@@ -42,7 +42,8 @@
 #+end_src
 ** Color
 #+begin_src css
-@define-color darkergray #505050;
+@import "dynamic-bg.css";
+@define-color bg rgba(34, 38, 46, 0.5);
 #+end_src
 ** Animation
 *** Blink
@@ -57,8 +58,8 @@
 *** Normal
 #+begin_src css
 window#waybar {
-    background-color: rgba(43, 48, 59, 0.5);
-    border-bottom: 3px solid rgba(100, 114, 125, 0.5);
+    background-color: @dynamic_bg;
+    border-bottom: 0px solid rgba(100, 114, 125, 0.5);
     border-radius: 100px;
     color: #ffffff;
     transition-property: background-color;
@@ -112,6 +113,7 @@ window#waybar.chromium {
 #keyboard,
 #sysadmin,
 #toggle {
+    background-color: @bg;
     margin-right: 5px;
 }
 #+end_src
@@ -121,6 +123,7 @@ window#waybar.chromium {
 #control,
 #battery,
 #datetime {
+    background-color: @bg;
     margin-left: 5px;
 }
 #+end_src
@@ -150,7 +153,6 @@ If workspaces is the rightmost module, omit right margin.
 ** Main
 #+begin_src css
 #workspaces {
-    background-color: rgba(0, 0, 0, 0.2);
     border-radius: 10px;
 }
 #+end_src
@@ -196,7 +198,6 @@ https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-
 *** Box
 #+begin_src css
 box#keyboard {
-    background-color: rgba(0, 0, 0, 0.2);
     border-radius: 10px;
 }
 #+end_src
@@ -454,7 +455,6 @@ box#keyboard {
 *** Box
 #+begin_src css
 box#sysadmin {
-    background-color: rgba(0, 0, 0, 0.2);
     border-radius: 10px;
 }
 #+end_src
@@ -699,7 +699,7 @@ box#sysadmin {
 #custom-scratchpad-temp-1,
 #custom-scratchpad-temp-2,
 #custom-scratchpad-temp-3 {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: transparent;
     padding-right: 2px;
     padding-left: 2px;
     margin:  0;
@@ -724,7 +724,7 @@ box#sysadmin {
     padding-right: 7px;
     padding-left: 7px;
     margin:  0;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: transparent;
     color: lightgray;
 }
 #+end_src
@@ -1006,7 +1006,6 @@ box#sysadmin {
 *** Box
 #+begin_src css
 box#toggle {
-    background-color: rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     padding-right: 2px;
     padding-left: 2px;
@@ -1363,7 +1362,6 @@ box#toggle {
 *** Box
 #+begin_src css
 box#monitoring {
-    background-color: rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     color: lightgray;
 }
@@ -1452,7 +1450,6 @@ box#monitoring {
     padding-right: 5px;
     padding-left: 5px;
     margin:  0;
-    background-color: rgba(0, 0, 0, 0.2);
     color: lightgray;
 }
 
@@ -1533,10 +1530,10 @@ box#monitoring {
 *** Box
 #+begin_src css
 box#power {
-    background-color: rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     padding-right: 5px;
     padding-left: 5px;
+    background-color: @bg;
 }
 
 box#power.empty {
@@ -1689,7 +1686,6 @@ label:focus {
 *** Box
 #+begin_src css
 box#datetime {
-    background-color: rgba(0, 0, 0, 0.2);
     border-radius: 10px;
 }
 #+end_src
