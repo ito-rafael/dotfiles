@@ -16,6 +16,7 @@
   - [[#accounts-navigation][Accounts navigation]]
   - [[#miscellaneous][Miscellaneous]]
   - [[#allow-content-from-sender][Allow content from sender]]
+  - [[#tbhints][tbhints]]
   - [[#eos][EoS]]
 
 * Documentation
@@ -107,7 +108,11 @@ Custom keybindings for Thunderbird using the tbkeys extension.
 #+end_src
 ** Allow content from sender
 #+begin_src js
-"s": "(function(){ let am=window.gTabmail.currentAboutMessage; if(!am||!am.document)return; let s=am.document.querySelector('mail-headerfield[name=\"author\"] mail-emailaddress, .message-header-author mail-emailaddress'); let a=s?(s.getAttribute('email')||s.textContent):''; if(!a){let h=am.document.getElementById('messageHeader')||am.document.body; let m=h.innerText.match(/[\\w.-]+@[\\w.-]+\\.\\w+/); if(m)a=m[0];} let m2=a.match(/<([^>]+)>/); let e=(m2?m2[1]:a).replace(/[\"<>]/g,'').trim().toLowerCase(); if(e.includes('@')&&window.Services){let u=window.Services.io.newURI('chrome://messenger/content/email='+e); let p=window.Services.scriptSecurityManager.createContentPrincipal(u,{}); window.Services.perms.addFromPrincipal(p,'image',1); window.Services.perms.addFromPrincipal(p,'remote-content',1); am.LoadMsgWithRemoteContent();} })();"
+"s": "(function(){ let am=window.gTabmail.currentAboutMessage; if(!am||!am.document)return; let s=am.document.querySelector('mail-headerfield[name=\"author\"] mail-emailaddress, .message-header-author mail-emailaddress'); let a=s?(s.getAttribute('email')||s.textContent):''; if(!a){let h=am.document.getElementById('messageHeader')||am.document.body; let m=h.innerText.match(/[\\w.-]+@[\\w.-]+\\.\\w+/); if(m)a=m[0];} let m2=a.match(/<([^>]+)>/); let e=(m2?m2[1]:a).replace(/[\"<>]/g,'').trim().toLowerCase(); if(e.includes('@')&&window.Services){let u=window.Services.io.newURI('chrome://messenger/content/email='+e); let p=window.Services.scriptSecurityManager.createContentPrincipal(u,{}); window.Services.perms.addFromPrincipal(p,'image',1); window.Services.perms.addFromPrincipal(p,'remote-content',1); am.LoadMsgWithRemoteContent();} })();",
+#+end_src
+** tbhints
+#+begin_src js
+"f": "memsg:tbhints@addons.thunderbird.net:show-hints"
 #+end_src
 ** EoS
 #+begin_src js
