@@ -1415,6 +1415,21 @@ It's Magit! A Git Porcelain inside Emacs.
   ;;---------------------------
 )
 #+end_src
+*** Maintain cursor after staging
+Custom function to =magit-stage= ("s") while in =evil-visual-line= ("v").
+#+begin_src emacs-lisp
+(defun efs/magit-stage-keeping-line (orig-fun &rest args)
+  "Advice to keep the cursor at the same line number after staging."
+  (let ((current-line (line-number-at-pos)))
+    ;; run the original magit-stage command
+    (apply orig-fun args)
+    ;; after the refresh, go back to the saved line
+    (goto-char (point-min))
+    (forward-line (1- current-line))))
+
+;; apply the advice to magit-stage
+(advice-add 'magit-stage :around #'efs/magit-stage-keeping-line)
+#+end_src
 *** Use visual line number in magit-status
 Custom function to change the line number type to visual.
 #+begin_src emacs-lisp
