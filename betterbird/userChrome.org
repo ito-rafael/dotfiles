@@ -7,35 +7,55 @@
 
 * Table of Contents :toc:
 - [[#narrow-cards-layout][Narrow Cards Layout]]
+  - [[#eliminate-gaps-for-seamless-backgrounds][Eliminate gaps for seamless backgrounds]]
   - [[#redefine-2nd-line][Redefine 2nd line]]
-  - [[#adjust-card-height][Adjust card height]]
-  - [[#hide-message-preview][Hide message preview]]
 - [[#readunread-styling][Read/Unread Styling]]
   - [[#unread][Unread]]
   - [[#read][Read]]
 
 * Narrow Cards Layout
+** Eliminate gaps for seamless backgrounds
+*** Nuke table border spacing
+#+begin_src css
+/* Nuke table border-spacing to eliminate the transparent gaps.
+   We use 'separate' so we don't break the JS offsetTop calculations. */
+table[is="tree-view-table"] {
+    border-spacing: 0 !important;
+    border-collapse: separate !important;
+}
+#+end_src
+*** Strip native table cell paddings
+#+begin_src css
+/* Strip native table cell paddings */
+tr[is="thread-card"] > td {
+    padding: 0 !important;
+    border: none !important;
+}
+#+end_src
+*** Remove floating card margins
+#+begin_src css
+/* Remove floating card margins so background colors touch edge-to-edge */
+tr[is="thread-card"] .card-container {
+    margin: 0 !important;
+    border-radius: 0 !important;
+    padding: 4px 8px !important;
+}
+#+end_src
+*** Remove vertical gaps
+#+begin_src css
+/* Remove vertical gaps between the two text lines */
+tr[is="thread-card"] .thread-card-column {
+    gap: 0 !important;
+}
+#+end_src
 ** Redefine 2nd line
 #+begin_src css
 /* redefine the dynamic row to a single horizontal line (subject on left, star/info on right) */
-#threadTree[rows="thread-card"] .thread-card-dynamic-row {
+tr[is="thread-card"] .thread-card-dynamic-row {
     grid-template-areas: "subject button info" !important;
     grid-template-columns: 1fr auto auto !important;
     grid-template-rows: max-content !important;
-}
-#+end_src
-** Adjust card height
-#+begin_src css
-/* adjust the overall card height to fit the new 2-line layout cleanly */
-#threadTree[rows="thread-card"] .card-layout {
-    height: 54px !important;
-}
-#+end_src
-** Hide message preview
-#+begin_src css
-/* (optional) force the message preview text area to hide just in case it tries to reappear */
-#threadTree[rows="thread-card"] .thread-card-preview {
-    display: none !important;
+    align-items: center !important;
 }
 #+end_src
 * Read/Unread Styling

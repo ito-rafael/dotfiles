@@ -1,18 +1,34 @@
+/* Nuke table border-spacing to eliminate the transparent gaps.
+   We use 'separate' so we don't break the JS offsetTop calculations. */
+table[is="tree-view-table"] {
+    border-spacing: 0 !important;
+    border-collapse: separate !important;
+}
+
+/* Strip native table cell paddings */
+tr[is="thread-card"] > td {
+    padding: 0 !important;
+    border: none !important;
+}
+
+/* Remove floating card margins so background colors touch edge-to-edge */
+tr[is="thread-card"] .card-container {
+    margin: 0 !important;
+    border-radius: 0 !important;
+    padding: 4px 8px !important;
+}
+
+/* Remove vertical gaps between the two text lines */
+tr[is="thread-card"] .thread-card-column {
+    gap: 0 !important;
+}
+
 /* redefine the dynamic row to a single horizontal line (subject on left, star/info on right) */
-#threadTree[rows="thread-card"] .thread-card-dynamic-row {
+tr[is="thread-card"] .thread-card-dynamic-row {
     grid-template-areas: "subject button info" !important;
     grid-template-columns: 1fr auto auto !important;
     grid-template-rows: max-content !important;
-}
-
-/* adjust the overall card height to fit the new 2-line layout cleanly */
-#threadTree[rows="thread-card"] .card-layout {
-    height: 54px !important;
-}
-
-/* (optional) force the message preview text area to hide just in case it tries to reappear */
-#threadTree[rows="thread-card"] .thread-card-preview {
-    display: none !important;
+    align-items: center !important;
 }
 
 /* make unread emails text bold */
