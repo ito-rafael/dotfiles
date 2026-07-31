@@ -1,45 +1,83 @@
+#+TITLE: Betterbird userChrome configuration
+#+AUTHOR: Rafael Ito
+#+PROPERTY: header-args :tangle userChrome.css
+#+DESCRIPTION: Betterbird UI customizations
+#+STARTUP: showeverything
+#+auto_tangle: t
+
+* Table of Contents :toc:
+- [[#narrow-cards-layout][Narrow Cards Layout]]
+  - [[#redefine-2nd-line][Redefine 2nd line]]
+  - [[#adjust-card-height][Adjust card height]]
+  - [[#hide-message-preview][Hide message preview]]
+- [[#readunread-styling][Read/Unread Styling]]
+  - [[#unread][Unread]]
+  - [[#read][Read]]
+
+* Narrow Cards Layout
+** Redefine 2nd line
+#+begin_src css
 /* redefine the dynamic row to a single horizontal line (subject on left, star/info on right) */
 #threadTree[rows="thread-card"] .thread-card-dynamic-row {
     grid-template-areas: "subject button info" !important;
     grid-template-columns: 1fr auto auto !important;
     grid-template-rows: max-content !important;
 }
-
+#+end_src
+** Adjust card height
+#+begin_src css
 /* adjust the overall card height to fit the new 2-line layout cleanly */
 #threadTree[rows="thread-card"] .card-layout {
     height: 54px !important;
 }
-
+#+end_src
+** Hide message preview
+#+begin_src css
 /* (optional) force the message preview text area to hide just in case it tries to reappear */
 #threadTree[rows="thread-card"] .thread-card-preview {
     display: none !important;
 }
-
+#+end_src
+* Read/Unread Styling
+This config works specifically for Cards view only.
+** Unread
+*** Bold text
+#+begin_src css
 /* make unread emails text bold */
 tr[is="thread-card"][data-properties~="unread"] .sender,
 tr[is="thread-card"][data-properties~="unread"] .subject {
     font-weight: bold !important;
 }
-
+#+end_src
+*** Gray background
+#+begin_src css
 /* gray background for unread emails (exclude selected and hovered rows to avoid breaking UI highlights) */
 tr[is="thread-card"][data-properties~="unread"]:not([aria-selected="true"]):not(:hover) > td,
 tr[is="thread-card"][data-properties~="unread"]:not([aria-selected="true"]):not(:hover) .card-container {
     background-color: #2b2b2b !important;
 }
-
+#+end_src
+** Read
+*** Normal text
+#+begin_src css
 /* make read emails normal weight */
 tr[is="thread-card"][data-properties~="read"] .sender,
 tr[is="thread-card"][data-properties~="read"] .subject {
     font-weight: normal !important;
 }
-
+#+end_src
+*** Black background
+#+begin_src css
 /* black background for read emails */
 tr[is="thread-card"][data-properties~="read"]:not([aria-selected="true"]):not(:hover) > td,
 tr[is="thread-card"][data-properties~="read"]:not([aria-selected="true"]):not(:hover) .card-container {
     background-color: #000000 !important;
 }
-
+#+end_src
+*** Dim text
+#+begin_src css
 /* (optional) dim the text color of read emails slightly to push them to the background */
 tr[is="thread-card"][data-properties~="read"] {
     color: #999999 !important;
 }
+#+end_src
