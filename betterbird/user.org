@@ -150,6 +150,11 @@ Change from =card= to =table= view (not working).
 #+begin_src js
 //user_pref("mailnews.ui.threadpane.version", 1);
 #+end_src
+*** Row Count
+Change =Card View Options= from =3 rows= to =2 rows=.
+#+begin_src js
+user_pref("mail.threadpane.cardsview.rowcount", 2);
+#+end_src
 *** Unthreading by default
 Needed to sort emails by date, instead of grouped into threads.
   - 0 = Unthreaded (emails shown individually)
