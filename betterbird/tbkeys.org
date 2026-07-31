@@ -67,8 +67,8 @@ Custom keybindings for Thunderbird using the tbkeys extension.
 #+end_src
 ** Scroll message list
 #+begin_src js
-"ctrl+e": "(function(){ try { let win = window.Services.wm.getMostRecentWindow('mail:3pane'); let t = win.gTabmail.tabInfo.find(tab => tab.mode && tab.mode.name === 'mail3PaneTab'); if(t && t.chromeBrowser) { let cw = t.chromeBrowser.contentWindow; let tt = cw.document.getElementById('threadTree'); if(tt) tt.scrollBy({top: 60, behavior: 'smooth'}); } } catch(e){} })();",
-"ctrl+i": "(function(){ try { let win = window.Services.wm.getMostRecentWindow('mail:3pane'); let t = win.gTabmail.tabInfo.find(tab => tab.mode && tab.mode.name === 'mail3PaneTab'); if(t && t.chromeBrowser) { let cw = t.chromeBrowser.contentWindow; let tt = cw.document.getElementById('threadTree'); if(tt) tt.scrollBy({top: -60, behavior: 'smooth'}); } } catch(e){} })();",
+"ctrl+e": "(function(){ try { let win = window.Services.wm.getMostRecentWindow('mail:3pane'); let t = win.gTabmail.tabInfo.find(tab => tab.mode && tab.mode.name === 'mail3PaneTab'); if(t && t.chromeBrowser) { let cw = t.chromeBrowser.contentWindow; let tt = cw.document.getElementById('threadTree'); if(tt) tt.scrollBy({top: 600, behavior: 'smooth'}); } } catch(e){} })();",
+"ctrl+i": "(function(){ try { let win = window.Services.wm.getMostRecentWindow('mail:3pane'); let t = win.gTabmail.tabInfo.find(tab => tab.mode && tab.mode.name === 'mail3PaneTab'); if(t && t.chromeBrowser) { let cw = t.chromeBrowser.contentWindow; let tt = cw.document.getElementById('threadTree'); if(tt) tt.scrollBy({top: -600, behavior: 'smooth'}); } } catch(e){} })();",
 #+end_src
 ** Accounts navigation
 *** Next account
