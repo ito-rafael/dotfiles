@@ -12,6 +12,7 @@
   - [[#template][Template]]
   - [[#external-editor-revived][+External Editor Revived+]]
   - [[#tbkeys-lite][+tbkeys-lite+]]
+  - [[#tbhints][tbhints]]
   - [[#tbkeys][tbkeys]]
   - [[#ublock-origin][uBlock Origin]]
 - [[#end][End]]
@@ -52,6 +53,12 @@ if (comma == true){
 - description: Custom keybindings for Thunderbird (version with no javascript execution).
 #+begin_src js :noweb yes :tangle no
 <<install(extension_id="tbkeys-lite@addons.thunderbird.net", install_url="https://addons.thunderbird.net/thunderbird/downloads/latest/tbkeys-lite/latest.xpi", comma=1)>>
+#+end_src
+** tbhints
+- link: https://addons.thunderbird.net/en-US/thunderbird/addon/tbhints
+- description: Link hints for messages.
+#+begin_src js :noweb yes
+<<install(extension_id="tbhints@addons.thunderbird.net", install_url="https://addons.thunderbird.net/thunderbird/downloads/latest/tbhints/latest.xpi", comma=1)>>
 #+end_src
 ** tbkeys
 - link: https://github.com/wshanks/tbkeys

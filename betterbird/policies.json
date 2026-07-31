@@ -3,13 +3,17 @@
     "DisableAppUpdate": true,
     "DisableTelemetry": true,
     "ExtensionSettings": {
-      "uBlock0@raymondhill.net": {
+      "tbhints@addons.thunderbird.net": {
         "installation_mode": "force_installed",
-        "install_url": "https://addons.thunderbird.net/thunderbird/downloads/latest/ublock-origin/latest.xpi"
+        "install_url": "https://addons.thunderbird.net/thunderbird/downloads/latest/tbhints/latest.xpi"
       },
       "tbkeys@addons.thunderbird.net": {
         "installation_mode": "force_installed",
         "install_url": "https://github.com/wshanks/tbkeys/releases/latest/download/tbkeys.xpi"
+      },
+      "uBlock0@raymondhill.net": {
+        "installation_mode": "force_installed",
+        "install_url": "https://addons.thunderbird.net/thunderbird/downloads/latest/ublock-origin/latest.xpi"
       }
     },
     "Preferences": {
