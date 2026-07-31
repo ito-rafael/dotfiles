@@ -1360,6 +1360,8 @@ It's Magit! A Git Porcelain inside Emacs.
     "3" 'digit-argument
     "4" 'digit-argument
     ;; custom navigation
+    (kbd "C-e") 'magit-section-forward             ;; next section
+    (kbd "C-i") 'magit-section-backward            ;; previous section
     (kbd "M-i") 'magit-section-show-level-2-all    ;; fold everything
     ;; major section navigation
     (kbd "M-n") 'efs/magit-previous-major-section  ;; previous major section
