@@ -64,7 +64,8 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
 
         # Calculate dynamic absolute paths based on the script's actual location
         script_dir = os.path.dirname(os.path.abspath(__file__))
-        ansible_icon_path = os.path.join(script_dir, "../icon/ansible.png")
+        #ansible_icon_path = os.path.join(script_dir, "../icon/ansible.png")
+        ansible_icon_path = os.path.join(script_dir, "../icon/ansible-red.svg")
         semaphore_icon_path = os.path.join(script_dir, "../icon/semaphore-ui.png")
 
         # Header Box
