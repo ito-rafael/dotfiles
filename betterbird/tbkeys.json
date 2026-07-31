@@ -15,7 +15,7 @@
   "2": "(function(){ try { let win = window.Services.wm.getMostRecentWindow('mail:3pane'); let srv = null; for(let s of window.MailServices.accounts.allServers){ if(s.key === 'server2') { srv = s; break; } } if(srv) { let root = srv.rootFolder || srv.rootMsgFolder; let inbox = root.getFolderWithFlags(0x1000) || root.getChildNamed('INBOX') || root.getChildNamed('Inbox'); if(inbox && win.MailUtils) win.MailUtils.displayFolderIn3Pane(inbox); } } catch(e) {} })();",
   "3": "(function(){ try { let win = window.Services.wm.getMostRecentWindow('mail:3pane'); let srv = null; for(let s of window.MailServices.accounts.allServers){ if(s.key === 'server3') { srv = s; break; } } if(srv) { let root = srv.rootFolder || srv.rootMsgFolder; let inbox = root.getFolderWithFlags(0x1000) || root.getChildNamed('INBOX') || root.getChildNamed('Inbox'); if(inbox && win.MailUtils) win.MailUtils.displayFolderIn3Pane(inbox); } } catch(e) {} })();",
   "4": "(function(){ try { let win = window.Services.wm.getMostRecentWindow('mail:3pane'); let srv = null; for(let s of window.MailServices.accounts.allServers){ if(s.key === 'server4') { srv = s; break; } } if(srv) { let root = srv.rootFolder || srv.rootMsgFolder; let inbox = root.getFolderWithFlags(0x1000) || root.getChildNamed('INBOX') || root.getChildNamed('Inbox'); if(inbox && win.MailUtils) win.MailUtils.displayFolderIn3Pane(inbox); } } catch(e) {} })();",
-  "f": "cmd:cmd_forward",
+  "F": "cmd:cmd_forward",
   "#": "cmd:cmd_delete",
   "r": "cmd:cmd_reply",
   "a": "cmd:cmd_replyall",
