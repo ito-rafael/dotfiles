@@ -270,7 +270,7 @@ box#keyboard {
 **** lan-mouse
 #+begin_src css
 #custom-xremap-mode.lan-mouse {
-    background-color: rgba(255, 0, 0, 0.5);
+    color: gray;
 }
 #+end_src
 ** kanata :noexport_1:
