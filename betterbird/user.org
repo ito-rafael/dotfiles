@@ -232,3 +232,8 @@ user_pref("mail.minimizeToTray.startMinimized", true);
 #+begin_src js :padline no
 user_pref("mail.closeToTray", true);
 #+end_src
+*** Whitelist desktop environments
+Append Sway/SwayFX into Betterbird's whitelist of Desktop Environments it allows tray features on.
+#+begin_src js :padline no
+user_pref("mail.minimizeToTray.supportedDesktops", "GNOME,KDE,sway,swayfx");
+#+end_src
