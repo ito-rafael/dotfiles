@@ -16,6 +16,7 @@
   - [[#view][View]]
   - [[#disable-systems-default-check][Disable system's default check]]
   - [[#dark-mode][Dark mode]]
+  - [[#tray][Tray]]
 
 * Information
 #+begin_src txt :tangle no
@@ -214,4 +215,20 @@ user_pref("browser.theme.toolbar-theme", 0);
 Set the active theme to the built-in dark theme (ensures toolbars are dark).
 #+begin_src js
 user_pref("extensions.activeThemeID", "firefox-compact-dark@mozilla.org");
+#+end_src
+** Tray
+*** Show in tray
+Always show the tray icon.
+#+begin_src js
+user_pref("mail.biff.show_tray_icon_always", true);
+#+end_src
+*** Start on boot
+Start minimized to the tray on boot.
+#+begin_src js :padline no
+user_pref("mail.minimizeToTray.startMinimized", true);
+#+end_src
+*** Close to tray
+(optional) Minimize to tray instead of quitting when you press the X button.
+#+begin_src js :padline no
+user_pref("mail.closeToTray", true);
 #+end_src
