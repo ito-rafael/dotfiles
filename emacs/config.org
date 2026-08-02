@@ -756,6 +756,7 @@ https://github.com/yilkalargaw/org-auto-tangle
      "/home/rafael/git/dotfiles/brave/json/extensions_essential.org"
      "/home/rafael/git/dotfiles/cups/printers.org"
      "/home/rafael/git/dotfiles/i3-sway/config.org"
+     "/home/rafael/git/dotfiles/mousam/dconf-settings.org"
      "/home/rafael/git/dotfiles/scripts/sway-dispatch.org"
      "/home/rafael/git/dotfiles/zen/policies.org"
      "/home/rafael/git/keebab/xremap/config.org"))
