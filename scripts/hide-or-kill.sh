@@ -61,24 +61,25 @@ DROPDOWN_TITLE="$(whoami)@$(hostname):~"
 # check if the app_id is one of the listed bellow
 #=======================================
 is_scratchpad=$($WM_CMD -t get_tree | jq -re --arg title "$DROPDOWN_TITLE" '.. | select(type == "object") | select(.focused) |
+    .'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX''$INSTANCE' == "music.youtube.com" or
+    .'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX''$INSTANCE' == "calendar.google.com" or
+    .'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX''$INSTANCE' == "chatgpt.com" or
+    .'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX''$INSTANCE' == "translate.google.com" or
+    .'$PROP_PREFIX''$PROP' == "brave-calendar.google.com__-Default" or
+    .'$PROP_PREFIX''$PROP' == "brave-chatgpt.com__-Default" or
+    .'$PROP_PREFIX''$PROP' == "brave-music.youtube.com__-Default" or
+    .'$PROP_PREFIX''$PROP' == "brave-translate.google.com__-Default" or
     .'$PROP_PREFIX''$PROP' == "dropdown_ansible" and .name != $title or
     .'$PROP_PREFIX''$PROP' == "dropdown_aur" and .name != $title or
     .'$PROP_PREFIX''$PROP' == "dropdown_pacman" and .name != $title or
     .'$PROP_PREFIX''$PROP' == "dropdown_python" or
     .'$PROP_PREFIX''$PROP' == "dropdown_terminal" or
     .'$PROP_PREFIX''$PROP' == "eu.betterbird.Betterbird" or
+    .'$PROP_PREFIX''$PROP' == "io.github.amit9838.mousam" or
     .'$PROP_PREFIX''$PROP' == "keymapp" or .'$PROP_PREFIX''$PROP' == "Keymapp" or
-    .'$PROP_PREFIX''$PROP' == "brave-calendar.google.com__-Default" or
-    .'$PROP_PREFIX''$PROP' == "brave-chatgpt.com__-Default" or
-    .'$PROP_PREFIX''$PROP' == "brave-music.youtube.com__-Default" or
-    .'$PROP_PREFIX''$PROP' == "brave-translate.google.com__-Default" or
-    .'$PROP_PREFIX''$PROP' == "wasistlos" or
-    .'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX''$INSTANCE' == "music.youtube.com" or
-    .'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX''$INSTANCE' == "calendar.google.com" or
-    .'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX''$INSTANCE' == "chatgpt.com" or
-    .'$PROP_PREFIX''$PROP' == "Brave-browser-beta" and .'$PROP_PREFIX''$INSTANCE' == "translate.google.com" or
     .'$PROP_PREFIX''$PROP' == "scrcpy" and .'$PROP_PREFIX''$CAPTION' == "dropdown_scrcpy_phone" or
     .'$PROP_PREFIX''$PROP' == "scrcpy" and .'$PROP_PREFIX''$CAPTION' == "dropdown_scrcpy_watch" or
+    .'$PROP_PREFIX''$PROP' == "wasistlos" or
     .'$ID_PROP' == '$TEMP_PID_1' or
     .'$ID_PROP' == '$TEMP_PID_2' or
     .'$ID_PROP' == '$TEMP_PID_3'
