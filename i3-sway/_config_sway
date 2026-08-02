@@ -555,6 +555,7 @@ for_window [$prop="local.ansible-provision"] {
 }
 for_window [class="XEyes"] floating enable
 for_window [app_id="io.github.amit9838.mousam"] floating enable
+bindsym $alt+$mod+d exec mousam
 
 for_window [$prop="^dropdown_ansible$"] floating enable
 for_window [$prop="^dropdown_ansible$"] move position center

@@ -1823,6 +1823,7 @@ for_window [class="XEyes"] floating enable
 Weather at a glance.
 #+begin_src conf :noweb-ref mousam
 for_window [app_id="io.github.amit9838.mousam"] floating enable
+bindsym $alt+$mod+d exec mousam
 #+end_src
 ** Tangle :noexport:
 *** i3
