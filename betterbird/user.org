@@ -217,8 +217,8 @@ Set the active theme to the built-in dark theme (ensures toolbars are dark).
 user_pref("extensions.activeThemeID", "firefox-compact-dark@mozilla.org");
 #+end_src
 ** Tray
-*** Show in tray
-Always show the tray icon.
+*** Remove from tray
++Always show the tray icon.+ Deprecated in favour of =birdtray=.
 #+begin_src js
 user_pref("mail.biff.show_tray_icon_always", true);
 #+end_src
@@ -235,5 +235,5 @@ user_pref("mail.closeToTray", true);
 *** Whitelist desktop environments
 Append Sway/SwayFX into Betterbird's whitelist of Desktop Environments it allows tray features on.
 #+begin_src js :padline no
-user_pref("mail.minimizeToTray.supportedDesktops", "GNOME,KDE,sway,swayfx");
+user_pref("mail.minimizeToTray.supportedDesktops", "GNOME,KDE,sway,swayfx,sway:wlroots:swayfx");
 #+end_src
