@@ -388,6 +388,13 @@ for_window [$prop="^dropdown_ansible$"] move position center
 for_window [$prop="^dropdown_ansible$"] move scratchpad
 for_window [$prop="^dropdown_ansible$"] border pixel 5
 bindsym $alt+$mod+k exec "$SCRIPT_PATH/show-or-launch.sh dropdown_ansible 0.75 0.75"
+for_window [$prop="^eu.betterbird.Betterbird$"] floating enable
+for_window [$prop="^eu.betterbird.Betterbird$"] move position center
+for_window [$prop="^eu.betterbird.Betterbird$"] border pixel 5
+# wait initial rendering before moving to scratchpad
+#for_window [$prop="^eu.betterbird.Betterbird$"] move scratchpad
+exec --no-startup-id bash -c 'betterbird & while ! swaymsg -t get_tree | grep -q "eu.betterbird.Betterbird"; do sleep 0.5; done; sleep 0.5; swaymsg "[app_id=\"^eu.betterbird.Betterbird$\"] move scratchpad"'
+bindsym $alt+$mod+r exec "$SCRIPT_PATH/show-or-launch.sh eu.betterbird.Betterbird 0.99 0.965"
 exec --no-startup-id kitty --class="dropdown_terminal" -o font_size=14 -o include=$XDG_CONFIG_HOME/kitty/themes/terminal.conf -o background_opacity=0.85
 bindsym $mod+n exec "$SCRIPT_PATH/show-or-launch.sh dropdown_terminal 0.75 0.75"
 for_window [$prop="^dropdown_terminal$"] floating enable
@@ -479,12 +486,12 @@ bindsym $alt+$mod+0 exec "$XDG_CONFIG_HOME/waybar/scripts/proton-vpn.sh toggle"
 exec_always --no-startup-id picom -b --config ~/.config/picom/picom.conf
 exec xinput --set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Two-Finger Scrolling" 1 1
 exec_always --no-startup-id "$SCRIPT_PATH/xrandr-wallpaper.sh"
-#exec --no-startup-id /usr/bin/dunst &             # dunst: notification daemon
-#exec_always dunstctl set-paused true              # dunst: start with notifications paused
-exec --no-startup-id emote                        # emoji picker
-exec_always --no-startup-id autotiling            # autotiling
-exec --no-startup-id "dex -a -s /home/rafael/.config/autostart"    # XDG Autostart applications
+#exec --no-startup-id /usr/bin/dunst &          # dunst: notification daemon
+#exec_always dunstctl set-paused true           # dunst: start with notifications paused
+exec --no-startup-id emote                      # emoji picker
+exec --no-startup-id autotiling                 # autotiling
 #exec_always --no-startup-id "$SCRIPT_PATH/xremap-keeb-config.sh"   # keyboard setup
+exec --no-startup-id "dex -a -s /home/rafael/.config/autostart"    # XDG Autostart applications
 exec --no-startup-id /usr/bin/emacs --daemon --with-profile efs &  # launch EFS daemon (default)
 exec --no-startup-id /usr/bin/emacs --daemon --with-profile doom & # launch Doom Emacs daemon
 exec --no-startup-id "rm /tmp/showmethekey_pid.tmp"                                 # ensure there is no temp file from previous boot

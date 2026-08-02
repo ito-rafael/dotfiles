@@ -1851,6 +1851,17 @@ for_window [$prop="^dropdown_aur$"] move scratchpad
 for_window [$prop="^dropdown_aur$"] border pixel 5
 bindsym $alt+$mod+v exec "$SCRIPT_PATH/show-or-launch.sh dropdown_aur 0.75 0.75"
 #+end_src
+** Betterbird
+The obligation to move the window to a scratchpad + set a visible opacity is delegated to the =show-or-launch.sh= script.
+#+begin_src conf :noweb-ref scratchpads
+for_window [$prop="^eu.betterbird.Betterbird$"] floating enable
+for_window [$prop="^eu.betterbird.Betterbird$"] move position center
+for_window [$prop="^eu.betterbird.Betterbird$"] border pixel 5
+# wait initial rendering before moving to scratchpad
+#for_window [$prop="^eu.betterbird.Betterbird$"] move scratchpad
+exec --no-startup-id bash -c 'betterbird & while ! swaymsg -t get_tree | grep -q "eu.betterbird.Betterbird"; do sleep 0.5; done; sleep 0.5; swaymsg "[app_id=\"^eu.betterbird.Betterbird$\"] move scratchpad"'
+bindsym $alt+$mod+r exec "$SCRIPT_PATH/show-or-launch.sh eu.betterbird.Betterbird 0.99 0.965"
+#+end_src
 ** WhatsApp Web (on Brave Beta)
 *** i3
 #+begin_src conf :noweb-ref i3-whatsapp-web
@@ -2222,7 +2233,6 @@ output $tertiary  background ~/.config/wallpaper/nasa.png fill
 #exec --no-startup-id /usr/bin/dunst &          # dunst: notification daemon
 #exec_always dunstctl set-paused true           # dunst: start with notifications paused
 exec --no-startup-id emote                      # emoji picker
-exec --no-startup-id betterbird                 # email manager
 exec --no-startup-id autotiling                 # autotiling
 #exec_always --no-startup-id "$SCRIPT_PATH/xremap-keeb-config.sh"   # keyboard setup
 exec --no-startup-id "dex -a -s /home/rafael/.config/autostart"    # XDG Autostart applications
