@@ -2140,7 +2140,7 @@ bindsym $alt+$mod+0 exec "$XDG_CONFIG_HOME/waybar/scripts/proton-vpn.sh toggle"
 **** D-Bus
 #+begin_src conf :noweb-ref sway-dbus
 # XDG Desktop Portals & systemd user services
-exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway SWAYSOCK
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway SWAYSOCK XDG_SESSION_TYPE XDG_CONFIG_HOME
 #+end_src
 **** Systemd
 Deprecated. The "--systemd" in the D-Bus command above already does the trick.
