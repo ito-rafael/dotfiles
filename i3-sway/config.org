@@ -1819,6 +1819,11 @@ for_window [$prop="local.ansible-provision"] {
 #+begin_src conf :noweb-ref xeyes
 for_window [class="XEyes"] floating enable
 #+end_src
+*** Mousam
+Weather at a glance.
+#+begin_src conf :noweb-ref mousam
+for_window [app_id="io.github.amit9838.mousam"] floating enable
+#+end_src
 ** Tangle :noexport:
 *** i3
 #+begin_src conf :noweb yes :tangle _config_i3
@@ -1838,6 +1843,7 @@ for_window [class="XEyes"] floating enable
 <<informant-news>>
 <<ansible-provision>>
 <<xeyes>>
+<<mousam>>
 #+end_src
 * Scratchpads
 ** ansible-provision
