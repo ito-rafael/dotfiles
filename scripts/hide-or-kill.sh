@@ -66,6 +66,7 @@ is_scratchpad=$($WM_CMD -t get_tree | jq -re --arg title "$DROPDOWN_TITLE" '.. |
     .'$PROP_PREFIX''$PROP' == "dropdown_pacman" and .name != $title or
     .'$PROP_PREFIX''$PROP' == "dropdown_python" or
     .'$PROP_PREFIX''$PROP' == "dropdown_terminal" or
+    .'$PROP_PREFIX''$PROP' == "eu.betterbird.Betterbird" or
     .'$PROP_PREFIX''$PROP' == "keymapp" or .'$PROP_PREFIX''$PROP' == "Keymapp" or
     .'$PROP_PREFIX''$PROP' == "brave-calendar.google.com__-Default" or
     .'$PROP_PREFIX''$PROP' == "brave-chatgpt.com__-Default" or
