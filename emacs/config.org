@@ -791,6 +791,16 @@ https://github.com/yilkalargaw/org-auto-tangle
       (save-buffer)
       (kill-buffer))))
 #+end_src
+**** ini (dconf)
+Post-tangle formatter for =.ini= files: removes backslashes, newlines, and surrounding whitespace from multiline blocks to generate the strict single-line format required by =dconf=. Example: https://github.com/ito-rafael/dotfiles/tree/master/mousam.
+#+begin_src emacs-lisp
+(when (and (buffer-file-name) (string-suffix-p ".ini" (buffer-file-name)))
+  (message "Merging multiline strings in %s..." (buffer-file-name))
+  (goto-char (point-min))
+  (while (re-search-forward "[ \t]*\\\\[ \t]*\n+[ \t]*" nil t)
+    (replace-match ""))
+  (save-buffer))
+#+end_src
 **** EoS
 #+begin_src emacs-lisp
 )))
