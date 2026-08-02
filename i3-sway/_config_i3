@@ -4,10 +4,11 @@ set $super_R Mod3
 set $XDG_CONFIG_HOME $HOME/.config
 set $SCRIPT_PATH $XDG_CONFIG_HOME/scripts
 #for_window [class=".*"] border pixel 3
-default_border pixel 5
-floating_modifier $mod
-workspace_auto_back_and_forth yes
-gaps inner 10
+default_border pixel 5                  # set window border
+floating_modifier $mod                  # use Mouse+$mod to drag floating windows
+workspace_auto_back_and_forth yes       # enable previous workspace switching
+gaps inner 10                           # gaps size
+focus_on_window_activation urgent       # give window alerts instead of stealing focus
 font pango:monospace 10
 set $bg-color    #2f343f
 set $text-color  #f3f4f5

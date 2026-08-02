@@ -132,25 +132,13 @@ set $XDG_CONFIG_HOME $HOME/.config
 set $SCRIPT_PATH $XDG_CONFIG_HOME/scripts
 #+end_src
 ** General
-Set window border.
 #+begin_src conf :noweb-ref general
 #for_window [class=".*"] border pixel 3
-default_border pixel 5
-#+end_src
-
-Use Mouse+$mod to drag floating windows.
-#+begin_src conf :noweb-ref general
-floating_modifier $mod
-#+end_src
-
-Enable previous workspace switching.
-#+begin_src conf :noweb-ref general
-workspace_auto_back_and_forth yes
-#+end_src
-
-Gaps size
-#+begin_src conf :noweb-ref general
-gaps inner 10
+default_border pixel 5                  # set window border
+floating_modifier $mod                  # use Mouse+$mod to drag floating windows
+workspace_auto_back_and_forth yes       # enable previous workspace switching
+gaps inner 10                           # gaps size
+focus_on_window_activation urgent       # give window alerts instead of stealing focus
 #+end_src
 ** Font & color
 Set font for window titles.
