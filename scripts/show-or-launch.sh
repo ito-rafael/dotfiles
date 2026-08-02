@@ -274,6 +274,10 @@ if [[ ! $SCRATCHPAD ]]; then
             keymapp &
             sleep 1
             ;;
+        "io.github.amit9838.mousam")
+            mousam &
+            sleep 0.05
+            ;;
         "music.youtube.com")
             brave --app=https://music.youtube.com &
             sleep 2
