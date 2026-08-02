@@ -170,6 +170,7 @@ if [ $FOCUSED != $APPLICATION ]; then
         .'$PROP_PREFIX''$PROP' == "dropdown_python" or
         .'$PROP_PREFIX''$PROP' == "dropdown_pacman" or
         .'$PROP_PREFIX''$PROP' == "dropdown_terminal" or
+        .'$PROP_PREFIX''$PROP' == "eu.betterbird.Betterbird" or
         .'$PROP_PREFIX''$PROP' == "keymapp" or .'$PROP_PREFIX''$PROP' == "Keymapp" or
         .'$PROP_PREFIX''$PROP' == "brave-calendar.google.com__-Default" or
         .'$PROP_PREFIX''$PROP' == "brave-chatgpt.com__-Default" or
@@ -260,6 +261,10 @@ if [[ ! $SCRATCHPAD ]]; then
         "dropdown_terminal")
             kitty --detach --class="dropdown_terminal" -o font_size=14 -o include=$XDG_CONFIG_HOME/kitty/themes/terminal.conf -o background_opacity=0.85
             sleep 0.05
+            ;;
+        "eu.betterbird.Betterbird")
+            betterbird &
+            sleep 1
             ;;
         "keymapp")
             keymapp &
