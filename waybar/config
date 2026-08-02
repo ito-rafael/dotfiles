@@ -641,7 +641,8 @@
     "tooltip": true,
     "interval": 3600,
     "exec": "wttrbar --hide-conditions",
-    "return-type": "json"
+    "return-type": "json",
+    "on-click": "~/.config/scripts/show-or-launch.sh io.github.amit9838.mousam",
 },
 
 "clock#time": {
