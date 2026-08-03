@@ -2050,8 +2050,6 @@ box#datetime {
 * Caps Lock
 #+begin_src css
 #custom-capslock.enabled {
-    background-color: #97e1ad;
-    color: black;
 }
 #+end_src
 * lan-mouse :noexport_1:
