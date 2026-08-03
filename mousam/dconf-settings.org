@@ -1,0 +1,59 @@
+#+TITLE: Mousam weather app dconf settings
+#+AUTHOR: Rafael Ito
+#+PROPERTY: header-args:conf :tangle dconf-settings.ini
+#+DESCRIPTION: config file Mousam
+#+STARTUP: showeverything
+#+auto_tangle: t
+
+* Table of Contents :toc:
+- [[#locations][Locations]]
+  - [[#campinas][Campinas]]
+  - [[#london][London]]
+- [[#options][Options]]
+- [[#window][Window]]
+
+* Locations
+#+begin_src conf
+[/]
+added-cities=[ \
+#+end_src
+** Campinas
+#+begin_src conf
+'{ \
+    "name": "Campinas",             \
+    "country": "Brazil",            \
+    "state": "São Paulo",           \
+    "region": "Campinas",           \
+    "latitude": -22.90556,          \
+    "longitude": -47.06083,         \
+    "timezone": "America/Sao_Paulo" \
+}', \
+#+end_src
+** London
+#+begin_src conf
+'{ \
+    "name": "London",               \
+    "country": "United Kingdom",    \
+    "state": "England",             \
+    "region": "Greater London",     \
+    "latitude": 51.50853,           \
+    "longitude": -0.12574,          \
+    "timezone": "Europe/London"     \
+}' \
+#+end_src
+** EoS :noexport:
+#+begin_src conf
+]
+#+end_src
+* Options
+#+begin_src conf
+selected-city='-22.90556,-47.06083'
+unit='metric'
+use-24h-clock=true
+#+end_src
+* Window
+#+begin_src conf
+window-height=760
+window-maximized=false
+window-width=1060
+#+end_src
