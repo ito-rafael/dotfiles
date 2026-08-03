@@ -663,8 +663,12 @@ paru -S ttf-all-the-icons
 https://github.com/seagle0128/doom-modeline
 #+begin_src emacs-lisp
 (use-package doom-modeline
-  :init (doom-modeline-mode 1)                    ;; enable modeline
-  :custom ((doom-modeline-height 15)))            ;; adjust modeline height
+  :custom
+  (doom-modeline-height 15)   ;; adjust modeline height
+  (doom-modeline-bar-width 5) ;; colored bar on the left
+  :init
+  (doom-modeline-mode 1)      ;; enable modeline
+)
 #+end_src
 * Org
 #+begin_src emacs-lisp
