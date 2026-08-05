@@ -1119,6 +1119,12 @@ label:focus {
     transition: background 0.3s ease;
 }
 
+#custom-phone-battery {
+    margin-top: 1px;
+    padding-right: 8px;
+    border-radius: 5px;
+}
+
 #custom-battery-mx-master3 {
 }
 

@@ -1652,6 +1652,15 @@ label:focus {
     transition: background 0.3s ease;
 }
 #+end_src
+** Phone Battery :noexport_1:
+*** Normal
+#+begin_src css
+#custom-phone-battery {
+    margin-top: 1px;
+    padding-right: 8px;
+    border-radius: 5px;
+}
+#+end_src
 ** Mouse: MX Master 3 :noexport_1:
 #+begin_src css
 #custom-battery-mx-master3 {
