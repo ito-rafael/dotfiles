@@ -325,6 +325,7 @@ bindsym --release $mod+m exec "$XDG_CONFIG_HOME/scripts/lanmouse-switch.sh toggl
 bindsym $alt+ctrl+t nop
 bindsym --release $alt+ctrl+t exec "$XDG_CONFIG_HOME/scripts/sway-test.sh"
 bindsym $mod+j exec tomat toggle
+bindsym Shift+$mod+t exec "$XDG_CONFIG_HOME/scripts/theme-toggle.sh"
 bindsym $mod+Return       exec "$SCRIPT_PATH/rofi.sh drun"
 #bindsym Shift+$mod+Return exec "$SCRIPT_PATH/rofi.sh ssh"
 bindsym Shift+$mod+Return exec rofi-bluetooth
