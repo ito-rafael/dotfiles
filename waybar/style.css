@@ -1131,6 +1131,16 @@ label:focus {
     border-radius: 10px;
 }
 
+#custom-phone-battery.critical:not(.charging) {
+    background-color: #f53c3c;
+    color: #ffffff;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
 #custom-battery-mx-master3 {
 }
 
