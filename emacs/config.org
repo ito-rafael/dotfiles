@@ -917,7 +917,7 @@ Restart applications with new config file.
 ***** Waybar
 #+begin_src emacs-lisp
 ((string-match-p "waybar" target-dest)
- (call-process-shell-command "pkill waybar; ~/.config/waybar/waybar.sh &" nil "*Messages*")
+ (call-process-shell-command "systemctl --user reload waybar.service" nil "*Messages*")
  (message "↻ Restarting Waybar..."))
 #+end_src
 ***** EoS
