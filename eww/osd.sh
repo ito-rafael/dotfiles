@@ -85,8 +85,22 @@ backlit)
     fi
     ;;
 
+theme)
+    CURRENT=$(gsettings get org.gnome.desktop.interface color-scheme)
+
+    if [ "$CURRENT" == "'prefer-dark'" ]; then
+        # for a binary toggle, "0" looks good on the progress bar to represent "dark/off"
+        VALUE=0
+        ICON="/home/rafael/.config/icon/emoji-new-moon.svg"
+    else
+        # 100 fills the bar to represent "light/on"
+        VALUE=100
+        ICON="/home/rafael/.config/icon/emoji-sun.svg"
+    fi
+    ;;
+
 *)
-    echo "Usage: $0 {volume|mic|brightness|gamma|backlit}"
+    echo "Usage: $0 {volume|mic|brightness|gamma|backlit|theme}"
     exit 1
     ;;
 
