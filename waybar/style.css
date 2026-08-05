@@ -1057,6 +1057,7 @@ box#power.empty {
 
 /* hide any empty modules completely so they collapse */
 #battery.empty,
+#custom-phone-battery.empty,
 #custom-battery-mx-master3.empty,
 #upower-sennheiser-hd250bt.empty,
 #upower-soundcore-life-p3.empty {
@@ -1067,6 +1068,7 @@ box#power.empty {
 
 /* default state: remove borders from everything */
 #battery,
+#custom-phone-battery,
 #custom-battery-mx-master3,
 #upower.sennheiser-hd250bt,
 #upower.soundcore-life-p3 {
@@ -1075,6 +1077,7 @@ box#power.empty {
 
 /* the magic sibling selector for n-items: apply a left border to any active widget that comes *after* another active widget (skipping the first visible item). */
 box#power > widget:not(.empty) ~ widget:not(.empty) > #battery,
+box#power > widget:not(.empty) ~ widget:not(.empty) > #custom-phone-battery,
 box#power > widget:not(.empty) ~ widget:not(.empty) > #custom-battery-mx-master3,
 box#power > widget:not(.empty) ~ widget:not(.empty) > #upower.sennheiser-hd250bt,
 box#power > widget:not(.empty) ~ widget:not(.empty) > #upower.soundcore-life-p3 {
@@ -1121,7 +1124,7 @@ label:focus {
 
 #custom-phone-battery {
     margin-top: 1px;
-    padding-right: 8px;
+    padding-right: 6px;
     border-radius: 5px;
 }
 
