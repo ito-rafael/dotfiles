@@ -712,6 +712,7 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
   "orientation": "inherit",
   "modules": [
     "battery",
+    "custom/phone-battery",
     "custom/battery-mx-master3",
     "upower#sennheiser-hd250bt",
     "upower#soundcore-life-p3",
@@ -733,6 +734,15 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
     "format-plugged": "🔌 {capacity}%",
     "format-icons": ["", "", "", "", ""],
     //"format-icons": ["🪫", "🔋", "🔋", "🔋", "🔋"]
+},
+#+end_src
+** Phone
+#+begin_src js
+"custom/phone-battery": {
+    "exec": "~/.config/waybar/scripts/phone-battery.sh",
+    "return-type": "json",
+    "interval": 30,
+    "format": "{}"
 },
 #+end_src
 ** Mouse: MX Master 3

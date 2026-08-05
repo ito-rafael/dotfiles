@@ -541,6 +541,7 @@
   "orientation": "inherit",
   "modules": [
     "battery",
+    "custom/phone-battery",
     "custom/battery-mx-master3",
     "upower#sennheiser-hd250bt",
     "upower#soundcore-life-p3",
@@ -560,6 +561,13 @@
     "format-plugged": "🔌 {capacity}%",
     "format-icons": ["", "", "", "", ""],
     //"format-icons": ["🪫", "🔋", "🔋", "🔋", "🔋"]
+},
+
+"custom/phone-battery": {
+    "exec": "~/.config/waybar/scripts/phone-battery.sh",
+    "return-type": "json",
+    "interval": 30,
+    "format": "{}"
 },
 
 "custom/battery-mx-master3": {
