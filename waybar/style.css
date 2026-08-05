@@ -1141,6 +1141,11 @@ label:focus {
     animation-direction: alternate;
 }
 
+#custom-phone-battery:hover {
+    background-color: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+
 #custom-battery-mx-master3 {
 }
 
