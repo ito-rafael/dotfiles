@@ -1,5 +1,6 @@
 (defvar osd_value 0)
 (defvar osd_icon "")
+(defvar osd_text "")
 
 (defwindow system_osd
   :monitor 0
@@ -18,14 +19,14 @@
 )
 
 (defwidget system_widget []
-  (box :class "osd-container" 
+  (box :class "osd-container"
        :orientation "h"
-       :space-evenly false 
-       :halign "center" 
+       :space-evenly false
+       :halign "center"
        :valign "center"
 
 (image
-  :class "osd-image" 
+  :class "osd-image"
   :path osd_icon
   :image-width 24
   :image-height 24
@@ -33,11 +34,20 @@
 )
 
 (progress
-  :class "osd-bar" 
+  :class "osd-bar"
   :value osd_value
-  :orientation "h" 
+  :orientation "h"
   :valign "center"
   :hexpand true
+  :visible {osd_text == ""}
+)
+
+(label
+  :class "osd-text"
+  :text osd_text
+  :valign "center"
+  :halign "center"
+  :visible {osd_text != ""}
 )
 
 ))

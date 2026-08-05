@@ -19,6 +19,7 @@
 #+begin_src yuck
 (defvar osd_value 0)
 (defvar osd_icon "")
+(defvar osd_text "")
 #+end_src
 *** Window layout
 #+begin_src yuck
@@ -41,16 +42,16 @@
 *** Widget structure
 #+begin_src yuck
 (defwidget system_widget []
-  (box :class "osd-container" 
+  (box :class "osd-container"
        :orientation "h"
-       :space-evenly false 
-       :halign "center" 
+       :space-evenly false
+       :halign "center"
        :valign "center"
 #+end_src
 **** Icon
 #+begin_src yuck
 (image
-  :class "osd-image" 
+  :class "osd-image"
   :path osd_icon
   :image-width 24
   :image-height 24
@@ -60,11 +61,22 @@
 **** Progress Bar
 #+begin_src yuck
 (progress
-  :class "osd-bar" 
+  :class "osd-bar"
   :value osd_value
-  :orientation "h" 
+  :orientation "h"
   :valign "center"
   :hexpand true
+  :visible {osd_text == ""}
+)
+#+end_src
+**** Text
+#+begin_src yuck
+(label
+  :class "osd-text"
+  :text osd_text
+  :valign "center"
+  :halign "center"
+  :visible {osd_text != ""}
 )
 #+end_src
 **** EoS
@@ -110,5 +122,15 @@ window {
     background-color: white;
     border-radius: 10px;
   }
+}
+#+end_src
+*** Text
+#+begin_src css
+.osd-text {
+  color: white;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  min-width: 200px;
 }
 #+end_src
