@@ -1661,6 +1661,14 @@ label:focus {
     border-radius: 5px;
 }
 #+end_src
+*** Charging
+#+begin_src css
+#custom-phone-battery.charging, #custom-phone-battery.full {
+    color: #ffffff;
+    background-color: #26A65B;
+    border-radius: 10px;
+}
+#+end_src
 ** Mouse: MX Master 3 :noexport_1:
 #+begin_src css
 #custom-battery-mx-master3 {
