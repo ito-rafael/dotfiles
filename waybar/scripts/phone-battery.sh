@@ -40,22 +40,25 @@ if [ "$STATUS" != "2" ] && [ "$STATUS" != "5" ]; then
     fi
 fi
 
+# Define a device icon
+DEV_ICON=""
+
 # Define the icon based on status and battery level
 if [ "$STATUS" = "2" ]; then
-    ICON="⚡"
+    ICON="$DEV_ICON ⚡"
 elif [ "$STATUS" = "5" ]; then
-    ICON="🔌"
+    ICON="$DEV_ICON 🔌"
 else
     if [ "$LEVEL" -le 15 ]; then
-        ICON="🪫"
+        ICON="$DEV_ICON 🪫"
     elif [ "$LEVEL" -le 30 ]; then
-        ICON=" "
+        ICON="$DEV_ICON  "
     elif [ "$LEVEL" -le 60 ]; then
-        ICON=" "
+        ICON="$DEV_ICON  "
     elif [ "$LEVEL" -le 90 ]; then
-        ICON=" "
+        ICON="$DEV_ICON  "
     else
-        ICON=" "
+        ICON="$DEV_ICON  "
     fi
 fi
 
