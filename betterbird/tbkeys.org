@@ -125,8 +125,13 @@ Custom keybindings for Thunderbird using the tbkeys extension.
 "ctrl+r": "cmd:cmd_reply",
 #+end_src
 ** Get Messages
-#+begin_src js
+*** Current account
+#+begin_src js :tangle no
 "ctrl+r": "cmd:cmd_getNewMessages",
+#+end_src
+*** All accounts
+#+begin_src js
+"ctrl+r": "cmd:cmd_getMsgsForAuthAccounts",
 #+end_src
 ** Allow content from sender
 #+begin_src js
