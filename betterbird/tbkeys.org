@@ -117,12 +117,16 @@ Custom keybindings for Thunderbird using the tbkeys extension.
 #+end_src
 ** Miscellaneous
 #+begin_src js
-"F": "cmd:cmd_forward",
 "#": "cmd:cmd_delete",
-"r": "cmd:cmd_reply",
 "a": "cmd:cmd_replyall",
-"x": "cmd:cmd_archive",
 "c": "func:MsgNewMessage",
+"F": "cmd:cmd_forward",
+"x": "cmd:cmd_archive",
+"ctrl+r": "cmd:cmd_reply",
+#+end_src
+** Get Messages
+#+begin_src js
+"ctrl+r": "cmd:cmd_getNewMessages",
 #+end_src
 ** Allow content from sender
 #+begin_src js
