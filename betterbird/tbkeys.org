@@ -13,6 +13,7 @@
   - [[#tab-navigation][Tab navigation]]
   - [[#scroll-message][Scroll message]]
   - [[#scroll-message-list][Scroll message list]]
+  - [[#jump-to-topbottom][Jump to Top/Bottom]]
   - [[#accounts-navigation][Accounts navigation]]
   - [[#miscellaneous][Miscellaneous]]
   - [[#allow-content-from-sender][Allow content from sender]]
@@ -33,6 +34,7 @@ Because JSON does not support comments natively, the documentation for these key
 - =r= / =a= : Reply / Reply to all.
 - =x= : Archive the message.
 - =c= : Compose a new message.
+- =0= or =gg= : Jump to the top of the message list (selects the first message).
 - =s= : A custom injected JavaScript function. When pressed, it evaluates the DOM to find the sender's email address and dynamically allows remote content (like images) for that specific sender in the current message.
 #+end_src
 * Configuration
@@ -76,6 +78,10 @@ Custom keybindings for Thunderbird using the tbkeys extension.
 **** Single key: "0"
 #+begin_src js
 "0": "(function(){ try { let win = window.Services.wm.getMostRecentWindow('mail:3pane'); let t = win.gTabmail.tabInfo.find(tab => tab.mode && tab.mode.name === 'mail3PaneTab'); let cw = t.chromeBrowser.contentWindow; let tt = cw.document.getElementById('threadTree'); if(tt && tt.view && tt.view.selection){ tt.view.selection.select(0); if(typeof tt.scrollToIndex === 'function') tt.scrollToIndex(0); } } catch(e){} })();",
+#+end_src
+**** Sequence: "gg"
+#+begin_src js
+"g": "(function(){ let now = Date.now(); if (now - (window._tbkeys_last_g || 0) < 500) { try { let win = window.Services.wm.getMostRecentWindow('mail:3pane'); let t = win.gTabmail.tabInfo.find(tab => tab.mode && tab.mode.name === 'mail3PaneTab'); let cw = t.chromeBrowser.contentWindow; let tt = cw.document.getElementById('threadTree'); if(tt && tt.view && tt.view.selection){ tt.view.selection.select(0); if(typeof tt.scrollToIndex === 'function') tt.scrollToIndex(0); } } catch(e){} window._tbkeys_last_g = 0; } else { window._tbkeys_last_g = now; } })();",
 #+end_src
 ** Accounts navigation
 *** Next account
