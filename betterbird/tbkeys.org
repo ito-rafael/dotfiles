@@ -71,6 +71,12 @@ Custom keybindings for Thunderbird using the tbkeys extension.
 "ctrl+e": "(function(){ try { let win = window.Services.wm.getMostRecentWindow('mail:3pane'); let t = win.gTabmail.tabInfo.find(tab => tab.mode && tab.mode.name === 'mail3PaneTab'); if(t && t.chromeBrowser) { let cw = t.chromeBrowser.contentWindow; let tt = cw.document.getElementById('threadTree'); if(tt) tt.scrollBy({top: 600, behavior: 'smooth'}); } } catch(e){} })();",
 "ctrl+i": "(function(){ try { let win = window.Services.wm.getMostRecentWindow('mail:3pane'); let t = win.gTabmail.tabInfo.find(tab => tab.mode && tab.mode.name === 'mail3PaneTab'); if(t && t.chromeBrowser) { let cw = t.chromeBrowser.contentWindow; let tt = cw.document.getElementById('threadTree'); if(tt) tt.scrollBy({top: -600, behavior: 'smooth'}); } } catch(e){} })();",
 #+end_src
+** Jump to Top/Bottom
+*** Jump to Top
+**** Single key: "0"
+#+begin_src js
+"0": "(function(){ try { let win = window.Services.wm.getMostRecentWindow('mail:3pane'); let t = win.gTabmail.tabInfo.find(tab => tab.mode && tab.mode.name === 'mail3PaneTab'); let cw = t.chromeBrowser.contentWindow; let tt = cw.document.getElementById('threadTree'); if(tt && tt.view && tt.view.selection){ tt.view.selection.select(0); if(typeof tt.scrollToIndex === 'function') tt.scrollToIndex(0); } } catch(e){} })();",
+#+end_src
 ** Accounts navigation
 *** Next account
 #+begin_src js
