@@ -583,9 +583,9 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
         "low":  "\uf7ec",
         "high": "\uf7ed",
     },
-    "on-click": "~/.config/scripts/keeb-backlit.sh cycle",
-    "on-scroll-up": "~/.config/scripts/keeb-backlit.sh inc",
-    "on-scroll-down": "~/.config/scripts/keeb-backlit.sh dec",
+    "on-click": "~/.config/scripts/keeb-backlit.sh cycle && ~/.config/scripts/osd.sh backlit",
+    "on-scroll-up": "~/.config/scripts/keeb-backlit.sh inc && ~/.config/scripts/osd.sh backlit",
+    "on-scroll-down": "~/.config/scripts/keeb-backlit.sh dec && ~/.config/scripts/osd.sh backlit",
 },
 #+end_src
 * Group Keyboard
