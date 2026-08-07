@@ -160,6 +160,26 @@ api.mapkey('yy', 'Copy current page URL (Cleaned for AliExpress)', function() {
     api.Front.showBanner("Copied: " + currentUrl);
 });
 
+// map ',p' to open local PDF.js via Python proxy
+api.mapkey(',p', 'Open Arxiv paper in local PDF.js', function() {
+    const currentUrl = window.location.href;
+    // match the arxiv ID from the /abs/ URL
+    const arxivRegex = /arxiv\.org\/abs\/([^/?#]+)/;
+    const match = currentUrl.match(arxivRegex);
+
+    if (match && match[1]) {
+        const paperId = match[1];
+        const pdfUrl = `https://arxiv.org/pdf/${paperId}.pdf`;
+        // tell the Python server to fetch the PDF
+        const proxyUrl = `http://localhost:8080/proxy?url=${encodeURIComponent(pdfUrl)}`;
+        // tell the local viewer to open the proxied URL
+        const finalUrl = `http://localhost:8080/web/viewer.html?file=${encodeURIComponent(proxyUrl)}`;
+        api.tabOpenLink(finalUrl);
+    } else {
+        api.Front.showBanner("Not on an Arxiv /abs/ page!");
+    }
+}, {domain: /arxiv\.org/i});
+
 api.unmapAllExcept([], /localhost/);
 
 api.unmap("c", /youtube.com/);
