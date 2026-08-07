@@ -1,0 +1,1 @@
+../brave/scripts/pdfjs-server.py
