@@ -160,7 +160,7 @@ api.mapkey('yy', 'Copy current page URL (Cleaned for AliExpress)', function() {
     api.Front.showBanner("Copied: " + currentUrl);
 });
 
-// map ',p' to open local PDF.js via Python proxy
+// map ",p" to open local PDF.js via Python proxy
 api.mapkey(',p', 'Open Arxiv paper in local PDF.js', function() {
     const currentUrl = window.location.href;
     // match the arxiv ID from the /abs/ URL
@@ -178,6 +178,19 @@ api.mapkey(',p', 'Open Arxiv paper in local PDF.js', function() {
     } else {
         api.Front.showBanner("Not on an Arxiv /abs/ page!");
     }
+}, {domain: /arxiv\.org/i});
+
+// map "gA" to open arXiv pages (abstract or PDF) in the HTML ar5iv version
+api.mapkey('gA', 'Read arXiv paper in HTML (ar5iv)', function() {
+    let url = window.location.href;
+    // swap arxiv.org for ar5iv.org
+    let htmlUrl = url.replace("arxiv.org", "ar5iv.org");
+    // if in a PDF page, also change "/pdf/" to "/abs/" so the HTML loads correctly
+    htmlUrl = htmlUrl.replace("/pdf/", "/abs/").replace(".pdf", "");
+    // open in current tab
+    window.location.href = htmlUrl
+    // open in a new tab
+    //api.tabOpenLink(htmlUrl);
 }, {domain: /arxiv\.org/i});
 
 // map <Alt-t> to toggle Dark Mode in local PDF.js
