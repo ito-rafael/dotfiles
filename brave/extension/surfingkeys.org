@@ -325,7 +325,7 @@ api.mapkey('<Alt-t>', 'Toggle PDF Dark Mode', function() {
 * Exceptions
 ** localhost
 #+begin_src js
-api.unmapAllExcept([], /localhost/);
+//api.unmapAllExcept([], /localhost/);
 #+end_src
 ** YouTube
 #+begin_src js

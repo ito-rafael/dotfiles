@@ -213,6 +213,6 @@ api.mapkey('<Alt-t>', 'Toggle PDF Dark Mode', function() {
     }
 }, {domain: /localhost/i});
 
-api.unmapAllExcept([], /localhost/);
+//api.unmapAllExcept([], /localhost/);
 
 api.unmap("c", /youtube.com/);
