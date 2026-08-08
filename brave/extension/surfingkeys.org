@@ -287,6 +287,41 @@ api.mapkey(',p', 'Open Arxiv paper in local PDF.js', function() {
     }
 }, {domain: /arxiv\.org/i});
 #+end_src
+** localhost
+#+begin_src js
+// map <Alt-t> to toggle Dark Mode in local PDF.js
+api.mapkey('<Alt-t>', 'Toggle PDF Dark Mode', function() {
+    let styleId = 'pdfjs-dark-mode';
+    let existingStyle = document.getElementById(styleId);
+
+    // if dark mode is active, remove the CSS (switch to light)
+    if (existingStyle) {
+        existingStyle.remove();
+        api.Front.showBanner("PDF Light Mode");
+    }
+    // if dark mode is inactive, inject the CSS (switch to dark)
+    else {
+        let style = document.createElement('style');
+        style.id = styleId;
+        style.innerHTML = `
+            /* invert the actual PDF canvas and text, then fix the color hues */
+            .pdfViewer .page {
+                filter: invert(100%) hue-rotate(180deg) !important;
+            }
+            /* darken the gray backdrop behind the pages */
+            body, #viewerContainer {
+                background-color: #121212 !important;
+            }
+            /* (optional) slightly dim the paper to reduce eye strain */
+            .pdfViewer .page canvas {
+                opacity: 0.9 !important;
+            }
+        `;
+        document.head.appendChild(style);
+        api.Front.showBanner("PDF Dark Mode");
+    }
+}, {domain: /localhost/i});
+#+end_src
 * Exceptions
 ** localhost
 #+begin_src js
