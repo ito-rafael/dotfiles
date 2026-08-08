@@ -25,6 +25,7 @@
     - [[#floccus][Floccus]]
     - [[#ublock-origin][+uBlock Origin+]]
     - [[#ublock-origin-lite][uBlock Origin Lite]]
+    - [[#consent-o-matic][Consent-O-Matic]]
   - [[#scholar][Scholar]]
     - [[#google-scholar-button][Google Scholar Button]]
     - [[#sci-hub][Sci-Hub]]
@@ -166,6 +167,13 @@ Deprecated in favour of [[id:e3ee1d03-6d7e-410e-b696-ee90b1436c1d][Tab Session M
 #+begin_src js :noweb yes
 <<install(extension_id="ddkjiahejlhfcafbddmgiahcphecmpfh")>>
 #+end_src
+*** Consent-O-Matic
+- link: https://chromewebstore.google.com/detail/consent-o-matic/mdjildafknihdffpkfmmpnpoiajfjnjd
+- description: automatically fills out cookie popups.
+#+begin_src js :noweb yes
+<<install(extension_id="mdjildafknihdffpkfmmpnpoiajfjnjd")>>
+#+end_src
+https://chromewebstore.google.com/detail/consent-o-matic/mdjildafknihdffpkfmmpnpoiajfjnjd
 ** Scholar
 *** Google Scholar Button
 - link: https://chromewebstore.google.com/detail/ldipcbpaocekfooobnbcddclnhejkcpn
