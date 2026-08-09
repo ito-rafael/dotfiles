@@ -1857,7 +1857,7 @@ for_window [$prop="^eu.betterbird.Betterbird$"] floating enable
 for_window [$prop="^eu.betterbird.Betterbird$"] move position center
 for_window [$prop="^eu.betterbird.Betterbird$"] border pixel 5
 # wait initial rendering before moving to scratchpad
-#for_window [$prop="^eu.betterbird.Betterbird$"] move scratchpad
+for_window [$prop="^eu.betterbird.Betterbird$"] move scratchpad
 exec --no-startup-id bash -c 'betterbird & while ! swaymsg -t get_tree | grep -q "eu.betterbird.Betterbird"; do sleep 0.5; done; sleep 0.5; swaymsg "[app_id=\"^eu.betterbird.Betterbird$\"] move scratchpad"'
 bindsym $alt+$mod+r exec "$SCRIPT_PATH/show-or-launch.sh eu.betterbird.Betterbird 0.99 0.965"
 #+end_src
