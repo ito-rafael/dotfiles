@@ -4,6 +4,7 @@
 #+STARTUP: showeverything
 
 * Table of contents :toc_2:
+- [[#2-in-1][2-in-1]]
 - [[#docker][Docker]]
 - [[#emacs][Emacs]]
   - [[#general][General]]
@@ -42,6 +43,38 @@
 - [[#vim][Vim]]
 - [[#virtualbox][VirtualBox]]
 
+* 2-in-1 :noexport_1:
+** Rotation
+*** iio-sensor-proxy
+A hardware translator daemon. It reads raw data from built-in sensors (=accelerometer=, =ambient light sensor=, =proximity sensor=, =compass=) and broadcasts standardized D-Bus signals that other applications can subscribe to.
+
+Installation.
+#+begin_src sh
+sudo pacman -S iio-sensor-proxy
+#+end_src
+
+How to debug.
+#+begin_src sh
+monitor-sensor
+#+end_src
+
+What to expect.
+
+- Orientation: measures rotation along the Z-axis. It tells the system which edge of the screen is pointing toward the ceiling.
+#+begin_src txt
+Accelerometer orientation changed: normal
+Accelerometer orientation changed: left-up
+Accelerometer orientation changed: bottom-up
+Accelerometer orientation changed: right-up
+Accelerometer orientation changed: normal
+#+end_src
+
+- Tilt: measures the pitch and roll along the X and Y axes. It tells the system how flat or upright the device is relative to the floor, regardless of how it is rotated.
+#+begin_src txt
+Tilt changed: tilted-up
+Tilt changed: vertical
+Tilt changed: tilted-down
+#+end_src
 * Docker :noexport_1:
 ** Copy container from machine A to machine B
 *** Method 1
