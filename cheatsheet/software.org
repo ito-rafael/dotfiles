@@ -75,6 +75,18 @@ Tilt changed: tilted-up
 Tilt changed: vertical
 Tilt changed: tilted-down
 #+end_src
+*** rot8
+A background daemon (X11/Wayland) that automatically rotates the screen and touchscreen by listening to =iio-sensor-proxy=.
+
+Installation.
+#+begin_src sh
+paru -S rot8-git
+#+end_src
+
+Run =rot8=, optionally passing the display name with the =--display= flag.
+#+begin_src sh
+rot8 --display eDP-1
+#+end_src
 * Docker :noexport_1:
 ** Copy container from machine A to machine B
 *** Method 1
