@@ -1813,12 +1813,6 @@ for_window [$prop="local.ansible-provision"] {
 #+begin_src conf :noweb-ref xeyes
 for_window [class="XEyes"] floating enable
 #+end_src
-*** Mousam
-Weather at a glance.
-#+begin_src conf :noweb-ref mousam
-for_window [app_id="io.github.amit9838.mousam"] floating enable
-bindsym $alt+$mod+d exec mousam
-#+end_src
 ** Tangle :noexport:
 *** i3
 #+begin_src conf :noweb yes :tangle _config_i3
@@ -1838,7 +1832,6 @@ bindsym $alt+$mod+d exec mousam
 <<informant-news>>
 <<ansible-provision>>
 <<xeyes>>
-<<mousam>>
 #+end_src
 * Scratchpads
 ** ansible-provision
@@ -1867,6 +1860,15 @@ for_window [$prop="^eu.betterbird.Betterbird$"] border pixel 5
 #for_window [$prop="^eu.betterbird.Betterbird$"] move scratchpad
 exec --no-startup-id bash -c 'betterbird & while ! swaymsg -t get_tree | grep -q "eu.betterbird.Betterbird"; do sleep 0.5; done; sleep 0.5; swaymsg "[app_id=\"^eu.betterbird.Betterbird$\"] move scratchpad"'
 bindsym $alt+$mod+r exec "$SCRIPT_PATH/show-or-launch.sh eu.betterbird.Betterbird 0.99 0.965"
+#+end_src
+** Mousam
+Weather at a glance.
+#+begin_src conf :noweb-ref scratchpads
+for_window [$prop="^io.github.amit9838.mousam$"] floating enable
+for_window [$prop="^io.github.amit9838.mousam$"] move position center
+for_window [$prop="^io.github.amit9838.mousam$"] move scratchpad
+for_window [$prop="^io.github.amit9838.mousam$"] border pixel 5
+bindsym $alt+$mod+d exec "$SCRIPT_PATH/show-or-launch.sh io.github.amit9838.mousam"
 #+end_src
 ** WhatsApp Web (on Brave Beta)
 *** i3
