@@ -39,7 +39,7 @@ input * {
     xkb_options "\
         modifiers:modifiers, \
         fnkeys:fnkeys, \
-        capslock:decouple \
+        capslockled:decouple \
     "
 }
 input "9011:26214:ydotoold_virtual_device" {

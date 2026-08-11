@@ -216,7 +216,7 @@ input * {
     xkb_options "\
         modifiers:modifiers, \
         fnkeys:fnkeys, \
-        capslock:decouple \
+        capslockled:decouple \
     "
 }
 #+end_src
