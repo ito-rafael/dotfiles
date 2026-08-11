@@ -106,6 +106,19 @@ try:
     driver.execute_script("openAddonsMgr();")
     time.sleep(3)
 
+    # switch to the "Extensions" view (default view is "Recommendations")
+    print("Switching to the 'Extensions' category to load the DOM...")
+    driver.execute_script("""
+        let tabInfo = document.getElementById('tabmail').currentTabInfo;
+        let doc = (tabInfo.browser || tabInfo.panel.querySelector('browser')).contentDocument;
+        let extBtn = doc.querySelector('[name="extension"]');
+        if (extBtn) {
+            extBtn.click();
+        }
+    """)
+    # give the extensions list a moment to populate
+    time.sleep(1.5)
+
     # click the gear icon natively
     print("Locating tbkeys and clicking the Gear/Preferences icon...")
     driver.execute_script("""
