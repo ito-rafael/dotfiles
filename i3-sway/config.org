@@ -215,8 +215,8 @@ Load generic modifications for all inputs.
 input * {
     xkb_options "\
         modifiers:modifiers, \
-        fn-keys:fnkeys, \
-        capslock-led:decouple \
+        fnkeys:fnkeys, \
+        capslock:decouple \
     "
 }
 #+end_src

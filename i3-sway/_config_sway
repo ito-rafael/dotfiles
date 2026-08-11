@@ -38,8 +38,8 @@ input type:keyboard {
 input * {
     xkb_options "\
         modifiers:modifiers, \
-        fn-keys:fnkeys, \
-        capslock-led:decouple \
+        fnkeys:fnkeys, \
+        capslock:decouple \
     "
 }
 input "9011:26214:ydotoold_virtual_device" {
