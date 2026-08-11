@@ -29,18 +29,12 @@ input type:touchpad {
     natural_scroll enabled  # natural scrolling
     drag_lock disabled      # stop dragging after lifting from touchpad
 }
-input type:keyboard xkb_numlock enabled
 input type:keyboard {
+    xkb_numlock enabled
     xkb_model "pc105"
     xkb_layout "us"
     xkb_variant "intl"
-}
-input type:keyboard {
-    xkb_options "\
-        modifiers:modifiers, \
-        fnkeys:fnkeys, \
-        capslockled:decouple \
-    "
+    xkb_options "modifiers:modifiers,fnkeys:fnkeys,capslockled:decouple"
 }
 input "9011:26214:ydotoold_virtual_device" {
     accel_profile flat

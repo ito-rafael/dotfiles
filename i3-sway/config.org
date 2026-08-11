@@ -195,29 +195,15 @@ input type:touchpad {
     drag_lock disabled      # stop dragging after lifting from touchpad
 }
 #+end_src
-*** Enable NumLock
-#+begin_src conf :noweb-ref sway-input
-input type:keyboard xkb_numlock enabled
-#+end_src
 *** Keyboard
-**** Model, layout and variant
-Load model, layout, and variant for all keyboards.
+Load model, layout, variant, and options for all keyboards.
 #+begin_src conf :noweb-ref sway-input
 input type:keyboard {
+    xkb_numlock enabled
     xkb_model "pc105"
     xkb_layout "us"
     xkb_variant "intl"
-}
-#+end_src
-**** Options
-Load generic modifications for all inputs.
-#+begin_src conf :noweb-ref sway-input
-input type:keyboard {
-    xkb_options "\
-        modifiers:modifiers, \
-        fnkeys:fnkeys, \
-        capslockled:decouple \
-    "
+    xkb_options "modifiers:modifiers,fnkeys:fnkeys,capslockled:decouple"
 }
 #+end_src
 *** ydotool
