@@ -39,7 +39,7 @@ input * {
     xkb_options "\
         modifiers:modifiers, \
         fn-keys:fnkeys, \
-        leds:decouple \
+        capslock-led:decouple \
     "
 }
 input "9011:26214:ydotoold_virtual_device" {

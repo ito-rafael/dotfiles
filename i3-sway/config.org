@@ -201,7 +201,7 @@ input type:keyboard xkb_numlock enabled
 #+end_src
 *** Keyboard
 **** Model, layout and variant
-Load model, layout and variant for all keyboards.
+Load model, layout, and variant for all keyboards.
 #+begin_src conf :noweb-ref sway-input
 input type:keyboard {
     xkb_model "pc105"
@@ -216,7 +216,7 @@ input * {
     xkb_options "\
         modifiers:modifiers, \
         fn-keys:fnkeys, \
-        leds:decouple \
+        capslock-led:decouple \
     "
 }
 #+end_src
