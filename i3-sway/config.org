@@ -212,7 +212,7 @@ input type:keyboard {
 **** Options
 Load generic modifications for all inputs.
 #+begin_src conf :noweb-ref sway-input
-input * {
+input type:keyboard {
     xkb_options "\
         modifiers:modifiers, \
         fnkeys:fnkeys, \

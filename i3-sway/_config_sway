@@ -35,7 +35,7 @@ input type:keyboard {
     xkb_layout "us"
     xkb_variant "intl"
 }
-input * {
+input type:keyboard {
     xkb_options "\
         modifiers:modifiers, \
         fnkeys:fnkeys, \
