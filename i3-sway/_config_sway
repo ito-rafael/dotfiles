@@ -34,6 +34,21 @@ input type:keyboard {
     xkb_model "pc105"
     xkb_layout "us"
     xkb_variant "intl"
+    xkb_options "modifiers:modifiers,fnkeys:fnkeys"
+}
+input "1:1:AT_Translated_Set_2_keyboard" {
+    xkb_layout "us"
+    xkb_variant "intl"
+    xkb_options "modifiers:modifiers,fnkeys:fnkeys,capslockled:decouple"
+}
+input "1:1:kanata" {
+    xkb_layout "us"
+    xkb_variant "intl"
+    xkb_options "modifiers:modifiers,fnkeys:fnkeys,capslockled:decouple"
+}
+input "4660:22136:xremap" {
+    xkb_layout "us"
+    xkb_variant "intl"
     xkb_options "modifiers:modifiers,fnkeys:fnkeys,capslockled:decouple"
 }
 input "9011:26214:ydotoold_virtual_device" {
