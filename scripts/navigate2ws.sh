@@ -63,7 +63,7 @@ else
             WS28="28:28"
             WS29="29:29"
             WS20="30:20"
-            
+
             #=================================================
             # get the workspace to navigate to
             #=================================================
@@ -102,7 +102,7 @@ else
                 29 ) WS_NAME=$WS29 ;;
                 20 ) WS_NAME=$WS20 ;;
             esac
-            
+
             #=================================================
             # check if navigating to current workspace
             #=================================================
@@ -114,7 +114,7 @@ else
             #)
             #if [ $WS_NAME -eq $CURRENT_WS ];
             #then
-            
+
             #=================================================
             # get session type (i3/sway/tty)
             #=================================================
@@ -141,38 +141,38 @@ else
                     # primary screen
                     1) kitty ;;
                     2) firefox & ;;
-                    3) brave & ;;
-                    4) thunderbird & ;;
+                    3) brave-origin & ;;
+                    4) ~/.config/scripts/rofi.sh drun ;;
                     5) libreoffice --calc "/home/rafael/Sync/shared-files/Coisas da casa.ods" & ;;
-                    6) lutris & ;;
+                    6) ~/.config/scripts/rofi.sh drun ;;
                     7) deluge & nicotine & ;;
-                    8) lollypop & ;;
-                    9) spotify & ;;
-                    0) gtk-launch emacsclient.desktop & ;;
+                    8) ~/.config/scripts/rofi.sh drun ;;
+                    9) ~/.config/scripts/rofi.sh drun ;;
+                    0) ~/.config/scripts/rofi.sh drun ;;
                     #-------------------------------------
                     # secondary screen
-                    11) ;;
-                    12) ;;
-                    13) ;;
-                    14) ;;
-                    15) ;;
-                    16) ;;
-                    17) ;;
-                    18) ;;
-                    19) ;;
-                    10 ) pavucontrol & blueman-applet & blueman-manager & ;;
+                    11) ~/.config/scripts/rofi.sh drun ;;
+                    12) ~/.config/scripts/rofi.sh drun ;;
+                    13) ~/.config/scripts/rofi.sh drun ;;
+                    14) ~/.config/scripts/rofi.sh drun ;;
+                    15) ~/.config/scripts/rofi.sh drun ;;
+                    16) ~/.config/scripts/rofi.sh drun ;;
+                    17) ~/.config/scripts/rofi.sh drun ;;
+                    18) ~/.config/scripts/rofi.sh drun ;;
+                    19) ~/.config/scripts/rofi.sh drun ;;
+                    10) pavucontrol & blueman-applet & blueman-manager & ;;
                     #-------------------------------------
                     # tertiary screen
-                    21) ;;
-                    22) ;;
-                    23) ;;
-                    24) ;;
-                    25) ;;
-                    26) ;;
-                    27) ;;
-                    28) ;;
-                    29) ;;
-                    20) ;;
+                    21) ~/.config/scripts/rofi.sh drun ;;
+                    22) ~/.config/scripts/rofi.sh drun ;;
+                    23) ~/.config/scripts/rofi.sh drun ;;
+                    24) ~/.config/scripts/rofi.sh drun ;;
+                    25) ~/.config/scripts/rofi.sh drun ;;
+                    26) ~/.config/scripts/rofi.sh drun ;;
+                    27) ~/.config/scripts/rofi.sh drun ;;
+                    28) ~/.config/scripts/rofi.sh drun ;;
+                    29) ~/.config/scripts/rofi.sh drun ;;
+                    20) ~/.config/scripts/rofi.sh drun ;;
                 esac
             fi
         fi
