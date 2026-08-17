@@ -2246,6 +2246,7 @@ output $tertiary  background ~/.config/wallpaper/nasa.png fill
 #+begin_src conf :noweb-ref daemons
 #exec --no-startup-id /usr/bin/dunst &          # dunst: notification daemon
 #exec_always dunstctl set-paused true           # dunst: start with notifications paused
+exec --no-startup-id fcitx5 -d                  # input method framework (cedilla fix)
 exec --no-startup-id emote                      # emoji picker
 exec --no-startup-id flashfocus                 # focus animation
 exec --no-startup-id autotiling                 # autotiling
