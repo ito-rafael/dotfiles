@@ -47,6 +47,7 @@
     - [[#méliuz][Méliuz]]
     - [[#honey][Honey]]
     - [[#camelcamelcamel][camelcamelcamel]]
+    - [[#pelando][Pelando]]
   - [[#youtube][YouTube]]
     - [[#youtube-playback-speed-control][+Youtube Playback Speed Control+]]
     - [[#return-youtube-dislike][Return YouTube Dislike]]
@@ -287,6 +288,12 @@ https://chromewebstore.google.com/detail/consent-o-matic/mdjildafknihdffpkfmmpnp
 - description: Amazon price tracking.
 #+begin_src js :noweb yes
 <<install(extension_id="ghnomdcacenbmilgjigehppbamfndblo")>>
+#+end_src
+*** Pelando
+- Chrome Web Store: https://chromewebstore.google.com/detail/pelando/aifpgkmldnglnmnkacahdenhhgfpkeal
+- description: promotion alerts.
+#+begin_src js :noweb yes
+<<install(extension_id="aifpgkmldnglnmnkacahdenhhgfpkeal")>>
 #+end_src
 ** YouTube
 *** +Youtube Playback Speed Control+
