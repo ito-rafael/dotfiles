@@ -261,15 +261,10 @@ box#keyboard {
 }
 #+end_src
 *** Mode
-**** default
 #+begin_src css
-#custom-xremap-mode.default {
-    color: gray;
-}
-#+end_src
-**** lan-mouse
-#+begin_src css
-#custom-xremap-mode.lan-mouse {
+#custom-xremap-mode.default,
+#custom-xremap-mode.lan-mouse,
+#custom-xremap-mode.pelando {
     color: gray;
 }
 #+end_src

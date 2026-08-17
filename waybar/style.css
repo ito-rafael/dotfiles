@@ -150,11 +150,9 @@ box#keyboard {
     background-image: url("/home/rafael/.config/waybar/icon/xremap-inactive.svg");
 }
 
-#custom-xremap-mode.default {
-    color: gray;
-}
-
-#custom-xremap-mode.lan-mouse {
+#custom-xremap-mode.default,
+#custom-xremap-mode.lan-mouse,
+#custom-xremap-mode.pelando {
     color: gray;
 }
 
