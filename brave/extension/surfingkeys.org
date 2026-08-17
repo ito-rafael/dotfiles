@@ -27,9 +27,11 @@
   - [[#youtube-music][YouTube Music]]
   - [[#aliexpress][AliExpress]]
   - [[#arxiv][arXiv]]
-- [[#exceptions][Exceptions]]
   - [[#localhost][localhost]]
+- [[#exceptions][Exceptions]]
+  - [[#localhost-1][localhost]]
   - [[#youtube][YouTube]]
+  - [[#jupyterlab-localhost][JupyterLab (localhost)]]
 
 * Information
 ** How to load config file
@@ -346,4 +348,8 @@ api.mapkey('<Alt-t>', 'Toggle PDF Dark Mode', function() {
 ** YouTube
 #+begin_src js
 api.unmap("c", /youtube.com/);
+#+end_src
+** JupyterLab (localhost)
+#+begin_src js
+settings.blocklistPattern = /localhost:5000\d\/lab/;
 #+end_src

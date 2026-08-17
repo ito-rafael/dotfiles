@@ -229,3 +229,5 @@ api.mapkey('<Alt-t>', 'Toggle PDF Dark Mode', function() {
 //api.unmapAllExcept([], /localhost/);
 
 api.unmap("c", /youtube.com/);
+
+settings.blocklistPattern = /localhost:5000\d\/lab/;
