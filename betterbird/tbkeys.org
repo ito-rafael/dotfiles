@@ -79,15 +79,15 @@ Custom keybindings for Thunderbird using the tbkeys extension.
 *** Jump to Top
 **** Single key: "0"
 #+begin_src js
-"0": "(function(){ try { let win = window.Services.wm.getMostRecentWindow('mail:3pane'); let t = win.gTabmail.tabInfo.find(tab => tab.mode && tab.mode.name === 'mail3PaneTab'); let cw = t.chromeBrowser.contentWindow; let tt = cw.document.getElementById('threadTree'); if(tt && tt.view && tt.view.selection){ tt.view.selection.select(0); if(typeof tt.scrollToIndex === 'function') tt.scrollToIndex(0); } } catch(e){} })();",
+"0": "(function(){ try { let win = window.Services.wm.getMostRecentWindow('mail:3pane'); let t = win.gTabmail.tabInfo.find(tab => tab.mode && tab.mode.name === 'mail3PaneTab'); let cw = t.chromeBrowser.contentWindow; let tt = cw.document.getElementById('threadTree'); if(tt && tt.view && tt.view.selection){ tt.view.selection.select(0); if(typeof tt.scrollToIndex === 'function') tt.scrollToIndex(0); tt.focus(); tt.dispatchEvent(new cw.Event('select', {bubbles: true})); } } catch(e){} })();",
 #+end_src
 **** Sequence: "gg"
 #+begin_src js
-"g": "(function(){ let now = Date.now(); if (now - (window._tbkeys_last_g || 0) < 500) { try { let win = window.Services.wm.getMostRecentWindow('mail:3pane'); let t = win.gTabmail.tabInfo.find(tab => tab.mode && tab.mode.name === 'mail3PaneTab'); let cw = t.chromeBrowser.contentWindow; let tt = cw.document.getElementById('threadTree'); if(tt && tt.view && tt.view.selection){ tt.view.selection.select(0); if(typeof tt.scrollToIndex === 'function') tt.scrollToIndex(0); } } catch(e){} window._tbkeys_last_g = 0; } else { window._tbkeys_last_g = now; } })();",
+"g": "(function(){ let now = Date.now(); if (now - (window._tbkeys_last_g || 0) < 500) { try { let win = window.Services.wm.getMostRecentWindow('mail:3pane'); let t = win.gTabmail.tabInfo.find(tab => tab.mode && tab.mode.name === 'mail3PaneTab'); let cw = t.chromeBrowser.contentWindow; let tt = cw.document.getElementById('threadTree'); if(tt && tt.view && tt.view.selection){ tt.view.selection.select(0); if(typeof tt.scrollToIndex === 'function') tt.scrollToIndex(0); tt.focus(); tt.dispatchEvent(new cw.Event('select', {bubbles: true})); } } catch(e){} window._tbkeys_last_g = 0; } else { window._tbkeys_last_g = now; } })();",
 #+end_src
 *** Jump to Bottom
 #+begin_src js
-"G": "(function(){ try { let win = window.Services.wm.getMostRecentWindow('mail:3pane'); let t = win.gTabmail.tabInfo.find(tab => tab.mode && tab.mode.name === 'mail3PaneTab'); let cw = t.chromeBrowser.contentWindow; let tt = cw.document.getElementById('threadTree'); if(tt && tt.view && tt.view.selection){ let count = tt.rowCount || tt.view.rowCount || 0; if(count > 0){ let target = count - 1; tt.view.selection.select(target); if(typeof tt.scrollToIndex === 'function') tt.scrollToIndex(target); } } } catch(e){} })();",
+"G": "(function(){ try { let win = window.Services.wm.getMostRecentWindow('mail:3pane'); let t = win.gTabmail.tabInfo.find(tab => tab.mode && tab.mode.name === 'mail3PaneTab'); let cw = t.chromeBrowser.contentWindow; let tt = cw.document.getElementById('threadTree'); if(tt && tt.view && tt.view.selection){ let count = tt.rowCount || tt.view.rowCount || 0; if(count > 0){ let target = count - 1; tt.view.selection.select(target); if(typeof tt.scrollToIndex === 'function') tt.scrollToIndex(target); tt.focus(); tt.dispatchEvent(new cw.Event('select', {bubbles: true})); } } } catch(e){} })();",
 #+end_src
 ** Accounts navigation
 *** Next account
