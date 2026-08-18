@@ -16,12 +16,7 @@
 - [[#group-keyboard][Group Keyboard]]
 - [[#group-power][Group Power]]
 - [[#group-datetime][Group Datetime]]
-- [[#mpris][MPRIS]]
-- [[#mpd][MPD]]
-- [[#caps-lock][Caps Lock]]
-- [[#caps-lock-1][Caps Lock]]
-- [[#systemd-services][Systemd services]]
-- [[#vpn][VPN]]
+- [[#miscellaneous][Miscellaneous]]
 
 * JSON header :noexport:
 #+begin_src js
@@ -881,30 +876,16 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
         }
 },
 #+end_src
-* MPRIS
+* Miscellaneous
+** Caps Lock
 #+begin_src js
-"mpris": {
-    "interval": 1,
-    "min-length": 40,
-    "max-length": 40,
-    "format": "{player_icon} {dynamic}  ",
-    "dynamic-order": ["artist", "title"],
-    "format-paused": "{status_icon} <i>{dynamic}</i>",
-    "player-icons": {
-        "default": "▶",
-        "mpv": "🎵"
-    },
-    "status-icons": {
-        "paused": "⏸"
-    },
-    //"ignored-players": ["firefox"]
-    "on-scroll-up": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 1%+ && ~/.config/eww/volume.sh",
-    "on-scroll-down": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 1%- && ~/.config/eww/volume.sh",
-    "reverse-scrolling": true,
-    "reverse-mouse-scrolling": false,
+"custom/capslock": {
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/capslock.sh",
+    "format": " {} ",
 },
 #+end_src
-* MPD
+** MPD
 #+begin_src js
 "mpd": {
     "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) \uf001",
@@ -933,29 +914,34 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
     "tooltip-format": "MPD (connected)",
     "tooltip-format-disconnected": "MPD (disconnected)"
 },
-* Caps Lock
-#+begin_src js :tangle no
-//"keyboard-state": {
-//    "capslock": true,
-//    "format": "{name} {icon}",
-//    "format-icons": {
-//        "locked": "",
-//        "unlocked": ""
-//    },
-//    "device-path": "/dev/input/eventXX",
 //},
 #+end_src
-* Caps Lock
+** MPRIS
 #+begin_src js
-"custom/capslock": {
-    "return-type": "json",
-    "exec": "~/.config/waybar/scripts/capslock.sh",
-    "format": " {} ",
+"mpris": {
+    "interval": 1,
+    "min-length": 40,
+    "max-length": 40,
+    "format": "{player_icon} {dynamic}  ",
+    "dynamic-order": ["artist", "title"],
+    "format-paused": "{status_icon} <i>{dynamic}</i>",
+    "player-icons": {
+        "default": "▶",
+        "mpv": "🎵"
+    },
+    "status-icons": {
+        "paused": "⏸"
+    },
+    //"ignored-players": ["firefox"]
+    "on-scroll-up": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 1%+ && ~/.config/eww/volume.sh",
+    "on-scroll-down": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 1%- && ~/.config/eww/volume.sh",
+    "reverse-scrolling": true,
+    "reverse-mouse-scrolling": false,
 },
 #+end_src
-* Systemd services
-** lan-mouse
-*** Systemd service
+** Systemd services
+*** lan-mouse
+**** Systemd service
 #+begin_src js
 "custom/systemd-lanmouse": {
     "exec": "~/.config/waybar/scripts/systemd-monitor.sh --user lanmouse.service --icon=",
@@ -965,7 +951,7 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
     "on-click-right": "systemctl --user is-active --quiet lanmouse.service && systemctl --user stop lanmouse.service || systemctl --user start lanmouse.service"
 },
 #+end_src
-*** Status
+**** Status
 #+begin_src js
 "custom/lanmouse-status": {
     "exec": "~/.config/waybar/scripts/lanmouse-status.sh",
@@ -973,8 +959,8 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
     "format": " {} ",
 },
 #+end_src
-* VPN
-** La Casa Nostra
+** VPN
+*** La Casa Nostra
 #+begin_src js
 "custom/vpn-lcn": {
     "interval": 1,
@@ -983,7 +969,7 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
     "format": " {} ",
 },
 #+end_src
-** Unicamp
+*** Unicamp
 #+begin_src js
 "custom/vpn-unicamp": {
     "interval": 1,
@@ -992,7 +978,7 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
     "format": " {} ",
 },
 #+end_src
-** LBiC
+*** LBiC
 #+begin_src js
 "custom/vpn-lbic": {
     "interval": 1,
@@ -1001,7 +987,7 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
     "format": " {} ",
 },
 #+end_src
-** Samsung
+*** Samsung
 #+begin_src js
 "custom/vpn-samsung": {
     "interval": 1,

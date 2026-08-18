@@ -375,10 +375,11 @@
   ]
 },
 
-"custom/mouse-warping": {
+"custom/dunst": {
     "return-type": "json",
-    "exec": "~/.config/waybar/scripts/mouse-warping.sh monitor",
-    "on-click": "~/.config/waybar/scripts/mouse-warping.sh toggle",
+    "exec": "~/.config/waybar/scripts/dunst.sh",
+    "on-click": "dunstctl set-paused toggle",
+    "restart-interval": 1,
     "format": " {} {icon} ",
     //"format-icons": {
     //    "enabled": "<span color=\"#090\"></span>",
@@ -690,25 +691,10 @@
         }
 },
 
-"mpris": {
-    "interval": 1,
-    "min-length": 40,
-    "max-length": 40,
-    "format": "{player_icon} {dynamic}  ",
-    "dynamic-order": ["artist", "title"],
-    "format-paused": "{status_icon} <i>{dynamic}</i>",
-    "player-icons": {
-        "default": "▶",
-        "mpv": "🎵"
-    },
-    "status-icons": {
-        "paused": "⏸"
-    },
-    //"ignored-players": ["firefox"]
-    "on-scroll-up": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 1%+ && ~/.config/eww/volume.sh",
-    "on-scroll-down": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 1%- && ~/.config/eww/volume.sh",
-    "reverse-scrolling": true,
-    "reverse-mouse-scrolling": false,
+"custom/capslock": {
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/capslock.sh",
+    "format": " {} ",
 },
 
 "mpd": {
@@ -738,10 +724,26 @@
     "tooltip-format": "MPD (connected)",
     "tooltip-format-disconnected": "MPD (disconnected)"
 },
-"custom/capslock": {
-    "return-type": "json",
-    "exec": "~/.config/waybar/scripts/capslock.sh",
-    "format": " {} ",
+
+"mpris": {
+    "interval": 1,
+    "min-length": 40,
+    "max-length": 40,
+    "format": "{player_icon} {dynamic}  ",
+    "dynamic-order": ["artist", "title"],
+    "format-paused": "{status_icon} <i>{dynamic}</i>",
+    "player-icons": {
+        "default": "▶",
+        "mpv": "🎵"
+    },
+    "status-icons": {
+        "paused": "⏸"
+    },
+    //"ignored-players": ["firefox"]
+    "on-scroll-up": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 1%+ && ~/.config/eww/volume.sh",
+    "on-scroll-down": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 1%- && ~/.config/eww/volume.sh",
+    "reverse-scrolling": true,
+    "reverse-mouse-scrolling": false,
 },
 
 "custom/systemd-lanmouse": {
