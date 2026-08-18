@@ -1018,8 +1018,8 @@ box#toggle {
 #+end_src
 *** Modules
 #+begin_src css
-#custom-mouse-warping,
 #custom-dunst,
+#custom-mouse-warping,
 #custom-scale,
 #custom-proton-vpn,
 #custom-keyboard-backlit,
@@ -1033,7 +1033,7 @@ box#toggle {
 #+end_src
 *** Separator
 #+begin_src css
-#custom-dunst,
+#custom-mouse-warping,
 #custom-scale,
 #custom-proton-vpn,
 #custom-keyboard-backlit,

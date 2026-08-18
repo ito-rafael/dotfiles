@@ -654,8 +654,8 @@ box#toggle {
     padding-left: 2px;
 }
 
-#custom-mouse-warping,
 #custom-dunst,
+#custom-mouse-warping,
 #custom-scale,
 #custom-proton-vpn,
 #custom-keyboard-backlit,
@@ -667,7 +667,7 @@ box#toggle {
     color: lightgray;
 }
 
-#custom-dunst,
+#custom-mouse-warping,
 #custom-scale,
 #custom-proton-vpn,
 #custom-keyboard-backlit,
