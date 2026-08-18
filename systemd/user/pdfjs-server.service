@@ -1,0 +1,12 @@
+[Unit]
+Description=PDF.js Local Server
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/.config/scripts
+ExecStart=/usr/bin/python3 pdfjs-server.py
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
