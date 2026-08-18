@@ -226,6 +226,22 @@ api.mapkey('<Alt-t>', 'Toggle PDF Dark Mode', function() {
     }
 }, {domain: /localhost/i});
 
+// tag the window title when on the local PDF.js viewer
+if (window.location.href.includes("localhost:8080/web/viewer.html")) {
+    const modifyTitle = () => {
+        if (document.title && !document.title.includes("[pdfjs]")) {
+            document.title = "[pdfjs] " + document.title;
+        }
+    };
+    // run immediately
+    modifyTitle();
+    // PDF.js changes the title dynamically when the PDF loads, so keep tracking it
+    const titleNode = document.querySelector('title');
+    if (titleNode) {
+        new MutationObserver(modifyTitle).observe(titleNode, { childList: true });
+    }
+}
+
 //api.unmapAllExcept([], /localhost/);
 
 api.unmap("c", /youtube.com/);

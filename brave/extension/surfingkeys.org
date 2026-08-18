@@ -306,6 +306,7 @@ api.mapkey('gA', 'Read arXiv paper in HTML (ar5iv)', function() {
 }, {domain: /arxiv\.org/i});
 #+end_src
 ** localhost
+*** Toggle dark/light theme
 #+begin_src js
 // map <Alt-t> to toggle Dark Mode in local PDF.js
 api.mapkey('<Alt-t>', 'Toggle PDF Dark Mode', function() {
@@ -339,6 +340,25 @@ api.mapkey('<Alt-t>', 'Toggle PDF Dark Mode', function() {
         api.Front.showBanner("PDF Dark Mode");
     }
 }, {domain: /localhost/i});
+#+end_src
+*** Add title tag to PDF.js window
+This will add the text "[localhost]" in the window title, so it can be matched with regex by =xremap=.
+#+begin_src js
+// tag the window title when on the local PDF.js viewer
+if (window.location.href.includes("localhost:8080/web/viewer.html")) {
+    const modifyTitle = () => {
+        if (document.title && !document.title.includes("[pdfjs]")) {
+            document.title = "[pdfjs] " + document.title;
+        }
+    };
+    // run immediately
+    modifyTitle();
+    // PDF.js changes the title dynamically when the PDF loads, so keep tracking it
+    const titleNode = document.querySelector('title');
+    if (titleNode) {
+        new MutationObserver(modifyTitle).observe(titleNode, { childList: true });
+    }
+}
 #+end_src
 * Exceptions
 ** localhost
