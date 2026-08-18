@@ -29,6 +29,11 @@ SHORTCUTS_CONFIG = [
         "extension": "Tab Session Manager",
         "command": "Save session (all windows)",
         "shortcut": "Alt+O"
+    },
+    {
+        "extension": "Zotero Connector",
+        "command": "Activate the extension",
+        "shortcut": "Alt+Z"
     }
 ]
 
