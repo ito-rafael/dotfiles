@@ -17,7 +17,7 @@ import subprocess
 SHORTCUTS_CONFIG = [
     {
         "extension": "Dark Reader",
-        "command": "Toggle current site",
+        "command": "Toggle extension",
         "shortcut": "Alt+D"
     },
     {
