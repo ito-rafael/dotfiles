@@ -21,6 +21,11 @@ SHORTCUTS_CONFIG = [
         "shortcut": "Alt+D"
     },
     {
+        "extension": "Pelando",
+        "command": "Activate the extension",
+        "shortcut": "Shift+Alt+P"
+    },
+    {
         "extension": "Tab Session Manager",
         "command": "Save session (all windows)",
         "shortcut": "Alt+O"
