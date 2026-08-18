@@ -20,7 +20,6 @@
 - [[#mpd][MPD]]
 - [[#caps-lock][Caps Lock]]
 - [[#caps-lock-1][Caps Lock]]
-- [[#pomodoro-timer][Pomodoro timer]]
 - [[#systemd-services][Systemd services]]
 - [[#vpn][VPN]]
 
@@ -500,27 +499,14 @@
 "group/toggle": {
   "orientation": "inherit",
   "modules": [
-    "custom/mouse-warping",
     "custom/dunst",
+    "custom/mouse-warping",
     "custom/scale",
     "custom/proton-vpn",
     "custom/keyboard-backlit",
     "custom/screencast",
     "custom/pomodoro-timer",
   ]
-},
-#+end_src
-** Mouse warping
-#+begin_src js
-"custom/mouse-warping": {
-    "return-type": "json",
-    "exec": "~/.config/waybar/scripts/mouse-warping.sh monitor",
-    "on-click": "~/.config/waybar/scripts/mouse-warping.sh toggle",
-    "format": " {} {icon} ",
-    //"format-icons": {
-    //    "enabled": "<span color=\"#090\"></span>",
-    //    "disabled": "<span color=\"#F00\"></span>",
-    //},
 },
 #+end_src
 ** Dunst
@@ -530,6 +516,19 @@
     "exec": "~/.config/waybar/scripts/dunst.sh",
     "on-click": "dunstctl set-paused toggle",
     "restart-interval": 1,
+    "format": " {} {icon} ",
+    //"format-icons": {
+    //    "enabled": "<span color=\"#090\"></span>",
+    //    "disabled": "<span color=\"#F00\"></span>",
+    //},
+},
+#+end_src
+** Mouse warping
+#+begin_src js
+"custom/mouse-warping": {
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/mouse-warping.sh monitor",
+    "on-click": "~/.config/waybar/scripts/mouse-warping.sh toggle",
     "format": " {} {icon} ",
     //"format-icons": {
     //    "enabled": "<span color=\"#090\"></span>",
@@ -564,14 +563,6 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
     "on-click": "~/.config/waybar/scripts/proton-vpn.sh toggle &",
 },
 #+end_src
-** Screencast
-#+begin_src js
-"custom/screencast": {
-    "exec": "~/.config/waybar/scripts/screencast.sh",
-    "return-type": "json",
-    "on-click": "~/.config/scripts/screencast.sh toggle"
-},
-#+end_src
 ** Keyboard backlit
 #+begin_src js
 "custom/keyboard-backlit": {
@@ -586,6 +577,24 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
     "on-click": "~/.config/scripts/keeb-backlit.sh cycle && ~/.config/scripts/osd.sh backlit",
     "on-scroll-up": "~/.config/scripts/keeb-backlit.sh inc && ~/.config/scripts/osd.sh backlit",
     "on-scroll-down": "~/.config/scripts/keeb-backlit.sh dec && ~/.config/scripts/osd.sh backlit",
+},
+#+end_src
+** Screencast
+#+begin_src js
+"custom/screencast": {
+    "exec": "~/.config/waybar/scripts/screencast.sh",
+    "return-type": "json",
+    "on-click": "~/.config/scripts/screencast.sh toggle"
+},
+#+end_src
+** Pomodoro timer
+#+begin_src js
+"custom/pomodoro-timer": {
+    "exec": "~/.config/waybar/scripts/pomodoro-timer.sh",
+    "return-type": "json",
+    "on-click": "tomat toggle",
+    "on-click-middle": "tomat stop",
+    "on-click-right": "tomat skip"
 },
 #+end_src
 * Group Keyboard
@@ -942,16 +951,6 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
     "return-type": "json",
     "exec": "~/.config/waybar/scripts/capslock.sh",
     "format": " {} ",
-},
-#+end_src
-* Pomodoro timer
-#+begin_src js
-"custom/pomodoro-timer": {
-    "exec": "~/.config/waybar/scripts/pomodoro-timer.sh",
-    "return-type": "json",
-    "on-click": "tomat toggle",
-    "on-click-middle": "tomat stop",
-    "on-click-right": "tomat skip"
 },
 #+end_src
 * Systemd services
