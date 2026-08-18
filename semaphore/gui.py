@@ -57,18 +57,18 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
         main_box.set_margin_end(20)
         self.set_child(main_box)
 
-        # SINGLE GRID setup
+        # single grid setup
         grid = Gtk.Grid(row_spacing=15, column_spacing=12)
         grid.set_halign(Gtk.Align.CENTER)
         main_box.append(grid)
 
-        # Calculate dynamic absolute paths based on the script's actual location
+        # calculate dynamic absolute paths based on the script's actual location
         script_dir = os.path.dirname(os.path.abspath(__file__))
         #ansible_icon_path = os.path.join(script_dir, "../icon/ansible.png")
         ansible_icon_path = os.path.join(script_dir, "../icon/ansible-red.svg")
         semaphore_icon_path = os.path.join(script_dir, "../icon/semaphore-ui.png")
 
-        # Header Box
+        # header box
         header_box = Gtk.CenterBox()
 
         # left logo
@@ -123,8 +123,10 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
         v_sep.set_hexpand(True)
         grid.attach(v_sep, 2, 1, 1, 4)
 
-        # options label
-        grid.attach(Gtk.Label(label="<b>Options:</b>", use_markup=True, halign=Gtk.Align.START), 3, 1, 1, 1)
+        # local test (l) replacing the static options label
+        self.local_test_check = Gtk.CheckButton(label="Local test (l)")
+        self.local_test_check.connect("toggled", self.update_command)
+        grid.attach(self.local_test_check, 3, 1, 1, 1)
 
         # dry run (c)
         self.dry_run_check = Gtk.CheckButton(label="Dry run (c)")
@@ -214,12 +216,13 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
 
         # build the Spatial Colemak-DH Navigation Map
         self.nav_map = {
-            self.hosts_drop:      {'n': None, 'e': self.tags_entry, 'i': None, 'o': self.dry_run_check},
+            self.hosts_drop:      {'n': None, 'e': self.tags_entry, 'i': None, 'o': self.local_test_check},
             self.tags_entry:      {'n': None, 'e': self.skip_tags_entry, 'i': self.hosts_drop, 'o': self.dry_run_check},
             self.skip_tags_entry: {'n': None, 'e': self.strategy_drop, 'i': self.tags_entry, 'o': self.diff_check},
             self.strategy_drop:   {'n': None, 'e': self.start_task_entry, 'i': self.skip_tags_entry, 'o': self.debug_check},
 
-            self.dry_run_check:   {'n': self.tags_entry, 'e': self.diff_check, 'i': self.hosts_drop, 'o': None},
+            self.local_test_check:{'n': self.hosts_drop, 'e': self.dry_run_check, 'i': None, 'o': None},
+            self.dry_run_check:   {'n': self.tags_entry, 'e': self.diff_check, 'i': self.local_test_check, 'o': None},
             self.diff_check:      {'n': self.skip_tags_entry, 'e': self.debug_check, 'i': self.dry_run_check, 'o': None},
             self.debug_check:     {'n': self.strategy_drop, 'e': self.start_task_entry, 'i': self.diff_check, 'o': None},
 
@@ -255,8 +258,10 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
         if self.strategy_drop.get_selected_item().get_string() == "Linear":
             cmd.append("--linear")
 
-        if self.dry_run_check.get_active():
+        if self.local_test_check.get_active():
             cmd.append("--test")
+        if self.dry_run_check.get_active():
+            cmd.append("--check")
         if self.diff_check.get_active():
             cmd.append("--diff")
         if self.debug_check.get_active():
@@ -430,6 +435,9 @@ class AnsibleProvisionApp(Gtk.ApplicationWindow):
             return True
 
         # checkbox toggles
+        elif key == 'l':
+            self.local_test_check.set_active(not self.local_test_check.get_active())
+            return True
         elif key == 'c':
             self.dry_run_check.set_active(not self.dry_run_check.get_active())
             return True
