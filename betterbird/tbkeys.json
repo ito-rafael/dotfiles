@@ -24,7 +24,7 @@
   "F": "cmd:cmd_forward",
   "x": "cmd:cmd_archive",
   "ctrl+r": "cmd:cmd_reply",
-  "ctrl+r": "cmd:cmd_getMsgsForAuthAccounts",
+  "r": "cmd:cmd_getMsgsForAuthAccounts",
   "s": "(function(){ let am=window.gTabmail.currentAboutMessage; if(!am||!am.document)return; let s=am.document.querySelector('mail-headerfield[name=\"author\"] mail-emailaddress, .message-header-author mail-emailaddress'); let a=s?(s.getAttribute('email')||s.textContent):''; if(!a){let h=am.document.getElementById('messageHeader')||am.document.body; let m=h.innerText.match(/[\\w.-]+@[\\w.-]+\\.\\w+/); if(m)a=m[0];} let m2=a.match(/<([^>]+)>/); let e=(m2?m2[1]:a).replace(/[\"<>]/g,'').trim().toLowerCase(); if(e.includes('@')&&window.Services){let u=window.Services.io.newURI('chrome://messenger/content/email='+e); let p=window.Services.scriptSecurityManager.createContentPrincipal(u,{}); window.Services.perms.addFromPrincipal(p,'image',1); window.Services.perms.addFromPrincipal(p,'remote-content',1); am.LoadMsgWithRemoteContent();} })();",
   "f": "memsg:tbhints@addons.thunderbird.net:show-hints"
 }

@@ -131,7 +131,7 @@ Custom keybindings for Thunderbird using the tbkeys extension.
 #+end_src
 *** All accounts
 #+begin_src js
-"ctrl+r": "cmd:cmd_getMsgsForAuthAccounts",
+"r": "cmd:cmd_getMsgsForAuthAccounts",
 #+end_src
 ** Allow content from sender
 #+begin_src js
