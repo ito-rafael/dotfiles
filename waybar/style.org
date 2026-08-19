@@ -1266,10 +1266,17 @@ box#toggle {
 #+end_src
 *** Image
 #+begin_src css
+#custom-pdfjs.active,
 #custom-pdfjs.inactive {
     background-size: 12px;
     background-repeat: no-repeat;
     background-position: center calc(50% - 1px);
+}
+#+end_src
+*** Active
+#+begin_src css
+#custom-pdfjs.active {
+    background-image: url("/home/rafael/.config/waybar/icon/pdfjs-active.svg");
 }
 #+end_src
 *** Inactive
