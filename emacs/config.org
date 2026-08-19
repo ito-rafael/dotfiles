@@ -962,19 +962,43 @@ Toggle visibility of hidden Org mode element parts upon entering and leaving an 
     "n" 'dired-up-directory
     "e" 'dired-next-line
     "i" 'dired-previous-line
-    "o" 'dired-find-file))
-
-  ;;exit isearch and, if in dired-mode, visit the file or directory at point.
-  (defun efs/dired-isearch-tab2visit ()
-    (interactive)
-    (when (derived-mode-p 'dired-mode)
-      ;; defer the dired-find-file call slightly to run after isearch has exited
-      (run-at-time 0 nil
-        (lambda ()
-          (when (derived-mode-p 'dired-mode)
-            (dired-find-file)))))
-    (isearch-exit))
-  (define-key isearch-mode-map (kbd "TAB") #'efs/dired-isearch-tab2visit)
+    "o" 'dired-find-file
+    "r" 'efs/dired-toggle-sort-reverse
+  )
+)
+#+end_src
+** Custom functions
+*** Exit isearch
+#+begin_src emacs-lisp
+;;exit isearch and, if in dired-mode, visit the file or directory at point.
+(defun efs/dired-isearch-tab2visit ()
+  (interactive)
+  (when (derived-mode-p 'dired-mode)
+    ;; defer the dired-find-file call slightly to run after isearch has exited
+    (run-at-time 0 nil
+      (lambda ()
+        (when (derived-mode-p 'dired-mode)
+          (dired-find-file)))))
+  (isearch-exit))
+(define-key isearch-mode-map (kbd "TAB") #'efs/dired-isearch-tab2visit)
+#+end_src
+*** Reverse sorting
+#+begin_src emacs-lisp
+;; reverse sorting
+(defun efs/dired-toggle-sort-reverse ()
+  "Toggle reverse sorting in the current Dired buffer."
+  (interactive)
+  (if (derived-mode-p 'dired-mode)
+      (let* ((switches dired-actual-switches)
+             (new-switches
+              (if (string-match-p "\\`-[a-zA-Z]*r" switches)
+                  ;; if 'r' is in the first block of short flags (like -aghor), strip the 'r'
+                  (replace-regexp-in-string "\\(\\`-[a-zA-Z]*\\)r" "\\1" switches)
+                ;; otherwise, append 'r' to that first block of short flags (like -aghotr)
+                (replace-regexp-in-string "\\(\\`-[a-zA-Z]*\\)" "\\1r" switches))))
+        ;; apply the new switches locally and refresh the buffer
+        (dired-sort-other new-switches))
+    (message "Not in a Dired buffer!")))
 #+end_src
 ** all-the-icons-dired
 https://github.com/jtbm37/all-the-icons-dired
