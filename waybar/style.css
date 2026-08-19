@@ -834,6 +834,11 @@ box#toggle {
     min-width: 16px;
 }
 
+#custom-pdfjs:hover {
+    background-color: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+
 #custom-pdfjs.active,
 #custom-pdfjs.inactive {
     background-size: 12px;
