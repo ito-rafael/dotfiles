@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # define notification duration in seconds
 TIMEOUT=1
-# get setting to control via argument (volume, mic, brightness, gamma, backlit)
+# get setting to control via argument (volume, mic, brightness, gamma, backlit, theme, dnd)
 ATTRIBUTE=$1
 
 case "$ATTRIBUTE" in
@@ -101,8 +101,25 @@ theme)
     fi
     ;;
 
+dnd)
+    CURRENT=$(dunstctl is-paused)
+    #CURRENT=$(dunstctl get-pause-level)
+
+    if [ "$CURRENT" == "true" ]; then
+        # 100 fills the bar to represent "on/enabled"
+        VALUE=100
+        ICON="/home/rafael/.config/icon/bell-slashed.svg"
+        TEXT="Do Not Disturb Enabled"
+    else
+        # 0 empties the bar to represent "off/disabled"
+        VALUE=0
+        ICON="/home/rafael/.config/icon/bell.svg"
+        TEXT="Notifications Enabled"
+    fi
+    ;;
+
 *)
-    echo "Usage: $0 {volume|mic|brightness|gamma|backlit|theme}"
+    echo "Usage: $0 {volume|mic|brightness|gamma|backlit|theme|dnd}"
     exit 1
     ;;
 

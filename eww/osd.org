@@ -14,6 +14,7 @@
   - [[#gamma][Gamma]]
   - [[#keyboard-backlit][Keyboard Backlit]]
   - [[#theme][Theme]]
+  - [[#do-not-disturb][Do Not Disturb]]
   - [[#default][Default]]
   - [[#eos][EoS]]
 - [[#display-window][Display window]]
@@ -26,7 +27,7 @@
 #+begin_src sh
 # define notification duration in seconds
 TIMEOUT=1
-# get setting to control via argument (volume, mic, brightness, gamma, backlit)
+# get setting to control via argument (volume, mic, brightness, gamma, backlit, theme, dnd)
 ATTRIBUTE=$1
 #+end_src
 * Attributes
@@ -140,10 +141,29 @@ theme)
     fi
     ;;
 #+end_src
+** Do Not Disturb
+#+begin_src sh
+dnd)
+    CURRENT=$(dunstctl is-paused)
+    #CURRENT=$(dunstctl get-pause-level)
+
+    if [ "$CURRENT" == "true" ]; then
+        # 100 fills the bar to represent "on/enabled"
+        VALUE=100
+        ICON="/home/rafael/.config/icon/bell-slashed.svg"
+        TEXT="Do Not Disturb Enabled"
+    else
+        # 0 empties the bar to represent "off/disabled"
+        VALUE=0
+        ICON="/home/rafael/.config/icon/bell.svg"
+        TEXT="Notifications Enabled"
+    fi
+    ;;
+#+end_src
 ** Default
 #+begin_src sh
 *)
-    echo "Usage: $0 {volume|mic|brightness|gamma|backlit|theme}"
+    echo "Usage: $0 {volume|mic|brightness|gamma|backlit|theme|dnd}"
     exit 1
     ;;
 #+end_src
