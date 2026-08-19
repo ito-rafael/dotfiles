@@ -500,6 +500,7 @@
     "custom/proton-vpn",
     "custom/keyboard-backlit",
     "custom/screencast",
+    "custom/pdfjs",
     "custom/pomodoro-timer",
   ]
 },
@@ -580,6 +581,14 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
     "exec": "~/.config/waybar/scripts/screencast.sh",
     "return-type": "json",
     "on-click": "~/.config/scripts/screencast.sh toggle"
+},
+#+end_src
+** PDF.js
+#+begin_src js
+"custom/pdfjs": {
+    "exec": "~/.config/waybar/scripts/pdfjs.sh",
+    "return-type": "json",
+    "on-click": "systemctl --user is-active --quiet pdfjs.service && systemctl --user stop pdfjs.service || systemctl --user start pdfjs.service"
 },
 #+end_src
 ** Pomodoro timer
