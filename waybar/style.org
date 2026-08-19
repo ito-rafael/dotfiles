@@ -1264,6 +1264,20 @@ box#toggle {
     min-width: 16px;
 }
 #+end_src
+*** Image
+#+begin_src css
+#custom-pdfjs.inactive {
+    background-size: 12px;
+    background-repeat: no-repeat;
+    background-position: center calc(50% - 1px);
+}
+#+end_src
+*** Inactive
+#+begin_src css
+#custom-pdfjs.inactive {
+    background-image: url("/home/rafael/.config/waybar/icon/pdfjs-inactive.svg");
+}
+#+end_src
 ** Pomodoro timer :noexport_1:
 #+begin_src css
 #custom-pomodoro-timer {
