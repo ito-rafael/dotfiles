@@ -379,7 +379,7 @@
 "custom/dunst": {
     "return-type": "json",
     "exec": "~/.config/waybar/scripts/dunst.sh",
-    "on-click": "dunstctl set-paused toggle",
+    "on-click": "dunstctl set-paused toggle && ~/.config/scripts/osd.sh dnd",
     "restart-interval": 1,
     "format": " {} {icon} ",
     //"format-icons": {
