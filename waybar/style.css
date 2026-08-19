@@ -660,6 +660,7 @@ box#toggle {
 #custom-proton-vpn,
 #custom-keyboard-backlit,
 #custom-screencast,
+#custom-pdfjs,
 #custom-pomodoro-timer {
     padding-right: 3px;
     padding-left: 3px;
@@ -672,6 +673,7 @@ box#toggle {
 #custom-proton-vpn,
 #custom-keyboard-backlit,
 #custom-screencast,
+#custom-pdfjs,
 #custom-pomodoro-timer {
     border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -822,6 +824,14 @@ box#toggle {
 #custom-screencast:hover {
     background-color: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
+}
+
+#custom-pdfjs {
+    padding-right: 4px;
+    padding-left: 4px;
+    padding-bottom: 5px;
+    color: transparent;
+    min-width: 16px;
 }
 
 #custom-pomodoro-timer {
