@@ -2221,6 +2221,11 @@ exec echo "6500" > /tmp/gamma_temp.tmp
 #+begin_src conf :noweb-ref proton-vpn
 exec echo "disconnected" > /tmp/proton-vpn-status.tmp
 #+end_src
+** Waybar
+*** Reset color
+#+begin_src conf :noweb-ref waybar
+exec echo '@define-color dynamic_bg rgba(43, 48, 59, 0.5);' >~/.config/waybar/dynamic-bg.css
+#+end_src
 ** Background images
 *** i3
 Before, wallpapers were set calling =feh= directly in i3wm.
@@ -2338,9 +2343,9 @@ exec --no-startup-id "sleep 5 && swaymsg '[app_id=brave-origin]' move to workspa
 <<sway-xremap>>
 <<sway-gamma>>
 <<proton-vpn>>
+<<waybar>>
 <<sway-wallpaper>>
 <<daemons>>
-<<sway-waybar>>
 <<applets>>
 <<startup-commands>>
 #+end_src

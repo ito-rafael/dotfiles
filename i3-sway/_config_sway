@@ -717,6 +717,7 @@ exec echo "default" > /tmp/xremap_mode.tmp
 exec gammastep
 exec echo "6500" > /tmp/gamma_temp.tmp
 exec echo "disconnected" > /tmp/proton-vpn-status.tmp
+exec echo '@define-color dynamic_bg rgba(43, 48, 59, 0.5);' >~/.config/waybar/dynamic-bg.css
 output $laptop    background ~/.config/wallpaper/london.jpg fill
 output $primary   background ~/.config/wallpaper/london.jpg fill
 output $secondary background ~/.config/wallpaper/london.jpg fill
@@ -739,7 +740,6 @@ bindsym $alt+ctrl+l exec "emacsclient -c -s efs"                                
 #bindsym $alt+ctrl+shift+l exec "emacsclient -c -s doom -a emacs"                    # emacsclient for Doom
 bindsym $alt+ctrl+shift+l exec 'emacsclient -s efs --eval "(emacs-everywhere)"'     # emacs-everywhere
 bindsym $alt+ctrl+w exec "$XDG_CONFIG_HOME/waybar/scripts/mouse-warping.sh toggle"  # enable/disable mouse warping
-#exec_always --no-startup-id ~/.config/waybar/waybar.sh
 exec "blueman-applet &"                 # Bluetooth
 exec "nm-applet --indicator &"          # NetworkManager
 exec "syncthing &"                      # Syncthing
