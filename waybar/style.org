@@ -58,6 +58,7 @@
 *** Normal
 #+begin_src css
 window#waybar {
+    /*background-color: rgba(43, 48, 59, 0.5);*/
     background-color: @dynamic_bg;
     border-bottom: 0px solid rgba(100, 114, 125, 0.5);
     border-radius: 100px;
@@ -65,6 +66,15 @@ window#waybar {
     transition-property: background-color;
     transition-duration: .5s;
 }
+#+end_src
+*** Focused output
+This section is being controlled by the ~/.config/scripts/waybar-dynamic-color.sh script.
+#+begin_src css :tangle no
+/*
+window#waybar.${FOCUSED_OUTPUT} {
+    background-color: @dynamic_bg;
+}
+,*/
 #+end_src
 *** Hidden
 #+begin_src css
