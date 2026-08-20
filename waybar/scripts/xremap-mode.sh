@@ -45,11 +45,27 @@ case "${CMD}" in
                     # sync temp file
                     echo "$DETECTED_MODE" > "$FILE"
 
-                    if [[ "$DETECTED_MODE" == "default" ]]; then
-                        echo '{"text": "xremap", "alt": "default", "class": "default"}' || exit 0
-                    else
-                        echo "{\"text\": \"$DETECTED_MODE\", \"alt\": \"$DETECTED_MODE\", \"class\": \"$DETECTED_MODE\"}" || exit 0
-                    fi
+                    #------------------------
+                    case "$DETECTED_MODE" in
+                        "default")
+                            echo '{"text": "xremap", "alt": "default", "class": "default"}' || exit 0
+                            # reset Waybar color
+                            echo '@define-color dynamic_bg rgba(43, 48, 59, 0.5);' >~/.config/waybar/dynamic-bg.css
+                            ;;
+                        "lan-mouse")
+                            echo "{\"text\": \"$DETECTED_MODE\", \"alt\": \"$DETECTED_MODE\", \"class\": \"$DETECTED_MODE\"}" || exit 0
+                            # set Waybar color to red
+                            echo '@define-color dynamic_bg rgba(128, 0, 0, 0.5);' >~/.config/waybar/dynamic-bg.css
+                            ;;
+                        "pelando")
+                            echo "{\"text\": \"$DETECTED_MODE\", \"alt\": \"$DETECTED_MODE\", \"class\": \"$DETECTED_MODE\"}" || exit 0
+                            ;;
+                        *)
+                            echo "{\"text\": \"$DETECTED_MODE\", \"alt\": \"$DETECTED_MODE\", \"class\": \"$DETECTED_MODE\"}" || exit 0
+                            ;;
+                    esac
+                    #------------------------
+
                 fi
             fi
         done
