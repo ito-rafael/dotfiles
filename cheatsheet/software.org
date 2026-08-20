@@ -39,6 +39,7 @@
   - [[#get-temperature-value][Get temperature value]]
 - [[#scribd][Scribd]]
 - [[#ssh][SSH]]
+- [[#systemd][Systemd]]
 - [[#ventoy][Ventoy]]
 - [[#vim][Vim]]
 - [[#virtualbox][VirtualBox]]
@@ -1295,6 +1296,11 @@ ssh-add -l
 *** Start ssh-agent
 #+begin_src shell
 eval "$(ssh-agent -s)"
+#+end_src
+* Systemd :noexport_1:
+** Toggle service
+#+begin_src shell
+systemctl --user is-active --quiet <UNIT-NAME>.service && systemctl --user stop <UNIT-NAME>.service || systemctl --user start <UNIT-NAME>.service
 #+end_src
 * Ventoy :noexport_1:
 ** Installation
