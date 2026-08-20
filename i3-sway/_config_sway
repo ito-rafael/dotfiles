@@ -718,6 +718,7 @@ exec gammastep
 exec echo "6500" > /tmp/gamma_temp.tmp
 exec echo "disconnected" > /tmp/proton-vpn-status.tmp
 exec echo '@define-color dynamic_bg rgba(43, 48, 59, 0.5);' >~/.config/waybar/dynamic-bg.css
+#exec "$SCRIPT_PATH/waybar-dynamic-color.sh"
 output $laptop    background ~/.config/wallpaper/london.jpg fill
 output $primary   background ~/.config/wallpaper/london.jpg fill
 output $secondary background ~/.config/wallpaper/london.jpg fill

@@ -2226,6 +2226,10 @@ exec echo "disconnected" > /tmp/proton-vpn-status.tmp
 #+begin_src conf :noweb-ref waybar
 exec echo '@define-color dynamic_bg rgba(43, 48, 59, 0.5);' >~/.config/waybar/dynamic-bg.css
 #+end_src
+*** Dynamic color per output
+#+begin_src conf :noweb-ref waybar :tangle no
+#exec "$SCRIPT_PATH/waybar-dynamic-color.sh"
+#+end_src
 ** Background images
 *** i3
 Before, wallpapers were set calling =feh= directly in i3wm.
