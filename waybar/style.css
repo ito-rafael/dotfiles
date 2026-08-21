@@ -708,6 +708,11 @@ box#toggle {
     min-width: 16px;
 }
 
+#custom-theme:hover {
+    background-color: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+
 #custom-theme.dark,
 #custom-theme.light {
     background-size: 14px;
