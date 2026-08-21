@@ -1094,6 +1094,21 @@ box#toggle {
     min-width: 16px;
 }
 #+end_src
+*** Image
+#+begin_src css
+#custom-theme.dark,
+#custom-theme.light {
+    background-size: 14px;
+    background-repeat: no-repeat;
+    background-position: center calc(50% - 1px);
+}
+#+end_src
+*** Light Mode
+#+begin_src css
+#custom-theme.light {
+    background-image: url("/home/rafael/.config/waybar/icon/theme-light.svg");
+}
+#+end_src
 ** Dunst :noexport_1:
 *** Disabled
 #+begin_src css

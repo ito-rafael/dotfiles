@@ -708,6 +708,16 @@ box#toggle {
     min-width: 16px;
 }
 
+#custom-theme.light {
+    background-size: 14px;
+    background-repeat: no-repeat;
+    background-position: center calc(50% - 1px);
+}
+
+#custom-theme.light {
+    background-image: url("/home/rafael/.config/waybar/icon/theme-light.svg");
+}
+
 #custom-dunst.disabled {
     color: dimgray;
 }
