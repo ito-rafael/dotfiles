@@ -810,6 +810,11 @@ box#toggle {
     min-width: 16px;
 }
 
+#custom-autorotate:hover {
+    background-color: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+
 #custom-autorotate.active,
 #custom-autorotate.inactive {
     background-size: 15px;
