@@ -810,6 +810,16 @@ box#toggle {
     min-width: 16px;
 }
 
+#custom-autorotate.inactive {
+    background-size: 15px;
+    background-repeat: no-repeat;
+    background-position: center calc(50% - 1px);
+}
+
+#custom-autorotate.inactive {
+    background-image: url("/home/rafael/.config/waybar/icon/autorotate-inactive.svg");
+}
+
 #custom-keyboard-backlit {
     padding-right: 5px;
     padding-left: 5px;

@@ -1238,6 +1238,20 @@ box#toggle {
     min-width: 16px;
 }
 #+end_src
+*** Image
+#+begin_src css
+#custom-autorotate.inactive {
+    background-size: 15px;
+    background-repeat: no-repeat;
+    background-position: center calc(50% - 1px);
+}
+#+end_src
+*** Inactive
+#+begin_src css
+#custom-autorotate.inactive {
+    background-image: url("/home/rafael/.config/waybar/icon/autorotate-inactive.svg");
+}
+#+end_src
 ** Keyboard backlit :noexport_1:
 #+begin_src css
 #custom-keyboard-backlit {
