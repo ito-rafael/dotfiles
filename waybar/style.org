@@ -1103,6 +1103,12 @@ box#toggle {
     background-position: center calc(50% - 1px);
 }
 #+end_src
+*** Dark Mode
+#+begin_src css
+#custom-theme.dark {
+    background-image: url("/home/rafael/.config/waybar/icon/theme-dark.svg");
+}
+#+end_src
 *** Light Mode
 #+begin_src css
 #custom-theme.light {
