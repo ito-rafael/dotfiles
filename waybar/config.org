@@ -499,6 +499,7 @@
     "custom/theme",
     "custom/scale",
     "custom/proton-vpn",
+    "custom/autorotate",
     "custom/keyboard-backlit",
     "custom/screencast",
     "custom/pdfjs",
@@ -567,6 +568,15 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
     "exec": "~/.config/waybar/scripts/proton-vpn.sh monitor",
     "format": "{}",
     "on-click": "~/.config/waybar/scripts/proton-vpn.sh toggle &",
+},
+#+end_src
+** Autorotate
+#+begin_src js
+"custom/autorotate": {
+    "exec": "~/.config/waybar/scripts/autorotate-monitor.sh",
+    "return-type": "json",
+    "on-click": "systemctl --user is-active --quiet autorotate.service && systemctl --user stop autorotate.service || systemctl --user start autorotate.service",
+    "tooltip": false
 },
 #+end_src
 ** Keyboard backlit
