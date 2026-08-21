@@ -1030,6 +1030,7 @@ box#toggle {
 #+begin_src css
 #custom-dunst,
 #custom-mouse-warping,
+#custom-theme,
 #custom-scale,
 #custom-proton-vpn,
 #custom-keyboard-backlit,
@@ -1045,6 +1046,7 @@ box#toggle {
 *** Separator
 #+begin_src css
 #custom-mouse-warping,
+#custom-theme,
 #custom-scale,
 #custom-proton-vpn,
 #custom-keyboard-backlit,
@@ -1079,6 +1081,17 @@ box#toggle {
     transition: background 0.3s ease;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
+}
+#+end_src
+** Theme
+*** Default
+#+begin_src css
+#custom-theme {
+    padding-right: 4px;
+    padding-left: 4px;
+    padding-bottom: 5px;
+    color: transparent;
+    min-width: 16px;
 }
 #+end_src
 ** Dunst :noexport_1:
