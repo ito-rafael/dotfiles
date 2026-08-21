@@ -1033,6 +1033,7 @@ box#toggle {
 #custom-theme,
 #custom-scale,
 #custom-proton-vpn,
+#custom-autorotate,
 #custom-keyboard-backlit,
 #custom-screencast,
 #custom-pdfjs,
@@ -1049,6 +1050,7 @@ box#toggle {
 #custom-theme,
 #custom-scale,
 #custom-proton-vpn,
+#custom-autorotate,
 #custom-keyboard-backlit,
 #custom-screencast,
 #custom-pdfjs,
@@ -1223,6 +1225,17 @@ box#toggle {
 #+begin_src css
 #custom-proton-vpn.disconnecting {
     background-image: url("/home/rafael/.config/waybar/icon/proton-vpn-disconnected.svg");
+}
+#+end_src
+** Autorotate
+*** Default
+#+begin_src css
+#custom-autorotate {
+    padding-right: 4px;
+    padding-left: 4px;
+    padding-bottom: 5px;
+    color: transparent;
+    min-width: 16px;
 }
 #+end_src
 ** Keyboard backlit :noexport_1:
