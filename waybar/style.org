@@ -1240,10 +1240,17 @@ box#toggle {
 #+end_src
 *** Image
 #+begin_src css
+#custom-autorotate.active,
 #custom-autorotate.inactive {
     background-size: 15px;
     background-repeat: no-repeat;
     background-position: center calc(50% - 1px);
+}
+#+end_src
+*** Active
+#+begin_src css
+#custom-autorotate.active {
+    background-image: url("/home/rafael/.config/waybar/icon/autorotate-active.svg");
 }
 #+end_src
 *** Inactive

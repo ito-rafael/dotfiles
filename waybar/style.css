@@ -810,10 +810,15 @@ box#toggle {
     min-width: 16px;
 }
 
+#custom-autorotate.active,
 #custom-autorotate.inactive {
     background-size: 15px;
     background-repeat: no-repeat;
     background-position: center calc(50% - 1px);
+}
+
+#custom-autorotate.active {
+    background-image: url("/home/rafael/.config/waybar/icon/autorotate-active.svg");
 }
 
 #custom-autorotate.inactive {
