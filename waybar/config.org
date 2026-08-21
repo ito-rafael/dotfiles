@@ -496,6 +496,7 @@
   "modules": [
     "custom/dunst",
     "custom/mouse-warping",
+    "custom/theme",
     "custom/scale",
     "custom/proton-vpn",
     "custom/keyboard-backlit",
@@ -530,6 +531,15 @@
     //    "enabled": "<span color=\"#090\"></span>",
     //    "disabled": "<span color=\"#F00\"></span>",
     //},
+},
+#+end_src
+** Theme
+#+begin_src js
+"custom/theme": {
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/theme-monitor.sh",
+    "on-click": "~/.config/scripts/theme-toggle.sh",
+    "tooltip": false
 },
 #+end_src
 ** Scale
