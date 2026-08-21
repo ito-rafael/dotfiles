@@ -1,0 +1,11 @@
+[Unit]
+Description=Screen Auto-Rotation Daemon
+After=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/rot8
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
