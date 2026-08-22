@@ -6,6 +6,7 @@
 
 * Table of contents :toc_1:
 - [[#catuaba][catuaba]]
+- [[#ipf][ipf]]
 
 * catuaba
 :PROPERTIES:
@@ -35,5 +36,20 @@ profile {
 
     # right monitor: AOC 2 - Vertical (tertiary) [DVI-I-1]
     output "AOC 2369M 23039IA002615" mode 1920x1080@60Hz position 3840,0 transform 90
+}
+#+end_src
+* ipf
+:PROPERTIES:
+:header-args:conf: :tangle ipf.conf
+:END:
+Personal IdeaPad Flex 5i laptop.
+** Built-in
+#+begin_src conf
+output "Chimei Innolux Corporation 0x143F Unknown" {
+  mode 1920x1200@60.003
+  position 0,0
+  scale 1
+  transform normal
+  alias $ipf
 }
 #+end_src
