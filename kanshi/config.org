@@ -7,6 +7,7 @@
 * Table of contents :toc_1:
 - [[#catuaba][catuaba]]
 - [[#ipf][ipf]]
+- [[#vb][vb]]
 
 * catuaba
 :PROPERTIES:
@@ -78,5 +79,29 @@ profile {
     output "HDMI-A-1" mode 3840x2160@60hz position      0,0  # primary
     output "DP-1"     mode 3840x2160@60hz position  -2742,0  # secondary
     output "eDP-1"    mode 1920x1080@60hz position 411,1542  # laptop
+}
+#+end_src
+** Hub Viva-Bem #2
+:PROPERTIES:
+:header-args:conf: :tangle vb2.conf
+:END:
+Laptop aligned with dual monitor setup.
+#+begin_src conf
+# Outputs:
+#
+#           +-----------+ +-----------+
+#           |           | |           |
+#  +-----+  |     1     | |     2     |
+#  |  3  |  |           | |           |
+#  +-----+  +-----------+ +-----------+
+#
+#   1: Samsung UR55
+#   2: Samsung UR55
+#   3: VB laptop
+#
+profile {
+    output "HDMI-A-1" mode 3840x2160@60hz position     0,0  # primary
+    output "DP-1"     mode 3840x2160@60hz position  2742,0  # secondary
+    output "eDP-1"    mode 1920x1080@60hz position -1920,0  # laptop
 }
 #+end_src
