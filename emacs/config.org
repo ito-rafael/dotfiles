@@ -1411,6 +1411,12 @@ It's Magit! A Git Porcelain inside Emacs.
     (kbd "M-o") 'efs/magit-next-major-section      ;; next major section
   )
   ;;---------------------------
+  ;; force "e" and "i" to use Magit's native logical line movements across all Magit buffers
+  (evil-collection-define-key '(normal visual motion) 'magit-mode-map
+    "e" 'magit-next-line
+    "i" 'magit-previous-line
+  )
+  ;;---------------------------
   ;; return to magit-status after C-c C-k (with-editor-cancel)
   (defun efs/magit-restore-status-smooth (orig-fun &rest args)
     "Cancel commit without flashing dashboard, then restore layout.
@@ -1485,26 +1491,6 @@ Custom function to change the line number type to visual.
   (setq-local word-wrap t)                         ;; wrap nicely at word boundaries
   (setq-local line-move-visual nil)                ;; tell standard Emacs commands to use logical lines
   (setq-local display-line-numbers-type 'visual))
-#+end_src
-**** Fix next line
-#+begin_src emacs-lisp
-;; intercept evil-next-visual-line
-(defun efs/magit-logical-next-line (orig-fun &rest args)
-  "Force logical line movement in Magit buffers, otherwise use visual."
-  (if (derived-mode-p 'magit-mode)
-      (apply #'evil-next-line args)
-    (apply orig-fun args)))
-(advice-add 'evil-next-visual-line :around #'efs/magit-logical-next-line)
-#+end_src
-**** Fix previous line
-#+begin_src emacs-lisp
-;; intercept evil-previous-visual-line
-(defun efs/magit-logical-previous-line (orig-fun &rest args)
-  "Force logical line movement in Magit buffers, otherwise use visual."
-  (if (derived-mode-p 'magit-mode)
-      (apply #'evil-previous-line args)
-    (apply orig-fun args)))
-(advice-add 'evil-previous-visual-line :around #'efs/magit-logical-previous-line)
 #+end_src
 ** Forge
 Pulls down all information from repositories: issues, pull requests, notifications, etc.
