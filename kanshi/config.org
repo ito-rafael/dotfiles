@@ -105,3 +105,41 @@ profile {
     output "eDP-1"    mode 1920x1080@60hz position -1920,0  # laptop
 }
 #+end_src
+** MSc presentation
+:PROPERTIES:
+:header-args:conf: :tangle catuaba.conf
+:END:
+Masters presentation @ FEEC/Unicamp, with projector and Educart.
+#+begin_src conf :tangle msc_presetation
+# Room:
+#
+#   +----------------------+
+#   |                      |
+#   |    +-----+ +-----+   |
+#   |    | tv1 | | tv2 |   |
+#   |    +-----+ +-----+   |
+#   |                      |
+#   |     +--+     +--+    |
+#   |   x |  |  3  |  | x  |
+#   |   x |  |     |  | x  |
+#   |   x |  |     |  | x  |
+#   |   x |  |     |  | x  |
+#   |      \  \___/  /     |
+#   |    x  \___ 1 _/  x   |
+#   |           x          |
+#   |                      |
+#   |       === 2 ===      |
+#   +----------------------+
+#
+#   x: seats
+#
+#   1: laptop     native screen
+#   2: projector  native HDMI --> EPSON projector
+#   3: educart    USB-C HDMI --> Dell monitor
+#
+profile {
+    output "eDP-1"    mode 1920x1080@60hz position 0,0     scale 1  # laptop
+    output "HDMI-A-1" mode 1920x1200@60hz position 0,1080  scale 1  # projector
+    output "DP-1"     mode 1920x1080@60hz position 0,-1080 scale 1  # educart
+}
+#+end_src
