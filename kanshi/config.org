@@ -1,0 +1,34 @@
+#+title: Kanshi config
+#+author: Rafael Ito
+#+description: Waybar configuration
+#+startup: showeverything
+#+auto_tangle: t
+
+* Table of contents :toc_1:
+- [[#catuaba][catuaba]]
+
+* catuaba
+:PROPERTIES:
+:header-args:conf: :tangle catuaba.conf
+:END:
+Desktop used during PhD @ LBiC/Unicamp.
+** Main
+#+begin_src conf
+# Outputs:
+#
+#   +-----------+ +-----------+ +--------+
+#   |           | |           | |        |=++
+#   | secondary | |  primary  | | terti..| ||
+#   |           | |           | |  ..ary | ||
+#   +-----------+ +-----------+ |        | ||
+#   +---/   \--+  +--/   \---+  |        | ||
+#   |----------|  |----------|  +--------+ ||
+# --+----------+--+----------+-------------++--
+#
+#
+profile {
+    output "HDMI-A-1" mode 1920x1080@60hz position 1920,0               # primary
+    output "DP-1"     mode 1920x1080@60hz position    0,0               # secondary
+    output "DVI-I-1"  mode 1920x1080@60hz position 3840,0 transform 90  # tertiary
+}
+#+end_src
