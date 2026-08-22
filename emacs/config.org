@@ -1412,7 +1412,7 @@ It's Magit! A Git Porcelain inside Emacs.
   )
   ;;---------------------------
   ;; return to magit-status after C-c C-k (with-editor-cancel)
-  (defun my/magit-restore-status-smooth (orig-fun &rest args)
+  (defun efs/magit-restore-status-smooth (orig-fun &rest args)
     "Cancel commit without flashing dashboard, then restore layout.
      Uses inhibit-redisplay to prevent the intermediate 'dashboard' state."
     (let* ((repo (magit-toplevel))
@@ -1428,7 +1428,7 @@ It's Magit! A Git Porcelain inside Emacs.
           (delete-other-windows)))
       ;; run full refresh to fix transient prefixes after a small delay
       (when repo (run-at-time 0.05 nil (lambda (dir) (magit-status dir)) repo))))
-  (advice-add 'with-editor-cancel :around #'my/magit-restore-status-smooth)
+  (advice-add 'with-editor-cancel :around #'efs/magit-restore-status-smooth)
   ;;===========================
   ;; major section navigation
   ;;===========================
@@ -1644,7 +1644,7 @@ Supported window managers:
   :config
 
   ;; helper function to replicate the logic from sway-dispatch.sh
-  (defun my/wm-focus-out-of-emacs (dir)
+  (defun efs/wm-focus-out-of-emacs (dir)
     "Focus window outside of Emacs based on DIR, respecting lan-mouse status."
     (let* ((session-type (getenv "XDG_SESSION_TYPE"))
            (lanmouse-file "/tmp/lanmouse-status.tmp")
@@ -1689,12 +1689,12 @@ in direction DIR instead."
                              (split-window window nil dir))))
       (cond ((null other-window)
              ;; replaced error with our context-aware WM routing function
-             (my/wm-focus-out-of-emacs dir))
+             (efs/wm-focus-out-of-emacs dir))
 
             ((and (window-minibuffer-p other-window)
                   (not (minibuffer-window-active-p other-window)))
              ;; replaced error with our context-aware WM routing function
-             (my/wm-focus-out-of-emacs dir))
+             (efs/wm-focus-out-of-emacs dir))
 
             ((eq other-window 'no-select))
             (t
