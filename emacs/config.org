@@ -715,6 +715,66 @@ https://github.com/seagle0128/doom-modeline
   )
 )
 #+end_src
+** Gray ":tangle no" blocks
+#+begin_src emacs-lisp
+;; make ":tangle no" blocks appear grayed-out (like comments)
+(defun efs/org-gray-out-tangle-no-blocks (orig-fun lang start end)
+  "Advice to gray out blocks with :tangle no instead of native syntax highlighting."
+  (let ((is-tangle-no nil)
+        (case-fold-search t))
+    (save-excursion
+      (goto-char start)
+      (beginning-of-line)
+      (let* ((line-current (buffer-substring-no-properties (line-beginning-position) (line-end-position)))
+             (line-previous (progn (forward-line -1)
+                                   (buffer-substring-no-properties (line-beginning-position) (line-end-position))))
+             (regex-begin "^[ \t]*#\\+begin_src")
+             (regex-tangle ":tangle[ \t]+no\\b"))
+        (if (and (string-match-p regex-begin line-current)
+                 (string-match-p regex-tangle line-current))
+            (setq is-tangle-no t)
+          (when (and (string-match-p regex-begin line-previous)
+                     (string-match-p regex-tangle line-previous))
+            (setq is-tangle-no t)))))
+
+    ;; when the tag ":tangle no" is present
+    (if is-tangle-no
+        (progn
+          ;; prepend the comment face so it visually overrides old syntax highlights
+          ;; loop through property changes to avoid infinite stacking
+          (let ((pos start))
+            (while (< pos end)
+              (let ((next (next-single-property-change pos 'font-lock-face nil end))
+                    (face (get-text-property pos 'font-lock-face)))
+                (unless (if (listp face) (memq 'font-lock-comment-face face) (eq face 'font-lock-comment-face))
+                  (font-lock-prepend-text-property pos next 'font-lock-face 'font-lock-comment-face))
+                (setq pos next))))
+          t) ;; return t to skip native fontification
+
+      ;; when the tag ":tangle no" is absent
+      ;; clean up any lingering comment face from before
+      (let ((pos start))
+        (while (< pos end)
+          (let ((next (next-single-property-change pos 'font-lock-face nil end))
+                (face (get-text-property pos 'font-lock-face)))
+            (cond
+             ;; case 1: it's exactly the comment face
+             ((eq face 'font-lock-comment-face)
+              (remove-text-properties pos next '(font-lock-face nil)))
+             ;; case 2: it's a list containing the comment face
+             ((and (listp face) (memq 'font-lock-comment-face face))
+              (let ((new-face (delq 'font-lock-comment-face (copy-sequence face))))
+                (put-text-property pos next 'font-lock-face
+                                   (cond ((null new-face) nil)
+                                         ((= (length new-face) 1) (car new-face))
+                                         (t new-face))))))
+            (setq pos next))))
+
+      ;; finally, run standard highlighting to restore native syntax colors
+      (funcall orig-fun lang start end))))
+
+(advice-add 'org-src-font-lock-fontify-block :around #'efs/org-gray-out-tangle-no-blocks)
+#+end_src
 ** Syntax highlighting
 Make sure source code blocks get the right colors even if the header is off-screen.
 #+begin_src emacs-lisp
