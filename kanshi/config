@@ -13,10 +13,8 @@
 profile {
     # left monitor: AOC 1 (secondary) [DP-1]
     output "AOC 2369M 23039IA002716" mode 1920x1080@60Hz position 0,0
-
     # middle monitor: Dell Primary (primary) [HDMI-A-1]
     output "Dell Inc. DELL SE2416H Y4GVX82704FL" mode 1920x1080@60Hz position 1920,0
-
     # right monitor: AOC 2 - Vertical (tertiary) [DVI-I-1]
     output "AOC 2369M 23039IA002615" mode 1920x1080@60Hz position 3840,0 transform 90
 }
@@ -53,9 +51,12 @@ profile mirror_dp {
 #   3: VB laptop
 #
 profile vb1 {
-    output "HDMI-A-1" mode 3840x2160@60hz position      0,0  # primary
-    output "DP-1"     mode 3840x2160@60hz position  -2742,0  # secondary
-    output "eDP-1"    mode 1920x1080@60hz position 411,1542  # laptop
+    # primary
+    output "HDMI-A-1" mode 3840x2160@60Hz position      0,0
+    # secondary
+    output "DP-1"     mode 3840x2160@60Hz position  -2742,0
+    # laptop
+    output "eDP-1"    mode 1920x1080@60Hz position 411,1542
 }
 
 # Outputs:
@@ -71,9 +72,12 @@ profile vb1 {
 #   3: VB laptop
 #
 profile vb2 {
-    output "HDMI-A-1" mode 3840x2160@60hz position     0,0  # primary
-    output "DP-1"     mode 3840x2160@60hz position  2742,0  # secondary
-    output "eDP-1"    mode 1920x1080@60hz position -1920,0  # laptop
+    # primary
+    output "HDMI-A-1" mode 3840x2160@60Hz position     0,0
+    # secondary
+    output "DP-1"     mode 3840x2160@60Hz position  2742,0
+    # laptop
+    output "eDP-1"    mode 1920x1080@60Hz position -1920,0
 }
 
 # Room:
@@ -103,7 +107,10 @@ profile vb2 {
 #   3: educart    USB-C HDMI --> Dell monitor
 #
 profile msc_presentation {
-    output "eDP-1"    mode 1920x1080@60hz position 0,0     scale 1  # laptop
-    output "HDMI-A-1" mode 1920x1200@60hz position 0,1080  scale 1  # projector
-    output "DP-1"     mode 1920x1080@60hz position 0,-1080 scale 1  # educart
+    # laptop
+    output "eDP-1"    mode 1920x1080@60Hz position 0,0     scale 1
+    # projector
+    output "HDMI-A-1" mode 1920x1200@60Hz position 0,1080  scale 1
+    # educart
+    output "DP-1"     mode 1920x1080@60Hz position 0,-1080 scale 1
 }
