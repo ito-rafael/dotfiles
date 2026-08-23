@@ -6,11 +6,11 @@
 #+auto_tangle: t
 
 * Table of contents :toc_1:
-- [[#catuaba][catuaba]]
-- [[#ipf][ipf]]
-- [[#vb][vb]]
+- [[#catuaba][Catuaba]]
+- [[#ipf][IPF]]
+- [[#vb][VB]]
 
-* catuaba
+* Catuaba
 Desktop used during PhD @ LBiC/Unicamp.
 ** Main
 #+begin_src conf
@@ -37,7 +37,7 @@ profile {
     output "AOC 2369M 23039IA002615" mode 1920x1080@60Hz position 3840,0 transform 90
 }
 #+end_src
-* ipf
+* IPF
 Personal IdeaPad Flex 5i laptop.
 ** Built-in
 #+begin_src conf
@@ -46,11 +46,25 @@ output "Chimei Innolux Corporation 0x143F Unknown" {
   position 0,0
   scale 1
   transform normal
-  alias $ipf
+  alias $IPF
 }
 #+end_src
-* vb
-Laptop used in Viva-Bem hub.
+** Mirror to HDMI
+#+begin_src conf
+profile mirror_hdmi {
+    output $IPF enable
+    output "HDMI-A-1" mode 3840x2160@60Hz position 0,0 scale 2
+}
+#+end_src
+** Mirror to USB-C (DisplayPort)
+#+begin_src conf
+profile mirror_dp {
+    output $IPF enable
+    output "DP-1"  mode 3840x2160@60Hz position 0,0 scale 2
+}
+#+end_src
+* VB
+Dell Vostro laptop used in Viva-Bem hub.
 ** Hub Viva-Bem #1
 Laptop below dual monitor setup.
 #+begin_src conf
