@@ -10,7 +10,7 @@
 - [[#general-config][General config]]
 - [[#sway][Sway]]
 - [[#swayfx][SwayFX]]
-- [[#outputs][Outputs]]
+- [[#outputs][+Outputs+]]
 - [[#workspaces-definition][Workspaces definition]]
 - [[#i3bang-raw-section-beginning][i3bang: raw section (beginning)]]
 - [[#media-control][Media control]]
@@ -249,10 +249,11 @@ default_dim_inactive 0.15
 #+begin_src conf :noweb yes :tangle _config_sway
 <<swayfx>>
 #+end_src
-* Outputs
-** Default Scenario
-This setup is used for the main workstation.
-*** Set order
+* +Outputs+
+This section was entirely deprecated in favour of =kanshi=.
+** +Default Scenario+
++This setup is used for the main workstation.+
+*** +Set order+
 #+begin_src comment :tangle no
 # Outputs:
 #
@@ -266,8 +267,8 @@ This setup is used for the main workstation.
 # --+----------+--+----------+-------------++--
 #
 #+end_src
-**** i3
-For X11, it's possible to get the output names directly from xrandr.
+**** +i3+
++For X11, it's possible to get the output names directly from xrandr.+
 #+begin_src conf :tangle no
 set $laptop    eDP-1
 set $primary   $(xrandr | grep ' connected' | awk '{print $1}' | head -n1 | tail -n1)
@@ -275,15 +276,15 @@ set $secondary $(xrandr | grep ' connected' | awk '{print $1}' | head -n2 | tail
 set $tertiary  $(xrandr | grep ' connected' | awk '{print $1}' | head -n3 | tail -n1)
 #+end_src
 
-However, setting the outputs "hardcoded" seems to be more consistent.
-#+begin_src conf :noweb-ref i3-output-default
++However, setting the outputs "hardcoded" seems to be more consistent.+
+#+begin_src conf :noweb-ref i3-output-default :tangle no
 set $laptop    eDP-1
 set $primary   HDMI1
 set $secondary VGA1
 set $tertiary  HDMI2
 #+end_src
-**** Sway
-#+begin_src conf :noweb-ref sway-output-default
+**** +Sway+
+#+begin_src conf :noweb-ref sway-output-default :tangle no
 set $laptop    eDP-1
 set $primary   HDMI-A-1
 #set $secondary HDMI3
@@ -291,22 +292,22 @@ set $primary   HDMI-A-1
 set $secondary DP-1
 set $tertiary DVI-I-1
 #+end_src
-*** Set resolution
-**** i3
-Outputs in i3wm is now being configured through a script (=xrandr-config.sh=), called in the [[*Startup commands]].
-#+begin_src conf :noweb-ref i3-output-xrandr
+*** +Set resolution+
+**** +i3+
++Outputs in i3wm is now being configured through a script (=xrandr-config.sh=), called in the [[*Startup commands]].+
+#+begin_src conf :noweb-ref i3-output-xrandr :tangle no
 exec xrandr --output $primary   --mode 1920x1080 --rate 60.00 --brightness 1 --pos 1920x0 --primary
 exec xrandr --output $secondary --mode 1920x1080 --rate 60.00 --brightness 1 --pos    0x0
 exec xrandr --output $tertiary  --mode 1920x1080 --rate 60.00 --brightness 1 --pos 3840x0 --rotate right
 #+end_src
-**** Sway
-#+begin_src conf :noweb-ref sway-output-default
+**** +Sway+
+#+begin_src conf :noweb-ref sway-output-default :tangle no
 output $primary   mode 1920x1080@60hz position 1920,0 scale 1
 output $secondary mode 1920x1080@60hz position    0,0 scale 1
 output $tertiary  mode 1920x1080@60hz position 3840,0 scale 1 transform 90
 #+end_src
-** MSc presentation
-*** Set order
+** +MSc presentation+
+*** +Set order+
 #+begin_src comment :tangle no
 # Room:
 #
@@ -335,19 +336,19 @@ output $tertiary  mode 1920x1080@60hz position 3840,0 scale 1 transform 90
 #   3: educart    USB-C HDMI --> Dell monitor
 #
 #+end_src
-#+begin_src conf :noweb-ref sway-output-msc
+#+begin_src conf :noweb-ref sway-output-msc :tangle no
 set $laptop    eDP-1
 set $projector HDMI-A-1
 set $educart   DP-1
 #+end_src
-*** Set resolution
-#+begin_src conf :noweb-ref sway-output-msc
+*** +Set resolution+
+#+begin_src conf :noweb-ref sway-output-msc :tangle no
 output $laptop    mode 1920x1080@60hz position 0,0
 output $projector mode 1920x1200@60hz position 0,1080 scale 1
 output $educart   mode 1920x1080@60hz position 0,-1080 scale 1
 #+end_src
-** Hub Viva-Bem 1
-*** Set order
+** +Hub Viva-Bem 1+
+*** +Set order+
 #+begin_src comment :tangle no
 # Outputs:
 #
@@ -363,24 +364,24 @@ output $educart   mode 1920x1080@60hz position 0,-1080 scale 1
 #   3: VB laptop
 #
 #+end_src
-#+begin_src conf :noweb-ref sway-output-hvb1
+#+begin_src conf :noweb-ref sway-output-hvb1 :tangle no
 set $primary   HDMI-A-1
 set $secondary DP-1
 set $laptop    eDP-1
 #+end_src
-*** Set resolution
-Since scale of output #0 is 1.4, the position offset is:
-  - secondary screen [H]: 3840/1.4 = 2742
-  - laptop [H]: 3840/1.4 - 1920 = 411
-  - laptop [V]: 2160/1.4 = 1542
+*** +Set resolution+
++Since scale of output #0 is 1.4, the position offset is:+
+  +- secondary screen [H]: 3840/1.4 = 2742+
+  +- laptop [H]: 3840/1.4 - 1920 = 411+
+  +- laptop [V]: 2160/1.4 = 1542+
 
-#+begin_src conf :noweb-ref sway-output-hvb1
+#+begin_src conf :noweb-ref sway-output-hvb1 :tangle no
 output $primary   mode 3840x2160@60hz position      0,0 scale 1.4
 output $secondary mode 3840x2160@60hz position  -2742,0 scale 1.4
 output $laptop    mode 1920x1080@60hz position 411,1542 scale 1
 #+end_src
-** Hub Viva-Bem 2
-*** Set order
+** +Hub Viva-Bem 2+
+*** +Set order+
 #+begin_src comment :tangle no
 # Outputs:
 #
@@ -395,18 +396,18 @@ output $laptop    mode 1920x1080@60hz position 411,1542 scale 1
 #   3: VB laptop
 #
 #+end_src
-#+begin_src conf :noweb-ref sway-output-hvb2
+#+begin_src conf :noweb-ref sway-output-hvb2 :tangle no
 set $primary   HDMI-A-1
 set $secondary DP-1
 set $laptop    eDP-1
 #+end_src
-*** Set resolution
-Since scale of output #0 is 1.4, the position offset is:
-  - secondary screen [H]: 3840/1.4 = 2742
-  - laptop [H]: 3840/1.4 - 1920 = 411
-  - laptop [V]: 2160/1.4 = 1542
+*** +Set resolution+
++Since scale of output #0 is 1.4, the position offset is:+
+  +- secondary screen [H]: 3840/1.4 = 2742+
+  +- laptop [H]: 3840/1.4 - 1920 = 411+
+  +- laptop [V]: 2160/1.4 = 1542+
 
-#+begin_src conf :noweb-ref sway-output-hvb2
+#+begin_src conf :noweb-ref sway-output-hvb2 :tangle no
 output $primary   mode 3840x2160@60hz position     0,0 scale 1.4
 output $secondary mode 3840x2160@60hz position  2742,0 scale 1.4
 output $laptop    mode 1920x1080@60hz position -1920,0 scale 1
