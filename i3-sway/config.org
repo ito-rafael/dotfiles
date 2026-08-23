@@ -412,27 +412,27 @@ output $primary   mode 3840x2160@60hz position     0,0 scale 1.4
 output $secondary mode 3840x2160@60hz position  2742,0 scale 1.4
 output $laptop    mode 1920x1080@60hz position -1920,0 scale 1
 #+end_src
-** Duplicated cursor
-https://github.com/swaywm/sway/issues/1666
-For HDMI 4K@60Hz:
-#+begin_src conf :noweb-ref sway-output-mirror
+** +Duplicated cursor+
++https://github.com/swaywm/sway/issues/1666+
++For HDMI 4K@60Hz:+
+#+begin_src conf :noweb-ref sway-output-mirror :tangle no
 output HDMI-A-1 mode 3840x2160@60hz position 0,0
 #+end_src
 
-For USB-C 4K@60Hz:
-#+begin_src conf :noweb-ref sway-output-mirror
++For USB-C 4K@60Hz:+
+#+begin_src conf :noweb-ref sway-output-mirror :tangle no
 output DP-1 mode 3840x2160@60hz position 0,0
 #+end_src
-** Tangle :noexport:
-*** i3
-The outputs settings are being managed by the display manager (e.g.: LightDM, SDDM) instead of the window manager.
+** +Tangle+ :noexport:
+*** +i3+
++The outputs settings are being managed by the display manager (e.g.: LightDM, SDDM) instead of the window manager.+
 #+begin_src conf :noweb yes :tangle _config_i3
-<<i3-output-default>>
+#<<i3-output-default>>
 #<<i3-output-xrandr>>
 #+end_src
-*** Sway
+*** +Sway+
 #+begin_src conf :noweb yes :tangle _config_sway
-<<sway-output-default>>
+#<<sway-output-default>>
 #<<sway-output-msc>>
 #<<sway-output-hvb1>>
 #<<sway-output-hvb2>>

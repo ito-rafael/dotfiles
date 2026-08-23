@@ -22,10 +22,10 @@ client.urgent           #2f343a #900000 #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 client.background       #ffffff
 
-set $laptop    eDP-1
-set $primary   HDMI1
-set $secondary VGA1
-set $tertiary  HDMI2
+#set $laptop    eDP-1
+#set $primary   HDMI1
+#set $secondary VGA1
+#set $tertiary  HDMI2
 #exec xrandr --output $primary   --mode 1920x1080 --rate 60.00 --brightness 1 --pos 1920x0 --primary
 #exec xrandr --output $secondary --mode 1920x1080 --rate 60.00 --brightness 1 --pos    0x0
 #exec xrandr --output $tertiary  --mode 1920x1080 --rate 60.00 --brightness 1 --pos 3840x0 --rotate right
