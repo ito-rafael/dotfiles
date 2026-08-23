@@ -60,6 +60,7 @@ mouse_warping container
 animation_duration_ms 250  # enable smooth window animations
 corner_radius 20
 default_dim_inactive 0.15
+blur enable
 
 #set $laptop    eDP-1
 #set $primary   HDMI-A-1

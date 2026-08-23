@@ -244,6 +244,7 @@ input "9011:26214:ydotoold_virtual_device" {
 animation_duration_ms 250  # enable smooth window animations
 corner_radius 20
 default_dim_inactive 0.15
+blur enable
 #+end_src
 ** Tangle
 #+begin_src conf :noweb yes :tangle _config_sway
