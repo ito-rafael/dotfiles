@@ -85,7 +85,7 @@ Disable line numbers for some modes.
 #+end_src
 ** Transparency
 #+begin_src emacs-lisp
-(add-to-list 'default-frame-alist '(alpha-background . 97))
+(add-to-list 'default-frame-alist '(alpha-background . 85))
 ** Gaps
 #+begin_src emacs-lisp
 (use-package frame
