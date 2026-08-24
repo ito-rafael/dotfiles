@@ -812,6 +812,16 @@ box#toggle {
     min-width: 16px;
 }
 
+#custom-kanshi.extend {
+    background-size: 15px;
+    background-repeat: no-repeat;
+    background-position: center calc(50% - 1px);
+}
+
+#custom-kanshi.extend {
+    background-image: url("/home/rafael/.config/waybar/icon/screen-extend.png");
+}
+
 #custom-autorotate {
     padding-right: 4px;
     padding-left: 4px;

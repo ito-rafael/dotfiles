@@ -1240,6 +1240,20 @@ box#toggle {
     min-width: 16px;
 }
 #+end_src
+*** Image
+#+begin_src css
+#custom-kanshi.extend {
+    background-size: 15px;
+    background-repeat: no-repeat;
+    background-position: center calc(50% - 1px);
+}
+#+end_src
+*** Extend
+#+begin_src css
+#custom-kanshi.extend {
+    background-image: url("/home/rafael/.config/waybar/icon/screen-extend.png");
+}
+#+end_src
 ** Autorotate
 *** Default
 #+begin_src css
