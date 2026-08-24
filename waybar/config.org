@@ -499,6 +499,7 @@
     "custom/theme",
     "custom/scale",
     "custom/proton-vpn",
+    "custom/kanshi",
     "custom/autorotate",
     "custom/keyboard-backlit",
     "custom/screencast",
@@ -577,6 +578,16 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
     "return-type": "json",
     "on-click": "systemctl --user is-active --quiet autorotate.service && systemctl --user stop autorotate.service || systemctl --user start autorotate.service",
     "tooltip": false
+},
+#+end_src
+** Kanshi
+#+begin_src js
+"custom/kanshi": {
+    "format": "{}",
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/kanshi.sh monitor",
+    "on-click": "~/.config/waybar/scripts/kanshi.sh toggle",
+    "restart-interval": 2
 },
 #+end_src
 ** Keyboard backlit
