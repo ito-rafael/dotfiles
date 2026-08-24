@@ -812,10 +812,15 @@ box#toggle {
     min-width: 16px;
 }
 
+#custom-kanshi.mirror,
 #custom-kanshi.extend {
     background-size: 15px;
     background-repeat: no-repeat;
     background-position: center calc(50% - 1px);
+}
+
+#custom-kanshi.mirror {
+    background-image: url("/home/rafael/.config/waybar/icon/screen-mirror.svg");
 }
 
 #custom-kanshi.extend {

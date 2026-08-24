@@ -1242,10 +1242,17 @@ box#toggle {
 #+end_src
 *** Image
 #+begin_src css
+#custom-kanshi.mirror,
 #custom-kanshi.extend {
     background-size: 15px;
     background-repeat: no-repeat;
     background-position: center calc(50% - 1px);
+}
+#+end_src
+*** Mirror
+#+begin_src css
+#custom-kanshi.mirror {
+    background-image: url("/home/rafael/.config/waybar/icon/screen-mirror.svg");
 }
 #+end_src
 *** Extend
