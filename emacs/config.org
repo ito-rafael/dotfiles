@@ -892,6 +892,7 @@ This is a custom config to copy some tangled files into predefined paths.
   (,(expand-file-name "~/git/dotfiles/hypr/lock-screen.org")    . (("lock-screen.sh"   . "~/.config/hypr/lock-screen.sh")))
   (,(expand-file-name "~/git/dotfiles/i3-sway/config.org")      . (("_config_sway"     . "~/.config/sway/_config")
                                                                    ("_config_i3"       . "~/.config/i3/_config")))
+  (,(expand-file-name "~/git/dotfiles/tlp/tlp.org")             . (("tlp.conf"         . "~/.config/tlp/tlp.conf")))
   (,(expand-file-name "~/git/dotfiles/waybar/config.org")       . (("config"           . "~/.config/waybar/config")))
   (,(expand-file-name "~/git/dotfiles/waybar/style.org")        . (("style.css"        . "~/.config/waybar/style.css")))
   (,(expand-file-name "~/git/dotfiles/zsh/zshrc.org")           . (("zshrc"            . "~/.config/zsh/.zshrc")))
