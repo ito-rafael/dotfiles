@@ -1033,6 +1033,7 @@ box#toggle {
 #custom-theme,
 #custom-scale,
 #custom-proton-vpn,
+#custom-kanshi,
 #custom-autorotate,
 #custom-keyboard-backlit,
 #custom-screencast,
@@ -1050,6 +1051,7 @@ box#toggle {
 #custom-theme,
 #custom-scale,
 #custom-proton-vpn,
+#custom-kanshi,
 #custom-autorotate,
 #custom-keyboard-backlit,
 #custom-screencast,
@@ -1225,6 +1227,17 @@ box#toggle {
 #+begin_src css
 #custom-proton-vpn.disconnecting {
     background-image: url("/home/rafael/.config/waybar/icon/proton-vpn-disconnected.svg");
+}
+#+end_src
+** Kanshi
+*** Default
+#+begin_src css
+#custom-kanshi {
+    padding-right: 4px;
+    padding-left: 4px;
+    padding-bottom: 5px;
+    color: transparent;
+    min-width: 16px;
 }
 #+end_src
 ** Autorotate
