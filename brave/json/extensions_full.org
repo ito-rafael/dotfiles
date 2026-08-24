@@ -88,46 +88,53 @@
 * Extensions
 ** Essential
 *** Dark Reader
-- link: https://chromewebstore.google.com/detail/dark-reader/eimadpbcbfnmbkopoojfekhnkhdbieeh
+- Chrome Web Store: https://chromewebstore.google.com/detail/dark-reader/eimadpbcbfnmbkopoojfekhnkhdbieeh
+- Git repo: https://github.com/darkreader/darkreader
 - description: dark mode everywhere.
 #+begin_src js :noweb yes
 <<install(extension_id="eimadpbcbfnmbkopoojfekhnkhdbieeh", pin=1)>>
 #+end_src
 *** +Vimium+
 Deprecated in favour of [[Surfingkeys]].
-+- link: https://chromewebstore.google.com/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb+
++- Chrome Web Store: https://chromewebstore.google.com/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb+
++- Git repo: https://github.com/philc/vimium+
 +- description: vim-like navigation.+
 #+begin_src js :tangle no
 //<<install(extension_id="dbepggeogbaibhgnhhndojpepiihcmeb")>>
 #+end_src
 *** Surfingkeys
-- link: https://chromewebstore.google.com/detail/gfbliohnnapiefjpjlpjnehglfpaknnc
+- Chrome Web Store: https://chromewebstore.google.com/detail/gfbliohnnapiefjpjlpjnehglfpaknnc
+- Git repo: https://github.com/brookhong/Surfingkeys
 - description: vim-like navigation.
 #+begin_src js :noweb yes
 <<install(extension_id="gfbliohnnapiefjpjlpjnehglfpaknnc")>>
 #+end_src
 *** +OneTab+
 Deprecated in favour of [[id:43fb6375-1456-493d-a907-e920566c3ee4][Better OneTab]].
-+- link: https://chromewebstore.google.com/detail/better-onetab/eookhngofldnbnidjlbkeecljkfpmfpg+
++- Chrome Web Store: https://chromewebstore.google.com/detail/better-onetab/eookhngofldnbnidjlbkeecljkfpmfpg+
++- Git repo: Proprietary / Closed Source+
 +- description: save and restore tabs.+
 #+begin_src js :tangle no
 //<<install(extension_id="eookhngofldnbnidjlbkeecljkfpmfpg", pin=1)>>
 #+end_src
 *** +Better OneTab+
 Deprecated in favour of [[id:e3ee1d03-6d7e-410e-b696-ee90b1436c1d][Tab Session Manager]].
-+- link: https://chromewebstore.google.com/detail/better-onetab/eookhngofldnbnidjlbkeecljkfpmfpg+
++- Chrome Web Store: https://chromewebstore.google.com/detail/better-onetab/eookhngofldnbnidjlbkeecljkfpmfpg+
++- Git repo: https://github.com/cnwangjie/better-onetab+
 +- description: save and restore tabs.+
 #+begin_src js :tangle no
 //<<install(extension_id="eookhngofldnbnidjlbkeecljkfpmfpg", pin=1)>>
 #+end_src
 *** Tab Session Manager
-- link: https://chromewebstore.google.com/detail/tab-session-manager/iaiomicjabeggjcfkbimgmglanimpnae
+- Chrome Web Store: https://chromewebstore.google.com/detail/tab-session-manager/iaiomicjabeggjcfkbimgmglanimpnae
+- Git repo: https://github.com/sienori/Tab-Session-Manager
 - description: save and restore tabs.
 #+begin_src js :noweb yes
 <<install(extension_id="iaiomicjabeggjcfkbimgmglanimpnae", pin=1)>>
 #+end_src
 *** Google Arts & Culture
-- link: https://chromewebstore.google.com/detail/akimgimeeoiognljlfchpbkpfbmeapkh
+- Chrome Web Store: https://chromewebstore.google.com/detail/akimgimeeoiognljlfchpbkpfbmeapkh
+- Git repo:
 - description: arts on new tabs.
 #+begin_src js :noweb yes
 <<install(extension_id="akimgimeeoiognljlfchpbkpfbmeapkh")>>
@@ -142,37 +149,43 @@ Deprecated in favour of [[id:e3ee1d03-6d7e-410e-b696-ee90b1436c1d][Tab Session M
 //<<install(extension_id="lljedihjnnjjefafchaljkhbpfhfkdic")>>
 #+end_src
 *** Bitwarden
-- link: https://chromewebstore.google.com/detail/nngceckbapebfimnlniiiahkandclblb
+- Chrome Web Store: https://chromewebstore.google.com/detail/nngceckbapebfimnlniiiahkandclblb
+- Git repo: https://github.com/bitwarden/clients
 - description: password manager.
 #+begin_src js :noweb yes
 <<install(extension_id="nngceckbapebfimnlniiiahkandclblb", pin=1)>>
 #+end_src
 *** Violentmonkey
-- link: https://chromewebstore.google.com/detail/violentmonkey/jinjaccalgkegednnccohejagnlnfdag
+- Chrome Web Store: https://chromewebstore.google.com/detail/violentmonkey/jinjaccalgkegednnccohejagnlnfdag
+- Git repo: https://github.com/violentmonkey/violentmonkey
 - description: userscripts support.
 #+begin_src js :noweb yes
 <<install(extension_id="jinjaccalgkegednnccohejagnlnfdag")>>
 #+end_src
 *** Floccus
-- link: https://chromewebstore.google.com/detail/floccus-bookmarks-sync/fnaicdffflnofjppbagibeoednhnbjhg
+- Chrome Web Store: https://chromewebstore.google.com/detail/floccus-bookmarks-sync/fnaicdffflnofjppbagibeoednhnbjhg
+- Git repo: https://github.com/floccusaddon/floccus
 - description: sync bookmarks across browsers and devices.
 #+begin_src js :noweb yes
 <<install(extension_id="fnaicdffflnofjppbagibeoednhnbjhg", pin=1)>>
 #+end_src
 *** +uBlock Origin+
-- link: https://chromewebstore.google.com/detail/cjpalhdlnbpafiamejdnhcphjbkeiagm
+- Chrome Web Store: https://chromewebstore.google.com/detail/cjpalhdlnbpafiamejdnhcphjbkeiagm
+- Git repo: https://github.com/gorhill/uBlock
 - description: content blocker (Manifest V2).
 #+begin_src js :tangle no
 <<install(extension_id="cjpalhdlnbpafiamejdnhcphjbkeiagm")>>
 #+end_src
 *** uBlock Origin Lite
-- link: https://chromewebstore.google.com/detail/ddkjiahejlhfcafbddmgiahcphecmpfh
+- Chrome Web Store: https://chromewebstore.google.com/detail/ddkjiahejlhfcafbddmgiahcphecmpfh
+- Git repo: https://github.com/uBlockOrigin/uBOL-home
 - description: content blocker (Manifest V3).
 #+begin_src js :noweb yes
 <<install(extension_id="ddkjiahejlhfcafbddmgiahcphecmpfh")>>
 #+end_src
 *** Consent-O-Matic
-- link: https://chromewebstore.google.com/detail/consent-o-matic/mdjildafknihdffpkfmmpnpoiajfjnjd
+- Chrome Web Store: https://chromewebstore.google.com/detail/consent-o-matic/mdjildafknihdffpkfmmpnpoiajfjnjd
+- Git repo: https://github.com/cavi-au/Consent-O-Matic
 - description: automatically fills out cookie popups.
 #+begin_src js :noweb yes
 <<install(extension_id="mdjildafknihdffpkfmmpnpoiajfjnjd")>>
@@ -180,19 +193,22 @@ Deprecated in favour of [[id:e3ee1d03-6d7e-410e-b696-ee90b1436c1d][Tab Session M
 https://chromewebstore.google.com/detail/consent-o-matic/mdjildafknihdffpkfmmpnpoiajfjnjd
 ** Scholar
 *** Google Scholar Button
-- link: https://chromewebstore.google.com/detail/ldipcbpaocekfooobnbcddclnhejkcpn
+- Chrome Web Store: https://chromewebstore.google.com/detail/ldipcbpaocekfooobnbcddclnhejkcpn
+- Git repo: Proprietary / Closed Source
 - description: Google Scholar support.
 #+begin_src js :noweb yes
 <<install(extension_id="ldipcbpaocekfooobnbcddclnhejkcpn")>>
 #+end_src
 *** Sci-Hub
-- link:
-- description:
+- Chrome Web Store: removed due to copyright complaint by Elsevier.
+- Git repo: https://github.com/gchenfc/sci-hub-now
+- description: Free access to academic papers.
 #+begin_src js :noweb yes :tangle no
 "",
 #+end_src
 *** Zotero
-- link: https://chromewebstore.google.com/detail/ekhagklcjbdpajgpjgmbionohlpdbjgc
+- Chrome Web Store: https://chromewebstore.google.com/detail/ekhagklcjbdpajgpjgmbionohlpdbjgc
+- Git repo: https://github.com/zotero/zotero-connectors
 - description: save references to Zotero.
 #+begin_src js :noweb yes
 <<install(extension_id="ekhagklcjbdpajgpjgmbionohlpdbjgc")>>
@@ -205,92 +221,109 @@ https://chromewebstore.google.com/detail/consent-o-matic/mdjildafknihdffpkfmmpnp
 "",
 #+end_src
 *** Grammarly
-- link: https://chromewebstore.google.com/detail/kbfnbcaeplbcioakkpcpgfkobkghlhen
+- Chrome Web Store: https://chromewebstore.google.com/detail/kbfnbcaeplbcioakkpcpgfkobkghlhen
+- Git repo: Proprietary / Closed Source
 - description: grammar & spell checker.
 #+begin_src js :noweb yes
 <<install(extension_id="kbfnbcaeplbcioakkpcpgfkobkghlhen")>>
 #+end_src
 *** XTranslate
-- link: https://chromewebstore.google.com/detail/gfgpkepllngchpmcippidfhmbhlljhoo
+- Chrome Web Store: https://chromewebstore.google.com/detail/gfgpkepllngchpmcippidfhmbhlljhoo
+- Git repo: https://github.com/ixrock/XTranslate
 - description: language translation.
 #+begin_src js :noweb yes
 <<install(extension_id="gfgpkepllngchpmcippidfhmbhlljhoo")>>
 #+end_src
 *** Read Aloud
-- link: https://chromewebstore.google.com/detail/hdhinadidafjejdhmfkjgnolgimiaplp
+- Chrome Web Store: https://chromewebstore.google.com/detail/hdhinadidafjejdhmfkjgnolgimiaplp
+- Git repo: https://github.com/ken107/read-aloud
 - description: Text-to-speech (TTS) support.
 #+begin_src js :noweb yes
 <<install(extension_id="hdhinadidafjejdhmfkjgnolgimiaplp")>>
 #+end_src
 *** KDE Connect
-- link: https://chromewebstore.google.com/detail/ofmplbbfigookafjahpeepbggpofdhbo
+- Chrome Web Store: https://chromewebstore.google.com/detail/ofmplbbfigookafjahpeepbggpofdhbo
+- Git repo:
+  - https://invent.kde.org/plasma/plasma-browser-integration
+  - https://github.com/KDE/plasma-browser-integration
 - description: browser/phone connection.
 #+begin_src js :noweb yes
 <<install(extension_id="ofmplbbfigookafjahpeepbggpofdhbo")>>
 #+end_src
 *** +Hola VPN+
-- link: https://chromewebstore.google.com/detail/gkojfkhlekighikafcpjkiklfbnlmeio
-- description: free VPN.
++- Chrome Web Store: https://chromewebstore.google.com/detail/gkojfkhlekighikafcpjkiklfbnlmeio+
++- Git repo: Proprietary / Closed Source+
++- description: free VPN.+
 #+begin_src js :noweb yes :tangle no
 <<install(extension_id="gkojfkhlekighikafcpjkiklfbnlmeio")>>
 #+end_src
 *** Save to Pocket
-- link: https://chromewebstore.google.com/detail/save-to-pocket/niloccemoadcdkdjlinkgdfekeahmflj
+- Chrome Web Store: https://chromewebstore.google.com/detail/save-to-pocket/niloccemoadcdkdjlinkgdfekeahmflj
+- Git repo:
 - description: save content for later.
 #+begin_src js :noweb yes
 <<install(extension_id="niloccemoadcdkdjlinkgdfekeahmflj")>>
 #+end_src
 *** Stylus
-- link: https://chromewebstore.google.com/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne
+- Chrome Web Store: https://chromewebstore.google.com/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne
+- Git repo: https://github.com/openstyles/stylus
 - description: userstyles manager.
 #+begin_src js :tangle no
 <<install(extension_id="clngdbkpkpeebahjckkjfobafhncgmne")>>
 #+end_src
 ** Shopping
 *** AliExpress Superstar
-- link: https://chromewebstore.google.com/detail/eodaonbgmhniagpgfepdflgjhmmkbnfi
+- Chrome Web Store: https://chromewebstore.google.com/detail/eodaonbgmhniagpgfepdflgjhmmkbnfi
+- Git repo: Proprietary / Closed Source
 - description: AliExpress price tracking.
 #+begin_src js :noweb yes
 <<install(extension_id="eodaonbgmhniagpgfepdflgjhmmkbnfi")>>
 #+end_src
 *** Descontos AliExpress
-- link: https://chromewebstore.google.com/detail/adnhncnnbkmceciifdkfkinocceiojdb
+- Chrome Web Store: https://chromewebstore.google.com/detail/adnhncnnbkmceciifdkfkinocceiojdb
+- Git repo: Proprietary / Closed Source
 - description: AliExpress coupons & discounts.
 #+begin_src js :noweb yes
 <<install(extension_id="adnhncnnbkmceciifdkfkinocceiojdb")>>
 #+end_src
 *** Keepa
-- link: https://chromewebstore.google.com/detail/keepa-amazon-price-tracke/neebplgakaahbhdphmkckjjcegoiijjo
+- Chrome Web Store: https://chromewebstore.google.com/detail/keepa-amazon-price-tracke/neebplgakaahbhdphmkckjjcegoiijjo
+- Git repo: Proprietary / Closed Source
 - description: Amazon price tracker.
 #+begin_src js :noweb yes
 <<install(extension_id="neebplgakaahbhdphmkckjjcegoiijjo")>>
 #+end_src
 *** Mercado Livre
-- link: https://chromewebstore.google.com/detail/nidpcgnchpokfhpdpdmobjkjefnofojo
+- Chrome Web Store: https://chromewebstore.google.com/detail/nidpcgnchpokfhpdpdmobjkjefnofojo
+- Git repo: Proprietary / Closed Source
 - description: Mercado Livre coupons.
 #+begin_src js :noweb yes
 <<install(extension_id="nidpcgnchpokfhpdpdmobjkjefnofojo")>>
 #+end_src
 *** Méliuz
-- link: https://chromewebstore.google.com/detail/jdcfmebflppkljibgpdlboifpcaalolg
+- Chrome Web Store: https://chromewebstore.google.com/detail/jdcfmebflppkljibgpdlboifpcaalolg
+- Git repo: Proprietary / Closed Source
 - description: cashback for brazilian stores.
 #+begin_src js :noweb yes
 <<install(extension_id="jdcfmebflppkljibgpdlboifpcaalolg")>>
 #+end_src
 *** Honey
-- link: https://chromewebstore.google.com/detail/bmnlcjabgnpnenekpadlanbbkooimhnj
+- Chrome Web Store: https://chromewebstore.google.com/detail/bmnlcjabgnpnenekpadlanbbkooimhnj
+- Git repo: Proprietary / Closed Source
 - description: cashback for global stores.
 #+begin_src js :noweb yes
 <<install(extension_id="bmnlcjabgnpnenekpadlanbbkooimhnj")>>
 #+end_src
 *** camelcamelcamel
-- link: https://chromewebstore.google.com/detail/ghnomdcacenbmilgjigehppbamfndblo
+- Chrome Web Store: https://chromewebstore.google.com/detail/ghnomdcacenbmilgjigehppbamfndblo
+- Git repo: Proprietary / Closed Source
 - description: Amazon price tracking.
 #+begin_src js :noweb yes
 <<install(extension_id="ghnomdcacenbmilgjigehppbamfndblo")>>
 #+end_src
 *** Pelando
 - Chrome Web Store: https://chromewebstore.google.com/detail/pelando/aifpgkmldnglnmnkacahdenhhgfpkeal
+- Git repo: Proprietary / Closed Source
 - description: promotion alerts.
 #+begin_src js :noweb yes
 <<install(extension_id="aifpgkmldnglnmnkacahdenhhgfpkeal")>>
@@ -298,43 +331,52 @@ https://chromewebstore.google.com/detail/consent-o-matic/mdjildafknihdffpkfmmpnp
 ** YouTube
 *** +Youtube Playback Speed Control+
 *** Return YouTube Dislike
-- link: https://chromewebstore.google.com/detail/gebbhagfogifgggkldgodflihgfeippi
+- Chrome Web Store: https://chromewebstore.google.com/detail/gebbhagfogifgggkldgodflihgfeippi
+- Git repo: https://github.com/Anarios/return-youtube-dislike
 - description: return dislike button/views on YouTube.
 #+begin_src js :noweb yes
 <<install(extension_id="gebbhagfogifgggkldgodflihgfeippi")>>
 #+end_src
 *** SponsorBlock
-- link: https://chromewebstore.google.com/detail/mnjggcdmjocbbbhaepdhchncahnbgone
+- Chrome Web Store: https://chromewebstore.google.com/detail/mnjggcdmjocbbbhaepdhchncahnbgone
+- Git repo: https://github.com/ajayyy/SponsorBlock
 - description: skip sponsorship on YouTube videos.
 #+begin_src js :noweb yes
 <<install(extension_id="mnjggcdmjocbbbhaepdhchncahnbgone")>>
 #+end_src
 *** Unhook
-- link: https://chromewebstore.google.com/detail/khncfooichmfjbepaaaebmommgaepoid
+- Chrome Web Store: https://chromewebstore.google.com/detail/khncfooichmfjbepaaaebmommgaepoid
+- Git repo:
 - description: hide YouTube bloats.
 #+begin_src js :noweb yes
 <<install(extension_id="khncfooichmfjbepaaaebmommgaepoid")>>
 #+end_src
 *** Video DownloadHelper
-- link: https://chromewebstore.google.com/detail/lmjnegcaeklhafolokijcfjliaokphfk
+- Chrome Web Store: https://chromewebstore.google.com/detail/lmjnegcaeklhafolokijcfjliaokphfk
+- Git repo:
+  - https://github.com/aclap-dev/video-downloadhelper
+  - https://github.com/aclap-dev/vdhcoapp/
 - description: download videos.
 #+begin_src js :noweb yes
 <<install(extension_id="lmjnegcaeklhafolokijcfjliaokphfk")>>
 #+end_src
 *** Video Speed Controller
-- link: https://chromewebstore.google.com/detail/nffaoalbilbmmfgbnbgppjihopabppdk
+- Chrome Web Store: https://chromewebstore.google.com/detail/nffaoalbilbmmfgbnbgppjihopabppdk
+- Git repo: https://github.com/igrigorik/videospeed
 - description: speed up and slow down HTML5 audio & video.
 #+begin_src js :noweb yes
 <<install(extension_id="nffaoalbilbmmfgbnbgppjihopabppdk")>>
 #+end_src
 *** Watch on Odysee
-- link: https://chromewebstore.google.com/detail/kofmhmemalhemmpkfjhjfkkhifonoann
+- Chrome Web Store: https://chromewebstore.google.com/detail/kofmhmemalhemmpkfjhjfkkhifonoann
+- Git repo: https://github.com/OdyseeTeam/Watch-on-Odysee
 - description: redirection to Odysee when available.
 #+begin_src js :noweb yes
 <<install(extension_id="kofmhmemalhemmpkfjhjfkkhifonoann")>>
 #+end_src
 *** Screenshot YouTube
-- link: https://chromewebstore.google.com/detail/screenshot-youtube/gjoijpfmdhbjkkgnmahganhoinjjpohk
+- Chrome Web Store: https://chromewebstore.google.com/detail/screenshot-youtube/gjoijpfmdhbjkkgnmahganhoinjjpohk
+- Git repo: https://github.com/FutureMillennium/Screenshot-YouTube
 - description: redirection to Odysee when available.
 #+begin_src js :noweb yes
 <<install(extension_id="gjoijpfmdhbjkkgnmahganhoinjjpohk", comma=0)>>
