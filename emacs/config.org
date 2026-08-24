@@ -954,6 +954,12 @@ Restart applications with new config file.
  (call-process-shell-command "systemctl --user restart kanata" nil "*Messages*")
  (message "↻ Restarting kanata..."))
 #+end_src
+***** kanshi
+#+begin_src emacs-lisp
+((string-match-p "kanshi" target-dest)
+ (call-process-shell-command "kanshictl reload" nil "*Messages*")
+ (message "↻ Reloading kanshi..."))
+#+end_src
 ***** Sway
 #+begin_src emacs-lisp
 ;; generate "config" from "_config" using i3bang.rb, and then reload Sway
