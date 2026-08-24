@@ -47,10 +47,18 @@ output "Chimei Innolux Corporation 0x143F Unknown" {
   alias $IPF
 }
 #+end_src
-** Default
+** Extend HDMI
 #+begin_src conf
-profile ipf_native {
+profile ipf_extend_hdmi {
     output $IPF enable
+    output "HDMI-A-1" mode 3840x2160@60Hz position 1920,0 scale 2
+}
+#+end_src
+** Extend DisplayPort (USB-C)
+#+begin_src conf
+profile ipf_extend_dp {
+    output $IPF enable
+    output "DP-1" mode 3840x2160@60Hz position 1920,0 scale 2
 }
 #+end_src
 ** Mirror to HDMI
@@ -67,18 +75,10 @@ profile ipf_mirror_dp {
     output "DP-1"  mode 3840x2160@60Hz position 0,0 scale 2
 }
 #+end_src
-** Extend HDMI
+** Default
 #+begin_src conf
-profile ipf_extend_hdmi {
+profile ipf_native {
     output $IPF enable
-    output "HDMI-A-1" mode 3840x2160@60Hz position 1920,0 scale 2
-}
-#+end_src
-** Extend DisplayPort (USB-C)
-#+begin_src conf
-profile ipf_extend_dp {
-    output $IPF enable
-    output "DP-1" mode 3840x2160@60Hz position 1920,0 scale 2
 }
 #+end_src
 * VB
