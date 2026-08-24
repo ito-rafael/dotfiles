@@ -827,6 +827,13 @@ box#toggle {
     background-image: url("/home/rafael/.config/waybar/icon/screen-extend.png");
 }
 
+#custom-kanshi.hidden {
+    min-width: 0;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+}
+
 #custom-autorotate {
     padding-right: 4px;
     padding-left: 4px;
