@@ -1240,6 +1240,13 @@ box#toggle {
     min-width: 16px;
 }
 #+end_src
+*** Hover
+#+begin_src css
+#custom-kanshi:hover {
+    background-color: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+#+end_src
 *** Image
 #+begin_src css
 #custom-kanshi.mirror,

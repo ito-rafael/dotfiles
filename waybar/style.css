@@ -812,6 +812,11 @@ box#toggle {
     min-width: 16px;
 }
 
+#custom-kanshi:hover {
+    background-color: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+
 #custom-kanshi.mirror,
 #custom-kanshi.extend {
     background-size: 15px;
