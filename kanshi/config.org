@@ -47,6 +47,12 @@ output "Chimei Innolux Corporation 0x143F Unknown" {
   alias $IPF
 }
 #+end_src
+** Default
+#+begin_src conf
+profile ipf_native {
+    output $IPF enable
+}
+#+end_src
 ** Mirror to HDMI
 #+begin_src conf
 profile ipf_mirror_hdmi {

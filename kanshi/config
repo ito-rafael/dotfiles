@@ -27,6 +27,10 @@ output "Chimei Innolux Corporation 0x143F Unknown" {
   alias $IPF
 }
 
+profile ipf_native {
+    output $IPF enable
+}
+
 profile ipf_mirror_hdmi {
     output $IPF enable
     output "HDMI-A-1" mode 3840x2160@60Hz position 0,0 scale 2
