@@ -1,0 +1,1 @@
+/home/rafael/git/dotfiles/kanshi/map-workspaces.sh

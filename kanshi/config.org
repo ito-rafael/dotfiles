@@ -33,6 +33,8 @@ profile {
     output "Dell Inc. DELL SE2416H Y4GVX82704FL" mode 1920x1080@60Hz position 1920,0
     # right monitor: AOC 2 - Vertical (tertiary) [DVI-I-1]
     output "AOC 2369M 23039IA002615" mode 1920x1080@60Hz position 3840,0 transform 90
+    # map workspaces
+    exec ~/.config/scripts/map-workspaces.sh "HDMI-A-1" "DP-1" "DVI-I-1"
 }
 #+end_src
 * IPF
