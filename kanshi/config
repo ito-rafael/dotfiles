@@ -31,26 +31,56 @@ output "Chimei Innolux Corporation 0x143F Unknown" {
 
 profile ipf_extend_hdmi {
     output $IPF enable
-    output "HDMI-A-1" mode 3840x2160@60Hz position 1920,0 scale 2
+    output "HDMI-A-1" position -1920,0 scale 1
+    # run commands:
+    #   - enable Waybar in external monitor
+    #   - restart Waybar service
+    #   - map workspaces
+    #   - apply background image
+    exec echo '{}' > ~/.config/waybar/dynamic-output.json && systemctl --user restart waybar && sleep 0.2 && ~/.config/scripts/map-workspaces.sh "eDP-1" "HDMI-A-1" && swaymsg 'output eDP-1 bg ~/.config/wallpaper/london.jpg fill' && swaymsg 'output HDMI-A-1 bg ~/.config/wallpaper/london.jpg fill'
 }
 
 profile ipf_extend_dp {
     output $IPF enable
-    output "DP-1" mode 3840x2160@60Hz position 1920,0 scale 2
+    output "DP-1" position -1920,0 scale 1
+    # run commands:
+    #   - enable Waybar in external monitor
+    #   - restart Waybar service
+    #   - map workspaces
+    #   - apply background image
+    exec echo '{}' > ~/.config/waybar/dynamic-output.json && systemctl --user restart waybar && sleep 0.2 && ~/.config/scripts/map-workspaces.sh "eDP-1" "DP-1" && swaymsg 'output eDP-1 bg ~/.config/wallpaper/london.jpg fill; output DP-1 bg ~/.config/wallpaper/london.jpg fill'
 }
 
 profile ipf_mirror_hdmi {
     output $IPF enable
-    output "HDMI-A-1" mode 3840x2160@60Hz position 0,0 scale 2
+    output "HDMI-A-1" position 0,0 scale 1
+    # run commands:
+    #   - disable Waybar in external monitor
+    #   - restart Waybar service
+    #   - map workspaces
+    #   - apply background image
+    exec echo '{"output": ["eDP-1"]}' > ~/.config/waybar/dynamic-output.json && systemctl --user restart waybar && sleep 0.2 && ~/.config/scripts/map-workspaces.sh "eDP-1" && swaymsg 'output eDP-1 bg ~/.config/wallpaper/london.jpg fill'
 }
 
 profile ipf_mirror_dp {
     output $IPF enable
-    output "DP-1"  mode 3840x2160@60Hz position 0,0 scale 2
+    output "DP-1" position 0,0 scale 1
+    # run commands:
+    #   - disable Waybar in external monitor
+    #   - restart Waybar service
+    #   - map workspaces
+    #   - apply background image
+    exec echo '{"output": ["eDP-1"]}' > ~/.config/waybar/dynamic-output.json && systemctl --user restart waybar && sleep 0.2 && ~/.config/scripts/map-workspaces.sh "eDP-1" && swaymsg 'output eDP-1 bg ~/.config/wallpaper/london.jpg fill'
 }
 
 profile ipf_native {
     output $IPF enable
+    # run commands:
+    #   - clear dynamic-output.json
+    #   - restart Waybar service
+    #   - map workspaces
+    #   - apply background image
+    exec echo '{}' > ~/.config/waybar/dynamic-output.json && systemctl --user restart waybar && ~/.config/scripts/map-workspaces.sh "eDP-1" && swaymsg 'output eDP-1 bg ~/.config/wallpaper/london.jpg fill'
 }
 
 # Outputs:
