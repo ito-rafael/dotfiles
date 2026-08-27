@@ -242,6 +242,31 @@ if (window.location.href.includes("localhost:8080/web/viewer.html")) {
     }
 }
 
+api.mapkey('b', 'Bookmarks Omnibar', () => {
+    const tag = "[omnibar_bookmarks] ";
+
+    if (!document.title.startsWith(tag)) document.title = tag + document.title;
+    api.Front.openOmnibar({type: "Bookmarks"});
+
+    clearInterval(window.skbTimer);
+    let opened = false, wait = 0;
+
+    window.skbTimer = setInterval(() => {
+        let el = document.activeElement;
+
+        // if the Surfingkeys anonymous DIV has focus:
+        if (el && el.tagName === 'DIV' && el.shadowRoot) {
+            opened = true; wait = 0;
+            if (!document.title.startsWith(tag)) document.title = tag + document.title.replace(tag, '');
+        }
+        // if focus is lost (closed) or it fails to load after 2 seconds:
+        else if (opened || ++wait > 40) {
+            document.title = document.title.replace(tag, '');
+            clearInterval(window.skbTimer);
+        }
+    }, 50);
+});
+
 //api.unmapAllExcept([], /localhost/);
 
 api.unmap("c", /youtube.com/);
