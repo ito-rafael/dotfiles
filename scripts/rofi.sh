@@ -46,10 +46,10 @@ PAD_H=$(echo "$HEIGHT / $PROPORTION" | bc)
 #=======================================
 # verify output orientation
 #=======================================
-if [ $WIN_WIDTH -gt $WIN_HEIGHT ]; then
+if [ "$WIDTH" -gt "$HEIGHT" ]; then
     # horizontal monitor
-    rofi -show $CMD -monitor $FOCUSED_OUTPUT -theme-str 'window {fullscreen: true; width: '$WIDTH'px; height: '$HEIGHT'px; padding: '$PAD_H'px '$PAD_W'px;}'
+    exec rofi -show $CMD -monitor $FOCUSED_OUTPUT -theme-str 'window {fullscreen: true; width: '$WIDTH'px; height: '$HEIGHT'px; padding: '$PAD_H'px '$PAD_W'px;}'
 else
     # vertical monitor
-    rofi -show $CMD -monitor $FOCUSED_OUTPUT -theme-str 'window {fullscreen: true; width: '$WIDTH'px; height: '$HEIGHT'px; padding: '$PAD_H'px '$PAD_W'px;}'
+    exec rofi -show $CMD -monitor $FOCUSED_OUTPUT -theme-str 'window {fullscreen: true; width: '$WIDTH'px; height: '$HEIGHT'px; padding: '$PAD_H'px '$PAD_W'px;}'
 fi
