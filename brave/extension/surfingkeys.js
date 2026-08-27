@@ -96,7 +96,7 @@ if (window.location.host === 'music.youtube.com') {
         if (saveBtn) {
             saveBtn.click();
         } else {
-            Front.showPopup('Save/Remove button not found.');
+            api.Front.showPopup('Save/Remove button not found.');
         }
     });
 
@@ -112,7 +112,7 @@ if (window.location.host === 'music.youtube.com') {
                 return;
             }
         }
-        Front.showPopup('Home button not found.');
+        api.Front.showPopup('Home button not found.');
     });
 
     api.mapkey('l', 'Go to Library', function() {
@@ -127,7 +127,7 @@ if (window.location.host === 'music.youtube.com') {
                 return;
             }
         }
-        Front.showPopup('Library button not found.');
+        api.Front.showPopup('Library button not found.');
     });
 
 }
