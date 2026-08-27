@@ -30,7 +30,7 @@ fi
 
 # apply rules instantly
 if [ -n "$CMD" ]; then
-    swaymsg "$CMD"
+    swaymsg -q "$CMD"
 fi
 
 #---------------------------------------------------------
@@ -64,7 +64,7 @@ while IFS= read -r ws; do
     # if a valid target output is found, move the workspace there
     if [ -n "$target_output" ]; then
         # the syntax requires focusing the workspace first, then moving it
-        swaymsg "workspace \"$ws\"; move workspace to output $target_output" > /dev/null
+        swaymsg -q "workspace \"$ws\"; move workspace to output $target_output"
     fi
 
 done <<< "$active_workspaces"
@@ -72,4 +72,4 @@ done <<< "$active_workspaces"
 #---------------------------------------------------------
 # focus workspace 1 to avoid being left on an empty screen
 #---------------------------------------------------------
-swaymsg "workspace 1:1" > /dev/null
+swaymsg -q "workspace 1:1"
