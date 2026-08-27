@@ -425,9 +425,10 @@ settings.theme = `
     .sk_theme .url {
         color: #7aa2f7 !important;
     }
-    /* Hide folder paths and timestamps in bookmarks */
+    /* Hide folder paths, timestamps, and the star icon */
     .sk_theme .omnibar_folder,
-    .sk_theme .omnibar_timestamp {
+    .sk_theme .omnibar_timestamp,
+    .sk_theme #sk_omnibarSearchResult .icon {
         display: none !important;
     }
     .sk_theme .omnibar_highlight {
