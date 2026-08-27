@@ -1,4 +1,4 @@
-# Outputs:
+# Catuaba:
 #
 #   +-----------+ +-----------+ +--------+
 #   |           | |           | |        |=++
@@ -8,7 +8,6 @@
 #   +---/   \--+  +--/   \---+  |        | ||
 #   |----------|  |----------|  +--------+ ||
 # --+----------+--+----------+-------------++--
-#
 #
 profile {
     # left monitor: AOC 1 (secondary) [DP-1]
@@ -27,6 +26,27 @@ output "Chimei Innolux Corporation 0x143F Unknown" {
   scale 1
   transform normal
   alias $IPF
+}
+
+# IPF triple monitor:
+#
+#   +-------+ +-------+
+#   |   2   | |   1   |
+#   +-------+ +-------+
+#              +-----+
+#              |  3  |
+#              +-----+
+#
+profile ipf_triple_monitor {
+    output $IPF enable
+    output "HDMI-A-1" position      0,-1080 scale 1
+    output "DP-1"     position  -1920,-1080 scale 1
+    # run commands:
+    #   - enable Waybar in external monitor
+    #   - restart Waybar service
+    #   - map workspaces
+    #   - apply background image
+    exec echo '{}' > ~/.config/waybar/dynamic-output.json && systemctl --user restart waybar && sleep 0.2 && ~/.config/scripts/map-workspaces.sh "eDP-1" "HDMI-A-1" "DP-1" && swaymsg 'output eDP-1 bg ~/.config/wallpaper/london.jpg fill; output HDMI-A-1 bg ~/.config/wallpaper/london.jpg fill; output DP-1 bg ~/.config/wallpaper/nasa.jpg fill'
 }
 
 profile ipf_extend_hdmi {
@@ -83,7 +103,7 @@ profile ipf_native {
     exec echo '{}' > ~/.config/waybar/dynamic-output.json && systemctl --user restart waybar && ~/.config/scripts/map-workspaces.sh "eDP-1" && swaymsg 'output eDP-1 bg ~/.config/wallpaper/london.jpg fill'
 }
 
-# Outputs:
+# Hub Viva-Bem #1:
 #
 #   +-------+ +-------+
 #   |   2   | |   1   |
@@ -105,7 +125,7 @@ profile vb1 {
     output "eDP-1"    mode 1920x1080@60Hz position 411,1542
 }
 
-# Outputs:
+# Hub Viva-Bem #2:
 #
 #           +-----------+ +-----------+
 #           |           | |           |
@@ -126,7 +146,7 @@ profile vb2 {
     output "eDP-1"    mode 1920x1080@60Hz position -1920,0
 }
 
-# Room:
+# MSc presentation:
 #
 #   +----------------------+
 #   |                      |

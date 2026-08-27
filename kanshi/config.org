@@ -14,7 +14,7 @@
 Desktop used during PhD @ LBiC/Unicamp.
 ** Main
 #+begin_src conf
-# Outputs:
+# Catuaba:
 #
 #   +-----------+ +-----------+ +--------+
 #   |           | |           | |        |=++
@@ -24,7 +24,6 @@ Desktop used during PhD @ LBiC/Unicamp.
 #   +---/   \--+  +--/   \---+  |        | ||
 #   |----------|  |----------|  +--------+ ||
 # --+----------+--+----------+-------------++--
-#
 #
 profile {
     # left monitor: AOC 1 (secondary) [DP-1]
@@ -47,6 +46,29 @@ output "Chimei Innolux Corporation 0x143F Unknown" {
   scale 1
   transform normal
   alias $IPF
+}
+#+end_src
+** Triple monitor
+#+begin_src conf
+# IPF triple monitor:
+#
+#   +-------+ +-------+
+#   |   2   | |   1   |
+#   +-------+ +-------+
+#              +-----+
+#              |  3  |
+#              +-----+
+#
+profile ipf_triple_monitor {
+    output $IPF enable
+    output "HDMI-A-1" position      0,-1080 scale 1
+    output "DP-1"     position  -1920,-1080 scale 1
+    # run commands:
+    #   - enable Waybar in external monitor
+    #   - restart Waybar service
+    #   - map workspaces
+    #   - apply background image
+    exec echo '{}' > ~/.config/waybar/dynamic-output.json && systemctl --user restart waybar && sleep 0.2 && ~/.config/scripts/map-workspaces.sh "eDP-1" "HDMI-A-1" "DP-1" && swaymsg 'output eDP-1 bg ~/.config/wallpaper/london.jpg fill; output HDMI-A-1 bg ~/.config/wallpaper/london.jpg fill; output DP-1 bg ~/.config/wallpaper/nasa.jpg fill'
 }
 #+end_src
 ** Extend HDMI
@@ -118,7 +140,7 @@ Dell Vostro laptop used in Viva-Bem hub.
 ** Hub Viva-Bem #1
 Laptop below dual monitor setup.
 #+begin_src conf
-# Outputs:
+# Hub Viva-Bem #1:
 #
 #   +-------+ +-------+
 #   |   2   | |   1   |
@@ -143,7 +165,7 @@ profile vb1 {
 ** Hub Viva-Bem #2
 Laptop aligned with dual monitor setup.
 #+begin_src conf
-# Outputs:
+# Hub Viva-Bem #2:
 #
 #           +-----------+ +-----------+
 #           |           | |           |
@@ -167,7 +189,7 @@ profile vb2 {
 ** MSc presentation
 Masters presentation @ FEEC/Unicamp, with projector and Educart.
 #+begin_src conf
-# Room:
+# MSc presentation:
 #
 #   +----------------------+
 #   |                      |
