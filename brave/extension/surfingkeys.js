@@ -298,11 +298,10 @@ settings.theme = `
     .sk_theme .url {
         color: #7aa2f7 !important;
     }
-    .sk_theme .omnibar_folder {
-        color: #bb9af7 !important;
-    }
+    /* Hide folder paths and timestamps in bookmarks */
+    .sk_theme .omnibar_folder,
     .sk_theme .omnibar_timestamp {
-        color: #565f89 !important;
+        display: none !important;
     }
     .sk_theme .omnibar_highlight {
         color: #e0af68 !important;
