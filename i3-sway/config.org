@@ -11,7 +11,7 @@
 - [[#sway][Sway]]
 - [[#swayfx][SwayFX]]
 - [[#outputs][+Outputs+]]
-- [[#workspaces-definition][Workspaces definition]]
+- [[#workspaces-definition][+Workspaces definition+]]
 - [[#i3bang-raw-section-beginning][i3bang: raw section (beginning)]]
 - [[#media-control][Media control]]
 - [[#opacity][Opacity]]
@@ -428,21 +428,22 @@ output DP-1 mode 3840x2160@60hz position 0,0
 *** +i3+
 +The outputs settings are being managed by the display manager (e.g.: LightDM, SDDM) instead of the window manager.+
 #+begin_src conf :noweb yes :tangle _config_i3
-#<<i3-output-default>>
+<<i3-output-default>>
 #<<i3-output-xrandr>>
 #+end_src
 *** +Sway+
 #+begin_src conf :noweb yes :tangle _config_sway
-#<<sway-output-default>>
+<<sway-output-default>>
 #<<sway-output-msc>>
 #<<sway-output-hvb1>>
 #<<sway-output-hvb2>>
 #<<sway-output-mirror>>
 #+end_src
-* Workspaces definition
-** Default output
-*** Primary output
-#+begin_src conf :noweb-ref ws
+* +Workspaces definition+
+Most of this section was deprecated in favour of =kanshi=. Workspaces name vars are kept here, though.
+** +Default output+
+*** +Primary output+
+#+begin_src conf :noweb-ref ws :tangle no
 workspace "1:1" output $primary
 workspace "2:2" output $primary
 workspace "3:3" output $primary
@@ -454,8 +455,8 @@ workspace "8:8" output $primary
 workspace "9:9" output $primary
 workspace "10:0" output $primary
 #+end_src
-*** Secondary output
-#+begin_src conf :noweb-ref ws
+*** +Secondary output+
+#+begin_src conf :noweb-ref ws :tangle no
 workspace "11:11" output $secondary
 workspace "12:12" output $secondary
 workspace "13:13" output $secondary
@@ -467,8 +468,8 @@ workspace "18:18" output $secondary
 workspace "19:19" output $secondary
 workspace "20:10" output $secondary
 #+end_src
-*** Tertiary output
-#+begin_src conf :noweb-ref ws
+*** +Tertiary output+
+#+begin_src conf :noweb-ref ws :tangle no
 workspace "21:21" output $tertiary
 workspace "22:22" output $tertiary
 workspace "23:23" output $tertiary
@@ -480,8 +481,8 @@ workspace "28:28" output $tertiary
 workspace "29:29" output $tertiary
 workspace "30:20" output $tertiary
 #+end_src
-** WS names (icons)
-*** Primary monitor
+** +WS names (icons)+
+*** +Primary monitor+
 #+begin_src conf :tangle no
 set $ws1 "1 "
 set $ws2 "2 "
@@ -495,7 +496,7 @@ set $ws9 "9 "
 set $ws0 "10 "
 set $ws0 "10 "
 #+end_src
-*** Secondary monitor
+*** +Secondary monitor+
 #+begin_src conf :tangle no
 set $ws11 "11 "
 set $ws12 "12 "
