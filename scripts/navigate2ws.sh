@@ -65,6 +65,18 @@ else
             WS20="30:20"
 
             #=================================================
+            # helper function to launch rofi and go back on ESC
+            #=================================================
+            launch_rofi_or_back() {
+                ~/.config/scripts/rofi.sh drun
+                # wait up to 1 second after Rofi closed, and check for any window spawn.
+                # if no window appears, assume ESC was pressed.
+                if ! timeout 1 ${CMD_MSG} -t subscribe '["window"]' >/dev/null 2>&1; then
+                    ${CMD_MSG} -t command "workspace back_and_forth"
+                fi
+            }
+
+            #=================================================
             # get the workspace to navigate to
             #=================================================
             case $WORKSPACE in
@@ -142,37 +154,22 @@ else
                     1) kitty ;;
                     2) firefox & ;;
                     3) brave-origin & ;;
-                    4) ~/.config/scripts/rofi.sh drun ;;
+                    4) launch_rofi_or_back ;;
                     5) libreoffice --calc "/home/rafael/Sync/shared-files/Coisas da casa.ods" & ;;
-                    6) ~/.config/scripts/rofi.sh drun ;;
+                    6) launch_rofi_or_back ;;
                     7) deluge & nicotine & ;;
-                    8) ~/.config/scripts/rofi.sh drun ;;
-                    9) ~/.config/scripts/rofi.sh drun ;;
-                    0) ~/.config/scripts/rofi.sh drun ;;
+                    8) launch_rofi_or_back ;;
+                    9) launch_rofi_or_back ;;
+                    0) launch_rofi_or_back ;;
                     #-------------------------------------
                     # secondary screen
-                    11) ~/.config/scripts/rofi.sh drun ;;
-                    12) ~/.config/scripts/rofi.sh drun ;;
-                    13) ~/.config/scripts/rofi.sh drun ;;
-                    14) ~/.config/scripts/rofi.sh drun ;;
-                    15) ~/.config/scripts/rofi.sh drun ;;
-                    16) ~/.config/scripts/rofi.sh drun ;;
-                    17) ~/.config/scripts/rofi.sh drun ;;
-                    18) ~/.config/scripts/rofi.sh drun ;;
-                    19) ~/.config/scripts/rofi.sh drun ;;
+                    11|12|13|14|15|16|17|18|19)
+                        launch_rofi_or_back ;;
                     10) pavucontrol & blueman-applet & blueman-manager & ;;
                     #-------------------------------------
                     # tertiary screen
-                    21) ~/.config/scripts/rofi.sh drun ;;
-                    22) ~/.config/scripts/rofi.sh drun ;;
-                    23) ~/.config/scripts/rofi.sh drun ;;
-                    24) ~/.config/scripts/rofi.sh drun ;;
-                    25) ~/.config/scripts/rofi.sh drun ;;
-                    26) ~/.config/scripts/rofi.sh drun ;;
-                    27) ~/.config/scripts/rofi.sh drun ;;
-                    28) ~/.config/scripts/rofi.sh drun ;;
-                    29) ~/.config/scripts/rofi.sh drun ;;
-                    20) ~/.config/scripts/rofi.sh drun ;;
+                    21|22|23|24|25|26|27|28|29|20)
+                        launch_rofi_or_back ;;
                 esac
             fi
         fi
