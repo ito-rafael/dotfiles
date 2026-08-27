@@ -267,6 +267,63 @@ api.mapkey('b', 'Bookmarks Omnibar', () => {
     }, 50);
 });
 
+settings.theme = `
+    /* Main Background & Text */
+    .sk_theme {
+        background: #1a1b26 !important;
+        color: #a9b1d6 !important;
+    }
+
+    /* Omnibar Input Area */
+    .sk_theme input {
+        color: #c0caf5 !important;
+    }
+    #sk_omnibarSearchArea {
+        border-bottom: 1px solid #292e42 !important;
+    }
+
+    /* Search Results List */
+    .sk_theme #sk_omnibarSearchResult ul li:nth-child(odd) {
+        background: #16161e !important;
+    }
+    .sk_theme #sk_omnibarSearchResult ul li.focused {
+        background: #283457 !important;
+        border-radius: 4px !important;
+    }
+
+    /* Result Text Styling */
+    .sk_theme .title {
+        color: #c0caf5 !important;
+    }
+    .sk_theme .url {
+        color: #7aa2f7 !important;
+    }
+    .sk_theme .omnibar_folder {
+        color: #bb9af7 !important;
+    }
+    .sk_theme .omnibar_timestamp {
+        color: #565f89 !important;
+    }
+    .sk_theme .omnibar_highlight {
+        color: #e0af68 !important;
+    }
+
+    /* Hints (Link Markers) */
+    #sk_hints > div {
+        background: #e0af68 !important;
+        color: #1a1b26 !important;
+        border: 1px solid #e0af68 !important;
+        font-weight: bold !important;
+    }
+
+    /* Popup / Banners */
+    #sk_banner, #sk_keystroke {
+        background: #1a1b26 !important;
+        color: #a9b1d6 !important;
+        border: 1px solid #292e42 !important;
+    }
+`;
+
 //api.unmapAllExcept([], /localhost/);
 
 api.unmap("c", /youtube.com/);
