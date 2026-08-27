@@ -151,7 +151,7 @@ else
                 fi
                 case $WORKSPACE in
                     # primary screen
-                    1) kitty ;;
+                    1) kitty & ;;
                     2) firefox & ;;
                     3) brave-origin & ;;
                     4) launch_rofi_or_back ;;
