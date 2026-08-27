@@ -176,8 +176,7 @@ else
                 esac
             fi
         fi
-        # wait until applications open
-        #  TODO: think in a better way of doing this without time sleep
-        sleep 2
+        # wait until a new window is mapped (times out after 2 seconds if you cancel)
+        timeout 2 ${CMD_MSG} -t subscribe '["window"]' >/dev/null 2>&1
     done
 fi
