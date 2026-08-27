@@ -16,8 +16,8 @@ profile {
     output "Dell Inc. DELL SE2416H Y4GVX82704FL" mode 1920x1080@60Hz position 1920,0
     # right monitor: AOC 2 - Vertical (tertiary) [DVI-I-1]
     output "AOC 2369M 23039IA002615" mode 1920x1080@60Hz position 3840,0 transform 90
-    # map workspaces
-    exec ~/.config/scripts/map-workspaces.sh "HDMI-A-1" "DP-1" "DVI-I-1"
+    # profile setup
+    exec ~/.config/scripts/kanshi-profile-setup.sh catuaba
 }
 
 output "Chimei Innolux Corporation 0x143F Unknown" {
@@ -41,66 +41,36 @@ profile ipf_triple_monitor {
     output $IPF enable
     output "HDMI-A-1" position      0,-1080 scale 1
     output "DP-1"     position  -1920,-1080 scale 1
-    # run commands:
-    #   - enable Waybar in external monitor
-    #   - restart Waybar service
-    #   - map workspaces
-    #   - apply background image
-    exec echo '{}' > ~/.config/waybar/dynamic-output.json && systemctl --user restart waybar && sleep 0.2 && ~/.config/scripts/map-workspaces.sh "eDP-1" "HDMI-A-1" "DP-1" && swaymsg 'output eDP-1 bg ~/.config/wallpaper/london.jpg fill; output HDMI-A-1 bg ~/.config/wallpaper/london.jpg fill; output DP-1 bg ~/.config/wallpaper/nasa.jpg fill'
+    exec ~/.config/scripts/kanshi-profile-setup.sh ipf_triple_monitor
 }
 
 profile ipf_extend_hdmi {
     output $IPF enable
     output "HDMI-A-1" position -1920,0 scale 1
-    # run commands:
-    #   - enable Waybar in external monitor
-    #   - restart Waybar service
-    #   - map workspaces
-    #   - apply background image
-    exec echo '{}' > ~/.config/waybar/dynamic-output.json && systemctl --user restart waybar && sleep 0.2 && ~/.config/scripts/map-workspaces.sh "eDP-1" "HDMI-A-1" && swaymsg 'output eDP-1 bg ~/.config/wallpaper/london.jpg fill' && swaymsg 'output HDMI-A-1 bg ~/.config/wallpaper/london.jpg fill'
+    exec ~/.config/scripts/kanshi-profile-setup.sh ipf_extend_hdmi
 }
 
 profile ipf_extend_dp {
     output $IPF enable
     output "DP-1" position -1920,0 scale 1
-    # run commands:
-    #   - enable Waybar in external monitor
-    #   - restart Waybar service
-    #   - map workspaces
-    #   - apply background image
-    exec echo '{}' > ~/.config/waybar/dynamic-output.json && systemctl --user restart waybar && sleep 0.2 && ~/.config/scripts/map-workspaces.sh "eDP-1" "DP-1" && swaymsg 'output eDP-1 bg ~/.config/wallpaper/london.jpg fill; output DP-1 bg ~/.config/wallpaper/london.jpg fill'
+    exec ~/.config/scripts/kanshi-profile-setup.sh ipf_extend_dp
 }
 
 profile ipf_mirror_hdmi {
     output $IPF enable
     output "HDMI-A-1" position 0,0 scale 1
-    # run commands:
-    #   - disable Waybar in external monitor
-    #   - restart Waybar service
-    #   - map workspaces
-    #   - apply background image
-    exec echo '{"output": ["eDP-1"]}' > ~/.config/waybar/dynamic-output.json && systemctl --user restart waybar && sleep 0.2 && ~/.config/scripts/map-workspaces.sh "eDP-1" && swaymsg 'output eDP-1 bg ~/.config/wallpaper/london.jpg fill'
+    exec ~/.config/scripts/kanshi-profile-setup.sh ipf_mirror_hdmi
 }
 
 profile ipf_mirror_dp {
     output $IPF enable
     output "DP-1" position 0,0 scale 1
-    # run commands:
-    #   - disable Waybar in external monitor
-    #   - restart Waybar service
-    #   - map workspaces
-    #   - apply background image
-    exec echo '{"output": ["eDP-1"]}' > ~/.config/waybar/dynamic-output.json && systemctl --user restart waybar && sleep 0.2 && ~/.config/scripts/map-workspaces.sh "eDP-1" && swaymsg 'output eDP-1 bg ~/.config/wallpaper/london.jpg fill'
+    exec ~/.config/scripts/kanshi-profile-setup.sh ipf_mirror_dp
 }
 
 profile ipf_native {
     output $IPF enable
-    # run commands:
-    #   - clear dynamic-output.json
-    #   - restart Waybar service
-    #   - map workspaces
-    #   - apply background image
-    exec echo '{}' > ~/.config/waybar/dynamic-output.json && systemctl --user restart waybar && ~/.config/scripts/map-workspaces.sh "eDP-1" && swaymsg 'output eDP-1 bg ~/.config/wallpaper/london.jpg fill'
+    exec ~/.config/scripts/kanshi-profile-setup.sh ipf_native
 }
 
 # Hub Viva-Bem #1:
@@ -116,13 +86,15 @@ profile ipf_native {
 #   2: Samsung UR55
 #   3: VB laptop
 #
-profile vb1 {
+profile vb_hub1 {
     # primary
     output "HDMI-A-1" mode 3840x2160@60Hz position      0,0
     # secondary
     output "DP-1"     mode 3840x2160@60Hz position  -2742,0
     # laptop
     output "eDP-1"    mode 1920x1080@60Hz position 411,1542
+    # profile setup
+    exec ~/.config/scripts/kanshi-profile-setup.sh vb_hub1
 }
 
 # Hub Viva-Bem #2:
@@ -137,13 +109,15 @@ profile vb1 {
 #   2: Samsung UR55
 #   3: VB laptop
 #
-profile vb2 {
+profile vb_hub2 {
     # primary
     output "HDMI-A-1" mode 3840x2160@60Hz position     0,0
     # secondary
     output "DP-1"     mode 3840x2160@60Hz position  2742,0
     # laptop
     output "eDP-1"    mode 1920x1080@60Hz position -1920,0
+    # profile setup
+    exec ~/.config/scripts/kanshi-profile-setup.sh vb_hub2
 }
 
 # MSc presentation:
@@ -179,4 +153,6 @@ profile msc_presentation {
     output "HDMI-A-1" mode 1920x1200@60Hz position 0,1080  scale 1
     # educart
     output "DP-1"     mode 1920x1080@60Hz position 0,-1080 scale 1
+    # profile setup
+    exec ~/.config/scripts/kanshi-profile-setup.sh msc_presentation
 }
