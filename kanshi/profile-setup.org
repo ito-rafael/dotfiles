@@ -1,0 +1,158 @@
+#+title: Kanshi profile setup via exec script
+#+author: Rafael Ito
+#+property: header-args:bash :tangle profile-setup.sh :tangle-mode (identity #o755) :shebang #!/usr/bin/env bash
+#+description: Helper script to handle Waybar, workspaces, and backgrounds for Kanshi profiles
+#+startup: showeverything
+#+auto_tangle: t
+
+* Table of contents :toc_1:
+- [[#catuaba][Catuaba]]
+- [[#ipf][IPF]]
+- [[#vb][VB]]
+
+* Variables :noexport:
+Read the profile from the first argument and set reusable paths for wallpapers, Waybar dynamic configuration, and the workspace mapping script.
+#+begin_src bash
+PROFILE=$1
+
+# define reusable paths
+WALLPAPER_DIR="$HOME/.config/wallpaper"
+MAP_WS="$HOME/.config/scripts/map-workspaces.sh"
+WAYBAR_DYN="$HOME/.config/waybar/dynamic-output.json"
+DELAY=1
+
+case "$PROFILE" in
+#+end_src
+* Catuaba
+Desktop used during PhD @ LBiC/Unicamp.
+#+begin_src bash
+"catuaba")
+    # map workspaces
+    "$MAP_WS" "HDMI-A-1" "DP-1" "DVI-I-1"
+    # apply background image
+    swaymsg -q "\
+        output HDMI-A-1 bg $WALLPAPER_DIR/london.jpg fill; \
+        output DP-1     bg $WALLPAPER_DIR/london.jpg fill; \
+        output DVI-I-1  bg $WALLPAPER_DIR/nasa.jpg fill"
+    ;;
+#+end_src
+* IPF
+Personal IdeaPad Flex 5i laptop profiles.
+** Triple monitor
+#+begin_src bash
+"ipf_triple_monitor")
+    # enable Waybar in external monitor
+    echo '{}' > "$WAYBAR_DYN"
+    # restart Waybar service
+    systemctl --user restart waybar
+    sleep "$DELAY"
+    # map workspaces
+    "$MAP_WS" "eDP-1" "HDMI-A-1" "DP-1"
+    # apply background image
+    swaymsg -q "\
+        output eDP-1    bg $WALLPAPER_DIR/london.jpg fill; \
+        output HDMI-A-1 bg $WALLPAPER_DIR/london.jpg fill; \
+        output DP-1     bg $WALLPAPER_DIR/nasa.jpg fill"
+    ;;
+#+end_src
+** Extend to HDMI
+#+begin_src bash
+"ipf_extend_hdmi")
+    # enable Waybar in external monitor
+    echo '{}' > "$WAYBAR_DYN"
+    # restart Waybar service
+    systemctl --user restart waybar
+    sleep "$DELAY"
+    # map workspaces
+    "$MAP_WS" "eDP-1" "HDMI-A-1"
+    # apply background image
+    swaymsg -q "\
+        output eDP-1    bg $WALLPAPER_DIR/london.jpg fill; \
+        output HDMI-A-1 bg $WALLPAPER_DIR/london.jpg fill"
+    ;;
+#+end_src
+** Extend to DisplayPort (USB-C)
+#+begin_src bash
+"ipf_extend_dp")
+    # enable Waybar in external monitor
+    echo '{}' > "$WAYBAR_DYN"
+    # restart Waybar service
+    systemctl --user restart waybar
+    sleep "$DELAY"
+    # map workspaces
+    "$MAP_WS" "eDP-1" "DP-1"
+    # apply background image
+    swaymsg -q "\
+        output eDP-1 bg $WALLPAPER_DIR/london.jpg fill; \
+        output DP-1  bg $WALLPAPER_DIR/london.jpg fill"
+    ;;
+#+end_src
+** Mirror to HDMI/DisplayPort
+Handles both HDMI and DisplayPort since the mirror logic is identical.
+#+begin_src bash
+"ipf_mirror_hdmi" | "ipf_mirror_dp")
+    # disable Waybar in external monitor
+    echo '{"output": ["eDP-1"]}' > "$WAYBAR_DYN"
+    # restart Waybar service
+    systemctl --user restart waybar
+    sleep "$DELAY"
+    # map workspaces
+    "$MAP_WS" "eDP-1"
+    # apply background image
+    swaymsg -q "output eDP-1 bg $WALLPAPER_DIR/london.jpg fill"
+    ;;
+#+end_src
+** Native (Default)
+#+begin_src bash
+"ipf_native")
+    # clear Waybar dynamic config
+    echo '{}' > "$WAYBAR_DYN"
+    # restart Waybar service
+    systemctl --user restart waybar
+    # map workspaces
+    "$MAP_WS" "eDP-1"
+    # apply background image
+    swaymsg -q "output eDP-1 bg $WALLPAPER_DIR/london.jpg fill"
+    ;;
+#+end_src
+* VB
+Dell Vostro laptop used in Viva-Bem hub.
+** Hub Viva-Bem #1
+#+begin_src bash
+"vb_hub1")
+    # map workspaces
+    "$MAP_WS" "HDMI-A-1" "DP-1" "eDP-1"
+    # apply background image
+    swaymsg -q "\
+        output HDMI-A-1 bg $WALLPAPER_DIR/london.jpg fill; \
+        output DP-1     bg $WALLPAPER_DIR/london.jpg fill; \
+        output DVI-I-1  bg $WALLPAPER_DIR/nasa.jpg fill"
+    ;;
+#+end_src
+** Hub Viva-Bem #2
+#+begin_src bash
+"vb_hub2")
+    # map workspaces
+    "$MAP_WS" "HDMI-A-1" "DP-1" "eDP-1"
+    # apply background image
+    swaymsg -q "\
+        output HDMI-A-1 bg $WALLPAPER_DIR/london.jpg fill; \
+        output DP-1     bg $WALLPAPER_DIR/london.jpg fill; \
+        output DVI-I-1  bg $WALLPAPER_DIR/nasa.jpg fill"
+    ;;
+#+end_src
+** MSc presentation
+#+begin_src bash
+"msc_presentation")
+    # map workspaces
+    "$MAP_WS" "eDP-1" "HDMI-A-1" "DP-1"
+    ;;
+#+end_src
+* Fallback :noexport:
+Close the case statement and silently exit for unhandled profiles.
+#+begin_src bash
+    *)
+        exit 0
+        ;;
+esac
+#+end_src
