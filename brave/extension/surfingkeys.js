@@ -70,68 +70,6 @@ api.mapkey('ss', 'Search current Startpage query on Google', function() {
     window.location.href = googleUrl;
 });
 
-if (window.location.host === 'music.youtube.com') {
-
-    api.mapkey('t', 'Focus search bar on YouTube Music', function() {
-        // click the search icon to reveal the search bar
-        let searchBtn = document.querySelector('ytmusic-search-box button');
-        if (searchBtn) {
-            searchBtn.click();
-            setTimeout(() => {
-                let input = document.querySelector('ytmusic-search-box input');
-                if (input) {
-                    input.focus();
-                }
-            }, 300); // slight delay to allow DOM to update
-        }
-    });
-
-    api.mapkey('s', 'Toggle Save/Remove Album in YouTube Music', function() {
-        let saveBtn = document.querySelector(
-            'button[aria-label="Save to library"],' +
-            'button[aria-label="Added to library"],' +
-            'button[aria-label="Remove from library"]'
-        );
-
-        if (saveBtn) {
-            saveBtn.click();
-        } else {
-            api.Front.showPopup('Save/Remove button not found.');
-        }
-    });
-
-    api.mapkey('h', 'Go to Home', function() {
-        // find all sidebar items
-        let items = document.querySelectorAll('tp-yt-paper-item.style-scope.ytmusic-guide-entry-renderer');
-
-        // filter "Home" and click on it
-        for (let item of items) {
-            let titleElem = item.querySelector('yt-formatted-string.title');
-            if (titleElem && titleElem.textContent.trim() === 'Home') {
-                item.click();
-                return;
-            }
-        }
-        api.Front.showPopup('Home button not found.');
-    });
-
-    api.mapkey('l', 'Go to Library', function() {
-        // find all sidebar items
-        let items = document.querySelectorAll('tp-yt-paper-item.style-scope.ytmusic-guide-entry-renderer');
-
-        // filter "Library" and click on it
-        for (let item of items) {
-            let titleElem = item.querySelector('yt-formatted-string.title');
-            if (titleElem && titleElem.textContent.trim() === 'Library') {
-                item.click();
-                return;
-            }
-        }
-        api.Front.showPopup('Library button not found.');
-    });
-
-}
-
 // unmap the default "yy" behavior to prevent conflicts
 api.unmap('yy');
 
@@ -257,6 +195,68 @@ if (window.location.href.includes("localhost:8080/web/viewer.html")) {
     if (titleNode) {
         new MutationObserver(modifyTitle).observe(titleNode, { childList: true });
     }
+}
+
+if (window.location.host === 'music.youtube.com') {
+
+    api.mapkey('t', 'Focus search bar on YouTube Music', function() {
+        // click the search icon to reveal the search bar
+        let searchBtn = document.querySelector('ytmusic-search-box button');
+        if (searchBtn) {
+            searchBtn.click();
+            setTimeout(() => {
+                let input = document.querySelector('ytmusic-search-box input');
+                if (input) {
+                    input.focus();
+                }
+            }, 300); // slight delay to allow DOM to update
+        }
+    });
+
+    api.mapkey('s', 'Toggle Save/Remove Album in YouTube Music', function() {
+        let saveBtn = document.querySelector(
+            'button[aria-label="Save to library"],' +
+            'button[aria-label="Added to library"],' +
+            'button[aria-label="Remove from library"]'
+        );
+
+        if (saveBtn) {
+            saveBtn.click();
+        } else {
+            api.Front.showPopup('Save/Remove button not found.');
+        }
+    });
+
+    api.mapkey('h', 'Go to Home', function() {
+        // find all sidebar items
+        let items = document.querySelectorAll('tp-yt-paper-item.style-scope.ytmusic-guide-entry-renderer');
+
+        // filter "Home" and click on it
+        for (let item of items) {
+            let titleElem = item.querySelector('yt-formatted-string.title');
+            if (titleElem && titleElem.textContent.trim() === 'Home') {
+                item.click();
+                return;
+            }
+        }
+        api.Front.showPopup('Home button not found.');
+    });
+
+    api.mapkey('l', 'Go to Library', function() {
+        // find all sidebar items
+        let items = document.querySelectorAll('tp-yt-paper-item.style-scope.ytmusic-guide-entry-renderer');
+
+        // filter "Library" and click on it
+        for (let item of items) {
+            let titleElem = item.querySelector('yt-formatted-string.title');
+            if (titleElem && titleElem.textContent.trim() === 'Library') {
+                item.click();
+                return;
+            }
+        }
+        api.Front.showPopup('Library button not found.');
+    });
+
 }
 
 api.mapkey('b', 'Bookmarks Omnibar', () => {
