@@ -193,6 +193,23 @@ api.mapkey('gA', 'Read arXiv paper in HTML (ar5iv)', function() {
     //api.tabOpenLink(htmlUrl);
 }, {domain: /arxiv\.org/i});
 
+if (window.location.hostname.includes('campinas.com.br')) {
+    const unblockCopy = () => {
+        // force CSS to allow text selection and mouse events everywhere
+        let style = document.createElement('style');
+        style.innerHTML = '* { user-select: text !important; -webkit-user-select: text !important; pointer-events: auto !important; }';
+        document.documentElement.appendChild(style);
+        // intercept and stop anti-copy event listeners in the capture phase
+        const events = ['copy', 'contextmenu', 'selectstart', 'dragstart', 'cut', 'paste'];
+        events.forEach(event => {
+            document.addEventListener(event, e => e.stopPropagation(), true);
+        });
+    };
+    // run immediately, and run again once the DOM is fully loaded in case the site applies restrictions late
+    unblockCopy();
+    document.addEventListener('DOMContentLoaded', unblockCopy);
+}
+
 // map <Alt-t> to toggle Dark Mode in local PDF.js
 api.mapkey('<Alt-t>', 'Toggle PDF Dark Mode', function() {
     let styleId = 'pdfjs-dark-mode';

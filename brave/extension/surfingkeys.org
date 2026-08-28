@@ -27,6 +27,7 @@
   - [[#youtube-music][YouTube Music]]
   - [[#aliexpress][AliExpress]]
   - [[#arxiv][arXiv]]
+  - [[#campinascombr][Campinas.com.br]]
   - [[#localhost][localhost]]
 - [[#omnibar][Omnibar]]
   - [[#bookmarks][Bookmarks]]
@@ -307,6 +308,25 @@ api.mapkey('gA', 'Read arXiv paper in HTML (ar5iv)', function() {
     // open in a new tab
     //api.tabOpenLink(htmlUrl);
 }, {domain: /arxiv\.org/i});
+#+end_src
+** Campinas.com.br
+#+begin_src js
+if (window.location.hostname.includes('campinas.com.br')) {
+    const unblockCopy = () => {
+        // force CSS to allow text selection and mouse events everywhere
+        let style = document.createElement('style');
+        style.innerHTML = '* { user-select: text !important; -webkit-user-select: text !important; pointer-events: auto !important; }';
+        document.documentElement.appendChild(style);
+        // intercept and stop anti-copy event listeners in the capture phase
+        const events = ['copy', 'contextmenu', 'selectstart', 'dragstart', 'cut', 'paste'];
+        events.forEach(event => {
+            document.addEventListener(event, e => e.stopPropagation(), true);
+        });
+    };
+    // run immediately, and run again once the DOM is fully loaded in case the site applies restrictions late
+    unblockCopy();
+    document.addEventListener('DOMContentLoaded', unblockCopy);
+}
 #+end_src
 ** localhost
 *** Toggle dark/light theme
