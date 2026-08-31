@@ -1728,34 +1728,24 @@ Supported window managers:
       (when wm-cmd
         (shell-command (concat wm-cmd " > /dev/null 2>&1") nil nil))))
 
-  ;; overridden windmove behavior
-  (defun windmove-do-window-select (dir &optional arg window)
-    "Move to the window at direction DIR as seen from WINDOW.
-DIR, ARG, and WINDOW are handled as by `windmove-find-other-window'.
-If no window is at direction DIR, an error is signaled.
-If `windmove-create-window' is a function, call that function with
-DIR, ARG and WINDOW.  If it is non-nil, try to create a new window
-in direction DIR instead."
-    (let ((other-window (windmove-find-other-window dir arg window)))
-      (when (and windmove-create-window
-                 (or (null other-window)
-                     (and (window-minibuffer-p other-window)
-                          (not (minibuffer-window-active-p other-window)))))
-        (setq other-window (if (functionp windmove-create-window)
-                               (funcall windmove-create-window dir arg window)
-                             (split-window window nil dir))))
-      (cond ((null other-window)
-             ;; replaced error with our context-aware WM routing function
-             (efs/wm-focus-out-of-emacs dir))
+  ;; advice to intercept window boundary errors
+  (defun efs/windmove-focus-out-advice (orig-fun dir &rest args)
+    "Wrap `windmove-do-window-select` to trigger WM focus when hitting the frame edge."
+    (condition-case err
+        ;; try to run the native windmove logic first
+        (apply orig-fun dir args)
+      ;; catch the specific errors Emacs throws when it hits the edge of the frame
+      (user-error
+       (let ((err-str (error-message-string err)))
+         (if (or (string-match-p "No window .* from selected window" err-str)
+                 (string-match-p "Minibuffer is inactive" err-str))
+             ;; if at the edge, pass focus to Sway / i3wm
+             (efs/wm-focus-out-of-emacs dir)
+           ;; otherwise, re-throw the error
+           (signal (car err) (cdr err)))))))
 
-            ((and (window-minibuffer-p other-window)
-                  (not (minibuffer-window-active-p other-window)))
-             ;; replaced error with our context-aware WM routing function
-             (efs/wm-focus-out-of-emacs dir))
-
-            ((eq other-window 'no-select))
-            (t
-             (select-window other-window))))))
+  ;; apply the advice to the native windmove function
+  (advice-add 'windmove-do-window-select :around #'efs/windmove-focus-out-advice))
 #+end_src
 * Buffer Menu
 C-x C-b
