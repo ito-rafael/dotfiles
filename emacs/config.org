@@ -44,6 +44,9 @@
 - [[#avy][Avy]]
 
 * UI :noexport_1:
+#+begin_src emacs-lisp
+;; -*- lexical-binding: t; -*-
+#+end_src
 ** Misc
 #+begin_src emacs-lisp
 (setq inhibit-startup-message t)                  ;; disable startup massage
