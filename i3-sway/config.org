@@ -1463,6 +1463,30 @@ mode "$mode_tilde" {
 bindsym F13 mode "$mode_acute"
 bindsym Shift+F13 mode "$mode_tilde"
 #+end_src
+*** System control
+**** Speaker
+***** Mode
+****** Attempt 1
+#+begin_src conf :noweb-ref mode-control2 :tangle no
+set $mode_speaker speaker
+mode "$mode_speaker" {
+    bindsym space   exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type "'"
+    bindsym Escape mode "default"
+    bindsym --release F24 mode "default"
+    bindsym --release F20 mode "default"
+}
+bindsym F19 mode "$mode_speaker"
+bindsym F20 mode "$mode_speaker"
+bindsym F21 mode "$mode_speaker"
+bindsym F22 mode "$mode_speaker"
+bindsym F23 mode "$mode_speaker"
+bindsym F24 mode "$mode_speaker"
+#bindsym --whole-window button4 exec amixer -q sset Master 5%+
+#bindsym --whole-window button5 exec amixer -q sset Master 5%-
+#bindsym --whole-window button1 exec "$XDG_CONFIG_HOME/scripts/volume-control.sh down 25"
+#bindsym --whole-window button2 exec "$XDG_CONFIG_HOME/scripts/volume-control.sh up 25"
+#bindsym --whole-window button3 exec amixer -q sset Master 50%
+#+end_src
 ** Tangle :noexport:
 *** i3
 #+begin_src conf :noweb yes :tangle _config_i3
