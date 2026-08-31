@@ -601,7 +601,7 @@ Git repo: [[https://github.com/progfolio/elpaca][Elpaca]]
   ; only work in visual mode
   (global-set-key (kbd "C-S-v") #'paste-over-selection)
   (define-key evil-visual-state-map (kbd "C-p") #'paste-clipboard-preserve)
-  
+
   ;; miscellaneous
   (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)  ;; ensure normal mode on C-g (keyboard-quit)
   (evil-mode 1))
@@ -1698,6 +1698,8 @@ machine gitlab.com/api/v4 login ito-rafael^forge password <PERSONAL-ACCESS-TOKEN
 #+begin_src emacs-lisp
 (use-package forge
   :after magit
+  :custom
+  (forge-add-default-bindings nil) ;; silence the evil-collection warning
   :config
   ;; define path for the authinfo file (XDG_CONFIG_HOME or HOME, whichever it finds first)
   (setq auth-sources (list
