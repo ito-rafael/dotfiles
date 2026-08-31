@@ -5,11 +5,15 @@ class I3bangError < RuntimeError; end
 def i3bang config, header = ''
     nobracket = config.include? '#!nobracket'
 
-    if File.exist?(File.expand_path('~/.config/sway'))
+    # dynamically detect if we are in a sway, scroll, or i3 environment based on the script's location
+    current_dir = __dir__ || File.expand_path('.')
+
+    if current_dir.include?('sway') || current_dir.include?('scroll')
       config.gsub! /\s*#*#[! ](?!sway config).*\n/, "\n"
-    elsif File.exist?(File.expand_path('~/.config/i3'))
+    elsif current_dir.include?('i3')
       config.gsub! /\s*#*#[! ](?!i3 config).*\n/, "\n"
     end
+
     config.gsub! /\s+$/, ''
     config.gsub! /\\\n\s*/, ''
     config += "\n"
@@ -159,13 +163,11 @@ def i3bang config, header = ''
 end
 
 if __FILE__ == $0
-    if File.exist?(File.expand_path('~/.config/sway'))
-        INFILE = File.expand_path('~/.config/sway/_config')
-        OUTFILE = File.expand_path('~/.config/sway/config')
-    elsif File.exist?(File.expand_path('~/.config/i3'))
-        INFILE = File.expand_path('~/.config/i3/_config')
-        OUTFILE = File.expand_path('~/.config/i3/config')
-    end
+    # use the directory the script actually lives in instead of guessing
+    current_dir = __dir__ || File.expand_path('.')
+
+    INFILE = File.join(current_dir, '_config')
+    OUTFILE = File.join(current_dir, 'config')
 
     begin
         config = File.read INFILE
