@@ -1487,6 +1487,37 @@ bindsym F24 mode "$mode_speaker"
 #bindsym --whole-window button2 exec "$XDG_CONFIG_HOME/scripts/volume-control.sh up 25"
 #bindsym --whole-window button3 exec amixer -q sset Master 50%
 #+end_src
+****** Attempt 2
+#+begin_src conf :noweb-ref mode-control :tangle no
+set $mode_speaker speaker
+mode "$mode_speaker" {
+    # toggle
+    bindsym k         exec amixer -q sset Master toggle
+    # levels
+    bindsym Escape    exec amixer -q sset Master 0%
+    bindsym space     exec amixer -q sset Master 25%
+    bindsym Tab       exec amixer -q sset Master 50%
+    bindsym Return    exec amixer -q sset Master 75%
+    bindsym BackSpace exec amixer -q sset Master 100%
+    # coarse
+    bindsym e         exec amixer -q sset Master 5%-
+    bindsym i         exec amixer -q sset Master 5%+
+    # fine
+    bindsym Shift+e   exec amixer -q sset Master 1%-
+    bindsym Shift+i   exec amixer -q sset Master 1%+
+    bindsym comma     exec amixer -q sset Master 1%-
+    bindsym period    exec amixer -q sset Master 1%+
+    # escape
+    # note the "--release" flag to simulate a modifier
+    bindsym --release F15 mode "default"
+    #-----------------------------
+    # inherent default keybinds (i3bang)
+    #!@default_keybindings
+}
+#+end_src
+***** Keybinding
+#+begin_src conf :noweb-ref mode-control :tangle no
+bindsym F15 mode "$mode_speaker"
 ** Tangle :noexport:
 *** i3
 #+begin_src conf :noweb yes :tangle _config_i3

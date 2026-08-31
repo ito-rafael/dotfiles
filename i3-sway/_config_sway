@@ -497,6 +497,32 @@ bindsym Shift+F13 mode "$mode_tilde"
 #    #!@default_keybindings
 #}
 #bindsym F15 mode "$mode_speaker"
+#set $mode_speaker speaker
+#mode "$mode_speaker" {
+#    # toggle
+#    bindsym k         exec amixer -q sset Master toggle
+#    # levels
+#    bindsym Escape    exec amixer -q sset Master 0%
+#    bindsym space     exec amixer -q sset Master 25%
+#    bindsym Tab       exec amixer -q sset Master 50%
+#    bindsym Return    exec amixer -q sset Master 75%
+#    bindsym BackSpace exec amixer -q sset Master 100%
+#    # coarse
+#    bindsym e         exec amixer -q sset Master 5%-
+#    bindsym i         exec amixer -q sset Master 5%+
+#    # fine
+#    bindsym Shift+e   exec amixer -q sset Master 1%-
+#    bindsym Shift+i   exec amixer -q sset Master 1%+
+#    bindsym comma     exec amixer -q sset Master 1%-
+#    bindsym period    exec amixer -q sset Master 1%+
+#    # escape
+#    # note the "--release" flag to simulate a modifier
+#    bindsym --release F15 mode "default"
+#    #-----------------------------
+#    # inherent default keybinds (i3bang)
+#    #!@default_keybindings
+#}
+##bindsym F15 mode "$mode_speaker"
 
 set $prop app_id
 assign [$prop="thunderbird"] → $ws4
