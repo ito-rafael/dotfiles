@@ -784,7 +784,7 @@ exec echo "6500" > /tmp/gamma_temp.tmp
 exec echo "disconnected" > /tmp/proton-vpn-status.tmp
 exec echo '@define-color dynamic_bg rgba(43, 48, 59, 0.5);' >~/.config/waybar/dynamic-bg.css
 #exec "$SCRIPT_PATH/waybar-dynamic-color.sh"
-exec --no-startup-id kanshi # dynamic automatic output profile management
+#exec --no-startup-id kanshi # dynamic automatic output profile management
 output $laptop    background ~/.config/wallpaper/london.jpg fill
 output $primary   background ~/.config/wallpaper/london.jpg fill
 output $secondary background ~/.config/wallpaper/london.jpg fill
@@ -799,6 +799,7 @@ exec --no-startup-id autotiling                 # autotiling
 exec --no-startup-id "dex -a -s /home/rafael/.config/autostart"    # XDG Autostart applications
 exec --no-startup-id /usr/bin/emacs --daemon --with-profile efs &  # launch EFS daemon (default)
 exec --no-startup-id /usr/bin/emacs --daemon --with-profile doom & # launch Doom Emacs daemon
+exec_always kanshictl reload                    # force kanshi to apply the background wallpapers
 exec --no-startup-id "rm /tmp/showmethekey_pid.tmp"                                 # ensure there is no temp file from previous boot
 bindsym $alt+ctrl+e exec emote                                                      # emoji picker
 bindsym $alt+ctrl+k exec "$SCRIPT_PATH/screencast.sh toggle"                        # showmethekey

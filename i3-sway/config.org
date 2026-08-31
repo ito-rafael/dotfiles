@@ -2158,9 +2158,10 @@ exec echo '@define-color dynamic_bg rgba(43, 48, 59, 0.5);' >~/.config/waybar/dy
 #+begin_src conf :noweb-ref waybar :tangle no
 #exec "$SCRIPT_PATH/waybar-dynamic-color.sh"
 #+end_src
-** Output management
-#+begin_src conf :noweb-ref kanshi
-exec --no-startup-id kanshi # dynamic automatic output profile management
+** +Output management+
+Deprecated. Kanshi is being launched as an user systemd service.
+#+begin_src conf :noweb-ref kanshi :tangle no
+#exec --no-startup-id kanshi # dynamic automatic output profile management
 #+end_src
 ** Background images
 *** i3
@@ -2196,6 +2197,7 @@ exec --no-startup-id autotiling                 # autotiling
 exec --no-startup-id "dex -a -s /home/rafael/.config/autostart"    # XDG Autostart applications
 exec --no-startup-id /usr/bin/emacs --daemon --with-profile efs &  # launch EFS daemon (default)
 exec --no-startup-id /usr/bin/emacs --daemon --with-profile doom & # launch Doom Emacs daemon
+exec_always kanshictl reload                    # force kanshi to apply the background wallpapers
 #+end_src
 *** Config
 #+begin_src conf :noweb-ref daemons
@@ -2280,6 +2282,7 @@ exec --no-startup-id "sleep 5 && swaymsg '[app_id=brave-origin]' move to workspa
 <<sway-gamma>>
 <<proton-vpn>>
 <<waybar>>
+<<kanshi>>
 <<sway-wallpaper>>
 <<daemons>>
 <<applets>>

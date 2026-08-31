@@ -478,6 +478,7 @@ exec --no-startup-id autotiling                 # autotiling
 exec --no-startup-id "dex -a -s /home/rafael/.config/autostart"    # XDG Autostart applications
 exec --no-startup-id /usr/bin/emacs --daemon --with-profile efs &  # launch EFS daemon (default)
 exec --no-startup-id /usr/bin/emacs --daemon --with-profile doom & # launch Doom Emacs daemon
+exec_always kanshictl reload                    # force kanshi to apply the background wallpapers
 exec --no-startup-id "rm /tmp/showmethekey_pid.tmp"                                 # ensure there is no temp file from previous boot
 bindsym $alt+ctrl+e exec emote                                                      # emoji picker
 bindsym $alt+ctrl+k exec "$SCRIPT_PATH/screencast.sh toggle"                        # showmethekey
