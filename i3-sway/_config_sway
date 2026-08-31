@@ -133,6 +133,11 @@ bindsym $mod+Shift+Left  exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh move lef
 bindsym $mod+Shift+Down  exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh move down
 bindsym $mod+Shift+Up    exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh move up
 bindsym $mod+Shift+Right exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh move right
+# for Emacs
+bindsym Ctrl+$mod+Shift+Left  exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh move left
+bindsym Ctrl+$mod+Shift+Down  exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh move down
+bindsym Ctrl+$mod+Shift+Up    exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh move up
+bindsym Ctrl+$mod+Shift+Right exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh move right
 bindsym mod1+h split toggle
 #bindsym mod1+h split h
 #bindsym mod1+v split v
