@@ -1573,6 +1573,35 @@ mode "$mode_mouse_side_bottom" {
     #!@default_keybindings
 }
 #+end_src
+**** Side-top (F22)
+#+begin_src conf :noweb-ref mode-mouse :tangle no
+set $mode_mouse_side_top mouse-zoom
+mode "$mode_mouse_side_top" {
+    # zoom control
+    bindsym --whole-window button4 Ctrl+minus
+    bindsym --whole-window button5 Shift+Ctrl+equal
+    bindsym --whole-window button1 workspace prev_on_output
+    bindsym --whole-window button2 workspace next_on_output
+    bindsym --whole-window button3 exec amixer -q sset Master 50%
+    bindsym Return exec amixer -q sset Master 76%
+    # gestures
+    bindsym F17     exec amixer -q sset Master 55%+
+    bindsym F18     exec amixer -q sset Master 66%-
+    bindsym Shift+n exec amixer -q sset Master 77%+
+    bindsym Shift+o exec amixer -q sset Master 88%-
+    # escape
+    # note the "--release" flag to simulate a modifier
+    bindsym --release F22 mode "default"
+    #-----------------------------
+    # inherent default keybinds (i3bang)
+    #!@default_keybindings
+}
+#+end_src
+**** Keybinding
+#+begin_src conf :noweb-ref mode-mouse
+#bindsym F21 mode "$mode_mouse_side_bottom"
+#bindsym F22 mode "$mode_mouse_side_top"
+#+end_src
 ** Tangle :noexport:
 *** i3
 #+begin_src conf :noweb yes :tangle _config_i3
@@ -1585,6 +1614,10 @@ mode "$mode_mouse_side_bottom" {
 <<sway-mode-system>>
 <<mode-resize>>
 <<mode-obs>>
+<<mode-f13>>
+#<<mode-control>>
+#<<mode-control2>>
+#<<mode-mouse>>
 #+end_src
 * Applications default WS
 ** Window property
