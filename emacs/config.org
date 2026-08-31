@@ -49,8 +49,10 @@
 #+end_src
 ** Misc
 #+begin_src emacs-lisp
-(setq inhibit-startup-message t)                  ;; disable startup massage
-(setq visible-bell t)                             ;; disable beep and set visible bell
+(setq inhibit-startup-message t)                         ;; disable startup massage
+(setq visible-bell t)                                    ;; disable beep and set visible bell
+(setq native-comp-async-report-warnings-errors 'silent)  ;; silence native-compilation warnings from 3rd party packages
+(setq warning-minimum-level :error)                      ;; only pop up for actual errors (no warnings)
 #+end_src
 ** Bars
 #+begin_src emacs-lisp
