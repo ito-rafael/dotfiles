@@ -223,6 +223,10 @@ bindsym shift+$alt+F10 exec "$SCRIPT_PATH/obs-tools.py --scene output-0"
 bindsym shift+$alt+F11 exec "$SCRIPT_PATH/obs-tools.py --scene output-1"
 bindsym shift+$alt+F12 exec "$SCRIPT_PATH/obs-tools.py --scene output-2"
 bindsym shift+$alt+F14 exec "$SCRIPT_PATH/obs-tools.py --record"
+#bindsym $mod+t exec dbus-send --type=method_call --dest=io.crow_translate.CrowTranslate /io/crow_translate/CrowTranslate/MainWindow io.crow_translate.CrowTranslate.MainWindow.translateSelection
+#bindsym $mod+Shift+t exec dbus-send --type=method_call --dest=io.crow_translate.CrowTranslate /io/crow_translate/CrowTranslate/MainWindow io.crow_translate.CrowTranslate.MainWindow.speakSelection
+#bindsym $alt+ctrl+j exec dbus-send --type=method_call --dest=io.crow_translate.CrowTranslate /io/crow_translate/CrowTranslate/MainWindow io.crow_translate.CrowTranslate.MainWindow.translateSelection
+#bindsym $alt+ctrl+h exec dbus-send --type=method_call --dest=io.crow_translate.CrowTranslate /io/crow_translate/CrowTranslate/MainWindow io.crow_translate.CrowTranslate.MainWindow.speakSelection
 bindsym $mod+m nop
 bindsym --release $mod+m exec "$XDG_CONFIG_HOME/scripts/lanmouse-switch.sh toggle"
 bindsym $alt+ctrl+t nop
