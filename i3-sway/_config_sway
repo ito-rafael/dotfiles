@@ -541,6 +541,27 @@ bindsym Shift+F13 mode "$mode_tilde"
 ##bindsym --whole-window button1 exec "$XDG_CONFIG_HOME/scripts/volume-control.sh down 25"
 ##bindsym --whole-window button2 exec "$XDG_CONFIG_HOME/scripts/volume-control.sh up 25"
 ##bindsym --whole-window button3 exec amixer -q sset Master 50%
+#set $mode_mouse_side_bottom mouse-volume
+#mode "$mode_mouse_side_bottom" {
+#    # volume control
+#    bindsym --whole-window button4 exec amixer -q sset Master 5%+
+#    bindsym --whole-window button5 exec amixer -q sset Master 5%-
+#    bindsym --whole-window button1 exec "$XDG_CONFIG_HOME/scripts/volume-control.sh down 25"
+#    bindsym --whole-window button2 exec "$XDG_CONFIG_HOME/scripts/volume-control.sh up 25"
+#    bindsym --whole-window button3 exec amixer -q sset Master 50%
+#    bindsym Return exec amixer -q sset Master 98%
+#    # gestures
+#    bindsym F17     exec amixer -q sset Master 11%+
+#    bindsym F18     exec amixer -q sset Master 22%-
+#    bindsym Shift+n exec amixer -q sset Master 33%+
+#    bindsym Shift+o exec amixer -q sset Master 44%-
+#    # escape
+#    # note the "--release" flag to simulate a modifier
+#    bindsym --release F21 mode "default"
+#    #-----------------------------
+#    # inherent default keybinds (i3bang)
+#    #!@default_keybindings
+#}
 
 set $prop app_id
 assign [$prop="thunderbird"] → $ws4
