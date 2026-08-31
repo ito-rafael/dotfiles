@@ -2158,6 +2158,10 @@ exec echo '@define-color dynamic_bg rgba(43, 48, 59, 0.5);' >~/.config/waybar/dy
 #+begin_src conf :noweb-ref waybar :tangle no
 #exec "$SCRIPT_PATH/waybar-dynamic-color.sh"
 #+end_src
+** Output management
+#+begin_src conf :noweb-ref kanshi
+exec --no-startup-id kanshi # dynamic automatic output profile management
+#+end_src
 ** Background images
 *** i3
 Before, wallpapers were set calling =feh= directly in i3wm.
@@ -2184,8 +2188,8 @@ output $tertiary  background ~/.config/wallpaper/nasa.png fill
 #+begin_src conf :noweb-ref daemons
 #exec --no-startup-id /usr/bin/dunst &          # dunst: notification daemon
 #exec_always dunstctl set-paused true           # dunst: start with notifications paused
-exec --no-startup-id fcitx5 -d                  # input method framework (cedilla fix)
 exec --no-startup-id emote                      # emoji picker
+exec --no-startup-id fcitx5 -d                  # input method framework (cedilla fix)
 exec --no-startup-id flashfocus                 # focus animation
 exec --no-startup-id autotiling                 # autotiling
 #exec_always --no-startup-id "$SCRIPT_PATH/xremap-keeb-config.sh"   # keyboard setup

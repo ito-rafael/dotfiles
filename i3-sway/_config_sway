@@ -784,14 +784,15 @@ exec echo "6500" > /tmp/gamma_temp.tmp
 exec echo "disconnected" > /tmp/proton-vpn-status.tmp
 exec echo '@define-color dynamic_bg rgba(43, 48, 59, 0.5);' >~/.config/waybar/dynamic-bg.css
 #exec "$SCRIPT_PATH/waybar-dynamic-color.sh"
+exec --no-startup-id kanshi # dynamic automatic output profile management
 output $laptop    background ~/.config/wallpaper/london.jpg fill
 output $primary   background ~/.config/wallpaper/london.jpg fill
 output $secondary background ~/.config/wallpaper/london.jpg fill
 output $tertiary  background ~/.config/wallpaper/nasa.png fill
 #exec --no-startup-id /usr/bin/dunst &          # dunst: notification daemon
 #exec_always dunstctl set-paused true           # dunst: start with notifications paused
-exec --no-startup-id fcitx5 -d                  # input method framework (cedilla fix)
 exec --no-startup-id emote                      # emoji picker
+exec --no-startup-id fcitx5 -d                  # input method framework (cedilla fix)
 exec --no-startup-id flashfocus                 # focus animation
 exec --no-startup-id autotiling                 # autotiling
 #exec_always --no-startup-id "$SCRIPT_PATH/xremap-keeb-config.sh"   # keyboard setup
