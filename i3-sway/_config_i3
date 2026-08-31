@@ -350,6 +350,7 @@ assign [$prop="blueman-manager"] → $ws10
 assign [$prop="pavucontrol"] → $ws10
 for_window [$prop="Tk"] floating enable
 for_window [$prop="Toplevel"] floating enable
+for_window [$prop="emacs-window-prop"] floating enable
 for_window [class="Rofi"] floating enable
 for_window [$prop="Yad"] floating enable
 for_window [$prop="showmethekey-gtk" title="Show Me The Key"] floating enable
