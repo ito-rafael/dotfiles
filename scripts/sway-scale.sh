@@ -16,12 +16,12 @@ show_help() {
 }
 
 SCALE_DEFAULT="1.0"
-SCALE_ZOOM="1.125"
+SCALE_ZOOM="1.25"
 
 SCALE_MIN="0.5"
 SCALE_MAX="4.0"
 
-STEP="0.125"
+STEP="0.25"
 
 COMMAND="$1"
 

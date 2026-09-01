@@ -95,7 +95,7 @@ show_help() {
 Define default/zoomed scale to toggle
 #+begin_src sh
 SCALE_DEFAULT="1.0"
-SCALE_ZOOM="1.125"
+SCALE_ZOOM="1.25"
 #+end_src
 *** Valid range
 #+begin_src sh
@@ -104,7 +104,7 @@ SCALE_MAX="4.0"
 #+end_src
 *** Step sizes
 #+begin_src sh
-STEP="0.125"
+STEP="0.25"
 #+end_src
 ** Parse parameter
 #+begin_src sh
@@ -123,7 +123,7 @@ validate_range() {
 
     # validate range
     local is_valid=$(echo "$target_scale >= $SCALE_MIN && $target_scale <= $SCALE_MAX" | bc -l)
-    
+
     if [ "$is_valid" -eq 0 ]; then
         echo "Error: Scale '$target_scale' is out of bounds."
         echo "Please provide a scale between $SCALE_MIN and $SCALE_MAX."
