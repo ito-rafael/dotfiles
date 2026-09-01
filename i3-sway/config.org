@@ -1720,6 +1720,10 @@ for_window [$prop="one.alynx.showmethekey"] {
 #}
 #exec swayimg ~/.config/swayimg/pixel.png --class="edge_bottom"
 #+end_src
+*** Emacs
+#+begin_src conf :noweb-ref sway-gaps :tangle no
+for_window [$prop="emacs-30-2"] border pixel 20
+#+end_src
 *** emacs-everywhere
 #+begin_src conf :noweb-ref sway-emacs
 for_window [app_id="emacs" title="^(emacs-everywhere|Emacs Everywhere|Emacs Everywhere ∷)"] floating enable, resize set 700 400, move position center
