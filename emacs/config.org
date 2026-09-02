@@ -803,7 +803,8 @@ https://github.com/seagle0128/doom-modeline
   )
 )
 #+end_src
-** Gray ":tangle no" blocks
+** Filters for ":tangle no"
+*** Gray ":tangle no" blocks
 #+begin_src emacs-lisp
 ;; make ":tangle no" blocks appear grayed-out (like comments)
 (defun efs/org-gray-out-tangle-no-blocks (orig-fun lang start end)
@@ -862,6 +863,38 @@ https://github.com/seagle0128/doom-modeline
       (funcall orig-fun lang start end))))
 
 (advice-add 'org-src-font-lock-fontify-block :around #'efs/org-gray-out-tangle-no-blocks)
+#+end_src
+*** Remove ":tangle no" blocks from ":noweb-ref"
+#+begin_src emacs-lisp :tangle "/home/rafael/emacs-efs/org-tangle-advice.el" :mkdirp yes
+(defun efs/org-babel-ignore-explicit-tangle-no (info)
+  "Intercept Org Babel block INFO.
+If `:tangle no' is explicitly present in the block header text,
+temporarily strip `:noweb-ref' so it is skipped during noweb expansions."
+  (if info
+      (let* ((params (nth 2 info))
+             (explicit-tangle-no-p nil))
+        ;; peek at the raw header string of the current block
+        (save-excursion
+          (let* ((element (org-element-at-point))
+                 (params-str (org-element-property :parameters element)))
+            ;; if the header contains literally ":tangle no", flag it
+            (when (and (eq (org-element-type element) 'src-block)
+                       params-str
+                       (string-match-p ":tangle[ \t]+no\\b" params-str))
+              (setq explicit-tangle-no-p t))))
+
+        ;; if flagged, remove the :noweb-ref from the parsed params
+        (if explicit-tangle-no-p
+            (append (list (nth 0 info)
+                          (nth 1 info)
+                          (assq-delete-all :noweb-ref (copy-alist params)))
+                    (nthcdr 3 info))
+          ;; otherwise, let the block behave normally
+          info))
+    nil))
+
+;; apply the advice
+(advice-add 'org-babel-get-src-block-info :filter-return #'efs/org-babel-ignore-explicit-tangle-no)
 #+end_src
 ** Syntax highlighting
 Make sure source code blocks get the right colors even if the header is off-screen.
