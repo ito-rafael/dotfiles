@@ -948,7 +948,11 @@ https://github.com/yilkalargaw/org-auto-tangle
      "/home/rafael/git/dotfiles/scripts/sway-dispatch.org"
      "/home/rafael/git/dotfiles/zen/policies.org"
      "/home/rafael/git/keebab/xremap/config.org"))
+  ;; instruct org-auto-tangle background process to load the ":tangle no" advice
+  (org-auto-tangle-with-files (list (expand-file-name "~/emacs-efs/org-tangle-advice.el")))
   :config
+  ;; load ":tangle no" advice into interactive session so it works with manual tangle
+  (load (expand-file-name "~/.emacs.d/org-tangle-advice.el") t)
 #+end_src
 *** Autoformat
 **** Header
