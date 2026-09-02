@@ -1019,6 +1019,7 @@ This is a custom config to copy some tangled files into predefined paths.
                                                                      ("eww.scss"             . "~/.config/eww/eww.scss")))
   (,(expand-file-name "~/git/dotfiles/hypr/lock-screen.org")      . (("lock-screen.sh"       . "~/.config/hypr/lock-screen.sh")))
   (,(expand-file-name "~/git/dotfiles/kanshi/config.org")         . (("config"               . "~/.config/kanshi/config")))
+  (,(expand-file-name "~/git/dotfiles/kanshi/profile-setup.org")  . (("profile-setup.sh"     . "~/.config/scripts/kanshi-profile-setup.sh")))
   (,(expand-file-name "~/git/dotfiles/tlp/tlp.org")               . (("tlp.conf"             . "~/.config/tlp/tlp.conf")))
   (,(expand-file-name "~/git/dotfiles/waybar/config.org")         . (("config"               . "~/.config/waybar/config")))
   (,(expand-file-name "~/git/dotfiles/waybar/style.org")          . (("style.css"            . "~/.config/waybar/style.css")))
