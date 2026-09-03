@@ -1088,21 +1088,61 @@ Restart applications with new config file.
  (call-process-shell-command "kanshictl reload" nil "*Messages*")
  (message "↻ Reloading kanshi..."))
 #+end_src
-***** Sway
+***** Sway & Scroll
 #+begin_src emacs-lisp
-;; generate "config" from "_config" using i3bang.rb, and then reload Sway
-((string-match-p "sway" target-dest)
- (let* ((sway-dir (file-name-directory target-dest))
-        (script-path (expand-file-name "i3bang.rb" sway-dir))
-        (config-source (expand-file-name "_config" sway-dir))
-        ;; find the active SWAYSOCK dynamically; run Ruby i3bang.rb script; reload Sway
-        ;;(cmd (format "export SWAYSOCK=$(ls /run/user/$(id -u)/sway-ipc.*.sock | head -n 1); ruby '%s' '%s' && swaymsg reload"
-        (cmd (format "export SWAY_SCALE=$(~/.config/scripts/sway-scale.sh get); export SWAYSOCK=$(ls /run/user/$(id -u)/sway-ipc.*.sock | head -n 1); ruby '%s' '%s' && swaymsg reload && sleep 1 && ~/.config/scripts/sway-scale.sh $SWAY_SCALE"
-                     script-path
-                     config-source)))
-   ;; run synchronously to ensure it finishes before the hook exits
-   (call-process-shell-command cmd nil "*Messages*")
-   (message "↻ Generated & Reloaded Sway.")))
+((string-match-p "/\\(sway\\|scroll\\)/" target-dest)
+ (let* ((runtime-dir (format "/run/user/%s" (user-uid)))
+        (sway-socket
+         (car (file-expand-wildcards
+               (expand-file-name "sway-ipc.*.sock" runtime-dir))))
+        (scroll-socket
+         (car (file-expand-wildcards
+               (expand-file-name "scroll-ipc.*.sock" runtime-dir)))))
+
+   (cond
+    ;;------------------------
+    ;; swaymsg reload
+    ;;------------------------
+    (sway-socket
+     (let* ((wm-dir (expand-file-name "~/.config/sway/"))
+            (script-path (expand-file-name "i3bang.rb" wm-dir))
+            (config-source (expand-file-name "_config" wm-dir))
+            (cmd (format
+                  "export SWAY_SCALE=$(~/.config/scripts/sway-scale.sh get); \
+ruby '%s' '%s' && \
+swaymsg -s '%s' reload && \
+sleep 1 && \
+~/.config/scripts/sway-scale.sh \"$SWAY_SCALE\""
+                  script-path
+                  config-source
+                  sway-socket)))
+       (call-process-shell-command cmd nil "*Messages*")
+       (message "↻ Generated & Reloaded Sway.")))
+
+    ;;------------------------
+    ;; scroll reload
+    ;;------------------------
+    (scroll-socket
+     (let* ((wm-dir (expand-file-name "~/.config/scroll/"))
+            (script-path (expand-file-name "i3bang.rb" wm-dir))
+            (config-source (expand-file-name "_config" wm-dir))
+            (cmd (format
+                  "export SWAY_SCALE=$(~/.config/scripts/sway-scale.sh get); \
+ruby '%s' '%s' && \
+scrollmsg -s '%s' reload && \
+sleep 1 && \
+~/.config/scripts/sway-scale.sh \"$SWAY_SCALE\""
+                  script-path
+                  config-source
+                  scroll-socket)))
+       (call-process-shell-command cmd nil "*Messages*")
+       (message "↻ Generated & Reloaded Scroll.")))
+
+    ;;------------------------
+    ;; neither compositor is running
+    ;;------------------------
+    (t
+     (message "No Sway or Scroll IPC socket found; skipping reload.")))))
 #+end_src
 ***** xremap
 #+begin_src emacs-lisp
