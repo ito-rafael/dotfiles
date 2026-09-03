@@ -1009,8 +1009,6 @@ This is a custom config to copy some tangled files into predefined paths.
 #+begin_src emacs-lisp
 (let ((transfer-list `(
   ;; dotfiles
-  (,(expand-file-name "~/git/dotfiles/i3-sway/config.org")      . (("_config_sway"     . "~/.config/sway/_config")
-                                                                   ("_config_i3"       . "~/.config/i3/_config")))
   (,(expand-file-name "~/git/dotfiles/dunst/dunstrc.org")         . (("dunstrc"              . "~/.config/dunst/dunstrc")))
   (,(expand-file-name "~/git/dotfiles/emacs/config.org")          . (("init.el"              . "~/.config/emacs-efs/init.el")
                                                                      ("org-tangle-advice.el" . "~/.config/emacs-efs/org-tangle-advice.el")))
@@ -1018,6 +1016,9 @@ This is a custom config to copy some tangled files into predefined paths.
   (,(expand-file-name "~/git/dotfiles/eww/eww.org")               . (("eww.yuck"             . "~/.config/eww/eww.yuck")
                                                                      ("eww.scss"             . "~/.config/eww/eww.scss")))
   (,(expand-file-name "~/git/dotfiles/hypr/lock-screen.org")      . (("lock-screen.sh"       . "~/.config/hypr/lock-screen.sh")))
+  (,(expand-file-name "~/git/dotfiles/i3-sway/config.org")        . (("_config_swayfx"       . "~/.config/sway/_config")
+                                                                     ("_config_scroll"       . "~/.config/scroll/_config")
+                                                                     ("_config_i3"           . "~/.config/i3/_config")))
   (,(expand-file-name "~/git/dotfiles/kanshi/config.org")         . (("config"               . "~/.config/kanshi/config")))
   (,(expand-file-name "~/git/dotfiles/kanshi/profile-setup.org")  . (("profile-setup.sh"     . "~/.config/scripts/kanshi-profile-setup.sh")))
   (,(expand-file-name "~/git/dotfiles/tlp/tlp.org")               . (("tlp.conf"             . "~/.config/tlp/tlp.conf")))
