@@ -45,8 +45,6 @@ if [[ "$1" == "inc" || "$1" == "dec" || "$1" == "reset" ]]; then
         exit 0
     fi
 
-    echo "$current_height" >"$HEIGHT_FILE"
-
     # relaunch logic
     if pgrep -x "wvkbd-deskintl" >/dev/null; then
         hidden_flag=""
@@ -64,7 +62,16 @@ if [[ "$1" == "inc" || "$1" == "dec" || "$1" == "reset" ]]; then
         done
 
         swaymsg exec "wvkbd-deskintl -H $current_height -L $current_height $hidden_flag"
+
+        # state sync: wait for the new process to register, then 'touch' the state file to force Waybar to refresh its UI out of the fail-safe.
+        for _ in {1..10}; do
+            pgrep -x "wvkbd-deskintl" >/dev/null && break
+            sleep 0.05
+        done
     fi
+
+    # safe state sync: only write to the file now.
+    echo "$current_height" >"$HEIGHT_FILE"
 
     # hold the lock for a split second to absorb any lingering free-spin scroll events
     sleep 0.15
@@ -120,3 +127,63 @@ inotifywait -q -m -e create,modify,moved_to --format '%f' /tmp | while read -r f
         update_state
     fi
 done
+
+# ---------------------------------------------------------
+# ACTIONS (inc, dec, reset, toggle)
+# ---------------------------------------------------------
+if [[ "$1" == "inc" || "$1" == "dec" || "$1" == "reset" ]]; then
+    # 1. Debounce: Lock the file descriptor.
+    exec 200>"/tmp/wvkbd_resize.lock"
+    if ! flock -n 200; then
+        exit 0
+    fi
+
+    # Read height INSIDE the lock to prevent stale variables
+    original_height=$(cat "$HEIGHT_FILE")
+    current_height=$original_height
+
+    if [[ "$1" == "inc" ]]; then
+        current_height=$((current_height + STEP))
+        [[ $current_height -gt $MAX_HEIGHT ]] && current_height=$MAX_HEIGHT
+    elif [[ "$1" == "dec" ]]; then
+        current_height=$((current_height - STEP))
+        [[ $current_height -lt $MIN_HEIGHT ]] && current_height=$MIN_HEIGHT
+    elif [[ "$1" == "reset" ]]; then
+        current_height=$DEFAULT_HEIGHT
+    fi
+
+    # 2. Optimization: Exit early if the height didn't actually change
+    if [[ "$current_height" -eq "$original_height" ]]; then
+        exit 0
+    fi
+
+    echo "$current_height" >"$HEIGHT_FILE"
+
+    # Relaunch logic
+    if pgrep -x "wvkbd-deskintl" >/dev/null; then
+        hidden_flag=""
+
+        if [[ -f "$STATE_FILE" && "$(<"$STATE_FILE")" == "inactive" ]]; then
+            hidden_flag="--hidden"
+        fi
+
+        pkill -x wvkbd-deskintl
+
+        # 3. Strict Wait: Ensure the old process is completely gone before spawning the new one
+        for _ in {1..10}; do
+            pgrep -x "wvkbd-deskintl" >/dev/null || break
+            sleep 0.05
+        done
+
+        swaymsg exec "wvkbd-deskintl -H $current_height -L $current_height $hidden_flag"
+
+        # 4. State Sync: Wait a split second for the new process to register,
+        # then 'touch' the state file to force Waybar to refresh its UI out of the fail-safe.
+        sleep 0.1
+        touch "$STATE_FILE"
+    fi
+
+    # Hold the lock for a split second to absorb any lingering free-spin scroll events
+    sleep 0.15
+    exit 0
+fi
