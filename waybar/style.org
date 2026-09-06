@@ -1035,6 +1035,7 @@ box#toggle {
 #custom-proton-vpn,
 #custom-kanshi,
 #custom-autorotate,
+#custom-wvkbd,
 #custom-keyboard-backlit,
 #custom-screencast,
 #custom-pdfjs,
@@ -1053,6 +1054,7 @@ box#toggle {
 #custom-proton-vpn,
 #custom-kanshi,
 #custom-autorotate,
+#custom-wvkbd,
 #custom-keyboard-backlit,
 #custom-screencast,
 #custom-pdfjs,
@@ -1360,6 +1362,20 @@ box#toggle {
 #custom-keyboard-backlit.empty {
     border-left: 0;
     padding: 0;
+}
+#+end_src
+** On-screen keyboard
+#+begin_src css
+#custom-wvkbd {
+    padding-right: 4px;
+    padding-left: 4px;
+    padding-bottom: 5px;
+    color: transparent;
+    min-width: 16px;
+
+    background-size: 16px;
+    background-repeat: no-repeat;
+    background-position: center calc(50% - 1px);
 }
 #+end_src
 ** Screencast
