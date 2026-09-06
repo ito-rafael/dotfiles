@@ -550,12 +550,14 @@ Git repo: [[https://github.com/progfolio/elpaca][Elpaca]]
     (kbd "<f13> r") (lambda () (interactive) (insert "'r "))
     (kbd "<f13> s") (lambda () (interactive) (insert "'s "))
     (kbd "<f13> t") (lambda () (interactive) (insert "'t "))
+    (kbd "<f13> v") (lambda () (interactive) (insert "'v "))
     ; misc upperrcase
     (kbd "<f13> N") (lambda () (interactive) (insert "'N "))
     (kbd "<f13> M") (lambda () (interactive) (insert "'M "))
     (kbd "<f13> R") (lambda () (interactive) (insert "'R "))
     (kbd "<f13> S") (lambda () (interactive) (insert "'S "))
-    (kbd "<f13> T") (lambda () (interactive) (insert "'T ")))
+    (kbd "<f13> T") (lambda () (interactive) (insert "'T "))
+    (kbd "<f13> V") (lambda () (interactive) (insert "'V ")))
 
   ; Shift-F13
   (evil-define-key nil evil-insert-state-map
