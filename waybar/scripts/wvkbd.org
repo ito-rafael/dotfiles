@@ -1,3 +1,13 @@
+#+TITLE: Waybar/wvkbd script
+#+AUTHOR: Rafael Ito
+#+DESCRIPTION: Script to toggle and resize the wvkbd Wayland virtual on-screen keyboard
+#+PROPERTY: header-args:bash :tangle wvkbd.sh :tangle-mode (identity #o755)
+
+* Wvkbd Waybar Controller
+This script manages the =wvkbd-deskintl= virtual keyboard. It acts as both the persistent background monitor for Waybar (outputting JSON) and the action handler for clicks and scrolls.
+** Configuration and State Initialization
+Define the temporary state files and the size constraints. If the height file does not exist (e.g., after a reboot), it initializes it to the default height.
+#+begin_src bash
 #!/usr/bin/env bash
 
 STATE_FILE="/tmp/wvkbd_state.tmp"
@@ -11,11 +21,17 @@ STEP=50
 
 # ensure height file exists
 if [[ ! -f "$HEIGHT_FILE" ]]; then
-    echo "$DEFAULT_HEIGHT" >"$HEIGHT_FILE"
+    echo "$DEFAULT_HEIGHT" > "$HEIGHT_FILE"
 fi
 
 current_height=$(cat "$HEIGHT_FILE")
+#+end_src
+** Actions
+This section handles the arguments passed to the script by Waybar (=inc=, =dec=, or =toggle=).
+*** Resize
+Includes a file lock (=flock=) to debounce rapid scroll wheel events, preventing race conditions where multiple instances try to kill and respawn the keyboard simultaneously.
 
+#+begin_src bash
 # ---------------------------------------------------------
 # Actions
 # ---------------------------------------------------------
@@ -38,10 +54,10 @@ if [[ "$1" == "inc" || "$1" == "dec" ]]; then
         [[ $current_height -lt $MIN_HEIGHT ]] && current_height=$MIN_HEIGHT
     fi
 
-    echo "$current_height" >"$HEIGHT_FILE"
+    echo "$current_height" > "$HEIGHT_FILE"
 
     # relaunch logic
-    if pgrep -x "wvkbd-deskintl" >/dev/null; then
+    if pgrep -x "wvkbd-deskintl" > /dev/null; then
         hidden_flag=""
 
         if [[ -f "$STATE_FILE" && "$(<"$STATE_FILE")" == "inactive" ]]; then
@@ -52,7 +68,7 @@ if [[ "$1" == "inc" || "$1" == "dec" ]]; then
 
         # strict wait: ensure the old process is completely gone before spawning the new one
         for _ in {1..10}; do
-            pgrep -x "wvkbd-deskintl" >/dev/null || break
+            pgrep -x "wvkbd-deskintl" > /dev/null || break
             sleep 0.05
         done
 
@@ -63,39 +79,45 @@ if [[ "$1" == "inc" || "$1" == "dec" ]]; then
     sleep 0.15
     exit 0
 fi
-
+#+end_src
+*** Toggle
+Checks if the process is running. If not, it launches it. If it is, it sends =SIGUSR1= to hide or =SIGUSR2= to show.
+#+begin_src bash
 if [[ "$1" == "toggle" ]]; then
-    if ! pgrep -x "wvkbd-deskintl" >/dev/null; then
+    if ! pgrep -x "wvkbd-deskintl" > /dev/null; then
         # not running: start it with current height and set state to active
         swaymsg exec "wvkbd-deskintl -H $current_height -L $current_height"
-        echo "active" >"$STATE_FILE"
+        echo "active" > "$STATE_FILE"
     else
         # running: explicitly show or hide based on current state
         if [[ -f "$STATE_FILE" && "$(<"$STATE_FILE")" == "active" ]]; then
             pkill -SIGUSR1 -x wvkbd-deskintl # hide
-            echo "inactive" >"$STATE_FILE"
+            echo "inactive" > "$STATE_FILE"
         else
             pkill -SIGUSR2 -x wvkbd-deskintl # show
-            echo "active" >"$STATE_FILE"
+            echo "active" > "$STATE_FILE"
         fi
     fi
     exit 0
 fi
-
+#+end_src
+** Monitor
+When called without arguments, the script blocks and listens for filesystem changes in =/tmp=, instantly outputting updated JSON to Waybar when the state or height files change.
+#+begin_src bash
 # ---------------------------------------------------------
 # Monitor
 # ---------------------------------------------------------
 # initial sync
-if pgrep -x "wvkbd-deskintl" >/dev/null; then
-    [[ ! -f "$STATE_FILE" ]] && echo "active" >"$STATE_FILE"
+if pgrep -x "wvkbd-deskintl" > /dev/null; then
+    [[ ! -f "$STATE_FILE" ]] && echo "active" > "$STATE_FILE"
 else
-    [[ ! -f "$STATE_FILE" ]] && echo "inactive" >"$STATE_FILE"
+    [[ ! -f "$STATE_FILE" ]] && echo "inactive" > "$STATE_FILE"
 fi
 
 update_state() {
     local h=$(cat "$HEIGHT_FILE")
     # fail-safe: check if the process was killed externally
-    if ! pgrep -x "wvkbd-deskintl" >/dev/null; then
+    if ! pgrep -x "wvkbd-deskintl" > /dev/null; then
         echo "{\"text\": \" \", \"class\": \"inactive\", \"tooltip\": \"wvkbd: Off (${h}px)\"}"
     elif [[ "$(<"$STATE_FILE")" == "active" ]]; then
         echo "{\"text\": \" \", \"class\": \"active\", \"tooltip\": \"wvkbd: Visible (${h}px)\"}"
@@ -113,3 +135,4 @@ inotifywait -q -m -e create,modify,moved_to --format '%f' /tmp | while read -r f
         update_state
     fi
 done
+#+end_src
