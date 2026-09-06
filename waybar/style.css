@@ -913,6 +913,10 @@ box#toggle {
     background-position: center calc(50% - 1px);
 }
 
+#custom-wvkbd.active {
+    background-image: url("/home/rafael/.config/waybar/icon/keyboard-active.svg");
+}
+
 #custom-screencast {
     padding-right: 4px;
     padding-left: 4px;
