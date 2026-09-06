@@ -28,13 +28,14 @@ current_height=$(cat "$HEIGHT_FILE")
 #+end_src
 ** Actions
 This section handles the arguments passed to the script by Waybar (=inc=, =dec=, or =toggle=).
-*** Resize (Scroll Up/Down)
-Includes a file lock (=flock=) to debounce rapid scroll wheel events, preventing race conditions where multiple instances try to kill and respawn the keyboard simultaneously. It also exits early if the maximum or minimum bounds are already met to prevent redundant respawns.
+*** Resize
+Includes a file lock (=flock=) to debounce rapid scroll wheel events. It handles increasing, decreasing, and resetting the height to its default value. It exits early if the maximum, minimum, or default bounds are already met to prevent redundant respawns.
 #+begin_src bash
-# ---------------------------------------------------------
+#---------------------------------------------------------
 # Actions
-# ---------------------------------------------------------
-if [[ "$1" == "inc" || "$1" == "dec" ]]; then
+#---------------------------------------------------------
+if [[ "$1" == "inc" || "$1" == "dec" || "$1" == "reset" ]]; then
+    # debouncer: lock the file descriptor.
     exec 200>"/tmp/wvkbd_resize.lock"
     if ! flock -n 200; then
         exit 0
@@ -47,9 +48,11 @@ if [[ "$1" == "inc" || "$1" == "dec" ]]; then
     if [[ "$1" == "inc" ]]; then
         current_height=$((current_height + STEP))
         [[ $current_height -gt $MAX_HEIGHT ]] && current_height=$MAX_HEIGHT
-    else
+    elif [[ "$1" == "dec" ]]; then
         current_height=$((current_height - STEP))
         [[ $current_height -lt $MIN_HEIGHT ]] && current_height=$MIN_HEIGHT
+    elif [[ "$1" == "reset" ]]; then
+        current_height=$DEFAULT_HEIGHT
     fi
 
     # exit early if the height didn't actually change
@@ -107,9 +110,9 @@ fi
 ** Monitor
 When called without arguments, the script blocks and listens for filesystem changes in =/tmp=, instantly outputting updated JSON to Waybar when the state or height files change.
 #+begin_src bash
-# ---------------------------------------------------------
+#---------------------------------------------------------
 # Monitor
-# ---------------------------------------------------------
+#---------------------------------------------------------
 # initial sync
 if pgrep -x "wvkbd-deskintl" > /dev/null; then
     [[ ! -f "$STATE_FILE" ]] && echo "active" > "$STATE_FILE"

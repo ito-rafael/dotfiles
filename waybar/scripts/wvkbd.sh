@@ -16,10 +16,11 @@ fi
 
 current_height=$(cat "$HEIGHT_FILE")
 
-# ---------------------------------------------------------
+#---------------------------------------------------------
 # Actions
-# ---------------------------------------------------------
-if [[ "$1" == "inc" || "$1" == "dec" ]]; then
+#---------------------------------------------------------
+if [[ "$1" == "inc" || "$1" == "dec" || "$1" == "reset" ]]; then
+    # debouncer: lock the file descriptor.
     exec 200>"/tmp/wvkbd_resize.lock"
     if ! flock -n 200; then
         exit 0
@@ -32,9 +33,11 @@ if [[ "$1" == "inc" || "$1" == "dec" ]]; then
     if [[ "$1" == "inc" ]]; then
         current_height=$((current_height + STEP))
         [[ $current_height -gt $MAX_HEIGHT ]] && current_height=$MAX_HEIGHT
-    else
+    elif [[ "$1" == "dec" ]]; then
         current_height=$((current_height - STEP))
         [[ $current_height -lt $MIN_HEIGHT ]] && current_height=$MIN_HEIGHT
+    elif [[ "$1" == "reset" ]]; then
+        current_height=$DEFAULT_HEIGHT
     fi
 
     # exit early if the height didn't actually change
@@ -86,9 +89,9 @@ if [[ "$1" == "toggle" ]]; then
     exit 0
 fi
 
-# ---------------------------------------------------------
+#---------------------------------------------------------
 # Monitor
-# ---------------------------------------------------------
+#---------------------------------------------------------
 # initial sync
 if pgrep -x "wvkbd-deskintl" >/dev/null; then
     [[ ! -f "$STATE_FILE" ]] && echo "active" >"$STATE_FILE"
