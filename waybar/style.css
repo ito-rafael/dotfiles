@@ -921,6 +921,11 @@ box#toggle {
     background-image: url("/home/rafael/.config/waybar/icon/keyboard-inactive.svg");
 }
 
+#custom-wvkbd:hover {
+    background-color: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+
 #custom-screencast {
     padding-right: 4px;
     padding-left: 4px;
