@@ -917,6 +917,10 @@ box#toggle {
     background-image: url("/home/rafael/.config/waybar/icon/keyboard-active.svg");
 }
 
+#custom-wvkbd.inactive {
+    background-image: url("/home/rafael/.config/waybar/icon/keyboard-inactive.svg");
+}
+
 #custom-screencast {
     padding-right: 4px;
     padding-left: 4px;

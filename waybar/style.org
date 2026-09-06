@@ -1384,6 +1384,12 @@ box#toggle {
     background-image: url("/home/rafael/.config/waybar/icon/keyboard-active.svg");
 }
 #+end_src
+*** Inactive
+#+begin_src css
+#custom-wvkbd.inactive {
+    background-image: url("/home/rafael/.config/waybar/icon/keyboard-inactive.svg");
+}
+#+end_src
 ** Screencast
 #+begin_src css
 #custom-screencast {
