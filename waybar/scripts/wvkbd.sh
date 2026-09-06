@@ -20,15 +20,14 @@ current_height=$(cat "$HEIGHT_FILE")
 # Actions
 # ---------------------------------------------------------
 if [[ "$1" == "inc" || "$1" == "dec" ]]; then
-    # debouncer: Lock the file descriptor.
-    # if another scroll event is processing, instantly exit and ignore this tick.
     exec 200>"/tmp/wvkbd_resize.lock"
     if ! flock -n 200; then
         exit 0
     fi
 
     # read height inside the lock to prevent stale variables
-    current_height=$(cat "$HEIGHT_FILE")
+    original_height=$(cat "$HEIGHT_FILE")
+    current_height=$original_height
 
     if [[ "$1" == "inc" ]]; then
         current_height=$((current_height + STEP))
@@ -36,6 +35,11 @@ if [[ "$1" == "inc" || "$1" == "dec" ]]; then
     else
         current_height=$((current_height - STEP))
         [[ $current_height -lt $MIN_HEIGHT ]] && current_height=$MIN_HEIGHT
+    fi
+
+    # exit early if the height didn't actually change
+    if [[ "$current_height" -eq "$original_height" ]]; then
+        exit 0
     fi
 
     echo "$current_height" >"$HEIGHT_FILE"
