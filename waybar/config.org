@@ -599,6 +599,7 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
     "on-click": "~/.config/waybar/scripts/wvkbd.sh toggle",
     "on-scroll-up": "~/.config/waybar/scripts/wvkbd.sh inc",
     "on-scroll-down": "~/.config/waybar/scripts/wvkbd.sh dec",
+    "on-click-middle": "~/.config/waybar/scripts/wvkbd.sh reset",
     "reverse-scrolling": true,
     "reverse-mouse-scrolling": false,
 },
