@@ -451,6 +451,10 @@
     "exec": "~/.config/waybar/scripts/wvkbd.sh",
     "return-type": "json",
     "on-click": "~/.config/waybar/scripts/wvkbd.sh toggle",
+    "on-scroll-up": "~/.config/waybar/scripts/wvkbd.sh inc",
+    "on-scroll-down": "~/.config/waybar/scripts/wvkbd.sh dec",
+    "reverse-scrolling": true,
+    "reverse-mouse-scrolling": false,
 },
 
 "custom/keyboard-backlit": {
