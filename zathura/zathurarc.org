@@ -1,0 +1,51 @@
+#+TITLE: Zathura config
+#+AUTHOR: Rafael Ito
+#+PROPERTY: header-args :tangle zathurarc
+#+DESCRIPTION: Zathura PDF Org literate config that generates the zathurarc dotfile
+#+STARTUP: showeverything
+#+auto_tangle: t
+
+* Table of Contents :toc:
+- [[#ui--clipboard][UI & Clipboard]]
+  - [[#dark-mode][Dark mode]]
+  - [[#clipboard][Clipboard]]
+- [[#navigation][Navigation]]
+  - [[#scroll][Scroll]]
+  - [[#page-navigation][Page navigation]]
+  - [[#full-page-downup][Full page down/up]]
+- [[#zoom][Zoom]]
+
+* UI & Clipboard
+** Dark mode
+#+begin_src conf-space
+set recolor true
+map <M-d> recolor
+#+end_src
+** Clipboard
+Copy to clipboard
+#+begin_src conf-space
+set selection-clipboard clipboard
+#+end_src
+* Navigation
+** Scroll
+#+begin_src conf-space
+map [normal] n scroll left
+map [normal] e scroll down
+map [normal] i scroll up
+map [normal] o scroll right
+#+end_src
+** Page navigation
+#+begin_src conf-space
+map [normal] E navigate next
+map [normal] I navigate previous
+#+end_src
+** Full page down/up
+#+begin_src conf-space
+map [normal] d scroll full-down
+map [normal] u scroll full-up
+#+end_src
+* Zoom
+#+begin_src conf-space
+map [normal] <C-+> zoom in
+map [normal] <C--> zoom out
+#+end_src
