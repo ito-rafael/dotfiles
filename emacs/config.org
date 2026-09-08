@@ -42,6 +42,7 @@
 - [[#emacs-everywhere][emacs-everywhere]]
 - [[#rainbow-mode][rainbow-mode]]
 - [[#avy][Avy]]
+- [[#opentofu--terraform][OpenTofu / Terraform]]
 
 * UI :noexport_1:
 #+begin_src emacs-lisp
@@ -803,6 +804,12 @@ https://github.com/seagle0128/doom-modeline
     (kbd "S-C-e") 'org-forward-heading-same-level   ;; next same level 
     (kbd "S-C-i") 'org-backward-heading-same-level  ;; previous same level
   )
+
+  ;; map #+begin_src {tofu,hcl} to use terraform-mode
+  (with-eval-after-load 'org
+    (add-to-list 'org-src-lang-modes '("tofu" . terraform))
+    (add-to-list 'org-src-lang-modes '("hcl" . terraform))
+    (add-to-list 'org-src-lang-modes '("terraform" . terraform)))
 )
 #+end_src
 ** Filters for ":tangle no"
@@ -2249,4 +2256,8 @@ https://github.com/abo-abo/avy
   :hook ((markdown-mode . pandoc-mode)
          (org-mode . pandoc-mode))
 )
+#+end_src
+* OpenTofu / Terraform
+#+begin_src emacs-lisp
+(use-package terraform-mode)
 #+end_src
