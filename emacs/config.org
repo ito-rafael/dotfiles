@@ -1088,6 +1088,12 @@ Restart applications with new config file.
  (call-process-shell-command "emacsclient -s efs -e '(efs/reload-emacs-config)'" nil 0)
  (message "↻ Reloadig Emacs config..."))
 #+end_src
+***** Hyprland
+#+begin_src emacs-lisp
+((string-match-p "hypr" target-dest)
+ (call-process-shell-command "hyprctl reload" nil "*Messages*")
+ (message "↻ Reloading Hyprland..."))
+#+end_src
 ***** kanata
 #+begin_src emacs-lisp
 ((string-match-p "kanata" target-dest)
