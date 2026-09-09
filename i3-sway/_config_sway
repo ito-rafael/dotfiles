@@ -431,6 +431,12 @@ for_window [$prop="^brave-translate.google.com__-Default$"] {
 exec "$SCRIPT_PATH/pwa-launcher.sh translate"
 bindsym $alt+$mod+s exec "$SCRIPT_PATH/show-or-launch.sh brave-translate.google.com__-Default 0.6 0.9"
 # XDG Desktop Portals & systemd user services
+#exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway SWAYSOCK XDG_SESSION_TYPE XDG_CONFIG_HOME
+
+
+# Export Wayland environment variables to systemd (Fixes Waybar)
+#exec systemctl --user import-environment WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP XDG_SESSION_TYPE XDG_CONFIG_HOME
+
 # Export Wayland environment variables to D-Bus (Fixes Screen Sharing/Portals)
 #exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP=sway XDG_SESSION_TYPE XDG_CONFIG_HOME
 # start systemd session target
@@ -642,9 +648,6 @@ exec --no-startup-id "rm /tmp/vpn_lbic.tmp"
 bindsym $alt+$mod+4 exec "$SCRIPT_PATH/vpn-connect.sh samsung toggle"
 exec --no-startup-id "rm /tmp/vpn_samsung.tmp"
 bindsym $alt+$mod+0 exec "$XDG_CONFIG_HOME/waybar/scripts/proton-vpn.sh toggle"
-exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway SWAYSOCK XDG_SESSION_TYPE XDG_CONFIG_HOME
-# start systemd session target
-exec systemctl --user start sway-session.target
 exec echo "disconnected" > /tmp/proton-vpn-status.tmp
 #exec --no-startup-id /usr/bin/dunst &          # dunst: notification daemon
 #exec_always dunstctl set-paused true           # dunst: start with notifications paused

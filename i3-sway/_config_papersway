@@ -259,8 +259,6 @@ bindsym $alt+ctrl+t nop
 bindsym --release $alt+ctrl+t exec "$XDG_CONFIG_HOME/scripts/sway-test.sh"
 bindsym $mod+j exec tomat toggle
 bindsym Shift+$mod+t exec "$XDG_CONFIG_HOME/scripts/theme-toggle.sh"
-bindsym --whole-window Shift+button4 exec --no-startup-id amixer -q sset Master 1%+
-bindsym --whole-window Shift+button5 exec --no-startup-id amixer -q sset Master 1%-
 bindsym mod1+$mod+Up exec "\
     echo 'rotate screen' &&\
     xrandr --output eDP-1 --rotate left &&\
@@ -299,17 +297,6 @@ bindsym shift+Print exec 'grim -g "$(slurp)"'
 bindsym ctrl+Print exec 'grim -g "$(slurp)" - | swappy -f -'
 bindsym $alt+ctrl+n exec "$SCRIPT_PATH/wlprop.sh focused"
 bindsym $alt+ctrl+m exec "$SCRIPT_PATH/wlprop.sh show"
-#bindsym kp_4 seat - cursor move -10  0
-#bindsym kp_2 seat - cursor move  0   10
-#bindsym kp_8 seat - cursor move  0  -10
-#bindsym kp_6 seat - cursor move  10  0
-#bindsym kp_divide   seat - cursor press button1
-#bindsym kp_multiply seat - cursor press button2
-#bindsym kp_subtract seat - cursor press button3
-#bindsym kp_1 seat - cursor press button4
-#bindsym kp_3 seat - cursor press button5
-#bindsym kp_7 seat - cursor press button6
-#bindsym kp_9 seat - cursor press button7
 >
 set $locker $XDG_CONFIG_HOME/hypr/lock-screen.sh
 # exit from Sway + kill systemd graphical session target
@@ -463,11 +450,9 @@ exec systemctl --user start sway-session.target
 exec echo 0 > /tmp/capslock_status.tmp
 exec echo "disconnected" > /tmp/lanmouse-status.tmp
 exec echo "default" > /tmp/xremap_mode.tmp
-exec --no-startup-id "sudo bash $SCRIPT_PATH/waybar/scripts/kmonad.sh status > /tmp/kmonad-status.tmp"
 exec gammastep
 exec echo "6500" > /tmp/gamma_temp.tmp
 exec echo '@define-color dynamic_bg rgba(43, 48, 59, 0.5);' >~/.config/waybar/dynamic-bg.css
-#exec_always --no-startup-id ~/.config/waybar/waybar.sh
 #exec --no-startup-id "$SCRIPT_PATH/navigate2ws.sh 5"
 #exec --no-startup-id "$SCRIPT_PATH/navigate2ws.sh 2"
 exec brave-origin
@@ -513,30 +498,6 @@ mode "resize" {
 }
 bindsym $mod+a exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh resize
 bindsym shift+$mod+a mode "resize"
-mode "presentation-obs" {
-    #-----------------------------
-    # switch to scenes in OBS
-    bindsym r exec "$SCRIPT_PATH/obs-tools.py --scene camera"
-    bindsym s exec "$SCRIPT_PATH/obs-tools.py --scene presentation"
-    bindsym t exec "$SCRIPT_PATH/obs-tools.py --scene scene-3"
-    bindsym w exec "$SCRIPT_PATH/obs-tools.py --scene scene-4"
-    bindsym f exec "$SCRIPT_PATH/obs-tools.py --scene scene-5"
-    bindsym p exec "$SCRIPT_PATH/obs-tools.py --scene scene-6"
-    bindsym x exec "$SCRIPT_PATH/obs-tools.py --scene scene-7"
-    bindsym c exec "$SCRIPT_PATH/obs-tools.py --scene scene-8"
-    bindsym d exec "$SCRIPT_PATH/obs-tools.py --scene scene-9"
-    #-----------------------------
-    bindsym q exec "$SCRIPT_PATH/obs-tools.py --scene output-0"
-    bindsym a exec "$SCRIPT_PATH/obs-tools.py --scene output-1"
-    bindsym z exec "$SCRIPT_PATH/obs-tools.py --scene output-2"
-    #-----------------------------
-    # back to normal
-    bindsym shift+$alt+F13 mode "default"
-    #-----------------------------
-    # inherent default keybinds (i3bang)
-    !@default_keybindings
-}
-bindsym shift+$alt+F13 mode "presentation-obs"
 set $mode_acute acute
 mode "$mode_acute" {
     # apostrophe
@@ -571,6 +532,7 @@ mode "$mode_acute" {
     bindsym Shift+m exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type "'M", mode "default"
     bindsym Shift+r exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type "'R", mode "default"
     bindsym Shift+s exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type "'S", mode "default"
+    bindsym Shift+t exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type "'T", mode "default"
     bindsym Shift+v exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type "'V", mode "default"
     # escape
     bindsym Escape mode "default"
@@ -619,8 +581,6 @@ mode "$mode_tilde" {
 }
 bindsym F13 mode "$mode_acute"
 bindsym Shift+F13 mode "$mode_tilde"
-#bindsym F21 mode "$mode_mouse_side_bottom"
-#bindsym F22 mode "$mode_mouse_side_top"
 assign [$prop="thunderbird"] → $ws4
 assign [$prop="libreoffice"] → $ws5
 assign [$prop="lutris"] → $ws6
