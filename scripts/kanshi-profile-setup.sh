@@ -1,0 +1,1 @@
+../kanshi/profile-setup.sh
