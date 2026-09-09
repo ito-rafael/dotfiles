@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (defun efs/org-babel-ignore-explicit-tangle-no (info)
   "Intercept Org Babel block INFO.
 If `:tangle no' is explicitly present in the block header text,
