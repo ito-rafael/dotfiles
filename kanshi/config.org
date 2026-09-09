@@ -31,7 +31,7 @@ profile {
     # middle monitor: Dell Primary (primary) [HDMI-A-1]
     output "Dell Inc. DELL SE2416H Y4GVX82704FL" mode 1920x1080@60Hz position 1920,0
     # right monitor: AOC 2 - Vertical (tertiary) [DVI-I-1]
-    output "AOC 2369M 23039IA002615" mode 1920x1080@60Hz position 3840,0 transform 90
+    output "AOC 2369M 23039IA002615" mode 1920x1080@60Hz position 3840,0 transform 270
     # profile setup
     exec ~/.config/scripts/kanshi-profile-setup.sh catuaba
 }
