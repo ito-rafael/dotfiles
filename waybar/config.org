@@ -8,6 +8,7 @@
 * Table of contents :toc_1:
 - [[#positioning][Positioning]]
 - [[#sway][Sway]]
+- [[#hyprland][Hyprland]]
 - [[#group-scratchpad][Group Scratchpad]]
 - [[#group-monitoring][Group Monitoring]]
 - [[#group-control][Group Control]]
@@ -45,6 +46,8 @@
 "modules-left": [
     "sway/workspaces",
     "sway/mode",
+    "hyprland/workspaces",
+    "hyprland/submap",
     "group/keyboard",
     "group/sysadmin",
     "group/toggle",
@@ -84,6 +87,16 @@
 },
 "sway/workspaces": {
     "format": "{name}",
+},
+#+end_src
+* Hyprland
+#+begin_src js
+"hyprland/workspaces": {
+    "max-length": 50,
+    //"show-special": true
+},
+"hyprland/submap": {
+    "format": "{}",
 },
 #+end_src
 * Group Scratchpad

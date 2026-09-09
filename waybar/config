@@ -15,6 +15,8 @@
 "modules-left": [
     "sway/workspaces",
     "sway/mode",
+    "hyprland/workspaces",
+    "hyprland/submap",
     "group/keyboard",
     "group/sysadmin",
     "group/toggle",
@@ -48,6 +50,14 @@
 },
 "sway/workspaces": {
     "format": "{name}",
+},
+
+"hyprland/workspaces": {
+    "max-length": 50,
+    //"show-special": true
+},
+"hyprland/submap": {
+    "format": "{}",
 },
 
 "image#scratchpad-icon": {
