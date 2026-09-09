@@ -1302,6 +1302,7 @@ mode "$mode_acute" {
     bindsym r       exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type "'r", mode "default"
     bindsym s       exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type "'s", mode "default"
     bindsym t       exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type "'t", mode "default"
+    bindsym v       exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type "'v", mode "default"
     # misc uppercase
     bindsym Shift+l exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type "'L", mode "default"
     bindsym Shift+n exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type "'N", mode "default"
@@ -1309,6 +1310,7 @@ mode "$mode_acute" {
     bindsym Shift+r exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type "'R", mode "default"
     bindsym Shift+s exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type "'S", mode "default"
     bindsym Shift+t exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type "'T", mode "default"
+    bindsym Shift+v exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type "'V", mode "default"
     # escape
     bindsym Escape mode "default"
     bindsym Return mode "default"
