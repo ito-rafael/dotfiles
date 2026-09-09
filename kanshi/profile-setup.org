@@ -33,7 +33,7 @@ Desktop used during PhD @ LBiC/Unicamp.
     swaymsg -q "\
         output HDMI-A-1 bg $WALLPAPER_DIR/london.jpg fill; \
         output DP-1     bg $WALLPAPER_DIR/london.jpg fill; \
-        output DVI-I-1  bg $WALLPAPER_DIR/nasa.jpg fill"
+        output DVI-I-1  bg $WALLPAPER_DIR/nasa.png fill"
     ;;
 #+end_src
 * IPF
@@ -52,7 +52,7 @@ Personal IdeaPad Flex 5i laptop profiles.
     swaymsg -q "\
         output eDP-1    bg $WALLPAPER_DIR/london.jpg fill; \
         output HDMI-A-1 bg $WALLPAPER_DIR/london.jpg fill; \
-        output DP-1     bg $WALLPAPER_DIR/nasa.jpg fill"
+        output DP-1     bg $WALLPAPER_DIR/nasa.png fill"
     ;;
 #+end_src
 ** Extend to HDMI
@@ -126,7 +126,7 @@ Dell Vostro laptop used in Viva-Bem hub.
     swaymsg -q "\
         output HDMI-A-1 bg $WALLPAPER_DIR/london.jpg fill; \
         output DP-1     bg $WALLPAPER_DIR/london.jpg fill; \
-        output DVI-I-1  bg $WALLPAPER_DIR/nasa.jpg fill"
+        output DVI-I-1  bg $WALLPAPER_DIR/nasa.png fill"
     ;;
 #+end_src
 ** Hub Viva-Bem #2
@@ -138,7 +138,7 @@ Dell Vostro laptop used in Viva-Bem hub.
     swaymsg -q "\
         output HDMI-A-1 bg $WALLPAPER_DIR/london.jpg fill; \
         output DP-1     bg $WALLPAPER_DIR/london.jpg fill; \
-        output DVI-I-1  bg $WALLPAPER_DIR/nasa.jpg fill"
+        output DVI-I-1  bg $WALLPAPER_DIR/nasa.png fill"
     ;;
 #+end_src
 ** MSc presentation

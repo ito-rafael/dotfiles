@@ -16,7 +16,7 @@ case "$PROFILE" in
     swaymsg -q "\
         output HDMI-A-1 bg $WALLPAPER_DIR/london.jpg fill; \
         output DP-1     bg $WALLPAPER_DIR/london.jpg fill; \
-        output DVI-I-1  bg $WALLPAPER_DIR/nasa.jpg fill"
+        output DVI-I-1  bg $WALLPAPER_DIR/nasa.png fill"
     ;;
 
 "ipf_triple_monitor")
@@ -31,7 +31,7 @@ case "$PROFILE" in
     swaymsg -q "\
         output eDP-1    bg $WALLPAPER_DIR/london.jpg fill; \
         output HDMI-A-1 bg $WALLPAPER_DIR/london.jpg fill; \
-        output DP-1     bg $WALLPAPER_DIR/nasa.jpg fill"
+        output DP-1     bg $WALLPAPER_DIR/nasa.png fill"
     ;;
 
 "ipf_extend_hdmi")
@@ -92,7 +92,7 @@ case "$PROFILE" in
     swaymsg -q "\
         output HDMI-A-1 bg $WALLPAPER_DIR/london.jpg fill; \
         output DP-1     bg $WALLPAPER_DIR/london.jpg fill; \
-        output DVI-I-1  bg $WALLPAPER_DIR/nasa.jpg fill"
+        output DVI-I-1  bg $WALLPAPER_DIR/nasa.png fill"
     ;;
 
 "vb_hub2")
@@ -102,7 +102,7 @@ case "$PROFILE" in
     swaymsg -q "\
         output HDMI-A-1 bg $WALLPAPER_DIR/london.jpg fill; \
         output DP-1     bg $WALLPAPER_DIR/london.jpg fill; \
-        output DVI-I-1  bg $WALLPAPER_DIR/nasa.jpg fill"
+        output DVI-I-1  bg $WALLPAPER_DIR/nasa.png fill"
     ;;
 
 "msc_presentation")
