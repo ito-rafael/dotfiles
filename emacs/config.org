@@ -1100,58 +1100,44 @@ Restart applications with new config file.
 ***** Sway & Scroll
 #+begin_src emacs-lisp
 ((string-match-p "/\\(sway\\|scroll\\)/" target-dest)
- (let* ((runtime-dir (format "/run/user/%s" (user-uid)))
-        (sway-socket
-         (car (file-expand-wildcards
-               (expand-file-name "sway-ipc.*.sock" runtime-dir))))
-        (scroll-socket
-         (car (file-expand-wildcards
-               (expand-file-name "scroll-ipc.*.sock" runtime-dir)))))
+ (let* ((wm-dir (file-name-directory target-dest))
+        (wm-name (if (string-match-p "sway" wm-dir) "sway" "scroll"))
+        (script-path (expand-file-name "i3bang.rb" wm-dir))
+        (config-source (expand-file-name "_config" wm-dir))
+        (runtime-dir (format "/run/user/%s" (user-uid)))
+        (sway-socket (car (file-expand-wildcards (expand-file-name "sway-ipc.*.sock" runtime-dir))))
+        (scroll-socket (car (file-expand-wildcards (expand-file-name "scroll-ipc.*.sock" runtime-dir)))))
 
+   ;; always run i3bang.rb to generate the config for this specific directory
+   (let ((gen-cmd (format "ruby '%s' '%s'" script-path config-source)))
+     (call-process-shell-command gen-cmd nil "*Messages*")
+     (message "✔ Generated config for %s." wm-name))
+
+   ;; only reload if the active window manager matches the current wm-dir
    (cond
-    ;;------------------------
-    ;; swaymsg reload
-    ;;------------------------
-    (sway-socket
-     (let* ((wm-dir (expand-file-name "~/.config/sway/"))
-            (script-path (expand-file-name "i3bang.rb" wm-dir))
-            (config-source (expand-file-name "_config" wm-dir))
-            (cmd (format
-                  "export SWAY_SCALE=$(~/.config/scripts/sway-scale.sh get); \
-ruby '%s' '%s' && \
-swaymsg -s '%s' reload && \
-sleep 1 && \
-~/.config/scripts/sway-scale.sh \"$SWAY_SCALE\""
-                  script-path
-                  config-source
-                  sway-socket)))
-       (call-process-shell-command cmd nil "*Messages*")
-       (message "↻ Generated & Reloaded Sway.")))
+     ;;------------------------
+     ;; swaymsg reload
+     ;;------------------------
+     ;; if we are processing Sway and Sway is the active WM
+     ((and (string= wm-name "sway") sway-socket)
+      (let ((reload-cmd (format "export SWAY_SCALE=$(~/.config/scripts/sway-scale.sh get); swaymsg -s '%s' reload && sleep 1 && ~/.config/scripts/sway-scale.sh \"$SWAY_SCALE\"" sway-socket)))
+        (call-process-shell-command reload-cmd nil "*Messages*")
+        (message "↻ Reloaded active WM: Sway.")))
 
-    ;;------------------------
-    ;; scroll reload
-    ;;------------------------
-    (scroll-socket
-     (let* ((wm-dir (expand-file-name "~/.config/scroll/"))
-            (script-path (expand-file-name "i3bang.rb" wm-dir))
-            (config-source (expand-file-name "_config" wm-dir))
-            (cmd (format
-                  "export SWAY_SCALE=$(~/.config/scripts/sway-scale.sh get); \
-ruby '%s' '%s' && \
-scrollmsg -s '%s' reload && \
-sleep 1 && \
-~/.config/scripts/sway-scale.sh \"$SWAY_SCALE\""
-                  script-path
-                  config-source
-                  scroll-socket)))
-       (call-process-shell-command cmd nil "*Messages*")
-       (message "↻ Generated & Reloaded Scroll.")))
-
-    ;;------------------------
-    ;; neither compositor is running
-    ;;------------------------
-    (t
-     (message "No Sway or Scroll IPC socket found; skipping reload.")))))
+     ;;------------------------
+     ;; scroll reload
+     ;;------------------------
+     ;; if we are processing Scroll and Scroll is the active WM
+     ((and (string= wm-name "scroll") scroll-socket)
+      (let ((reload-cmd (format "export SWAY_SCALE=$(~/.config/scripts/sway-scale.sh get); scrollmsg -s '%s' reload && sleep 1 && ~/.config/scripts/sway-scale.sh \"$SWAY_SCALE\"" scroll-socket)))
+        (call-process-shell-command reload-cmd nil "*Messages*")
+        (message "↻ Reloaded active WM: Scroll.")))
+     ;;------------------------
+     ;; neither compositor is running
+     ;;------------------------
+     ;; if we are processing a WM that is not currently running
+     (t
+       (message "Skipped reload: %s is not the currently active WM." wm-name)))))
 #+end_src
 ***** xremap
 #+begin_src emacs-lisp
