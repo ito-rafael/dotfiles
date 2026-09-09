@@ -32,7 +32,7 @@
 export ZSH=$HOME/.config/oh-my-zsh
 #+end_src
 ** Commented
-#+begin_src
+#+begin_src sh :tangle no
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -257,6 +257,7 @@ function cv() { cat $1 | vim - }
 #+end_src
 ** SSH
 #+begin_src sh
+alias sshrm='ssh-keygen -R'
 #alias ssh='kitten ssh --kitten=color_scheme=themes/ssh.conf'
 ssh() {
   # change the local terminal to the SSH theme

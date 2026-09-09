@@ -131,6 +131,7 @@ alias rmw='rm -rf ~/.cache/wasistlos/'          # clean WasIstLos (WhatsApp) cac
 alias udd='update-desktop-database ~/.local/share/applications'
 function cv() { cat $1 | vim - }
 
+alias sshrm='ssh-keygen -R'
 #alias ssh='kitten ssh --kitten=color_scheme=themes/ssh.conf'
 ssh() {
   # change the local terminal to the SSH theme
