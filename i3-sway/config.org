@@ -820,7 +820,7 @@ bindsym mod3+button4 --whole-window exec "pactl set-sink-volume @DEFAULT_SINK@ +
 bindsym mod3+button5 --whole-window exec "pactl set-sink-volume @DEFAULT_SINK@ -5% && pkill -RTMIN+10 i3blocks"
 #+end_src
 
-#+begin_src conf :noweb-ref i3bang-common
+#+begin_src conf :noweb-ref i3bang-i3
 bindsym --whole-window Shift+button4 exec --no-startup-id amixer -q sset Master 1%+
 bindsym --whole-window Shift+button5 exec --no-startup-id amixer -q sset Master 1%-
 #+end_src
@@ -836,11 +836,11 @@ Note: whole section deprecated in favor of [[https://github.com/jtroo/kanata][ka
 | kp8 | up              |
 | kp6 | right           |
 |-----+-----------------|
-#+begin_src conf :noweb-ref i3bang-sway
-#bindsym kp_4 seat - cursor move -10  0
-#bindsym kp_2 seat - cursor move  0   10
-#bindsym kp_8 seat - cursor move  0  -10
-#bindsym kp_6 seat - cursor move  10  0
+#+begin_src conf :noweb-ref i3bang-sway :tangle no
+bindsym kp_4 seat - cursor move -10  0
+bindsym kp_2 seat - cursor move  0   10
+bindsym kp_8 seat - cursor move  0  -10
+bindsym kp_6 seat - cursor move  10  0
 #+end_src
 **** Buttons
 |-----+--------------|
@@ -850,10 +850,10 @@ Note: whole section deprecated in favor of [[https://github.com/jtroo/kanata][ka
 | kp* | middle click |
 | kb- | right click  |
 |-----+--------------|
-#+begin_src conf :noweb-ref i3bang-sway
-#bindsym kp_divide   seat - cursor press button1
-#bindsym kp_multiply seat - cursor press button2
-#bindsym kp_subtract seat - cursor press button3
+#+begin_src conf :noweb-ref i3bang-sway :tangle no
+bindsym kp_divide   seat - cursor press button1
+bindsym kp_multiply seat - cursor press button2
+bindsym kp_subtract seat - cursor press button3
 #+end_src
 **** Wheel
 |-----+----------------|
@@ -864,11 +864,11 @@ Note: whole section deprecated in favor of [[https://github.com/jtroo/kanata][ka
 | kp7 | right          |
 | kp9 | left           |
 |-----+----------------|
-#+begin_src conf :noweb-ref i3bang-sway
-#bindsym kp_1 seat - cursor press button4
-#bindsym kp_3 seat - cursor press button5
-#bindsym kp_7 seat - cursor press button6
-#bindsym kp_9 seat - cursor press button7
+#+begin_src conf :noweb-ref i3bang-sway :tangle no
+bindsym kp_1 seat - cursor press button4
+bindsym kp_3 seat - cursor press button5
+bindsym kp_7 seat - cursor press button6
+bindsym kp_9 seat - cursor press button7
 #+end_src
 *** i3
 **** Cursor
@@ -880,11 +880,11 @@ Note: whole section deprecated in favor of [[https://github.com/jtroo/kanata][ka
 | kp8 | up              |
 | kp6 | right           |
 |-----+-----------------|
-#+begin_src conf :noweb-ref i3bang-i3
-#bindsym kp_4 <TBD>
-#bindsym kp_2 <TBD>
-#bindsym kp_8 <TBD>
-#bindsym kp_6 <TBD>
+#+begin_src conf :noweb-ref i3bang-i3 :tangle no
+bindsym kp_4 <TBD>
+bindsym kp_2 <TBD>
+bindsym kp_8 <TBD>
+bindsym kp_6 <TBD>
 #+end_src
 **** Buttons
 |-----+--------------|
@@ -894,10 +894,10 @@ Note: whole section deprecated in favor of [[https://github.com/jtroo/kanata][ka
 | kp* | middle click |
 | kb- | right click  |
 |-----+--------------|
-#+begin_src conf :noweb-ref i3bang-i3
-#bindsym kp_divide   <TBD>
-#bindsym kp_multiply <TBD>
-#bindsym kp_subtract <TBD>
+#+begin_src conf :noweb-ref i3bang-i3 :tangle no
+bindsym kp_divide   <TBD>
+bindsym kp_multiply <TBD>
+bindsym kp_subtract <TBD>
 #+end_src
 **** Wheel
 |-----+----------------|
@@ -908,11 +908,11 @@ Note: whole section deprecated in favor of [[https://github.com/jtroo/kanata][ka
 | kp1 | up             |
 | kp7 | right          |
 |-----+----------------|
-#+begin_src conf :noweb-ref i3bang-i3
-#bindsym kp_1 <TBD>
-#bindsym kp_3 <TBD>
-#bindsym kp_7 <TBD>
-#bindsym kp_9 <TBD>
+#+begin_src conf :noweb-ref i3bang-i3 :tangle no
+bindsym kp_1 <TBD>
+bindsym kp_3 <TBD>
+bindsym kp_7 <TBD>
+bindsym kp_9 <TBD>
 #+end_src
 * Rotate screen
 ** Portrait
@@ -1204,7 +1204,7 @@ bindsym mod1+P mode "presentation"; exec projecteur -D 25a7:1047
 Mode to be used for presentations with OBS.
 https://github.com/pdfpc/pdfpc
 *** Mode
-#+begin_src conf :noweb-ref post-common
+#+begin_src conf :noweb-ref post-common :tangle no
 mode "presentation-obs" {
     #-----------------------------
     # switch to scenes in OBS
@@ -1231,7 +1231,7 @@ mode "presentation-obs" {
 #+end_src
 *** Keybinding
 Start "presentation-obs" mode.
-#+begin_src conf :noweb-ref post-common
+#+begin_src conf :noweb-ref post-common :tangle no
 bindsym shift+$alt+F13 mode "presentation-obs"
 #+end_src
 ** Studio
@@ -1498,9 +1498,9 @@ mode "$mode_mouse_side_top" {
 }
 #+end_src
 **** Keybinding
-#+begin_src conf :noweb-ref post-common
-#bindsym F21 mode "$mode_mouse_side_bottom"
-#bindsym F22 mode "$mode_mouse_side_top"
+#+begin_src conf :noweb-ref post-common :tangle no
+bindsym F21 mode "$mode_mouse_side_bottom"
+bindsym F22 mode "$mode_mouse_side_top"
 #+end_src
 * Applications default WS
 ** Window property
@@ -1975,7 +1975,7 @@ exec echo "default" > /tmp/xremap_mode.tmp
 #+end_src
 ** KMonad status
 (deprecated) +Create file to track KMonad service status (used by status bar).+
-#+begin_src conf :noweb-ref post-sway
+#+begin_src conf :noweb-ref post-sway :tangle no
 exec --no-startup-id "sudo bash $SCRIPT_PATH/waybar/scripts/kmonad.sh status > /tmp/kmonad-status.tmp"
 #+end_src
 ** Gamma
@@ -2087,8 +2087,8 @@ bar {
 #+end_src
 *** Sway (Waybar)
 Deprecated in favour of systemd service.
-#+begin_src conf :noweb-ref post-sway
-#exec_always --no-startup-id ~/.config/waybar/waybar.sh
+#+begin_src conf :noweb-ref post-sway :tangle no
+exec_always --no-startup-id ~/.config/waybar/waybar.sh
 #+end_src
 *** Applets
 #+begin_src conf :noweb-ref post-common
