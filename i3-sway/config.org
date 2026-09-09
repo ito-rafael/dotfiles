@@ -238,6 +238,24 @@ workspace_layout default
 
 bindsym $alt+ctrl+comma workspace 55
 #+end_src
+** scroll
+#+begin_src conf :noweb-ref scroll
+maximize_if_single true
+cursor_shake_magnify true
+workspace_next_on_output_create_empty false
+
+# eye-candy
+default_decoration border_radius 20
+
+# animations
+animations {
+    enabled yes
+    style scale
+    default       yes       350            var simple      [ 0.16 1.0 0.3 1.0 ]
+    window_open   yes       300            var simple      [ 0.0  0.0 1.0 1.0 ]
+    window_move   yes       300            var simple      [ 0.21 0.6 0.35 1.0 ]
+    window_size   yes       300            var simple      [ 0.0 0.0 0.0 0.5 ]
+}
 #+end_src
 * Workspaces
 ** WS names (icons)
@@ -2125,6 +2143,18 @@ exec --no-startup-id "sleep 5 && swaymsg '[app_id=brave-origin]' move to workspa
 <<header>>
 <<sway-common>>
 <<papersway>>
+<<i3bang-begin>>
+<<i3bang-common>>
+<<i3bang-sway>>
+<<i3bang-end>>
+<<post-sway>>
+<<post-common>>
+#+end_src
+*** scroll
+#+begin_src conf :noweb yes :tangle _config_scroll
+<<header>>
+<<sway-common>>
+<<scroll>>
 <<i3bang-begin>>
 <<i3bang-common>>
 <<i3bang-sway>>
