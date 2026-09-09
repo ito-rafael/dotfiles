@@ -257,6 +257,17 @@ if (window.location.host === 'music.youtube.com') {
         api.Front.showPopup('Library button not found.');
     });
 
+    api.mapkey('<Space>', 'Toggle Play/Pause in YouTube Music', function() {
+        // the main play/pause button in the bottom player bar
+        let playPauseBtn = document.getElementById('play-pause-button');
+
+        if (playPauseBtn) {
+            playPauseBtn.click();
+        } else {
+            api.Front.showPopup('Play/Pause button not found.');
+        }
+    });
+
 }
 
 api.mapkey('b', 'Bookmarks Omnibar', () => {
