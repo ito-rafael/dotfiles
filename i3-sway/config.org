@@ -230,6 +230,14 @@ corner_radius 20
 default_dim_inactive 0.20
 blur enable
 #+end_src
+** papersway
+#+begin_src conf :noweb-ref papersway
+focus_wrapping no
+default_orientation horizontal
+workspace_layout default
+
+bindsym $alt+ctrl+comma workspace 55
+#+end_src
 #+end_src
 * Workspaces
 ** WS names (icons)
@@ -2105,6 +2113,18 @@ exec --no-startup-id "sleep 5 && swaymsg '[app_id=brave-origin]' move to workspa
 <<header>>
 <<sway-common>>
 <<swayfx>>
+<<i3bang-begin>>
+<<i3bang-common>>
+<<i3bang-sway>>
+<<i3bang-end>>
+<<post-sway>>
+<<post-common>>
+#+end_src
+*** papersway
+#+begin_src conf :noweb yes :tangle _config_papersway
+<<header>>
+<<sway-common>>
+<<papersway>>
 <<i3bang-begin>>
 <<i3bang-common>>
 <<i3bang-sway>>

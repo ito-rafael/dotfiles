@@ -1,0 +1,720 @@
+set $alt Mod1
+set $mod Mod4
+set $super_R Mod3
+set $XDG_CONFIG_HOME $HOME/.config
+set $SCRIPT_PATH $XDG_CONFIG_HOME/scripts
+#for_window [class=".*"] border pixel 3
+default_border pixel 5                  # set window border
+floating_modifier $mod                  # use Mouse+$mod to drag floating windows
+workspace_auto_back_and_forth yes       # enable previous workspace switching
+gaps inner 10                           # gaps size
+focus_on_window_activation urgent       # give window alerts instead of stealing focus
+font pango:monospace 10
+set $bg-color    #2f343f
+set $text-color  #f3f4f5
+set $htext_color #9575cd
+# class                 border  backgr. text    indicator child_border
+#client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
+client.focused          #8cB8D9 #285577 #ffffff #285587   #2e7ea4
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #2f373a
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+client.background       #ffffff
+set $ws1 "1:1"
+set $ws2 "2:2"
+set $ws3 "3:3"
+set $ws4 "4:4"
+set $ws5 "5:5"
+set $ws6 "6:6"
+set $ws7 "7:7"
+set $ws8 "8:8"
+set $ws9 "9:9"
+set $ws0 "10:0"
+set $ws11 "11:11"
+set $ws12 "12:12"
+set $ws13 "13:13"
+set $ws14 "14:14"
+set $ws15 "15:15"
+set $ws16 "16:16"
+set $ws17 "17:17"
+set $ws18 "18:18"
+set $ws19 "19:19"
+set $ws10 "20:10"
+set $ws21 "21:21"
+set $ws22 "22:22"
+set $ws23 "23:23"
+set $ws24 "24:24"
+set $ws25 "25:25"
+set $ws26 "26:26"
+set $ws27 "27:27"
+set $ws28 "28:28"
+set $ws29 "29:29"
+set $ws20 "30:20"
+input type:touchpad {
+    dwt enabled             # disable while typing
+    tap enabled             # tap-to-click
+    natural_scroll enabled  # natural scrolling
+    drag_lock disabled      # stop dragging after lifting from touchpad
+}
+input type:keyboard {
+    xkb_numlock enabled
+    xkb_model "pc105"
+    xkb_layout "us"
+    xkb_variant "intl"
+    xkb_options "modifiers:modifiers,fnkeys:fnkeys"
+}
+input "1:1:AT_Translated_Set_2_keyboard" {
+    xkb_layout "us"
+    xkb_variant "intl"
+    xkb_options "modifiers:modifiers,fnkeys:fnkeys,capslockled:decouple"
+}
+input "1:1:kanata" {
+    xkb_layout "us"
+    xkb_variant "intl"
+    xkb_options "modifiers:modifiers,fnkeys:fnkeys,capslockled:decouple"
+}
+input "4660:22136:xremap" {
+    xkb_layout "us"
+    xkb_variant "intl"
+    xkb_options "modifiers:modifiers,fnkeys:fnkeys,capslockled:decouple"
+}
+input "9011:26214:ydotoold_virtual_device" {
+    accel_profile flat
+}
+include /etc/sway/config.d/*
+exec echo 1 > /tmp/mouse_warping.tmp
+mouse_warping container
+focus_wrapping no
+default_orientation horizontal
+workspace_layout default
+
+bindsym $alt+ctrl+comma workspace 55
+#!nobracket
+!@<+default_keybindings
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPause exec playerctl play-pause
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioRaiseVolume exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ && ~/.config/scripts/osd.sh volume
+bindsym XF86AudioLowerVolume exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && ~/.config/scripts/osd.sh volume
+bindsym shift+XF86AudioRaiseVolume exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+ && ~/.config/scripts/osd.sh volume
+bindsym shift+XF86AudioLowerVolume exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%- && ~/.config/scripts/osd.sh volume
+bindsym XF86AudioMute exec --no-startup-id wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && ~/.config/scripts/osd.sh volume
+bindsym XF86AudioMicMute exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SOURCE@ toggle && ~/.config/scripts/osd.sh mic
+#bindsym $mod+Shift+Left  move left
+#bindsym $mod+Shift+Down  move down
+#bindsym $mod+Shift+Up    move up
+#bindsym $mod+Shift+Right move right
+bindsym $mod+Shift+Left  exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh move left
+bindsym $mod+Shift+Down  exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh move down
+bindsym $mod+Shift+Up    exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh move up
+bindsym $mod+Shift+Right exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh move right
+# for Emacs
+bindsym Ctrl+$mod+Shift+Left  exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh move left
+bindsym Ctrl+$mod+Shift+Down  exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh move down
+bindsym Ctrl+$mod+Shift+Up    exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh move up
+bindsym Ctrl+$mod+Shift+Right exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh move right
+bindsym mod1+h split toggle
+#bindsym mod1+h split h
+#bindsym mod1+v split v
+bindsym mod1+$mod+e layout toggle stacked tabbed
+#bindsym mod1+$mod+f fullscreen toggle
+#bindsym Shift+mod1+$mod+f fullscreen toggle
+#bindsym mod1+$mod+f exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh fullscreen
+#bindsym Shift+mod1+$mod+f fullscreen toggle
+bindsym $mod+f exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh fullscreen  # SwayFX bug
+bindsym Shift+$mod+f fullscreen toggle                                    # SwayFX bug
+bindsym $mod+b floating toggle
+#bindsym mod1+$mod+q exec $SCRIPT_PATH/hide-or-kill.sh
+#bindsym shift+mod1+$mod+q exec $SCRIPT_PATH/kill-window.sh
+#bindsym mod1+$mod+q exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh kill
+#bindsym shift+mod1+$mod+q exec $SCRIPT_PATH/kill-window.sh
+bindsym $mod+q exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh kill  # SwayFX bug
+bindsym shift+$mod+q exec $SCRIPT_PATH/kill-window.sh               # SwayFX bug
+bindsym $mod+1 exec "$SCRIPT_PATH/navigate2ws.sh 1"
+bindsym $mod+2 exec "$SCRIPT_PATH/navigate2ws.sh 2"
+bindsym $mod+3 exec "$SCRIPT_PATH/navigate2ws.sh 3"
+bindsym $mod+4 exec "$SCRIPT_PATH/navigate2ws.sh 4"
+bindsym $mod+5 exec "$SCRIPT_PATH/navigate2ws.sh 5"
+bindsym $mod+6 exec "$SCRIPT_PATH/navigate2ws.sh 6"
+bindsym $mod+7 exec "$SCRIPT_PATH/navigate2ws.sh 7"
+bindsym $mod+8 exec "$SCRIPT_PATH/navigate2ws.sh 8"
+bindsym $mod+9 exec "$SCRIPT_PATH/navigate2ws.sh 9"
+bindsym $mod+0 exec "$SCRIPT_PATH/navigate2ws.sh 0"
+bindsym shift+$mod+1 exec "$SCRIPT_PATH/navigate2ws.sh 11"
+bindsym shift+$mod+2 exec "$SCRIPT_PATH/navigate2ws.sh 12"
+bindsym shift+$mod+3 exec "$SCRIPT_PATH/navigate2ws.sh 13"
+bindsym shift+$mod+4 exec "$SCRIPT_PATH/navigate2ws.sh 14"
+bindsym shift+$mod+5 exec "$SCRIPT_PATH/navigate2ws.sh 15"
+bindsym shift+$mod+6 exec "$SCRIPT_PATH/navigate2ws.sh 16"
+bindsym shift+$mod+7 exec "$SCRIPT_PATH/navigate2ws.sh 17"
+bindsym shift+$mod+8 exec "$SCRIPT_PATH/navigate2ws.sh 18"
+bindsym shift+$mod+9 exec "$SCRIPT_PATH/navigate2ws.sh 19"
+bindsym shift+$mod+0 exec "$SCRIPT_PATH/navigate2ws.sh 10"
+bindsym mod3+1 exec "$SCRIPT_PATH/navigate2ws.sh 21"
+bindsym mod3+2 exec "$SCRIPT_PATH/navigate2ws.sh 22"
+bindsym mod3+3 exec "$SCRIPT_PATH/navigate2ws.sh 23"
+bindsym mod3+4 exec "$SCRIPT_PATH/navigate2ws.sh 24"
+bindsym mod3+5 exec "$SCRIPT_PATH/navigate2ws.sh 25"
+bindsym mod3+6 exec "$SCRIPT_PATH/navigate2ws.sh 26"
+bindsym mod3+7 exec "$SCRIPT_PATH/navigate2ws.sh 27"
+bindsym mod3+8 exec "$SCRIPT_PATH/navigate2ws.sh 28"
+bindsym mod3+9 exec "$SCRIPT_PATH/navigate2ws.sh 29"
+bindsym mod3+0 exec "$SCRIPT_PATH/navigate2ws.sh 20"
+bindsym ctrl+$mod+1 move container to workspace number $ws1; workspace $ws1
+bindsym ctrl+$mod+2 move container to workspace number $ws2; workspace $ws2
+bindsym ctrl+$mod+3 move container to workspace number $ws3; workspace $ws3
+bindsym ctrl+$mod+4 move container to workspace number $ws4; workspace $ws4
+bindsym ctrl+$mod+5 move container to workspace number $ws5; workspace $ws5
+bindsym ctrl+$mod+6 move container to workspace number $ws6; workspace $ws6
+bindsym ctrl+$mod+7 move container to workspace number $ws7; workspace $ws7
+bindsym ctrl+$mod+8 move container to workspace number $ws8; workspace $ws8
+bindsym ctrl+$mod+9 move container to workspace number $ws9; workspace $ws9
+bindsym ctrl+$mod+0 move container to workspace number $ws0; workspace $ws0
+bindsym shift+ctrl+$mod+1 move container to workspace number $ws11; workspace $ws11
+bindsym shift+ctrl+$mod+2 move container to workspace number $ws12; workspace $ws12
+bindsym shift+ctrl+$mod+3 move container to workspace number $ws13; workspace $ws13
+bindsym shift+ctrl+$mod+4 move container to workspace number $ws14; workspace $ws14
+bindsym shift+ctrl+$mod+5 move container to workspace number $ws15; workspace $ws15
+bindsym shift+ctrl+$mod+6 move container to workspace number $ws16; workspace $ws16
+bindsym shift+ctrl+$mod+7 move container to workspace number $ws17; workspace $ws17
+bindsym shift+ctrl+$mod+8 move container to workspace number $ws18; workspace $ws18
+bindsym shift+ctrl+$mod+9 move container to workspace number $ws19; workspace $ws19
+bindsym shift+ctrl+$mod+0 move container to workspace number $ws10; workspace $ws10
+bindsym ctrl+mod3+0 move container to workspace number $ws20; workspace $ws20
+bindsym ctrl+mod3+1 move container to workspace number $ws21; workspace $ws21
+bindsym ctrl+mod3+2 move container to workspace number $ws22; workspace $ws22
+bindsym ctrl+mod3+3 move container to workspace number $ws23; workspace $ws23
+bindsym ctrl+mod3+4 move container to workspace number $ws24; workspace $ws24
+bindsym ctrl+mod3+5 move container to workspace number $ws25; workspace $ws25
+bindsym ctrl+mod3+6 move container to workspace number $ws26; workspace $ws26
+bindsym ctrl+mod3+7 move container to workspace number $ws27; workspace $ws27
+bindsym ctrl+mod3+8 move container to workspace number $ws28; workspace $ws28
+bindsym ctrl+mod3+9 move container to workspace number $ws29; workspace $ws29
+bindsym shift+mod3+Down workspace next_on_output
+bindsym shift+mod3+Up  workspace prev_on_output
+#bindsym shift+mod3+Left  focus output left
+#bindsym Ctrl+$mod+Left   focus output left
+#bindsym shift+mod3+Right focus output right
+#bindsym Ctrl+$mod+Right  focus output right
+bindsym shift+mod3+Left  exec "$XDG_CONFIG_HOME/scripts/sway-dispatch.sh focus_output left"
+bindsym Ctrl+$mod+Left   exec "$XDG_CONFIG_HOME/scripts/sway-dispatch.sh focus_output left"
+bindsym shift+mod3+Right exec "$XDG_CONFIG_HOME/scripts/sway-dispatch.sh focus_output right"
+bindsym Ctrl+$mod+Right  exec "$XDG_CONFIG_HOME/scripts/sway-dispatch.sh focus_output right"
+bindsym $mod+shift+mod3+Left  move container to output left;  focus output left
+bindsym $mod+shift+mod3+Right move container to output right; focus output right
+bindsym ctrl+mod1+1 move workspace to output $primary;   focus output $primary
+bindsym ctrl+mod1+2 move workspace to output $secondary; focus output $secondary
+bindsym ctrl+mod1+3 move workspace to output $tertiary;  focus output $tertiary
+bindsym Shift+F16 nop
+bindsym Ctrl+F16 nop
+bindsym $alt+F16 nop
+bindsym --release $alt+F16  exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh cut
+bindsym --release Shift+F16 exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh copy
+bindsym --release Ctrl+F16  exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh paste
+#bindsym $mod+b exec firefox
+#bindsym $mod+c exec chromium
+#bindsym $mod+n exec thunar
+#bindsym $mod+l exec lollypop
+#bindsym $mod+e exec thunderbird
+#bindsym $mod+g exec kitty ranger
+#bindsym $mod+p exec spotify --force-device-scale-factor=2 # shortcut to open Spotify
+bindsym $mod+g exec kitty
+bindsym mod1+$mod+g exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh new_terminal
+#bindsym mod1+$mod+g exec kitty
+#bindsym $mod+g exec i3-sensible-terminal
+#bindsym mod1+$mod+g exec i3-sensible-terminal
+#bindsym ctrl+$mod+g exec i3-sensible-terminal
+bindsym XF86MonBrightnessUp         exec brightnessctl set 5%+ && ~/.config/scripts/osd.sh brightness
+bindsym XF86MonBrightnessDown       exec brightnessctl set 5%- && ~/.config/scripts/osd.sh brightness
+bindsym shift+XF86MonBrightnessUp   exec brightnessctl set 1%+ && ~/.config/scripts/osd.sh brightness
+bindsym shift+XF86MonBrightnessDown exec brightnessctl set 1%- && ~/.config/scripts/osd.sh brightness
+bindsym XF86KbdBrightnessDown   exec "$SCRIPT_PATH/keeb-backlit.sh dec && ~/.config/scripts/osd.sh backlit"
+bindsym XF86KbdBrightnessUp     exec "$SCRIPT_PATH/keeb-backlit.sh inc && ~/.config/scripts/osd.sh backlit"
+#bindsym XF86KbdBrightnessToggle exec "$SCRIPT_PATH/keeb-backlit.sh toggle && ~/.config/scripts/osd.sh backlit"
+bindsym XF86KbdLightOnOff exec "$SCRIPT_PATH/keeb-backlit.sh toggle && ~/.config/scripts/osd.sh backlit"
+bindsym $mod+Return       exec "$SCRIPT_PATH/rofi.sh drun"
+#bindsym Shift+$mod+Return exec "$SCRIPT_PATH/rofi.sh ssh"
+bindsym Shift+$mod+Return exec rofi-bluetooth
+bindsym Ctrl+$mod+Return  exec "$SCRIPT_PATH/rofi.sh window"
+#bindsym $alt+$mod+Return  exec "$SCRIPT_PATH/rofi.sh run"
+bindsym $alt+$mod+Return  exec networkmanager_dmenu
+bindsym shift+$alt+F1 exec "$SCRIPT_PATH/obs-tools.py --scene camera"
+bindsym shift+$alt+F2 exec "$SCRIPT_PATH/obs-tools.py --scene presentation"
+bindsym shift+$alt+F3 exec "$SCRIPT_PATH/obs-tools.py --scene scene-3"
+bindsym shift+$alt+F4 exec "$SCRIPT_PATH/obs-tools.py --scene scene-4"
+bindsym shift+$alt+F5 exec "$SCRIPT_PATH/obs-tools.py --scene scene-5"
+bindsym shift+$alt+F6 exec "$SCRIPT_PATH/obs-tools.py --scene scene-6"
+bindsym shift+$alt+F7 exec "$SCRIPT_PATH/obs-tools.py --scene scene-7"
+bindsym shift+$alt+F8 exec "$SCRIPT_PATH/obs-tools.py --scene scene-8"
+bindsym shift+$alt+F9 exec "$SCRIPT_PATH/obs-tools.py --scene scene-9"
+bindsym shift+$alt+F10 exec "$SCRIPT_PATH/obs-tools.py --scene output-0"
+bindsym shift+$alt+F11 exec "$SCRIPT_PATH/obs-tools.py --scene output-1"
+bindsym shift+$alt+F12 exec "$SCRIPT_PATH/obs-tools.py --scene output-2"
+bindsym shift+$alt+F14 exec "$SCRIPT_PATH/obs-tools.py --record"
+bindsym $mod+m nop
+bindsym --release $mod+m exec "$XDG_CONFIG_HOME/scripts/lanmouse-switch.sh toggle"
+bindsym $alt+ctrl+t nop
+bindsym --release $alt+ctrl+t exec "$XDG_CONFIG_HOME/scripts/sway-test.sh"
+bindsym $mod+j exec tomat toggle
+bindsym Shift+$mod+t exec "$XDG_CONFIG_HOME/scripts/theme-toggle.sh"
+bindsym --whole-window Shift+button4 exec --no-startup-id amixer -q sset Master 1%+
+bindsym --whole-window Shift+button5 exec --no-startup-id amixer -q sset Master 1%-
+bindsym mod1+$mod+Up exec "\
+    echo 'rotate screen' &&\
+    xrandr --output eDP-1 --rotate left &&\
+    echo 'rotate touchscreen' &&\
+    xinput set-prop ELAN\ Touchscreen --type=float 'Coordinate Transformation Matrix'  0 -1 1 1 0 0 0 0 1 &&\
+    echo 'disable touchpad' &&\
+    synclient TouchpadOff=1 &&\
+    echo 'disable touchpad click' &&\
+    synclient RightButtonAreaLeft=0 &&\
+    synclient RightButtonAreaTop=0 \
+"
+bindsym mod1+$mod+Down exec "\
+    echo 'rotate screen' &&\
+    xrandr --output eDP-1 --rotate normal && \
+    echo 'rotate touchscreen' &&\
+    xinput set-prop ELAN\ Touchscreen --type=float 'Coordinate Transformation Matrix'  0  0 0 0 0 0 0 0 0 &&\
+    echo 'enable touchpad' &&\
+    synclient TouchpadOff=0 &&\
+    echo 'enable touchpad click' &&\
+    synclient RightButtonAreaLeft=3472 &&\
+    synclient RightButtonAreaTop=4080 \
+"
+#bindsym $mod+Left  focus left
+#bindsym $mod+Down  focus down
+#bindsym $mod+Up    focus up
+#bindsym $mod+Right focus right
+bindsym $mod+Left  exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh focus left
+bindsym $mod+Down  exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh focus down
+bindsym $mod+Up    exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh focus up
+bindsym $mod+Right exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh focus right
+bindsym mod1+$mod+c exec ~/.config/sway/i3bang.rb; reload
+# exit from Sway + kill systemd graphical session target
+bindsym mod1+$mod+x exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'systemctl --user stop graphical-session.target; swaymsg exit'
+bindsym Print exec grim
+bindsym shift+Print exec 'grim -g "$(slurp)"'
+bindsym ctrl+Print exec 'grim -g "$(slurp)" - | swappy -f -'
+bindsym $alt+ctrl+n exec "$SCRIPT_PATH/wlprop.sh focused"
+bindsym $alt+ctrl+m exec "$SCRIPT_PATH/wlprop.sh show"
+#bindsym kp_4 seat - cursor move -10  0
+#bindsym kp_2 seat - cursor move  0   10
+#bindsym kp_8 seat - cursor move  0  -10
+#bindsym kp_6 seat - cursor move  10  0
+#bindsym kp_divide   seat - cursor press button1
+#bindsym kp_multiply seat - cursor press button2
+#bindsym kp_subtract seat - cursor press button3
+#bindsym kp_1 seat - cursor press button4
+#bindsym kp_3 seat - cursor press button5
+#bindsym kp_7 seat - cursor press button6
+#bindsym kp_9 seat - cursor press button7
+>
+set $locker $XDG_CONFIG_HOME/hypr/lock-screen.sh
+# exit from Sway + kill systemd graphical session target
+set $messenger "systemctl --user stop graphical-session.target && swaymsg exit"
+#set $mode_system System: (s)hutdown, (r)eboot, (l)ock, (S)uspend, (h)ibernate, (e)xit/logout
+set $mode_system Power
+#-----------------------------
+mode "$mode_system" {
+    bindsym l       exec --no-startup-id $locker,                         mode "default"
+    bindsym e       exec --no-startup-id $messenger,                      mode "default"
+    bindsym Shift+s exec --no-startup-id $locker && systemctl suspend,    mode "default"
+    bindsym h       exec --no-startup-id $locker && systemctl hibernate,  mode "default"
+    bindsym r       exec --no-startup-id systemctl reboot,                mode "default"
+    bindsym s       exec --no-startup-id systemctl poweroff -i,           mode "default"
+    #-----------------------------
+    # back to normal: Enter or Escape
+    bindsym Return       mode "default"
+    bindsym Escape       mode "default"
+    bindsym $mod+Home    mode "default"
+    bindsym XF86PowerOff mode "default"
+    #-----------------------------
+    # inherent default keybinds (i3bang)
+    !@default_keybindings
+}
+bindsym $mod+Home mode "$mode_system"
+bindsym XF86PowerOff mode "$mode_system"
+set $prop app_id
+for_window [$prop="yad"] floating enable
+for_window [$prop="showmethekey-gtk"] {
+    floating enable
+    sticky enable
+    resize set width 1720 height 75
+    # x=0; y=(width - 200)
+    move position 100 1000
+}
+for_window [$prop="one.alynx.showmethekey"] {
+    floating enable
+    sticky enable
+    resize set width 1720 height 75
+    # x=0; y=(width - 200)
+    move position 100 1000
+}
+#for_window [app_id="edge_bottom" title="pixel.png"] {
+#    floating enable
+#    sticky enable
+#    resize set 100 ppt 1 px
+#    move position 0 1079
+#    opacity 0.0
+#    border none
+#}
+#exec swayimg ~/.config/swayimg/pixel.png --class="edge_bottom"
+for_window [app_id="emacs" title="^(emacs-everywhere|Emacs Everywhere|Emacs Everywhere ∷)"] floating enable, resize set 700 400, move position center
+for_window [class="Emacs" title="^(emacs-everywhere|Emacs Everywhere|Emacs Everywhere ∷)"] floating enable, resize set 700 400, move position center
+for_window [$prop="zsa_update"] {
+    floating enable
+    sticky enable
+    resize set width 500 height 200
+    move position center
+}
+for_window [$prop="informant-news"] {
+    floating enable
+    sticky enable
+    resize set width 1000 height 1000
+    move position center
+}
+for_window [$prop="local.ansible-provision"] {
+    floating enable
+    move position center
+}
+for_window [class="XEyes"] floating enable
+for_window [$prop="^eu.betterbird.Betterbird$"] floating enable
+for_window [$prop="^eu.betterbird.Betterbird$"] move position center
+for_window [$prop="^eu.betterbird.Betterbird$"] border pixel 5
+# wait initial rendering before moving to scratchpad
+for_window [$prop="^eu.betterbird.Betterbird$"] move scratchpad
+exec --no-startup-id bash -c 'betterbird & while ! swaymsg -t get_tree | grep -q "eu.betterbird.Betterbird"; do sleep 0.5; done; sleep 0.5; swaymsg "[app_id=\"^eu.betterbird.Betterbird$\"] move scratchpad"'
+bindsym $alt+$mod+r exec "$SCRIPT_PATH/show-or-launch.sh eu.betterbird.Betterbird 0.99 0.965"
+#for_window [$prop="^brave-web.whatsapp.com__-Default$"] {
+#    floating enable
+#    move position center
+#    move scratchpad
+#    border pixel 5
+#}
+##exec distrobox-enter -n brave-origin -- brave-origin --skip-origin-startup-dialog --app=https://web.whatsapp.com
+#exec "$SCRIPT_PATH/pwa-launcher.sh whatsapp"
+#bindsym $mod+t exec "$SCRIPT_PATH/show-or-launch.sh brave-web.whatsapp.com__-Default 0.6 0.9"
+for_window [$prop="^wasistlos$"] {
+    floating enable
+    move position center
+    move scratchpad
+    border pixel 5
+}
+exec --no-startup-id wasistlos
+bindsym $mod+t exec "$SCRIPT_PATH/show-or-launch.sh wasistlos 0.6 0.9"
+for_window [$prop="^brave-music.youtube.com__-Default$"] {
+    floating enable
+    move position center
+    move scratchpad
+    border pixel 5
+}
+#exec distrobox-enter -n brave-origin -- brave-origin --skip-origin-startup-dialog --app=https://music.youtube.com
+exec "$SCRIPT_PATH/pwa-launcher.sh ytmusic"
+bindsym $mod+s exec "$SCRIPT_PATH/show-or-launch.sh brave-music.youtube.com__-Default 0.9 0.9"
+for_window [$prop="^brave-calendar.google.com__-Default$"] {
+    floating enable
+    move position center
+    move scratchpad
+    border pixel 5
+}
+#exec distrobox-enter -n brave-origin -- brave-origin --skip-origin-startup-dialog --app=https://calendar.google.com
+exec "$SCRIPT_PATH/pwa-launcher.sh calendar"
+bindsym $mod+r exec "$SCRIPT_PATH/show-or-launch.sh brave-calendar.google.com__-Default 0.6 0.9"
+for_window [$prop="^keymapp$"] {
+    floating enable
+    move position center
+    move scratchpad
+    border pixel 5
+}
+exec --no-startup-id /usr/bin/keymapp
+bindsym $mod+slash exec "$SCRIPT_PATH/show-or-launch.sh keymapp 0.75 0.75"
+for_window [$prop="^brave-chatgpt.com__-Default$"] {
+    floating enable
+    move position center
+    move scratchpad
+    border pixel 5
+}
+#exec distrobox-enter -n brave-origin -- brave-origin --skip-origin-startup-dialog --app=https://chatgpt.com
+exec "$SCRIPT_PATH/pwa-launcher.sh chatgpt"
+bindsym $alt+$mod+t exec "$SCRIPT_PATH/show-or-launch.sh brave-chatgpt.com__-Default 0.6 0.9"
+for_window [$prop="^brave-translate.google.com__-Default$"] {
+    floating enable
+    move position center
+    move scratchpad
+    border pixel 5
+}
+#exec distrobox-enter -n brave-origin -- brave-origin --skip-origin-startup-dialog --app=https://translate.google.com
+exec "$SCRIPT_PATH/pwa-launcher.sh translate"
+bindsym $alt+$mod+s exec "$SCRIPT_PATH/show-or-launch.sh brave-translate.google.com__-Default 0.6 0.9"
+# XDG Desktop Portals & systemd user services
+#exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway SWAYSOCK XDG_SESSION_TYPE XDG_CONFIG_HOME
+
+
+# Export Wayland environment variables to systemd (Fixes Waybar)
+#exec systemctl --user import-environment WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP XDG_SESSION_TYPE XDG_CONFIG_HOME
+
+# Export Wayland environment variables to D-Bus (Fixes Screen Sharing/Portals)
+#exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP=sway XDG_SESSION_TYPE XDG_CONFIG_HOME
+# start systemd session target
+exec systemctl --user start sway-session.target
+#exec /usr/share/sway-contrib/inactive-windows-transparency.py --opacity 0.85
+exec echo 0 > /tmp/capslock_status.tmp
+exec echo "disconnected" > /tmp/lanmouse-status.tmp
+exec echo "default" > /tmp/xremap_mode.tmp
+exec --no-startup-id "sudo bash $SCRIPT_PATH/waybar/scripts/kmonad.sh status > /tmp/kmonad-status.tmp"
+exec gammastep
+exec echo "6500" > /tmp/gamma_temp.tmp
+exec echo '@define-color dynamic_bg rgba(43, 48, 59, 0.5);' >~/.config/waybar/dynamic-bg.css
+#exec_always --no-startup-id ~/.config/waybar/waybar.sh
+#exec --no-startup-id "$SCRIPT_PATH/navigate2ws.sh 5"
+#exec --no-startup-id "$SCRIPT_PATH/navigate2ws.sh 2"
+exec brave-origin
+exec --no-startup-id "sleep 5 && swaymsg '[app_id=brave-origin]' move to workspace number '2:2' && swaymsg workspace '2:2'"
+mode "resize" {
+    #=============================
+    # fine control
+    #=============================
+    # colemak home row
+    bindsym n resize shrink width  5 px or 5 ppt
+    bindsym e resize shrink height 5 px or 5 ppt
+    bindsym i resize grow   height 5 px or 5 ppt
+    bindsym o resize grow   width  5 px or 5 ppt
+    #-----------------------------
+    # same bindings, but for the arrow keys
+    bindsym Left  resize shrink width  5 px or 5 ppt
+    bindsym Down  resize shrink height 5 px or 5 ppt
+    bindsym Up    resize grow   height 5 px or 5 ppt
+    bindsym Right resize grow   width  5 px or 5 ppt
+    #=============================
+    # coarse control
+    #=============================
+    # colemak home row
+    bindsym ctrl+n resize shrink width  20 px or 20 ppt
+    bindsym ctrl+e resize shrink height 20 px or 20 ppt
+    bindsym ctrl+i resize grow   height 20 px or 20 ppt
+    bindsym ctrl+o resize grow   width  20 px or 20 ppt
+    #-----------------------------
+    # same bindings, but for the arrow keys
+    bindsym ctrl+Left  resize shrink width  20 px or 20 ppt
+    bindsym ctrl+Down  resize shrink height 20 px or 20 ppt
+    bindsym ctrl+Up    resize grow   height 20 px or 20 ppt
+    bindsym ctrl+Right resize grow   width  20 px or 20 ppt
+    #=============================
+    # back to normal: Enter or Escape or $mod+r
+    #=============================
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym mod1+$mod+r mode "default"
+    #-----------------------------
+    # inherent default keybinds (i3bang)
+    !@default_keybindings
+}
+bindsym $mod+a exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh resize
+bindsym shift+$mod+a mode "resize"
+mode "presentation-obs" {
+    #-----------------------------
+    # switch to scenes in OBS
+    bindsym r exec "$SCRIPT_PATH/obs-tools.py --scene camera"
+    bindsym s exec "$SCRIPT_PATH/obs-tools.py --scene presentation"
+    bindsym t exec "$SCRIPT_PATH/obs-tools.py --scene scene-3"
+    bindsym w exec "$SCRIPT_PATH/obs-tools.py --scene scene-4"
+    bindsym f exec "$SCRIPT_PATH/obs-tools.py --scene scene-5"
+    bindsym p exec "$SCRIPT_PATH/obs-tools.py --scene scene-6"
+    bindsym x exec "$SCRIPT_PATH/obs-tools.py --scene scene-7"
+    bindsym c exec "$SCRIPT_PATH/obs-tools.py --scene scene-8"
+    bindsym d exec "$SCRIPT_PATH/obs-tools.py --scene scene-9"
+    #-----------------------------
+    bindsym q exec "$SCRIPT_PATH/obs-tools.py --scene output-0"
+    bindsym a exec "$SCRIPT_PATH/obs-tools.py --scene output-1"
+    bindsym z exec "$SCRIPT_PATH/obs-tools.py --scene output-2"
+    #-----------------------------
+    # back to normal
+    bindsym shift+$alt+F13 mode "default"
+    #-----------------------------
+    # inherent default keybinds (i3bang)
+    !@default_keybindings
+}
+bindsym shift+$alt+F13 mode "presentation-obs"
+set $mode_acute acute
+mode "$mode_acute" {
+    # apostrophe
+    bindsym F13     exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type "'", mode "default"
+    bindsym space   exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type "'", mode "default"
+    # cedilla
+    bindsym c       exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type "ç", mode "default"
+    bindsym Shift+c exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type "Ç", mode "default"
+    # vowel lowercase
+    bindsym a       exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type "á", mode "default"
+    bindsym e       exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type "é", mode "default"
+    bindsym i       exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type "í", mode "default"
+    bindsym o       exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type "ó", mode "default"
+    bindsym u       exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type "ú", mode "default"
+    # vowel uppercase
+    bindsym Shift+a exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type "Á", mode "default"
+    bindsym Shift+e exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type "É", mode "default"
+    bindsym Shift+i exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type "Í", mode "default"
+    bindsym Shift+o exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type "Ó", mode "default"
+    bindsym Shift+u exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type "Ú", mode "default"
+    # misc lowercase
+    bindsym l       exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type "'l", mode "default"
+    bindsym n       exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type "'n", mode "default"
+    bindsym m       exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type "'m", mode "default"
+    bindsym r       exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type "'r", mode "default"
+    bindsym s       exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type "'s", mode "default"
+    bindsym t       exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type "'t", mode "default"
+    bindsym v       exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type "'v", mode "default"
+    # misc uppercase
+    bindsym Shift+l exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type "'L", mode "default"
+    bindsym Shift+n exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type "'N", mode "default"
+    bindsym Shift+m exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type "'M", mode "default"
+    bindsym Shift+r exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type "'R", mode "default"
+    bindsym Shift+s exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type "'S", mode "default"
+    bindsym Shift+v exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type "'V", mode "default"
+    # escape
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+    #-----------------------------
+    # inherent default keybinds (i3bang)
+    #!@default_keybindings
+}
+set $mode_tilde tilde
+mode "$mode_tilde" {
+    # double quotes
+    bindsym F13   exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type '"', mode "default"
+    bindsym space exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type '"', mode "default"
+    # tilde lowercase
+    bindsym a exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type 'ã', mode "default"
+    bindsym o exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type 'õ', mode "default"
+    bindsym n exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type 'ñ', mode "default"
+    # tilde uppercase
+    bindsym Shift+a exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type 'Ã', mode "default"
+    bindsym Shift+o exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type 'Õ', mode "default"
+    bindsym Shift+n exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type 'Ñ', mode "default"
+    # tilde misc
+    bindsym Shift+F13 exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type '~',   mode "default"
+    bindsym slash     exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type '~/',  mode "default"
+    bindsym period    exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type '~/.', mode "default"
+    # tilde paths
+    bindsym h exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type '~/',                   mode "default"
+    bindsym g exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type '~/git/',               mode "default"
+    bindsym k exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type '~/git/keebab/',        mode "default"
+    bindsym d exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type '~/git/dotfiles/',      mode "default"
+    bindsym l exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type '~/.local/',            mode "default"
+    bindsym c exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type '~/.config/',           mode "default"
+    bindsym e exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type '~/.config/emacs-efs/', mode "default"
+    bindsym s exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type '~/.config/scripts/',   mode "default"
+    bindsym v exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type '~/.config/nvim/',      mode "default"
+    bindsym x exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type '~/.config/xremap/',    mode "default"
+    bindsym w exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type '~/.config/waybar/',    mode "default"
+    bindsym z exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type '~/.config/zsh/',       mode "default"
+    bindsym i exec $XDG_CONFIG_HOME/scripts/sway-dispatch.sh type '~/.config/sway/',      mode "default"
+    # escape
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+    #-----------------------------
+    # inherent default keybinds (i3bang)
+    #!@default_keybindings
+}
+bindsym F13 mode "$mode_acute"
+bindsym Shift+F13 mode "$mode_tilde"
+#bindsym F21 mode "$mode_mouse_side_bottom"
+#bindsym F22 mode "$mode_mouse_side_top"
+assign [$prop="thunderbird"] → $ws4
+assign [$prop="libreoffice"] → $ws5
+assign [$prop="lutris"] → $ws6
+assign [$prop="deluge"] → $ws7
+assign [$prop="nicotine"] → $ws7
+assign [$prop="lollypop"] → $ws8
+for_window [class="Spotify"] move --no-auto-back-and-forth to workspace $ws9
+assign [$prop="blueman-manager"] → $ws10
+assign [$prop="pavucontrol"] → $ws10
+for_window [$prop="Tk"] floating enable
+for_window [$prop="Toplevel"] floating enable
+for_window [$prop="emacs-window-prop"] floating enable
+for_window [class="Rofi"] floating enable
+for_window [$prop="^dropdown_ansible$"] floating enable
+for_window [$prop="^dropdown_ansible$"] move position center
+for_window [$prop="^dropdown_ansible$"] move scratchpad
+for_window [$prop="^dropdown_ansible$"] border pixel 5
+bindsym $alt+$mod+k exec "$SCRIPT_PATH/show-or-launch.sh dropdown_ansible 0.75 0.75"
+for_window [$prop="^dropdown_aur$"] floating enable
+for_window [$prop="^dropdown_aur$"] move position center
+for_window [$prop="^dropdown_aur$"] move scratchpad
+for_window [$prop="^dropdown_aur$"] border pixel 5
+bindsym $alt+$mod+v exec "$SCRIPT_PATH/show-or-launch.sh dropdown_aur 0.75 0.75"
+for_window [$prop="^io.github.amit9838.mousam$"] floating enable
+for_window [$prop="^io.github.amit9838.mousam$"] move position center
+for_window [$prop="^io.github.amit9838.mousam$"] move scratchpad
+for_window [$prop="^io.github.amit9838.mousam$"] border pixel 5
+bindsym $alt+$mod+d exec "$SCRIPT_PATH/show-or-launch.sh io.github.amit9838.mousam"
+exec --no-startup-id kitty --class="dropdown_terminal" -o font_size=14 -o include=$XDG_CONFIG_HOME/kitty/themes/terminal.conf -o background_opacity=0.85
+bindsym $mod+n exec "$SCRIPT_PATH/show-or-launch.sh dropdown_terminal 0.75 0.75"
+for_window [$prop="^dropdown_terminal$"] floating enable
+for_window [$prop="^dropdown_terminal$"] move position center
+for_window [$prop="^dropdown_terminal$"] move scratchpad
+for_window [$prop="^dropdown_terminal$"] border pixel 5
+for_window [$prop="^dropdown_pacman$"] floating enable
+for_window [$prop="^dropdown_pacman$"] move position center
+for_window [$prop="^dropdown_pacman$"] move scratchpad
+for_window [$prop="^dropdown_pacman$"] border pixel 5
+bindsym $mod+v exec "$SCRIPT_PATH/show-or-launch.sh dropdown_pacman 0.75 0.75"
+for_window [$prop="^dropdown_python$"] floating enable
+for_window [$prop="^dropdown_python$"] move position center
+for_window [$prop="^dropdown_python$"] move scratchpad
+for_window [$prop="^dropdown_python$"] border pixel 5
+exec --no-startup-id kitty --class="dropdown_python" -o font_size=20 -o include=$XDG_CONFIG_HOME/kitty/themes/python.conf python -q
+bindsym $mod+e exec "$SCRIPT_PATH/show-or-launch.sh dropdown_python 0.6 0.6"
+for_window [title="^dropdown_scrcpy.*$" $prop="^scrcpy$"] floating enable
+for_window [title="^dropdown_scrcpy.*$" $prop="^scrcpy$"] move position center
+for_window [title="^dropdown_scrcpy.*$" $prop="^scrcpy$"] move scratchpad
+for_window [title="^dropdown_scrcpy.*$" $prop="^scrcpy$"] border pixel 5
+bindsym $mod+k exec "$SCRIPT_PATH/adb-mdns-scrcpy.sh phone"
+#bindsym $mod+v exec "$SCRIPT_PATH/adb-mdns-scrcpy.sh watch"
+exec --no-startup-id "rm /tmp/scratchpad_pid_1.tmp"
+bindsym $mod+h       exec "$SCRIPT_PATH/scratchpad-temp.sh 1 create-show"
+bindsym shift+$mod+h exec "$SCRIPT_PATH/scratchpad-temp.sh 1 detach"
+bindsym ctrl+$mod+h  exec "$SCRIPT_PATH/scratchpad-temp.sh 1 destroy"
+exec --no-startup-id "rm /tmp/scratchpad_pid_2.tmp"
+bindsym $mod+comma       exec "$SCRIPT_PATH/scratchpad-temp.sh 2 create-show"
+bindsym shift+$mod+comma exec "$SCRIPT_PATH/scratchpad-temp.sh 2 detach"
+bindsym ctrl+$mod+comma  exec "$SCRIPT_PATH/scratchpad-temp.sh 2 destroy"
+exec --no-startup-id "rm /tmp/scratchpad_pid_3.tmp"
+bindsym $mod+period       exec "$SCRIPT_PATH/scratchpad-temp.sh 3 create-show"
+bindsym shift+$mod+period exec "$SCRIPT_PATH/scratchpad-temp.sh 3 detach"
+bindsym ctrl+$mod+period  exec "$SCRIPT_PATH/scratchpad-temp.sh 3 destroy"
+bindsym $alt+$mod+1 exec "$SCRIPT_PATH/vpn-connect.sh lcn toggle"
+exec --no-startup-id "rm /tmp/vpn_lcn.tmp"
+bindsym $alt+$mod+2 exec "$SCRIPT_PATH/vpn-connect.sh unicamp toggle"
+exec --no-startup-id "rm /tmp/vpn_unicamp.tmp"
+bindsym $alt+$mod+3 exec "$SCRIPT_PATH/vpn-connect.sh lbic toggle"
+exec --no-startup-id "rm /tmp/vpn_lbic.tmp"
+bindsym $alt+$mod+4 exec "$SCRIPT_PATH/vpn-connect.sh samsung toggle"
+exec --no-startup-id "rm /tmp/vpn_samsung.tmp"
+bindsym $alt+$mod+0 exec "$XDG_CONFIG_HOME/waybar/scripts/proton-vpn.sh toggle"
+exec echo "disconnected" > /tmp/proton-vpn-status.tmp
+#exec --no-startup-id /usr/bin/dunst &          # dunst: notification daemon
+#exec_always dunstctl set-paused true           # dunst: start with notifications paused
+#exec --no-startup-id autotiling                 # autotiling
+exec --no-startup-id emote                      # emoji picker
+exec --no-startup-id fcitx5 -d                  # input method framework (cedilla fix)
+exec --no-startup-id flashfocus                 # focus animation
+#exec --no-startup-id /usr/lib/pam_kwallet_init  # unlock KWallet
+#exec_always --no-startup-id "$SCRIPT_PATH/xremap-keeb-config.sh"   # keyboard setup
+exec --no-startup-id "dex -a -s /home/rafael/.config/autostart"    # XDG Autostart applications
+#exec --no-startup-id "$SCRIPT_PATH/ntf-battery/ntf-battery.sh"     # battery notification
+exec --no-startup-id /usr/bin/emacs --daemon --with-profile efs &  # launch EFS daemon (default)
+exec --no-startup-id /usr/bin/emacs --daemon --with-profile doom & # launch Doom Emacs daemon
+exec_always kanshictl reload                    # force kanshi to apply the background wallpapers
+exec --no-startup-id "rm /tmp/showmethekey_pid.tmp"                                 # ensure there is no temp file from previous boot
+bindsym $alt+ctrl+e exec emote                                                      # emoji picker
+bindsym $alt+ctrl+k exec "$SCRIPT_PATH/screencast.sh toggle"                        # showmethekey
+bindsym $alt+ctrl+d exec dunstctl set-paused toggle                                 # pause/unpause dunst notifications
+bindsym $alt+ctrl+l exec "emacsclient -c -s efs"                                    # emacsclient for EFS
+#bindsym $alt+ctrl+shift+l exec "emacsclient -c -s doom -a emacs"                    # emacsclient for Doom
+bindsym $alt+ctrl+shift+l exec 'emacsclient -s efs --eval "(emacs-everywhere)"'     # emacs-everywhere
+bindsym $alt+ctrl+w exec "$XDG_CONFIG_HOME/waybar/scripts/mouse-warping.sh toggle"  # enable/disable mouse warping
+exec "blueman-applet &"                 # Bluetooth
+exec "nm-applet --indicator &"          # NetworkManager
+exec "syncthing &"                      # Syncthing
