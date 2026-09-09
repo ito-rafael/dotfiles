@@ -229,6 +229,7 @@ animation_duration_ms 250
 corner_radius 20
 default_dim_inactive 0.20
 blur enable
+exec --no-startup-id autotiling
 #+end_src
 ** papersway
 #+begin_src conf :noweb-ref papersway
