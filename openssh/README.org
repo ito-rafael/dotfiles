@@ -1,0 +1,221 @@
+#+TITLE: OpenSSH Cheatsheet
+#+AUTHOR: Rafael Ito
+#+PROPERTY: header-args :eval no
+#+DESCRIPTION: OpenSSH utils
+#+STARTUP: showeverything
+#+auto_tangle: t
+
+* OpenSSH
+** Description
+TLDR: secure remote access
+
+[[https://wiki.archlinux.org/title/OpenSSH][ArchWiki OpenSSH]]: "OpenSSH (OpenBSD Secure Shell) is a set of computer programs providing encrypted communication sessions over a computer network using the Secure Shell (SSH) protocol."
+** Installation
+#+begin_src bash
+sudo pacman -S openssh
+#+end_src
+
+Some distros require installation of the client and server separately. For example:
+#+begin_src bash
+sudo apt install openssh-client
+sudo apt install openssh-server
+#+end_src
+* Server Config
+Edit the daemon configuration file:
+#+begin_src bash
+vim /etc/sshd_config
+#+end_src
+** Change Port
+#+begin_src conf
+#Port 22
+Port 2222
+#+end_src
+** Disable Root Login
+#+begin_src conf
+PermitRootLogin no
+#+end_src
+** Disable Password Authentication
+Allow login with public key only:
+#+begin_src conf
+PasswordAuthentication no
+#+end_src
+** Access Control
+Allow only certain users to login:
+#+begin_src conf
+AllowUsers username
+#+end_src
+
+Allow only a certain group of users to login:
+#+begin_src conf
+AllowGroups sshuser
+#+end_src
+
+Create the group and add members to that group:
+#+begin_src bash
+sudo groupadd sshuser
+sudo usermod -aG sshuser username
+#+end_src
+* Client Config
+** Generate Keys
+#+begin_src bash
+ssh-keygen
+#+end_src
+** Copy Public Key to the Server
+This is the same as copying =~/.ssh/id_rsa.pub= of the client into =~/.ssh/authorized_keys= on the server.
+#+begin_src bash
+ssh-copy-id -i ~/.ssh/id_rsa.pub ServerIP
+#+end_src
+** Connection
+#+begin_src bash
+ssh -p 22 username@ServerIP
+#+end_src
+** Alias
+Edit the client config file:
+#+begin_src bash
+cd ~/.ssh
+vim config
+#+end_src
+
+Add your alias configuration:
+#+begin_src conf
+Host myserver
+  Hostname IP-ADDRESS
+  Port 22
+  User myusername
+#+end_src
+
+Then instead of typing =ssh myusername@IP-ADDRESS=, simply type:
+#+begin_src bash
+ssh myserver
+#+end_src
+* ssh-agent
+Launching =ssh-agent= in the background allows the user to unlock their key, store it in memory, and avoid typing the passphrase unless the terminal is closed.
+** Terminal-valid
+First, check if ssh-agent is already running:
+#+begin_src bash
+ps aux | grep ssh-agent
+#+end_src
+
+If not, start it:
+#+begin_src bash
+eval "$(ssh-agent -s)"
+#+end_src
+
+Add the private key you want to be cached to the ssh-agent:
+#+begin_src bash
+ssh-add ~/.ssh/id_rsa
+#+end_src
+** Session-valid (ask passphrase only once)
+Installation:
+#+begin_src bash
+sudo pacman -S keychain
+#+end_src
+
+Start ssh-agent after login by editing =~/.zshrc= (or =~/.bashrc=):
+#+begin_src bash
+vim ~/.zshrc
+#+end_src
+
+Add the following inside your shell config:
+#+begin_src conf
+# use keychain to launch ssh-agent and ssh-add
+eval $(keychain --noask --eval --quiet id_rsa)
+#+end_src
+
+Edit the client SSH config file:
+#+begin_src bash
+vim ~/.ssh/config
+#+end_src
+
+Add keys to ssh-agent automatically:
+#+begin_src conf
+AddKeysToAgent yes
+#+end_src
+* Transferring Files with SCP
+** Putting into the Server
+*** File
+#+begin_src bash
+scp -P 22 LocalFile ServerIP:ServerDir
+# eg: scp -P 2222 ~/testfile 192.168.0.1:/home/username/
+#+end_src
+*** Directory
+#+begin_src bash
+scp -P 22 -r LocalDir ServerIP:ServerDir
+# eg: scp -P 2222 -r ~/testdir 192.168.0.1:/home/username
+#+end_src
+** Getting from the Server
+*** File
+#+begin_src bash
+scp -P 22 ServerIP:ServerFile LocalDir
+# eg: scp -P 2222 192.168.0.1:/home/username/testfile ~/
+#+end_src
+*** Directory
+#+begin_src bash
+scp -P 22 -r ServerIP:ServerDir LocalDir
+# eg: scp -P 2222 -r 192.168.0.1:/home/username/testdir ~/
+#+end_src
+* Transferring Files with SFTP
+Change server directory:
+#+begin_src bash
+cd NewServerDir
+#+end_src
+
+Change client directory:
+#+begin_src bash
+lcd NewClientDir
+#+end_src
+
+/Note: The same =l= prefix applies for other commands such as =ls/lls=, =pwd/lpwd=, etc./
+
+** Put File/Dir into Server
+#+begin_src bash
+put file
+put -R dir
+#+end_src
+** Get File/Dir from Server
+#+begin_src bash
+get file
+get -R dir
+#+end_src
+* SSHFS: Mounting File System with SSH
+** Installation
+Only needed on the client side:
+#+begin_src bash
+sudo pacman -S sshfs
+sudo apt install sshfs
+#+end_src
+** Usage
+#+begin_src bash
+sshfs username@IP:ServerMountPoint LocalMountPoint
+# eg: sshfs username@192.168.0.1:/home/username/serverdir /home/username/localdir
+#+end_src
+** Flags
+- Choose port: =-p PORT=
+- Enable compression: =-C= or =-o compression=yes=
+- Translate local user UID to remote user UID: =-o idmap=user=
+- Translate UID: =-o uidfile=<PATH-TO-FILE>=
+- Translate GID: =-o gidfile=<PATH-TO-FILE>=
+- Follow symlinks: =-o follow_symlinks=
+- Modify in real-time/disable caching (decreases performance): =-o dir_cache=no=
+** Flags
+|---------------------------+---------------------------------------------|
+| Flag                      | Action                                      |
+|---------------------------+---------------------------------------------|
+| =-p PORT=                   | Choose port                                 |
+| =-C= or =-o compression=yes=  | Enable compression                          |
+| =-o idmap=user=             | Translate local user UID to remote user UID |
+| =-o uidfile=<PATH-TO-FILE>= | Translate UID                               |
+| =-o gidfile=<PATH-TO-FILE>= | Translate GID                               |
+| =-o follow_symlinks=        | Follow symlinks                             |
+| =-o dir_cache=no=           | Modify in real-time (decreases performance) |
+|---------------------------+---------------------------------------------|
+
+*Example:*
+#+begin_src bash
+sshfs username@192.168.0.1:/home/username/serverdir ~/localdir -C -p 2222 -o dir_cache=no -o follow_symlinks -o idmap=user
+#+end_src
+** Unmount
+#+begin_src bash
+fusermount -u LocalMountPoint
+# eg: fusermount -u /home/username/localdir
+#+end_src
