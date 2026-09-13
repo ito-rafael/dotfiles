@@ -42,6 +42,7 @@
 - [[#emacs-everywhere][emacs-everywhere]]
 - [[#rainbow-mode][rainbow-mode]]
 - [[#avy][Avy]]
+- [[#pandoc][Pandoc]]
 - [[#opentofu--terraform][OpenTofu / Terraform]]
 
 * UI :noexport_1:
@@ -1386,6 +1387,7 @@ https://github.com/noctuid/general.el
     "t" '(:ignore t :wk "Toggle")
     "t b" '(dashboard-open            :wk "Toggle dashboard")
     "t d" '(efs/dimmer-toggle         :wk "Toggle Dimmer")
+    "t c" '(pandoc-main-transient     :wk "Toggle pandoc menu")
     "t k" '(keycast-mode              :wk "Toggle keycast")
     "t p" '(dired-preview-global-mode :wk "Toggle dired-preview")
   )
