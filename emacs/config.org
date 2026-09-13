@@ -1388,6 +1388,7 @@ https://github.com/noctuid/general.el
     "t b" '(dashboard-open            :wk "Toggle dashboard")
     "t d" '(efs/dimmer-toggle         :wk "Toggle Dimmer")
     "t c" '(pandoc-main-transient     :wk "Toggle pandoc menu")
+    "t g" '(gptel-menu                :wk "Toggle gptel menu")
     "t k" '(keycast-mode              :wk "Toggle keycast")
     "t p" '(dired-preview-global-mode :wk "Toggle dired-preview")
   )
