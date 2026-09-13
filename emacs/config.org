@@ -44,6 +44,7 @@
 - [[#avy][Avy]]
 - [[#pandoc][Pandoc]]
 - [[#opentofu--terraform][OpenTofu / Terraform]]
+- [[#gptel][gptel]]
 
 * UI :noexport_1:
 #+begin_src emacs-lisp
@@ -2258,4 +2259,24 @@ https://github.com/abo-abo/avy
 * OpenTofu / Terraform
 #+begin_src emacs-lisp
 (use-package terraform-mode)
+#+end_src
+* gptel
+LLM client for Emacs.
+#+begin_src emacs-lisp
+(use-package gptel
+  :bind
+  ("C-c RET" . gptel-send)
+  :custom
+  ;; set preferred default model
+  (gptel-model 'gemini-pro-latest)
+  :config
+  ;; define Google Gemini as your LLM backend
+  (setq gptel-backend
+    (gptel-make-gemini "Gemini"
+      ;; read API key with =pass= (instead of exposing it in the config)
+      :key (lambda ()
+             (string-trim (shell-command-to-string "pass show api/gemini")))
+      :stream t)
+  )
+)
 #+end_src
