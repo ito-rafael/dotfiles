@@ -11,3 +11,5 @@
     ui = auto
 #[status]
 #    showUntrackedFiles = all
+[rebase]
+    autoStash = true
