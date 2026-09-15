@@ -876,7 +876,8 @@ https://github.com/seagle0128/doom-modeline
 (advice-add 'org-src-font-lock-fontify-block :around #'efs/org-gray-out-tangle-no-blocks)
 #+end_src
 *** Remove ":tangle no" blocks from ":noweb-ref"
-#+begin_src emacs-lisp :tangle "/home/rafael/emacs-efs/org-tangle-advice.el" :mkdirp yes
+#+begin_src emacs-lisp :tangle org-tangle-advice.el
+;; -*- lexical-binding: t; -*-
 (defun efs/org-babel-ignore-explicit-tangle-no (info)
   "Intercept Org Babel block INFO.
 If `:tangle no' is explicitly present in the block header text,
