@@ -1,7 +1,7 @@
 #+TITLE: Cheatsheets for Softwares
 #+AUTHOR: Rafael Ito
 #+DESCRIPTION: cheatsheets for tools and applications
-#+STARTUP: showeverything indent
+#+STARTUP: showeverything
 
 * Table of contents :toc_1:
 - [[#2-in-1][2-in-1]]
@@ -462,12 +462,16 @@ this is a definition
 TBD
 *** Bibliography
 **** TLDR
+#+begin_src emacs-lisp
 #+BIBLIOGRAPHY: thesis.bib
 org-cite-insert (SPC m @)
 [cite:@key]
 #+PRINT_BIBLIOGRAPHY: :section 7 :heading subbibliography
+#+end_src
 **** bib file
+#+begin_src emacs-lisp
 #+BIBLIOGRAPHY: thesis.bib
+#+end_src
 **** Citation processor
 #+CITE_EXPORT: basic
 #+CITE_EXPORT: bibtex
