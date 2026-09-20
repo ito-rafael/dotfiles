@@ -1034,6 +1034,15 @@ tcpdump -i any udp port <PORT-NUMBER> -n
 #+begin_src shell
 echo "ping" | nc -u -w 2 <IP-ADDRESS> <PORT-NUMBER>
 #+end_src
+** Test TCP port
+*** Listen
+#+begin_src shell
+tcpdump -i any port <PORT-NUMBER> -n
+#+end_src
+*** Test
+#+begin_src shell
+curl http://<IP-ADDRESS>:<PORT-NUMBER>/health
+#+end_src
 * pass :noexport_1:
 Password manager.
 ** Installation
