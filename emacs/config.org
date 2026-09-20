@@ -1296,7 +1296,14 @@ https://github.com/noctuid/general.el
     "b r" '(revert-buffer          :wk "Reload buffer")
   )
 #+end_src
-** e --> eval
+** d --> dired
+#+begin_src emacs-lisp
+  (efs/leader-keys
+    "d"   '(:ignore t :wk "Dired")
+    "d t" '(dired-create-empty-file  :wk "Switch buffer")
+  )
+#+end_src
+** e --> eval / emoji
 #+begin_src emacs-lisp
   (efs/leader-keys
     "e" '(:ignore t :wk "Evaluate")
