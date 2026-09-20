@@ -889,8 +889,14 @@ If "incognito" alias in set in zshrc file:
 incognito echo "<MY-PASSWD>" > passwd_encrypt.txt
 #+end_src
 ** Encrypt
+- From file:
 #+begin_src shell
 gpg --encrypt --output passwd_encrypt.txt.gpg --recipient example@email.com passwd_encrypt.txt
+#+end_src
+
+- From stdin:
+#+begin_src shell
+echo -n "my_secret_password" | gpg --encrypt --output passwd_encrypt.txt.gpg --recipient example@email.com
 #+end_src
 ** Decrypt
 #+begin_src shell
