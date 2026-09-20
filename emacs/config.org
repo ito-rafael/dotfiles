@@ -1669,24 +1669,34 @@ It's Magit! A Git Porcelain inside Emacs.
     "i" 'magit-previous-line
   )
   ;;---------------------------
-  ;; return to magit-status after C-c C-k (with-editor-cancel)
+  ;; return to magit-status smoothly after "C-c C-k" (cancel) or "C-c C-c" (finish)
   (defun efs/magit-restore-status-smooth (orig-fun &rest args)
-    "Cancel commit without flashing dashboard, then restore layout.
-     Uses inhibit-redisplay to prevent the intermediate 'dashboard' state."
+    "Close commit without flashing dashboard, then restore layout.
+    Uses inhibit-redisplay to prevent the intermediate 'dashboard' state."
     (let* ((repo (magit-toplevel))
-      ;; find the existing status buffer for this repo (if any)
-      (status-buf (and repo (cl-find-if (lambda (b) (with-current-buffer b (and (derived-mode-p 'magit-status-mode) (equal (magit-toplevel) repo)))) (buffer-list)))))
+           ;; find the existing status buffer for this repo (if any)
+           (status-buf (and repo
+                            (cl-find-if (lambda (b)
+                                          (with-current-buffer b
+                                            (and (derived-mode-p 'magit-status-mode)
+                                                 (equal (magit-toplevel) repo))))
+                                        (buffer-list)))))
       ;; freeze the display
       (let ((inhibit-redisplay t))
-        ;; run the original cancel command (kills the commit buffer)
+        ;; run the original command (finishes or cancels the commit buffer)
         (apply orig-fun args)
         ;; instantly swap to status buffer "in the dark"
-        (when (and status-buf (buffer-live-p status-buf)) (switch-to-buffer status-buf)
+        (when (and status-buf (buffer-live-p status-buf))
+          (switch-to-buffer status-buf)
           ;; force single window (closes diff/staged changes window)
           (delete-other-windows)))
       ;; run full refresh to fix transient prefixes after a small delay
-      (when repo (run-at-time 0.05 nil (lambda (dir) (magit-status dir)) repo))))
+      (when repo
+        (run-at-time 0.05 nil (lambda (dir) (magit-status dir)) repo))))
+
+  ;; apply the advice to both finishing and cancelling a commit
   (advice-add 'with-editor-cancel :around #'efs/magit-restore-status-smooth)
+  (advice-add 'with-editor-finish :around #'efs/magit-restore-status-smooth)
   ;;===========================
   ;; major section navigation
   ;;===========================
