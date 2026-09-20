@@ -1,42 +1,22 @@
 #+TITLE: Cheatsheets for Softwares
 #+AUTHOR: Rafael Ito
 #+DESCRIPTION: cheatsheets for tools and applications
-#+STARTUP: showeverything
+#+STARTUP: showeverything indent
 
-* Table of contents :toc_2:
+* Table of contents :toc_1:
 - [[#2-in-1][2-in-1]]
 - [[#docker][Docker]]
 - [[#emacs][Emacs]]
-  - [[#general][General]]
-  - [[#projectile][Projectile]]
-  - [[#org-mode][Org Mode]]
-  - [[#latex][LaTeX]]
-  - [[#beamer][Beamer]]
-  - [[#dired][Dired]]
-  - [[#evil-mode][Evil mode]]
-  - [[#org-agenda][Org-agenda]]
-  - [[#magit][Magit]]
-  - [[#gitignore][gitignore]]
-  - [[#elpaca][Elpaca]]
 - [[#ffmpeg][FFmpeg]]
 - [[#git][Git]]
 - [[#gnupg][GnuPG]]
 - [[#informant][Informant]]
-  - [[#unread-last-news][Unread last news]]
-- [[#pass][pass]]
 - [[#gpu][GPU]]
+- [[#pass][pass]]
 - [[#pdf][PDF]]
-  - [[#separate][Separate]]
-  - [[#unite][Unite]]
-  - [[#remove-password][Remove password]]
 - [[#pdfpc][pdfpc]]
 - [[#python][Python]]
-  - [[#virtualenv][virtualenv]]
-  - [[#pypi][PyPI]]
 - [[#temperature-monitoring][Temperature monitoring]]
-  - [[#installation][Installation]]
-  - [[#list-hardware-monitors][List hardware monitors]]
-  - [[#get-temperature-value][Get temperature value]]
 - [[#scribd][Scribd]]
 - [[#ssh][SSH]]
 - [[#systemd][Systemd]]
@@ -920,7 +900,7 @@ gpg --delete-key <KEY>
 #+begin_src shell
 gpg --delete-secret-key <KEY>
 #+end_src
-* Informant
+* Informant :noexport_1:
 ** Unread last news
 #+begin_src shell
 sudo python3 -c "
@@ -938,54 +918,6 @@ with open(path, 'wb') as f:
 
 print(f'Successfully marked as unread:\n{removed}')
 "
-#+end_src
-* pass :noexport_1:
-Password manager.
-** Installation
-#+begin_src shell
-sudo pacman -S pass
-#+end_src
-** Get GPG key ID
-#+begin_src sh
-gpg --list-secret-keys --keyid-format=long
-#+end_src
-
-Example of output:
-#+begin_src txt
-sec   rsa4096/3AA5C34371567BD2 2026-03-24 [SC]
-      9D5A02241F88481A3A34282B3AA5C34371567BD2
-uid                 [ultimate] Rafael <rafael@example.com>
-ssb   rsa4096/42B980275F11A4D5 2026-03-24 [E]
-#+end_src
-
-- Long Key ID: =3AA5C34371567BD2=.
-- Full fingerprint (40-characters long): =9D5A02241F88481A3A34282B3AA5C34371567BD2=
-** Initialization
-*** Single key
-#+begin_src shell
-pass init <workstation-key-id> <laptop-key-id>
-pass init 9D5A02241F88481A3A34282B3AA5C34371567BD2
-#+end_src
-*** Multiple keys
-#+begin_src shell
-pass init <workstation-key-id> <laptop-key-id>
-#+end_src
-** List
-#+begin_src shell
-pass list
-#+end_src
-** Insert
-*** Interactive
-#+begin_src shell
-pass insert ip/device
-#+end_src
-*** Automated
-#+begin_src shell
-incognito echo "192.168.0.xxx" | pass insert -e ip/device
-#+end_src
-** Retrieve password
-#+begin_src shell
-pass ip/device
 #+end_src
 * GPU :noexport_1:
 ** How to make old GPUs work with Sway WM
@@ -1086,6 +1018,53 @@ GRUB_CMDLINE_LINUX_DEFAULT="nouveau.config=NvClkMode=15"
 Then, regenerate the config file.
 #+begin_src sh
 grub-mkconfig -o /efi/EFI/arch/grub/grub.cfg
+#+end_src
+* pass :noexport_1:
+Password manager.
+** Installation
+#+begin_src shell
+sudo pacman -S pass
+#+end_src
+** Get GPG key ID
+#+begin_src sh
+gpg --list-secret-keys --keyid-format=long
+#+end_src
+
+Example of output:
+#+begin_src txt
+sec   rsa4096/3AA5C34371567BD2 2026-03-24 [SC]
+      9D5A02241F88481A3A34282B3AA5C34371567BD2
+uid                 [ultimate] Rafael <rafael@example.com>
+ssb   rsa4096/42B980275F11A4D5 2026-03-24 [E]
+#+end_src
+
+- Long Key ID: =3AA5C34371567BD2=.
+- Full fingerprint (40-characters long): =9D5A02241F88481A3A34282B3AA5C34371567BD2=
+** Initialization
+*** Single key
+#+begin_src shell
+pass init 9D5A02241F88481A3A34282B3AA5C34371567BD2
+#+end_src
+*** Multiple keys
+#+begin_src shell
+pass init <workstation-key-id> <laptop-key-id>
+#+end_src
+** List
+#+begin_src shell
+pass list
+#+end_src
+** Insert
+*** Interactive
+#+begin_src shell
+pass insert ip/device
+#+end_src
+*** Automated
+#+begin_src shell
+incognito echo "192.168.0.xxx" | pass insert -e ip/device
+#+end_src
+** Retrieve password
+#+begin_src shell
+pass ip/device
 #+end_src
 * PDF
 ** Separate
