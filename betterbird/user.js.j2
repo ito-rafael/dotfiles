@@ -1,6 +1,6 @@
-user_pref("mail.accountmanager.accounts", "account1,account2,account3,account4");
+user_pref("mail.accountmanager.accounts", "account1,account2,account3,account4,account5");
 user_pref("mail.accountmanager.defaultaccount", "account1");
-user_pref("mail.smtpservers", "smtp1,smtp2,smtp3,smtp4");
+user_pref("mail.smtpservers", "smtp1,smtp2,smtp3,smtp4,smtp5");
 
 user_pref("mail.account.account1.identities", "id1");
 user_pref("mail.account.account1.server", "server1");
@@ -69,6 +69,23 @@ user_pref("mail.smtpserver.smtp4.username", "{{ email_personal_outlook }}");
 user_pref("mail.smtpserver.smtp4.port", 587);
 user_pref("mail.smtpserver.smtp4.authMethod", 10);
 user_pref("mail.smtpserver.smtp4.try_ssl", 2);
+
+user_pref("mail.account.account5.identities", "id5");
+user_pref("mail.account.account5.server", "server5");
+user_pref("mail.identity.id5.fullName", "LBiC Admin");
+user_pref("mail.identity.id5.useremail", "{{ email_lbic_sysadmin }}");
+user_pref("mail.identity.id5.smtpServer", "smtp5");
+user_pref("mail.server.server5.hostname", "imap.gmail.com");
+user_pref("mail.server.server5.userName", "{{ email_lbic_sysadmin }}");
+user_pref("mail.server.server5.type", "imap");
+user_pref("mail.server.server5.port", 993);
+user_pref("mail.server.server5.socketType", 3);
+user_pref("mail.server.server5.authMethod", 10);
+user_pref("mail.smtpserver.smtp5.hostname", "smtp.gmail.com");
+user_pref("mail.smtpserver.smtp5.username", "{{ email_lbic_sysadmin }}");
+user_pref("mail.smtpserver.smtp5.port", 465);
+user_pref("mail.smtpserver.smtp5.authMethod", 10);
+user_pref("mail.smtpserver.smtp5.try_ssl", 3);
 
 user_pref("mail.pane_config.dynamic", 2);
 //user_pref("mailnews.ui.threadpane.version", 1);
