@@ -13,6 +13,7 @@
   - [[#promotional][Promotional]]
   - [[#personal-2-outlook][Personal #2 (Outlook)]]
   - [[#lbic-sysadmin-gmail][LBiC sysadmin (Gmail)]]
+  - [[#local-folders-system][Local Folders (System)]]
 - [[#other-configs][Other configs]]
   - [[#view][View]]
   - [[#disable-systems-default-check][Disable system's default check]]
@@ -162,6 +163,15 @@ user_pref("mail.smtpserver.smtp5.username", "{{ email_lbic_sysadmin }}");
 user_pref("mail.smtpserver.smtp5.port", 465);
 user_pref("mail.smtpserver.smtp5.authMethod", 10);
 user_pref("mail.smtpserver.smtp5.try_ssl", 3);
+#+end_src
+** Local Folders (System)
+Explicitly define Local Folders so it doesn't steal IDs from new email accounts.
+#+begin_src js
+user_pref("mail.account.account99.server", "server99");
+user_pref("mail.server.server99.name", "Local Folders");
+user_pref("mail.server.server99.hostname", "Local Folders");
+user_pref("mail.server.server99.type", "none");
+user_pref("mail.server.server99.userName", "nobody");
 #+end_src
 * Other configs
 ** View
