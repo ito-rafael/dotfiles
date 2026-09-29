@@ -2,6 +2,9 @@
 # environment variables
 export GTK_THEME=Adwaita:dark
 
+# set default text editor to Neovim
+export EDITOR="nvim"
+
 # PATH
 export PATH=$PATH:~/.cargo/bin                              # Rust
 export PATH=$PATH:~/.emacs.d/bin                            # Emacs
