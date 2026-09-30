@@ -171,9 +171,16 @@ Then add this at the top of the file:
 #+end_src
 *** Add header argument in all children
 Note the =+= after =header-args=: =:header-args+:=
+**** Single language
 #+begin_src elisp
 :PROPERTIES:
 :header-args+: :padline no
+:END:
+#+end_src
+**** Multiple languages
+#+begin_src elisp
+:PROPERTIES:
+:header-args:yaml+: :tangle site.yml
 :END:
 #+end_src
 *** Tangle only source code blocks of a specific language
