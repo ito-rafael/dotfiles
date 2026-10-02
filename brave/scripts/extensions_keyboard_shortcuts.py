@@ -135,15 +135,27 @@ try:
                 print(f"Error: Could not find '{target_ext_name}' installed in this profile. Aborting.")
                 sys.exit(1)
 
-            # 2. find the internal command mapping (e.g., "Toggle extension" -> "toggle")
+            # 2. find the internal command mapping
             manifest = extensions[target_ext_id].get('manifest', {})
-            manifest_commands = manifest.get('commands', {})
+
+            # Safely handle if the developer left 'commands' as null in their manifest
+            manifest_commands = manifest.get('commands') or {}
             actual_command_key = None
 
-            for cmd_key, cmd_data in manifest_commands.items():
-                if cmd_data.get('description') == target_cmd_name:
-                    actual_command_key = cmd_key
-                    break
+            # Bypass manifest validation for the universal "Activate the extension" command
+            if target_cmd_name == "Activate the extension":
+                manifest_version = manifest.get('manifest_version', 2)
+                if manifest_version >= 3:
+                    actual_command_key = "_execute_action"
+                else:
+                    actual_command_key = "_execute_browser_action"
+
+            # If it's a custom command (like Dark Reader), search by the manifest description
+            if not actual_command_key:
+                for cmd_key, cmd_data in manifest_commands.items():
+                    if cmd_data.get('description') == target_cmd_name:
+                        actual_command_key = cmd_key
+                        break
 
             if not actual_command_key:
                  print(f"Error: Could not find a command '{target_cmd_name}' for '{target_ext_name}'. Aborting.")
