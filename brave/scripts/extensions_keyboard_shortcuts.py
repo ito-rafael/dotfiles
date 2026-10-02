@@ -203,7 +203,7 @@ try:
             f.truncate()
             print("\nSuccess: Preferences file updated with new shortcuts.")
         else:
-            print("\nSuccess: All shortcuts were already configured correctly. No disk writes needed.")
+            print("\nSkipped: All shortcuts were already configured correctly. No disk writes needed.")
 
         fcntl.flock(f, fcntl.LOCK_UN)
 
