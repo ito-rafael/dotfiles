@@ -23,7 +23,7 @@ SHORTCUTS_CONFIG = [
     {
         "extension": "Pelando",
         "command": "Activate the extension",
-        "shortcut": "Shift+Alt+P"
+        "shortcut": "Alt+Shift+P"
     },
     {
         "extension": "Tab Session Manager",
