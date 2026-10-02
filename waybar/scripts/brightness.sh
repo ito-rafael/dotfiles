@@ -56,8 +56,16 @@ if [ "$ACTION" == "up" ]; then
 elif [ "$ACTION" == "down" ]; then
     ((CUR -= STEP))
 elif [[ "$ACTION" =~ ^[0-9]+$ ]]; then
-    # If the argument is a number, set CUR directly to that number
+    # Exact number (e.g., 50)
     CUR="$ACTION"
+elif [[ "$ACTION" =~ ^[0-9]+\+$ ]]; then
+    # Increase by N (e.g., 5+)
+    NUM="${ACTION%+}"  # Strips the trailing "+"
+    ((CUR += NUM))
+elif [[ "$ACTION" =~ ^[0-9]+\-$ ]]; then
+    # Decrease by N (e.g., 5-)
+    NUM="${ACTION%-}"  # Strips the trailing "-"
+    ((CUR -= NUM))
 fi
 
 # Clamp bounds between 0 and 100
