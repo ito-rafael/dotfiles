@@ -252,7 +252,7 @@
   "modules": [
     "pulseaudio#speaker",
     "pulseaudio#microphone",
-    "backlight",
+    "custom/brightness",
     "group/gamma",
   ]
 },
@@ -285,13 +285,16 @@
     "reverse-mouse-scrolling": false,
 },
 
-"backlight": {
-    "format": "{percent}% {icon}",
+"custom/brightness": {
+    "format": "{}% {icon}",
     "format-icons": ["", "", "", "", "", "", "", "", ""],
+    "return-type": "json",
+    "exec": "val=$(cat /tmp/wb_brightness_state 2>/dev/null || echo 100); echo '{\"text\": \"'$val'\", \"percentage\": '$val'}'",
+    "interval": 1,
     "reverse-scrolling": true,
     "reverse-mouse-scrolling": false,
-    "on-scroll-up": "~/.config/waybar/scripts/brightness.sh up",
-    "on-scroll-down": "~/.config/waybar/scripts/brightness.sh down",
+    "on-scroll-up": "~/.config/waybar/scripts/brightness.sh up && ~/.config/scripts/osd.sh brightness",
+    "on-scroll-down": "~/.config/waybar/scripts/brightness.sh down && ~/.config/scripts/osd.sh brightness",
 },
 
 "group/gamma": {
