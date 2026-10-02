@@ -41,7 +41,7 @@ if [ ! -f "$STATE_FILE" ]; then
         CUR="${ADDR[3]%\%}"
     else
         # Probing external monitors synchronously is too slow for the scroll wheel.
-        # Initialize at 50% on first boot/run if the state file does not exist.
+        # Initialize at 100% on first boot/run if the state file does not exist.
         CUR=100
     fi
 else
@@ -55,6 +55,9 @@ if [ "$ACTION" == "up" ]; then
     ((CUR += STEP))
 elif [ "$ACTION" == "down" ]; then
     ((CUR -= STEP))
+elif [[ "$ACTION" =~ ^[0-9]+$ ]]; then
+    # If the argument is a number, set CUR directly to that number
+    CUR="$ACTION"
 fi
 
 # Clamp bounds between 0 and 100
