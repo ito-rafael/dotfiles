@@ -1128,7 +1128,7 @@ box#control {
 
 #pulseaudio.speaker,
 #pulseaudio.microphone,
-#backlight,
+#custom-brightness,
 #gamma {
     border-right: 1px solid rgba(255, 255, 255, 0.1);
     padding-right: 5px;
@@ -1139,7 +1139,7 @@ box#control {
 
 #pulseaudio.speaker:hover,
 #pulseaudio.microphone:hover,
-#backlight:hover,
+#custom-brightness:hover,
 #gamma:hover {
     background-color: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
@@ -1164,7 +1164,7 @@ box#control {
     color: #2a5c45;
 }
 
-#backlight {
+#custom-brightness {
     border-radius: 0;
 }
 
