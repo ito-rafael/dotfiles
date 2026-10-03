@@ -19,6 +19,7 @@ from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import Select
+from selenium.webdriver.common.keys import Keys
 #from webdriver_manager.firefox import GeckoDriverManager
 
 # ========================================
@@ -130,16 +131,15 @@ if not internal_uuid:
 #----------------------------------------
 options = Options()
 options.binary_location = ZEN_BINARY_PATH
+#options.add_argument("-headless")
 options.add_argument("-profile")
 options.add_argument(profile_base)
 
-# using "webdriver_manager.firefox"
-#print("Initializing GeckoDriver...")
-#driver_path = GeckoDriverManager().install()
-#service = Service(driver_path)
-#driver = webdriver.Firefox(service=service, options=options)
+# calculate the URL here and pass it as a startup argument
+options_url = f"moz-extension://{internal_uuid}{EXTENSION_PAGE_PATH}"
+print(f"Injecting startup URL: {options_url}")
+options.add_argument(options_url)
 
-# using binary from package manager
 print("Initializing system GeckoDriver...")
 service = Service("/usr/bin/geckodriver")
 driver = webdriver.Firefox(service=service, options=options)
@@ -151,21 +151,19 @@ driver.set_window_size(1920, 1080)
 # Automation execution
 #----------------------------------------
 try:
-    options_url = f"moz-extension://{internal_uuid}{EXTENSION_PAGE_PATH}"
-    print(f"Navigating to {options_url}...")
-
     # Wait loop for extension DOM hydration
     for i in range(30):
-        driver.get(options_url)
-        time.sleep(2)
-
         try:
-            # Verify the dropdown actually exists before proceeding
+            # Check if the dropdown exists yet
             driver.find_element(By.ID, "theme")
             print("Extension loaded successfully!")
             break
-        except:
+        except Exception:
             print(f"Still unpacking... (Attempt {i+1}/30)")
+            # If the browser started too fast and hit an error page,
+            # we just hit the refresh button until the extension hydrates!
+            driver.refresh()
+            time.sleep(2)
 
     wait = WebDriverWait(driver, 10)
 
@@ -175,15 +173,22 @@ try:
         # 1. Locate the element
         theme_dropdown_element = wait.until(EC.presence_of_element_located((By.XPATH, '//*[@id="theme"]')))
 
-        # 2. Force scroll into the center of the viewport
-        driver.execute_script("arguments[0].scrollIntoView({block: 'center', inline: 'center'});", theme_dropdown_element)
+        # 2. Send the 'End' key to the body of the page to scroll to the very bottom
+        driver.find_element(By.TAG_NAME, "html").send_keys(Keys.END)
         time.sleep(0.5)
 
-        # 3. Use Selenium's native Select class to handle the dropdown safely
+        # 3. Use Selenium's native Select class
         select = Select(theme_dropdown_element)
 
         # Idempotency check: only change it if it's not already Dark
         current_theme = select.first_selected_option.text
+
+        if current_theme != "Dark":
+            print(f"Current theme is '{current_theme}'. Changing to 'Dark'...")
+            select.select_by_visible_text("Dark")
+            time.sleep(0.5)
+        else:
+            print("Skipped: Theme is already set to Dark.")
 
         if current_theme != "Dark":
             print(f"Current theme is '{current_theme}'. Changing to 'Dark'...")
@@ -203,10 +208,9 @@ try:
 
     print("Success: Configuration applied.")
 
-    # Force disk flush
-    time.sleep(1)
-    driver.get("about:support")
+    # Give the browser engine a brief moment to register the UI change
     time.sleep(2)
 
 finally:
+    # driver.quit() natively handles the safe shutdown and disk flush
     driver.quit()
