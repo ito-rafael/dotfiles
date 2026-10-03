@@ -151,8 +151,13 @@ try:
 
     print("Saving configuration...")
     time.sleep(1)
+
+    # Locate the save button
     save_button = wait.until(EC.presence_of_element_located((By.ID, "save_button")))
-    save_button.click()
+
+    # Send the RETURN key directly to the button element to trigger it natively,
+    # bypassing any overlapping divs that would intercept a standard mouse .click()
+    save_button.send_keys(Keys.RETURN)
 
     with open(MARKER_FILE, 'w') as f:
         f.write(f"Settings URL configured via Ansible on {time.ctime()}\n")
