@@ -15,12 +15,10 @@ import subprocess
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.firefox.service import Service
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-#from webdriver_manager.firefox import GeckoDriverManager
 
 # ========================================
 # CONFIGURATION
@@ -145,42 +143,32 @@ options.binary_location = ZEN_BINARY_PATH
 options.add_argument("-profile")
 options.add_argument(profile_base)
 
-# using "webdriver_manager.firefox"
-#print("Initializing GeckoDriver...")
-#driver_path = GeckoDriverManager().install()
-#service = Service(driver_path)
-#driver = webdriver.Firefox(service=service, options=options)
+options_url = f"moz-extension://{internal_uuid}{EXTENSION_PAGE_PATH}"
+print(f"Injecting startup URL: {options_url}")
+options.add_argument(options_url)
 
-# using binary from package manager
 print("Initializing system GeckoDriver...")
 service = Service("/usr/bin/geckodriver")
 driver = webdriver.Firefox(service=service, options=options)
 
-# Force a 1080p viewport so elements don't get squished off-screen
 driver.set_window_size(1920, 1080)
 
 #----------------------------------------
 # Automation execution
 #----------------------------------------
 try:
-    options_url = f"moz-extension://{internal_uuid}{EXTENSION_PAGE_PATH}"
-    print(f"Navigating to {options_url}...")
-
     # Wait loop for extension DOM hydration
     for i in range(30):
-        driver.get(options_url)
-        time.sleep(2)
-
         try:
-            # Replaced "body" with the actual ID you are looking for to guarantee JS has rendered
             driver.find_element(By.ID, "saveCurrentWindow")
             print("Extension loaded successfully!")
             break
         except:
             print(f"Still unpacking... (Attempt {i+1}/30)")
+            driver.refresh()
+            time.sleep(2)
 
     wait = WebDriverWait(driver, 10)
-    actions = ActionChains(driver)
 
     # Loop through the configuration manifest
     for setting in SETTINGS_CONFIG:
@@ -188,20 +176,14 @@ try:
             print(f"Configuring {setting['description']}...")
             element = wait.until(EC.presence_of_element_located((By.XPATH, setting["xpath"])))
 
-            # Force the browser to scroll the element into the exact center of the screen
-            driver.execute_script("arguments[0].scrollIntoView({block: 'center', inline: 'center'});", element)
-            time.sleep(0.5)
-
-            # Click the field to focus it
-            actions.click(element).pause(0.5).perform()
-
             # Note: For many shortcut fields, hitting Backspace clears it natively
-            actions.send_keys(Keys.BACKSPACE).pause(0.5).perform()
+            element.send_keys(Keys.BACKSPACE)
+            time.sleep(0.5)
 
             # Dynamic Keystroke Parser: split "Alt+X" into ["Alt", "X"]
             keys_list = setting["target_value"].split("+")
             modifier_string = keys_list[0]
-            letter = keys_list[1].lower() # Selenium requires lowercase letters for send_keys
+            letter = keys_list[1].lower()
 
             # Map the string to the correct Selenium Key object
             if modifier_string == "Alt":
@@ -213,10 +195,8 @@ try:
             else:
                 mod_key = Keys.ALT # Fallback
 
-            # Physically hold the modifier, press the letter, then release
-            actions.key_down(mod_key).send_keys(letter).key_up(mod_key).perform()
-            # -------------------------------------
-
+            # Send keys natively bypassing ActionChains bounds
+            element.send_keys(mod_key, letter)
             time.sleep(0.5)
 
         except Exception as e:
@@ -227,11 +207,7 @@ try:
         f.write(f"Configured via Ansible on {time.ctime()}\n")
 
     print("Success: Configuration applied.")
-
-    # Force disk flush
     time.sleep(1)
-    driver.get("about:support")
-    time.sleep(2)
 
 finally:
     driver.quit()
