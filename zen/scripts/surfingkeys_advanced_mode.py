@@ -17,10 +17,10 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.service import Service
 from selenium.webdriver.firefox.options import Options
-#from webdriver_manager.firefox import GeckoDriverManager
 
 # The official Firefox Extension ID for Surfingkeys
 EXTENSION_ID = "{a8332c60-5b6d-41ee-bfc8-e9bb331d34ad}"
+EXTENSION_PAGE_PATH = "/pages/options.html"
 
 # Dynamically find the Zen Browser binary path
 POSSIBLE_BINARIES = [
@@ -46,14 +46,12 @@ if os.path.exists(zen_config_dir):
         full_path = os.path.join(zen_config_dir, folder)
         prefs_file = os.path.join(full_path, "prefs.js")
 
-        # Only consider directories that actually have a prefs.js
         if os.path.isdir(full_path) and os.path.exists(prefs_file):
             valid_profiles.append(full_path)
 
 if not valid_profiles:
     raise FileNotFoundError("Critical: Could not locate any Zen Browser profile containing a prefs.js file.")
 
-# Sort the profiles by the modification time of their prefs.js file (newest first)
 valid_profiles.sort(key=lambda p: os.path.getmtime(os.path.join(p, "prefs.js")), reverse=True)
 profile_base = valid_profiles[0]
 
@@ -72,15 +70,12 @@ if os.path.exists(MARKER_FILE):
 # Active session safety check
 #----------------------------------------
 try:
-    # Check for active Zen processes
     result = subprocess.check_output(["pgrep", "-a", "-i", "zen"], text=True)
     running_standard_sessions = False
 
     for line in result.splitlines():
-        # Ignore child processes and extensions
         if "tab" in line or "extension" in line or "utility" in line or "socket" in line:
             continue
-
         if "zen-bin" in line or "zen-browser" in line:
             running_standard_sessions = True
             break
@@ -94,7 +89,7 @@ except subprocess.CalledProcessError:
     print("No active Zen sessions found. Proceeding with configuration...")
 
 #----------------------------------------
-# Lock cleanup (Firefox/Gecko style)
+# Lock cleanup
 #----------------------------------------
 for lock in ["lock", "parent.lock", ".parentlock"]:
     lock_path = os.path.join(profile_base, lock)
@@ -108,18 +103,14 @@ for lock in ["lock", "parent.lock", ".parentlock"]:
 #----------------------------------------
 # Extract dynamic moz-extension UUID
 #----------------------------------------
-# Firefox assigns a random internal UUID to every extension upon installation.
-# We must extract it from prefs.js to form the options URL.
 internal_uuid = None
 prefs_path = os.path.join(profile_base, "prefs.js")
 
 with open(prefs_path, "r", encoding="utf-8") as f:
     for line in f:
         if "extensions.webextensions.uuids" in line:
-            # Extract the escaped JSON string from the preference
             match = re.search(r'user_pref\("extensions\.webextensions\.uuids",\s*"(.*)"\);', line)
             if match:
-                # Unescape quotes and parse JSON
                 json_str = match.group(1).replace('\\"', '"')
                 try:
                     uuid_map = json.loads(json_str)
@@ -133,59 +124,49 @@ if not internal_uuid:
     sys.exit(1)
 
 #----------------------------------------
-# Browser configuration
+# Browser configuration & Driver Init
 #----------------------------------------
 options = Options()
 options.binary_location = ZEN_BINARY_PATH
 options.add_argument("-profile")
 options.add_argument(profile_base)
 
-# Optional: Run headlessly
-# options.add_argument("-headless")
+options_url = f"moz-extension://{internal_uuid}{EXTENSION_PAGE_PATH}"
+print(f"Injecting startup URL: {options_url}")
+options.add_argument(options_url)
 
-#----------------------------------------
-# Initialize driver
-#----------------------------------------
-# using "webdriver_manager.firefox"
-#print("Initializing GeckoDriver...")
-#driver_path = GeckoDriverManager().install()
-#service = Service(driver_path)
-#driver = webdriver.Firefox(service=service, options=options)
-
-# using binary from package manager
 print("Initializing system GeckoDriver...")
 service = Service("/usr/bin/geckodriver")
 driver = webdriver.Firefox(service=service, options=options)
+
+driver.set_window_size(1920, 1080)
 
 #----------------------------------------
 # Automation execution
 #----------------------------------------
 try:
-    # Navigate directly to the dynamic extension URL
-    options_url = f"moz-extension://{internal_uuid}/pages/options.html"
     toggle_checkbox = None
 
     # Polling loop
     for i in range(30):
-        driver.get(options_url)
-        time.sleep(1)
-
         try:
             toggle_checkbox = driver.find_element(By.ID, "advancedToggler")
             print("Extension loaded successfully!")
             break
         except:
             print(f"Still unpacking... (Attempt {i+1}/30)")
+            driver.refresh()
+            time.sleep(2)
 
     if not toggle_checkbox:
         print("Error: Surfingkeys DOM did not render properly.")
         sys.exit(1)
 
-    # Use pure Javascript to read the true DOM property
-    is_checked = driver.execute_script("return arguments[0].checked;", toggle_checkbox)
+    # Use native Selenium properties instead of JS
+    is_checked = toggle_checkbox.is_selected()
 
     if not is_checked:
-        driver.execute_script("arguments[0].click();", toggle_checkbox)
+        toggle_checkbox.click()
 
         # Write the receipt to disk
         with open(MARKER_FILE, 'w') as f:
@@ -199,10 +180,7 @@ try:
 
         print("Skipped: Already ON.")
 
-    # Force a flush by loading an internal page before quitting
     time.sleep(1)
-    driver.get("about:support")
-    time.sleep(2)
 
 finally:
     driver.quit()
