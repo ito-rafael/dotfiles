@@ -269,6 +269,10 @@ ssh() {
   kitty @ set-colors -a --reset
 }
 #+end_src
+** Ansible
+#+begin_src sh
+alias an='ansible'
+#+end_src
 ** journalctl
 #+begin_src sh
 alias j='journalctl -u'                    # journalctl

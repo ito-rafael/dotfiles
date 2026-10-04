@@ -143,6 +143,7 @@ ssh() {
   kitty @ set-colors -a --reset
 }
 
+alias an='ansible'
 alias j='journalctl -u'                    # journalctl
 alias jf='journalctl --follow -u'          # journalctl follow
 alias ju='journalctl --user -u'            # journalctl user
