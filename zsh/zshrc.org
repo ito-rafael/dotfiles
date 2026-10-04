@@ -272,6 +272,7 @@ ssh() {
 ** Ansible
 #+begin_src sh
 alias an='ansible'
+alias anp='ansible-playbook'
 #+end_src
 ** journalctl
 #+begin_src sh

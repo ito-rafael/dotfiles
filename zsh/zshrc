@@ -144,6 +144,7 @@ ssh() {
 }
 
 alias an='ansible'
+alias anp='ansible-playbook'
 alias j='journalctl -u'                    # journalctl
 alias jf='journalctl --follow -u'          # journalctl follow
 alias ju='journalctl --user -u'            # journalctl user
