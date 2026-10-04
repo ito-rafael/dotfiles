@@ -276,6 +276,7 @@ alias anp='ansible-playbook'
 alias anps="ansible-playbook --start-at-task ''"
 alias anpi='ansible -i inventory/hosts.yml -m ping'
 alias anv='ansible-vault'
+alias anve='ansible-vault edit'
 #+end_src
 ** journalctl
 #+begin_src sh
