@@ -273,6 +273,7 @@ ssh() {
 #+begin_src sh
 alias an='ansible'
 alias anp='ansible-playbook'
+alias anps="ansible-playbook --start-at-task ''"
 #+end_src
 ** journalctl
 #+begin_src sh
