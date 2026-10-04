@@ -274,6 +274,7 @@ ssh() {
 alias an='ansible'
 alias anp='ansible-playbook'
 alias anps="ansible-playbook --start-at-task ''"
+alias anpi='ansible -i inventory/hosts.yml -m ping'
 #+end_src
 ** journalctl
 #+begin_src sh
