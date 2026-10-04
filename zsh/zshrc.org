@@ -756,11 +756,11 @@ alias lbic='$XDG_CONFIG_HOME/vpn/lbic/port-binding.sh'
 #+begin_src sh
 alias asp='$XDG_CONFIG_HOME/scripts/adb-mdns-pair.sh'    # ADB script for pairing
 alias asc='$XDG_CONFIG_HOME/scripts/adb-mdns-scrcpy.sh'  # ADB script for connecting (scrcpy)
-alias ap='adb pair'        # ADB pair
-alias ac='adb connect'     # ADB connect
-alias ad='adb disconnect'  # ADB disconnect
-alias al='adb devices -l'  # ADB list devices
-alias as='adb shell'       # ADB shell
+alias adp='adb pair'        # ADB pair
+alias adc='adb connect'     # ADB connect
+alias add='adb disconnect'  # ADB disconnect
+alias adl='adb devices -l'  # ADB list devices
+alias ads='adb shell'       # ADB shell
 #+end_src
 *** Function
 **** Phone
