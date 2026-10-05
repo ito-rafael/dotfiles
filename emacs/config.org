@@ -377,6 +377,10 @@ Disable read-only for some modes.
                evil-window-prev))
   (advice-add cmd :after #'efs/warp-mouse-to-center))
 #+end_src
+** Add newline at EOF
+#+begin_src emacs-lisp
+(setq require-final-newline t)
+#+end_src
 * Package Manager :noexport_1:
 Git repo: [[https://github.com/progfolio/elpaca][Elpaca]]
 #+ATTR_ORG: :width 75
