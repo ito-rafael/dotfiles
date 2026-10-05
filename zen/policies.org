@@ -26,6 +26,10 @@
 "DisableAppUpdate": true,
 "DefaultSerialGuardSetting": 3,
 #+end_src
+** Import CA Certificate
+#+begin_src json
+"ImportEnterpriseRoots": true,
+#+end_src
 ** Preferences
 #+begin_src json
 "Preferences": {
