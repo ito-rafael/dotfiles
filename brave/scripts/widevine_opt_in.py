@@ -53,7 +53,7 @@ try:
             break
 
     if running_standard_sessions:
-        print("Error: Brave is currently running. Aborting to prevent Local State corruption.")
+        print("Error: Brave is currently running. Aborting to protect active session.")
         sys.exit(1)
 except subprocess.CalledProcessError:
     pass # pgrep returned non-zero, meaning no matching processes were found, safe to proceedno matching processes were found, safe to proceed
