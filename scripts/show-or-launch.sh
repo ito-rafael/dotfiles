@@ -82,6 +82,16 @@ fi
 #=======================================
 # identify session (i3wm/Sway) and set vars accordingly
 #=======================================
+
+# fallback session type detection if env var is missing
+if [ -z "${XDG_SESSION_TYPE}" ]; then
+    if [ -n "${SWAYSOCK}" ]; then
+        XDG_SESSION_TYPE="wayland"
+    elif [ -n "${I3SOCK}" ]; then
+        XDG_SESSION_TYPE="x11"
+    fi
+fi
+
 case "${XDG_SESSION_TYPE}" in
     "x11")
         if [ -n "$TARGET_OUTPUT" ]; then
