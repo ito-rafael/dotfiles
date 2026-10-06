@@ -1,0 +1,270 @@
+#+TITLE: Wayland Output Scaler
+#+AUTHOR: Rafael Ito
+#+PROPERTY: header-args :tangle wm-scale.sh
+#+DESCRIPTION: A unified script to dynamically adjust, toggle, or step monitor scaling across Sway and Hyprland environments.
+#+STARTUP: showeverything
+#+auto_tangle: t
+
+* Table of Contents :toc_3:
+- [[#scaling-matrix][Scaling Matrix]]
+- [[#header][Header]]
+- [[#functions][Functions]]
+  - [[#get-current-scale-helper][Get current scale (helper)]]
+  - [[#validate-range][Validate range]]
+  - [[#adjust-scale][Adjust scale]]
+- [[#dispatcher][Dispatcher]]
+  - [[#help][Help]]
+  - [[#get-current-scale][Get current scale]]
+  - [[#toggle][Toggle]]
+  - [[#increase-zoom-in][Increase (zoom in)]]
+  - [[#decrease-zoom-out][Decrease (zoom out)]]
+  - [[#adjust][Adjust]]
+
+* Scaling Matrix
+- WUXGA: 1920x1200
+- FHD: 1920x1080
+- QHD: 2560x1440
+- 4K UHD: 3840x2160
+Obs.: "-" in the table indicates fractional pixel artifacts.
+|-------+----------+-----------+-----------+-----------+-----------|
+| Ratio |    Value |     WUXGA |       FHD |       QHD |    4K UHD |
+|-------+----------+-----------+-----------+-----------+-----------|
+| 1/2   |      0.5 | 3840x2400 | 3840x2160 | 5120x2880 | 7680x4320 |
+| 4/7   | 0.571429 | 3360x2100 | 3360x1890 | 4480x2520 | 6720x3780 |
+| 3/5   |      0.6 | 3200x2000 | 3200x1800 |         - | 6400x3600 |
+| 2/3   | 0.666667 | 2880x1800 | 2880x1620 | 3840x2160 | 5760x3240 |
+| 3/4   |     0.75 | 2560x1600 | 2560x1440 |         - | 5120x2880 |
+| 4/5   |      0.8 | 2400x1500 | 2400x1350 | 3200x1800 | 4800x2700 |
+| 5/6   | 0.833333 | 2304x1440 | 2304x1296 | 3072x1728 | 4608x2592 |
+| 8/9   | 0.888889 | 2160x1350 | 2160x1215 | 2880x1620 | 4320x2430 |
+| 15/16 |   0.9375 | 2048x1280 | 2048x1152 |         - | 4096x2304 |
+| 16/17 | 0.941176 | 2040x1275 |         - | 2720x1530 | 4080x2295 |
+|-------+----------+-----------+-----------+-----------+-----------|
+| 1/1   |        1 | 1920x1200 | 1920x1080 | 2560x1440 | 3840x2160 |
+| 16/15 | 1.066667 | 1800x1125 |         - | 2400x1350 | 3600x2025 |
+| 10/9  | 1.111111 | 1728x1080 |  1728x972 | 2304x1296 | 3456x1944 |
+| 8/7   | 1.142857 | 1680x1050 |  1680x945 | 2240x1260 | 3360x1890 |
+| 6/5   |      1.2 | 1600x1000 |  1600x900 |         - | 3200x1800 |
+| 5/4   |     1.25 |  1536x960 |  1536x864 | 2048x1152 | 3072x1728 |
+| 4/3   | 1.333333 |  1440x900 |  1440x810 | 1920x1080 | 2880x1620 |
+| 3/2   |      1.5 |  1280x800 |  1280x720 |         - | 2560x1440 |
+| 32/21 | 1.523809 |         - |         - |  1680x945 |         - |
+| 8/5   |      1.6 |  1200x750 |  1200x675 |  1600x900 | 2400x1350 |
+| 5/3   | 1.666667 |  1152x720 |  1152x648 |  1536x864 | 2304x1296 |
+| 16/9  | 1.777778 |  1080x675 |         - |  1440x810 | 2160x1215 |
+| 15/8  |    1.875 |  1024x640 |  1024x576 |         - | 2048x1152 |
+| 2/1   |        2 |   960x600 |   960x540 |  1280x720 | 1920x1080 |
+|-------+----------+-----------+-----------+-----------+-----------|
+| 20/9  | 2.222222 |   864x540 |   864x486 |  1152x648 |  1728x972 |
+| 16/7  | 2.285714 |   840x525 |         - |  1120x630 |  1680x945 |
+| 12/5  |      2.4 |   800x500 |   800x450 |         - |  1600x900 |
+| 5/2   |      2.5 |   768x480 |   768x432 |  1024x576 |  1536x864 |
+| 8/3   | 2.666667 |   720x450 |   720x405 |   960x540 |  1440x810 |
+| 3/1   |        3 |   640x400 |   640x360 |         - |  1280x720 |
+| 16/5  |      3.2 |   600x375 |         - |   800x450 |  1200x675 |
+| 4/1   |        4 |   480x300 |   480x270 |   640x360 |   960x540 |
+|-------+----------+-----------+-----------+-----------+-----------|
+* Header :noexport_1:
+** Shebang
+#+begin_src sh
+#!/usr/bin/env bash
+#+end_src
+** Identify WM
+#+begin_src sh
+if [ "$XDG_CURRENT_DESKTOP" = "Hyprland" ]; then
+    WM="hyprland"
+else
+    WM="sway"
+fi
+#+end_src
+** Dependencies check
+Prerequisites:
+- jq
+- bc
+- swaymsg or hyprctl
+#+begin_src sh
+for cmd in jq bc; do
+    if ! command -v $cmd &> /dev/null; then
+        echo "Error: '$cmd' is not installed."
+        exit 1
+    fi
+done
+
+if [ "$WM" = "hyprland" ]; then
+    if ! command -v hyprctl &> /dev/null; then
+        echo "Error: 'hyprctl' is not installed."
+        exit 1
+    fi
+else
+    if ! command -v swaymsg &> /dev/null; then
+        echo "Error: 'swaymsg' is not installed."
+        exit 1
+    fi
+fi
+#+end_src
+** Help menu
+#+begin_src sh
+show_help() {
+    echo "Usage:"
+    echo "  $(basename "$0") get         # Get current scale"
+    echo "  $(basename "$0") toggle      # Toggle between $SCALE_DEFAULT and $SCALE_ZOOM"
+    echo "  $(basename "$0") <number>    # Set scale to specific number (e.g.: 1.2)"
+    echo "  $(basename "$0") help        # Show this message"
+}
+#+end_src
+** Definitions
+*** Toggle scales
+Define default/zoomed scale to toggle
+#+begin_src sh
+SCALE_DEFAULT="1.0"
+SCALE_ZOOM="1.25"
+#+end_src
+*** Valid range
+#+begin_src sh
+SCALE_MIN="0.5"
+SCALE_MAX="4.0"
+#+end_src
+*** Step sizes
+#+begin_src sh
+STEP="0.25"
+#+end_src
+** Parse parameter
+#+begin_src sh
+COMMAND="$1"
+#+end_src
+* Functions
+** Get current scale (helper)
+Retrieves the scale of the first monitor based on the window manager.
+#+begin_src sh
+get_current_scale() {
+    if [ "$WM" = "hyprland" ]; then
+        hyprctl monitors -j | jq -r '.[0].scale'
+    else
+        swaymsg -t get_outputs | jq -r '.[0].scale'
+    fi
+}
+#+end_src
+** Validate range
+#+begin_src sh
+validate_range() {
+    local target_scale=$1
+    # validate only positive number (integer or float)
+    if ! [[ "$target_scale" =~ ^[0-9]+(\.[0-9]+)?$ ]]; then
+        echo "Error: '$target_scale' is not a valid positive number."
+        exit 1
+    fi
+
+    # validate range
+    local is_valid=$(echo "$target_scale >= $SCALE_MIN && $target_scale <= $SCALE_MAX" | bc -l)
+
+    if [ "$is_valid" -eq 0 ]; then
+        echo "Error: Scale '$target_scale' is out of bounds."
+        echo "Please provide a scale between $SCALE_MIN and $SCALE_MAX."
+        exit 1
+    fi
+}
+#+end_src
+** Adjust scale
+Adjust scale in all outputs depending on the active compositor.
+#+begin_src sh
+set_scale() {
+    local target_scale=$1
+
+    if [ "$WM" = "hyprland" ]; then
+        # loop through all monitors and apply the scale
+        hyprctl monitors -j | jq -c '.[]' | while read -r mon; do
+            name=$(echo "$mon" | jq -r '.name')
+            width=$(echo "$mon" | jq -r '.width')
+            height=$(echo "$mon" | jq -r '.height')
+            refresh=$(echo "$mon" | jq -r '.refreshRate')
+            echo "Setting $name to scale $target_scale..."
+            # Auto position prevents layout overlap issues when scaling changes logical sizes
+            hyprctl keyword monitor "$name,${width}x${height}@${refresh},auto,$target_scale" > /dev/null
+        done
+    else
+        # get output names
+        OUTPUT_NAMES=$(swaymsg -t get_outputs | jq -r '.[].name')
+        # loop through all outputs and apply the scale
+        for output in $OUTPUT_NAMES; do
+            echo "Setting $output to scale $target_scale..."
+            swaymsg output "$output" scale "$target_scale"
+        done
+    fi
+}
+#+end_src
+* Dispatcher
+#+begin_src sh
+case "$COMMAND" in
+#+end_src
+** Help
+#+begin_src sh
+"help"|"-h"|"--help"|"")
+    show_help
+    exit 0
+    ;;
+#+end_src
+** Get current scale
+#+begin_src sh
+"get")
+    CURRENT_SCALE=$(get_current_scale)
+    echo "$CURRENT_SCALE"
+    exit 0
+    ;;
+#+end_src
+** Toggle
+#+begin_src sh
+"toggle")
+    # get current scale and decide the target one
+    CURRENT_SCALE=$(get_current_scale)
+    # toggle between default/zoomed predefined scales
+    IS_DEFAULT=$(echo "$CURRENT_SCALE == $SCALE_DEFAULT" | bc -l)
+    if [ "$IS_DEFAULT" -eq 1 ]; then
+        set_scale "$SCALE_ZOOM"
+    else
+        set_scale "$SCALE_DEFAULT"
+    fi
+    exit 0
+    ;;
+#+end_src
+** Increase (zoom in)
+#+begin_src sh
+"inc"|"increase")
+    # get current scale and calculate the next target step
+    CURRENT_SCALE=$(get_current_scale)
+    # the "scale=0" inside the parenthesis simulates the integer division
+    TARGET_SCALE=$(echo "scale=0; ( ( $CURRENT_SCALE / $STEP ) + 1 ) * $STEP" | bc)
+    if (( $(echo "$TARGET_SCALE > $SCALE_MAX" | bc -l) )); then
+        TARGET_SCALE=$SCALE_MAX
+    fi
+    set_scale "$TARGET_SCALE"
+    echo $TARGET_SCALE
+    exit 0
+    ;;
+#+end_src
+** Decrease (zoom out)
+#+begin_src sh
+"dec"|"decrease")
+    # get current scale and calculate the next target step
+    CURRENT_SCALE=$(get_current_scale)
+    # subtract a tiny epsilon and calculate step
+    TARGET_SCALE=$(echo "scale=0; ( ( $CURRENT_SCALE - 0.001 ) / $STEP ) * $STEP" | bc)
+    if (( $(echo "$TARGET_SCALE < $SCALE_MIN" | bc -l) )); then
+        TARGET_SCALE=$SCALE_MIN
+    fi
+    set_scale "$TARGET_SCALE"
+    echo $TARGET_SCALE
+    exit 0
+    ;;
+#+end_src
+** Adjust
+#+begin_src sh
+*)
+    validate_range "$COMMAND"
+    set_scale "$COMMAND"
+    exit 0
+    ;;
+#+end_src
+* EoS :noexport:
+#+begin_src sh
+esac
+#+end_src
