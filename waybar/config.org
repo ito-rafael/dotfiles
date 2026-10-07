@@ -598,12 +598,13 @@ The ="on-click"= action calls the =~/.config/scripts/sway-scale.sh= script with 
 },
 #+end_src
 ** Kanshi
+The ="on-click"= action calls the =~/.config/waybar/scripts/kanshi.sh toggle= script with a small delay (=sleep 0.2=) so there is enough time to Waybar to register the "mouse up" event of the click, before changing the output profile.
 #+begin_src js
 "custom/kanshi": {
     "format": "{}",
     "return-type": "json",
     "exec": "~/.config/waybar/scripts/kanshi.sh monitor",
-    "on-click": "~/.config/waybar/scripts/kanshi.sh toggle",
+    "on-click": "sh -c 'sleep 0.2 && ~/.config/waybar/scripts/kanshi.sh toggle' &",
     "restart-interval": 2
 },
 #+end_src
