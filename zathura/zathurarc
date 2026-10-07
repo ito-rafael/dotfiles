@@ -21,6 +21,7 @@ map [normal] <C-i> scroll half-up
 
 map [normal] a adjust_window best-fit
 map [normal] s adjust_window width
+map [normal] D toggle_page_mode
 
 map [normal] <C-+> zoom in
 map [normal] <C--> zoom out
