@@ -23,6 +23,11 @@
 #+begin_src js
 {
 #+end_src
+** Mirror/Extend monitor
+Use by =kanshi= to setup output profiles.
+#+begin_src js
+"include": ["~/.config/waybar/dynamic-output.json"],
+#+end_src
 ** Enable CSS reload
 #+begin_src js
 "reload_style_on_change": true,
