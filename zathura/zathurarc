@@ -19,6 +19,7 @@ map [normal] u scroll full-up
 map [normal] <C-e> scroll half-down
 map [normal] <C-i> scroll half-up
 
+map [normal] a adjust_window best-fit
 
 map [normal] <C-+> zoom in
 map [normal] <C--> zoom out

@@ -14,6 +14,8 @@
   - [[#page-navigation][Page navigation]]
   - [[#full-page-downup][Full page down/up]]
   - [[#half-page-downup][Half page down/up]]
+- [[#page-modes--view][Page Modes & View]]
+  - [[#fit-to-page][Fit to Page]]
 - [[#zoom][Zoom]]
 
 * UI & Clipboard
@@ -51,6 +53,14 @@ map [normal] u scroll full-up
 #+begin_src conf-space
 map [normal] <C-e> scroll half-down
 map [normal] <C-i> scroll half-up
+#+end_src
+* Page Modes & View
+:PROPERTIES:
+:header-args+: :padline no
+:END:
+** Fit to Page
+#+begin_src conf-space :padline yes
+map [normal] a adjust_window best-fit
 #+end_src
 * Zoom
 #+begin_src conf-space
