@@ -20,6 +20,8 @@
 #+begin_src conf-space
 set recolor true
 map <M-d> recolor
+map [presentation] <M-d> recolor
+map [fullscreen] <M-d> recolor
 #+end_src
 ** Clipboard
 Copy to clipboard
