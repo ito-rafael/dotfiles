@@ -18,6 +18,7 @@
   - [[#fit-to-page][Fit to Page]]
   - [[#width][Width]]
   - [[#dual-page][Dual Page]]
+  - [[#continuous--single-page][Continuous / Single Page]]
 - [[#zoom][Zoom]]
 
 * UI & Clipboard
@@ -72,6 +73,11 @@ map [normal] s adjust_window width
 Side-by-side.
 #+begin_src conf-space
 map [normal] D toggle_page_mode
+#+end_src
+** Continuous / Single Page
+Toggle between continuous scroll and snapped single-page view.
+#+begin_src conf-space
+map [normal] c toggle_single_page_mode
 #+end_src
 * Zoom
 #+begin_src conf-space
