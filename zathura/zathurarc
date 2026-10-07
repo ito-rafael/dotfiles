@@ -16,6 +16,9 @@ map [normal] I navigate previous
 map [normal] d scroll full-down
 map [normal] u scroll full-up
 
+map [normal] <C-e> scroll half-down
+map [normal] <C-i> scroll half-up
+
 
 map [normal] <C-+> zoom in
 map [normal] <C--> zoom out

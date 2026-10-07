@@ -13,6 +13,7 @@
   - [[#scroll][Scroll]]
   - [[#page-navigation][Page navigation]]
   - [[#full-page-downup][Full page down/up]]
+  - [[#half-page-downup][Half page down/up]]
 - [[#zoom][Zoom]]
 
 * UI & Clipboard
@@ -45,6 +46,11 @@ map [normal] I navigate previous
 #+begin_src conf-space
 map [normal] d scroll full-down
 map [normal] u scroll full-up
+#+end_src
+** Half page down/up
+#+begin_src conf-space
+map [normal] <C-e> scroll half-down
+map [normal] <C-i> scroll half-up
 #+end_src
 * Zoom
 #+begin_src conf-space
