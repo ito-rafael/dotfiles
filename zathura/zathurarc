@@ -13,6 +13,9 @@ map [normal] o scroll right
 map [normal] E navigate next
 map [normal] I navigate previous
 
+map [normal] d scroll full-down
+map [normal] u scroll full-up
+
 
 map [normal] <C-+> zoom in
 map [normal] <C--> zoom out
