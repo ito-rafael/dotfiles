@@ -31,6 +31,7 @@
     - [[#sci-hub][Sci-Hub]]
     - [[#zotero][Zotero]]
   - [[#misc][Misc]]
+    - [[#gemini-usage-monitor][Gemini Usage Monitor]]
     - [[#grammarly][Grammarly]]
     - [[#kde-connect][KDE Connect]]
     - [[#read-aloud][Read Aloud]]
@@ -215,6 +216,13 @@ Deprecated in favour of [[Surfingkeys]].
 <<install(extension_id="ekhagklcjbdpajgpjgmbionohlpdbjgc")>>
 #+end_src
 ** Misc
+*** Gemini Usage Monitor
+- Chrome Web Store: https://chromewebstore.google.com/detail/cdepnbhodggenlkdeelnocfckdendhad
+- Git repo: Proprietary / Closed Source
+- description: track Gemini 5h & 7d limits in real time.
+#+begin_src js :noweb yes
+<<install(extension_id="cdepnbhodggenlkdeelnocfckdendhad")>>
+#+end_src
 *** Grammarly
 - Chrome Web Store: https://chromewebstore.google.com/detail/kbfnbcaeplbcioakkpcpgfkobkghlhen
 - Git repo: Proprietary / Closed Source
