@@ -52,7 +52,8 @@
     - [[#youtube-playback-speed-control][+Youtube Playback Speed Control+]]
     - [[#return-youtube-dislike][Return YouTube Dislike]]
     - [[#sponsorblock][SponsorBlock]]
-    - [[#unhook][Unhook]]
+    - [[#unhook][+Unhook+]]
+    - [[#rys][RYS]]
     - [[#video-downloadhelper][Video DownloadHelper]]
     - [[#video-speed-controller][Video Speed Controller]]
     - [[#watch-on-odysee][Watch on Odysee]]
@@ -340,12 +341,21 @@ Deprecated due to security reasons. Some restrictions can simply be bypassed wit
 #+begin_src js :noweb yes
 <<install(extension_id="mnjggcdmjocbbbhaepdhchncahnbgone")>>
 #+end_src
-*** Unhook
+*** +Unhook+
+Deprecated in favour of [[RYS][RYS]].
 - Chrome Web Store: https://chromewebstore.google.com/detail/khncfooichmfjbepaaaebmommgaepoid
-- Git repo:
+- Git repo: deleted?
+- description: hide YouTube bloats.
+#+begin_src js :tangle no
+<<install(extension_id="khncfooichmfjbepaaaebmommgaepoid")>>
+#+end_src
+*** RYS
+Remove YouTube Suggestions.
+- Chrome Web Store: https://chromewebstore.google.com/detail/cdhdichomdnlaadbndgmagohccgpejae
+- Git repo: https://github.com/lawrencehook/remove-youtube-suggestions
 - description: hide YouTube bloats.
 #+begin_src js :noweb yes
-<<install(extension_id="khncfooichmfjbepaaaebmommgaepoid")>>
+<<install(extension_id="cdhdichomdnlaadbndgmagohccgpejae")>>
 #+end_src
 *** Video DownloadHelper
 - Chrome Web Store: https://chromewebstore.google.com/detail/lmjnegcaeklhafolokijcfjliaokphfk
