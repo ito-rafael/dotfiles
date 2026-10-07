@@ -31,7 +31,7 @@
     - [[#sci-hub][Sci-Hub]]
     - [[#zotero][Zotero]]
   - [[#misc][Misc]]
-    - [[#disable-javascript][Disable JavaScript]]
+    - [[#disable-javascript][+Disable JavaScript+]]
     - [[#grammarly][Grammarly]]
     - [[#xtranslate][XTranslate]]
     - [[#read-aloud][Read Aloud]]
@@ -214,12 +214,8 @@ https://chromewebstore.google.com/detail/consent-o-matic/mdjildafknihdffpkfmmpnp
 <<install(extension_id="ekhagklcjbdpajgpjgmbionohlpdbjgc")>>
 #+end_src
 ** Misc
-*** Disable JavaScript
-- link:
-- description:
-#+begin_src js :noweb yes :tangle no
-"",
-#+end_src
+*** +Disable JavaScript+
+Deprecated due to security reasons. Some restrictions can simply be bypassed with JavaScript via Surfingkeys, for example.
 *** Grammarly
 - Chrome Web Store: https://chromewebstore.google.com/detail/kbfnbcaeplbcioakkpcpgfkobkghlhen
 - Git repo: Proprietary / Closed Source
