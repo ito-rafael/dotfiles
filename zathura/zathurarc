@@ -37,5 +37,10 @@ map [presentation] d navigate next
 map [presentation] gg goto top
 map [presentation] G goto bottom
 
+map [normal] k search forward
+map [normal] K search backward
+map [presentation] k search forward
+map [presentation] K search backward
+
 map [normal] <C-+> zoom in
 map [normal] <C--> zoom out

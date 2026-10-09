@@ -23,6 +23,7 @@
   - [[#toggle][Toggle]]
   - [[#page-navigation-1][Page navigation]]
   - [[#startend-of-document][Start/end of document]]
+- [[#search][Search]]
 - [[#zoom][Zoom]]
 
 * UI & Clipboard
@@ -102,6 +103,13 @@ map [presentation] d navigate next
 #+begin_src conf-space
 map [presentation] gg goto top
 map [presentation] G goto bottom
+#+end_src
+* Search
+#+begin_src conf-space
+map [normal] k search forward
+map [normal] K search backward
+map [presentation] k search forward
+map [presentation] K search backward
 #+end_src
 * Zoom
 #+begin_src conf-space
