@@ -19,6 +19,8 @@
   - [[#width][Width]]
   - [[#dual-page][Dual Page]]
   - [[#continuous--single-page][Continuous / Single Page]]
+- [[#presentation-mode][Presentation mode]]
+  - [[#toggle][Toggle]]
 - [[#zoom][Zoom]]
 
 * UI & Clipboard
@@ -78,6 +80,12 @@ map [normal] D toggle_page_mode
 Toggle between continuous scroll and snapped single-page view.
 #+begin_src conf-space
 map [normal] c toggle_single_page_mode
+#+end_src
+* Presentation mode
+** Toggle
+#+begin_src conf-space
+map [normal] p toggle_presentation
+map [presentation] p toggle_presentation
 #+end_src
 * Zoom
 #+begin_src conf-space

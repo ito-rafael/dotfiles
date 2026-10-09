@@ -24,6 +24,9 @@ map [normal] s adjust_window width
 map [normal] D toggle_page_mode
 map [normal] c toggle_single_page_mode
 
+map [normal] p toggle_presentation
+map [presentation] p toggle_presentation
+
 
 map [normal] <C-+> zoom in
 map [normal] <C--> zoom out
