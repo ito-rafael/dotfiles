@@ -22,6 +22,7 @@
 - [[#presentation-mode][Presentation mode]]
   - [[#toggle][Toggle]]
   - [[#page-navigation-1][Page navigation]]
+  - [[#startend-of-document][Start/end of document]]
 - [[#zoom][Zoom]]
 
 * UI & Clipboard
@@ -96,6 +97,11 @@ map [presentation] u navigate previous
 map [presentation] e navigate next
 map [presentation] o navigate next
 map [presentation] d navigate next
+#+end_src
+** Start/end of document
+#+begin_src conf-space
+map [presentation] gg goto top
+map [presentation] G goto bottom
 #+end_src
 * Zoom
 #+begin_src conf-space

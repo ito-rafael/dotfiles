@@ -34,5 +34,8 @@ map [presentation] e navigate next
 map [presentation] o navigate next
 map [presentation] d navigate next
 
+map [presentation] gg goto top
+map [presentation] G goto bottom
+
 map [normal] <C-+> zoom in
 map [normal] <C--> zoom out
