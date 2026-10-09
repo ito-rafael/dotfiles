@@ -27,6 +27,12 @@ map [normal] c toggle_single_page_mode
 map [normal] p toggle_presentation
 map [presentation] p toggle_presentation
 
+map [presentation] n navigate previous
+map [presentation] i navigate previous
+map [presentation] u navigate previous
+map [presentation] e navigate next
+map [presentation] o navigate next
+map [presentation] d navigate next
 
 map [normal] <C-+> zoom in
 map [normal] <C--> zoom out

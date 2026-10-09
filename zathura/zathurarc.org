@@ -21,6 +21,7 @@
   - [[#continuous--single-page][Continuous / Single Page]]
 - [[#presentation-mode][Presentation mode]]
   - [[#toggle][Toggle]]
+  - [[#page-navigation-1][Page navigation]]
 - [[#zoom][Zoom]]
 
 * UI & Clipboard
@@ -86,6 +87,15 @@ map [normal] c toggle_single_page_mode
 #+begin_src conf-space
 map [normal] p toggle_presentation
 map [presentation] p toggle_presentation
+#+end_src
+** Page navigation
+#+begin_src conf-space
+map [presentation] n navigate previous
+map [presentation] i navigate previous
+map [presentation] u navigate previous
+map [presentation] e navigate next
+map [presentation] o navigate next
+map [presentation] d navigate next
 #+end_src
 * Zoom
 #+begin_src conf-space
