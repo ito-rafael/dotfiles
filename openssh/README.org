@@ -104,6 +104,7 @@ eval "$(ssh-agent -s)"
 Add the private key you want to be cached to the ssh-agent:
 #+begin_src bash
 ssh-add ~/.ssh/id_rsa
+ssh-add ~/.ssh/id_ed25519
 #+end_src
 ** Session-valid (ask passphrase only once)
 Installation:
