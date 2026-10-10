@@ -25,6 +25,8 @@
   - [[#startend-of-document][Start/end of document]]
 - [[#search][Search]]
 - [[#zoom][Zoom]]
+- [[#miscellaneous][Miscellaneous]]
+  - [[#table-of-contents][Table of Contents]]
 
 * UI & Clipboard
 ** Dark mode
@@ -116,4 +118,10 @@ map [presentation] K search backward
 map [normal] <C-+> zoom in
 map [normal] <C--> zoom out
 map [normal] = zoom 0
+#+end_src
+* Miscellaneous
+** Table of Contents
+Toggle the document index/table of contents.
+#+begin_src conf-space
+map [normal] <Tab> toggle_index
 #+end_src

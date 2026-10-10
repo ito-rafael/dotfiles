@@ -45,3 +45,5 @@ map [presentation] K search backward
 map [normal] <C-+> zoom in
 map [normal] <C--> zoom out
 map [normal] = zoom 0
+
+map [normal] <Tab> toggle_index
