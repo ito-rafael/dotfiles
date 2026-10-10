@@ -27,6 +27,7 @@
 - [[#zoom][Zoom]]
 - [[#miscellaneous][Miscellaneous]]
   - [[#table-of-contents][Table of Contents]]
+  - [[#link-hinting][Link Hinting]]
 
 * UI & Clipboard
 ** Dark mode
@@ -124,4 +125,9 @@ map [normal] = zoom 0
 Toggle the document index/table of contents.
 #+begin_src conf-space
 map [normal] <Tab> toggle_index
+#+end_src
+** Link Hinting
+Highlight and follow links using Vimium-style letters.
+#+begin_src conf-space
+map [normal] f follow
 #+end_src
