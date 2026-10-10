@@ -1,0 +1,192 @@
+#+TITLE: Scraper to fetch Restaurant Week options
+#+AUTHOR: Rafael Ito
+#+PROPERTY: header-args
+#+STARTUP: showeverything
+#+auto_tangle: t
+
+* Table of Contents :toc:
+- [[#script][Script]]
+
+* Script
+#+begin_src python :tangle scraper.py
+#!/usr/bin/env python
+import asyncio
+import os
+import subprocess
+import time
+from google import genai
+from google.genai import types
+from google.genai.errors import APIError
+from playwright.async_api import async_playwright
+
+# fetch the API key dynamically from password store ("pass")
+try:
+    api_key = (
+        subprocess.check_output(["pass", "show", "api/gemini"], text=True)
+        .strip()
+    )
+except Exception as e:
+    raise SystemExit(f"Failed to load API key from pass: {e}")
+
+client = genai.Client(api_key=api_key)
+
+ORG_FILE = "restaurant_week_campinas.org"
+BASE_URL = "https://eventos.restaurantweek.com.br/campinas"
+
+
+async def get_all_restaurant_urls(page):
+    """Navigates to main page and repeatedly clicks 'Carregar Mais'."""
+    print("Opening Restaurant Week Campinas...")
+    await page.goto(BASE_URL, wait_until="networkidle")
+
+    # wait for initial restaurant cards to render
+    await page.wait_for_selector("a[href*='/restaurante/']", timeout=10000)
+
+    while True:
+        try:
+            load_more = page.locator("text=/Carregar Mais|VER MAIS/i")
+            if await load_more.count() > 0 and await load_more.is_visible():
+                print("Clicking 'Carregar Mais'...")
+                await load_more.click()
+                await page.wait_for_timeout(2500)
+            else:
+                break
+        except Exception:
+            break
+
+    links = await page.eval_on_selector_all(
+        "a[href*='/restaurante/']",
+        "elements => elements.map(e => e.href)"
+    )
+    unique_links = list(set([l for l in links if l != BASE_URL]))
+    print(f"Found {len(unique_links)} unique restaurant links.")
+    return unique_links
+
+
+async def scrape_restaurant_details(context, url):
+    """Visits individual restaurant page, extracts lunch, clicks 'Jantar' tab, and extracts dinner."""
+    page = await context.new_page()
+    combined_text = ""
+
+    try:
+        await page.goto(url, wait_until="networkidle", timeout=20000)
+
+        # wait for single-page app javascript content to load into DOM
+        try:
+            await page.wait_for_selector("#yield div, .menu, text=/Menu RW|Almoço|Jantar/i", timeout=8000)
+        except Exception:
+            await page.wait_for_timeout(3000)
+
+        # 1. grab text from initial default tab (usually Almoço / Lunch)
+        lunch_text = await page.locator("body").inner_text()
+        combined_text += "=== LUNCH / DEFAULT MENU SECTION ===\n" + lunch_text + "\n\n"
+
+        # 2. locate the "Jantar" tab or button using clean locator methods
+        jantar_tab = page.get_by_text("Jantar", exact=True)
+        if await jantar_tab.count() == 0:
+            jantar_tab = page.get_by_role("button", name="Jantar")
+
+        if await jantar_tab.count() > 0 and await jantar_tab.first.is_visible():
+            print("   -> Found 'Jantar' tab, clicking to load Dinner menu...")
+            await jantar_tab.first.click()
+            await page.wait_for_timeout(2000)  # wait for SPA to re-render dinner content
+
+            dinner_text = await page.locator("body").inner_text()
+            combined_text += "=== DINNER MENU SECTION ===\n" + dinner_text
+        else:
+            print("   -> No 'Jantar' tab found (Lunch only or single menu).")
+
+        return combined_text
+
+    except Exception as e:
+        print(f"Error fetching {url}: {e}")
+        return None
+    finally:
+        await page.close()
+
+
+def parse_menu_with_gemini(raw_text):
+    """Uses Gemini to format combined lunch and dinner text into Org Mode."""
+    prompt = f"""
+    You are an expert data parser. Extract restaurant name and menu details from the webpage text below and output strictly in Emacs Org Mode format.
+
+    The input text contains raw page dumps from both the "Almoço" (Lunch) and "Jantar" (Dinner) tabs if available.
+
+    Required format:
+    ** Restaurant Name
+    *** Info:
+      - address: <Address>
+      - opening hours: <Hours>
+      - price: <Price info (include lunch and dinner prices if distinct)>
+    *** Food
+    - appetizer: <Appetizer items for Lunch and/or Dinner>
+    - main: <Main items for Lunch and/or Dinner>
+    - dessert lunch:
+      - <Lunch Dessert Item 1>
+    - dessert dinner:
+      - <Dinner Dessert Item 1>
+
+    Rules:
+    - Extract the ACTUAL restaurant name from the text (do not use "Restaurant Week").
+    - Explicitly include both Almoço and Jantar options in appetizers, mains, and desserts whenever present.
+    - If a meal type (e.g., Dinner) is missing or not served, write "N/A" or omit that sub-entry.
+    - Keep dish names and descriptions intact.
+    - Output ONLY the Org Mode formatted text, no markdown backticks or commentary.
+
+    Raw Text:
+    {raw_text[:15000]}
+    """
+
+    while True:
+        try:
+            response = client.models.generate_content(
+                model="gemini-3.5-flash-lite",
+                contents=prompt,
+                config=types.GenerateContentConfig(temperature=0.1)
+            )
+            return response.text.strip()
+        except APIError as e:
+            if e.code == 429:
+                print(" Rate limit hit (429). Waiting 20 seconds before retrying...")
+                time.sleep(20)
+            else:
+                raise e
+
+
+async def main():
+    async with async_playwright() as p:
+        browser = await p.chromium.launch(headless=False)
+        context = await browser.new_context()
+        page = await context.new_page()
+
+        urls = await get_all_restaurant_urls(page)
+
+        # test mode: process first 5 restaurants only
+        test_urls = urls[:5]
+        print(f"\n--- RUNNING TEST MODE ON {len(test_urls)} RESTAURANTS ---")
+
+        # initialize org file header
+        with open(ORG_FILE, "w", encoding="utf-8") as f:
+            f.write("#+TITLE: Restaurant Week Campinas Menus\n\n")
+
+        for idx, url in enumerate(test_urls, 1):
+            print(f"[{idx}/{len(test_urls)}] Scraping: {url}")
+            raw_text = await scrape_restaurant_details(context, url)
+
+            if raw_text:
+                org_entry = parse_menu_with_gemini(raw_text)
+                print(f"\nExtracted Output:\n{org_entry}\n{'-'*40}")
+
+                with open(ORG_FILE, "a", encoding="utf-8") as f:
+                    f.write(org_entry + "\n\n")
+
+            # pause 5 seconds to respect the 15 requests/minute free tier limit
+            await asyncio.sleep(5)
+
+        await browser.close()
+        print(f"\nDone! Saved entries to `{ORG_FILE}`.")
+
+if __name__ == "__main__":
+    asyncio.run(main())
+
+#+end_src
