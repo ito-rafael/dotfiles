@@ -5,8 +5,56 @@
 #+auto_tangle: t
 
 * Table of Contents :toc:
+- [[#information][Information]]
 - [[#script][Script]]
 
+* Information :noexport_1:
+** Create the Python venv
+#+begin_src sh
+ve agent
+#+end_src
+
+Where =ve= is a custom function set in ~/.config/zsh/zshrc:
+#+begin_src sh
+function ve() {
+    cd $HOME/venvs
+    python -m venv $1
+    cd $1
+    source bin/activate
+    pip install -U powerline-status
+}
+#+end_src
+** Activate the Python env
+#+begin_src sh
+va agent
+#+end_src
+
+Where =va= is a custom function set in ~/.config/zsh/zshrc:
+#+begin_src sh
+function va() {
+    cd $HOME/venvs/$1
+    source bin/activate
+}
+#+end_src
+** Install dependencies
+#+begin_src sh
+sudo pacman -S pass
+pip install browser-use langchain-google-genai playwright
+playwright install chromium
+#+end_src
+** Configure Google AI Studio API keys
+Create an API key, in case you don't have one yet:
+https://aistudio.google.com/api-keys
+
+In my script I'm using =pass show api/gemini= to fetch this API. For that, I store my API key with =pass= with this command:
+#+begin_src sh
+incognito echo "<YOUR-GOOGLE-AI-STUDIO-API-KEY>" | pass insert -e api/gemini
+#+end_src
+
+Where =incognito= is an alias defined in ~/.config/zsh/zshrc, so this command is not stored in the shell history:
+#+begin_src sh
+alias incognito=' unset HISTFILE &&'
+#+end_src
 * Script
 #+begin_src python :tangle scraper.py
 #!/usr/bin/env python
