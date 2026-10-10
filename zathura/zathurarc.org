@@ -28,6 +28,7 @@
 - [[#miscellaneous][Miscellaneous]]
   - [[#table-of-contents][Table of Contents]]
   - [[#link-hinting][Link Hinting]]
+  - [[#open-document][Open document]]
 
 * UI & Clipboard
 ** Dark mode
@@ -130,4 +131,9 @@ map [normal] <Tab> toggle_index
 Highlight and follow links using Vimium-style letters.
 #+begin_src conf-space
 map [normal] f follow
+#+end_src
+** Open document
+="o"= (open document) was overridden by ="scroll right"=.
+#+begin_src conf-space
+map [normal] h open
 #+end_src

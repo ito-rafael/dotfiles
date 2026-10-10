@@ -49,3 +49,5 @@ map [normal] = zoom 0
 map [normal] <Tab> toggle_index
 
 map [normal] f follow
+
+map [normal] h open
