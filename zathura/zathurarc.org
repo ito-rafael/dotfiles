@@ -115,4 +115,5 @@ map [presentation] K search backward
 #+begin_src conf-space
 map [normal] <C-+> zoom in
 map [normal] <C--> zoom out
+map [normal] = zoom 0
 #+end_src
