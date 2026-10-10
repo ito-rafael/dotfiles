@@ -81,6 +81,7 @@ input "4660:22136:xremap" {
 }
 input "9011:26214:ydotoold_virtual_device" {
     accel_profile flat
+    xkb_options "modifiers:modifiers,fnkeys:fnkeys,capslockled:decouple"
 }
 include /etc/sway/config.d/*
 exec echo 1 > /tmp/mouse_warping.tmp

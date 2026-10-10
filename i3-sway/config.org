@@ -210,6 +210,7 @@ Fix ydotool "half" resolution on =mousemove=.
 #+begin_src conf :noweb-ref sway-common
 input "9011:26214:ydotoold_virtual_device" {
     accel_profile flat
+    xkb_options "modifiers:modifiers,fnkeys:fnkeys,capslockled:decouple"
 }
 #+end_src
 * Window manager
