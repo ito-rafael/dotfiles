@@ -51,3 +51,6 @@ map [normal] <Tab> toggle_index
 map [normal] f follow
 
 map [normal] h open
+
+map [normal] m mark_add
+map [normal] ' mark_evaluate

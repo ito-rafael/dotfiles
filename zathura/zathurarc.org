@@ -29,6 +29,7 @@
   - [[#table-of-contents][Table of Contents]]
   - [[#link-hinting][Link Hinting]]
   - [[#open-document][Open document]]
+  - [[#marks][Marks]]
 
 * UI & Clipboard
 ** Dark mode
@@ -136,4 +137,10 @@ map [normal] f follow
 ="o"= (open document) was overridden by ="scroll right"=.
 #+begin_src conf-space
 map [normal] h open
+#+end_src
+** Marks
+Drop a mark (m + letter) and jump to a mark (' + letter).
+#+begin_src conf-space
+map [normal] m mark_add
+map [normal] ' mark_evaluate
 #+end_src
