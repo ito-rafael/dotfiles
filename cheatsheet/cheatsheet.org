@@ -1050,6 +1050,19 @@ tcpdump -i any port <PORT-NUMBER> -n
 #+begin_src shell
 curl http://<IP-ADDRESS>:<PORT-NUMBER>/health
 #+end_src
+* OpenRGB
+** Server
+*** Install
+Debian/Ubuntu:
+#+begin_src shell
+sudo apt install openrgb i2c-tools
+#+end_src
+** Client
+*** Install
+Arch Linux:
+#+begin_src shell
+sudo pacman -S openrgb
+#+end_src
 * pass :noexport_1:
 Password manager.
 ** Installation
