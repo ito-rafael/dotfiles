@@ -90,6 +90,16 @@ sudo liquidctl --match Kraken set lcd screen liquid
 sudo liquidctl --match Kraken set lcd screen brightness <value>
 sudo liquidctl --match Kraken set lcd screen orientation (0|90|180|270)
 #+end_src
+*** Media
+**** Image
+PNG, JPG, BMP. Resolution 240×240.
+#+begin_src sh
+sudo liquidctl --match Kraken set lcd screen static /path/to/image.png
+#+end_src
+**** GIF
+#+begin_src sh
+sudo liquidctl --match Kraken set lcd screen gif /path/to/animation.gif
+#+end_src
 * Docker :noexport_1:
 ** Copy container from machine A to machine B
 *** Method 1
