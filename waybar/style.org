@@ -1595,6 +1595,8 @@ box#monitoring {
 #+begin_src css
 #cpu,
 #temperature.cpu,
+#gpu,
+#temperature.gpu,
 #memory,
 #disk {
     padding-right: 5px;
@@ -1604,6 +1606,7 @@ box#monitoring {
 *** Hover
 #+begin_src css
 #cpu:hover,
+#gpu:hover,
 #memory:hover,
 #disk:hover {
     background-color: rgba(128, 128, 128, 0.5);
@@ -1613,6 +1616,7 @@ box#monitoring {
 *** Separator
 #+begin_src css
 #cpu #temperature.cpu,
+#gpu #temperature.gpu,
 #memory {
     border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -1624,25 +1628,37 @@ box#monitoring {
     border-bottom-left-radius: 10px;
 }
 #+end_src
+** GPU
 #+begin_src css
+#gpu #custom-gpu {
+    padding-bottom: 1px;
+}
+#+end_src
+*** Usage
+#+begin_src css
+#custom#gpu {
+    padding-bottom: 4px;
 }
 #+end_src
 ** Temperature :noexport_1:
 *** Normal
 #+begin_src css
 #temperature.cpu,
+#temperature.gpu {
     padding-top: 4px;
 }
 #+end_src
 *** Warning
 #+begin_src css
 #temperature.cpu.warning,
+#temperature.gpu.warning {
     background-color: yellow;
 }
 #+end_src
 *** Critical
 #+begin_src css
 #temperature.cpu.critical,
+#temperature.gpu.critical {
     background-color: #eb4d4b;
 }
 #+end_src

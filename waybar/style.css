@@ -1072,6 +1072,8 @@ box#monitoring {
 
 #cpu,
 #temperature.cpu,
+#gpu,
+#temperature.gpu,
 #memory,
 #disk {
     padding-right: 5px;
@@ -1079,6 +1081,7 @@ box#monitoring {
 }
 
 #cpu:hover,
+#gpu:hover,
 #memory:hover,
 #disk:hover {
     background-color: rgba(128, 128, 128, 0.5);
@@ -1086,6 +1089,7 @@ box#monitoring {
 }
 
 #cpu #temperature.cpu,
+#gpu #temperature.gpu,
 #memory {
     border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -1095,17 +1099,26 @@ box#monitoring {
     border-bottom-left-radius: 10px;
 }
 
+#gpu #custom-gpu {
+    padding-bottom: 1px;
+}
+
+#custom#gpu {
+    padding-bottom: 4px;
 }
 
 #temperature.cpu,
+#temperature.gpu {
     padding-top: 4px;
 }
 
 #temperature.cpu.warning,
+#temperature.gpu.warning {
     background-color: yellow;
 }
 
 #temperature.cpu.critical,
+#temperature.gpu.critical {
     background-color: #eb4d4b;
 }
 
