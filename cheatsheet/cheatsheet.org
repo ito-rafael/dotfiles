@@ -84,6 +84,12 @@ sudo liquidctl initialize all
 sudo liquidctl list
 liquidctl status
 #+end_src
+*** Commands
+#+begin_src sh
+sudo liquidctl --match Kraken set lcd screen liquid
+sudo liquidctl --match Kraken set lcd screen brightness <value>
+sudo liquidctl --match Kraken set lcd screen orientation (0|90|180|270)
+#+end_src
 * Docker :noexport_1:
 ** Copy container from machine A to machine B
 *** Method 1
