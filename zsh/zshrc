@@ -659,6 +659,13 @@ zvm_vi_yank () {
 #    zvm_exit_visual_mode
 #}
 
+# "s" replaces Vim's "i". Use ZVM's own mode functions instead of zsh's raw
+# "vi-insert", so ZVM_MODE stays in sync with the keymap.
+vi-insert-zvm()        { zvm_enter_insert_mode i }
+vi-insert-visual-zvm() { zvm_exit_visual_mode false; zvm_enter_insert_mode i }
+zle -N vi-insert-zvm
+zle -N vi-insert-visual-zvm
+
 zvm_after_lazy_keybindings_commands+=(
     # navigation: commnd
     "bindkey -M vicmd 'n' vi-backward-char"
@@ -676,10 +683,10 @@ zvm_after_lazy_keybindings_commands+=(
     "bindkey -M vicmd 'L' vi-forward-blank-word-end"
     "bindkey -M visual 'L' vi-forward-blank-word-end"
 
-    # insert mode
-    "bindkey -M vicmd 's' vi-insert"
-    "bindkey -M vicmd 'S' vi-insert-bol"
-    "bindkey -M visual 's' vi-insert"
+    # insert mode (ZVM-aware, not raw vi-insert / vi-insert-bol)
+    "bindkey -M vicmd 's' vi-insert-zvm"
+    "bindkey -M vicmd 'S' zvm_insert_bol"
+    "bindkey -M visual 's' vi-insert-visual-zvm"
 
     # search next
     "bindkey -M vicmd 'k' vi-repeat-search"
