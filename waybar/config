@@ -229,7 +229,7 @@
     //"format": " {used:0.1f} / {total:0.1f} GiB".
 },
 
-"temperature": {
+"temperature#cpu": {
     "hwmon-path": [
         "/sys/class/hwmon/hwmon2/temp1_input",
         "/sys/devices/platform/coretemp.0/hwmon/temp1_input",
@@ -240,6 +240,15 @@
     "format": "<span color='#f9e2af'>{icon}</span> {temperatureC}°C",
     "format-icons": ["", "", ""],
     "interval": 1,
+},
+
+"temperature#gpu": {
+    "hwmon-path-abs": "/sys/bus/pci/devices/0000:08:00.0/hwmon/",
+    "input-filename": "temp1_input",
+    "critical-threshold": 85,
+    "format": "󰢮 {temperatureC}°C",
+    "format-critical": "󰢮 {temperatureC}°C",
+    "interval": 5
 },
 
 "disk": {

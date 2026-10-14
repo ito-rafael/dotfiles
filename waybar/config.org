@@ -331,9 +331,9 @@ Use by =kanshi= to setup output profiles.
 | hwmon name | coretemp                            |
 | hwmon path | /sys/class/hwmon/hwmon6/temp1_input |
 |------------+-------------------------------------|
-*** Template
+*** CPU
 #+begin_src js
-"temperature": {
+"temperature#cpu": {
     "hwmon-path": [
         "/sys/class/hwmon/hwmon2/temp1_input",
         "/sys/devices/platform/coretemp.0/hwmon/temp1_input",
@@ -344,6 +344,17 @@ Use by =kanshi= to setup output profiles.
     "format": "<span color='#f9e2af'>{icon}</span> {temperatureC}°C",
     "format-icons": ["", "", ""],
     "interval": 1,
+},
+#+end_src
+*** GPU
+#+begin_src js
+"temperature#gpu": {
+    "hwmon-path-abs": "/sys/bus/pci/devices/0000:08:00.0/hwmon/",
+    "input-filename": "temp1_input",
+    "critical-threshold": 85,
+    "format": "󰢮 {temperatureC}°C",
+    "format-critical": "󰢮 {temperatureC}°C",
+    "interval": 5
 },
 #+end_src
 ** Disk
