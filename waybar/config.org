@@ -2,7 +2,7 @@
 #+author: Rafael Ito
 #+property: header-args :tangle ./config
 #+description: Waybar configuration
-#+startup: showeverything
+#+startup: showeverything latexpreview
 #+auto_tangle: t
 
 * Table of contents :toc_1:
