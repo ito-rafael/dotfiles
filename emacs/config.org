@@ -774,6 +774,7 @@ https://github.com/seagle0128/doom-modeline
   (org-ellipsis " ▾")                   ;; set icon when section is folded (outline-hide-body)
   (org-edit-src-content-indentation 0)  ;; set indentation of source code block to zero
   (org-src-preserve-indentation t)      ;; preserve intentation on export
+  (org-startup-with-latex-preview t)    ;; LaTeX preview
   :config
   ;; prettify checkboxes
   ;; source: https://jft.home.blog/2019/07/17/use-unicode-symbol-to-display-org-mode-checkboxes/
