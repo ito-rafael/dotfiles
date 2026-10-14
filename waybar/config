@@ -244,12 +244,27 @@
     "interval": 1
 },
 
+"group/gpu": {
+    "orientation": "inherit",
+    "modules": [
+        "custom/gpu",
+        "temperature#gpu",
+    ]
+},
+
+"custom/gpu": {
+    "exec": "sensors -j | jq -r '.\"nouveau-pci-0800\".power1.power1_input as $p | 15 as $idle | 150 as $max | (($p - $idle) / ($max - $idle) * 100) | if . < 0 then 0 elif . > 100 then 100 else . end | round'",
+    "format": "<span color='#a6e3a1' size='140%'>󰢮</span>   {}% ",
+    "interval": 2,
+    "tooltip": false
+},
+
 "temperature#gpu": {
     "hwmon-path-abs": "/sys/bus/pci/devices/0000:08:00.0/hwmon/",
     "input-filename": "temp1_input",
     "critical-threshold": 85,
-    "format": "󰢮 {temperatureC}°C",
-    "format-critical": "󰢮 {temperatureC}°C",
+    "format-critical": "{temperatureC}°C",
+    "format": "{temperatureC}°C",
     "interval": 5
 },
 

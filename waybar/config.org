@@ -292,6 +292,7 @@ Use by =kanshi= to setup output profiles.
   "orientation": "inherit",
   "modules": [
     "group/cpu",
+    "group/gpu",
     "memory",
     "disk",
   ]
@@ -345,14 +346,45 @@ Use by =kanshi= to setup output profiles.
     "interval": 1
 },
 #+end_src
-*** GPU
+** GPU
+*** Group
+#+begin_src js
+"group/gpu": {
+    "orientation": "inherit",
+    "modules": [
+        "custom/gpu",
+        "temperature#gpu",
+    ]
+},
+#+end_src
+*** Usage
+#+begin_src js
+"custom/gpu": {
+    "exec": "sensors -j | jq -r '.\"nouveau-pci-0800\".power1.power1_input as $p | 15 as $idle | 150 as $max | (($p - $idle) / ($max - $idle) * 100) | if . < 0 then 0 elif . > 100 then 100 else . end | round'",
+    "format": "<span color='#a6e3a1' size='140%'>󰢮</span>   {}% ",
+    "interval": 2,
+    "tooltip": false
+},
+#+end_src
+- LBiC's catuaba
+|-----------------+-----------------------------------------|
+|                 | LBiC's catuaba                          |
+|-----------------+-----------------------------------------|
+| GPU             | NVIDIA GeForce GTX 660 Ti               |
+| Power Idle      | ~15 W                                   |
+| Power Max (TDP) | 150 W                                   |
+| hwmon path      | /sys/bus/pci/devices/0000:08:00.0/hwmon |
+|-----------------+-----------------------------------------|
+The =nouveau= driver does not provide GPU utilization metric. For that, we use this approximation based on the power consumption:
+$$\text{Usage } \% = \left( \frac{P_{\text{current}} - P_{\text{idle}}}{P_{\text{max}} - P_{\text{idle}}} \right) \times 100$$
+*** Temperature
 #+begin_src js
 "temperature#gpu": {
     "hwmon-path-abs": "/sys/bus/pci/devices/0000:08:00.0/hwmon/",
     "input-filename": "temp1_input",
     "critical-threshold": 85,
-    "format": "󰢮 {temperatureC}°C",
-    "format-critical": "󰢮 {temperatureC}°C",
+    "format-critical": "{temperatureC}°C",
+    "format": "{temperatureC}°C",
     "interval": 5
 },
 #+end_src
