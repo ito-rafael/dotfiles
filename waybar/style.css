@@ -37,7 +37,8 @@ window#waybar.chromium {
     border: none;
 }
 
-#mode {
+#mode,
+#submap {
     background-color: #64727D;
     border-radius: 10px;
     padding-left: 10px;
@@ -93,7 +94,8 @@ window#waybar.chromium {
     box-shadow: inset 0 -3px #ffffff;
 }
 
-#workspaces button.focused {
+#workspaces button.focused,
+#workspaces button.active {
     background-color: lightgray;
     color: #000000;
     border-radius: 10px;
