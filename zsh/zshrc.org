@@ -186,6 +186,8 @@ fi
 ** Source Oh My Zsh
 #+begin_src sh
 source $ZSH/oh-my-zsh.sh
+# Oh My Zsh runs "bindkey -e" (emacs); switch back to vi before the first prompt so Powerline's mode segment doesn't read "emacs" until ZVM's lazy init
+bindkey -v
 #+end_src
 * User config
 #+begin_src sh

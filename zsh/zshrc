@@ -68,6 +68,8 @@ if [[ "$TERM" == "dumb" ]]; then
 fi
 
 source $ZSH/oh-my-zsh.sh
+# Oh My Zsh runs "bindkey -e" (emacs); switch back to vi before the first prompt so Powerline's mode segment doesn't read "emacs" until ZVM's lazy init
+bindkey -v
 
 # User configuration
 
