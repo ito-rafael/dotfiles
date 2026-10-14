@@ -78,6 +78,12 @@ https://github.com/liquidctl/liquidctl
 #+begin_src sh
 sudo pacman -S liquidctl
 #+end_src
+*** Start
+#+begin_src sh
+sudo liquidctl initialize all
+sudo liquidctl list
+liquidctl status
+#+end_src
 * Docker :noexport_1:
 ** Copy container from machine A to machine B
 *** Method 1
