@@ -5,6 +5,7 @@
 
 * Table of contents :toc_1:
 - [[#2-in-1][2-in-1]]
+- [[#aio-display][AIO display]]
 - [[#docker][Docker]]
 - [[#emacs][Emacs]]
 - [[#ffmpeg][FFmpeg]]
@@ -13,6 +14,7 @@
 - [[#informant][Informant]]
 - [[#gpu][GPU]]
 - [[#networking][Networking]]
+- [[#openrgb][OpenRGB]]
 - [[#pass][pass]]
 - [[#pdf][PDF]]
 - [[#pdfpc][pdfpc]]
@@ -68,6 +70,13 @@ paru -S rot8-git
 Run =rot8=, optionally passing the display name with the =--display= flag.
 #+begin_src sh
 rot8 --display eDP-1
+#+end_src
+* AIO display
+** liquidctl
+https://github.com/liquidctl/liquidctl
+*** Install
+#+begin_src sh
+sudo pacman -S liquidctl
 #+end_src
 * Docker :noexport_1:
 ** Copy container from machine A to machine B
