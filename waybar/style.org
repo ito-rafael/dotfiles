@@ -1594,8 +1594,8 @@ box#monitoring {
 *** Modules
 #+begin_src css
 #cpu,
+#temperature.cpu,
 #memory,
-#temperature,
 #disk {
     padding-right: 5px;
     padding-left: 5px;
@@ -1605,7 +1605,6 @@ box#monitoring {
 #+begin_src css
 #cpu:hover,
 #memory:hover,
-#temperature:hover,
 #disk:hover {
     background-color: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
@@ -1613,43 +1612,44 @@ box#monitoring {
 #+end_src
 *** Separator
 #+begin_src css
-#cpu,
-#memory,
-#temperature {
+#cpu #temperature.cpu,
+#memory {
     border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
 #+end_src
 ** CPU
-*** Hover
 #+begin_src css
-#cpu:hover {
+#cpu {
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
+}
+#+end_src
+#+begin_src css
+}
+#+end_src
+** Temperature :noexport_1:
+*** Normal
+#+begin_src css
+#temperature.cpu,
+    padding-top: 4px;
+}
+#+end_src
+*** Warning
+#+begin_src css
+#temperature.cpu.warning,
+    background-color: yellow;
+}
+#+end_src
+*** Critical
+#+begin_src css
+#temperature.cpu.critical,
+    background-color: #eb4d4b;
 }
 #+end_src
 ** Memory
 #+begin_src css
 #memory {
     padding-top: 1px;
-}
-#+end_src
-** Temperature :noexport_1:
-*** Normal
-#+begin_src css
-#temperature {
-    padding-top: 1px;
-}
-#+end_src
-*** Warning
-#+begin_src css
-#temperature.warning {
-    background-color: yellow;
-}
-#+end_src
-*** Critical
-#+begin_src css
-#temperature.critical {
-    background-color: #eb4d4b;
 }
 #+end_src
 ** Disk

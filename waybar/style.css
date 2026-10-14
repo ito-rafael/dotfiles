@@ -1071,8 +1071,8 @@ box#monitoring {
 }
 
 #cpu,
+#temperature.cpu,
 #memory,
-#temperature,
 #disk {
     padding-right: 5px;
     padding-left: 5px;
@@ -1080,37 +1080,37 @@ box#monitoring {
 
 #cpu:hover,
 #memory:hover,
-#temperature:hover,
 #disk:hover {
     background-color: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
 }
 
-#cpu,
-#memory,
-#temperature {
+#cpu #temperature.cpu,
+#memory {
     border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-#cpu:hover {
+#cpu {
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
 }
 
-#memory {
-    padding-top: 1px;
 }
 
-#temperature {
-    padding-top: 1px;
+#temperature.cpu,
+    padding-top: 4px;
 }
 
-#temperature.warning {
+#temperature.cpu.warning,
     background-color: yellow;
 }
 
-#temperature.critical {
+#temperature.cpu.critical,
     background-color: #eb4d4b;
+}
+
+#memory {
+    padding-top: 1px;
 }
 
 #disk {
