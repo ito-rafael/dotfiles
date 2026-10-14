@@ -212,21 +212,24 @@
 "group/monitoring": {
   "orientation": "inherit",
   "modules": [
-    "cpu",
+    "group/cpu",
+    "group/gpu",
     "memory",
-    "temperature",
     "disk",
   ]
+},
+
+"group/cpu": {
+    "orientation": "inherit",
+    "modules": [
+        "cpu",
+        "temperature#cpu",
+    ]
 },
 
 "cpu": {
     "format": "<span color='#89b4fa'></span>\u2002 {usage}%",
     "tooltip": false
-},
-
-"memory": {
-    "format": "<span color='#a6e3a1'></span> {used:0.1f} GiB",
-    //"format": " {used:0.1f} / {total:0.1f} GiB".
 },
 
 "temperature#cpu": {
@@ -236,10 +239,9 @@
         "/sys/class/thermal/thermal_zone0/temp"
     ],
     "critical-threshold": 80,
-    "format-critical": "<span color='#f9e2af'>{icon}</span> {temperatureC}°C",
-    "format": "<span color='#f9e2af'>{icon}</span> {temperatureC}°C",
-    "format-icons": ["", "", ""],
-    "interval": 1,
+    "format-critical": "{temperatureC}°C",
+    "format": "{temperatureC}°C",
+    "interval": 1
 },
 
 "temperature#gpu": {
@@ -249,6 +251,11 @@
     "format": "󰢮 {temperatureC}°C",
     "format-critical": "󰢮 {temperatureC}°C",
     "interval": 5
+},
+
+"memory": {
+    "format": "<span color='#f9e2af'></span> {used:0.1f} GiB",
+    //"format": " {used:0.1f} / {total:0.1f} GiB".
 },
 
 "disk": {

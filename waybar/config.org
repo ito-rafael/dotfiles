@@ -291,39 +291,40 @@ Use by =kanshi= to setup output profiles.
 "group/monitoring": {
   "orientation": "inherit",
   "modules": [
-    "cpu",
+    "group/cpu",
     "memory",
-    "temperature",
     "disk",
   ]
 },
 #+end_src
 ** CPU
+*** Group
+#+begin_src js
+"group/cpu": {
+    "orientation": "inherit",
+    "modules": [
+        "cpu",
+        "temperature#cpu",
+    ]
+},
+#+end_src
+*** Usage
 #+begin_src js
 "cpu": {
     "format": "<span color='#89b4fa'></span>\u2002 {usage}%",
     "tooltip": false
 },
 #+end_src
-** Memory
-#+begin_src js
-"memory": {
-    "format": "<span color='#a6e3a1'></span> {used:0.1f} GiB",
-    //"format": " {used:0.1f} / {total:0.1f} GiB".
-},
-#+end_src
-** Temperature
-*** Devices
-**** LBiC's catuaba
-|------------+-------------------------------------|
-|            | LBiC's catuaba                      |
-|------------+-------------------------------------|
-| CPU        | AMD Ryzen 9 3900X                   |
-| GPU        | NVIDIA GeForce GTX 660 Ti           |
-| hwmon name | k10temp                             |
-| hwmon path | /sys/class/hwmon/hwmon2/temp1_input |
-|------------+-------------------------------------|
-**** IdeaPad Flex 5i
+*** Temperature
+- LBiC's catuaba
+|------------+-----------------------------------------|
+|            | LBiC's catuaba                          |
+|------------+-----------------------------------------|
+| CPU        | AMD Ryzen 9 3900X                       |
+| hwmon name | k10temp                                 |
+| hwmon path | /sys/class/hwmon/hwmon2/temp1_input     |
+|------------+-----------------------------------------|
+- IdeaPad Flex 5i
 |------------+-------------------------------------|
 |            | IdeaPad Flex 5i                     |
 |------------+-------------------------------------|
@@ -331,7 +332,6 @@ Use by =kanshi= to setup output profiles.
 | hwmon name | coretemp                            |
 | hwmon path | /sys/class/hwmon/hwmon6/temp1_input |
 |------------+-------------------------------------|
-*** CPU
 #+begin_src js
 "temperature#cpu": {
     "hwmon-path": [
@@ -340,10 +340,9 @@ Use by =kanshi= to setup output profiles.
         "/sys/class/thermal/thermal_zone0/temp"
     ],
     "critical-threshold": 80,
-    "format-critical": "<span color='#f9e2af'>{icon}</span> {temperatureC}°C",
-    "format": "<span color='#f9e2af'>{icon}</span> {temperatureC}°C",
-    "format-icons": ["", "", ""],
-    "interval": 1,
+    "format-critical": "{temperatureC}°C",
+    "format": "{temperatureC}°C",
+    "interval": 1
 },
 #+end_src
 *** GPU
@@ -355,6 +354,13 @@ Use by =kanshi= to setup output profiles.
     "format": "󰢮 {temperatureC}°C",
     "format-critical": "󰢮 {temperatureC}°C",
     "interval": 5
+},
+#+end_src
+** Memory
+#+begin_src js
+"memory": {
+    "format": "<span color='#f9e2af'></span> {used:0.1f} GiB",
+    //"format": " {used:0.1f} / {total:0.1f} GiB".
 },
 #+end_src
 ** Disk
