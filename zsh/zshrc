@@ -626,8 +626,8 @@ zvm_after_init_commands+=(
 
 bindkey "^[[A" history-substring-search-up
 bindkey "^[[B" history-substring-search-down
-bindkey "^E" history-substring-search-down
-bindkey "^I" history-substring-search-up
+bindkey "^[e" history-substring-search-down
+bindkey "^[i" history-substring-search-up
 
 # fix: workaround for history-substring-search to work with zsh-vi-mode
 zvm_after_init_commands+=(
