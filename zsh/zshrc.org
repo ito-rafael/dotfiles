@@ -573,7 +573,7 @@ REMOTE="lbic"
 #+end_src
 *** Reload config files
 #+begin_src sh
-alias {rzz,rz}='source $XDG_CONFIG_HOME/zsh/.zshrc'
+alias {rzz,rz}='exec zsh'
 alias {rii,ri}='$XDG_CONFIG_HOME/i3/i3bang.rb && i3-msg restart'
 alias {rii,ri}='$XDG_CONFIG_HOME/sway/i3bang.rb && swaymsg reload'
 alias {rww,rw}='rm -rf $XDG_CACHE_HOME/wasistlos'
