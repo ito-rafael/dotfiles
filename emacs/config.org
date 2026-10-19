@@ -1369,6 +1369,7 @@ https://github.com/noctuid/general.el
     "m r" '(hydra-window-resize/body :wk "resize window")
     "m s" '(dired-do-symlink         :wk "create symlink")
     "m t" '(hydra-text-scale/body    :wk "scale text")
+    "m y" '(lambda () (interactive) (kill-new (buffer-file-name)) (message "Copied: %s" (buffer-file-name)) :wk "copy file path")
   )
 #+end_src
 ** n --> navigate
