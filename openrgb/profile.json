@@ -1,0 +1,720 @@
+{
+  "controllers": [
+    {
+      "active_mode": 0,
+      "colors": [
+        10706441,
+        6107904,
+        2951513,
+        3017051,
+        9588736,
+        0,
+        0,
+        5968822,
+        787968,
+        4269056,
+        6238108,
+        1116188,
+        0,
+        9064913,
+        4991237,
+        0,
+        5445788,
+        262407,
+        262656,
+        6042368,
+        4788114,
+        0,
+        0,
+        11953153,
+        393484,
+        2754644,
+        11957283,
+        1839622,
+        0,
+        13340226,
+        2426697,
+        0,
+        10246665,
+        459776,
+        131076,
+        3017052,
+        7946752,
+        5845248,
+        2951513,
+        5968822
+      ],
+      "description": "Virtual controller provided by the OpenRGB Visual Map Plugin",
+      "display_name": "",
+      "flags": 0,
+      "leds": [
+        {
+          "name": "Corsair RAM LED 0"
+        },
+        {
+          "name": "Corsair RAM LED 0"
+        },
+        {
+          "name": "Corsair RAM LED 0"
+        },
+        {
+          "name": "Corsair RAM LED 0"
+        },
+        {
+          "name": "Corsair RAM LED 1"
+        },
+        {
+          "name": "Corsair RAM LED 1"
+        },
+        {
+          "name": "Corsair RAM LED 1"
+        },
+        {
+          "name": "Corsair RAM LED 1"
+        },
+        {
+          "name": "Corsair RAM LED 2"
+        },
+        {
+          "name": "Corsair RAM LED 2"
+        },
+        {
+          "name": "Corsair RAM LED 2"
+        },
+        {
+          "name": "Corsair RAM LED 2"
+        },
+        {
+          "name": "Corsair RAM LED 3"
+        },
+        {
+          "name": "Corsair RAM LED 3"
+        },
+        {
+          "name": "Corsair RAM LED 3"
+        },
+        {
+          "name": "Corsair RAM LED 3"
+        },
+        {
+          "name": "Corsair RAM LED 4"
+        },
+        {
+          "name": "Corsair RAM LED 4"
+        },
+        {
+          "name": "Corsair RAM LED 4"
+        },
+        {
+          "name": "Corsair RAM LED 4"
+        },
+        {
+          "name": "Corsair RAM LED 5"
+        },
+        {
+          "name": "Corsair RAM LED 5"
+        },
+        {
+          "name": "Corsair RAM LED 5"
+        },
+        {
+          "name": "Corsair RAM LED 5"
+        },
+        {
+          "name": "Corsair RAM LED 6"
+        },
+        {
+          "name": "Corsair RAM LED 6"
+        },
+        {
+          "name": "Corsair RAM LED 6"
+        },
+        {
+          "name": "Corsair RAM LED 6"
+        },
+        {
+          "name": "Corsair RAM LED 7"
+        },
+        {
+          "name": "Corsair RAM LED 7"
+        },
+        {
+          "name": "Corsair RAM LED 7"
+        },
+        {
+          "name": "Corsair RAM LED 7"
+        },
+        {
+          "name": "Corsair RAM LED 8"
+        },
+        {
+          "name": "Corsair RAM LED 8"
+        },
+        {
+          "name": "Corsair RAM LED 8"
+        },
+        {
+          "name": "Corsair RAM LED 8"
+        },
+        {
+          "name": "Corsair RAM LED 9"
+        },
+        {
+          "name": "Corsair RAM LED 9"
+        },
+        {
+          "name": "Corsair RAM LED 9"
+        },
+        {
+          "name": "Corsair RAM LED 9"
+        }
+      ],
+      "location": "Somewhere over the rainbow",
+      "modes": [
+        {
+          "brightness": 100,
+          "brightness_max": 100,
+          "brightness_min": 0,
+          "color_mode": 1,
+          "colors_max": 0,
+          "colors_min": 0,
+          "direction": 0,
+          "flags": 48,
+          "name": "Direct",
+          "speed": 0,
+          "speed_max": 0,
+          "speed_min": 0
+        }
+      ],
+      "name": "corsair_vengeance",
+      "serial": "VISUAL_MAP_VISUAL_CONTROLLER_SERIAL",
+      "type": 13,
+      "vendor": "OpenRGB Visual Map Plugin",
+      "version": "1.0",
+      "zones": [
+        {
+          "display_name": "",
+          "flags": 0,
+          "leds_count": 40,
+          "leds_max": 40,
+          "leds_min": 40,
+          "matrix_map": {
+            "height": 10,
+            "map": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36,
+              37,
+              38,
+              39
+            ],
+            "width": 4
+          },
+          "name": "Virtual Zone",
+          "type": 2
+        }
+      ]
+    },
+    {
+      "active_mode": 0,
+      "colors": [
+        10706441,
+        9588736,
+        787968,
+        0,
+        5445788,
+        4788114,
+        393484,
+        0,
+        10246665,
+        7946752,
+        0,
+        0
+      ],
+      "description": "Corsair RAM RGB Device",
+      "display_name": "",
+      "flags": 2,
+      "leds": [
+        {
+          "name": "Corsair RAM LED 0"
+        },
+        {
+          "name": "Corsair RAM LED 1"
+        },
+        {
+          "name": "Corsair RAM LED 2"
+        },
+        {
+          "name": "Corsair RAM LED 3"
+        },
+        {
+          "name": "Corsair RAM LED 4"
+        },
+        {
+          "name": "Corsair RAM LED 5"
+        },
+        {
+          "name": "Corsair RAM LED 6"
+        },
+        {
+          "name": "Corsair RAM LED 7"
+        },
+        {
+          "name": "Corsair RAM LED 8"
+        },
+        {
+          "name": "Corsair RAM LED 9"
+        },
+        {
+          "name": "Corsair RAM LED 10"
+        },
+        {
+          "name": "Corsair RAM LED 11"
+        }
+      ],
+      "location": "I2C: /dev/i2c-1, address 0x18",
+      "modes": [
+        {
+          "brightness": 0,
+          "brightness_max": 0,
+          "brightness_min": 0,
+          "color_mode": 1,
+          "colors_max": 0,
+          "colors_min": 0,
+          "direction": 0,
+          "flags": 32,
+          "name": "Direct",
+          "speed": 0,
+          "speed_max": 0,
+          "speed_min": 0
+        }
+      ],
+      "name": "Corsair Dominator Platinum",
+      "serial": "",
+      "type": 1,
+      "vendor": "Corsair",
+      "version": "",
+      "zones": [
+        {
+          "display_name": "",
+          "flags": 4096,
+          "leds_count": 12,
+          "leds_max": 12,
+          "leds_min": 12,
+          "matrix_map": {
+            "height": 0,
+            "width": 0
+          },
+          "name": "Corsair RAM Zone",
+          "type": 1
+        }
+      ]
+    },
+    {
+      "active_mode": 0,
+      "colors": [
+        6107904,
+        0,
+        4269056,
+        9064913,
+        262407,
+        0,
+        2754644,
+        13340226,
+        459776,
+        5845248,
+        0,
+        0
+      ],
+      "description": "Corsair RAM RGB Device",
+      "display_name": "",
+      "flags": 2,
+      "leds": [
+        {
+          "name": "Corsair RAM LED 0"
+        },
+        {
+          "name": "Corsair RAM LED 1"
+        },
+        {
+          "name": "Corsair RAM LED 2"
+        },
+        {
+          "name": "Corsair RAM LED 3"
+        },
+        {
+          "name": "Corsair RAM LED 4"
+        },
+        {
+          "name": "Corsair RAM LED 5"
+        },
+        {
+          "name": "Corsair RAM LED 6"
+        },
+        {
+          "name": "Corsair RAM LED 7"
+        },
+        {
+          "name": "Corsair RAM LED 8"
+        },
+        {
+          "name": "Corsair RAM LED 9"
+        },
+        {
+          "name": "Corsair RAM LED 10"
+        },
+        {
+          "name": "Corsair RAM LED 11"
+        }
+      ],
+      "location": "I2C: /dev/i2c-1, address 0x19",
+      "modes": [
+        {
+          "brightness": 0,
+          "brightness_max": 0,
+          "brightness_min": 0,
+          "color_mode": 1,
+          "colors_max": 0,
+          "colors_min": 0,
+          "direction": 0,
+          "flags": 32,
+          "name": "Direct",
+          "speed": 0,
+          "speed_max": 0,
+          "speed_min": 0
+        }
+      ],
+      "name": "Corsair Dominator Platinum",
+      "serial": "",
+      "type": 1,
+      "vendor": "Corsair",
+      "version": "",
+      "zones": [
+        {
+          "display_name": "",
+          "flags": 4096,
+          "leds_count": 12,
+          "leds_max": 12,
+          "leds_min": 12,
+          "matrix_map": {
+            "height": 0,
+            "width": 0
+          },
+          "name": "Corsair RAM Zone",
+          "type": 1
+        }
+      ]
+    },
+    {
+      "active_mode": 0,
+      "colors": [
+        2951513,
+        0,
+        6238108,
+        4991237,
+        262656,
+        0,
+        11957283,
+        2426697,
+        131076,
+        2951513,
+        0,
+        0
+      ],
+      "description": "Corsair RAM RGB Device",
+      "display_name": "",
+      "flags": 2,
+      "leds": [
+        {
+          "name": "Corsair RAM LED 0"
+        },
+        {
+          "name": "Corsair RAM LED 1"
+        },
+        {
+          "name": "Corsair RAM LED 2"
+        },
+        {
+          "name": "Corsair RAM LED 3"
+        },
+        {
+          "name": "Corsair RAM LED 4"
+        },
+        {
+          "name": "Corsair RAM LED 5"
+        },
+        {
+          "name": "Corsair RAM LED 6"
+        },
+        {
+          "name": "Corsair RAM LED 7"
+        },
+        {
+          "name": "Corsair RAM LED 8"
+        },
+        {
+          "name": "Corsair RAM LED 9"
+        },
+        {
+          "name": "Corsair RAM LED 10"
+        },
+        {
+          "name": "Corsair RAM LED 11"
+        }
+      ],
+      "location": "I2C: /dev/i2c-1, address 0x1A",
+      "modes": [
+        {
+          "brightness": 0,
+          "brightness_max": 0,
+          "brightness_min": 0,
+          "color_mode": 1,
+          "colors_max": 0,
+          "colors_min": 0,
+          "direction": 0,
+          "flags": 32,
+          "name": "Direct",
+          "speed": 0,
+          "speed_max": 0,
+          "speed_min": 0
+        }
+      ],
+      "name": "Corsair Dominator Platinum",
+      "serial": "",
+      "type": 1,
+      "vendor": "Corsair",
+      "version": "",
+      "zones": [
+        {
+          "display_name": "",
+          "flags": 4096,
+          "leds_count": 12,
+          "leds_max": 12,
+          "leds_min": 12,
+          "matrix_map": {
+            "height": 0,
+            "width": 0
+          },
+          "name": "Corsair RAM Zone",
+          "type": 1
+        }
+      ]
+    },
+    {
+      "active_mode": 0,
+      "colors": [
+        3017051,
+        5968822,
+        1116188,
+        0,
+        6042368,
+        11953153,
+        1839622,
+        0,
+        3017052,
+        5968822,
+        0,
+        0
+      ],
+      "description": "Corsair RAM RGB Device",
+      "display_name": "",
+      "flags": 2,
+      "leds": [
+        {
+          "name": "Corsair RAM LED 0"
+        },
+        {
+          "name": "Corsair RAM LED 1"
+        },
+        {
+          "name": "Corsair RAM LED 2"
+        },
+        {
+          "name": "Corsair RAM LED 3"
+        },
+        {
+          "name": "Corsair RAM LED 4"
+        },
+        {
+          "name": "Corsair RAM LED 5"
+        },
+        {
+          "name": "Corsair RAM LED 6"
+        },
+        {
+          "name": "Corsair RAM LED 7"
+        },
+        {
+          "name": "Corsair RAM LED 8"
+        },
+        {
+          "name": "Corsair RAM LED 9"
+        },
+        {
+          "name": "Corsair RAM LED 10"
+        },
+        {
+          "name": "Corsair RAM LED 11"
+        }
+      ],
+      "location": "I2C: /dev/i2c-1, address 0x1B",
+      "modes": [
+        {
+          "brightness": 0,
+          "brightness_max": 0,
+          "brightness_min": 0,
+          "color_mode": 1,
+          "colors_max": 0,
+          "colors_min": 0,
+          "direction": 0,
+          "flags": 32,
+          "name": "Direct",
+          "speed": 0,
+          "speed_max": 0,
+          "speed_min": 0
+        }
+      ],
+      "name": "Corsair Dominator Platinum",
+      "serial": "",
+      "type": 1,
+      "vendor": "Corsair",
+      "version": "",
+      "zones": [
+        {
+          "display_name": "",
+          "flags": 4096,
+          "leds_count": 12,
+          "leds_max": 12,
+          "leds_min": 12,
+          "matrix_map": {
+            "height": 0,
+            "width": 0
+          },
+          "name": "Corsair RAM Zone",
+          "type": 1
+        }
+      ]
+    }
+  ],
+  "plugins": {
+    "OpenRGB Effects Plugin": {
+      "Effects": [
+        {
+          "AllowOnlyFirst": false,
+          "AutoStart": true,
+          "Brightness": 100,
+          "ControllerZones": [
+            {
+              "description": "Virtual controller provided by the OpenRGB Visual Map Plugin",
+              "is_segment": false,
+              "location": "Somewhere over the rainbow",
+              "name": "corsair_vengeance",
+              "reverse": false,
+              "segment_idx": -1,
+              "self_brightness": 100,
+              "serial": "VISUAL_MAP_VISUAL_CONTROLLER_SERIAL",
+              "vendor": "OpenRGB Visual Map Plugin",
+              "version": "1.0",
+              "zone_idx": 0
+            }
+          ],
+          "CustomName": "",
+          "CustomSettings": {
+            "audio_settings": {
+              "amplitude": 100,
+              "audio_device": -1,
+              "avg_mode": 0,
+              "avg_size": 8,
+              "decay": 80,
+              "equalizer": [
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "filter_constant": 1.0,
+              "nrml_ofst": 0.03999999910593033,
+              "nrml_scl": 0.5,
+              "window_mode": 0
+            },
+            "height": 128,
+            "invert_time": false,
+            "shader_name": "dna_double_helix_smooth",
+            "shader_program": {
+              "height": 128,
+              "main_pass": {
+                "fragment_shader": "// ============================================================================\n//  DNA DOUBLE HELIX  -  for the OpenRGB Effects Plugin  >  \"Shaders\" effect\n//  Written in GLSL 1.10 (the plugin's default \"#version 110\"), so it runs as-is.\n//\n//  Inspired by WLED effect 152 \"DNA\" / 182 \"DNA Spiral\": two counter-phase sine\n//  strands that cross each other - here with 3D depth shading and base-pair rungs.\n// ============================================================================\n\n// ---- 1. YOUR MATRIX ---------------------------------------------------------\n// Size of your Visual Map matrix:  columns x rows.\n// 4 RAM sticks side by side with 12 LEDs each  ->  4 x 12.\n// (If your map has the sticks stacked as rows instead, use 12 x 4.)\n// The helix automatically runs along the longer side.\n// Set both to 0.0 to take the size from the effect's Width / Height boxes.\n#define GRID_COLS 4.0\n#define GRID_ROWS 10.0\n\n// ---- 2. LOOK ----------------------------------------------------------------\n#define TURN_LENGTH  8.0  // LEDs per full 360-degree twist (smaller = tighter)\n#define TURNS_PER_SEC  0.40   // rotation speed (negative = reverse direction)\n#define STRAND_SIZE  0.8  // strand thickness in LEDs (0.6 crisp ... 1.2 soft)\n#define RUNG_EVERY   3.0  // base-pair rung every N LEDs (0 = no rungs)\n#define RUNG_LEVEL   0.35   // rung brightness, 0..1\n#define DEPTH      0.65   // 3D shading: 0 = flat, 1 = back strand almost dark\n#define SHINE      0.35   // white highlight on the strand facing you, 0..1\n#define RAINBOW    0.0  // 1.0 = colors drift through the rainbow (WLED style)\n\n// ---- 3. COLORS (used when RAINBOW is 0.0) -----------------------------------\n#define COLOR_A vec3(0.00, 0.55, 1.00)  // strand 1  (r, g, b  each 0..1)\n#define COLOR_B vec3(1.00, 0.10, 0.50)  // strand 2\n\n// ============================================================================\nconst float TAU = 6.28318530718;\n\nvec3 dnaHue(float h)         // fully saturated rainbow colour, h = 0..1\n{\n  return clamp(abs(fract(h + vec3(0.0, 2.0, 1.0) / 3.0) * 6.0 - 3.0) - 1.0, 0.0, 1.0);\n}\n\nfloat tent(float d, float r)     // soft dot: 1 at the centre, 0 at distance r\n{\n  return max(0.0, 1.0 - abs(d) / r);\n}\n\nfloat cube(float x)          // x*x*x of the positive part (for highlights)\n{\n  float f = max(x, 0.0);\n  return f * f * f;\n}\n\nvoid mainImage(out vec4 fragColor, in vec2 fragCoord)\n{\n  vec2 grid = (GRID_COLS > 0.5) ? vec2(GRID_COLS, GRID_ROWS) : iResolution.xy;\n\n  // Snap this pixel to the LED it belongs to (so any render size works).\n  vec2 cell = min(floor(fragCoord / iResolution.xy * grid), grid - 1.0);\n  vec2 p = cell + 0.5;                  // LED centre, y points up\n\n  // Helix frame: 'a' runs ALONG the helix, 'c' ACROSS it.\n  float a;\n  float c;\n  float len;\n  float wid;\n  if (grid.y >= grid.x) { a = p.y; c = p.x;      len = grid.y; wid = grid.x; }\n  else          { a = p.x; c = grid.y - p.y; len = grid.x; wid = grid.y; }\n\n  // The two strands: opposite sine waves, half a turn apart.\n  float ph  = TAU * fract(a / TURN_LENGTH - TURNS_PER_SEC * iTime);\n  float s   = sin(ph);\n  float zA  = cos(ph);                  // +1 = facing us, -1 = behind\n  float amp = 0.5 * (wid - 1.0);\n  float mid = 0.5 * wid;\n  float xA  = mid + amp * s;\n  float xB  = mid - amp * s;\n\n  // Colours\n  vec3 cA = COLOR_A;\n  vec3 cB = COLOR_B;\n  if (RAINBOW > 0.5)\n  {\n    float h = a / len * 0.35 - 0.08 * iTime;\n    cA = dnaHue(h);\n    cB = dnaHue(h + 0.5);\n  }\n\n  // Base-pair rung on every RUNG_EVERY-th LED: each half takes its strand's colour.\n  float rung = 0.0;\n  vec3  rungCol = vec3(0.0);\n  if (RUNG_EVERY > 0.5 && mod(floor(a), RUNG_EVERY) < 0.5)\n  {\n    float lo = min(xA, xB);\n    float hi = max(xA, xB);\n    rung = clamp(min(c + 0.5, hi) - max(c - 0.5, lo), 0.0, 1.0);   // LED coverage\n    float tB = clamp(0.5 - (c - mid) * s * 3.0, 0.0, 1.0);     // 0 = strand 1 half, 1 = strand 2 half\n    rungCol = mix(cA, cB, tB) * RUNG_LEVEL;\n  }\n\n  // Strand coverage + 3D shading (the strand facing us is brighter and shinier).\n  float covA = tent(c - xA, STRAND_SIZE);\n  float covB = tent(c - xB, STRAND_SIZE);\n  vec3  colA = cA * (1.0 - DEPTH * 0.5 * (1.0 - zA));\n  vec3  colB = cB * (1.0 - DEPTH * 0.5 * (1.0 + zA));\n  colA = mix(colA, vec3(1.0), SHINE * cube(zA));\n  colB = mix(colB, vec3(1.0), SHINE * cube(-zA));\n\n  // Paint back-to-front: back strand, rung, front strand. Both orders are\n  // computed and cross-faded around the crossing so nothing \"pops\".\n  vec3 aFront = mix(mix(mix(vec3(0.0), colB, covB), rungCol, rung), colA, covA);\n  vec3 bFront = mix(mix(mix(vec3(0.0), colA, covA), rungCol, rung), colB, covB);\n  vec3 col = mix(bFront, aFront, clamp(0.5 + 2.0 * zA, 0.0, 1.0));\n\n  fragColor = vec4(col, 1.0);\n}",
+                "texture_path": "",
+                "type": 2
+              },
+              "passes": [],
+              "version": "110",
+              "width": 128
+            },
+            "show_rendering": false,
+            "use_audio": false,
+            "width": 128
+          },
+          "EffectClassName": "Shaders",
+          "FPS": 60,
+          "RandomColors": false,
+          "SelectAll": false,
+          "Slider2Val": 1,
+          "Speed": 475,
+          "Temperature": 0,
+          "Tint": 0
+        }
+      ],
+      "version": 2
+    },
+    "OpenRGB Visual Map Plugin": null
+  },
+  "profile_name": "paubrasil",
+  "profile_version": 6
+}
