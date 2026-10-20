@@ -1,0 +1,99 @@
+{
+  "ctrl_zones": [
+    {
+      "controller": {
+        "description": "Corsair RAM RGB Device",
+        "location": "I2C: /dev/i2c-1, address 0x18",
+        "name": "Corsair Dominator Platinum",
+        "serial": "",
+        "vendor": "Corsair",
+        "version": ""
+      },
+      "custom_zone_name": "",
+      "settings": {
+        "custom_shape": null,
+        "led_spacing": 1,
+        "reverse": false,
+        "scale": 1.0,
+        "shape": 1,
+        "x": -0.0,
+        "y": 0.0
+      },
+      "zone_idx": 0
+    },
+    {
+      "controller": {
+        "description": "Corsair RAM RGB Device",
+        "location": "I2C: /dev/i2c-1, address 0x19",
+        "name": "Corsair Dominator Platinum",
+        "serial": "",
+        "vendor": "Corsair",
+        "version": ""
+      },
+      "custom_zone_name": "",
+      "settings": {
+        "custom_shape": null,
+        "led_spacing": 1,
+        "reverse": false,
+        "scale": 1.0,
+        "shape": 1,
+        "x": 1.0,
+        "y": 0.0
+      },
+      "zone_idx": 0
+    },
+    {
+      "controller": {
+        "description": "Corsair RAM RGB Device",
+        "location": "I2C: /dev/i2c-1, address 0x1A",
+        "name": "Corsair Dominator Platinum",
+        "serial": "",
+        "vendor": "Corsair",
+        "version": ""
+      },
+      "custom_zone_name": "",
+      "settings": {
+        "custom_shape": null,
+        "led_spacing": 1,
+        "reverse": false,
+        "scale": 1.0,
+        "shape": 1,
+        "x": 2.0,
+        "y": 0.0
+      },
+      "zone_idx": 0
+    },
+    {
+      "controller": {
+        "description": "Corsair RAM RGB Device",
+        "location": "I2C: /dev/i2c-1, address 0x1B",
+        "name": "Corsair Dominator Platinum",
+        "serial": "",
+        "vendor": "Corsair",
+        "version": ""
+      },
+      "custom_zone_name": "",
+      "settings": {
+        "custom_shape": null,
+        "led_spacing": 1,
+        "reverse": false,
+        "scale": 1.0,
+        "shape": 1,
+        "x": 3.0,
+        "y": 0.0
+      },
+      "zone_idx": 0
+    }
+  ],
+  "grid_settings": {
+    "auto_load": false,
+    "auto_register": false,
+    "grid_size": 1,
+    "h": 10,
+    "hide_members": false,
+    "show_bounds": true,
+    "show_grid": true,
+    "snap_to_grid": true,
+    "w": 4
+  }
+}
