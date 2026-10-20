@@ -1,0 +1,82 @@
+#+TITLE: Ansible Role for Lab Experiments
+#+AUTHOR: Rafael Ito
+#+PROPERTY: header-args
+#+STARTUP: showeverything
+#+auto_tangle: t
+
+* Table of Contents :toc_3:
+- [[#documentation][Documentation]]
+  - [[#dna-double-helix-effect][DNA double helix effect]]
+    - [[#example-1][Example 1]]
+    - [[#example-2][Example 2]]
+  - [[#aio-argb-fans][AIO ARGB fans]]
+    - [[#cpu][CPU]]
+    - [[#ram-memory][RAM Memory]]
+    - [[#gpu][GPU]]
+
+* Documentation
+** DNA double helix effect
+*** Example 1
+[[./dna_effect_wled.mkv]]
+source: https://www.youtube.com/shorts/KCsmLnphHtQ
+*** Example 2
+[[./dna_effect_wled.gif]]
+source: https://github.com/scottrbailey/WLED-Utils/blob/main/gifs/FX_152.gif
+** AIO ARGB fans
+The idea is to use the 3 fans of the AIO cooler mounted in the top of the chassis as system metric indicators.
+|-----+--------+---------------------|
+| Fan | Device | Sensor              |
+|-----+--------+---------------------|
+|   1 | CPU    | Package temperature |
+|   2 | RAM    | Memory load in %    |
+|   3 | GPU    | Core temperature    |
+|-----+--------+---------------------|
+
+The color of each ARGB is set according to the temperature (for CPU and GPU) and usage (for memory), following this table.
+|---------+----------+--------------+----------|
+| Hex     | CPU [°C] | RAM [% used] | GPU [°C] |
+|---------+----------+--------------+----------|
+| #0064FF |       40 |          N/A |       35 |
+| #00FF00 |       55 |           25 |       50 |
+| #FFC800 |       72 |           60 |       65 |
+| #FF5000 |       85 |           80 |       77 |
+| #FF0000 |       93 |           92 |       85 |
+|---------+----------+--------------+----------|
+*** CPU
+AMD Ryzen 9 9950X.
+- AMD’s maximum is 95 °C, with a 170 W TDP and a 230 W socket power limit.
+- Typical readings are about 35–55 °C at idle, 55–75 °C while gaming, 70–90 °C in productivity work, and the low-to-mid 90s under sustained full load.
+- One review measured a peak of 89 °C in Cinebench with a 360 mm AIO at full speed, and 60–72 °C in games.
+|-------+---------+-------------------------------------------|
+| Temp. | Colour  | Description                               |
+|-------+---------+-------------------------------------------|
+| 40 °C | #0064FF | Idle or cool                              |
+| 55 °C | #00FF00 | Desktop use, light gaming                 |
+| 72 °C | #FFC800 | Heavy gaming, compiling                   |
+| 85 °C | #FF5000 | Sustained all-core load, hot but expected |
+| 93 °C | #FF0000 | Right at the limit (throttling zone)      |
+|-------+---------+-------------------------------------------|
+*** RAM Memory
+Corsair Vengeance 4 sticks of 32 GiB.
+|------+---------+--------------|
+| Load | Colour  | Memory usage |
+|------+---------+--------------|
+| 25 % | #00FF00 | 32 GiB       |
+| 60 % | #FFC800 | 77 GiB       |
+| 80 % | #FF5000 | 102 GiB      |
+| 92 % | #FF0000 | 118 GiB      |
+|------+---------+--------------|
+*** GPU
+ASUS PRIME OC GeForce RTX 5070 Ti.
+- NVIDIA’s maximum for the RTX 5070 Ti is 88 °C, according to a guide that cites NVIDIA’s spec sheet.
+- In reviews, the Prime OC peaked at about 66.8 °C and around 65 °C under heavy load.
+- Its fans stay off below about 50 °C and don’t ramp up until temperatures pass roughly 55 °C, so light loads can sit in the 50s without it meaning anything.
+|-------+---------+-----------------------------------------------|
+| Temp. | Colour  | Description                                   |
+|-------+---------+-----------------------------------------------|
+| 35 °C | #0064FF | Idle or cool, fans in 0 dB mode               |
+| 50 °C | #00FF00 | Desktop use, light gaming                     |
+| 65 °C | #FFC800 | Heavy gaming, top of this card's normal range |
+| 77 °C | #FF5000 | Hotter than usual, check airflow and dust     |
+| 85 °C | #FF0000 | Right at the limit (88 °C max, throttling)    |
+|-------+---------+-----------------------------------------------|
