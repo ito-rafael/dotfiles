@@ -1601,10 +1601,8 @@ box#monitoring {
 #+end_src
 *** Modules
 #+begin_src css
-#cpu,
-#temperature.cpu,
-#gpu,
-#temperature.gpu,
+box#cpu,
+box#gpu,
 #memory,
 #disk {
     padding-right: 5px;
@@ -1613,7 +1611,7 @@ box#monitoring {
 #+end_src
 *** Hover
 #+begin_src css
-#cpu:hover,
+box#cpu:hover,
 #gpu:hover,
 #memory:hover,
 #disk:hover {
@@ -1623,8 +1621,8 @@ box#monitoring {
 #+end_src
 *** Separator
 #+begin_src css
-#cpu #temperature.cpu,
-#gpu #temperature.gpu,
+box#cpu,
+box#gpu,
 #memory {
     border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -1632,6 +1630,7 @@ box#monitoring {
 ** CPU
 #+begin_src css
 #cpu {
+    padding-left: 5px;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
 }
