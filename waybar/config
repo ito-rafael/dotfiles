@@ -253,7 +253,7 @@
 
 "custom/gpu-usage": {
     "exec": "~/.config/waybar/scripts/gpu-usage.sh",
-    "format": "<span color='#a6e3a1' size='140%'>󰢮</span>   {}%",
+    "format": "<span color='#a6e3a1' size='140%' rise='-2000'>󰢮</span>   {}%",
     "interval": 2,
     "tooltip": false
 },
