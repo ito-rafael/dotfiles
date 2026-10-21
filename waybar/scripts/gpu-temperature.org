@@ -1,0 +1,59 @@
+#+TITLE: Waybar GPU temperature script
+#+AUTHOR: Rafael Ito
+#+PROPERTY: header-args :shebang "#!/usr/bin/env bash" :tangle gpu-temperature.sh :tangle-mode (identity #o700)
+#+DESCRIPTION: Waybar script to monitor GPU temperature for dedicated GPUs and silently hide the module on integrated GPUs.
+#+STARTUP: showeverything
+#+auto_tangle: t
+
+* Table of Contents :toc:
+- [[#configuration][Configuration]]
+- [[#dedicated-nvidia-gpu][Dedicated NVIDIA GPU]]
+  - [[#nouveau-sysfs][Nouveau sysfs]]
+  - [[#nvidia-smi][nvidia-smi]]
+- [[#integrated-gpu][Integrated GPU]]
+- [[#json-output][JSON output]]
+
+* Configuration
+Default threshold and variables.
+#+begin_src sh
+CRITICAL_THRESHOLD=85
+temp=""
+#+end_src
+* Dedicated NVIDIA GPU
+** Nouveau sysfs
+Dedicated NVIDIA GPU via sysfs hwmon (nouveau driver).
+#+begin_src sh
+HWMON=$(find /sys/bus/pci/devices/0000:08:00.0/hwmon/ -name "temp1_input" 2>/dev/null | head -n 1)
+if [ -f "$HWMON" ]; then
+    raw=$(cat "$HWMON" 2>/dev/null)
+    if [ -n "$raw" ]; then
+        temp=$((raw / 1000))
+    fi
+#+end_src
+** nvidia-smi
+Dedicated NVIDIA GPU via nvidia-smi (proprietary driver).
+#+begin_src sh
+elif command -v nvidia-smi >/dev/null 2>&1; then
+    val=$(nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits 2>/dev/null)
+    if [ -n "$val" ]; then
+        temp="$val"
+    fi
+fi
+#+end_src
+* Integrated GPU
+Integrated GPU (Intel / AMD APU): Exit silently so Waybar hides the module.
+#+begin_src sh
+if [ -z "$temp" ]; then
+    exit 0
+fi
+#+end_src
+* JSON output
+Format JSON output for Waybar styling.
+#+begin_src sh
+class="normal"
+if [ "$temp" -ge "$CRITICAL_THRESHOLD" ]; then
+    class="critical"
+fi
+
+printf '{"text": "│%d°C", "class": "%s"}\n' "$temp" "$class"
+#+end_src

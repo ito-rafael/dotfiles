@@ -247,7 +247,7 @@
     "orientation": "inherit",
     "modules": [
         "custom/gpu",
-        "temperature#gpu",
+        "custom/gpu-temperature",
     ]
 },
 
@@ -258,13 +258,11 @@
     "tooltip": false
 },
 
-"temperature#gpu": {
-    "hwmon-path-abs": "/sys/bus/pci/devices/0000:08:00.0/hwmon/",
-    "input-filename": "temp1_input",
-    "critical-threshold": 85,
-    "format-critical": "{temperatureC}°C",
-    "format": "{temperatureC}°C",
-    "interval": 5
+"custom/gpu-temperature": {
+    "exec": "~/.config/waybar/scripts/gpu-temperature.sh",
+    "return-type": "json",
+    "interval": 5,
+    "tooltip": false
 },
 
 "memory": {

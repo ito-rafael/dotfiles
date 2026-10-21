@@ -352,7 +352,7 @@ Use by =kanshi= to setup output profiles.
     "orientation": "inherit",
     "modules": [
         "custom/gpu",
-        "temperature#gpu",
+        "custom/gpu-temperature",
     ]
 },
 #+end_src
@@ -378,13 +378,11 @@ The =nouveau= driver does not provide GPU utilization metric. For that, we use t
 $$\text{Usage } \% = \left( \frac{P_{\text{current}} - P_{\text{idle}}}{P_{\text{max}} - P_{\text{idle}}} \right) \times 100$$
 *** Temperature
 #+begin_src js
-"temperature#gpu": {
-    "hwmon-path-abs": "/sys/bus/pci/devices/0000:08:00.0/hwmon/",
-    "input-filename": "temp1_input",
-    "critical-threshold": 85,
-    "format-critical": "{temperatureC}°C",
-    "format": "{temperatureC}°C",
-    "interval": 5
+"custom/gpu-temperature": {
+    "exec": "~/.config/waybar/scripts/gpu-temperature.sh",
+    "return-type": "json",
+    "interval": 5,
+    "tooltip": false
 },
 #+end_src
 ** Memory
