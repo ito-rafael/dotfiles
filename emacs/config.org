@@ -204,6 +204,13 @@ Source: https://systemcrafters.net/emacs-tips/using-the-emacs-daemon/#configurin
 #+begin_src emacs-lisp
 #+end_src
 #+end_src
+*** Nerd Font for Symbols
+#+begin_src emacs-lisp
+;; map unicode private use areas (where Nerd Font icons live) to Symbols Nerd Font
+(when (member "Symbols Nerd Font Mono" (font-family-list))
+  (set-fontset-font t '(#xe000 . #xf8ff) "Symbols Nerd Font Mono")
+  (set-fontset-font t '(#xf0000 . #xffffd) "Symbols Nerd Font Mono"))
+#+end_src
 ** Zoom in/out
 *** Keyboard
 #+begin_src emacs-lisp
