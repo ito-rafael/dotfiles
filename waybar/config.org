@@ -391,8 +391,8 @@ $$\text{Usage } \% = \left( \frac{P_{\text{current}} - P_{\text{idle}}}{P_{\text
 ** Memory
 #+begin_src js
 "memory": {
-    "format": "<span color='#f9e2af'></span> {used:0.1f} GiB",
     //"format": " {used:0.1f} / {total:0.1f} GiB".
+    "format": "<span color='#f9e2af'></span> {used:0.0f} GiB",
 },
 #+end_src
 ** Disk

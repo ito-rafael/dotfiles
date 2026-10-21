@@ -269,8 +269,8 @@
 },
 
 "memory": {
-    "format": "<span color='#f9e2af'></span> {used:0.1f} GiB",
     //"format": " {used:0.1f} / {total:0.1f} GiB".
+    "format": "<span color='#f9e2af'></span> {used:0.0f} GiB",
 },
 
 "disk": {
