@@ -399,9 +399,9 @@ $$\text{Usage } \% = \left( \frac{P_{\text{current}} - P_{\text{idle}}}{P_{\text
 #+begin_src js
 "disk": {
     "interval": 30,
-    "format": "<span color='#f38ba8'></span> {specific_free:0.1f} GB",
+    "format": "<span color='#f38ba8'></span> {specific_free:0.0f} GiB",
     "path": "/",
-    "unit": "GB",
+    "unit": "GiB"
 },
 #+end_src
 * Group Control
