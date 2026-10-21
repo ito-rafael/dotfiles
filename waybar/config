@@ -228,8 +228,7 @@
 },
 
 "cpu": {
-    "format": "<span color='#89b4fa'></span>\u2002 {usage}%",
-    "tooltip": false
+    "format": "<span color='#89b4fa'></span>\u2002 {usage}%│",
 },
 
 "temperature#cpu": {
@@ -254,9 +253,8 @@
 
 "custom/gpu": {
     "exec": "sensors -j | jq -r '.\"nouveau-pci-0800\".power1.power1_input as $p | 15 as $idle | 150 as $max | (($p - $idle) / ($max - $idle) * 100) | if . < 0 then 0 elif . > 100 then 100 else . end | round'",
-    "format": "<span color='#a6e3a1' size='140%'>󰢮</span>   {}% ",
+    "format": "<span color='#a6e3a1' size='140%'>󰢮</span>   {}%│",
     "interval": 2,
-    "tooltip": false
 },
 
 "temperature#gpu": {
