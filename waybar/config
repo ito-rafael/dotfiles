@@ -246,12 +246,12 @@
 "group/gpu": {
     "orientation": "inherit",
     "modules": [
-        "custom/gpu",
+        "custom/gpu-usage",
         "custom/gpu-temperature",
     ]
 },
 
-"custom/gpu": {
+"custom/gpu-usage": {
     "exec": "~/.config/waybar/scripts/gpu-usage.sh",
     "format": "<span color='#a6e3a1' size='140%'>󰢮</span>   {}%",
     "interval": 2,
