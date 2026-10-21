@@ -189,6 +189,14 @@ https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-
     box-shadow: inset 0 -3px #ffffff;
 }
 #+end_src
+*** Visible
+#+begin_src css
+#workspaces button.visible:not(.focused) {
+    background-color: #666666;
+    color: #ffffff;
+    border-radius: 10px;
+}
+#+end_src
 *** Focused/Active
 #+begin_src css
 #workspaces button.focused,
