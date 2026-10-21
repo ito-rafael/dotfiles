@@ -1,0 +1,51 @@
+#+TITLE: Waybar GPU usage script
+#+AUTHOR: Rafael Ito
+#+PROPERTY: header-args :shebang "#!/usr/bin/env bash" :tangle gpu-usage.sh :tangle-mode (identity #o700)
+#+DESCRIPTION: Waybar script to monitor GPU usage across proprietary NVIDIA drivers, open-source nouveau drivers, and integrated Intel GPUs.
+#+STARTUP: showeverything
+#+auto_tangle: t
+
+* Table of Contents
+- [[#nvidia-smi][nvidia-smi]]
+- [[#sensors][sensors]]
+- [[#intel_gpu_top][intel_gpu_top]]
+- [[#fallback][Fallback]]
+
+* nvidia-smi
+NVIDIA GPU with proprietary driver.
+#+begin_src sh
+if command -v nvidia-smi >/dev/null 2>&1; then
+    usage=$(nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits 2>/dev/null)
+    if [ -n "$usage" ]; then
+        echo "$usage"
+        exit 0
+    fi
+fi
+#+end_src
+* sensors
+NVIDIA GPU with open-source driver (nouveau).
+#+begin_src sh
+if sensors -j 2>/dev/null | grep -q 'nouveau-pci-0800'; then
+    usage=$(sensors -j 2>/dev/null | jq -r '."nouveau-pci-0800".power1.power1_input as $p | 15 as $idle | 150 as $max | (($p - $idle) / ($max - $idle) * 100) | if . < 0 then 0 elif . > 100 then 100 else . end | round' 2>/dev/null)
+    if [ -n "$usage" ] && [ "$usage" != "null" ]; then
+        echo "$usage"
+        exit 0
+    fi
+fi
+#+end_src
+* intel_gpu_top
+Integrated Intel Graphics (intel_gpu_top).
+#+begin_src sh
+if command -v intel_gpu_top >/dev/null 2>&1; then
+    val=$(timeout 0.8s intel_gpu_top -J -s 500 2>/dev/null | grep -A 1 '"Render/3D' | grep '"busy"' | head -n 1 | awk -F': ' '{print $2}' | tr -d ',')
+    if [ -n "$val" ]; then
+        printf "%.0f\n" "$val"
+        exit 0
+    fi
+fi
+#+end_src
+* Fallback
+Fallback default.
+#+begin_src sh
+echo "0"
+#+end_src
