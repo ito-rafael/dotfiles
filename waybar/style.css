@@ -1085,7 +1085,7 @@ box#gpu,
 }
 
 box#cpu:hover,
-#gpu:hover,
+box#gpu:hover,
 #memory:hover,
 #disk:hover {
     background-color: rgba(128, 128, 128, 0.5);
@@ -1104,26 +1104,22 @@ box#gpu,
     border-bottom-left-radius: 10px;
 }
 
-#gpu #custom-gpu {
-    padding-bottom: 1px;
-}
-
-#custom#gpu {
-    padding-bottom: 4px;
+#custom-gpu-usage {
+    padding-bottom: 0px;
 }
 
 #temperature.cpu,
-#temperature.gpu {
+#custom-gpu-temperature {
     padding-top: 4px;
 }
 
 #temperature.cpu.warning,
-#temperature.gpu.warning {
+#custom-gpu-temperature.warning {
     background-color: yellow;
 }
 
 #temperature.cpu.critical,
-#temperature.gpu.critical {
+#custom-gpu-temperature.critical {
     background-color: #eb4d4b;
 }
 

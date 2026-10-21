@@ -1612,7 +1612,7 @@ box#gpu,
 *** Hover
 #+begin_src css
 box#cpu:hover,
-#gpu:hover,
+box#gpu:hover,
 #memory:hover,
 #disk:hover {
     background-color: rgba(128, 128, 128, 0.5);
@@ -1636,36 +1636,31 @@ box#gpu,
 }
 #+end_src
 ** GPU
-#+begin_src css
-#gpu #custom-gpu {
-    padding-bottom: 1px;
-}
-#+end_src
 *** Usage
 #+begin_src css
-#custom#gpu {
-    padding-bottom: 4px;
+#custom-gpu-usage {
+    padding-bottom: 0px;
 }
 #+end_src
 ** Temperature :noexport_1:
 *** Normal
 #+begin_src css
 #temperature.cpu,
-#temperature.gpu {
+#custom-gpu-temperature {
     padding-top: 4px;
 }
 #+end_src
 *** Warning
 #+begin_src css
 #temperature.cpu.warning,
-#temperature.gpu.warning {
+#custom-gpu-temperature.warning {
     background-color: yellow;
 }
 #+end_src
 *** Critical
 #+begin_src css
 #temperature.cpu.critical,
-#temperature.gpu.critical {
+#custom-gpu-temperature.critical {
     background-color: #eb4d4b;
 }
 #+end_src
