@@ -1,0 +1,13 @@
+[Unit]
+Description=Emacs daemon (efs profile)
+Documentation=info:emacs man:emacs(1) https://gnu.org/software/emacs/
+
+[Service]
+Type=notify
+ExecStart=/usr/bin/emacs --fg-daemon --with-profile efs
+ExecStop=/usr/bin/emacsclient -s efs --eval "(kill-emacs)"
+Environment=SSH_AUTH_SOCK=%t/keyring/ssh
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
