@@ -34,6 +34,7 @@
     - [[#claude-usage-tracker][Claude Usage Tracker]]
     - [[#gemini-usage-monitor][Gemini Usage Monitor]]
     - [[#grammarly][Grammarly]]
+    - [[#instagram-download-browser-extension][Instagram Download Browser Extension]]
     - [[#kde-connect][KDE Connect]]
     - [[#read-aloud][Read Aloud]]
     - [[#save-to-pocket][Save to Pocket]]
@@ -237,6 +238,14 @@ Deprecated in favour of [[Surfingkeys]].
 - description: grammar & spell checker.
 #+begin_src js :noweb yes
 <<install(extension_id="kbfnbcaeplbcioakkpcpgfkobkghlhen")>>
+#+end_src
+*** Instagram Download Browser Extension
+A.K.A.: =Media Resources Enhancer=
+- Chrome Web Store: https://chromewebstore.google.com/detail/oejjpeobjicdpgaijialfpfcbdnanajk
+- Git repo: https://github.com/TheKonka/instagram-download-browser-extension
+- description: Download button for Instagram.
+#+begin_src js :noweb yes
+<<install(extension_id="oejjpeobjicdpgaijialfpfcbdnanajk")>>
 #+end_src
 *** KDE Connect
 - Chrome Web Store: https://chromewebstore.google.com/detail/ofmplbbfigookafjahpeepbggpofdhbo
