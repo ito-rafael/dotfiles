@@ -1,25 +1,25 @@
 // DNA Double Helix — OpenRGB Effects Plugin
-// Tuned for a Visual Map with 10 rows x 4 columns (40 LEDs).
+// Tuned for a Visual Map with exactly 10 rows x 4 columns (40 LEDs).
 // Apply to the combined Visual Map, not to each RAM stick separately.
 //
 // User-adjustable parameters:
-const float SPEED = 1.20;       // Animation speed: 0.0 = stopped, larger = faster
-const float BRIGHTNESS = 1.00;  // Overall LED brightness: 0.0 = off, 1.0 = maximum
+const float SPEED = 1.20;      // Animation speed: 0.0 = stopped, larger = faster
+const float BRIGHTNESS = 1.00; // LED brightness: 0.0 = off, 1.0 = maximum
 //
-// Smooth-transition version:
-// Strand positions remain fractional instead of snapping to whole columns.
-// Each LED's intensity is blended by its distance from each strand so adjacent
-// LEDs fade down/up continuously as the strands move across the 4-column matrix.
+// The strand positions are quantized to the four real LED columns so the
+// pattern remains visible on a narrow 4-column matrix. Green LEDs form the
+// ladder rungs between the two strands.
 
 void mainImage(out vec4 fragColor, in vec2 fragCoord)
 {
     vec2 res = max(iResolution.xy, vec2(1.0));
     vec2 uv = fragCoord.xy / res;
 
-    // LED-center coordinates: columns 0..3 and rows 0..9.
-    // Keeping fractional coordinates is important for smooth cross-fading.
-    float col = clamp(uv.x * 4.0 - 0.5, 0.0, 3.0);
-    float row = clamp(uv.y * 10.0 - 0.5, 0.0, 9.0);
+    // Logical matrix coordinates: 10 rows high, 4 columns wide.
+    // Normalized coordinates keep this usable even if the shader buffer is
+    // rendered larger than 4x10 before being sampled by the Visual Map.
+    float row = clamp(floor(uv.y * 10.0), 0.0, 9.0);
+    float col = clamp(floor(uv.x * 4.0), 0.0, 3.0);
 
     // One full turn along the 10 LEDs of a stick.
     float phase = row * (6.28318530718 / 10.0)
@@ -27,38 +27,37 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
                 - iTime * SPEED;
     float wave = sin(phase);
 
-    // Fractional strand positions. Do not round these to integer columns.
+    // Opposing strands, mapped onto column coordinates 0..3.
+    // The 1.45 amplitude drives the strands to the outer columns at each peak.
     float strandPosA = 1.5 + 1.45 * wave;
     float strandPosB = 1.5 - 1.45 * wave;
+
+    // Snap each strand to its nearest physical column.
+    float strandA = clamp(floor(strandPosA + 0.5), 0.0, 3.0);
+    float strandB = clamp(floor(strandPosB + 0.5), 0.0, 3.0);
 
     vec3 cyan       = vec3(0.03, 0.80, 1.00);
     vec3 magenta    = vec3(1.00, 0.04, 0.44);
     vec3 rungGreen  = vec3(0.18, 1.00, 0.48);
+    vec3 crossover  = mix(cyan, magenta, 0.5);
     vec3 background = vec3(0.001, 0.003, 0.010);
 
-    // Smoothly fade each strand across nearby LEDs instead of switching LEDs
-    // abruptly. A strand at an LED center has full strength; as it moves toward
-    // the next column, one LED dims while the next one brightens.
-    const float STRAND_WIDTH = 1.05;
-    float onA = 1.0 - smoothstep(0.0, STRAND_WIDTH, abs(col - strandPosA));
-    float onB = 1.0 - smoothstep(0.0, STRAND_WIDTH, abs(col - strandPosB));
+    float onA = 1.0 - step(0.1, abs(col - strandA));
+    float onB = 1.0 - step(0.1, abs(col - strandB));
 
-    // Soft connecting rungs between the two fractional strand positions.
-    // Their ends also fade rather than appearing/disappearing as hard steps.
-    float lo = min(strandPosA, strandPosB);
-    float hi = max(strandPosA, strandPosB);
-    float rungStart = smoothstep(lo + 0.10, lo + 0.75, col);
-    float rungEnd   = 1.0 - smoothstep(hi - 0.75, hi - 0.10, col);
-    float rung = clamp(rungStart * rungEnd, 0.0, 1.0);
+    // Illuminate the cells strictly between the strand endpoints as rungs.
+    float lo = min(strandA, strandB);
+    float hi = max(strandA, strandB);
+    float rung = step(lo + 0.5, col) * step(col, hi - 0.5);
 
-    // Blend strand colors smoothly near crossings. This weighted blend also
-    // avoids one strand abruptly hiding the other at a crossover.
-    float strandTotal = onA + onB;
-    vec3 strandColor = (cyan * onA + magenta * onB) / max(strandTotal, 0.0001);
-    float strandStrength = clamp(strandTotal, 0.0, 1.0);
+    vec3 color = background;
+    color = mix(color, rungGreen, rung);
+    color = mix(color, cyan, onA);
+    color = mix(color, magenta, onB);
 
-    vec3 color = mix(background, rungGreen, rung * 0.75);
-    color = mix(color, strandColor, strandStrength);
+    // At the projected crossover, blend both strand colors instead of hiding one.
+    float overlap = onA * onB;
+    color = mix(color, crossover, overlap);
 
     // Gentle pulse; its timing follows SPEED as well.
     float pulse = 0.90 + 0.10 * (0.5 + 0.5 * sin((iTime * SPEED) * 2.0 + row * 0.35));
