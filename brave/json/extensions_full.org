@@ -31,6 +31,7 @@
     - [[#sci-hub][Sci-Hub]]
     - [[#zotero][Zotero]]
   - [[#misc][Misc]]
+    - [[#claude-usage-tracker][Claude Usage Tracker]]
     - [[#gemini-usage-monitor][Gemini Usage Monitor]]
     - [[#grammarly][Grammarly]]
     - [[#kde-connect][KDE Connect]]
@@ -216,6 +217,13 @@ Deprecated in favour of [[Surfingkeys]].
 <<install(extension_id="ekhagklcjbdpajgpjgmbionohlpdbjgc")>>
 #+end_src
 ** Misc
+*** Claude Usage Tracker
+- Chrome Web Store: https://chromewebstore.google.com/detail/knemcdpkggnbhpoaaagmjiigenifejfo
+- Git repo: https://github.com/lugia19/Claude-Usage-Extension
+- description: track Claude 5h & 7d limits in real time.
+#+begin_src js :noweb yes
+<<install(extension_id="knemcdpkggnbhpoaaagmjiigenifejfo")>>
+#+end_src
 *** Gemini Usage Monitor
 - Chrome Web Store: https://chromewebstore.google.com/detail/cdepnbhodggenlkdeelnocfckdendhad
 - Git repo: Proprietary / Closed Source
