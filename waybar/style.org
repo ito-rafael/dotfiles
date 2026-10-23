@@ -1190,13 +1190,13 @@ box#toggle {
 *** Active
 #+begin_src css
 #custom-xkcd.active {
-    background-image: url("/home/rafael/.config/waybar/icon/xkcd-active.svg");
+    background-image: url("/home/rafael/.config/waybar/icon/xkcd-active.png");
 }
 #+end_src
 *** Inactive
 #+begin_src css
 #custom-xkcd.inactive {
-    background-image: url("/home/rafael/.config/waybar/icon/xkcd-inactive.svg");
+    background-image: url("/home/rafael/.config/waybar/icon/xkcd-inactive.png");
 }
 #+end_src
 ** Scale :noexport_1:

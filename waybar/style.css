@@ -778,11 +778,11 @@ box#toggle {
 }
 
 #custom-xkcd.active {
-    background-image: url("/home/rafael/.config/waybar/icon/xkcd-active.svg");
+    background-image: url("/home/rafael/.config/waybar/icon/xkcd-active.png");
 }
 
 #custom-xkcd.inactive {
-    background-image: url("/home/rafael/.config/waybar/icon/xkcd-inactive.svg");
+    background-image: url("/home/rafael/.config/waybar/icon/xkcd-inactive.png");
 }
 
 #custom-scale.default {
