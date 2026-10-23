@@ -381,8 +381,7 @@ for_window [$prop="zsa_update"] {
 for_window [$prop="informant-news"] {
     floating enable
     sticky enable
-    resize set width 1000 height 1000
-    move position center
+    move scratchpad
 }
 for_window [$prop="local.ansible-provision"] {
     floating enable
