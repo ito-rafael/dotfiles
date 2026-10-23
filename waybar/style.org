@@ -1178,6 +1178,19 @@ box#toggle {
     transition: background 0.3s ease;
 }
 #+end_src
+*** Image
+#+begin_src css
+#custom-xkcd.inactive {
+    background-size: 14px;
+    background-repeat: no-repeat;
+    background-position: center calc(50% - 1px);
+}
+*** Inactive
+#+begin_src css
+#custom-xkcd.inactive {
+    background-image: url("/home/rafael/.config/waybar/icon/xkcd-inactive.svg");
+}
+#+end_src
 ** Scale :noexport_1:
 *** Default
 #+begin_src css
