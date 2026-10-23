@@ -695,6 +695,19 @@ box#toggle {
     border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+#custom-dunst.disabled {
+    color: dimgray;
+}
+
+#custom-dunst.enabled {
+    color: goldenrod;
+}
+
+#custom-dunst:hover {
+    background-color: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+
 #custom-mouse-warping {
     padding-right: 3px;
     padding-left: 5px;
@@ -742,15 +755,8 @@ box#toggle {
     background-image: url("/home/rafael/.config/waybar/icon/theme-light.svg");
 }
 
-#custom-dunst.disabled {
-    color: dimgray;
 }
 
-#custom-dunst.enabled {
-    color: goldenrod;
-}
-
-#custom-dunst:hover {
     background-color: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
 }

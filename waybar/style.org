@@ -1072,6 +1072,26 @@ box#toggle {
     border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
 #+end_src
+** Dunst :noexport_1:
+*** Disabled
+#+begin_src css
+#custom-dunst.disabled {
+    color: dimgray;
+}
+#+end_src
+*** Enabled
+#+begin_src css
+#custom-dunst.enabled {
+    color: goldenrod;
+}
+#+end_src
+*** Hover
+#+begin_src css
+#custom-dunst:hover {
+    background-color: rgba(128, 128, 128, 0.5);
+    transition: background 0.3s ease;
+}
+#+end_src
 ** Mouse warping :noexport_1:
 #+begin_src css
 #custom-mouse-warping {
@@ -1138,22 +1158,11 @@ box#toggle {
     background-image: url("/home/rafael/.config/waybar/icon/theme-light.svg");
 }
 #+end_src
-** Dunst :noexport_1:
-*** Disabled
 #+begin_src css
-#custom-dunst.disabled {
-    color: dimgray;
-}
-#+end_src
-*** Enabled
-#+begin_src css
-#custom-dunst.enabled {
-    color: goldenrod;
 }
 #+end_src
 *** Hover
 #+begin_src css
-#custom-dunst:hover {
     background-color: rgba(128, 128, 128, 0.5);
     transition: background 0.3s ease;
 }
