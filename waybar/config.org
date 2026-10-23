@@ -564,6 +564,7 @@ $$\text{Usage } \% = \left( \frac{P_{\text{current}} - P_{\text{idle}}}{P_{\text
     "custom/dunst",
     "custom/mouse-warping",
     "custom/theme",
+    "custom/xkcd",
     "custom/scale",
     "custom/proton-vpn",
     "custom/kanshi",
@@ -610,6 +611,14 @@ $$\text{Usage } \% = \left( \frac{P_{\text{current}} - P_{\text{idle}}}{P_{\text
     "exec": "~/.config/waybar/scripts/theme-monitor.sh",
     "on-click": "~/.config/scripts/theme-toggle.sh",
     "tooltip": false
+},
+#+end_src
+** xkcd
+#+begin_src js
+"custom/xkcd": {
+    "exec": "~/.config/waybar/scripts/xkcd.sh monitor",
+    "return-type": "json",
+    "on-click": "~/.config/waybar/scripts/xkcd.sh open"
 },
 #+end_src
 ** Scale
