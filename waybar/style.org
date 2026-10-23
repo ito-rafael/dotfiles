@@ -1180,11 +1180,19 @@ box#toggle {
 #+end_src
 *** Image
 #+begin_src css
+#custom-xkcd.active,
 #custom-xkcd.inactive {
     background-size: 14px;
     background-repeat: no-repeat;
     background-position: center calc(50% - 1px);
 }
+#+end_src
+*** Active
+#+begin_src css
+#custom-xkcd.active {
+    background-image: url("/home/rafael/.config/waybar/icon/xkcd-active.svg");
+}
+#+end_src
 *** Inactive
 #+begin_src css
 #custom-xkcd.inactive {
