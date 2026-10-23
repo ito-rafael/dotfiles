@@ -30,6 +30,7 @@
 TODO_FILE='/tmp/todo-list.tmp'              # tasks file
 HYPRLOCK_CONF="/tmp/hyprlock-dynamic.conf"  # config generated on the fly
 XKCD_IMG="/tmp/hyprlock-xkcd.png"           # path for xkcd image
+XKCD_NUMBER="/tmp/xkcd.tmp"                 # stores last xkcd number
 #+end_src
 ** Outputs
 #+begin_src sh
@@ -76,6 +77,7 @@ if curl --output /dev/null --silent --head --fail "https://xkcd.com"; then
     while [ "$RAND_NUM" -eq 404 ]; do
         RAND_NUM=$(shuf -i 1-"$LATEST" -n 1)
     done
+    echo "$RAND_NUM" > "$XKCD_NUMBER"
     # get the direct image URL for the random comic
     IMG_URL=$(curl -s "https://xkcd.com/$RAND_NUM/info.0.json" | jq -r '.img')
     # download the image to our temporary file
