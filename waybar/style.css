@@ -674,6 +674,7 @@ box#toggle {
 #custom-keyboard-backlit,
 #custom-screencast,
 #custom-pdfjs,
+#custom-xkcd,
 #custom-pomodoro-timer {
     padding-right: 3px;
     padding-left: 3px;
@@ -691,6 +692,7 @@ box#toggle {
 #custom-keyboard-backlit,
 #custom-screencast,
 #custom-pdfjs,
+#custom-xkcd,
 #custom-pomodoro-timer {
     border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -755,6 +757,12 @@ box#toggle {
     background-image: url("/home/rafael/.config/waybar/icon/theme-light.svg");
 }
 
+#custom-xkcd {
+    padding-right: 4px;
+    padding-left: 4px;
+    padding-bottom: 5px;
+    color: transparent;
+    min-width: 16px;
 }
 
     background-color: rgba(128, 128, 128, 0.5);
