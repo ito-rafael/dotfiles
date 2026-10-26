@@ -37,6 +37,7 @@
 - [[#consult-gh][consult-gh]]
 - [[#dimmer][dimmer]]
 - [[#wgrep][wgrep]]
+- [[#apheleia][Apheleia]]
 - [[#ace-window][ace-window]]
 - [[#highlight-indent-guides][highlight-indent-guides]]
 - [[#emacs-everywhere][emacs-everywhere]]
@@ -2235,6 +2236,13 @@ https://github.com/gonewest818/dimmer.el
   (setq wgrep-auto-save-buffer t)      ;; automatically save buffer when =wgrep-finish-edit=
   (setq wgrep-change-readonly-file t)  ;; apply changes regardless read-only flag on buffers
   (setq wgrep-enable-key "s"))         ;; set keybinding to switch to wgrep
+#+end_src
+* Apheleia
+#+begin_src emacs-lisp
+(use-package apheleia
+  :config
+  (apheleia-global-mode +1)
+)
 #+end_src
 (use-package ace-window
   :custom
