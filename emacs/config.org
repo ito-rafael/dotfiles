@@ -2242,9 +2242,9 @@ https://github.com/gonewest818/dimmer.el
 (use-package apheleia
   :config
   (apheleia-global-mode +1)
-  ;; set 4 spaces indentation in shfmt (instead of default tab)
+  ;; set 4 spaces indentation and indent case statements (-ci) in shfmt
   (setf (alist-get 'shfmt apheleia-formatters)
-        '("shfmt" "-i" "4" "-"))
+        '("shfmt" "-i" "4" "-ci" "-"))
 )
 #+end_src
 (use-package ace-window
