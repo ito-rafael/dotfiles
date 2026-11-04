@@ -6,7 +6,7 @@ else
     WM="sway"
 fi
 
-for cmd in jq bc; do
+for cmd in jq bc awk; do
     if ! command -v $cmd &>/dev/null; then
         echo "Error: '$cmd' is not installed."
         exit 1
@@ -27,10 +27,12 @@ fi
 
 show_help() {
     echo "Usage:"
-    echo "  $(basename "$0") get         # Get current scale"
-    echo "  $(basename "$0") toggle      # Toggle between $SCALE_DEFAULT and $SCALE_ZOOM"
-    echo "  $(basename "$0") <number>    # Set scale to specific number (e.g.: 1.2)"
-    echo "  $(basename "$0") help        # Show this message"
+    echo "  $(basename "$0") get                   # Get current scale"
+    echo "  $(basename "$0") toggle                # Toggle between $SCALE_DEFAULT and $SCALE_ZOOM"
+    echo "  $(basename "$0") <number>              # Set scale to specific number (e.g.: 1.2)"
+    echo "  $(basename "$0") waybar                # Regenerate Waybar files for the current scale"
+    echo "  $(basename "$0") waybar-zoom <number>  # Set Waybar zoom (1.0 = same physical size as at scale 1.0)"
+    echo "  $(basename "$0") help                  # Show this message"
 }
 
 SCALE_DEFAULT="1.0"
@@ -40,6 +42,10 @@ SCALE_MIN="0.5"
 SCALE_MAX="4.0"
 
 STEP="0.25"
+
+WAYBAR_DIR="${WAYBAR_DIR:-$HOME/.config/waybar}"
+WAYBAR_ZOOM_DEFAULT="1.0"
+WAYBAR_ZOOM_FILE="${XDG_STATE_HOME:-$HOME/.local/state}/wm-scale/waybar-zoom"
 
 COMMAND="$1"
 
@@ -92,6 +98,93 @@ set_scale() {
             swaymsg output "$output" scale "$target_scale"
         done
     fi
+
+    # keep Waybar at its chosen physical size
+    update_waybar "$target_scale"
+}
+
+get_waybar_zoom() {
+    local zoom
+    if [ -f "$WAYBAR_ZOOM_FILE" ]; then
+        zoom=$(cat "$WAYBAR_ZOOM_FILE")
+    fi
+    if ! [[ "$zoom" =~ ^[0-9]+(\.[0-9]+)?$ ]]; then
+        zoom="$WAYBAR_ZOOM_DEFAULT"
+    fi
+    echo "$zoom"
+}
+
+scale_css() {
+    awk -v F="$1" '
+    function rnd(x) { return (x < 0) ? -int(-x + 0.5) : int(x + 0.5) }
+    {
+        line = $0; out = ""
+        is_font = ($0 ~ /font-size/)
+        while (match(line, /-?[0-9]*\.?[0-9]+px/)) {
+            v = substr(line, RSTART, RLENGTH - 2) + 0
+            n = v * F
+            if (is_font) {
+                r = sprintf("%.1f", n) + 0
+            } else {
+                r = rnd(n)
+                if (r == 0 && v != 0) r = (v < 0) ? -1 : 1
+            }
+            out = out substr(line, 1, RSTART - 1) r "px"
+            line = substr(line, RSTART + RLENGTH)
+        }
+        print out line
+    }'
+}
+
+scale_config() {
+    awk -v F="$1" '
+    function rnd(x) { return (x < 0) ? -int(-x + 0.5) : int(x + 0.5) }
+    /^[[:space:]]*"(height|width|margin-top|margin-left|margin-right|margin-bottom|spacing|size|icon-size)"[[:space:]]*:/ {
+        if (match($0, /-?[0-9.]+/)) {
+            v = substr($0, RSTART, RLENGTH) + 0
+            r = rnd(v * F)
+            if (r == 0 && v != 0) r = (v < 0) ? -1 : 1
+            $0 = substr($0, 1, RSTART - 1) r substr($0, RSTART + RLENGTH)
+        }
+    }
+    { print }'
+}
+
+write_if_changed() {
+    # $1 = freshly generated temp file, $2 = destination
+    if cmp -s "$1" "$2"; then
+        rm -f "$1"
+        return 1
+    fi
+    mv "$1" "$2"
+    return 0
+}
+
+update_waybar() {
+    local wm_scale=${1:-$(get_current_scale)}
+    local zoom factor tmp changed=0
+
+    if [ ! -f "$WAYBAR_DIR/style.base.css" ] || [ ! -f "$WAYBAR_DIR/config.base" ]; then
+        echo "Waybar: style.base.css / config.base not found in $WAYBAR_DIR (set WAYBAR_DIR), skipping." >&2
+        return 0
+    fi
+
+    zoom=$(get_waybar_zoom)
+    factor=$(awk -v z="$zoom" -v s="$wm_scale" 'BEGIN { printf "%.6f", z / s }')
+
+    tmp=$(mktemp "$WAYBAR_DIR/.style.css.XXXXXX")
+    scale_css "$factor" <"$WAYBAR_DIR/style.base.css" >"$tmp"
+    write_if_changed "$tmp" "$WAYBAR_DIR/style.css" && changed=1
+
+    tmp=$(mktemp "$WAYBAR_DIR/.config.XXXXXX")
+    scale_config "$factor" <"$WAYBAR_DIR/config.base" >"$tmp"
+    write_if_changed "$tmp" "$WAYBAR_DIR/config" && changed=1
+
+    echo "Waybar: zoom $zoom / scale $wm_scale = factor $factor (files changed: $changed)" >&2
+    if [ "$changed" -eq 1 ]; then
+        pkill -SIGUSR2 -x waybar
+    fi
+    return 0
 }
 
 case "$COMMAND" in
@@ -143,6 +236,18 @@ case "$COMMAND" in
     fi
     set_scale "$TARGET_SCALE"
     echo $TARGET_SCALE
+    exit 0
+    ;;
+
+"waybar")
+    update_waybar
+    exit 0
+    ;;
+"waybar-zoom")
+    validate_range "$2"
+    mkdir -p "$(dirname "$WAYBAR_ZOOM_FILE")"
+    echo "$2" >"$WAYBAR_ZOOM_FILE"
+    update_waybar
     exit 0
     ;;
 
