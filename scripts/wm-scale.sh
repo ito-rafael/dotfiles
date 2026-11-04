@@ -27,12 +27,13 @@ fi
 
 show_help() {
     echo "Usage:"
-    echo "  $(basename "$0") get                   # Get current scale"
-    echo "  $(basename "$0") toggle                # Toggle between $SCALE_DEFAULT and $SCALE_ZOOM"
-    echo "  $(basename "$0") <number>              # Set scale to specific number (e.g.: 1.2)"
-    echo "  $(basename "$0") waybar                # Regenerate Waybar files for the current scale"
-    echo "  $(basename "$0") waybar-zoom <number>  # Set Waybar zoom (1.0 = same physical size as at scale 1.0)"
-    echo "  $(basename "$0") help                  # Show this message"
+    echo "  $(basename "$0") get         # Get current scale"
+    echo "  $(basename "$0") toggle      # Toggle between $SCALE_DEFAULT and $SCALE_ZOOM"
+    echo "  $(basename "$0") <number>    # Set scale to specific number (e.g.: 1.2)"
+    echo "  $(basename "$0") waybar      # Regenerate Waybar files for the current scale"
+    echo "  $(basename "$0") waybar-zoom <number>"
+    echo "                               # Set Waybar zoom (1.0 = same physical size as at scale 1.0)"
+    echo "  $(basename "$0") help        # Show this message"
 }
 
 SCALE_DEFAULT="1.0"
