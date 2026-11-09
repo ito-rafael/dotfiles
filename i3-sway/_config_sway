@@ -433,7 +433,6 @@ bindsym $alt+$mod+s exec "$SCRIPT_PATH/show-or-launch.sh brave-translate.google.
 # XDG Desktop Portals & systemd user services
 #exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway SWAYSOCK XDG_SESSION_TYPE XDG_CONFIG_HOME
 
-
 # Export Wayland environment variables to systemd (Fixes Waybar)
 #exec systemctl --user import-environment WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP XDG_SESSION_TYPE XDG_CONFIG_HOME
 
